@@ -2200,10 +2200,10 @@ if.end:                                           ; preds = %invoke.cont13, %inv
 invoke.cont17:                                    ; preds = %if.end
   %pn3.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load <2 x ptr>, ptr %this, align 8
+  %13 = extractelement <2 x ptr> %12, i64 1
   store ptr %10, ptr %this, align 8
   store ptr %11, ptr %pn3.i, align 8
   store <2 x ptr> %12, ptr %temp, align 16
-  %13 = extractelement <2 x ptr> %12, i64 1
   %cmp.not.i.i55 = icmp eq ptr %13, null
   br i1 %cmp.not.i.i55, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69, label %if.then.i.i56
 

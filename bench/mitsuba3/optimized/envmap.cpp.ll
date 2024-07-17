@@ -1830,9 +1830,9 @@ common.resume:                                    ; preds = %.body, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %24 = load <2 x i32>, ptr %2, align 4
   %25 = add <2 x i32> %24, <i32 -1, i32 -1>
-  %26 = extractelement <2 x i32> %25, i64 0
-  %27 = extractelement <2 x i32> %25, i64 1
-  %..i.i = tail call noundef i32 @llvm.umax.i32(i32 %26, i32 %27)
+  %26 = extractelement <2 x i32> %25, i64 1
+  %27 = extractelement <2 x i32> %25, i64 0
+  %..i.i = tail call noundef i32 @llvm.umax.i32(i32 %27, i32 %26)
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %..i.i, i1 false)
   %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %..i.i)
   %30 = icmp ugt i32 %29, 1
@@ -1949,7 +1949,7 @@ _ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12em
   br i1 %.not475, label %.loopexit, label %.lr.ph439
 
 .lr.ph439:                                        ; preds = %_ZNSt3__16vectorIN7mitsuba14Hierarchical2DIfLm0EE5LevelENS_9allocatorIS4_EEE12emplace_backIJRKNS1_6VectorIjLm2EEERjEEERS4_DpOT_.exit
-  %71 = mul i32 %27, %26
+  %71 = mul i32 %26, %27
   %72 = uitofp i32 %71 to float
   %.pre510 = load ptr, ptr %23, align 8
   %.pre511 = load i32, ptr %.pre510, align 8
@@ -2187,9 +2187,9 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   br i1 %.not478, label %.loopexit, label %.lr.ph473
 
 .lr.ph473:                                        ; preds = %._crit_edge441
-  %.not479 = icmp eq i32 %27, 0
-  %.not480 = icmp eq i32 %26, 0
-  %169 = mul i32 %27, %26
+  %.not479 = icmp eq i32 %26, 0
+  %.not480 = icmp eq i32 %27, 0
+  %169 = mul i32 %26, %27
   %170 = uitofp i32 %169 to double
   %171 = add nsw i32 %spec.select.i, 1
   %.not468 = icmp ult i32 %171, 2
@@ -2259,13 +2259,13 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   %gep.us = getelementptr inbounds float, ptr %invariant.gep, i64 %213
   store float %201, ptr %gep.us, align 4
   %214 = add nuw i32 %storemerge254442.us, 1
-  %exitcond497.not = icmp eq i32 %214, %26
+  %exitcond497.not = icmp eq i32 %214, %27
   br i1 %exitcond497.not, label %._crit_edge446.us, label %185, !llvm.loop !21
 
 ._crit_edge446.us:                                ; preds = %185
   %215 = getelementptr inbounds i8, ptr %.1444.us, i64 8
   %216 = add nuw i32 %storemerge449.us, 1
-  %exitcond498.not = icmp eq i32 %216, %27
+  %exitcond498.not = icmp eq i32 %216, %26
   br i1 %exitcond498.not, label %._crit_edge452.loopexit487, label %.preheader426.us, !llvm.loop !22
 
 ._crit_edge452.loopexit487:                       ; preds = %._crit_edge446.us
@@ -2325,12 +2325,12 @@ _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE3sr_ILi1EEES3_v.exit.critedge
   br i1 %246, label %.lr.ph458, label %._crit_edge459, !llvm.loop !24
 
 ._crit_edge459:                                   ; preds = %.lr.ph458, %.preheader427
-  store i32 %26, ptr %9, align 8
-  store i32 %27, ptr %.026.i272.sroa.gep317, align 4
+  store i32 %27, ptr %9, align 8
+  store i32 %26, ptr %.026.i272.sroa.gep317, align 4
   br i1 %.not468, label %._crit_edge470, label %_ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge
 
 _ZNK5drjit9ArrayBaseIjLb0EN7mitsuba6VectorIjLm2EEEE4add_ERKS3_.exit285.critedge: ; preds = %._crit_edge459, %._crit_edge467
-  %247 = phi i32 [ %306, %._crit_edge467 ], [ %27, %._crit_edge459 ]
+  %247 = phi i32 [ %306, %._crit_edge467 ], [ %26, %._crit_edge459 ]
   %indvars.iv505 = phi i64 [ %indvars.iv.next506, %._crit_edge467 ], [ 2, %._crit_edge459 ]
   %248 = load ptr, ptr %23, align 8
   %249 = getelementptr %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %248, i64 %indvars.iv505

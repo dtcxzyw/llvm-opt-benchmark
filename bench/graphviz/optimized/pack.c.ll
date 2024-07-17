@@ -1801,10 +1801,10 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %9 = getelementptr inbounds %struct.point, ptr %2, i64 %.058.us
   %10 = load <2 x i32>, ptr %9, align 4
   %11 = sitofp <2 x i32> %10 to <2 x double>
-  %12 = extractelement <2 x double> %11, i64 0
-  %13 = fdiv double %12, 7.200000e+01
-  %14 = extractelement <2 x double> %11, i64 1
-  %15 = fdiv double %14, 7.200000e+01
+  %12 = extractelement <2 x double> %11, i64 1
+  %13 = extractelement <2 x double> %11, i64 0
+  %14 = fdiv double %13, 7.200000e+01
+  %15 = fdiv double %12, 7.200000e+01
   %16 = tail call ptr @agfstnode(ptr noundef %8) #18
   %.not4955.us = icmp eq ptr %16, null
   br i1 %.not4955.us, label %._crit_edge.split.us.us, label %.lr.ph57.us
@@ -1824,7 +1824,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %22 = getelementptr inbounds i8, ptr %21, i64 176
   %23 = load ptr, ptr %22, align 8
   %24 = load double, ptr %23, align 8
-  %25 = fadd double %13, %24
+  %25 = fadd double %14, %24
   store double %25, ptr %23, align 8
   %26 = load ptr, ptr %20, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 176
@@ -1836,12 +1836,12 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %32 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 32
   %34 = load double, ptr %33, align 8
-  %35 = fadd double %34, %12
+  %35 = fadd double %34, %13
   store double %35, ptr %33, align 8
   %36 = load ptr, ptr %20, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 40
   %38 = load double, ptr %37, align 8
-  %39 = fadd double %38, %14
+  %39 = fadd double %38, %12
   store double %39, ptr %37, align 8
   %40 = load ptr, ptr %20, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 144
@@ -1852,14 +1852,14 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 43:                                               ; preds = %.lr.ph57.us
   %44 = getelementptr inbounds i8, ptr %42, i64 72
   %45 = load double, ptr %44, align 8
-  %46 = fadd double %45, %12
+  %46 = fadd double %45, %13
   store double %46, ptr %44, align 8
   %47 = load ptr, ptr %20, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 144
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 80
   %51 = load double, ptr %50, align 8
-  %52 = fadd double %51, %14
+  %52 = fadd double %51, %12
   store double %52, ptr %50, align 8
   br label %53
 
@@ -1880,14 +1880,14 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 59:                                               ; preds = %.lr.ph.us.us
   %60 = getelementptr inbounds i8, ptr %58, i64 72
   %61 = load double, ptr %60, align 8
-  %62 = fadd double %61, %12
+  %62 = fadd double %61, %13
   store double %62, ptr %60, align 8
   %63 = load ptr, ptr %55, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 120
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 80
   %67 = load double, ptr %66, align 8
-  %68 = fadd double %67, %14
+  %68 = fadd double %67, %12
   store double %68, ptr %66, align 8
   %.pre.i.us.us = load ptr, ptr %55, align 8
   br label %69
@@ -1902,14 +1902,14 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %72, i64 72
   %75 = load double, ptr %74, align 8
-  %76 = fadd double %75, %12
+  %76 = fadd double %75, %13
   store double %76, ptr %74, align 8
   %77 = load ptr, ptr %55, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 144
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 80
   %81 = load double, ptr %80, align 8
-  %82 = fadd double %81, %14
+  %82 = fadd double %81, %12
   store double %82, ptr %80, align 8
   %.pre59.i.us.us = load ptr, ptr %55, align 8
   br label %83
@@ -1924,14 +1924,14 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %86, i64 72
   %89 = load double, ptr %88, align 8
-  %90 = fadd double %89, %12
+  %90 = fadd double %89, %13
   store double %90, ptr %88, align 8
   %91 = load ptr, ptr %55, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 128
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 80
   %95 = load double, ptr %94, align 8
-  %96 = fadd double %95, %14
+  %96 = fadd double %95, %12
   store double %96, ptr %94, align 8
   %.pre60.i.us.us = load ptr, ptr %55, align 8
   br label %97
@@ -1946,14 +1946,14 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 101:                                              ; preds = %97
   %102 = getelementptr inbounds i8, ptr %100, i64 72
   %103 = load double, ptr %102, align 8
-  %104 = fadd double %103, %12
+  %104 = fadd double %103, %13
   store double %104, ptr %102, align 8
   %105 = load ptr, ptr %55, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 136
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 80
   %109 = load double, ptr %108, align 8
-  %110 = fadd double %109, %14
+  %110 = fadd double %109, %12
   store double %110, ptr %108, align 8
   %.pre61.i.us.us = load ptr, ptr %55, align 8
   br label %111
@@ -2012,7 +2012,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds %struct.bezier, ptr %128, i64 %.04455.i.us.us, i32 4
   %130 = load double, ptr %129, align 8
-  %131 = fadd double %130, %12
+  %131 = fadd double %130, %13
   store double %131, ptr %129, align 8
   %132 = load ptr, ptr %55, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 16
@@ -2020,7 +2020,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds %struct.bezier, ptr %135, i64 %.04455.i.us.us, i32 4, i32 1
   %137 = load double, ptr %136, align 8
-  %138 = fadd double %137, %14
+  %138 = fadd double %137, %12
   store double %138, ptr %136, align 8
   %.pre63.pre.i.us.us = load ptr, ptr %55, align 8
   br label %139
@@ -2036,7 +2036,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds %struct.bezier, ptr %143, i64 %.04455.i.us.us, i32 5
   %145 = load double, ptr %144, align 8
-  %146 = fadd double %145, %12
+  %146 = fadd double %145, %13
   store double %146, ptr %144, align 8
   %147 = load ptr, ptr %55, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 16
@@ -2044,7 +2044,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds %struct.bezier, ptr %150, i64 %.04455.i.us.us, i32 5, i32 1
   %152 = load double, ptr %151, align 8
-  %153 = fadd double %152, %14
+  %153 = fadd double %152, %12
   store double %153, ptr %151, align 8
   %.pre62.i.us.us = load ptr, ptr %55, align 8
   br label %154

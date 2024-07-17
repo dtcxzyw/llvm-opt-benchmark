@@ -2544,10 +2544,10 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %54 = load double, ptr %.0152.sroa.gep165, align 16
   %55 = insertelement <2 x double> %53, double %54, i64 1
   %56 = fadd <2 x double> %55, <double -1.000000e+00, double -1.000000e+00>
-  %57 = extractelement <2 x double> %56, i64 0
-  store double %57, ptr %5, align 16
-  %58 = extractelement <2 x double> %56, i64 1
-  store double %58, ptr %.0152.sroa.gep165, align 16
+  %57 = extractelement <2 x double> %56, i64 1
+  %58 = extractelement <2 x double> %56, i64 0
+  store double %58, ptr %5, align 16
+  store double %57, ptr %.0152.sroa.gep165, align 16
   %59 = load double, ptr %.0152.sroa.gep, align 16
   %60 = fadd double %59, -1.000000e+00
   store double %60, ptr %.0152.sroa.gep, align 16
@@ -2627,21 +2627,21 @@ _ZNSt16allocator_traitsISaIN2cv23HomographyDecomposition13_CameraMotionEEE9const
   %90 = load double, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %5, i64 56
   %92 = load double, ptr %91, align 8
-  %93 = fneg double %58
+  %93 = fneg double %57
   %94 = fmul double %60, %93
   %95 = tail call noundef double @llvm.fmuladd.f64(double %90, double %92, double %94)
   %96 = getelementptr inbounds i8, ptr %5, i64 16
   %97 = load double, ptr %96, align 16
   %98 = getelementptr inbounds i8, ptr %5, i64 48
   %99 = load double, ptr %98, align 16
-  %100 = fneg double %57
+  %100 = fneg double %58
   %101 = fmul double %60, %100
   %102 = tail call noundef double @llvm.fmuladd.f64(double %97, double %99, double %101)
   %103 = getelementptr inbounds i8, ptr %5, i64 8
   %104 = load double, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %5, i64 24
   %106 = load double, ptr %105, align 8
-  %107 = fmul double %58, %100
+  %107 = fmul double %57, %100
   %108 = tail call noundef double @llvm.fmuladd.f64(double %104, double %106, double %107)
   %109 = tail call double @sqrt(double noundef %95) #21
   %110 = tail call double @sqrt(double noundef %102) #21
@@ -2652,7 +2652,7 @@ _ZNSt16allocator_traitsISaIN2cv23HomographyDecomposition13_CameraMotionEEE9const
   %115 = fmul double %92, %100
   %116 = tail call noundef double @llvm.fmuladd.f64(double %104, double %99, double %115)
   %117 = fmul double %92, %112
-  %118 = tail call noundef double @llvm.fmuladd.f64(double %58, double %99, double %117)
+  %118 = tail call noundef double @llvm.fmuladd.f64(double %57, double %99, double %117)
   %119 = fcmp oge double %116, 0.000000e+00
   %120 = fcmp oge double %118, 0.000000e+00
   %121 = fcmp oge double %114, 0.000000e+00
@@ -2672,8 +2672,8 @@ _ZNSt16allocator_traitsISaIN2cv23HomographyDecomposition13_CameraMotionEEE9const
   br i1 %130, label %151, label %131
 
 131:                                              ; preds = %129
-  store double %57, ptr %9, align 8
-  store double %57, ptr %10, align 8
+  store double %58, ptr %9, align 8
+  store double %58, ptr %10, align 8
   %132 = fadd double %104, %111
   %133 = getelementptr inbounds i8, ptr %9, i64 8
   store double %132, ptr %133, align 8
@@ -2694,9 +2694,9 @@ _ZNSt16allocator_traitsISaIN2cv23HomographyDecomposition13_CameraMotionEEE9const
   %143 = fsub double %104, %111
   store double %143, ptr %10, align 8
   %144 = getelementptr inbounds i8, ptr %9, i64 8
-  store double %58, ptr %144, align 8
+  store double %57, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %10, i64 8
-  store double %58, ptr %145, align 8
+  store double %57, ptr %145, align 8
   %146 = select i1 %120, double 1.000000e+00, double -1.000000e+00
   %147 = fneg double %146
   %148 = tail call double @llvm.fmuladd.f64(double %147, double %109, double %90)
@@ -2727,7 +2727,7 @@ _ZNSt16allocator_traitsISaIN2cv23HomographyDecomposition13_CameraMotionEEE9const
   %.0152.sroa.phi = phi ptr [ %.0152.sroa.gep, %151 ], [ %.0152.sroa.gep165, %141 ], [ %5, %131 ]
   %162 = getelementptr inbounds i8, ptr %10, i64 16
   store double %.sink, ptr %162, align 8
-  %163 = fadd double %57, %58
+  %163 = fadd double %58, %57
   %164 = fadd double %163, %60
   %165 = fadd double %164, 1.000000e+00
   %166 = fsub double %165, %95

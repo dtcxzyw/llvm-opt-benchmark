@@ -1853,8 +1853,8 @@ for.body153:                                      ; preds = %for.body153.prehead
   br i1 %exitcond126.not, label %for.end198, label %for.body153, !llvm.loop !30
 
 for.end198:                                       ; preds = %for.body153
-  %cone_apex = getelementptr inbounds i8, ptr %agg.result, i64 16
   %78 = fneg <2 x float> %45
+  %cone_apex = getelementptr inbounds i8, ptr %agg.result, i64 16
   %79 = insertelement <2 x float> poison, float %cond195, i64 0
   %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
   %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %80, <2 x float> %35)

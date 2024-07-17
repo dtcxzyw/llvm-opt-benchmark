@@ -7091,11 +7091,11 @@ default.unreachable134:                           ; preds = %373, %197, %194, %1
   %.sroa.0.0116 = phi ptr [ %53, %.lr.ph ], [ %145, %_ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit ]
   %145 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 192
   %146 = load <2 x double>, ptr %.sroa.0.0116, align 16
-  %147 = extractelement <2 x double> %146, i64 0
-  %148 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %147)
-  %149 = fptrunc double %148 to float
-  %150 = extractelement <2 x double> %146, i64 1
-  %151 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %150)
+  %147 = extractelement <2 x double> %146, i64 1
+  %148 = extractelement <2 x double> %146, i64 0
+  %149 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %148)
+  %150 = fptrunc double %149 to float
+  %151 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %147)
   %152 = fptrunc double %151 to float
   %153 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 16
   %154 = load i64, ptr %153, align 16, !range !1260, !noundef !14
@@ -7112,7 +7112,7 @@ default.unreachable134:                           ; preds = %373, %197, %194, %1
   call void @llvm.experimental.noalias.scope.decl(metadata !1261)
   call void @llvm.experimental.noalias.scope.decl(metadata !1264)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
-  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %51, double noundef %147, double noundef %150), !noalias !1266
+  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %51, double noundef %148, double noundef %147), !noalias !1266
   call void @llvm.experimental.noalias.scope.decl(metadata !1267)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %7), !noalias !1270
   call void @llvm.experimental.noalias.scope.decl(metadata !1271), !noalias !1264
@@ -7716,16 +7716,16 @@ _ZN9typst_pdf4page11PageContext13restore_state17he5271de64e2faae7E.exit: ; preds
 
 341:                                              ; preds = %144
   %342 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 24
-  call fastcc void @_ZN9typst_pdf4page10write_text17h4425fff697665325E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, double noundef %147, double noundef %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %342)
+  call fastcc void @_ZN9typst_pdf4page10write_text17h4425fff697665325E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, double noundef %148, double noundef %147, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %342)
   br label %_ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit
 
 343:                                              ; preds = %144
   %344 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !1396)
   call void @llvm.experimental.noalias.scope.decl(metadata !1399)
-  %345 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %147), !noalias !1401
+  %345 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %148), !noalias !1401
   %346 = fptrunc double %345 to float
-  %347 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %150), !noalias !1401
+  %347 = call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %147), !noalias !1401
   %348 = fptrunc double %347 to float
   %349 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 56
   %350 = load i64, ptr %349, align 8, !range !999, !alias.scope !1399, !noalias !1396, !noundef !14
@@ -7763,7 +7763,7 @@ _ZN9typst_pdf4page11PageContext13restore_state17he5271de64e2faae7E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37), !noalias !1407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull readonly align 8 dereferenceable(48) %58, i64 48, i1 false), !noalias !1408
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36), !noalias !1407
-  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %36, double noundef %147, double noundef %150), !noalias !1409
+  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %36, double noundef %148, double noundef %147), !noalias !1409
   call void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525acaE(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %37, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %36), !noalias !1405
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36), !noalias !1407
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37), !noalias !1407
@@ -7789,7 +7789,7 @@ _ZN9typst_pdf4page11PageContext13restore_state17he5271de64e2faae7E.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35), !noalias !1417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull readonly align 8 dereferenceable(48) %58, i64 48, i1 false), !noalias !1418
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34), !noalias !1417
-  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %34, double noundef %147, double noundef %150), !noalias !1419
+  call void @_ZN5typst6layout9transform9Transform9translate17hb31d06de3fa3dbb6E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %34, double noundef %148, double noundef %147), !noalias !1419
   call void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525acaE(ptr noalias nocapture noundef nonnull sret({ double, double, double, double, double, double }) align 8 dereferenceable(48) %38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %35, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %34), !noalias !1415
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34), !noalias !1417
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35), !noalias !1417
@@ -8298,7 +8298,7 @@ _ZN10pdf_writer7content7Content4rect17hf78b6772a8a2b29fE.exit.i: ; preds = %442,
   store float %533, ptr %26, align 4, !noalias !1508
   store <2 x float> zeroinitializer, ptr %73, align 4, !noalias !1508
   store float %553, ptr %74, align 4, !noalias !1508
-  store float %149, ptr %75, align 4, !noalias !1508
+  store float %150, ptr %75, align 4, !noalias !1508
   store float %554, ptr %76, align 4, !noalias !1508
   %555 = invoke fastcc noundef align 8 dereferenceable(24) ptr @_ZN10pdf_writer7content7Content9transform17heeca01b99aee5066E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %26)
           to label %556 unwind label %.loopexit66
@@ -8762,19 +8762,19 @@ _ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit: ; preds = %.sink.split
   %716 = call { double, double } @_ZN5typst6layout5point5Point6with_x17hcf5dddacc345e883E(double noundef %707), !noalias !1683
   %717 = extractvalue { double, double } %716, 0
   %718 = extractvalue { double, double } %716, 1
-  %719 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %147, double noundef %150, double noundef %717, double noundef %718), !noalias !1683
+  %719 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %148, double noundef %147, double noundef %717, double noundef %718), !noalias !1683
   %720 = extractvalue { double, double } %719, 0
   %721 = extractvalue { double, double } %719, 1
   %722 = call { double, double } @_ZN5typst6layout5point5Point6with_y17h73a4fd7aa22c4397E(double noundef %709), !noalias !1683
   %723 = extractvalue { double, double } %722, 0
   %724 = extractvalue { double, double } %722, 1
-  %725 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %147, double noundef %150, double noundef %723, double noundef %724), !noalias !1683
+  %725 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %148, double noundef %147, double noundef %723, double noundef %724), !noalias !1683
   %726 = extractvalue { double, double } %725, 0
   %727 = extractvalue { double, double } %725, 1
   %728 = call { double, double } @"_ZN5typst6layout4size74_$LT$impl$u20$typst..layout..axes..Axes$LT$typst..layout..abs..Abs$GT$$GT$8to_point17hcf92d4c8b148c804E"(double noundef %707, double noundef %709), !noalias !1683
   %729 = extractvalue { double, double } %728, 0
   %730 = extractvalue { double, double } %728, 1
-  %731 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %147, double noundef %150, double noundef %729, double noundef %730), !noalias !1683
+  %731 = call { double, double } @"_ZN69_$LT$typst..layout..point..Point$u20$as$u20$core..ops..arith..Add$GT$3add17hf33a23cc77e8de7cE"(double noundef %148, double noundef %147, double noundef %729, double noundef %730), !noalias !1683
   %732 = extractvalue { double, double } %731, 0
   %733 = extractvalue { double, double } %731, 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12), !noalias !1683

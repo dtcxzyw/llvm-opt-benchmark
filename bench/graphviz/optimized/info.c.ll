@@ -49,203 +49,201 @@ define void @addVertex(ptr nocapture noundef readonly %0, double noundef %1, dou
   %22 = insertelement <2 x double> poison, double %17, i64 0
   %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
   %24 = fsub <2 x double> %21, %23
-  %25 = insertelement <2 x double> poison, double %2, i64 0
-  %26 = insertelement <2 x double> %25, double %15, i64 1
-  %27 = insertelement <2 x double> poison, double %19, i64 0
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
-  %29 = fsub <2 x double> %26, %28
-  %30 = extractelement <2 x double> %24, i64 0
-  %31 = fcmp ult double %30, 0.000000e+00
-  br i1 %31, label %62, label %32
+  %25 = extractelement <2 x double> %24, i64 0
+  %26 = insertelement <2 x double> poison, double %2, i64 0
+  %27 = insertelement <2 x double> %26, double %15, i64 1
+  %28 = insertelement <2 x double> poison, double %19, i64 0
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
+  %30 = fsub <2 x double> %27, %29
+  %31 = extractelement <2 x double> %30, i64 0
+  %32 = fcmp ult double %25, 0.000000e+00
+  br i1 %32, label %61, label %33
 
-32:                                               ; preds = %._crit_edge.i
-  %33 = extractelement <2 x double> %24, i64 1
-  %34 = fcmp olt double %33, 0.000000e+00
-  br i1 %34, label %select.unfold, label %35
+33:                                               ; preds = %._crit_edge.i
+  %34 = extractelement <2 x double> %24, i64 1
+  %35 = fcmp olt double %34, 0.000000e+00
+  br i1 %35, label %select.unfold, label %36
 
-35:                                               ; preds = %32
-  %36 = fcmp ogt double %30, 0.000000e+00
-  %37 = fcmp ogt double %33, 0.000000e+00
-  br i1 %36, label %38, label %50
+36:                                               ; preds = %33
+  %37 = fcmp ogt double %25, 0.000000e+00
+  %38 = fcmp ogt double %34, 0.000000e+00
+  br i1 %37, label %39, label %51
 
-38:                                               ; preds = %35
-  br i1 %37, label %39, label %47
+39:                                               ; preds = %36
+  br i1 %38, label %40, label %48
 
-39:                                               ; preds = %38
-  %40 = fdiv <2 x double> %29, %24
-  %41 = extractelement <2 x double> %40, i64 0
-  %42 = extractelement <2 x double> %40, i64 1
-  %43 = fcmp olt double %41, %42
-  br i1 %43, label %select.unfold, label %44
+40:                                               ; preds = %39
+  %41 = fdiv <2 x double> %30, %24
+  %42 = extractelement <2 x double> %41, i64 0
+  %43 = extractelement <2 x double> %41, i64 1
+  %44 = fcmp olt double %42, %43
+  br i1 %44, label %select.unfold, label %45
 
-44:                                               ; preds = %39
-  %45 = fcmp ule double %41, %42
-  %46 = fcmp olt double %30, %33
-  %or.cond = and i1 %46, %45
+45:                                               ; preds = %40
+  %46 = fcmp ule double %42, %43
+  %47 = fcmp olt double %25, %34
+  %or.cond = and i1 %47, %46
   br i1 %or.cond, label %select.unfold, label %select.unfold49
 
-47:                                               ; preds = %38
-  %48 = extractelement <2 x double> %29, i64 1
-  %49 = fcmp ogt double %48, 0.000000e+00
-  br i1 %49, label %select.unfold, label %select.unfold49
+48:                                               ; preds = %39
+  %49 = extractelement <2 x double> %30, i64 1
+  %50 = fcmp ogt double %49, 0.000000e+00
+  br i1 %50, label %select.unfold, label %select.unfold49
 
-50:                                               ; preds = %35
-  br i1 %37, label %51, label %54
+51:                                               ; preds = %36
+  br i1 %38, label %52, label %54
 
-51:                                               ; preds = %50
-  %52 = extractelement <2 x double> %29, i64 0
-  %53 = fcmp ugt double %52, 0.000000e+00
+52:                                               ; preds = %51
+  %53 = fcmp ugt double %31, 0.000000e+00
   br i1 %53, label %select.unfold49, label %select.unfold
 
-54:                                               ; preds = %50
-  %55 = extractelement <2 x double> %29, i64 0
-  %56 = extractelement <2 x double> %29, i64 1
-  %57 = fcmp olt double %55, %56
-  br i1 %57, label %58, label %60
+54:                                               ; preds = %51
+  %55 = extractelement <2 x double> %30, i64 1
+  %56 = fcmp olt double %31, %55
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %54
-  %59 = fcmp ugt double %56, 0.000000e+00
-  br i1 %59, label %select.unfold, label %select.unfold49
+57:                                               ; preds = %54
+  %58 = fcmp ugt double %55, 0.000000e+00
+  br i1 %58, label %select.unfold, label %select.unfold49
 
-60:                                               ; preds = %54
-  %61 = fcmp ugt double %55, 0.000000e+00
-  br i1 %61, label %select.unfold49, label %select.unfold
+59:                                               ; preds = %54
+  %60 = fcmp ugt double %31, 0.000000e+00
+  br i1 %60, label %select.unfold49, label %select.unfold
 
-62:                                               ; preds = %._crit_edge.i
-  %63 = extractelement <2 x double> %24, i64 1
-  %64 = fcmp ult double %63, 0.000000e+00
-  br i1 %64, label %65, label %select.unfold49
+61:                                               ; preds = %._crit_edge.i
+  %62 = extractelement <2 x double> %24, i64 1
+  %63 = fcmp ult double %62, 0.000000e+00
+  br i1 %63, label %64, label %select.unfold49
 
-65:                                               ; preds = %62
-  %66 = fdiv <2 x double> %29, %24
-  %67 = extractelement <2 x double> %66, i64 0
-  %68 = extractelement <2 x double> %66, i64 1
-  %69 = fcmp olt double %67, %68
-  br i1 %69, label %select.unfold, label %70
+64:                                               ; preds = %61
+  %65 = fdiv <2 x double> %30, %24
+  %66 = extractelement <2 x double> %65, i64 0
+  %67 = extractelement <2 x double> %65, i64 1
+  %68 = fcmp olt double %66, %67
+  br i1 %68, label %select.unfold, label %69
 
-70:                                               ; preds = %65
-  %71 = fcmp ule double %67, %68
-  %72 = fcmp ogt double %30, %63
-  %or.cond66 = and i1 %72, %71
+69:                                               ; preds = %64
+  %70 = fcmp ule double %66, %67
+  %71 = fcmp ogt double %25, %62
+  %or.cond66 = and i1 %71, %70
   br i1 %or.cond66, label %select.unfold, label %select.unfold49
 
-select.unfold49:                                  ; preds = %51, %60, %47, %58, %44, %62, %70
+select.unfold49:                                  ; preds = %52, %59, %48, %57, %45, %61, %69
   %.03171 = load ptr, ptr %8, align 8
-  %73 = icmp eq ptr %.03171, null
-  br i1 %73, label %select.unfold55, label %.lr.ph
+  %72 = icmp eq ptr %.03171, null
+  br i1 %72, label %select.unfold55, label %.lr.ph
 
 .lr.ph:                                           ; preds = %select.unfold49
-  %74 = fcmp ogt double %30, 0.000000e+00
-  %75 = extractelement <2 x double> %29, i64 0
-  %76 = fcmp ugt double %75, 0.000000e+00
-  %77 = fcmp ugt double %75, 0.000000e+00
-  %78 = fdiv double %75, %30
-  %79 = fdiv double %75, %30
-  br label %83
+  %73 = fcmp ogt double %25, 0.000000e+00
+  %74 = fcmp ugt double %31, 0.000000e+00
+  %75 = fcmp ugt double %31, 0.000000e+00
+  %76 = fdiv double %31, %25
+  %77 = fdiv double %31, %25
+  br label %81
 
-select.unfold:                                    ; preds = %70, %44, %47, %58, %65, %60, %51, %39, %32, %3
-  %80 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  store double %1, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
-  store double %2, ptr %82, align 8
-  store ptr %8, ptr %80, align 8
-  store ptr %80, ptr %7, align 8
+select.unfold:                                    ; preds = %69, %45, %48, %57, %64, %59, %52, %40, %33, %3
+  %78 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  store double %1, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %78, i64 16
+  store double %2, ptr %80, align 8
+  store ptr %8, ptr %78, align 8
+  store ptr %78, ptr %7, align 8
   br label %compare.exit
 
-83:                                               ; preds = %.lr.ph, %compare.exit46
+81:                                               ; preds = %.lr.ph, %compare.exit46
   %.03173 = phi ptr [ %.03171, %.lr.ph ], [ %.031, %compare.exit46 ]
   %.072 = phi ptr [ %8, %.lr.ph ], [ %.03173, %compare.exit46 ]
-  %84 = getelementptr inbounds i8, ptr %.03173, i64 8
-  %85 = load double, ptr %84, align 8
-  %86 = fcmp oeq double %85, %1
-  %87 = getelementptr inbounds i8, ptr %.03173, i64 16
-  %88 = load double, ptr %87, align 8
-  %89 = fcmp oeq double %88, %2
-  %or.cond.i37 = select i1 %86, i1 %89, i1 false
+  %82 = getelementptr inbounds i8, ptr %.03173, i64 8
+  %83 = load double, ptr %82, align 8
+  %84 = fcmp oeq double %83, %1
+  %85 = getelementptr inbounds i8, ptr %.03173, i64 16
+  %86 = load double, ptr %85, align 8
+  %87 = fcmp oeq double %86, %2
+  %or.cond.i37 = select i1 %84, i1 %87, i1 false
   br i1 %or.cond.i37, label %compare.exit, label %._crit_edge.i38
 
-._crit_edge.i38:                                  ; preds = %83
-  %90 = fsub double %85, %17
-  %91 = fsub double %88, %19
-  br i1 %31, label %112, label %92
+._crit_edge.i38:                                  ; preds = %81
+  %88 = fsub double %83, %17
+  %89 = fsub double %86, %19
+  br i1 %32, label %110, label %90
 
-92:                                               ; preds = %._crit_edge.i38
-  %93 = fcmp olt double %90, 0.000000e+00
-  br i1 %93, label %select.unfold55, label %94
+90:                                               ; preds = %._crit_edge.i38
+  %91 = fcmp olt double %88, 0.000000e+00
+  br i1 %91, label %select.unfold55, label %92
+
+92:                                               ; preds = %90
+  %93 = fcmp ogt double %88, 0.000000e+00
+  br i1 %73, label %94, label %103
 
 94:                                               ; preds = %92
-  %95 = fcmp ogt double %90, 0.000000e+00
-  br i1 %74, label %96, label %105
+  br i1 %93, label %95, label %101
 
-96:                                               ; preds = %94
-  br i1 %95, label %97, label %103
+95:                                               ; preds = %94
+  %96 = fdiv double %89, %88
+  %97 = fcmp olt double %76, %96
+  br i1 %97, label %select.unfold55, label %98
 
-97:                                               ; preds = %96
-  %98 = fdiv double %91, %90
-  %99 = fcmp olt double %78, %98
-  br i1 %99, label %select.unfold55, label %100
-
-100:                                              ; preds = %97
-  %101 = fcmp ule double %78, %98
-  %102 = fcmp olt double %30, %90
-  %or.cond67 = and i1 %102, %101
+98:                                               ; preds = %95
+  %99 = fcmp ule double %76, %96
+  %100 = fcmp olt double %25, %88
+  %or.cond67 = and i1 %100, %99
   br i1 %or.cond67, label %select.unfold55, label %compare.exit46
 
-103:                                              ; preds = %96
-  %104 = fcmp ogt double %91, 0.000000e+00
-  br i1 %104, label %select.unfold55, label %compare.exit46
+101:                                              ; preds = %94
+  %102 = fcmp ogt double %89, 0.000000e+00
+  br i1 %102, label %select.unfold55, label %compare.exit46
 
-105:                                              ; preds = %94
-  br i1 %95, label %106, label %107
+103:                                              ; preds = %92
+  br i1 %93, label %104, label %105
 
-106:                                              ; preds = %105
-  br i1 %77, label %compare.exit46, label %select.unfold55
+104:                                              ; preds = %103
+  br i1 %75, label %compare.exit46, label %select.unfold55
+
+105:                                              ; preds = %103
+  %106 = fcmp olt double %31, %89
+  br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = fcmp olt double %75, %91
-  br i1 %108, label %109, label %111
+  %108 = fcmp ugt double %89, 0.000000e+00
+  br i1 %108, label %select.unfold55, label %compare.exit46
 
-109:                                              ; preds = %107
-  %110 = fcmp ugt double %91, 0.000000e+00
-  br i1 %110, label %select.unfold55, label %compare.exit46
+109:                                              ; preds = %105
+  br i1 %74, label %compare.exit46, label %select.unfold55
 
-111:                                              ; preds = %107
-  br i1 %76, label %compare.exit46, label %select.unfold55
+110:                                              ; preds = %._crit_edge.i38
+  %111 = fcmp ult double %88, 0.000000e+00
+  br i1 %111, label %112, label %compare.exit46
 
-112:                                              ; preds = %._crit_edge.i38
-  %113 = fcmp ult double %90, 0.000000e+00
-  br i1 %113, label %114, label %compare.exit46
+112:                                              ; preds = %110
+  %113 = fdiv double %89, %88
+  %114 = fcmp olt double %77, %113
+  br i1 %114, label %select.unfold55, label %115
 
-114:                                              ; preds = %112
-  %115 = fdiv double %91, %90
-  %116 = fcmp olt double %79, %115
-  br i1 %116, label %select.unfold55, label %117
-
-117:                                              ; preds = %114
-  %118 = fcmp ule double %79, %115
-  %119 = fcmp ogt double %30, %90
-  %or.cond68 = and i1 %119, %118
+115:                                              ; preds = %112
+  %116 = fcmp ule double %77, %113
+  %117 = fcmp ogt double %25, %88
+  %or.cond68 = and i1 %117, %116
   br i1 %or.cond68, label %select.unfold55, label %compare.exit46
 
-compare.exit46:                                   ; preds = %111, %106, %109, %103, %100, %112, %117
+compare.exit46:                                   ; preds = %109, %104, %107, %101, %98, %110, %115
   %.031 = load ptr, ptr %.03173, align 8
-  %120 = icmp eq ptr %.031, null
-  br i1 %120, label %select.unfold55, label %83
+  %118 = icmp eq ptr %.031, null
+  br i1 %118, label %select.unfold55, label %81
 
-select.unfold55:                                  ; preds = %compare.exit46, %92, %97, %106, %111, %114, %103, %109, %100, %117, %select.unfold49
-  %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %117 ], [ %.072, %100 ], [ %.072, %109 ], [ %.072, %103 ], [ %.072, %114 ], [ %.072, %111 ], [ %.072, %106 ], [ %.072, %97 ], [ %.072, %92 ], [ %.03173, %compare.exit46 ]
-  %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %117 ], [ %.03173, %100 ], [ %.03173, %109 ], [ %.03173, %103 ], [ %.03173, %114 ], [ %.03173, %111 ], [ %.03173, %106 ], [ %.03173, %97 ], [ %.03173, %92 ], [ null, %compare.exit46 ]
-  %121 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
-  store double %1, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %121, i64 16
-  store double %2, ptr %123, align 8
-  store ptr %121, ptr %.0.lcssa, align 8
-  store ptr %.031.lcssa, ptr %121, align 8
+select.unfold55:                                  ; preds = %compare.exit46, %90, %95, %104, %109, %112, %101, %107, %98, %115, %select.unfold49
+  %.0.lcssa = phi ptr [ %8, %select.unfold49 ], [ %.072, %115 ], [ %.072, %98 ], [ %.072, %107 ], [ %.072, %101 ], [ %.072, %112 ], [ %.072, %109 ], [ %.072, %104 ], [ %.072, %95 ], [ %.072, %90 ], [ %.03173, %compare.exit46 ]
+  %.031.lcssa = phi ptr [ null, %select.unfold49 ], [ %.03173, %115 ], [ %.03173, %98 ], [ %.03173, %107 ], [ %.03173, %101 ], [ %.03173, %112 ], [ %.03173, %109 ], [ %.03173, %104 ], [ %.03173, %95 ], [ %.03173, %90 ], [ null, %compare.exit46 ]
+  %119 = tail call ptr @getfree(ptr noundef nonnull @pfl) #2
+  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  store double %1, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %119, i64 16
+  store double %2, ptr %121, align 8
+  store ptr %119, ptr %.0.lcssa, align 8
+  store ptr %.031.lcssa, ptr %119, align 8
   br label %compare.exit
 
-compare.exit:                                     ; preds = %83, %10, %select.unfold55, %select.unfold
+compare.exit:                                     ; preds = %81, %10, %select.unfold55, %select.unfold
   ret void
 }
 

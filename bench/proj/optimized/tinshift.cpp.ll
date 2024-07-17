@@ -8449,7 +8449,7 @@ tailrecurse.loopexit:                             ; preds = %_ZNK5osgeo4proj8Qua
   %26 = phi ptr [ %12, %.preheader.lr.ph ], [ %24, %tailrecurse.loopexit ]
   %27 = phi ptr [ %10, %.preheader.lr.ph ], [ %22, %tailrecurse.loopexit ]
   %.tr199209 = phi ptr [ %1, %.preheader.lr.ph ], [ %.sroa.056.0207, %tailrecurse.loopexit ]
-  br label %173
+  br label %142
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexit, %4
   %.tr199.lcssa208 = phi ptr [ %1, %4 ], [ %.sroa.056.0207, %tailrecurse.loopexit ]
@@ -8470,201 +8470,178 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
 
 40:                                               ; preds = %tailrecurse._crit_edge
   %41 = load <2 x double>, ptr %.tr199.lcssa208, align 8
+  %42 = extractelement <2 x double> %41, i64 1
+  %43 = extractelement <2 x double> %41, i64 0
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %.tr199.lcssa208, i64 16
-  %42 = load <2 x double>, ptr %.sroa.8.0..sroa_idx, align 8
-  %43 = fsub <2 x double> %42, %41
-  %44 = extractelement <2 x double> %43, i64 0
-  %45 = extractelement <2 x double> %43, i64 1
-  %46 = fcmp ogt double %44, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
-  %48 = load double, ptr %47, align 8
-  br i1 %46, label %49, label %57
+  %44 = load <2 x double>, ptr %.sroa.8.0..sroa_idx, align 8
+  %45 = extractelement <2 x double> %44, i64 1
+  %46 = extractelement <2 x double> %44, i64 0
+  %47 = fsub <2 x double> %44, %41
+  %48 = extractelement <2 x double> %47, i64 0
+  %49 = extractelement <2 x double> %47, i64 1
+  %50 = fcmp ogt double %48, %49
+  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = load double, ptr %51, align 8
+  br i1 %50, label %53, label %57
 
-49:                                               ; preds = %40
-  %50 = extractelement <2 x double> %41, i64 0
-  %51 = tail call double @llvm.fmuladd.f64(double %44, double %48, double %50)
-  %52 = fneg double %44
-  %53 = extractelement <2 x double> %42, i64 0
-  %54 = tail call double @llvm.fmuladd.f64(double %52, double %48, double %53)
-  %.pre215 = fsub double %51, %50
-  %55 = extractelement <2 x double> %42, i64 1
-  %56 = insertelement <2 x double> %41, double %54, i64 0
+53:                                               ; preds = %40
+  %54 = tail call double @llvm.fmuladd.f64(double %48, double %52, double %43)
+  %55 = fneg double %48
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double %52, double %46)
+  %.pre215 = fsub double %54, %43
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
 
 57:                                               ; preds = %40
-  %58 = extractelement <2 x double> %41, i64 1
-  %59 = tail call double @llvm.fmuladd.f64(double %45, double %48, double %58)
-  %60 = fneg double %45
-  %61 = extractelement <2 x double> %42, i64 1
-  %62 = tail call double @llvm.fmuladd.f64(double %60, double %48, double %61)
-  %.pre216 = fsub double %59, %58
-  %63 = extractelement <2 x double> %42, i64 0
-  %64 = insertelement <2 x double> %41, double %62, i64 1
+  %58 = tail call double @llvm.fmuladd.f64(double %49, double %52, double %42)
+  %59 = fneg double %49
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double %52, double %45)
+  %.pre216 = fsub double %58, %42
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
 
-_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit: ; preds = %49, %57
-  %.pre-phi217 = phi double [ %45, %49 ], [ %.pre216, %57 ]
-  %.pre-phi = phi double [ %.pre215, %49 ], [ %44, %57 ]
-  %.sroa.13.0 = phi double [ %55, %49 ], [ %59, %57 ]
-  %.sroa.8.0 = phi double [ %51, %49 ], [ %63, %57 ]
-  %65 = phi <2 x double> [ %56, %49 ], [ %64, %57 ]
-  %66 = fcmp ogt double %.pre-phi, %.pre-phi217
-  br i1 %66, label %67, label %73
+_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit: ; preds = %53, %57
+  %.pre-phi217 = phi double [ %49, %53 ], [ %.pre216, %57 ]
+  %.pre-phi = phi double [ %.pre215, %53 ], [ %48, %57 ]
+  %.sroa.6122.0 = phi double [ %42, %53 ], [ %60, %57 ]
+  %.sroa.0121.0 = phi double [ %56, %53 ], [ %43, %57 ]
+  %.sroa.13.0 = phi double [ %45, %53 ], [ %58, %57 ]
+  %.sroa.8.0 = phi double [ %54, %53 ], [ %46, %57 ]
+  %61 = fcmp ogt double %.pre-phi, %.pre-phi217
+  br i1 %61, label %62, label %66
 
-67:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
-  %68 = extractelement <2 x double> %41, i64 0
-  %69 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double %48, double %68)
-  %70 = fneg double %.pre-phi
-  %71 = tail call double @llvm.fmuladd.f64(double %70, double %48, double %.sroa.8.0)
-  %72 = extractelement <2 x double> %41, i64 1
+62:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
+  %63 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double %52, double %43)
+  %64 = fneg double %.pre-phi
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double %52, double %.sroa.8.0)
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
 
-73:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
-  %74 = extractelement <2 x double> %41, i64 1
-  %75 = tail call double @llvm.fmuladd.f64(double %.pre-phi217, double %48, double %74)
-  %76 = fneg double %.pre-phi217
-  %77 = tail call double @llvm.fmuladd.f64(double %76, double %48, double %.sroa.13.0)
-  %78 = extractelement <2 x double> %41, i64 0
+66:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit
+  %67 = tail call double @llvm.fmuladd.f64(double %.pre-phi217, double %52, double %42)
+  %68 = fneg double %.pre-phi217
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double %52, double %.sroa.13.0)
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
 
-_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41: ; preds = %67, %73
-  %.sroa.7113.0 = phi double [ %69, %67 ], [ %.sroa.8.0, %73 ]
-  %.sroa.10117.0 = phi double [ %.sroa.13.0, %67 ], [ %75, %73 ]
-  %.sroa.091.0 = phi double [ %71, %67 ], [ %78, %73 ]
-  %.sroa.694.0 = phi double [ %72, %67 ], [ %77, %73 ]
-  %79 = fsub <2 x double> %42, %65
-  %80 = extractelement <2 x double> %79, i64 0
-  %81 = extractelement <2 x double> %79, i64 1
-  %82 = fcmp ogt double %80, %81
-  br i1 %82, label %83, label %91
+_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41: ; preds = %62, %66
+  %.sroa.7113.0 = phi double [ %63, %62 ], [ %.sroa.8.0, %66 ]
+  %.sroa.10117.0 = phi double [ %.sroa.13.0, %62 ], [ %67, %66 ]
+  %.sroa.091.0 = phi double [ %65, %62 ], [ %43, %66 ]
+  %.sroa.694.0 = phi double [ %42, %62 ], [ %69, %66 ]
+  %70 = fsub double %46, %.sroa.0121.0
+  %71 = fsub double %45, %.sroa.6122.0
+  %72 = fcmp ogt double %70, %71
+  br i1 %72, label %73, label %77
 
-83:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
-  %84 = extractelement <2 x double> %65, i64 0
-  %85 = tail call double @llvm.fmuladd.f64(double %80, double %48, double %84)
-  %86 = fneg double %80
-  %87 = extractelement <2 x double> %42, i64 0
-  %88 = tail call double @llvm.fmuladd.f64(double %86, double %48, double %87)
-  %89 = extractelement <2 x double> %42, i64 1
-  %90 = extractelement <2 x double> %65, i64 1
+73:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
+  %74 = tail call double @llvm.fmuladd.f64(double %70, double %52, double %.sroa.0121.0)
+  %75 = fneg double %70
+  %76 = tail call double @llvm.fmuladd.f64(double %75, double %52, double %46)
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42
 
-91:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
-  %92 = extractelement <2 x double> %65, i64 1
-  %93 = tail call double @llvm.fmuladd.f64(double %81, double %48, double %92)
-  %94 = fneg double %81
-  %95 = extractelement <2 x double> %42, i64 1
-  %96 = tail call double @llvm.fmuladd.f64(double %94, double %48, double %95)
-  %97 = extractelement <2 x double> %42, i64 0
-  %98 = extractelement <2 x double> %65, i64 0
+77:                                               ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit41
+  %78 = tail call double @llvm.fmuladd.f64(double %71, double %52, double %.sroa.6122.0)
+  %79 = fneg double %71
+  %80 = tail call double @llvm.fmuladd.f64(double %79, double %52, double %45)
   br label %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42
 
-_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42: ; preds = %83, %91
-  %.sroa.7.0 = phi double [ %85, %83 ], [ %97, %91 ]
-  %.sroa.10.0 = phi double [ %89, %83 ], [ %93, %91 ]
-  %.sroa.066.0 = phi double [ %88, %83 ], [ %98, %91 ]
-  %.sroa.669.0 = phi double [ %90, %83 ], [ %96, %91 ]
-  %99 = extractelement <2 x double> %41, i64 0
-  %100 = extractelement <2 x double> %41, i64 1
-  %or.cond = fcmp uno double %99, %100
-  %101 = extractelement <2 x double> %42, i64 0
-  %102 = fcmp une double %101, %.sroa.7113.0
-  %or.cond130 = select i1 %or.cond, i1 true, i1 %102
-  %103 = extractelement <2 x double> %42, i64 1
-  %104 = fcmp une double %103, %.sroa.10117.0
-  %or.cond131 = select i1 %or.cond130, i1 true, i1 %104
+_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42: ; preds = %73, %77
+  %.sroa.7.0 = phi double [ %74, %73 ], [ %46, %77 ]
+  %.sroa.10.0 = phi double [ %45, %73 ], [ %78, %77 ]
+  %.sroa.066.0 = phi double [ %76, %73 ], [ %.sroa.0121.0, %77 ]
+  %.sroa.669.0 = phi double [ %.sroa.6122.0, %73 ], [ %80, %77 ]
+  %or.cond = fcmp uno double %43, %42
+  %81 = fcmp une double %46, %.sroa.7113.0
+  %or.cond130 = select i1 %or.cond, i1 true, i1 %81
+  %82 = fcmp une double %45, %.sroa.10117.0
+  %or.cond131 = select i1 %or.cond130, i1 true, i1 %82
   br i1 %or.cond131, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread: ; preds = %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42
-  %105 = shufflevector <2 x double> %41, <2 x double> %42, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %106 = insertelement <4 x double> poison, double %.sroa.091.0, i64 0
-  %107 = insertelement <4 x double> %106, double %.sroa.694.0, i64 1
-  %108 = insertelement <4 x double> %107, double %.sroa.8.0, i64 2
-  %109 = insertelement <4 x double> %108, double %.sroa.13.0, i64 3
-  %110 = fcmp une <4 x double> %105, %109
-  %111 = bitcast <4 x i1> %110 to i4
-  %.not222 = icmp eq i4 %111, 0
-  br i1 %.not222, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread
+  %83 = fcmp une double %43, %.sroa.091.0
+  %84 = fcmp une double %42, %.sroa.694.0
+  %or.cond132 = select i1 %83, i1 true, i1 %84
+  %85 = fcmp une double %46, %.sroa.8.0
+  %or.cond133 = or i1 %85, %or.cond132
+  %86 = fcmp une double %45, %.sroa.13.0
+  %or.cond134 = or i1 %86, %or.cond133
+  br i1 %or.cond134, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread
-  %112 = shufflevector <2 x double> %65, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %113 = insertelement <4 x double> %112, double %.sroa.7.0, i64 2
-  %114 = insertelement <4 x double> %113, double %.sroa.10.0, i64 3
-  %115 = fcmp une <4 x double> %105, %114
-  %116 = freeze <4 x i1> %115
-  %117 = bitcast <4 x i1> %116 to i4
-  %.not223 = icmp eq i4 %117, 0
-  br i1 %.not223, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread
+  %87 = fcmp une double %43, %.sroa.0121.0
+  %88 = fcmp une double %42, %.sroa.6122.0
+  %or.cond135 = select i1 %87, i1 true, i1 %88
+  %89 = fcmp une double %46, %.sroa.7.0
+  %or.cond136 = select i1 %or.cond135, i1 true, i1 %89
+  %90 = fcmp une double %45, %.sroa.10.0
+  %or.cond137 = select i1 %or.cond136, i1 true, i1 %90
+  br i1 %or.cond137, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread
-  %118 = fcmp une double %99, %.sroa.066.0
-  %119 = fcmp une double %100, %.sroa.669.0
-  %or.cond138 = select i1 %118, i1 true, i1 %119
-  %120 = fcmp uno double %103, %101
-  %or.cond140 = or i1 %120, %or.cond138
+  %91 = fcmp une double %43, %.sroa.066.0
+  %92 = fcmp une double %42, %.sroa.669.0
+  %or.cond138 = select i1 %91, i1 true, i1 %92
+  %93 = fcmp uno double %45, %46
+  %or.cond140 = or i1 %93, %or.cond138
   br i1 %or.cond140, label %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread
-  %121 = load double, ptr %3, align 8
-  %122 = fcmp oge double %121, %99
-  %123 = getelementptr inbounds i8, ptr %3, i64 16
-  %124 = load double, ptr %123, align 8
-  %125 = fcmp ole double %124, %.sroa.7113.0
-  %or.cond143.not182 = select i1 %122, i1 %125, i1 false
-  %126 = getelementptr inbounds i8, ptr %3, i64 8
-  %127 = load double, ptr %126, align 8
-  %128 = fcmp oge double %127, %100
-  %or.cond146.not179 = select i1 %or.cond143.not182, i1 %128, i1 false
-  %129 = getelementptr inbounds i8, ptr %3, i64 24
-  %130 = load double, ptr %129, align 8
-  %131 = fcmp ole double %130, %.sroa.10117.0
-  %or.cond149 = select i1 %or.cond146.not179, i1 %131, i1 false
-  br i1 %or.cond149, label %146, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread
+  %94 = load double, ptr %3, align 8
+  %95 = fcmp oge double %94, %43
+  %96 = getelementptr inbounds i8, ptr %3, i64 16
+  %97 = load double, ptr %96, align 8
+  %98 = fcmp ole double %97, %.sroa.7113.0
+  %or.cond143.not182 = select i1 %95, i1 %98, i1 false
+  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = load double, ptr %99, align 8
+  %101 = fcmp oge double %100, %42
+  %or.cond146.not179 = select i1 %or.cond143.not182, i1 %101, i1 false
+  %102 = getelementptr inbounds i8, ptr %3, i64 24
+  %103 = load double, ptr %102, align 8
+  %104 = fcmp ole double %103, %.sroa.10117.0
+  %or.cond149 = select i1 %or.cond146.not179, i1 %104, i1 false
+  br i1 %or.cond149, label %117, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread
-  %132 = fcmp oge double %121, %.sroa.091.0
-  %133 = fcmp ole double %124, %.sroa.8.0
-  %or.cond152.not187 = select i1 %132, i1 %133, i1 false
-  %134 = fcmp oge double %127, %.sroa.694.0
-  %or.cond155.not184 = select i1 %or.cond152.not187, i1 %134, i1 false
-  %135 = fcmp ole double %130, %.sroa.13.0
-  %or.cond158 = select i1 %or.cond155.not184, i1 %135, i1 false
-  br i1 %or.cond158, label %146, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread
+  %105 = fcmp oge double %94, %.sroa.091.0
+  %106 = fcmp ole double %97, %.sroa.8.0
+  %or.cond152.not187 = select i1 %105, i1 %106, i1 false
+  %107 = fcmp oge double %100, %.sroa.694.0
+  %or.cond155.not184 = select i1 %or.cond152.not187, i1 %107, i1 false
+  %108 = fcmp ole double %103, %.sroa.13.0
+  %or.cond158 = select i1 %or.cond155.not184, i1 %108, i1 false
+  br i1 %or.cond158, label %117, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread
-  %136 = extractelement <2 x double> %65, i64 0
-  %137 = fcmp oge double %121, %136
-  %138 = fcmp ole double %124, %.sroa.7.0
-  %or.cond161.not192 = select i1 %137, i1 %138, i1 false
-  %139 = extractelement <2 x double> %65, i64 1
-  %140 = fcmp oge double %127, %139
-  %or.cond164.not189 = select i1 %or.cond161.not192, i1 %140, i1 false
-  %141 = fcmp ole double %130, %.sroa.10.0
-  %or.cond167 = select i1 %or.cond164.not189, i1 %141, i1 false
-  br i1 %or.cond167, label %146, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread
+  %109 = fcmp oge double %94, %.sroa.0121.0
+  %110 = fcmp ole double %97, %.sroa.7.0
+  %or.cond161.not192 = select i1 %109, i1 %110, i1 false
+  %111 = fcmp oge double %100, %.sroa.6122.0
+  %or.cond164.not189 = select i1 %or.cond161.not192, i1 %111, i1 false
+  %112 = fcmp ole double %103, %.sroa.10.0
+  %or.cond167 = select i1 %or.cond164.not189, i1 %112, i1 false
+  br i1 %or.cond167, label %117, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread
-  %142 = fcmp oge double %121, %.sroa.066.0
-  %143 = fcmp ole double %124, %101
-  %or.cond170.not197 = select i1 %142, i1 %143, i1 false
-  %144 = fcmp oge double %127, %.sroa.669.0
-  %or.cond173.not194 = select i1 %or.cond170.not197, i1 %144, i1 false
-  %145 = fcmp ole double %130, %103
-  %or.cond176 = select i1 %or.cond173.not194, i1 %145, i1 false
-  br i1 %or.cond176, label %146, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
+  %113 = fcmp oge double %94, %.sroa.066.0
+  %114 = fcmp ole double %97, %46
+  %or.cond170.not197 = select i1 %113, i1 %114, i1 false
+  %115 = fcmp oge double %100, %.sroa.669.0
+  %or.cond173.not194 = select i1 %or.cond170.not197, i1 %115, i1 false
+  %116 = fcmp ole double %103, %45
+  %or.cond176 = select i1 %or.cond173.not194, i1 %116, i1 false
+  br i1 %or.cond176, label %117, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
-146:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread
+117:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit46.thread, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit.thread, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit45.thread
   tail call void @_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 noundef 4)
   store <2 x double> %41, ptr %5, align 16
   %.sroa.7113.0..sroa_idx114 = getelementptr inbounds i8, ptr %5, i64 16
   store double %.sroa.7113.0, ptr %.sroa.7113.0..sroa_idx114, align 16
   %.sroa.10117.0..sroa_idx118 = getelementptr inbounds i8, ptr %5, i64 24
   store double %.sroa.10117.0, ptr %.sroa.10117.0..sroa_idx118, align 8
-  %147 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %147, i8 0, i64 48, i1 false)
+  %118 = getelementptr inbounds i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %118, i8 0, i64 48, i1 false)
   invoke void @_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EE12emplace_backIJS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(80) %5)
-          to label %148 unwind label %161
+          to label %119 unwind label %130
 
-148:                                              ; preds = %146
+119:                                              ; preds = %117
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #21
   store double %.sroa.091.0, ptr %6, align 8
   %.sroa.694.0..sroa_idx95 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8673,78 +8650,76 @@ _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread: ; preds = %
   store double %.sroa.8.0, ptr %.sroa.998.0..sroa_idx99, align 8
   %.sroa.11102.0..sroa_idx103 = getelementptr inbounds i8, ptr %6, i64 24
   store double %.sroa.13.0, ptr %.sroa.11102.0..sroa_idx103, align 8
-  %149 = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %149, i8 0, i64 48, i1 false)
+  %120 = getelementptr inbounds i8, ptr %6, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %120, i8 0, i64 48, i1 false)
   invoke void @_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EE12emplace_backIJS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(80) %6)
-          to label %150 unwind label %163
+          to label %121 unwind label %132
 
-150:                                              ; preds = %148
+121:                                              ; preds = %119
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #21
-  %151 = extractelement <2 x double> %65, i64 0
-  store double %151, ptr %7, align 8
+  store double %.sroa.0121.0, ptr %7, align 8
   %.sroa.5.0..sroa_idx82 = getelementptr inbounds i8, ptr %7, i64 8
-  %152 = extractelement <2 x double> %65, i64 1
-  store double %152, ptr %.sroa.5.0..sroa_idx82, align 8
+  store double %.sroa.6122.0, ptr %.sroa.5.0..sroa_idx82, align 8
   %.sroa.7.0..sroa_idx85 = getelementptr inbounds i8, ptr %7, i64 16
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx85, align 8
   %.sroa.10.0..sroa_idx88 = getelementptr inbounds i8, ptr %7, i64 24
   store double %.sroa.10.0, ptr %.sroa.10.0..sroa_idx88, align 8
-  %153 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %153, i8 0, i64 48, i1 false)
+  %122 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %122, i8 0, i64 48, i1 false)
   invoke void @_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EE12emplace_backIJS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(80) %7)
-          to label %154 unwind label %165
+          to label %123 unwind label %134
 
-154:                                              ; preds = %150
+123:                                              ; preds = %121
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #21
   store double %.sroa.066.0, ptr %8, align 8
   %.sroa.669.0..sroa_idx70 = getelementptr inbounds i8, ptr %8, i64 8
   store double %.sroa.669.0, ptr %.sroa.669.0..sroa_idx70, align 8
   %.sroa.9.0..sroa_idx73 = getelementptr inbounds i8, ptr %8, i64 16
-  store <2 x double> %42, ptr %.sroa.9.0..sroa_idx73, align 8
-  %155 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %155, i8 0, i64 48, i1 false)
+  store <2 x double> %44, ptr %.sroa.9.0..sroa_idx73, align 8
+  %124 = getelementptr inbounds i8, ptr %8, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %124, i8 0, i64 48, i1 false)
   invoke void @_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EE12emplace_backIJS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(80) %8)
-          to label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit unwind label %167
+          to label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit unwind label %136
 
-_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit: ; preds = %154
+_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit: ; preds = %123
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #21
-  %156 = load ptr, ptr %29, align 8
-  %157 = load ptr, ptr %30, align 8
+  %125 = load ptr, ptr %29, align 8
+  %126 = load ptr, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %.not198211 = icmp eq ptr %156, %157
+  %.not198211 = icmp eq ptr %125, %126
   br i1 %.not198211, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit, %159
-  %.sroa.060.0212 = phi ptr [ %160, %159 ], [ %156, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit ]
-  %158 = getelementptr inbounds i8, ptr %.sroa.060.0212, i64 8
-  invoke void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERNS3_4NodeERKjRKNS1_7RectObjE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(80) %.tr199.lcssa208, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.060.0212, ptr noundef nonnull align 8 dereferenceable(32) %158)
-          to label %159 unwind label %.loopexit
+.lr.ph:                                           ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit, %128
+  %.sroa.060.0212 = phi ptr [ %129, %128 ], [ %125, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit ]
+  %127 = getelementptr inbounds i8, ptr %.sroa.060.0212, i64 8
+  invoke void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERNS3_4NodeERKjRKNS1_7RectObjE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(80) %.tr199.lcssa208, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.060.0212, ptr noundef nonnull align 8 dereferenceable(32) %127)
+          to label %128 unwind label %.loopexit
 
-159:                                              ; preds = %.lr.ph
-  %160 = getelementptr inbounds i8, ptr %.sroa.060.0212, i64 40
-  %.not198 = icmp eq ptr %160, %157
+128:                                              ; preds = %.lr.ph
+  %129 = getelementptr inbounds i8, ptr %.sroa.060.0212, i64 40
+  %.not198 = icmp eq ptr %129, %126
   br i1 %.not198, label %._crit_edge, label %.lr.ph
 
-161:                                              ; preds = %146
-  %162 = landingpad { ptr, i32 }
+130:                                              ; preds = %117
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #21
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit
 
-163:                                              ; preds = %148
-  %164 = landingpad { ptr, i32 }
+132:                                              ; preds = %119
+  %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #21
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit
 
-165:                                              ; preds = %150
-  %166 = landingpad { ptr, i32 }
+134:                                              ; preds = %121
+  %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #21
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit
 
-167:                                              ; preds = %154
-  %168 = landingpad { ptr, i32 }
+136:                                              ; preds = %123
+  %137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE4NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #21
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit
@@ -8752,62 +8727,62 @@ _ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit: ; pr
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %138
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %138
 
-169:                                              ; preds = %.loopexit.split-lp, %.loopexit
+138:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %156, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit, label %170
+  %.not.i.i.i = icmp eq ptr %125, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit, label %139
 
-170:                                              ; preds = %169
-  call void @_ZdlPv(ptr noundef nonnull %156) #27
+139:                                              ; preds = %138
+  call void @_ZdlPv(ptr noundef nonnull %125) #27
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit
 
-._crit_edge:                                      ; preds = %159, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit
+._crit_edge:                                      ; preds = %128, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE5clearEv.exit
   invoke void @_ZN5osgeo4proj8QuadTree8QuadTreeIjE6insertERNS3_4NodeERKjRKNS1_7RectObjE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(80) %.tr199.lcssa208, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %171 unwind label %.loopexit.split-lp
+          to label %140 unwind label %.loopexit.split-lp
 
-171:                                              ; preds = %._crit_edge
-  %.not.i.i.i49 = icmp eq ptr %156, null
-  br i1 %.not.i.i.i49, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50, label %172
+140:                                              ; preds = %._crit_edge
+  %.not.i.i.i49 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50, label %141
 
-172:                                              ; preds = %171
-  call void @_ZdlPv(ptr noundef nonnull %156) #27
+141:                                              ; preds = %140
+  call void @_ZdlPv(ptr noundef nonnull %125) #27
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50
 
-173:                                              ; preds = %.preheader, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread
-  %.sroa.056.0207 = phi ptr [ %27, %.preheader ], [ %187, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread ]
-  %174 = load double, ptr %.sroa.056.0207, align 8
-  %175 = fcmp ult double %14, %174
-  br i1 %175, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %176
+142:                                              ; preds = %.preheader, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread
+  %.sroa.056.0207 = phi ptr [ %27, %.preheader ], [ %156, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread ]
+  %143 = load double, ptr %.sroa.056.0207, align 8
+  %144 = fcmp ult double %14, %143
+  br i1 %144, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %145
 
-176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 16
-  %178 = load double, ptr %177, align 8
-  %179 = fcmp ugt double %16, %178
-  br i1 %179, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %180
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 16
+  %147 = load double, ptr %146, align 8
+  %148 = fcmp ugt double %16, %147
+  br i1 %148, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %149
 
-180:                                              ; preds = %176
-  %181 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 8
-  %182 = load double, ptr %181, align 8
-  %183 = fcmp ult double %18, %182
-  br i1 %183, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 8
+  %151 = load double, ptr %150, align 8
+  %152 = fcmp ult double %18, %151
+  br i1 %152, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51
 
-_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51: ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 24
-  %185 = load double, ptr %184, align 8
-  %186 = fcmp ugt double %20, %185
-  br i1 %186, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %tailrecurse.loopexit
+_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51: ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 24
+  %154 = load double, ptr %153, align 8
+  %155 = fcmp ugt double %20, %154
+  br i1 %155, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread, label %tailrecurse.loopexit
 
-_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread: ; preds = %173, %176, %180, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51
-  %187 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 80
-  %.not177 = icmp eq ptr %187, %26
-  br i1 %.not177, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit, label %173
+_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread: ; preds = %142, %145, %149, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51
+  %156 = getelementptr inbounds i8, ptr %.sroa.056.0207, i64 80
+  %.not177 = icmp eq ptr %156, %26
+  br i1 %.not177, label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit, label %142
 
 _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit51.thread
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.tr199209, i64 40
@@ -8815,94 +8790,94 @@ _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit: ; 
   br label %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
 
 _ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread: ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread, %tailrecurse._crit_edge
-  %188 = phi ptr [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread ], [ %31, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42 ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread ], [ %31, %tailrecurse._crit_edge ], [ %.pre, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit ]
+  %157 = phi ptr [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread ], [ %31, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42 ], [ %31, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread ], [ %31, %tailrecurse._crit_edge ], [ %.pre, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit ]
   %.tr199206 = phi ptr [ %.tr199.lcssa208, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit44.thread ], [ %.tr199.lcssa208, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit43.thread ], [ %.tr199.lcssa208, %_ZNK5osgeo4proj8QuadTree7RectObjneERKS2_.exit.thread ], [ %.tr199.lcssa208, %_ZN5osgeo4proj8QuadTree8QuadTreeIjE11splitBoundsERKNS1_7RectObjERS4_S7_.exit42 ], [ %.tr199.lcssa208, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit47.thread ], [ %.tr199.lcssa208, %tailrecurse._crit_edge ], [ %.tr199209, %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread.loopexit ]
-  %189 = getelementptr inbounds i8, ptr %.tr199206, i64 32
-  %190 = load i32, ptr %2, align 4
+  %158 = getelementptr inbounds i8, ptr %.tr199206, i64 32
+  %159 = load i32, ptr %2, align 4
   %.sroa.3.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.3, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.3.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %191 = getelementptr inbounds i8, ptr %.tr199206, i64 40
-  %192 = getelementptr inbounds i8, ptr %.tr199206, i64 48
-  %193 = load ptr, ptr %192, align 8
-  %.not.i.i52 = icmp eq ptr %188, %193
-  br i1 %.not.i.i52, label %197, label %194
+  %160 = getelementptr inbounds i8, ptr %.tr199206, i64 40
+  %161 = getelementptr inbounds i8, ptr %.tr199206, i64 48
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i52 = icmp eq ptr %157, %162
+  br i1 %.not.i.i52, label %166, label %163
 
-194:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
-  store i32 %190, ptr %188, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %188, i64 4
+163:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
+  store i32 %159, ptr %157, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3, i64 36, i1 false)
-  %195 = load ptr, ptr %191, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 40
-  store ptr %196, ptr %191, align 8
+  %164 = load ptr, ptr %160, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 40
+  store ptr %165, ptr %160, align 8
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50
 
-197:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
-  %198 = load ptr, ptr %189, align 8
-  %199 = ptrtoint ptr %188 to i64
-  %200 = ptrtoint ptr %198 to i64
-  %201 = sub i64 %199, %200
-  %202 = icmp eq i64 %201, 9223372036854775800
-  br i1 %202, label %203, label %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+166:                                              ; preds = %_ZNK5osgeo4proj8QuadTree7RectObj13isContainedByERKS2_.exit48.thread
+  %167 = load ptr, ptr %158, align 8
+  %168 = ptrtoint ptr %157 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = icmp eq i64 %170, 9223372036854775800
+  br i1 %171, label %172, label %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
-203:                                              ; preds = %197
+172:                                              ; preds = %166
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.95) #25
   unreachable
 
-_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %197
-  %204 = sdiv exact i64 %201, 40
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %204, i64 1)
-  %205 = add nsw i64 %.sroa.speculated.i.i.i.i, %204
-  %206 = icmp ult i64 %205, %204
-  %207 = tail call i64 @llvm.umin.i64(i64 %205, i64 230584300921369395)
-  %208 = select i1 %206, i64 230584300921369395, i64 %207
-  %.not.i.i.i.i = icmp eq i64 %208, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i, label %209
+_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %166
+  %173 = sdiv exact i64 %170, 40
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
+  %174 = add nsw i64 %.sroa.speculated.i.i.i.i, %173
+  %175 = icmp ult i64 %174, %173
+  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 230584300921369395)
+  %177 = select i1 %175, i64 230584300921369395, i64 %176
+  %.not.i.i.i.i = icmp eq i64 %177, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i, label %178
 
-209:                                              ; preds = %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %210 = mul nuw nsw i64 %208, 40
-  %211 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %210) #22
+178:                                              ; preds = %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %179 = mul nuw nsw i64 %177, 40
+  %180 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #22
   br label %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %209, %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %212 = phi ptr [ %211, %209 ], [ null, %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %213 = getelementptr inbounds %"struct.std::pair.69", ptr %212, i64 %204
-  store i32 %190, ptr %213, align 8
-  %.sroa.3.0..sroa_idx54 = getelementptr inbounds i8, ptr %213, i64 4
+_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %178, %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %181 = phi ptr [ %180, %178 ], [ null, %_ZNKSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %182 = getelementptr inbounds %"struct.std::pair.69", ptr %181, i64 %173
+  store i32 %159, ptr %182, align 8
+  %.sroa.3.0..sroa_idx54 = getelementptr inbounds i8, ptr %182, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3.0..sroa_idx54, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.3, i64 36, i1 false)
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %198, %188
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %167, %157
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %215, %.lr.ph.i.i.i.i.i.i.i ], [ %212, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %214, %.lr.ph.i.i.i.i.i.i.i ], [ %198, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %184, %.lr.ph.i.i.i.i.i.i.i ], [ %181, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %183, %.lr.ph.i.i.i.i.i.i.i ], [ %167, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.0911.i.i.i.i.i.i.i, i64 40, i1 false), !alias.scope !117
-  %214 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 40
-  %215 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %214, %188
+  %183 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 40
+  %184 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %183, %157
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !121
 
 _ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %212, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %215, %.lr.ph.i.i.i.i.i.i.i ]
-  %216 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
-  %.not.i23.i.i.i = icmp eq ptr %198, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %217
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %181, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %184, %.lr.ph.i.i.i.i.i.i.i ]
+  %185 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
+  %.not.i23.i.i.i = icmp eq ptr %167, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %186
 
-217:                                              ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %198) #27
+186:                                              ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #27
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %217, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %212, ptr %189, align 8
-  store ptr %216, ptr %191, align 8
-  %218 = getelementptr inbounds %"struct.std::pair.69", ptr %212, i64 %208
-  store ptr %218, ptr %192, align 8
+_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %186, %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %181, ptr %158, align 8
+  store ptr %185, ptr %160, align 8
+  %187 = getelementptr inbounds %"struct.std::pair.69", ptr %181, i64 %177
+  store ptr %187, ptr %161, align 8
   br label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50
 
-_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50: ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %194, %172, %171
+_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit50: ; preds = %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %163, %141, %140
   ret void
 
-_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit: ; preds = %170, %169, %167, %165, %163, %161
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %lpad.phi, %169 ], [ %lpad.phi, %170 ]
+_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EED2Ev.exit: ; preds = %139, %138, %136, %134, %132, %130
+  %.pn = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %lpad.phi, %138 ], [ %lpad.phi, %139 ]
   resume { ptr, i32 } %.pn
 }
 

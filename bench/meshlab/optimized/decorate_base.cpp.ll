@@ -2475,60 +2475,60 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %104
   %167 = insertelement <2 x float> poison, float %.sroa.5.0.copyload, i64 0
   %168 = insertelement <2 x float> %167, float %.sroa.5552.0.copyload, i64 1
   %169 = fmul <2 x float> %168, %166
+  %170 = extractelement <2 x float> %169, i64 1
+  %171 = extractelement <2 x float> %169, i64 0
   call void @glBegin(i32 noundef 1)
   call void @glColor4ubv(ptr noundef nonnull %11)
-  %170 = load float, ptr %12, align 8
-  %171 = load float, ptr %112, align 4
-  %172 = load float, ptr %.sroa.2173.0..sroa_idx, align 8
-  call void @glVertex3f(float noundef %170, float noundef %171, float noundef %172)
+  %172 = load float, ptr %12, align 8
+  %173 = load float, ptr %112, align 4
+  %174 = load float, ptr %.sroa.2173.0..sroa_idx, align 8
+  call void @glVertex3f(float noundef %172, float noundef %173, float noundef %174)
   call void @glVertex3fv(ptr noundef nonnull %19)
   call void @glColor4ubv(ptr noundef nonnull %11)
   call void @glVertex3fv(ptr noundef nonnull %12)
-  %173 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %174 = extractelement <2 x float> %169, i64 0
-  %175 = fadd float %174, %173
-  %176 = shufflevector <2 x float> %166, <2 x float> poison, <2 x i32> zeroinitializer
-  %177 = fmul <2 x float> %43, %176
-  %178 = shufflevector <2 x float> %166, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %179 = fmul <2 x float> %44, %178
-  %180 = load <2 x float>, ptr %19, align 8
-  %181 = fadd <2 x float> %177, %180
-  %182 = fadd <2 x float> %179, %181
-  %183 = extractelement <2 x float> %169, i64 1
-  %184 = fadd float %183, %175
-  store <2 x float> %182, ptr %20, align 8
+  %175 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
+  %176 = fadd float %171, %175
+  %177 = shufflevector <2 x float> %166, <2 x float> poison, <2 x i32> zeroinitializer
+  %178 = fmul <2 x float> %43, %177
+  %179 = shufflevector <2 x float> %166, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %180 = fmul <2 x float> %44, %179
+  %181 = load <2 x float>, ptr %19, align 8
+  %182 = fadd <2 x float> %178, %181
+  %183 = fadd <2 x float> %180, %182
+  %184 = fadd float %170, %176
+  store <2 x float> %183, ptr %20, align 8
   %.sroa.296.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   store float %184, ptr %.sroa.296.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %20)
   call void @glVertex3fv(ptr noundef nonnull %12)
   %185 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %186 = fadd float %174, %185
+  %186 = fadd float %171, %185
   %187 = load <2 x float>, ptr %19, align 8
-  %188 = fadd <2 x float> %177, %187
-  %189 = fsub <2 x float> %188, %179
-  %190 = fsub float %186, %183
+  %188 = fadd <2 x float> %178, %187
+  %189 = fsub <2 x float> %188, %180
+  %190 = fsub float %186, %170
   store <2 x float> %189, ptr %21, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store float %190, ptr %.sroa.288.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %21)
   call void @glVertex3fv(ptr noundef nonnull %12)
   %191 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %192 = fsub float %191, %174
+  %192 = fsub float %191, %171
   %193 = load <2 x float>, ptr %19, align 8
-  %194 = fsub <2 x float> %193, %177
-  %195 = fadd <2 x float> %179, %194
-  %196 = fadd float %183, %192
+  %194 = fsub <2 x float> %193, %178
+  %195 = fadd <2 x float> %180, %194
+  %196 = fadd float %170, %192
   store <2 x float> %195, ptr %22, align 8
   %.sroa.280.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   store float %196, ptr %.sroa.280.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %12)
   %197 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %198 = fsub float %197, %174
+  %198 = fsub float %197, %171
   %199 = load <2 x float>, ptr %19, align 8
-  %200 = fsub <2 x float> %199, %177
-  %201 = fsub <2 x float> %200, %179
-  %202 = fsub float %198, %183
+  %200 = fsub <2 x float> %199, %178
+  %201 = fsub <2 x float> %200, %180
+  %202 = fsub float %198, %170
   store <2 x float> %201, ptr %23, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   store float %202, ptr %.sroa.272.0..sroa_idx, align 8
@@ -2536,41 +2536,41 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %104
   call void @glEnd()
   call void @glBegin(i32 noundef 2)
   %203 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %204 = fadd float %174, %203
+  %204 = fadd float %171, %203
   %205 = load <2 x float>, ptr %19, align 8
-  %206 = fadd <2 x float> %177, %205
-  %207 = fadd <2 x float> %179, %206
-  %208 = fadd float %183, %204
+  %206 = fadd <2 x float> %178, %205
+  %207 = fadd <2 x float> %180, %206
+  %208 = fadd float %170, %204
   store <2 x float> %207, ptr %24, align 8
   %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store float %208, ptr %.sroa.264.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %24)
   %209 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %210 = fadd float %174, %209
+  %210 = fadd float %171, %209
   %211 = load <2 x float>, ptr %19, align 8
-  %212 = fadd <2 x float> %177, %211
-  %213 = fsub <2 x float> %212, %179
-  %214 = fsub float %210, %183
+  %212 = fadd <2 x float> %178, %211
+  %213 = fsub <2 x float> %212, %180
+  %214 = fsub float %210, %170
   store <2 x float> %213, ptr %25, align 8
   %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
   store float %214, ptr %.sroa.256.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %25)
   %215 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %216 = fsub float %215, %174
+  %216 = fsub float %215, %171
   %217 = load <2 x float>, ptr %19, align 8
-  %218 = fsub <2 x float> %217, %177
-  %219 = fsub <2 x float> %218, %179
-  %220 = fsub float %216, %183
+  %218 = fsub <2 x float> %217, %178
+  %219 = fsub <2 x float> %218, %180
+  %220 = fsub float %216, %170
   store <2 x float> %219, ptr %26, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   store float %220, ptr %.sroa.248.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %26)
   %221 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %222 = fsub float %221, %174
+  %222 = fsub float %221, %171
   %223 = load <2 x float>, ptr %19, align 8
-  %224 = fsub <2 x float> %223, %177
-  %225 = fadd <2 x float> %179, %224
-  %226 = fadd float %183, %222
+  %224 = fsub <2 x float> %223, %178
+  %225 = fadd <2 x float> %180, %224
+  %226 = fadd float %170, %222
   store <2 x float> %225, ptr %27, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
   store float %226, ptr %.sroa.240.0..sroa_idx, align 8
@@ -2582,51 +2582,51 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit224: ; preds = %104
   call void @glBegin(i32 noundef 6)
   call void @glVertex3fv(ptr noundef nonnull %12)
   %227 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %228 = fadd float %174, %227
+  %228 = fadd float %171, %227
   %229 = load <2 x float>, ptr %19, align 8
-  %230 = fadd <2 x float> %177, %229
-  %231 = fadd <2 x float> %179, %230
-  %232 = fadd float %183, %228
+  %230 = fadd <2 x float> %178, %229
+  %231 = fadd <2 x float> %180, %230
+  %232 = fadd float %170, %228
   store <2 x float> %231, ptr %28, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   store float %232, ptr %.sroa.232.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %28)
   %233 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %234 = fadd float %174, %233
+  %234 = fadd float %171, %233
   %235 = load <2 x float>, ptr %19, align 8
-  %236 = fadd <2 x float> %177, %235
-  %237 = fsub <2 x float> %236, %179
-  %238 = fsub float %234, %183
+  %236 = fadd <2 x float> %178, %235
+  %237 = fsub <2 x float> %236, %180
+  %238 = fsub float %234, %170
   store <2 x float> %237, ptr %29, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store float %238, ptr %.sroa.224.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %29)
   %239 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %240 = fsub float %239, %174
+  %240 = fsub float %239, %171
   %241 = load <2 x float>, ptr %19, align 8
-  %242 = fsub <2 x float> %241, %177
-  %243 = fsub <2 x float> %242, %179
-  %244 = fsub float %240, %183
+  %242 = fsub <2 x float> %241, %178
+  %243 = fsub <2 x float> %242, %180
+  %244 = fsub float %240, %170
   store <2 x float> %243, ptr %30, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store float %244, ptr %.sroa.216.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %30)
   %245 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %246 = fsub float %245, %174
+  %246 = fsub float %245, %171
   %247 = load <2 x float>, ptr %19, align 8
-  %248 = fsub <2 x float> %247, %177
-  %249 = fadd <2 x float> %179, %248
-  %250 = fadd float %183, %246
+  %248 = fsub <2 x float> %247, %178
+  %249 = fadd <2 x float> %180, %248
+  %250 = fadd float %170, %246
   store <2 x float> %249, ptr %31, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
   store float %250, ptr %.sroa.28.0..sroa_idx, align 8
   call void @glVertex3fv(ptr noundef nonnull %31)
   %251 = load float, ptr %.sroa.2112.0..sroa_idx, align 8
-  %252 = fadd float %174, %251
+  %252 = fadd float %171, %251
   %253 = load <2 x float>, ptr %19, align 8
-  %254 = fadd <2 x float> %177, %253
-  %255 = fadd <2 x float> %179, %254
-  %256 = fadd float %183, %252
+  %254 = fadd <2 x float> %178, %253
+  %255 = fadd <2 x float> %180, %254
+  %256 = fadd float %170, %252
   store <2 x float> %255, ptr %32, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   store float %256, ptr %.sroa.2.0..sroa_idx, align 8

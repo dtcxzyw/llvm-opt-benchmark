@@ -159559,23 +159559,23 @@ define void @_ZN5typst9visualize5color5Color6negate17hb281d3ed9c773ef5E(ptr noal
   %6 = load i32, ptr %5, align 4, !range !16521, !noundef !4
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   %8 = load <2 x float>, ptr %7, align 4
+  %9 = extractelement <2 x float> %8, i64 0
   switch i32 %6, label %default.unreachable68 [
-    i32 0, label %9
+    i32 0, label %10
     i32 1, label %14
-    i32 2, label %21
-    i32 3, label %33
-    i32 4, label %37
-    i32 5, label %41
-    i32 6, label %49
-    i32 7, label %61
+    i32 2, label %20
+    i32 3, label %31
+    i32 4, label %35
+    i32 5, label %39
+    i32 6, label %47
+    i32 7, label %58
   ]
 
 default.unreachable68:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %3
-  %10 = extractelement <2 x float> %8, i64 0
-  %11 = fsub float 1.000000e+00, %10
+10:                                               ; preds = %3
+  %11 = fsub float 1.000000e+00, %9
   %12 = getelementptr inbounds i8, ptr %4, i64 4
   store float %11, ptr %12, align 4
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -159589,141 +159589,137 @@ default.unreachable68:                            ; preds = %3
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
-  %15 = extractelement <2 x float> %8, i64 0
-  %16 = fsub float 1.000000e+00, %15
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %16, ptr %17, align 4
+  %15 = fsub float 1.000000e+00, %9
+  %16 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %15, ptr %16, align 4
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %19 = insertelement <2 x float> %18, float %.sroa.5.0.copyload, i64 1
-  %20 = fneg <2 x float> %19
-  store <2 x float> %20, ptr %.sroa.06.sroa.4.0..sroa_idx, align 4
+  %17 = shufflevector <2 x float> %8, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %18 = insertelement <2 x float> %17, float %.sroa.5.0.copyload, i64 1
+  %19 = fneg <2 x float> %18
+  store <2 x float> %19, ptr %.sroa.06.sroa.4.0..sroa_idx, align 4
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store float %.sroa.6.0.copyload, ptr %.sroa.47.0..sroa_idx, align 4
   store i32 1, ptr %4, align 4
   br label %switch.lookup
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.510.0.copyload = load float, ptr %.sroa.510.0..sroa_idx, align 4
   %.sroa.611.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.611.0.copyload = load float, ptr %.sroa.611.0..sroa_idx, align 4
-  %22 = extractelement <2 x float> %8, i64 0
-  %23 = fsub float 1.000000e+00, %22
-  %24 = fadd float %.sroa.510.0.copyload, 1.800000e+02
-  %25 = fdiv float %24, 3.600000e+02
-  %26 = fadd float %25, -1.000000e+00
-  %27 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %26)
-  %28 = fmul float %27, 3.600000e+02
-  %29 = fsub float %.sroa.510.0.copyload, %28
-  %30 = fadd float %29, 1.800000e+02
-  %31 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %23, ptr %31, align 4
+  %21 = fsub float 1.000000e+00, %9
+  %22 = fadd float %.sroa.510.0.copyload, 1.800000e+02
+  %23 = fdiv float %22, 3.600000e+02
+  %24 = fadd float %23, -1.000000e+00
+  %25 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %24)
+  %26 = fmul float %25, 3.600000e+02
+  %27 = fsub float %.sroa.510.0.copyload, %26
+  %28 = fadd float %27, 1.800000e+02
+  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %21, ptr %29, align 4
   %.sroa.4.0..sroa_idx50 = getelementptr inbounds i8, ptr %4, i64 8
-  %32 = extractelement <2 x float> %8, i64 1
-  store float %32, ptr %.sroa.4.0..sroa_idx50, align 4
+  %30 = extractelement <2 x float> %8, i64 1
+  store float %30, ptr %.sroa.4.0..sroa_idx50, align 4
   %.sroa.5.0..sroa_idx52 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %30, ptr %.sroa.5.0..sroa_idx52, align 4
+  store float %28, ptr %.sroa.5.0..sroa_idx52, align 4
   %.sroa.6.0..sroa_idx54 = getelementptr inbounds i8, ptr %4, i64 16
   store float %.sroa.611.0.copyload, ptr %.sroa.6.0..sroa_idx54, align 4
   store i32 2, ptr %4, align 4
   br label %switch.lookup
 
-33:                                               ; preds = %3
+31:                                               ; preds = %3
   %.sroa.521.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.521.0.copyload = load float, ptr %.sroa.521.0..sroa_idx, align 4
   %.sroa.622.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.622.0.copyload = load float, ptr %.sroa.622.0..sroa_idx, align 4
-  %34 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
-  %35 = fsub float 1.000000e+00, %.sroa.521.0.copyload
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
-  store <2 x float> %34, ptr %36, align 4
+  %32 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
+  %33 = fsub float 1.000000e+00, %.sroa.521.0.copyload
+  %34 = getelementptr inbounds i8, ptr %4, i64 4
+  store <2 x float> %32, ptr %34, align 4
   %.sroa.023.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  store float %35, ptr %.sroa.023.sroa.5.0..sroa_idx, align 4
+  store float %33, ptr %.sroa.023.sroa.5.0..sroa_idx, align 4
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store float %.sroa.622.0.copyload, ptr %.sroa.424.0..sroa_idx, align 4
   store i32 3, ptr %4, align 4
   br label %switch.lookup
 
-37:                                               ; preds = %3
+35:                                               ; preds = %3
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.515.0.copyload = load float, ptr %.sroa.515.0..sroa_idx, align 4
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.616.0.copyload = load float, ptr %.sroa.616.0..sroa_idx, align 4
-  %38 = fsub float 1.000000e+00, %.sroa.515.0.copyload
-  %39 = getelementptr inbounds i8, ptr %4, i64 4
-  %40 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
-  store <2 x float> %40, ptr %39, align 4
+  %36 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
+  %37 = fsub float 1.000000e+00, %.sroa.515.0.copyload
+  %38 = getelementptr inbounds i8, ptr %4, i64 4
+  store <2 x float> %36, ptr %38, align 4
   %.sroa.017.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  store float %38, ptr %.sroa.017.sroa.5.0..sroa_idx, align 4
+  store float %37, ptr %.sroa.017.sroa.5.0..sroa_idx, align 4
   %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store float %.sroa.616.0.copyload, ptr %.sroa.418.0..sroa_idx, align 4
   store i32 4, ptr %4, align 4
   br label %switch.lookup
 
-41:                                               ; preds = %3
-  %42 = getelementptr inbounds i8, ptr %5, i64 12
+39:                                               ; preds = %3
+  %40 = getelementptr inbounds i8, ptr %5, i64 12
+  %41 = load float, ptr %40, align 4, !noundef !4
+  %42 = getelementptr inbounds i8, ptr %5, i64 16
   %43 = load float, ptr %42, align 4, !noundef !4
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
-  %45 = load float, ptr %44, align 4, !noundef !4
-  %46 = fsub float 1.000000e+00, %43
-  %47 = getelementptr inbounds i8, ptr %4, i64 4
-  %48 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
-  store <2 x float> %48, ptr %47, align 4
+  %44 = fsub float 1.000000e+00, %41
+  %45 = getelementptr inbounds i8, ptr %4, i64 4
+  %46 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %8
+  store <2 x float> %46, ptr %45, align 4
   %.sroa.558.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  store float %46, ptr %.sroa.558.0..sroa_idx, align 4
+  store float %44, ptr %.sroa.558.0..sroa_idx, align 4
   %.sroa.659.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store float %45, ptr %.sroa.659.0..sroa_idx, align 4
+  store float %43, ptr %.sroa.659.0..sroa_idx, align 4
   store i32 5, ptr %4, align 4
   br label %switch.lookup
 
-49:                                               ; preds = %3
+47:                                               ; preds = %3
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %50 = extractelement <2 x float> %8, i64 0
-  %51 = fadd float %50, 1.800000e+02
-  %52 = fdiv float %51, 3.600000e+02
-  %53 = fadd float %52, -1.000000e+00
-  %54 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %53)
-  %55 = fmul float %54, 3.600000e+02
-  %56 = fsub float %50, %55
-  %57 = fadd float %56, 1.800000e+02
-  %58 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %57, ptr %58, align 4
+  %48 = fadd float %9, 1.800000e+02
+  %49 = fdiv float %48, 3.600000e+02
+  %50 = fadd float %49, -1.000000e+00
+  %51 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %50)
+  %52 = fmul float %51, 3.600000e+02
+  %53 = fsub float %9, %52
+  %54 = fadd float %53, 1.800000e+02
+  %55 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %54, ptr %55, align 4
   %.sroa.461.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %59 = extractelement <2 x float> %8, i64 1
-  store float %59, ptr %.sroa.461.0..sroa_idx, align 4
+  %56 = extractelement <2 x float> %8, i64 1
+  store float %56, ptr %.sroa.461.0..sroa_idx, align 4
   %.sroa.562.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  %60 = load <2 x float>, ptr %.sroa.527.0..sroa_idx, align 4
-  store <2 x float> %60, ptr %.sroa.562.0..sroa_idx, align 4
+  %57 = load <2 x float>, ptr %.sroa.527.0..sroa_idx, align 4
+  store <2 x float> %57, ptr %.sroa.562.0..sroa_idx, align 4
   store i32 6, ptr %4, align 4
   br label %switch.lookup
 
-61:                                               ; preds = %3
+58:                                               ; preds = %3
   %.sroa.532.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %62 = extractelement <2 x float> %8, i64 0
-  %63 = fadd float %62, 1.800000e+02
-  %64 = fdiv float %63, 3.600000e+02
-  %65 = fadd float %64, -1.000000e+00
-  %66 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %65)
-  %67 = fmul float %66, 3.600000e+02
-  %68 = fsub float %62, %67
-  %69 = fadd float %68, 1.800000e+02
-  %70 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %69, ptr %70, align 4
+  %59 = fadd float %9, 1.800000e+02
+  %60 = fdiv float %59, 3.600000e+02
+  %61 = fadd float %60, -1.000000e+00
+  %62 = tail call noundef float @_ZN4libm4math5ceilf5ceilf17h4c1e88580f1be749E(float noundef %61)
+  %63 = fmul float %62, 3.600000e+02
+  %64 = fsub float %9, %63
+  %65 = fadd float %64, 1.800000e+02
+  %66 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %65, ptr %66, align 4
   %.sroa.465.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %71 = extractelement <2 x float> %8, i64 1
-  store float %71, ptr %.sroa.465.0..sroa_idx, align 4
+  %67 = extractelement <2 x float> %8, i64 1
+  store float %67, ptr %.sroa.465.0..sroa_idx, align 4
   %.sroa.566.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  %72 = load <2 x float>, ptr %.sroa.532.0..sroa_idx, align 4
-  store <2 x float> %72, ptr %.sroa.566.0..sroa_idx, align 4
+  %68 = load <2 x float>, ptr %.sroa.532.0..sroa_idx, align 4
+  store <2 x float> %68, ptr %.sroa.566.0..sroa_idx, align 4
   store i32 7, ptr %4, align 4
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %61, %49, %41, %37, %33, %21, %14, %9
+switch.lookup:                                    ; preds = %58, %47, %39, %35, %31, %20, %14, %10
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
-  %73 = load i32, ptr %1, align 4, !range !16521, !alias.scope !35922, !noundef !4
-  %74 = shl nuw nsw i32 %73, 3
-  %switch.shiftamt = zext nneg i32 %74 to i64
+  %69 = load i32, ptr %1, align 4, !range !16521, !alias.scope !35922, !noundef !4
+  %70 = shl nuw nsw i32 %69, 3
+  %switch.shiftamt = zext nneg i32 %70 to i64
   %switch.downshift = lshr i64 433760652906004483, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @_ZN5typst9visualize5color5Color8to_space17hc7c43a0ee73de2acE(ptr noalias nocapture noundef nonnull sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %4, i8 noundef %switch.masked)

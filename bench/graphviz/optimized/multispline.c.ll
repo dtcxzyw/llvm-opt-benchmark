@@ -2047,32 +2047,32 @@ mkPoly.exit:                                      ; preds = %538
   %666 = getelementptr inbounds i8, ptr %662, i64 8
   %667 = load double, ptr %666, align 8
   %668 = load <2 x double>, ptr %663, align 8
-  %669 = load double, ptr %664, align 8
-  %670 = getelementptr inbounds i8, ptr %662, i64 40
-  %671 = load double, ptr %670, align 8
+  %669 = extractelement <2 x double> %668, i64 1
+  %670 = extractelement <2 x double> %668, i64 0
+  %671 = load double, ptr %664, align 8
+  %672 = getelementptr inbounds i8, ptr %662, i64 40
+  %673 = load double, ptr %672, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %672 = load i32, ptr %544, align 8
-  %673 = icmp sgt i32 %672, 1
-  br i1 %673, label %.lr.ph.i.i.i80, label %mkCtrlPts.exit.thread.i
+  %674 = load i32, ptr %544, align 8
+  %675 = icmp sgt i32 %674, 1
+  br i1 %675, label %.lr.ph.i.i.i80, label %mkCtrlPts.exit.thread.i
 
 .lr.ph.i.i.i80:                                   ; preds = %660
-  %674 = load ptr, ptr %539, align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %672 to i64
-  %675 = extractelement <2 x double> %668, i64 0
-  %676 = extractelement <2 x double> %668, i64 1
+  %676 = load ptr, ptr %539, align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %674 to i64
   br label %677
 
 677:                                              ; preds = %682, %.lr.ph.i.i.i80
   %indvars.iv.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i80 ], [ %indvars.iv.next.i.i.i, %682 ]
-  %678 = getelementptr inbounds %struct.pointf_s, ptr %674, i64 %indvars.iv.i.i.i
+  %678 = getelementptr inbounds %struct.pointf_s, ptr %676, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i.i.i = load double, ptr %678, align 8
-  %679 = fcmp oeq double %.sroa.0.0.copyload.i.i.i, %675
+  %679 = fcmp oeq double %.sroa.0.0.copyload.i.i.i, %670
   br i1 %679, label %680, label %682
 
 680:                                              ; preds = %677
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %678, i64 8
   %.sroa.2.0.copyload.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %681 = fcmp oeq double %.sroa.2.0.copyload.i.i.i, %676
+  %681 = fcmp oeq double %.sroa.2.0.copyload.i.i.i, %669
   br i1 %681, label %ctrlPtIdx.exit.i.i, label %682
 
 682:                                              ; preds = %680, %677
@@ -2083,11 +2083,11 @@ mkPoly.exit:                                      ; preds = %538
 ctrlPtIdx.exit.i.i:                               ; preds = %680
   %683 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %684 = call fastcc ptr @gv_calloc(i64 noundef %649, i64 noundef 16)
-  %685 = fsub double %671, %676
-  %686 = fsub double %669, %675
+  %685 = fsub double %673, %669
+  %686 = fsub double %671, %670
   %687 = call double @atan2(double noundef %685, double noundef %686) #19
-  %688 = fsub double %667, %676
-  %689 = fsub double %665, %675
+  %688 = fsub double %667, %669
+  %689 = fsub double %665, %670
   %690 = call double @atan2(double noundef %688, double noundef %689) #19
   %691 = fadd double %687, %690
   %692 = fmul double %691, 5.000000e-01
@@ -2099,7 +2099,7 @@ ctrlPtIdx.exit.i.i:                               ; preds = %680
   %698 = icmp slt i32 %482, %683
   %699 = extractelement <2 x double> %697, i64 0
   %700 = extractelement <2 x double> %697, i64 1
-  %701 = call i32 @wind(double %665, double %667, double %675, double %676, double %699, double %700) #19
+  %701 = call i32 @wind(double %665, double %667, double %670, double %669, double %699, double %700) #19
   br i1 %698, label %702, label %706
 
 702:                                              ; preds = %ctrlPtIdx.exit.i.i
@@ -2151,12 +2151,12 @@ ctrlPtIdx.exit.i.i:                               ; preds = %680
   %729 = load double, ptr %725, align 8
   %730 = getelementptr inbounds i8, ptr %725, i64 8
   %731 = load double, ptr %730, align 8
-  %732 = call fastcc i32 @raySeg(double %675, double %676, double %716, double %717, double %726, double %728, double %729, double %731)
+  %732 = call fastcc i32 @raySeg(double %670, double %669, double %716, double %717, double %726, double %728, double %729, double %731)
   %.not.i.i.i.i = icmp eq i32 %732, 0
   br i1 %.not.i.i.i.i, label %raySegIntersect.exit.thread.i.i.i, label %raySegIntersect.exit.i.i.i
 
 raySegIntersect.exit.i.i.i:                       ; preds = %.lr.ph.i96.i.i
-  %733 = call i32 @line_intersect(double %675, double %676, double %716, double %717, double %726, double %728, double %729, double %731, ptr noundef nonnull %4) #19
+  %733 = call i32 @line_intersect(double %670, double %669, double %716, double %717, double %726, double %728, double %729, double %731, ptr noundef nonnull %4) #19
   %.not12.i.i.i = icmp eq i32 %733, 0
   br i1 %.not12.i.i.i, label %raySegIntersect.exit.thread.i.i.i, label %triPoint.exit.i.i
 
@@ -2168,9 +2168,9 @@ raySegIntersect.exit.thread.i.i.i:                ; preds = %raySegIntersect.exi
 
 triPoint.exit.i.i:                                ; preds = %raySegIntersect.exit.i.i.i
   %735 = load double, ptr %4, align 8
-  %736 = fsub double %735, %675
+  %736 = fsub double %735, %670
   %737 = load double, ptr %650, align 8
-  %738 = fsub double %737, %676
+  %738 = fsub double %737, %669
   %739 = fmul double %738, %738
   %740 = call double @llvm.fmuladd.f64(double %736, double %736, double %739)
   %sqrt.i.i = call double @llvm.sqrt.f64(double %740)

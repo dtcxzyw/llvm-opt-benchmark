@@ -3108,22 +3108,23 @@ define linkonce_odr hidden noundef double @_ZNK2cv4face8MACEImpl9correlateERKNS_
 .noexc43:                                         ; preds = %.critedge.i, %95
   %108 = sdiv <2 x i32> %93, <i32 2, i32 2>
   %109 = shufflevector <2 x i32> %108, <2 x i32> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
+  %110 = extractelement <2 x i32> %108, i64 1
+  %111 = extractelement <2 x i32> %108, i64 0
   store i32 0, ptr %8, align 4
-  %110 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %8, i64 8
-  %112 = shufflevector <4 x i32> %109, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  store <2 x i32> %112, ptr %111, align 4
+  %112 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 0, ptr %112, align 4
+  %113 = getelementptr inbounds i8, ptr %8, i64 8
+  %114 = shufflevector <4 x i32> %109, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  store <2 x i32> %114, ptr %113, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 4 dereferenceable(16) %8)
           to label %.noexc44 unwind label %281
 
 .noexc44:                                         ; preds = %.noexc43
-  %113 = extractelement <2 x i32> %108, i64 1
-  store i32 %113, ptr %10, align 4
-  %114 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 0, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %10, i64 8
-  store <2 x i32> %112, ptr %115, align 4
+  store i32 %110, ptr %10, align 4
+  %115 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 0, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %10, i64 8
+  store <2 x i32> %114, ptr %116, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 4 dereferenceable(16) %10)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i unwind label %142
 
@@ -3134,11 +3135,10 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i:             ; preds = %.noexc44
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit80.i:           ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit.i
   store i32 0, ptr %14, align 4
-  %116 = getelementptr inbounds i8, ptr %14, i64 4
-  %117 = extractelement <2 x i32> %108, i64 0
-  store <2 x i32> %108, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 %117, ptr %118, align 4
+  %117 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %111, ptr %117, align 4
+  %118 = getelementptr inbounds i8, ptr %14, i64 8
+  store <2 x i32> %114, ptr %118, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 4 dereferenceable(16) %14)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit81.i unwind label %146
 
@@ -3147,16 +3147,16 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit81.i:           ; preds = %_ZNK2cv3MatclERKNS_
   %119 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 0, ptr %119, align 4
   %120 = getelementptr inbounds i8, ptr %16, i64 8
-  store <2 x i32> %112, ptr %120, align 4
+  store <2 x i32> %114, ptr %120, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 4 dereferenceable(16) %16)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit82.i unwind label %148
 
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit82.i:           ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit81.i
-  store i32 %113, ptr %18, align 4
+  store i32 %110, ptr %18, align 4
   %121 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 0, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %18, i64 8
-  store <2 x i32> %112, ptr %122, align 4
+  store <2 x i32> %114, ptr %122, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 4 dereferenceable(16) %18)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit83.i unwind label %150
 
@@ -3168,11 +3168,11 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit83.i:           ; preds = %_ZNK2cv3MatclERKNS_
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit84.i:           ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit83.i
   store i32 0, ptr %22, align 4
   %123 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 %117, ptr %123, align 4
+  store i32 %111, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %22, i64 8
-  store i32 %113, ptr %124, align 4
+  store i32 %110, ptr %124, align 4
   %125 = getelementptr inbounds i8, ptr %22, i64 12
-  store i32 %117, ptr %125, align 4
+  store i32 %111, ptr %125, align 4
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 4 dereferenceable(16) %22)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit85.i unwind label %154
 

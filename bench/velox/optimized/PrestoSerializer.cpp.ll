@@ -51279,6 +51279,7 @@ _ZN8facebook5velox9RowVector7childAtEj.exit.i:    ; preds = %if.then
   call void @_ZN8facebook5velox6BIGINTEv(ptr nonnull sret(%"class.std::shared_ptr.398") align 8 %ref.tmp1.i)
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   %6 = load <2 x ptr>, ptr %ref.tmp1.i, align 16
+  %7 = extractelement <2 x ptr> %6, i64 1
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store <2 x ptr> %6, ptr %ref.tmp.i, align 16
   store ptr null, ptr %ref.tmp1.i, align 16
@@ -51286,7 +51287,6 @@ _ZN8facebook5velox9RowVector7childAtEj.exit.i:    ; preds = %if.then
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN8facebook5velox9RowVector7childAtEj.exit.i
-  %7 = extractelement <2 x ptr> %6, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i, label %if.then.i.i.i.i
 

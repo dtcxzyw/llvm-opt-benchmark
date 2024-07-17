@@ -1902,60 +1902,60 @@ getmainedge.exit453:                              ; preds = %.preheader.i450
   %990 = load <2 x double>, ptr %986, align 8
   %991 = load <2 x double>, ptr %989, align 8
   %992 = fadd <2 x double> %990, %991
-  %993 = getelementptr inbounds i8, ptr %939, i64 16
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %994, i64 32
-  %996 = getelementptr inbounds i8, ptr %988, i64 72
-  %997 = load <2 x double>, ptr %995, align 8
-  %998 = load <2 x double>, ptr %996, align 8
-  %999 = fadd <2 x double> %997, %998
-  %1000 = getelementptr inbounds i8, ptr %985, i64 112
-  %1001 = load double, ptr %1000, align 8
-  %1002 = extractelement <2 x double> %992, i64 0
-  %1003 = fadd double %1002, %1001
-  %1004 = getelementptr inbounds i8, ptr %994, i64 104
-  %1005 = load double, ptr %1004, align 8
-  %1006 = extractelement <2 x double> %999, i64 0
-  %1007 = fsub double %1006, %1005
-  %1008 = fadd double %1003, %1007
-  %1009 = fmul double %1008, 5.000000e-01
-  %1010 = load ptr, ptr %981, align 8
+  %993 = extractelement <2 x double> %992, i64 1
+  %994 = extractelement <2 x double> %992, i64 0
+  %995 = getelementptr inbounds i8, ptr %939, i64 16
+  %996 = load ptr, ptr %995, align 8
+  %997 = getelementptr inbounds i8, ptr %996, i64 32
+  %998 = getelementptr inbounds i8, ptr %988, i64 72
+  %999 = load <2 x double>, ptr %997, align 8
+  %1000 = load <2 x double>, ptr %998, align 8
+  %1001 = fadd <2 x double> %999, %1000
+  %1002 = getelementptr inbounds i8, ptr %985, i64 112
+  %1003 = load double, ptr %1002, align 8
+  %1004 = fadd double %994, %1003
+  %1005 = getelementptr inbounds i8, ptr %996, i64 104
+  %1006 = load double, ptr %1005, align 8
+  %1007 = extractelement <2 x double> %1001, i64 0
+  %1008 = fsub double %1007, %1006
+  %1009 = fadd double %1004, %1008
+  %1010 = fmul double %1009, 5.000000e-01
+  %1011 = load ptr, ptr %981, align 8
   store <2 x double> %992, ptr %4, align 16
   store <2 x double> %992, ptr %530, align 16
-  store <2 x double> %999, ptr %531, align 16
-  store <2 x double> %999, ptr %532, align 16
-  %1011 = load i32, ptr %1010, align 8
-  %1012 = and i32 %1011, 3
-  %1013 = icmp eq i32 %1012, 2
-  %.idx.i.i = select i1 %1013, i64 0, i64 -64
-  %1014 = getelementptr inbounds i8, ptr %1010, i64 %.idx.i.i
-  %1015 = getelementptr inbounds i8, ptr %1014, i64 56
-  %1016 = load ptr, ptr %1015, align 8
-  call void @clip_and_install(ptr noundef nonnull %1010, ptr noundef %1016, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull @sinfo) #22
-  %1017 = getelementptr inbounds i8, ptr %1010, i64 16
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = getelementptr inbounds i8, ptr %1018, i64 120
-  %1020 = load ptr, ptr %1019, align 8
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 72
-  store double %1009, ptr %1021, align 8
-  %1022 = load ptr, ptr %1017, align 8
-  %1023 = getelementptr inbounds i8, ptr %1022, i64 120
-  %1024 = load ptr, ptr %1023, align 8
-  %1025 = getelementptr inbounds i8, ptr %1024, i64 48
-  %1026 = load double, ptr %1025, align 8
-  %1027 = fadd double %1026, 6.000000e+00
-  %1028 = fmul double %1027, 5.000000e-01
-  %1029 = extractelement <2 x double> %992, i64 1
-  %1030 = fadd double %1029, %1028
-  %1031 = getelementptr inbounds i8, ptr %1024, i64 80
+  store <2 x double> %1001, ptr %531, align 16
+  store <2 x double> %1001, ptr %532, align 16
+  %1012 = load i32, ptr %1011, align 8
+  %1013 = and i32 %1012, 3
+  %1014 = icmp eq i32 %1013, 2
+  %.idx.i.i = select i1 %1014, i64 0, i64 -64
+  %1015 = getelementptr inbounds i8, ptr %1011, i64 %.idx.i.i
+  %1016 = getelementptr inbounds i8, ptr %1015, i64 56
+  %1017 = load ptr, ptr %1016, align 8
+  call void @clip_and_install(ptr noundef nonnull %1011, ptr noundef %1017, ptr noundef nonnull %4, i64 noundef 4, ptr noundef nonnull @sinfo) #22
+  %1018 = getelementptr inbounds i8, ptr %1011, i64 16
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = getelementptr inbounds i8, ptr %1019, i64 120
+  %1021 = load ptr, ptr %1020, align 8
+  %1022 = getelementptr inbounds i8, ptr %1021, i64 72
+  store double %1010, ptr %1022, align 8
+  %1023 = load ptr, ptr %1018, align 8
+  %1024 = getelementptr inbounds i8, ptr %1023, i64 120
+  %1025 = load ptr, ptr %1024, align 8
+  %1026 = getelementptr inbounds i8, ptr %1025, i64 48
+  %1027 = load double, ptr %1026, align 8
+  %1028 = fadd double %1027, 6.000000e+00
+  %1029 = fmul double %1028, 5.000000e-01
+  %1030 = fadd double %993, %1029
+  %1031 = getelementptr inbounds i8, ptr %1025, i64 80
   store double %1030, ptr %1031, align 8
-  %1032 = load ptr, ptr %1017, align 8
+  %1032 = load ptr, ptr %1018, align 8
   %1033 = getelementptr inbounds i8, ptr %1032, i64 120
   %1034 = load ptr, ptr %1033, align 8
   %1035 = getelementptr inbounds i8, ptr %1034, i64 105
   store i8 1, ptr %1035, align 1
-  %1036 = fadd double %1029, 3.000000e+00
-  %1037 = load ptr, ptr %1017, align 8
+  %1036 = fadd double %993, 3.000000e+00
+  %1037 = load ptr, ptr %1018, align 8
   %1038 = getelementptr inbounds i8, ptr %1037, i64 120
   %1039 = load ptr, ptr %1038, align 8
   %1040 = getelementptr inbounds i8, ptr %1039, i64 40
@@ -1964,247 +1964,250 @@ getmainedge.exit453:                              ; preds = %.preheader.i450
   %1043 = fadd double %1036, %1042
   %1044 = load double, ptr %1040, align 8
   %1045 = fmul double %1044, 5.000000e-01
-  %1046 = fsub double %1009, %1045
-  %1047 = fadd double %1009, %1045
+  %1046 = fsub double %1010, %1045
+  %1047 = fadd double %1010, %1045
   %.not940 = icmp eq i32 %spec.select.i545, 1
   br i1 %.not940, label %.preheader.i.i540, label %.lr.ph232.i.i
 
 .lr.ph232.i.i:                                    ; preds = %978
   %wide.trip.count.i.i = zext nneg i32 %spec.select.i545 to i64
-  %1048 = extractelement <2 x double> %999, i64 1
-  br label %1059
+  %1048 = extractelement <2 x double> %1001, i64 1
+  br label %1060
 
-.preheader.i.i540:                                ; preds = %1114, %978
-  %.0196.lcssa.i.i = phi double [ %1043, %978 ], [ %.1197.i.i, %1114 ]
-  %.0193.lcssa.i.i = phi double [ %1036, %978 ], [ %.1194.i.i, %1114 ]
-  %1049 = phi <2 x double> [ zeroinitializer, %978 ], [ %1109, %1114 ]
+.preheader.i.i540:                                ; preds = %1113, %978
+  %.0196.lcssa.i.i = phi double [ %1043, %978 ], [ %.1197.i.i, %1113 ]
+  %.0193.lcssa.i.i = phi double [ %1036, %978 ], [ %.1194.i.i, %1113 ]
+  %1049 = phi <2 x double> [ zeroinitializer, %978 ], [ %1108, %1113 ]
   %1050 = icmp slt i32 %spec.select.i545, %.0327.lcssa
   br i1 %1050, label %.lr.ph242.i.i, label %makeSimpleFlatLabels.exit.i
 
 .lr.ph242.i.i:                                    ; preds = %.preheader.i.i540
-  %1051 = insertelement <2 x double> poison, double %1007, i64 0
-  %1052 = insertelement <2 x double> %1051, double %1003, i64 1
+  %1051 = insertelement <2 x double> poison, double %1008, i64 0
+  %1052 = insertelement <2 x double> %1051, double %1004, i64 1
   %1053 = shufflevector <2 x double> %1052, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %1054 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1052, <2 x double> <double 2.000000e+00, double 2.000000e+00>, <2 x double> %1053)
   %1055 = fdiv <2 x double> %1054, <double 3.000000e+00, double 3.000000e+00>
   %1056 = zext nneg i32 %spec.select.i545 to i64
   %1057 = insertelement <2 x double> poison, double %1047, i64 0
-  %1058 = extractelement <2 x double> %999, i64 1
-  br label %1135
+  %1058 = shufflevector <2 x double> %1001, <2 x double> poison, <2 x i32> zeroinitializer
+  %1059 = extractelement <2 x double> %1001, i64 1
+  br label %1134
 
-1059:                                             ; preds = %1114, %.lr.ph232.i.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph232.i.i ], [ %indvars.iv.next.i.i, %1114 ]
-  %.0193229.i.i = phi double [ %1036, %.lr.ph232.i.i ], [ %.1194.i.i, %1114 ]
-  %.0196228.i.i = phi double [ %1043, %.lr.ph232.i.i ], [ %.1197.i.i, %1114 ]
-  %1060 = phi <2 x double> [ zeroinitializer, %.lr.ph232.i.i ], [ %1109, %1114 ]
-  %1061 = getelementptr inbounds ptr, ptr %981, i64 %indvars.iv.i.i
-  %1062 = load ptr, ptr %1061, align 8
-  %1063 = and i64 %indvars.iv.i.i, 1
-  %.not215.i.i = icmp eq i64 %1063, 0
-  br i1 %.not215.i.i, label %1095, label %1064
+1060:                                             ; preds = %1113, %.lr.ph232.i.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph232.i.i ], [ %indvars.iv.next.i.i, %1113 ]
+  %.0193229.i.i = phi double [ %1036, %.lr.ph232.i.i ], [ %.1194.i.i, %1113 ]
+  %.0196228.i.i = phi double [ %1043, %.lr.ph232.i.i ], [ %.1197.i.i, %1113 ]
+  %1061 = phi <2 x double> [ zeroinitializer, %.lr.ph232.i.i ], [ %1108, %1113 ]
+  %1062 = getelementptr inbounds ptr, ptr %981, i64 %indvars.iv.i.i
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = and i64 %indvars.iv.i.i, 1
+  %.not215.i.i = icmp eq i64 %1064, 0
+  br i1 %.not215.i.i, label %1094, label %1065
 
-1064:                                             ; preds = %1059
-  %1065 = icmp eq i64 %indvars.iv.i.i, 1
-  %1066 = getelementptr inbounds i8, ptr %1062, i64 16
-  %1067 = load ptr, ptr %1066, align 8
-  %1068 = getelementptr inbounds i8, ptr %1067, i64 120
-  %1069 = load ptr, ptr %1068, align 8
-  br i1 %1065, label %1070, label %._crit_edge259.i.i
+1065:                                             ; preds = %1060
+  %1066 = icmp eq i64 %indvars.iv.i.i, 1
+  %1067 = getelementptr inbounds i8, ptr %1063, i64 16
+  %1068 = load ptr, ptr %1067, align 8
+  %1069 = getelementptr inbounds i8, ptr %1068, i64 120
+  %1070 = load ptr, ptr %1069, align 8
+  br i1 %1066, label %1071, label %._crit_edge259.i.i
 
-1070:                                             ; preds = %1064
-  %1071 = getelementptr inbounds i8, ptr %1069, i64 40
-  %1072 = load double, ptr %1071, align 8
-  %1073 = fmul double %1072, 5.000000e-01
-  %1074 = fsub double %1009, %1073
-  %1075 = fadd double %1009, %1073
-  %1076 = insertelement <2 x double> poison, double %1075, i64 0
-  %1077 = insertelement <2 x double> %1076, double %1074, i64 1
+1071:                                             ; preds = %1065
+  %1072 = getelementptr inbounds i8, ptr %1070, i64 40
+  %1073 = load double, ptr %1072, align 8
+  %1074 = fmul double %1073, 5.000000e-01
+  %1075 = fsub double %1010, %1074
+  %1076 = fadd double %1010, %1074
+  %1077 = insertelement <2 x double> poison, double %1076, i64 0
+  %1078 = insertelement <2 x double> %1077, double %1075, i64 1
   br label %._crit_edge259.i.i
 
-._crit_edge259.i.i:                               ; preds = %1070, %1064
-  %1078 = phi <2 x double> [ %1077, %1070 ], [ %1060, %1064 ]
-  %1079 = getelementptr inbounds i8, ptr %1069, i64 48
-  %1080 = load double, ptr %1079, align 8
-  %1081 = fadd double %1080, 6.000000e+00
-  %1082 = fsub double %.0193229.i.i, %1081
+._crit_edge259.i.i:                               ; preds = %1071, %1065
+  %1079 = phi <2 x double> [ %1078, %1071 ], [ %1061, %1065 ]
+  %1080 = getelementptr inbounds i8, ptr %1070, i64 48
+  %1081 = load double, ptr %1080, align 8
+  %1082 = fadd double %1081, 6.000000e+00
+  %1083 = fsub double %.0193229.i.i, %1082
   store <2 x double> %992, ptr %4, align 16
-  store double %1002, ptr %530, align 16
-  %1083 = fadd double %1082, -6.000000e+00
-  store double %1083, ptr %.sroa.14126.0..sroa_idx127.i.i, align 8
-  store double %1006, ptr %531, align 16
-  store double %1083, ptr %.sroa.14.0..sroa_idx.i.i, align 8
-  store <2 x double> %999, ptr %532, align 16
-  %1084 = extractelement <2 x double> %1078, i64 0
-  %1085 = shufflevector <2 x double> %1078, <2 x double> %999, <2 x i32> <i32 0, i32 3>
-  store <2 x double> %1085, ptr %533, align 16
-  store double %1084, ptr %535, align 16
-  store double %1082, ptr %536, align 8
-  %1086 = extractelement <2 x double> %1078, i64 1
+  store double %994, ptr %530, align 16
+  %1084 = fadd double %1083, -6.000000e+00
+  store double %1084, ptr %.sroa.14126.0..sroa_idx127.i.i, align 8
+  store double %1007, ptr %531, align 16
+  store double %1084, ptr %.sroa.14.0..sroa_idx.i.i, align 8
+  store <2 x double> %1001, ptr %532, align 16
+  %1085 = extractelement <2 x double> %1079, i64 0
+  store double %1085, ptr %533, align 16
+  store double %1048, ptr %534, align 8
+  store double %1085, ptr %535, align 16
+  store double %1083, ptr %536, align 8
+  %1086 = extractelement <2 x double> %1079, i64 1
   store double %1086, ptr %537, align 16
-  store double %1082, ptr %538, align 8
-  %1087 = shufflevector <2 x double> %1078, <2 x double> %992, <2 x i32> <i32 1, i32 3>
-  store <2 x double> %1087, ptr %539, align 16
-  %1088 = load ptr, ptr %1066, align 8
-  %1089 = getelementptr inbounds i8, ptr %1088, i64 120
-  %1090 = load ptr, ptr %1089, align 8
-  %1091 = getelementptr inbounds i8, ptr %1090, i64 48
-  %1092 = load double, ptr %1091, align 8
-  %1093 = fmul double %1092, 5.000000e-01
-  %1094 = fadd double %1082, %1093
-  br label %1108
+  store double %1083, ptr %538, align 8
+  store double %1086, ptr %539, align 16
+  store double %993, ptr %540, align 8
+  %1087 = load ptr, ptr %1067, align 8
+  %1088 = getelementptr inbounds i8, ptr %1087, i64 120
+  %1089 = load ptr, ptr %1088, align 8
+  %1090 = getelementptr inbounds i8, ptr %1089, i64 48
+  %1091 = load double, ptr %1090, align 8
+  %1092 = fmul double %1091, 5.000000e-01
+  %1093 = fadd double %1083, %1092
+  br label %1107
 
-1095:                                             ; preds = %1059
+1094:                                             ; preds = %1060
   store <2 x double> %992, ptr %4, align 16
   store double %1046, ptr %530, align 16
-  store double %1029, ptr %.sroa.14126.0..sroa_idx127.i.i, align 8
+  store double %993, ptr %.sroa.14126.0..sroa_idx127.i.i, align 8
   store double %1046, ptr %531, align 16
   store double %.0196228.i.i, ptr %.sroa.14.0..sroa_idx.i.i, align 8
   store double %1047, ptr %532, align 16
   store double %.0196228.i.i, ptr %.sroa.14.0..sroa_idx101.i.i, align 8
   store double %1047, ptr %533, align 16
   store double %1048, ptr %534, align 8
-  store <2 x double> %999, ptr %535, align 16
-  store double %1006, ptr %537, align 16
-  %1096 = fadd double %.0196228.i.i, 6.000000e+00
-  store double %1096, ptr %538, align 8
-  store double %1002, ptr %539, align 16
-  store double %1096, ptr %540, align 8
-  %1097 = getelementptr inbounds i8, ptr %1062, i64 16
-  %1098 = load ptr, ptr %1097, align 8
-  %1099 = getelementptr inbounds i8, ptr %1098, i64 120
-  %1100 = load ptr, ptr %1099, align 8
-  %1101 = getelementptr inbounds i8, ptr %1100, i64 48
-  %1102 = load double, ptr %1101, align 8
-  %1103 = fmul double %1102, 5.000000e-01
-  %1104 = fadd double %.0196228.i.i, %1103
-  %1105 = fadd double %1104, 6.000000e+00
-  %1106 = fadd double %1102, 6.000000e+00
-  %1107 = fadd double %.0196228.i.i, %1106
-  br label %1108
+  store <2 x double> %1001, ptr %535, align 16
+  store double %1007, ptr %537, align 16
+  %1095 = fadd double %.0196228.i.i, 6.000000e+00
+  store double %1095, ptr %538, align 8
+  store double %994, ptr %539, align 16
+  store double %1095, ptr %540, align 8
+  %1096 = getelementptr inbounds i8, ptr %1063, i64 16
+  %1097 = load ptr, ptr %1096, align 8
+  %1098 = getelementptr inbounds i8, ptr %1097, i64 120
+  %1099 = load ptr, ptr %1098, align 8
+  %1100 = getelementptr inbounds i8, ptr %1099, i64 48
+  %1101 = load double, ptr %1100, align 8
+  %1102 = fmul double %1101, 5.000000e-01
+  %1103 = fadd double %.0196228.i.i, %1102
+  %1104 = fadd double %1103, 6.000000e+00
+  %1105 = fadd double %1101, 6.000000e+00
+  %1106 = fadd double %.0196228.i.i, %1105
+  br label %1107
 
-1108:                                             ; preds = %1095, %._crit_edge259.i.i
-  %.1197.i.i = phi double [ %.0196228.i.i, %._crit_edge259.i.i ], [ %1107, %1095 ]
-  %.1194.i.i = phi double [ %1082, %._crit_edge259.i.i ], [ %.0193229.i.i, %1095 ]
-  %.0192.i.i = phi double [ %1094, %._crit_edge259.i.i ], [ %1105, %1095 ]
-  %1109 = phi <2 x double> [ %1078, %._crit_edge259.i.i ], [ %1060, %1095 ]
-  %1110 = call ptr @simpleSplineRoute(double %1002, double %1029, double %1006, double %1048, ptr nonnull %4, i32 8, ptr noundef nonnull %3, i32 noundef %542) #22
-  %1111 = icmp eq ptr %1110, null
-  %1112 = load i32, ptr %3, align 4
-  %1113 = icmp eq i32 %1112, 0
-  %or.cond.i.i542 = select i1 %1111, i1 true, i1 %1113
-  br i1 %or.cond.i.i542, label %._crit_edge243.sink.split.i.i, label %1114
+1107:                                             ; preds = %1094, %._crit_edge259.i.i
+  %.1197.i.i = phi double [ %.0196228.i.i, %._crit_edge259.i.i ], [ %1106, %1094 ]
+  %.1194.i.i = phi double [ %1083, %._crit_edge259.i.i ], [ %.0193229.i.i, %1094 ]
+  %.0192.i.i = phi double [ %1093, %._crit_edge259.i.i ], [ %1104, %1094 ]
+  %1108 = phi <2 x double> [ %1079, %._crit_edge259.i.i ], [ %1061, %1094 ]
+  %1109 = call ptr @simpleSplineRoute(double %994, double %993, double %1007, double %1048, ptr nonnull %4, i32 8, ptr noundef nonnull %3, i32 noundef %542) #22
+  %1110 = icmp eq ptr %1109, null
+  %1111 = load i32, ptr %3, align 4
+  %1112 = icmp eq i32 %1111, 0
+  %or.cond.i.i542 = select i1 %1110, i1 true, i1 %1112
+  br i1 %or.cond.i.i542, label %._crit_edge243.sink.split.i.i, label %1113
 
-1114:                                             ; preds = %1108
-  %1115 = getelementptr inbounds i8, ptr %1062, i64 16
-  %1116 = load ptr, ptr %1115, align 8
-  %1117 = getelementptr inbounds i8, ptr %1116, i64 120
-  %1118 = load ptr, ptr %1117, align 8
-  %1119 = getelementptr inbounds i8, ptr %1118, i64 72
-  store double %1009, ptr %1119, align 8
-  %1120 = load ptr, ptr %1115, align 8
-  %1121 = getelementptr inbounds i8, ptr %1120, i64 120
-  %1122 = load ptr, ptr %1121, align 8
-  %1123 = getelementptr inbounds i8, ptr %1122, i64 80
-  store double %.0192.i.i, ptr %1123, align 8
-  %1124 = load ptr, ptr %1115, align 8
-  %1125 = getelementptr inbounds i8, ptr %1124, i64 120
-  %1126 = load ptr, ptr %1125, align 8
-  %1127 = getelementptr inbounds i8, ptr %1126, i64 105
-  store i8 1, ptr %1127, align 1
-  %1128 = load i32, ptr %1062, align 8
-  %1129 = and i32 %1128, 3
-  %1130 = icmp eq i32 %1129, 2
-  %.idx216.i.i = select i1 %1130, i64 0, i64 -64
-  %1131 = getelementptr inbounds i8, ptr %1062, i64 %.idx216.i.i
-  %1132 = getelementptr inbounds i8, ptr %1131, i64 56
-  %1133 = load ptr, ptr %1132, align 8
-  %1134 = sext i32 %1112 to i64
-  call void @clip_and_install(ptr noundef nonnull %1062, ptr noundef %1133, ptr noundef nonnull %1110, i64 noundef %1134, ptr noundef nonnull @sinfo) #22
-  call void @free(ptr noundef nonnull %1110) #22
+1113:                                             ; preds = %1107
+  %1114 = getelementptr inbounds i8, ptr %1063, i64 16
+  %1115 = load ptr, ptr %1114, align 8
+  %1116 = getelementptr inbounds i8, ptr %1115, i64 120
+  %1117 = load ptr, ptr %1116, align 8
+  %1118 = getelementptr inbounds i8, ptr %1117, i64 72
+  store double %1010, ptr %1118, align 8
+  %1119 = load ptr, ptr %1114, align 8
+  %1120 = getelementptr inbounds i8, ptr %1119, i64 120
+  %1121 = load ptr, ptr %1120, align 8
+  %1122 = getelementptr inbounds i8, ptr %1121, i64 80
+  store double %.0192.i.i, ptr %1122, align 8
+  %1123 = load ptr, ptr %1114, align 8
+  %1124 = getelementptr inbounds i8, ptr %1123, i64 120
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = getelementptr inbounds i8, ptr %1125, i64 105
+  store i8 1, ptr %1126, align 1
+  %1127 = load i32, ptr %1063, align 8
+  %1128 = and i32 %1127, 3
+  %1129 = icmp eq i32 %1128, 2
+  %.idx216.i.i = select i1 %1129, i64 0, i64 -64
+  %1130 = getelementptr inbounds i8, ptr %1063, i64 %.idx216.i.i
+  %1131 = getelementptr inbounds i8, ptr %1130, i64 56
+  %1132 = load ptr, ptr %1131, align 8
+  %1133 = sext i32 %1111 to i64
+  call void @clip_and_install(ptr noundef nonnull %1063, ptr noundef %1132, ptr noundef nonnull %1109, i64 noundef %1133, ptr noundef nonnull @sinfo) #22
+  call void @free(ptr noundef nonnull %1109) #22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i543 = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i543, label %.preheader.i.i540, label %1059
+  br i1 %exitcond.not.i.i543, label %.preheader.i.i540, label %1060
 
-1135:                                             ; preds = %1161, %.lr.ph242.i.i
+1134:                                             ; preds = %1161, %.lr.ph242.i.i
   %indvars.iv254.i.i = phi i64 [ %1056, %.lr.ph242.i.i ], [ %indvars.iv.next255.i.i, %1161 ]
   %.2195240.i.i = phi double [ %.0193.lcssa.i.i, %.lr.ph242.i.i ], [ %.3.i.i, %1161 ]
   %.2198239.i.i = phi double [ %.0196.lcssa.i.i, %.lr.ph242.i.i ], [ %.3199.i.i, %1161 ]
-  %1136 = phi <2 x double> [ %1049, %.lr.ph242.i.i ], [ %1156, %1161 ]
-  %1137 = getelementptr inbounds ptr, ptr %981, i64 %indvars.iv254.i.i
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = and i64 %indvars.iv254.i.i, 1
-  %.not.i.i541 = icmp eq i64 %1139, 0
-  br i1 %.not.i.i541, label %1150, label %1140
+  %1135 = phi <2 x double> [ %1049, %.lr.ph242.i.i ], [ %1154, %1161 ]
+  %1136 = getelementptr inbounds ptr, ptr %981, i64 %indvars.iv254.i.i
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = and i64 %indvars.iv254.i.i, 1
+  %.not.i.i541 = icmp eq i64 %1138, 0
+  br i1 %.not.i.i541, label %1148, label %1139
 
-1140:                                             ; preds = %1135
-  %1141 = icmp eq i64 %indvars.iv254.i.i, 1
-  %1142 = insertelement <2 x i1> poison, i1 %1141, i64 0
-  %1143 = shufflevector <2 x i1> %1142, <2 x i1> poison, <2 x i32> zeroinitializer
-  %1144 = select <2 x i1> %1143, <2 x double> %1055, <2 x double> %1136
-  %1145 = fadd double %.2195240.i.i, -6.000000e+00
-  %1146 = fadd double %1145, -6.000000e+00
-  %1147 = insertelement <2 x double> %1144, double %1145, i64 1
-  %1148 = extractelement <2 x double> %1144, i64 0
-  %1149 = extractelement <2 x double> %1144, i64 1
-  br label %1153
+1139:                                             ; preds = %1134
+  %1140 = icmp eq i64 %indvars.iv254.i.i, 1
+  %1141 = insertelement <2 x i1> poison, i1 %1140, i64 0
+  %1142 = shufflevector <2 x i1> %1141, <2 x i1> poison, <2 x i32> zeroinitializer
+  %1143 = select <2 x i1> %1142, <2 x double> %1055, <2 x double> %1135
+  %1144 = fadd double %.2195240.i.i, -6.000000e+00
+  %1145 = fadd double %1144, -6.000000e+00
+  %1146 = extractelement <2 x double> %1143, i64 0
+  %1147 = extractelement <2 x double> %1143, i64 1
+  br label %1151
 
-1150:                                             ; preds = %1135
-  %1151 = fadd double %.2198239.i.i, 6.000000e+00
-  %1152 = insertelement <2 x double> %1057, double %.2198239.i.i, i64 1
-  br label %1153
+1148:                                             ; preds = %1134
+  %1149 = fadd double %.2198239.i.i, 6.000000e+00
+  %1150 = insertelement <2 x double> %1057, double %.2198239.i.i, i64 1
+  br label %1151
 
-1153:                                             ; preds = %1150, %1140
-  %.sink1118 = phi double [ %1046, %1150 ], [ %1002, %1140 ]
-  %.sink1117 = phi double [ %1029, %1150 ], [ %1146, %1140 ]
-  %.sink1116 = phi double [ %1046, %1150 ], [ %1006, %1140 ]
-  %.sink1115 = phi double [ %.2198239.i.i, %1150 ], [ %1146, %1140 ]
-  %.4208.i.i.sink1112 = phi double [ %1047, %1150 ], [ %1148, %1140 ]
-  %.4.i.i.sink = phi double [ %1006, %1150 ], [ %1149, %1140 ]
-  %storemerge263.i.i = phi double [ %1151, %1150 ], [ %1145, %1140 ]
-  %storemerge262.i.i = phi double [ %1002, %1150 ], [ %1149, %1140 ]
-  %storemerge.i.i = phi double [ %1151, %1150 ], [ %1029, %1140 ]
-  %.3199.i.i = phi double [ %1151, %1150 ], [ %.2198239.i.i, %1140 ]
-  %.3.i.i = phi double [ %.2195240.i.i, %1150 ], [ %1145, %1140 ]
-  %1154 = phi <2 x double> [ %1152, %1150 ], [ %999, %1140 ]
-  %1155 = phi <2 x double> [ %999, %1150 ], [ %1147, %1140 ]
-  %1156 = phi <2 x double> [ %1136, %1150 ], [ %1144, %1140 ]
+1151:                                             ; preds = %1148, %1139
+  %.sink1118 = phi double [ %1046, %1148 ], [ %994, %1139 ]
+  %.sink1117 = phi double [ %993, %1148 ], [ %1145, %1139 ]
+  %.sink1116 = phi double [ %1046, %1148 ], [ %1007, %1139 ]
+  %.sink1115 = phi double [ %.2198239.i.i, %1148 ], [ %1145, %1139 ]
+  %.4208.i.i.sink1112 = phi double [ %1047, %1148 ], [ %1146, %1139 ]
+  %.sink = phi double [ %1059, %1148 ], [ %1144, %1139 ]
+  %storemerge263.i.i = phi double [ %1149, %1148 ], [ %1144, %1139 ]
+  %storemerge262.i.i = phi double [ %994, %1148 ], [ %1147, %1139 ]
+  %storemerge.i.i = phi double [ %1149, %1148 ], [ %993, %1139 ]
+  %.3199.i.i = phi double [ %1149, %1148 ], [ %.2198239.i.i, %1139 ]
+  %.3.i.i = phi double [ %.2195240.i.i, %1148 ], [ %1144, %1139 ]
+  %1152 = phi <2 x double> [ %1150, %1148 ], [ %1001, %1139 ]
+  %1153 = phi <2 x double> [ %1058, %1148 ], [ %1143, %1139 ]
+  %1154 = phi <2 x double> [ %1135, %1148 ], [ %1143, %1139 ]
   store <2 x double> %992, ptr %4, align 16
   store double %.sink1118, ptr %530, align 16
   store double %.sink1117, ptr %.sroa.14126.0..sroa_idx127.i.i, align 8
   store double %.sink1116, ptr %531, align 16
   store double %.sink1115, ptr %.sroa.14.0..sroa_idx.i.i, align 8
-  store <2 x double> %1154, ptr %532, align 16
+  store <2 x double> %1152, ptr %532, align 16
   store double %.4208.i.i.sink1112, ptr %533, align 16
-  store double %1058, ptr %534, align 8
-  store <2 x double> %1155, ptr %535, align 16
-  store double %.4.i.i.sink, ptr %537, align 16
+  store double %1059, ptr %534, align 8
+  %1155 = extractelement <2 x double> %1153, i64 0
+  store double %1155, ptr %535, align 16
+  store double %.sink, ptr %536, align 8
+  %1156 = extractelement <2 x double> %1153, i64 1
+  store double %1156, ptr %537, align 16
   store double %storemerge263.i.i, ptr %538, align 8
   store double %storemerge262.i.i, ptr %539, align 16
   store double %storemerge.i.i, ptr %540, align 8
-  %1157 = call ptr @simpleSplineRoute(double %1002, double %1029, double %1006, double %1058, ptr nonnull %4, i32 8, ptr noundef nonnull %3, i32 noundef %542) #22
+  %1157 = call ptr @simpleSplineRoute(double %994, double %993, double %1007, double %1059, ptr nonnull %4, i32 8, ptr noundef nonnull %3, i32 noundef %542) #22
   %1158 = icmp eq ptr %1157, null
   %1159 = load i32, ptr %3, align 4
   %1160 = icmp eq i32 %1159, 0
   %or.cond3.i.i = select i1 %1158, i1 true, i1 %1160
   br i1 %or.cond3.i.i, label %._crit_edge243.sink.split.i.i, label %1161
 
-1161:                                             ; preds = %1153
-  %1162 = load i32, ptr %1138, align 8
+1161:                                             ; preds = %1151
+  %1162 = load i32, ptr %1137, align 8
   %1163 = and i32 %1162, 3
   %1164 = icmp eq i32 %1163, 2
   %.idx214.i.i = select i1 %1164, i64 0, i64 -64
-  %1165 = getelementptr inbounds i8, ptr %1138, i64 %.idx214.i.i
+  %1165 = getelementptr inbounds i8, ptr %1137, i64 %.idx214.i.i
   %1166 = getelementptr inbounds i8, ptr %1165, i64 56
   %1167 = load ptr, ptr %1166, align 8
   %1168 = sext i32 %1159 to i64
-  call void @clip_and_install(ptr noundef nonnull %1138, ptr noundef %1167, ptr noundef nonnull %1157, i64 noundef %1168, ptr noundef nonnull @sinfo) #22
+  call void @clip_and_install(ptr noundef nonnull %1137, ptr noundef %1167, ptr noundef nonnull %1157, i64 noundef %1168, ptr noundef nonnull @sinfo) #22
   call void @free(ptr noundef nonnull %1157) #22
   %indvars.iv.next255.i.i = add nuw nsw i64 %indvars.iv254.i.i, 1
   %exitcond258.not.i.i = icmp eq i64 %indvars.iv.next255.i.i, %980
-  br i1 %exitcond258.not.i.i, label %makeSimpleFlatLabels.exit.i, label %1135
+  br i1 %exitcond258.not.i.i, label %makeSimpleFlatLabels.exit.i, label %1134
 
-._crit_edge243.sink.split.i.i:                    ; preds = %1108, %1153
-  %.lcssa.sink.i.i = phi ptr [ %1157, %1153 ], [ %1110, %1108 ]
+._crit_edge243.sink.split.i.i:                    ; preds = %1107, %1151
+  %.lcssa.sink.i.i = phi ptr [ %1157, %1151 ], [ %1109, %1107 ]
   call void @free(ptr noundef %.lcssa.sink.i.i) #22
   br label %makeSimpleFlatLabels.exit.i
 

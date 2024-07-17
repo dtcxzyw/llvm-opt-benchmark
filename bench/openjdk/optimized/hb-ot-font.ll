@@ -17755,7 +17755,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18glyf_accelerator_t10get_
 13:                                               ; preds = %11
   br i1 %12, label %20, label %.loopexit
 
-.loopexit1101:                                    ; preds = %78, %87, %114, %123, %163, %172, %199, %208, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i, %259, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854, %293, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859, %333, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863, %367, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875, %414, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880, %443, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885, %482, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890, %515, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902, %579, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907, %609, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912, %644, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917, %673, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922, %725, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927, %755, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932, %794, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937, %823, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942, %873, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947, %903, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952, %942, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957, %971, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962, %1010, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967, %1038, %1071, %1080, %1103, %1112, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980, %1150, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985, %1178, %1207, %1216
+.loopexit1101:                                    ; preds = %80, %89, %114, %123, %163, %172, %199, %208, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i, %259, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854, %289, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859, %328, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863, %358, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875, %403, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880, %432, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885, %471, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890, %500, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902, %564, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907, %594, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912, %629, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917, %658, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922, %710, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927, %740, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932, %779, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937, %808, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942, %858, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947, %888, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952, %927, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957, %956, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962, %995, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967, %1023, %1056, %1065, %1088, %1097, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980, %1135, %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985, %1163, %1192, %1201
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %14
@@ -17813,8 +17813,8 @@ _ZN22contour_point_vector_tD2Ev.exit:             ; preds = %14, %16
   %36 = getelementptr inbounds i8, ptr %3, i64 48
   br label %37
 
-37:                                               ; preds = %.lr.ph, %1218
-  %.08001103 = phi ptr [ %25, %.lr.ph ], [ %1219, %1218 ]
+37:                                               ; preds = %.lr.ph, %1203
+  %.08001103 = phi ptr [ %25, %.lr.ph ], [ %1204, %1203 ]
   %38 = getelementptr inbounds i8, ptr %.08001103, i64 8
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, 1
@@ -17824,122 +17824,122 @@ _ZN22contour_point_vector_tD2Ev.exit:             ; preds = %14, %16
   %43 = load <2 x float>, ptr %.08001103, align 4
   %44 = load <2 x float>, ptr %42, align 4
   %45 = fmul <2 x float> %43, %44
-  %46 = load i8, ptr %27, align 8
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %214, label %48
+  %46 = extractelement <2 x float> %45, i64 1
+  %47 = extractelement <2 x float> %45, i64 0
+  %48 = load i8, ptr %27, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %214, label %50
 
-48:                                               ; preds = %37
-  br i1 %.not805, label %128, label %49
+50:                                               ; preds = %37
+  br i1 %.not805, label %128, label %51
 
-49:                                               ; preds = %48
+51:                                               ; preds = %50
   store i32 1, ptr %27, align 8
   store <2 x float> %45, ptr %.sroa_idx, align 4
-  %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  %52 = load i8, ptr %51, align 4
-  %53 = trunc i8 %52 to i1
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %28, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %54 = load i8, ptr %53, align 4
+  %55 = trunc i8 %54 to i1
+  %56 = getelementptr inbounds i8, ptr %52, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %50, i64 24
-  br i1 %53, label %59, label %91
+  %58 = getelementptr inbounds i8, ptr %52, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %52, i64 24
+  br i1 %55, label %61, label %93
 
-59:                                               ; preds = %49
-  %60 = load i32, ptr %58, align 4
-  %.not809 = icmp eq i32 %60, 0
-  br i1 %.not809, label %89, label %61
+61:                                               ; preds = %51
+  %62 = load i32, ptr %60, align 4
+  %.not809 = icmp eq i32 %62, 0
+  br i1 %.not809, label %91, label %63
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %50, i64 28
-  %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %50, i64 36
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds i8, ptr %52, i64 28
   %65 = load float, ptr %64, align 4
-  %66 = fcmp une float %63, %65
-  %.phi.trans.insert1105 = getelementptr inbounds i8, ptr %50, i64 32
+  %66 = getelementptr inbounds i8, ptr %52, i64 36
+  %67 = load float, ptr %66, align 4
+  %68 = fcmp une float %65, %67
+  %.phi.trans.insert1105 = getelementptr inbounds i8, ptr %52, i64 32
   %.pre1106 = load float, ptr %.phi.trans.insert1105, align 4
-  br i1 %66, label %._crit_edge1104, label %67
+  br i1 %68, label %._crit_edge1104, label %69
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %50, i64 40
-  %69 = load float, ptr %68, align 4
-  %70 = fcmp une float %.pre1106, %69
-  br i1 %70, label %._crit_edge1104, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds i8, ptr %52, i64 40
+  %71 = load float, ptr %70, align 4
+  %72 = fcmp une float %.pre1106, %71
+  br i1 %72, label %._crit_edge1104, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
 
-._crit_edge1104:                                  ; preds = %61, %67
-  %71 = getelementptr inbounds i8, ptr %55, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %55, i64 56
+._crit_edge1104:                                  ; preds = %63, %69
+  %73 = getelementptr inbounds i8, ptr %57, i64 24
   %74 = load ptr, ptr %73, align 8
-  %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %78, label %75
+  %75 = getelementptr inbounds i8, ptr %57, i64 56
+  %76 = load ptr, ptr %75, align 8
+  %.not.i = icmp eq ptr %76, null
+  br i1 %.not.i, label %80, label %77
 
-75:                                               ; preds = %._crit_edge1104
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
-  %77 = load ptr, ptr %76, align 8
-  br label %78
+77:                                               ; preds = %._crit_edge1104
+  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = load ptr, ptr %78, align 8
+  br label %80
 
-78:                                               ; preds = %75, %._crit_edge1104
-  %79 = phi ptr [ %77, %75 ], [ null, %._crit_edge1104 ]
-  invoke void %72(ptr noundef nonnull %55, ptr noundef %57, ptr noundef nonnull %58, float noundef %63, float noundef %.pre1106, ptr noundef %79)
+80:                                               ; preds = %77, %._crit_edge1104
+  %81 = phi ptr [ %79, %77 ], [ null, %._crit_edge1104 ]
+  invoke void %74(ptr noundef nonnull %57, ptr noundef %59, ptr noundef nonnull %60, float noundef %65, float noundef %.pre1106, ptr noundef %81)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %78, %67
-  %80 = getelementptr inbounds i8, ptr %55, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %55, i64 56
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit: ; preds = %80, %69
+  %82 = getelementptr inbounds i8, ptr %57, i64 48
   %83 = load ptr, ptr %82, align 8
-  %.not.i839 = icmp eq ptr %83, null
-  br i1 %.not.i839, label %87, label %84
+  %84 = getelementptr inbounds i8, ptr %57, i64 56
+  %85 = load ptr, ptr %84, align 8
+  %.not.i839 = icmp eq ptr %85, null
+  br i1 %.not.i839, label %89, label %86
 
-84:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
-  %86 = load ptr, ptr %85, align 8
-  br label %87
-
-87:                                               ; preds = %84, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
-  %88 = phi ptr [ %86, %84 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit ]
-  invoke void %81(ptr noundef nonnull %55, ptr noundef %57, ptr noundef nonnull %58, ptr noundef %88)
-          to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit unwind label %.loopexit1101
-
-_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
+86:                                               ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
+  %87 = getelementptr inbounds i8, ptr %85, i64 32
+  %88 = load ptr, ptr %87, align 8
   br label %89
 
-89:                                               ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %59
-  %90 = getelementptr inbounds i8, ptr %50, i64 36
-  store <2 x float> %45, ptr %90, align 4
-  br label %520
+89:                                               ; preds = %86, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit
+  %90 = phi ptr [ %88, %86 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit ]
+  invoke void %83(ptr noundef nonnull %57, ptr noundef %59, ptr noundef nonnull %60, ptr noundef %90)
+          to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit unwind label %.loopexit1101
 
-91:                                               ; preds = %49
-  %92 = load float, ptr %50, align 8
-  %93 = extractelement <2 x float> %45, i64 0
-  %94 = extractelement <2 x float> %45, i64 1
-  %95 = call float @llvm.fmuladd.f32(float %94, float %92, float %93)
-  %96 = load i32, ptr %58, align 4
+_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %89
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, i8 0, i64 20, i1 false)
+  br label %91
+
+91:                                               ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit, %61
+  %92 = getelementptr inbounds i8, ptr %52, i64 36
+  store <2 x float> %45, ptr %92, align 4
+  br label %505
+
+93:                                               ; preds = %51
+  %94 = load float, ptr %52, align 8
+  %95 = call float @llvm.fmuladd.f32(float %46, float %94, float %47)
+  %96 = load i32, ptr %60, align 4
   %.not808 = icmp eq i32 %96, 0
   br i1 %.not808, label %125, label %97
 
-97:                                               ; preds = %91
-  %98 = getelementptr inbounds i8, ptr %50, i64 28
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds i8, ptr %52, i64 28
   %99 = load float, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %50, i64 36
+  %100 = getelementptr inbounds i8, ptr %52, i64 36
   %101 = load float, ptr %100, align 4
   %102 = fcmp une float %99, %101
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %50, i64 32
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %52, i64 32
   %.pre = load float, ptr %.phi.trans.insert, align 4
   br i1 %102, label %._crit_edge, label %103
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %50, i64 40
+  %104 = getelementptr inbounds i8, ptr %52, i64 40
   %105 = load float, ptr %104, align 4
   %106 = fcmp une float %.pre, %105
   br i1 %106, label %._crit_edge, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841
 
 ._crit_edge:                                      ; preds = %97, %103
-  %107 = getelementptr inbounds i8, ptr %55, i64 24
+  %107 = getelementptr inbounds i8, ptr %57, i64 24
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %55, i64 56
+  %109 = getelementptr inbounds i8, ptr %57, i64 56
   %110 = load ptr, ptr %109, align 8
   %.not.i840 = icmp eq ptr %110, null
   br i1 %.not.i840, label %114, label %111
@@ -17951,13 +17951,13 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit: ; preds = %87
 
 114:                                              ; preds = %111, %._crit_edge
   %115 = phi ptr [ %113, %111 ], [ null, %._crit_edge ]
-  invoke void %108(ptr noundef nonnull %55, ptr noundef %57, ptr noundef nonnull %58, float noundef %99, float noundef %.pre, ptr noundef %115)
+  invoke void %108(ptr noundef nonnull %57, ptr noundef %59, ptr noundef nonnull %60, float noundef %99, float noundef %.pre, ptr noundef %115)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841: ; preds = %114, %103
-  %116 = getelementptr inbounds i8, ptr %55, i64 48
+  %116 = getelementptr inbounds i8, ptr %57, i64 48
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %55, i64 56
+  %118 = getelementptr inbounds i8, ptr %57, i64 56
   %119 = load ptr, ptr %118, align 8
   %.not.i842 = icmp eq ptr %119, null
   br i1 %.not.i842, label %123, label %120
@@ -17969,21 +17969,21 @@ _ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841: ; preds = %11
 
 123:                                              ; preds = %120, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841
   %124 = phi ptr [ %122, %120 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit841 ]
-  invoke void %117(ptr noundef nonnull %55, ptr noundef %57, ptr noundef nonnull %58, ptr noundef %124)
+  invoke void %117(ptr noundef nonnull %57, ptr noundef %59, ptr noundef nonnull %60, ptr noundef %124)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843: ; preds = %123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %58, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %60, i8 0, i64 20, i1 false)
   br label %125
 
-125:                                              ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843, %91
-  %126 = getelementptr inbounds i8, ptr %50, i64 36
+125:                                              ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit843, %93
+  %126 = getelementptr inbounds i8, ptr %52, i64 36
   store float %95, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %50, i64 40
-  store float %94, ptr %127, align 4
-  br label %520
+  %127 = getelementptr inbounds i8, ptr %52, i64 40
+  store float %46, ptr %127, align 4
+  br label %505
 
-128:                                              ; preds = %48
+128:                                              ; preds = %50
   %129 = load i8, ptr %29, align 4
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %213
@@ -18071,7 +18071,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847: ; preds = %1
 174:                                              ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit847, %144
   %175 = getelementptr inbounds i8, ptr %135, i64 36
   store <2 x float> %134, ptr %175, align 4
-  br label %520
+  br label %505
 
 176:                                              ; preds = %131
   %177 = load float, ptr %135, align 8
@@ -18143,26 +18143,26 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit851: ; preds = %2
   store float %180, ptr %211, align 4
   %212 = getelementptr inbounds i8, ptr %135, i64 40
   store float %179, ptr %212, align 4
-  br label %520
+  br label %505
 
 213:                                              ; preds = %128
   store i32 1, ptr %29, align 4
   store <2 x float> %45, ptr %.sroa_idx1037, align 8
-  br label %520
+  br label %505
 
 214:                                              ; preds = %37
   %215 = load i8, ptr %30, align 4
   %216 = trunc i8 %215 to i1
-  br i1 %216, label %217, label %447
+  br i1 %216, label %217, label %436
 
 217:                                              ; preds = %214
-  br i1 %.not805, label %372, label %218
+  br i1 %.not805, label %363, label %218
 
 218:                                              ; preds = %217
   %219 = load i8, ptr %31, align 8
   %220 = trunc i8 %219 to i1
   %221 = load ptr, ptr %28, align 8
-  br i1 %220, label %222, label %298
+  br i1 %220, label %222, label %293
 
 222:                                              ; preds = %218
   %223 = load float, ptr %32, align 4
@@ -18177,7 +18177,7 @@ _ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit851: ; preds = %2
   %232 = getelementptr inbounds i8, ptr %221, i64 16
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %221, i64 24
-  br i1 %229, label %235, label %263
+  br i1 %229, label %235, label %261
 
 235:                                              ; preds = %222
   %236 = load i32, ptr %234, align 4
@@ -18227,1771 +18227,1756 @@ _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit: ; preds = %_ZN15hb_d
 
 259:                                              ; preds = %256, %251
   %260 = phi ptr [ %258, %256 ], [ null, %251 ]
-  %261 = extractelement <2 x float> %45, i64 0
-  %262 = extractelement <2 x float> %45, i64 1
-  invoke void %253(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %223, float noundef %224, float noundef %225, float noundef %226, float noundef %261, float noundef %262, ptr noundef %260)
+  invoke void %253(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %223, float noundef %224, float noundef %225, float noundef %226, float noundef %47, float noundef %46, ptr noundef %260)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit unwind label %.loopexit1101
 
-263:                                              ; preds = %222
-  %264 = load float, ptr %221, align 8
-  %265 = call float @llvm.fmuladd.f32(float %224, float %264, float %223)
-  %266 = call float @llvm.fmuladd.f32(float %226, float %264, float %225)
-  %267 = extractelement <2 x float> %45, i64 0
-  %268 = extractelement <2 x float> %45, i64 1
-  %269 = call float @llvm.fmuladd.f32(float %268, float %264, float %267)
-  %270 = load i32, ptr %234, align 4
-  %.not816 = icmp eq i32 %270, 0
-  br i1 %.not816, label %271, label %285
+261:                                              ; preds = %222
+  %262 = load float, ptr %221, align 8
+  %263 = call float @llvm.fmuladd.f32(float %224, float %262, float %223)
+  %264 = call float @llvm.fmuladd.f32(float %226, float %262, float %225)
+  %265 = call float @llvm.fmuladd.f32(float %46, float %262, float %47)
+  %266 = load i32, ptr %234, align 4
+  %.not816 = icmp eq i32 %266, 0
+  br i1 %.not816, label %267, label %281
 
-271:                                              ; preds = %263
-  %272 = getelementptr inbounds i8, ptr %221, i64 36
-  %273 = load float, ptr %272, align 4
-  %274 = getelementptr inbounds i8, ptr %221, i64 40
-  %275 = load float, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %231, i64 16
-  %277 = load ptr, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %231, i64 56
-  %279 = load ptr, ptr %278, align 8
-  %.not.i.i853 = icmp eq ptr %279, null
-  br i1 %.not.i.i853, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854, label %280
+267:                                              ; preds = %261
+  %268 = getelementptr inbounds i8, ptr %221, i64 36
+  %269 = load float, ptr %268, align 4
+  %270 = getelementptr inbounds i8, ptr %221, i64 40
+  %271 = load float, ptr %270, align 4
+  %272 = getelementptr inbounds i8, ptr %231, i64 16
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %231, i64 56
+  %275 = load ptr, ptr %274, align 8
+  %.not.i.i853 = icmp eq ptr %275, null
+  br i1 %.not.i.i853, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854, label %276
 
-280:                                              ; preds = %271
-  %281 = load ptr, ptr %279, align 8
+276:                                              ; preds = %267
+  %277 = load ptr, ptr %275, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854: ; preds = %280, %271
-  %282 = phi ptr [ %281, %280 ], [ null, %271 ]
-  invoke void %277(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %273, float noundef %275, ptr noundef %282)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854: ; preds = %276, %267
+  %278 = phi ptr [ %277, %276 ], [ null, %267 ]
+  invoke void %273(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %269, float noundef %271, ptr noundef %278)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i854
   store i32 1, ptr %234, align 4
-  %283 = getelementptr inbounds i8, ptr %221, i64 28
-  %284 = load <2 x float>, ptr %272, align 4
-  store <2 x float> %284, ptr %283, align 4
-  br label %285
+  %279 = getelementptr inbounds i8, ptr %221, i64 28
+  %280 = load <2 x float>, ptr %268, align 4
+  store <2 x float> %280, ptr %279, align 4
+  br label %281
 
-285:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855, %263
-  %286 = getelementptr inbounds i8, ptr %231, i64 40
-  %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %231, i64 56
-  %289 = load ptr, ptr %288, align 8
-  %.not.i856 = icmp eq ptr %289, null
-  br i1 %.not.i856, label %293, label %290
+281:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit855, %261
+  %282 = getelementptr inbounds i8, ptr %231, i64 40
+  %283 = load ptr, ptr %282, align 8
+  %284 = getelementptr inbounds i8, ptr %231, i64 56
+  %285 = load ptr, ptr %284, align 8
+  %.not.i856 = icmp eq ptr %285, null
+  br i1 %.not.i856, label %289, label %286
 
-290:                                              ; preds = %285
-  %291 = getelementptr inbounds i8, ptr %289, i64 24
-  %292 = load ptr, ptr %291, align 8
-  br label %293
+286:                                              ; preds = %281
+  %287 = getelementptr inbounds i8, ptr %285, i64 24
+  %288 = load ptr, ptr %287, align 8
+  br label %289
 
-293:                                              ; preds = %290, %285
-  %294 = phi ptr [ %292, %290 ], [ null, %285 ]
-  invoke void %287(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %265, float noundef %224, float noundef %266, float noundef %226, float noundef %269, float noundef %268, ptr noundef %294)
+289:                                              ; preds = %286, %281
+  %290 = phi ptr [ %288, %286 ], [ null, %281 ]
+  invoke void %283(ptr noundef nonnull %231, ptr noundef %233, ptr noundef nonnull %234, float noundef %263, float noundef %224, float noundef %264, float noundef %226, float noundef %265, float noundef %46, ptr noundef %290)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %293, %259
-  %.sink = phi float [ %261, %259 ], [ %269, %293 ]
-  %295 = getelementptr inbounds i8, ptr %221, i64 36
-  store float %.sink, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %221, i64 40
-  %297 = extractelement <2 x float> %45, i64 1
-  store float %297, ptr %296, align 4
+_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %289, %259
+  %.sink = phi float [ %47, %259 ], [ %265, %289 ]
+  %291 = getelementptr inbounds i8, ptr %221, i64 36
+  store float %.sink, ptr %291, align 4
+  %292 = getelementptr inbounds i8, ptr %221, i64 40
+  store float %46, ptr %292, align 4
   store i8 0, ptr %31, align 8
-  br label %371
+  br label %362
 
-298:                                              ; preds = %218
-  %299 = load float, ptr %.sroa_idx1033, align 8
-  %300 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
-  %301 = getelementptr inbounds i8, ptr %221, i64 4
-  %302 = load i8, ptr %301, align 4
-  %303 = trunc i8 %302 to i1
-  %304 = getelementptr inbounds i8, ptr %221, i64 8
-  %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %221, i64 16
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %221, i64 24
-  br i1 %303, label %309, label %338
+293:                                              ; preds = %218
+  %294 = load float, ptr %.sroa_idx1033, align 8
+  %295 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
+  %296 = getelementptr inbounds i8, ptr %221, i64 4
+  %297 = load i8, ptr %296, align 4
+  %298 = trunc i8 %297 to i1
+  %299 = getelementptr inbounds i8, ptr %221, i64 8
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds i8, ptr %221, i64 16
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %221, i64 24
+  br i1 %298, label %304, label %331
 
-309:                                              ; preds = %298
-  %310 = load i32, ptr %308, align 4
-  %.not815 = icmp eq i32 %310, 0
-  br i1 %.not815, label %311, label %325
+304:                                              ; preds = %293
+  %305 = load i32, ptr %303, align 4
+  %.not815 = icmp eq i32 %305, 0
+  br i1 %.not815, label %306, label %320
 
-311:                                              ; preds = %309
-  %312 = getelementptr inbounds i8, ptr %221, i64 36
-  %313 = load float, ptr %312, align 4
-  %314 = getelementptr inbounds i8, ptr %221, i64 40
-  %315 = load float, ptr %314, align 4
-  %316 = getelementptr inbounds i8, ptr %305, i64 16
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %305, i64 56
-  %319 = load ptr, ptr %318, align 8
-  %.not.i.i858 = icmp eq ptr %319, null
-  br i1 %.not.i.i858, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859, label %320
+306:                                              ; preds = %304
+  %307 = getelementptr inbounds i8, ptr %221, i64 36
+  %308 = load float, ptr %307, align 4
+  %309 = getelementptr inbounds i8, ptr %221, i64 40
+  %310 = load float, ptr %309, align 4
+  %311 = getelementptr inbounds i8, ptr %300, i64 16
+  %312 = load ptr, ptr %311, align 8
+  %313 = getelementptr inbounds i8, ptr %300, i64 56
+  %314 = load ptr, ptr %313, align 8
+  %.not.i.i858 = icmp eq ptr %314, null
+  br i1 %.not.i.i858, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859, label %315
 
-320:                                              ; preds = %311
-  %321 = load ptr, ptr %319, align 8
+315:                                              ; preds = %306
+  %316 = load ptr, ptr %314, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859: ; preds = %320, %311
-  %322 = phi ptr [ %321, %320 ], [ null, %311 ]
-  invoke void %317(ptr noundef nonnull %305, ptr noundef %307, ptr noundef nonnull %308, float noundef %313, float noundef %315, ptr noundef %322)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859: ; preds = %315, %306
+  %317 = phi ptr [ %316, %315 ], [ null, %306 ]
+  invoke void %312(ptr noundef nonnull %300, ptr noundef %302, ptr noundef nonnull %303, float noundef %308, float noundef %310, ptr noundef %317)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i859
-  store i32 1, ptr %308, align 4
-  %323 = getelementptr inbounds i8, ptr %221, i64 28
-  %324 = load <2 x float>, ptr %312, align 4
-  store <2 x float> %324, ptr %323, align 4
-  br label %325
+  store i32 1, ptr %303, align 4
+  %318 = getelementptr inbounds i8, ptr %221, i64 28
+  %319 = load <2 x float>, ptr %307, align 4
+  store <2 x float> %319, ptr %318, align 4
+  br label %320
 
-325:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860, %309
-  %326 = getelementptr inbounds i8, ptr %305, i64 32
+320:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit860, %304
+  %321 = getelementptr inbounds i8, ptr %300, i64 32
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds i8, ptr %300, i64 56
+  %324 = load ptr, ptr %323, align 8
+  %.not.i861 = icmp eq ptr %324, null
+  br i1 %.not.i861, label %328, label %325
+
+325:                                              ; preds = %320
+  %326 = getelementptr inbounds i8, ptr %324, i64 16
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %305, i64 56
-  %329 = load ptr, ptr %328, align 8
-  %.not.i861 = icmp eq ptr %329, null
-  br i1 %.not.i861, label %333, label %330
+  br label %328
 
-330:                                              ; preds = %325
-  %331 = getelementptr inbounds i8, ptr %329, i64 16
-  %332 = load ptr, ptr %331, align 8
-  br label %333
-
-333:                                              ; preds = %330, %325
-  %334 = phi ptr [ %332, %330 ], [ null, %325 ]
-  %335 = extractelement <2 x float> %45, i64 0
-  %336 = extractelement <2 x float> %45, i64 1
-  invoke void %327(ptr noundef nonnull %305, ptr noundef %307, ptr noundef nonnull %308, float noundef %299, float noundef %300, float noundef %335, float noundef %336, ptr noundef %334)
+328:                                              ; preds = %325, %320
+  %329 = phi ptr [ %327, %325 ], [ null, %320 ]
+  invoke void %322(ptr noundef nonnull %300, ptr noundef %302, ptr noundef nonnull %303, float noundef %294, float noundef %295, float noundef %47, float noundef %46, ptr noundef %329)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %333
+_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit: ; preds = %328
+  %330 = getelementptr inbounds i8, ptr %221, i64 36
+  store <2 x float> %45, ptr %330, align 4
+  br label %362
+
+331:                                              ; preds = %293
+  %332 = load float, ptr %221, align 8
+  %333 = call float @llvm.fmuladd.f32(float %295, float %332, float %294)
+  %334 = call float @llvm.fmuladd.f32(float %46, float %332, float %47)
+  %335 = load i32, ptr %303, align 4
+  %.not814 = icmp eq i32 %335, 0
+  br i1 %.not814, label %336, label %350
+
+336:                                              ; preds = %331
   %337 = getelementptr inbounds i8, ptr %221, i64 36
-  store <2 x float> %45, ptr %337, align 4
-  br label %371
+  %338 = load float, ptr %337, align 4
+  %339 = getelementptr inbounds i8, ptr %221, i64 40
+  %340 = load float, ptr %339, align 4
+  %341 = getelementptr inbounds i8, ptr %300, i64 16
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %300, i64 56
+  %344 = load ptr, ptr %343, align 8
+  %.not.i.i862 = icmp eq ptr %344, null
+  br i1 %.not.i.i862, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863, label %345
 
-338:                                              ; preds = %298
-  %339 = load float, ptr %221, align 8
-  %340 = call float @llvm.fmuladd.f32(float %300, float %339, float %299)
-  %341 = extractelement <2 x float> %45, i64 0
-  %342 = extractelement <2 x float> %45, i64 1
-  %343 = call float @llvm.fmuladd.f32(float %342, float %339, float %341)
-  %344 = load i32, ptr %308, align 4
-  %.not814 = icmp eq i32 %344, 0
-  br i1 %.not814, label %345, label %359
-
-345:                                              ; preds = %338
-  %346 = getelementptr inbounds i8, ptr %221, i64 36
-  %347 = load float, ptr %346, align 4
-  %348 = getelementptr inbounds i8, ptr %221, i64 40
-  %349 = load float, ptr %348, align 4
-  %350 = getelementptr inbounds i8, ptr %305, i64 16
-  %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %305, i64 56
-  %353 = load ptr, ptr %352, align 8
-  %.not.i.i862 = icmp eq ptr %353, null
-  br i1 %.not.i.i862, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863, label %354
-
-354:                                              ; preds = %345
-  %355 = load ptr, ptr %353, align 8
+345:                                              ; preds = %336
+  %346 = load ptr, ptr %344, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863: ; preds = %354, %345
-  %356 = phi ptr [ %355, %354 ], [ null, %345 ]
-  invoke void %351(ptr noundef nonnull %305, ptr noundef %307, ptr noundef nonnull %308, float noundef %347, float noundef %349, ptr noundef %356)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863: ; preds = %345, %336
+  %347 = phi ptr [ %346, %345 ], [ null, %336 ]
+  invoke void %342(ptr noundef nonnull %300, ptr noundef %302, ptr noundef nonnull %303, float noundef %338, float noundef %340, ptr noundef %347)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i863
-  store i32 1, ptr %308, align 4
-  %357 = getelementptr inbounds i8, ptr %221, i64 28
-  %358 = load <2 x float>, ptr %346, align 4
-  store <2 x float> %358, ptr %357, align 4
-  br label %359
+  store i32 1, ptr %303, align 4
+  %348 = getelementptr inbounds i8, ptr %221, i64 28
+  %349 = load <2 x float>, ptr %337, align 4
+  store <2 x float> %349, ptr %348, align 4
+  br label %350
 
-359:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864, %338
-  %360 = getelementptr inbounds i8, ptr %305, i64 32
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds i8, ptr %305, i64 56
-  %363 = load ptr, ptr %362, align 8
-  %.not.i865 = icmp eq ptr %363, null
-  br i1 %.not.i865, label %367, label %364
+350:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit864, %331
+  %351 = getelementptr inbounds i8, ptr %300, i64 32
+  %352 = load ptr, ptr %351, align 8
+  %353 = getelementptr inbounds i8, ptr %300, i64 56
+  %354 = load ptr, ptr %353, align 8
+  %.not.i865 = icmp eq ptr %354, null
+  br i1 %.not.i865, label %358, label %355
 
-364:                                              ; preds = %359
-  %365 = getelementptr inbounds i8, ptr %363, i64 16
-  %366 = load ptr, ptr %365, align 8
-  br label %367
+355:                                              ; preds = %350
+  %356 = getelementptr inbounds i8, ptr %354, i64 16
+  %357 = load ptr, ptr %356, align 8
+  br label %358
 
-367:                                              ; preds = %364, %359
-  %368 = phi ptr [ %366, %364 ], [ null, %359 ]
-  invoke void %361(ptr noundef nonnull %305, ptr noundef %307, ptr noundef nonnull %308, float noundef %340, float noundef %300, float noundef %343, float noundef %342, ptr noundef %368)
+358:                                              ; preds = %355, %350
+  %359 = phi ptr [ %357, %355 ], [ null, %350 ]
+  invoke void %352(ptr noundef nonnull %300, ptr noundef %302, ptr noundef nonnull %303, float noundef %333, float noundef %295, float noundef %334, float noundef %46, ptr noundef %359)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866: ; preds = %367
-  %369 = getelementptr inbounds i8, ptr %221, i64 36
-  store float %343, ptr %369, align 4
-  %370 = getelementptr inbounds i8, ptr %221, i64 40
-  store float %342, ptr %370, align 4
-  br label %371
+_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866: ; preds = %358
+  %360 = getelementptr inbounds i8, ptr %221, i64 36
+  store float %334, ptr %360, align 4
+  %361 = getelementptr inbounds i8, ptr %221, i64 40
+  store float %46, ptr %361, align 4
+  br label %362
 
-371:                                              ; preds = %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
+362:                                              ; preds = %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit866, %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit
   store i8 0, ptr %30, align 4
-  br label %520
+  br label %505
 
-372:                                              ; preds = %217
-  %373 = load float, ptr %.sroa_idx1033, align 8
-  %374 = extractelement <2 x float> %45, i64 0
-  %375 = fadd float %374, %373
-  %376 = fmul float %375, 5.000000e-01
-  %377 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
-  %378 = extractelement <2 x float> %45, i64 1
-  %379 = fadd float %378, %377
-  %380 = fmul float %379, 5.000000e-01
-  %381 = load ptr, ptr %28, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 4
-  %383 = load i8, ptr %382, align 4
-  %384 = trunc i8 %383 to i1
-  %385 = getelementptr inbounds i8, ptr %381, i64 8
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %381, i64 16
-  %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %381, i64 24
-  br i1 %384, label %390, label %416
+363:                                              ; preds = %217
+  %364 = load float, ptr %.sroa_idx1033, align 8
+  %365 = fadd float %47, %364
+  %366 = fmul float %365, 5.000000e-01
+  %367 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
+  %368 = fadd float %46, %367
+  %369 = fmul float %368, 5.000000e-01
+  %370 = load ptr, ptr %28, align 8
+  %371 = getelementptr inbounds i8, ptr %370, i64 4
+  %372 = load i8, ptr %371, align 4
+  %373 = trunc i8 %372 to i1
+  %374 = getelementptr inbounds i8, ptr %370, i64 8
+  %375 = load ptr, ptr %374, align 8
+  %376 = getelementptr inbounds i8, ptr %370, i64 16
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds i8, ptr %370, i64 24
+  br i1 %373, label %379, label %405
 
-390:                                              ; preds = %372
-  %391 = load i32, ptr %389, align 4
-  %.not813 = icmp eq i32 %391, 0
-  br i1 %.not813, label %392, label %406
+379:                                              ; preds = %363
+  %380 = load i32, ptr %378, align 4
+  %.not813 = icmp eq i32 %380, 0
+  br i1 %.not813, label %381, label %395
 
-392:                                              ; preds = %390
-  %393 = getelementptr inbounds i8, ptr %381, i64 36
-  %394 = load float, ptr %393, align 4
-  %395 = getelementptr inbounds i8, ptr %381, i64 40
-  %396 = load float, ptr %395, align 4
-  %397 = getelementptr inbounds i8, ptr %386, i64 16
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %386, i64 56
-  %400 = load ptr, ptr %399, align 8
-  %.not.i.i874 = icmp eq ptr %400, null
-  br i1 %.not.i.i874, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875, label %401
+381:                                              ; preds = %379
+  %382 = getelementptr inbounds i8, ptr %370, i64 36
+  %383 = load float, ptr %382, align 4
+  %384 = getelementptr inbounds i8, ptr %370, i64 40
+  %385 = load float, ptr %384, align 4
+  %386 = getelementptr inbounds i8, ptr %375, i64 16
+  %387 = load ptr, ptr %386, align 8
+  %388 = getelementptr inbounds i8, ptr %375, i64 56
+  %389 = load ptr, ptr %388, align 8
+  %.not.i.i874 = icmp eq ptr %389, null
+  br i1 %.not.i.i874, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875, label %390
 
-401:                                              ; preds = %392
-  %402 = load ptr, ptr %400, align 8
+390:                                              ; preds = %381
+  %391 = load ptr, ptr %389, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875: ; preds = %401, %392
-  %403 = phi ptr [ %402, %401 ], [ null, %392 ]
-  invoke void %398(ptr noundef nonnull %386, ptr noundef %388, ptr noundef nonnull %389, float noundef %394, float noundef %396, ptr noundef %403)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875: ; preds = %390, %381
+  %392 = phi ptr [ %391, %390 ], [ null, %381 ]
+  invoke void %387(ptr noundef nonnull %375, ptr noundef %377, ptr noundef nonnull %378, float noundef %383, float noundef %385, ptr noundef %392)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i875
-  store i32 1, ptr %389, align 4
-  %404 = getelementptr inbounds i8, ptr %381, i64 28
-  %405 = load <2 x float>, ptr %393, align 4
-  store <2 x float> %405, ptr %404, align 4
-  br label %406
+  store i32 1, ptr %378, align 4
+  %393 = getelementptr inbounds i8, ptr %370, i64 28
+  %394 = load <2 x float>, ptr %382, align 4
+  store <2 x float> %394, ptr %393, align 4
+  br label %395
 
-406:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876, %390
-  %407 = getelementptr inbounds i8, ptr %386, i64 32
-  %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr inbounds i8, ptr %386, i64 56
-  %410 = load ptr, ptr %409, align 8
-  %.not.i877 = icmp eq ptr %410, null
-  br i1 %.not.i877, label %414, label %411
+395:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit876, %379
+  %396 = getelementptr inbounds i8, ptr %375, i64 32
+  %397 = load ptr, ptr %396, align 8
+  %398 = getelementptr inbounds i8, ptr %375, i64 56
+  %399 = load ptr, ptr %398, align 8
+  %.not.i877 = icmp eq ptr %399, null
+  br i1 %.not.i877, label %403, label %400
 
-411:                                              ; preds = %406
-  %412 = getelementptr inbounds i8, ptr %410, i64 16
-  %413 = load ptr, ptr %412, align 8
-  br label %414
+400:                                              ; preds = %395
+  %401 = getelementptr inbounds i8, ptr %399, i64 16
+  %402 = load ptr, ptr %401, align 8
+  br label %403
 
-414:                                              ; preds = %411, %406
-  %415 = phi ptr [ %413, %411 ], [ null, %406 ]
-  invoke void %408(ptr noundef nonnull %386, ptr noundef %388, ptr noundef nonnull %389, float noundef %373, float noundef %377, float noundef %376, float noundef %380, ptr noundef %415)
+403:                                              ; preds = %400, %395
+  %404 = phi ptr [ %402, %400 ], [ null, %395 ]
+  invoke void %397(ptr noundef nonnull %375, ptr noundef %377, ptr noundef nonnull %378, float noundef %364, float noundef %367, float noundef %366, float noundef %369, ptr noundef %404)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878 unwind label %.loopexit1101
 
-416:                                              ; preds = %372
-  %417 = load float, ptr %381, align 8
-  %418 = call float @llvm.fmuladd.f32(float %377, float %417, float %373)
-  %419 = call float @llvm.fmuladd.f32(float %380, float %417, float %376)
-  %420 = load i32, ptr %389, align 4
-  %.not812 = icmp eq i32 %420, 0
-  br i1 %.not812, label %421, label %435
+405:                                              ; preds = %363
+  %406 = load float, ptr %370, align 8
+  %407 = call float @llvm.fmuladd.f32(float %367, float %406, float %364)
+  %408 = call float @llvm.fmuladd.f32(float %369, float %406, float %366)
+  %409 = load i32, ptr %378, align 4
+  %.not812 = icmp eq i32 %409, 0
+  br i1 %.not812, label %410, label %424
 
-421:                                              ; preds = %416
-  %422 = getelementptr inbounds i8, ptr %381, i64 36
-  %423 = load float, ptr %422, align 4
-  %424 = getelementptr inbounds i8, ptr %381, i64 40
-  %425 = load float, ptr %424, align 4
-  %426 = getelementptr inbounds i8, ptr %386, i64 16
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds i8, ptr %386, i64 56
-  %429 = load ptr, ptr %428, align 8
-  %.not.i.i879 = icmp eq ptr %429, null
-  br i1 %.not.i.i879, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880, label %430
+410:                                              ; preds = %405
+  %411 = getelementptr inbounds i8, ptr %370, i64 36
+  %412 = load float, ptr %411, align 4
+  %413 = getelementptr inbounds i8, ptr %370, i64 40
+  %414 = load float, ptr %413, align 4
+  %415 = getelementptr inbounds i8, ptr %375, i64 16
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds i8, ptr %375, i64 56
+  %418 = load ptr, ptr %417, align 8
+  %.not.i.i879 = icmp eq ptr %418, null
+  br i1 %.not.i.i879, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880, label %419
 
-430:                                              ; preds = %421
-  %431 = load ptr, ptr %429, align 8
+419:                                              ; preds = %410
+  %420 = load ptr, ptr %418, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880: ; preds = %430, %421
-  %432 = phi ptr [ %431, %430 ], [ null, %421 ]
-  invoke void %427(ptr noundef nonnull %386, ptr noundef %388, ptr noundef nonnull %389, float noundef %423, float noundef %425, ptr noundef %432)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880: ; preds = %419, %410
+  %421 = phi ptr [ %420, %419 ], [ null, %410 ]
+  invoke void %416(ptr noundef nonnull %375, ptr noundef %377, ptr noundef nonnull %378, float noundef %412, float noundef %414, ptr noundef %421)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i880
-  store i32 1, ptr %389, align 4
-  %433 = getelementptr inbounds i8, ptr %381, i64 28
-  %434 = load <2 x float>, ptr %422, align 4
-  store <2 x float> %434, ptr %433, align 4
-  br label %435
+  store i32 1, ptr %378, align 4
+  %422 = getelementptr inbounds i8, ptr %370, i64 28
+  %423 = load <2 x float>, ptr %411, align 4
+  store <2 x float> %423, ptr %422, align 4
+  br label %424
 
-435:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881, %416
-  %436 = getelementptr inbounds i8, ptr %386, i64 32
-  %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds i8, ptr %386, i64 56
-  %439 = load ptr, ptr %438, align 8
-  %.not.i882 = icmp eq ptr %439, null
-  br i1 %.not.i882, label %443, label %440
+424:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit881, %405
+  %425 = getelementptr inbounds i8, ptr %375, i64 32
+  %426 = load ptr, ptr %425, align 8
+  %427 = getelementptr inbounds i8, ptr %375, i64 56
+  %428 = load ptr, ptr %427, align 8
+  %.not.i882 = icmp eq ptr %428, null
+  br i1 %.not.i882, label %432, label %429
 
-440:                                              ; preds = %435
-  %441 = getelementptr inbounds i8, ptr %439, i64 16
-  %442 = load ptr, ptr %441, align 8
-  br label %443
+429:                                              ; preds = %424
+  %430 = getelementptr inbounds i8, ptr %428, i64 16
+  %431 = load ptr, ptr %430, align 8
+  br label %432
 
-443:                                              ; preds = %440, %435
-  %444 = phi ptr [ %442, %440 ], [ null, %435 ]
-  invoke void %437(ptr noundef nonnull %386, ptr noundef %388, ptr noundef nonnull %389, float noundef %418, float noundef %377, float noundef %419, float noundef %380, ptr noundef %444)
+432:                                              ; preds = %429, %424
+  %433 = phi ptr [ %431, %429 ], [ null, %424 ]
+  invoke void %426(ptr noundef nonnull %375, ptr noundef %377, ptr noundef nonnull %378, float noundef %407, float noundef %367, float noundef %408, float noundef %369, ptr noundef %433)
           to label %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878: ; preds = %443, %414
-  %.sink1129 = phi float [ %376, %414 ], [ %419, %443 ]
-  %445 = getelementptr inbounds i8, ptr %381, i64 36
-  store float %.sink1129, ptr %445, align 4
-  %446 = getelementptr inbounds i8, ptr %381, i64 40
-  store float %380, ptr %446, align 4
+_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878: ; preds = %432, %403
+  %.sink1129 = phi float [ %366, %403 ], [ %408, %432 ]
+  %434 = getelementptr inbounds i8, ptr %370, i64 36
+  store float %.sink1129, ptr %434, align 4
+  %435 = getelementptr inbounds i8, ptr %370, i64 40
+  store float %369, ptr %435, align 4
   store i32 1, ptr %30, align 4
   store <2 x float> %45, ptr %.sroa_idx1033, align 8
-  br label %520
+  br label %505
 
-447:                                              ; preds = %214
-  br i1 %.not805, label %519, label %448
+436:                                              ; preds = %214
+  br i1 %.not805, label %504, label %437
 
-448:                                              ; preds = %447
-  %449 = load ptr, ptr %28, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 4
-  %451 = load i8, ptr %450, align 4
-  %452 = trunc i8 %451 to i1
-  %453 = getelementptr inbounds i8, ptr %449, i64 8
-  %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %449, i64 16
-  %456 = load ptr, ptr %455, align 8
-  %457 = getelementptr inbounds i8, ptr %449, i64 24
-  br i1 %452, label %458, label %487
+437:                                              ; preds = %436
+  %438 = load ptr, ptr %28, align 8
+  %439 = getelementptr inbounds i8, ptr %438, i64 4
+  %440 = load i8, ptr %439, align 4
+  %441 = trunc i8 %440 to i1
+  %442 = getelementptr inbounds i8, ptr %438, i64 8
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds i8, ptr %438, i64 16
+  %445 = load ptr, ptr %444, align 8
+  %446 = getelementptr inbounds i8, ptr %438, i64 24
+  br i1 %441, label %447, label %474
 
-458:                                              ; preds = %448
-  %459 = load i32, ptr %457, align 4
-  %.not811 = icmp eq i32 %459, 0
-  br i1 %.not811, label %460, label %474
+447:                                              ; preds = %437
+  %448 = load i32, ptr %446, align 4
+  %.not811 = icmp eq i32 %448, 0
+  br i1 %.not811, label %449, label %463
 
-460:                                              ; preds = %458
-  %461 = getelementptr inbounds i8, ptr %449, i64 36
-  %462 = load float, ptr %461, align 4
-  %463 = getelementptr inbounds i8, ptr %449, i64 40
-  %464 = load float, ptr %463, align 4
-  %465 = getelementptr inbounds i8, ptr %454, i64 16
-  %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %454, i64 56
-  %468 = load ptr, ptr %467, align 8
-  %.not.i.i884 = icmp eq ptr %468, null
-  br i1 %.not.i.i884, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885, label %469
+449:                                              ; preds = %447
+  %450 = getelementptr inbounds i8, ptr %438, i64 36
+  %451 = load float, ptr %450, align 4
+  %452 = getelementptr inbounds i8, ptr %438, i64 40
+  %453 = load float, ptr %452, align 4
+  %454 = getelementptr inbounds i8, ptr %443, i64 16
+  %455 = load ptr, ptr %454, align 8
+  %456 = getelementptr inbounds i8, ptr %443, i64 56
+  %457 = load ptr, ptr %456, align 8
+  %.not.i.i884 = icmp eq ptr %457, null
+  br i1 %.not.i.i884, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885, label %458
 
-469:                                              ; preds = %460
-  %470 = load ptr, ptr %468, align 8
+458:                                              ; preds = %449
+  %459 = load ptr, ptr %457, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885: ; preds = %469, %460
-  %471 = phi ptr [ %470, %469 ], [ null, %460 ]
-  invoke void %466(ptr noundef nonnull %454, ptr noundef %456, ptr noundef nonnull %457, float noundef %462, float noundef %464, ptr noundef %471)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885: ; preds = %458, %449
+  %460 = phi ptr [ %459, %458 ], [ null, %449 ]
+  invoke void %455(ptr noundef nonnull %443, ptr noundef %445, ptr noundef nonnull %446, float noundef %451, float noundef %453, ptr noundef %460)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i885
-  store i32 1, ptr %457, align 4
-  %472 = getelementptr inbounds i8, ptr %449, i64 28
-  %473 = load <2 x float>, ptr %461, align 4
-  store <2 x float> %473, ptr %472, align 4
-  br label %474
+  store i32 1, ptr %446, align 4
+  %461 = getelementptr inbounds i8, ptr %438, i64 28
+  %462 = load <2 x float>, ptr %450, align 4
+  store <2 x float> %462, ptr %461, align 4
+  br label %463
 
-474:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886, %458
-  %475 = getelementptr inbounds i8, ptr %454, i64 24
-  %476 = load ptr, ptr %475, align 8
-  %477 = getelementptr inbounds i8, ptr %454, i64 56
-  %478 = load ptr, ptr %477, align 8
-  %.not.i887 = icmp eq ptr %478, null
-  br i1 %.not.i887, label %482, label %479
+463:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit886, %447
+  %464 = getelementptr inbounds i8, ptr %443, i64 24
+  %465 = load ptr, ptr %464, align 8
+  %466 = getelementptr inbounds i8, ptr %443, i64 56
+  %467 = load ptr, ptr %466, align 8
+  %.not.i887 = icmp eq ptr %467, null
+  br i1 %.not.i887, label %471, label %468
 
-479:                                              ; preds = %474
-  %480 = getelementptr inbounds i8, ptr %478, i64 8
-  %481 = load ptr, ptr %480, align 8
-  br label %482
+468:                                              ; preds = %463
+  %469 = getelementptr inbounds i8, ptr %467, i64 8
+  %470 = load ptr, ptr %469, align 8
+  br label %471
 
-482:                                              ; preds = %479, %474
-  %483 = phi ptr [ %481, %479 ], [ null, %474 ]
-  %484 = extractelement <2 x float> %45, i64 0
-  %485 = extractelement <2 x float> %45, i64 1
-  invoke void %476(ptr noundef nonnull %454, ptr noundef %456, ptr noundef nonnull %457, float noundef %484, float noundef %485, ptr noundef %483)
+471:                                              ; preds = %468, %463
+  %472 = phi ptr [ %470, %468 ], [ null, %463 ]
+  invoke void %465(ptr noundef nonnull %443, ptr noundef %445, ptr noundef nonnull %446, float noundef %47, float noundef %46, ptr noundef %472)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888: ; preds = %482
-  %486 = getelementptr inbounds i8, ptr %449, i64 36
-  store <2 x float> %45, ptr %486, align 4
-  br label %520
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888: ; preds = %471
+  %473 = getelementptr inbounds i8, ptr %438, i64 36
+  store <2 x float> %45, ptr %473, align 4
+  br label %505
 
-487:                                              ; preds = %448
-  %488 = load float, ptr %449, align 8
-  %489 = extractelement <2 x float> %45, i64 0
-  %490 = extractelement <2 x float> %45, i64 1
-  %491 = call float @llvm.fmuladd.f32(float %490, float %488, float %489)
-  %492 = load i32, ptr %457, align 4
-  %.not810 = icmp eq i32 %492, 0
-  br i1 %.not810, label %493, label %507
+474:                                              ; preds = %437
+  %475 = load float, ptr %438, align 8
+  %476 = call float @llvm.fmuladd.f32(float %46, float %475, float %47)
+  %477 = load i32, ptr %446, align 4
+  %.not810 = icmp eq i32 %477, 0
+  br i1 %.not810, label %478, label %492
 
-493:                                              ; preds = %487
-  %494 = getelementptr inbounds i8, ptr %449, i64 36
-  %495 = load float, ptr %494, align 4
-  %496 = getelementptr inbounds i8, ptr %449, i64 40
-  %497 = load float, ptr %496, align 4
-  %498 = getelementptr inbounds i8, ptr %454, i64 16
-  %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %454, i64 56
-  %501 = load ptr, ptr %500, align 8
-  %.not.i.i889 = icmp eq ptr %501, null
-  br i1 %.not.i.i889, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890, label %502
+478:                                              ; preds = %474
+  %479 = getelementptr inbounds i8, ptr %438, i64 36
+  %480 = load float, ptr %479, align 4
+  %481 = getelementptr inbounds i8, ptr %438, i64 40
+  %482 = load float, ptr %481, align 4
+  %483 = getelementptr inbounds i8, ptr %443, i64 16
+  %484 = load ptr, ptr %483, align 8
+  %485 = getelementptr inbounds i8, ptr %443, i64 56
+  %486 = load ptr, ptr %485, align 8
+  %.not.i.i889 = icmp eq ptr %486, null
+  br i1 %.not.i.i889, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890, label %487
 
-502:                                              ; preds = %493
-  %503 = load ptr, ptr %501, align 8
+487:                                              ; preds = %478
+  %488 = load ptr, ptr %486, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890: ; preds = %502, %493
-  %504 = phi ptr [ %503, %502 ], [ null, %493 ]
-  invoke void %499(ptr noundef nonnull %454, ptr noundef %456, ptr noundef nonnull %457, float noundef %495, float noundef %497, ptr noundef %504)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890: ; preds = %487, %478
+  %489 = phi ptr [ %488, %487 ], [ null, %478 ]
+  invoke void %484(ptr noundef nonnull %443, ptr noundef %445, ptr noundef nonnull %446, float noundef %480, float noundef %482, ptr noundef %489)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i890
-  store i32 1, ptr %457, align 4
-  %505 = getelementptr inbounds i8, ptr %449, i64 28
-  %506 = load <2 x float>, ptr %494, align 4
-  store <2 x float> %506, ptr %505, align 4
-  br label %507
+  store i32 1, ptr %446, align 4
+  %490 = getelementptr inbounds i8, ptr %438, i64 28
+  %491 = load <2 x float>, ptr %479, align 4
+  store <2 x float> %491, ptr %490, align 4
+  br label %492
 
-507:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891, %487
-  %508 = getelementptr inbounds i8, ptr %454, i64 24
-  %509 = load ptr, ptr %508, align 8
-  %510 = getelementptr inbounds i8, ptr %454, i64 56
-  %511 = load ptr, ptr %510, align 8
-  %.not.i892 = icmp eq ptr %511, null
-  br i1 %.not.i892, label %515, label %512
+492:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit891, %474
+  %493 = getelementptr inbounds i8, ptr %443, i64 24
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds i8, ptr %443, i64 56
+  %496 = load ptr, ptr %495, align 8
+  %.not.i892 = icmp eq ptr %496, null
+  br i1 %.not.i892, label %500, label %497
 
-512:                                              ; preds = %507
-  %513 = getelementptr inbounds i8, ptr %511, i64 8
-  %514 = load ptr, ptr %513, align 8
-  br label %515
+497:                                              ; preds = %492
+  %498 = getelementptr inbounds i8, ptr %496, i64 8
+  %499 = load ptr, ptr %498, align 8
+  br label %500
 
-515:                                              ; preds = %512, %507
-  %516 = phi ptr [ %514, %512 ], [ null, %507 ]
-  invoke void %509(ptr noundef nonnull %454, ptr noundef %456, ptr noundef nonnull %457, float noundef %491, float noundef %490, ptr noundef %516)
+500:                                              ; preds = %497, %492
+  %501 = phi ptr [ %499, %497 ], [ null, %492 ]
+  invoke void %494(ptr noundef nonnull %443, ptr noundef %445, ptr noundef nonnull %446, float noundef %476, float noundef %46, ptr noundef %501)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893: ; preds = %515
-  %517 = getelementptr inbounds i8, ptr %449, i64 36
-  store float %491, ptr %517, align 4
-  %518 = getelementptr inbounds i8, ptr %449, i64 40
-  store float %490, ptr %518, align 4
-  br label %520
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893: ; preds = %500
+  %502 = getelementptr inbounds i8, ptr %438, i64 36
+  store float %476, ptr %502, align 4
+  %503 = getelementptr inbounds i8, ptr %438, i64 40
+  store float %46, ptr %503, align 4
+  br label %505
 
-519:                                              ; preds = %447
+504:                                              ; preds = %436
   store i32 1, ptr %30, align 4
   store <2 x float> %45, ptr %.sroa_idx1033, align 8
-  br label %520
+  br label %505
 
-520:                                              ; preds = %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878, %371, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888, %519, %89, %125, %213, %174, %210
-  %521 = getelementptr inbounds i8, ptr %.08001103, i64 9
-  %522 = load i8, ptr %521, align 1
-  %523 = trunc i8 %522 to i1
-  br i1 %523, label %524, label %1218
+505:                                              ; preds = %_ZN15hb_draw_funcs_t17emit_quadratic_toEPvR15hb_draw_state_tffff.exit878, %362, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit893, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit888, %504, %91, %125, %213, %174, %210
+  %506 = getelementptr inbounds i8, ptr %.08001103, i64 9
+  %507 = load i8, ptr %506, align 1
+  %508 = trunc i8 %507 to i1
+  br i1 %508, label %509, label %1203
 
-524:                                              ; preds = %520
-  %525 = load i8, ptr %29, align 4
-  %526 = trunc i8 %525 to i1
-  br i1 %526, label %527, label %677
+509:                                              ; preds = %505
+  %510 = load i8, ptr %29, align 4
+  %511 = trunc i8 %510 to i1
+  br i1 %511, label %512, label %662
 
-527:                                              ; preds = %524
-  %528 = load i8, ptr %30, align 4
-  %529 = trunc i8 %528 to i1
-  br i1 %529, label %530, label %677
+512:                                              ; preds = %509
+  %513 = load i8, ptr %30, align 4
+  %514 = trunc i8 %513 to i1
+  br i1 %514, label %515, label %662
 
-530:                                              ; preds = %527
-  %531 = load i8, ptr %34, align 8
-  %532 = trunc i8 %531 to i1
-  %533 = select i1 %532, ptr %34, ptr %29
-  %.sroa.031.0.copyload = load i64, ptr %533, align 4
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %533, i64 8
+515:                                              ; preds = %512
+  %516 = load i8, ptr %34, align 8
+  %517 = trunc i8 %516 to i1
+  %518 = select i1 %517, ptr %34, ptr %29
+  %.sroa.031.0.copyload = load i64, ptr %518, align 4
+  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %518, i64 8
   %.sroa.232.0.copyload = load float, ptr %.sroa.232.0..sroa_idx, align 4
   %.sroa.01.sroa.2.0.extract.shift.i894 = lshr i64 %.sroa.031.0.copyload, 32
   %.sroa.01.sroa.2.0.extract.trunc.i895 = trunc nuw i64 %.sroa.01.sroa.2.0.extract.shift.i894 to i32
-  %534 = bitcast i32 %.sroa.01.sroa.2.0.extract.trunc.i895 to float
-  %535 = load float, ptr %.sroa_idx1033, align 8
-  %536 = fadd float %535, %534
-  %537 = fmul float %536, 5.000000e-01
-  %538 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
-  %539 = fadd float %.sroa.232.0.copyload, %538
-  %540 = fmul float %539, 5.000000e-01
-  %541 = load i8, ptr %31, align 8
-  %542 = trunc i8 %541 to i1
-  %543 = load ptr, ptr %28, align 8
-  br i1 %542, label %544, label %611
+  %519 = bitcast i32 %.sroa.01.sroa.2.0.extract.trunc.i895 to float
+  %520 = load float, ptr %.sroa_idx1033, align 8
+  %521 = fadd float %520, %519
+  %522 = fmul float %521, 5.000000e-01
+  %523 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
+  %524 = fadd float %.sroa.232.0.copyload, %523
+  %525 = fmul float %524, 5.000000e-01
+  %526 = load i8, ptr %31, align 8
+  %527 = trunc i8 %526 to i1
+  %528 = load ptr, ptr %28, align 8
+  br i1 %527, label %529, label %596
 
-544:                                              ; preds = %530
-  %545 = load float, ptr %32, align 4
-  %546 = load float, ptr %33, align 8
-  %547 = getelementptr inbounds i8, ptr %543, i64 4
-  %548 = load i8, ptr %547, align 4
-  %549 = trunc i8 %548 to i1
-  %550 = getelementptr inbounds i8, ptr %543, i64 8
-  %551 = load ptr, ptr %550, align 8
-  %552 = getelementptr inbounds i8, ptr %543, i64 16
-  %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds i8, ptr %543, i64 24
-  br i1 %549, label %555, label %581
+529:                                              ; preds = %515
+  %530 = load float, ptr %32, align 4
+  %531 = load float, ptr %33, align 8
+  %532 = getelementptr inbounds i8, ptr %528, i64 4
+  %533 = load i8, ptr %532, align 4
+  %534 = trunc i8 %533 to i1
+  %535 = getelementptr inbounds i8, ptr %528, i64 8
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds i8, ptr %528, i64 16
+  %538 = load ptr, ptr %537, align 8
+  %539 = getelementptr inbounds i8, ptr %528, i64 24
+  br i1 %534, label %540, label %566
 
-555:                                              ; preds = %544
-  %556 = load i32, ptr %554, align 4
-  %.not821 = icmp eq i32 %556, 0
-  br i1 %.not821, label %557, label %571
+540:                                              ; preds = %529
+  %541 = load i32, ptr %539, align 4
+  %.not821 = icmp eq i32 %541, 0
+  br i1 %.not821, label %542, label %556
 
-557:                                              ; preds = %555
-  %558 = getelementptr inbounds i8, ptr %543, i64 36
-  %559 = load float, ptr %558, align 4
-  %560 = getelementptr inbounds i8, ptr %543, i64 40
-  %561 = load float, ptr %560, align 4
-  %562 = getelementptr inbounds i8, ptr %551, i64 16
-  %563 = load ptr, ptr %562, align 8
-  %564 = getelementptr inbounds i8, ptr %551, i64 56
-  %565 = load ptr, ptr %564, align 8
-  %.not.i.i901 = icmp eq ptr %565, null
-  br i1 %.not.i.i901, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902, label %566
+542:                                              ; preds = %540
+  %543 = getelementptr inbounds i8, ptr %528, i64 36
+  %544 = load float, ptr %543, align 4
+  %545 = getelementptr inbounds i8, ptr %528, i64 40
+  %546 = load float, ptr %545, align 4
+  %547 = getelementptr inbounds i8, ptr %536, i64 16
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds i8, ptr %536, i64 56
+  %550 = load ptr, ptr %549, align 8
+  %.not.i.i901 = icmp eq ptr %550, null
+  br i1 %.not.i.i901, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902, label %551
 
-566:                                              ; preds = %557
-  %567 = load ptr, ptr %565, align 8
+551:                                              ; preds = %542
+  %552 = load ptr, ptr %550, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902: ; preds = %566, %557
-  %568 = phi ptr [ %567, %566 ], [ null, %557 ]
-  invoke void %563(ptr noundef nonnull %551, ptr noundef %553, ptr noundef nonnull %554, float noundef %559, float noundef %561, ptr noundef %568)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902: ; preds = %551, %542
+  %553 = phi ptr [ %552, %551 ], [ null, %542 ]
+  invoke void %548(ptr noundef nonnull %536, ptr noundef %538, ptr noundef nonnull %539, float noundef %544, float noundef %546, ptr noundef %553)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i902
-  store i32 1, ptr %554, align 4
-  %569 = getelementptr inbounds i8, ptr %543, i64 28
-  %570 = load <2 x float>, ptr %558, align 4
-  store <2 x float> %570, ptr %569, align 4
-  br label %571
+  store i32 1, ptr %539, align 4
+  %554 = getelementptr inbounds i8, ptr %528, i64 28
+  %555 = load <2 x float>, ptr %543, align 4
+  store <2 x float> %555, ptr %554, align 4
+  br label %556
 
-571:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903, %555
-  %572 = getelementptr inbounds i8, ptr %551, i64 40
-  %573 = load ptr, ptr %572, align 8
-  %574 = getelementptr inbounds i8, ptr %551, i64 56
-  %575 = load ptr, ptr %574, align 8
-  %.not.i904 = icmp eq ptr %575, null
-  br i1 %.not.i904, label %579, label %576
+556:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit903, %540
+  %557 = getelementptr inbounds i8, ptr %536, i64 40
+  %558 = load ptr, ptr %557, align 8
+  %559 = getelementptr inbounds i8, ptr %536, i64 56
+  %560 = load ptr, ptr %559, align 8
+  %.not.i904 = icmp eq ptr %560, null
+  br i1 %.not.i904, label %564, label %561
 
-576:                                              ; preds = %571
-  %577 = getelementptr inbounds i8, ptr %575, i64 24
-  %578 = load ptr, ptr %577, align 8
-  br label %579
+561:                                              ; preds = %556
+  %562 = getelementptr inbounds i8, ptr %560, i64 24
+  %563 = load ptr, ptr %562, align 8
+  br label %564
 
-579:                                              ; preds = %576, %571
-  %580 = phi ptr [ %578, %576 ], [ null, %571 ]
-  invoke void %573(ptr noundef nonnull %551, ptr noundef %553, ptr noundef nonnull %554, float noundef %545, float noundef %546, float noundef %535, float noundef %538, float noundef %537, float noundef %540, ptr noundef %580)
+564:                                              ; preds = %561, %556
+  %565 = phi ptr [ %563, %561 ], [ null, %556 ]
+  invoke void %558(ptr noundef nonnull %536, ptr noundef %538, ptr noundef nonnull %539, float noundef %530, float noundef %531, float noundef %520, float noundef %523, float noundef %522, float noundef %525, ptr noundef %565)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
-581:                                              ; preds = %544
-  %582 = load float, ptr %543, align 8
-  %583 = call float @llvm.fmuladd.f32(float %546, float %582, float %545)
-  %584 = call float @llvm.fmuladd.f32(float %538, float %582, float %535)
-  %585 = call float @llvm.fmuladd.f32(float %540, float %582, float %537)
-  %586 = load i32, ptr %554, align 4
-  %.not820 = icmp eq i32 %586, 0
-  br i1 %.not820, label %587, label %601
+566:                                              ; preds = %529
+  %567 = load float, ptr %528, align 8
+  %568 = call float @llvm.fmuladd.f32(float %531, float %567, float %530)
+  %569 = call float @llvm.fmuladd.f32(float %523, float %567, float %520)
+  %570 = call float @llvm.fmuladd.f32(float %525, float %567, float %522)
+  %571 = load i32, ptr %539, align 4
+  %.not820 = icmp eq i32 %571, 0
+  br i1 %.not820, label %572, label %586
 
-587:                                              ; preds = %581
-  %588 = getelementptr inbounds i8, ptr %543, i64 36
-  %589 = load float, ptr %588, align 4
-  %590 = getelementptr inbounds i8, ptr %543, i64 40
-  %591 = load float, ptr %590, align 4
-  %592 = getelementptr inbounds i8, ptr %551, i64 16
-  %593 = load ptr, ptr %592, align 8
-  %594 = getelementptr inbounds i8, ptr %551, i64 56
-  %595 = load ptr, ptr %594, align 8
-  %.not.i.i906 = icmp eq ptr %595, null
-  br i1 %.not.i.i906, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907, label %596
+572:                                              ; preds = %566
+  %573 = getelementptr inbounds i8, ptr %528, i64 36
+  %574 = load float, ptr %573, align 4
+  %575 = getelementptr inbounds i8, ptr %528, i64 40
+  %576 = load float, ptr %575, align 4
+  %577 = getelementptr inbounds i8, ptr %536, i64 16
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr inbounds i8, ptr %536, i64 56
+  %580 = load ptr, ptr %579, align 8
+  %.not.i.i906 = icmp eq ptr %580, null
+  br i1 %.not.i.i906, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907, label %581
 
-596:                                              ; preds = %587
-  %597 = load ptr, ptr %595, align 8
+581:                                              ; preds = %572
+  %582 = load ptr, ptr %580, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907: ; preds = %596, %587
-  %598 = phi ptr [ %597, %596 ], [ null, %587 ]
-  invoke void %593(ptr noundef nonnull %551, ptr noundef %553, ptr noundef nonnull %554, float noundef %589, float noundef %591, ptr noundef %598)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907: ; preds = %581, %572
+  %583 = phi ptr [ %582, %581 ], [ null, %572 ]
+  invoke void %578(ptr noundef nonnull %536, ptr noundef %538, ptr noundef nonnull %539, float noundef %574, float noundef %576, ptr noundef %583)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i907
-  store i32 1, ptr %554, align 4
-  %599 = getelementptr inbounds i8, ptr %543, i64 28
-  %600 = load <2 x float>, ptr %588, align 4
-  store <2 x float> %600, ptr %599, align 4
-  br label %601
+  store i32 1, ptr %539, align 4
+  %584 = getelementptr inbounds i8, ptr %528, i64 28
+  %585 = load <2 x float>, ptr %573, align 4
+  store <2 x float> %585, ptr %584, align 4
+  br label %586
 
-601:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908, %581
-  %602 = getelementptr inbounds i8, ptr %551, i64 40
-  %603 = load ptr, ptr %602, align 8
-  %604 = getelementptr inbounds i8, ptr %551, i64 56
-  %605 = load ptr, ptr %604, align 8
-  %.not.i909 = icmp eq ptr %605, null
-  br i1 %.not.i909, label %609, label %606
+586:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit908, %566
+  %587 = getelementptr inbounds i8, ptr %536, i64 40
+  %588 = load ptr, ptr %587, align 8
+  %589 = getelementptr inbounds i8, ptr %536, i64 56
+  %590 = load ptr, ptr %589, align 8
+  %.not.i909 = icmp eq ptr %590, null
+  br i1 %.not.i909, label %594, label %591
 
-606:                                              ; preds = %601
-  %607 = getelementptr inbounds i8, ptr %605, i64 24
-  %608 = load ptr, ptr %607, align 8
-  br label %609
+591:                                              ; preds = %586
+  %592 = getelementptr inbounds i8, ptr %590, i64 24
+  %593 = load ptr, ptr %592, align 8
+  br label %594
 
-609:                                              ; preds = %606, %601
-  %610 = phi ptr [ %608, %606 ], [ null, %601 ]
-  invoke void %603(ptr noundef nonnull %551, ptr noundef %553, ptr noundef nonnull %554, float noundef %583, float noundef %546, float noundef %584, float noundef %538, float noundef %585, float noundef %540, ptr noundef %610)
+594:                                              ; preds = %591, %586
+  %595 = phi ptr [ %593, %591 ], [ null, %586 ]
+  invoke void %588(ptr noundef nonnull %536, ptr noundef %538, ptr noundef nonnull %539, float noundef %568, float noundef %531, float noundef %569, float noundef %523, float noundef %570, float noundef %525, ptr noundef %595)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
-611:                                              ; preds = %530
-  %612 = getelementptr inbounds i8, ptr %543, i64 4
-  %613 = load i8, ptr %612, align 4
-  %614 = trunc i8 %613 to i1
-  %615 = getelementptr inbounds i8, ptr %543, i64 8
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds i8, ptr %543, i64 16
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %543, i64 24
-  br i1 %614, label %620, label %646
+596:                                              ; preds = %515
+  %597 = getelementptr inbounds i8, ptr %528, i64 4
+  %598 = load i8, ptr %597, align 4
+  %599 = trunc i8 %598 to i1
+  %600 = getelementptr inbounds i8, ptr %528, i64 8
+  %601 = load ptr, ptr %600, align 8
+  %602 = getelementptr inbounds i8, ptr %528, i64 16
+  %603 = load ptr, ptr %602, align 8
+  %604 = getelementptr inbounds i8, ptr %528, i64 24
+  br i1 %599, label %605, label %631
 
-620:                                              ; preds = %611
-  %621 = load i32, ptr %619, align 4
-  %.not819 = icmp eq i32 %621, 0
-  br i1 %.not819, label %622, label %636
+605:                                              ; preds = %596
+  %606 = load i32, ptr %604, align 4
+  %.not819 = icmp eq i32 %606, 0
+  br i1 %.not819, label %607, label %621
 
-622:                                              ; preds = %620
-  %623 = getelementptr inbounds i8, ptr %543, i64 36
-  %624 = load float, ptr %623, align 4
-  %625 = getelementptr inbounds i8, ptr %543, i64 40
-  %626 = load float, ptr %625, align 4
-  %627 = getelementptr inbounds i8, ptr %616, i64 16
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds i8, ptr %616, i64 56
-  %630 = load ptr, ptr %629, align 8
-  %.not.i.i911 = icmp eq ptr %630, null
-  br i1 %.not.i.i911, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912, label %631
+607:                                              ; preds = %605
+  %608 = getelementptr inbounds i8, ptr %528, i64 36
+  %609 = load float, ptr %608, align 4
+  %610 = getelementptr inbounds i8, ptr %528, i64 40
+  %611 = load float, ptr %610, align 4
+  %612 = getelementptr inbounds i8, ptr %601, i64 16
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds i8, ptr %601, i64 56
+  %615 = load ptr, ptr %614, align 8
+  %.not.i.i911 = icmp eq ptr %615, null
+  br i1 %.not.i.i911, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912, label %616
 
-631:                                              ; preds = %622
-  %632 = load ptr, ptr %630, align 8
+616:                                              ; preds = %607
+  %617 = load ptr, ptr %615, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912: ; preds = %631, %622
-  %633 = phi ptr [ %632, %631 ], [ null, %622 ]
-  invoke void %628(ptr noundef nonnull %616, ptr noundef %618, ptr noundef nonnull %619, float noundef %624, float noundef %626, ptr noundef %633)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912: ; preds = %616, %607
+  %618 = phi ptr [ %617, %616 ], [ null, %607 ]
+  invoke void %613(ptr noundef nonnull %601, ptr noundef %603, ptr noundef nonnull %604, float noundef %609, float noundef %611, ptr noundef %618)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i912
-  store i32 1, ptr %619, align 4
-  %634 = getelementptr inbounds i8, ptr %543, i64 28
-  %635 = load <2 x float>, ptr %623, align 4
-  store <2 x float> %635, ptr %634, align 4
-  br label %636
+  store i32 1, ptr %604, align 4
+  %619 = getelementptr inbounds i8, ptr %528, i64 28
+  %620 = load <2 x float>, ptr %608, align 4
+  store <2 x float> %620, ptr %619, align 4
+  br label %621
 
-636:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913, %620
-  %637 = getelementptr inbounds i8, ptr %616, i64 32
-  %638 = load ptr, ptr %637, align 8
-  %639 = getelementptr inbounds i8, ptr %616, i64 56
-  %640 = load ptr, ptr %639, align 8
-  %.not.i914 = icmp eq ptr %640, null
-  br i1 %.not.i914, label %644, label %641
+621:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit913, %605
+  %622 = getelementptr inbounds i8, ptr %601, i64 32
+  %623 = load ptr, ptr %622, align 8
+  %624 = getelementptr inbounds i8, ptr %601, i64 56
+  %625 = load ptr, ptr %624, align 8
+  %.not.i914 = icmp eq ptr %625, null
+  br i1 %.not.i914, label %629, label %626
 
-641:                                              ; preds = %636
-  %642 = getelementptr inbounds i8, ptr %640, i64 16
-  %643 = load ptr, ptr %642, align 8
-  br label %644
+626:                                              ; preds = %621
+  %627 = getelementptr inbounds i8, ptr %625, i64 16
+  %628 = load ptr, ptr %627, align 8
+  br label %629
 
-644:                                              ; preds = %641, %636
-  %645 = phi ptr [ %643, %641 ], [ null, %636 ]
-  invoke void %638(ptr noundef nonnull %616, ptr noundef %618, ptr noundef nonnull %619, float noundef %535, float noundef %538, float noundef %537, float noundef %540, ptr noundef %645)
+629:                                              ; preds = %626, %621
+  %630 = phi ptr [ %628, %626 ], [ null, %621 ]
+  invoke void %623(ptr noundef nonnull %601, ptr noundef %603, ptr noundef nonnull %604, float noundef %520, float noundef %523, float noundef %522, float noundef %525, ptr noundef %630)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
-646:                                              ; preds = %611
-  %647 = load float, ptr %543, align 8
-  %648 = call float @llvm.fmuladd.f32(float %538, float %647, float %535)
-  %649 = call float @llvm.fmuladd.f32(float %540, float %647, float %537)
-  %650 = load i32, ptr %619, align 4
-  %.not818 = icmp eq i32 %650, 0
-  br i1 %.not818, label %651, label %665
+631:                                              ; preds = %596
+  %632 = load float, ptr %528, align 8
+  %633 = call float @llvm.fmuladd.f32(float %523, float %632, float %520)
+  %634 = call float @llvm.fmuladd.f32(float %525, float %632, float %522)
+  %635 = load i32, ptr %604, align 4
+  %.not818 = icmp eq i32 %635, 0
+  br i1 %.not818, label %636, label %650
 
-651:                                              ; preds = %646
-  %652 = getelementptr inbounds i8, ptr %543, i64 36
-  %653 = load float, ptr %652, align 4
-  %654 = getelementptr inbounds i8, ptr %543, i64 40
-  %655 = load float, ptr %654, align 4
-  %656 = getelementptr inbounds i8, ptr %616, i64 16
-  %657 = load ptr, ptr %656, align 8
-  %658 = getelementptr inbounds i8, ptr %616, i64 56
-  %659 = load ptr, ptr %658, align 8
-  %.not.i.i916 = icmp eq ptr %659, null
-  br i1 %.not.i.i916, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917, label %660
+636:                                              ; preds = %631
+  %637 = getelementptr inbounds i8, ptr %528, i64 36
+  %638 = load float, ptr %637, align 4
+  %639 = getelementptr inbounds i8, ptr %528, i64 40
+  %640 = load float, ptr %639, align 4
+  %641 = getelementptr inbounds i8, ptr %601, i64 16
+  %642 = load ptr, ptr %641, align 8
+  %643 = getelementptr inbounds i8, ptr %601, i64 56
+  %644 = load ptr, ptr %643, align 8
+  %.not.i.i916 = icmp eq ptr %644, null
+  br i1 %.not.i.i916, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917, label %645
 
-660:                                              ; preds = %651
-  %661 = load ptr, ptr %659, align 8
+645:                                              ; preds = %636
+  %646 = load ptr, ptr %644, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917: ; preds = %660, %651
-  %662 = phi ptr [ %661, %660 ], [ null, %651 ]
-  invoke void %657(ptr noundef nonnull %616, ptr noundef %618, ptr noundef nonnull %619, float noundef %653, float noundef %655, ptr noundef %662)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917: ; preds = %645, %636
+  %647 = phi ptr [ %646, %645 ], [ null, %636 ]
+  invoke void %642(ptr noundef nonnull %601, ptr noundef %603, ptr noundef nonnull %604, float noundef %638, float noundef %640, ptr noundef %647)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i917
-  store i32 1, ptr %619, align 4
-  %663 = getelementptr inbounds i8, ptr %543, i64 28
-  %664 = load <2 x float>, ptr %652, align 4
-  store <2 x float> %664, ptr %663, align 4
-  br label %665
+  store i32 1, ptr %604, align 4
+  %648 = getelementptr inbounds i8, ptr %528, i64 28
+  %649 = load <2 x float>, ptr %637, align 4
+  store <2 x float> %649, ptr %648, align 4
+  br label %650
 
-665:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918, %646
-  %666 = getelementptr inbounds i8, ptr %616, i64 32
-  %667 = load ptr, ptr %666, align 8
-  %668 = getelementptr inbounds i8, ptr %616, i64 56
-  %669 = load ptr, ptr %668, align 8
-  %.not.i919 = icmp eq ptr %669, null
-  br i1 %.not.i919, label %673, label %670
+650:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit918, %631
+  %651 = getelementptr inbounds i8, ptr %601, i64 32
+  %652 = load ptr, ptr %651, align 8
+  %653 = getelementptr inbounds i8, ptr %601, i64 56
+  %654 = load ptr, ptr %653, align 8
+  %.not.i919 = icmp eq ptr %654, null
+  br i1 %.not.i919, label %658, label %655
 
-670:                                              ; preds = %665
-  %671 = getelementptr inbounds i8, ptr %669, i64 16
-  %672 = load ptr, ptr %671, align 8
-  br label %673
+655:                                              ; preds = %650
+  %656 = getelementptr inbounds i8, ptr %654, i64 16
+  %657 = load ptr, ptr %656, align 8
+  br label %658
 
-673:                                              ; preds = %670, %665
-  %674 = phi ptr [ %672, %670 ], [ null, %665 ]
-  invoke void %667(ptr noundef nonnull %616, ptr noundef %618, ptr noundef nonnull %619, float noundef %648, float noundef %538, float noundef %649, float noundef %540, ptr noundef %674)
+658:                                              ; preds = %655, %650
+  %659 = phi ptr [ %657, %655 ], [ null, %650 ]
+  invoke void %652(ptr noundef nonnull %601, ptr noundef %603, ptr noundef nonnull %604, float noundef %633, float noundef %523, float noundef %634, float noundef %525, ptr noundef %659)
           to label %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905: ; preds = %673, %644, %609, %579
-  %.sink1132 = phi float [ %537, %579 ], [ %585, %609 ], [ %537, %644 ], [ %649, %673 ]
-  %675 = getelementptr inbounds i8, ptr %543, i64 36
-  store float %.sink1132, ptr %675, align 4
-  %676 = getelementptr inbounds i8, ptr %543, i64 40
-  store float %540, ptr %676, align 4
+_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905: ; preds = %658, %629, %594, %564
+  %.sink1132 = phi float [ %522, %564 ], [ %570, %594 ], [ %522, %629 ], [ %634, %658 ]
+  %660 = getelementptr inbounds i8, ptr %528, i64 36
+  store float %.sink1132, ptr %660, align 4
+  %661 = getelementptr inbounds i8, ptr %528, i64 40
+  store float %525, ptr %661, align 4
   store i8 0, ptr %30, align 4
   %.pre1113 = load i8, ptr %29, align 4
-  br label %677
+  br label %662
 
-677:                                              ; preds = %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905, %527, %524
-  %678 = phi i8 [ %.pre1113, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 ], [ %525, %527 ], [ %525, %524 ]
-  %679 = trunc i8 %678 to i1
+662:                                              ; preds = %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905, %512, %509
+  %663 = phi i8 [ %.pre1113, %_ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit905 ], [ %510, %512 ], [ %510, %509 ]
+  %664 = trunc i8 %663 to i1
   %.pre1114.pre = load i8, ptr %27, align 8
-  br i1 %679, label %680, label %825
+  br i1 %664, label %665, label %810
 
-680:                                              ; preds = %677
-  %681 = trunc i8 %.pre1114.pre to i1
-  br i1 %681, label %682, label %825
+665:                                              ; preds = %662
+  %666 = trunc i8 %.pre1114.pre to i1
+  br i1 %666, label %667, label %810
 
-682:                                              ; preds = %680
-  %683 = load i8, ptr %34, align 8
-  %684 = trunc i8 %683 to i1
-  %685 = load ptr, ptr %28, align 8
-  br i1 %684, label %686, label %757
+667:                                              ; preds = %665
+  %668 = load i8, ptr %34, align 8
+  %669 = trunc i8 %668 to i1
+  %670 = load ptr, ptr %28, align 8
+  br i1 %669, label %671, label %742
 
-686:                                              ; preds = %682
-  %687 = load float, ptr %35, align 4
-  %688 = load float, ptr %36, align 8
-  %689 = load float, ptr %.sroa_idx1037, align 8
-  %690 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
-  %691 = load float, ptr %.sroa_idx, align 4
-  %692 = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %693 = getelementptr inbounds i8, ptr %685, i64 4
-  %694 = load i8, ptr %693, align 4
-  %695 = trunc i8 %694 to i1
-  %696 = getelementptr inbounds i8, ptr %685, i64 8
-  %697 = load ptr, ptr %696, align 8
-  %698 = getelementptr inbounds i8, ptr %685, i64 16
-  %699 = load ptr, ptr %698, align 8
-  %700 = getelementptr inbounds i8, ptr %685, i64 24
-  br i1 %695, label %701, label %727
+671:                                              ; preds = %667
+  %672 = load float, ptr %35, align 4
+  %673 = load float, ptr %36, align 8
+  %674 = load float, ptr %.sroa_idx1037, align 8
+  %675 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
+  %676 = load float, ptr %.sroa_idx, align 4
+  %677 = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %678 = getelementptr inbounds i8, ptr %670, i64 4
+  %679 = load i8, ptr %678, align 4
+  %680 = trunc i8 %679 to i1
+  %681 = getelementptr inbounds i8, ptr %670, i64 8
+  %682 = load ptr, ptr %681, align 8
+  %683 = getelementptr inbounds i8, ptr %670, i64 16
+  %684 = load ptr, ptr %683, align 8
+  %685 = getelementptr inbounds i8, ptr %670, i64 24
+  br i1 %680, label %686, label %712
 
-701:                                              ; preds = %686
-  %702 = load i32, ptr %700, align 4
-  %.not835 = icmp eq i32 %702, 0
-  br i1 %.not835, label %703, label %717
+686:                                              ; preds = %671
+  %687 = load i32, ptr %685, align 4
+  %.not835 = icmp eq i32 %687, 0
+  br i1 %.not835, label %688, label %702
 
-703:                                              ; preds = %701
-  %704 = getelementptr inbounds i8, ptr %685, i64 36
-  %705 = load float, ptr %704, align 4
-  %706 = getelementptr inbounds i8, ptr %685, i64 40
-  %707 = load float, ptr %706, align 4
-  %708 = getelementptr inbounds i8, ptr %697, i64 16
-  %709 = load ptr, ptr %708, align 8
-  %710 = getelementptr inbounds i8, ptr %697, i64 56
-  %711 = load ptr, ptr %710, align 8
-  %.not.i.i921 = icmp eq ptr %711, null
-  br i1 %.not.i.i921, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922, label %712
+688:                                              ; preds = %686
+  %689 = getelementptr inbounds i8, ptr %670, i64 36
+  %690 = load float, ptr %689, align 4
+  %691 = getelementptr inbounds i8, ptr %670, i64 40
+  %692 = load float, ptr %691, align 4
+  %693 = getelementptr inbounds i8, ptr %682, i64 16
+  %694 = load ptr, ptr %693, align 8
+  %695 = getelementptr inbounds i8, ptr %682, i64 56
+  %696 = load ptr, ptr %695, align 8
+  %.not.i.i921 = icmp eq ptr %696, null
+  br i1 %.not.i.i921, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922, label %697
 
-712:                                              ; preds = %703
-  %713 = load ptr, ptr %711, align 8
+697:                                              ; preds = %688
+  %698 = load ptr, ptr %696, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922: ; preds = %712, %703
-  %714 = phi ptr [ %713, %712 ], [ null, %703 ]
-  invoke void %709(ptr noundef nonnull %697, ptr noundef %699, ptr noundef nonnull %700, float noundef %705, float noundef %707, ptr noundef %714)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922: ; preds = %697, %688
+  %699 = phi ptr [ %698, %697 ], [ null, %688 ]
+  invoke void %694(ptr noundef nonnull %682, ptr noundef %684, ptr noundef nonnull %685, float noundef %690, float noundef %692, ptr noundef %699)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i922
-  store i32 1, ptr %700, align 4
-  %715 = getelementptr inbounds i8, ptr %685, i64 28
-  %716 = load <2 x float>, ptr %704, align 4
-  store <2 x float> %716, ptr %715, align 4
-  br label %717
+  store i32 1, ptr %685, align 4
+  %700 = getelementptr inbounds i8, ptr %670, i64 28
+  %701 = load <2 x float>, ptr %689, align 4
+  store <2 x float> %701, ptr %700, align 4
+  br label %702
 
-717:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923, %701
-  %718 = getelementptr inbounds i8, ptr %697, i64 40
-  %719 = load ptr, ptr %718, align 8
-  %720 = getelementptr inbounds i8, ptr %697, i64 56
-  %721 = load ptr, ptr %720, align 8
-  %.not.i924 = icmp eq ptr %721, null
-  br i1 %.not.i924, label %725, label %722
+702:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit923, %686
+  %703 = getelementptr inbounds i8, ptr %682, i64 40
+  %704 = load ptr, ptr %703, align 8
+  %705 = getelementptr inbounds i8, ptr %682, i64 56
+  %706 = load ptr, ptr %705, align 8
+  %.not.i924 = icmp eq ptr %706, null
+  br i1 %.not.i924, label %710, label %707
 
-722:                                              ; preds = %717
-  %723 = getelementptr inbounds i8, ptr %721, i64 24
-  %724 = load ptr, ptr %723, align 8
-  br label %725
+707:                                              ; preds = %702
+  %708 = getelementptr inbounds i8, ptr %706, i64 24
+  %709 = load ptr, ptr %708, align 8
+  br label %710
 
-725:                                              ; preds = %722, %717
-  %726 = phi ptr [ %724, %722 ], [ null, %717 ]
-  invoke void %719(ptr noundef nonnull %697, ptr noundef %699, ptr noundef nonnull %700, float noundef %687, float noundef %688, float noundef %689, float noundef %690, float noundef %691, float noundef %692, ptr noundef %726)
+710:                                              ; preds = %707, %702
+  %711 = phi ptr [ %709, %707 ], [ null, %702 ]
+  invoke void %704(ptr noundef nonnull %682, ptr noundef %684, ptr noundef nonnull %685, float noundef %672, float noundef %673, float noundef %674, float noundef %675, float noundef %676, float noundef %677, ptr noundef %711)
           to label %.sink.split unwind label %.loopexit1101
 
-727:                                              ; preds = %686
-  %728 = load float, ptr %685, align 8
-  %729 = call float @llvm.fmuladd.f32(float %688, float %728, float %687)
-  %730 = call float @llvm.fmuladd.f32(float %690, float %728, float %689)
-  %731 = call float @llvm.fmuladd.f32(float %692, float %728, float %691)
-  %732 = load i32, ptr %700, align 4
-  %.not834 = icmp eq i32 %732, 0
-  br i1 %.not834, label %733, label %747
+712:                                              ; preds = %671
+  %713 = load float, ptr %670, align 8
+  %714 = call float @llvm.fmuladd.f32(float %673, float %713, float %672)
+  %715 = call float @llvm.fmuladd.f32(float %675, float %713, float %674)
+  %716 = call float @llvm.fmuladd.f32(float %677, float %713, float %676)
+  %717 = load i32, ptr %685, align 4
+  %.not834 = icmp eq i32 %717, 0
+  br i1 %.not834, label %718, label %732
 
-733:                                              ; preds = %727
-  %734 = getelementptr inbounds i8, ptr %685, i64 36
-  %735 = load float, ptr %734, align 4
-  %736 = getelementptr inbounds i8, ptr %685, i64 40
-  %737 = load float, ptr %736, align 4
-  %738 = getelementptr inbounds i8, ptr %697, i64 16
-  %739 = load ptr, ptr %738, align 8
-  %740 = getelementptr inbounds i8, ptr %697, i64 56
-  %741 = load ptr, ptr %740, align 8
-  %.not.i.i926 = icmp eq ptr %741, null
-  br i1 %.not.i.i926, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927, label %742
+718:                                              ; preds = %712
+  %719 = getelementptr inbounds i8, ptr %670, i64 36
+  %720 = load float, ptr %719, align 4
+  %721 = getelementptr inbounds i8, ptr %670, i64 40
+  %722 = load float, ptr %721, align 4
+  %723 = getelementptr inbounds i8, ptr %682, i64 16
+  %724 = load ptr, ptr %723, align 8
+  %725 = getelementptr inbounds i8, ptr %682, i64 56
+  %726 = load ptr, ptr %725, align 8
+  %.not.i.i926 = icmp eq ptr %726, null
+  br i1 %.not.i.i926, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927, label %727
 
-742:                                              ; preds = %733
-  %743 = load ptr, ptr %741, align 8
+727:                                              ; preds = %718
+  %728 = load ptr, ptr %726, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927: ; preds = %742, %733
-  %744 = phi ptr [ %743, %742 ], [ null, %733 ]
-  invoke void %739(ptr noundef nonnull %697, ptr noundef %699, ptr noundef nonnull %700, float noundef %735, float noundef %737, ptr noundef %744)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927: ; preds = %727, %718
+  %729 = phi ptr [ %728, %727 ], [ null, %718 ]
+  invoke void %724(ptr noundef nonnull %682, ptr noundef %684, ptr noundef nonnull %685, float noundef %720, float noundef %722, ptr noundef %729)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i927
-  store i32 1, ptr %700, align 4
-  %745 = getelementptr inbounds i8, ptr %685, i64 28
-  %746 = load <2 x float>, ptr %734, align 4
-  store <2 x float> %746, ptr %745, align 4
-  br label %747
+  store i32 1, ptr %685, align 4
+  %730 = getelementptr inbounds i8, ptr %670, i64 28
+  %731 = load <2 x float>, ptr %719, align 4
+  store <2 x float> %731, ptr %730, align 4
+  br label %732
 
-747:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928, %727
-  %748 = getelementptr inbounds i8, ptr %697, i64 40
-  %749 = load ptr, ptr %748, align 8
-  %750 = getelementptr inbounds i8, ptr %697, i64 56
-  %751 = load ptr, ptr %750, align 8
-  %.not.i929 = icmp eq ptr %751, null
-  br i1 %.not.i929, label %755, label %752
+732:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit928, %712
+  %733 = getelementptr inbounds i8, ptr %682, i64 40
+  %734 = load ptr, ptr %733, align 8
+  %735 = getelementptr inbounds i8, ptr %682, i64 56
+  %736 = load ptr, ptr %735, align 8
+  %.not.i929 = icmp eq ptr %736, null
+  br i1 %.not.i929, label %740, label %737
 
-752:                                              ; preds = %747
-  %753 = getelementptr inbounds i8, ptr %751, i64 24
-  %754 = load ptr, ptr %753, align 8
-  br label %755
+737:                                              ; preds = %732
+  %738 = getelementptr inbounds i8, ptr %736, i64 24
+  %739 = load ptr, ptr %738, align 8
+  br label %740
 
-755:                                              ; preds = %752, %747
-  %756 = phi ptr [ %754, %752 ], [ null, %747 ]
-  invoke void %749(ptr noundef nonnull %697, ptr noundef %699, ptr noundef nonnull %700, float noundef %729, float noundef %688, float noundef %730, float noundef %690, float noundef %731, float noundef %692, ptr noundef %756)
+740:                                              ; preds = %737, %732
+  %741 = phi ptr [ %739, %737 ], [ null, %732 ]
+  invoke void %734(ptr noundef nonnull %682, ptr noundef %684, ptr noundef nonnull %685, float noundef %714, float noundef %673, float noundef %715, float noundef %675, float noundef %716, float noundef %677, ptr noundef %741)
           to label %.sink.split unwind label %.loopexit1101
 
-757:                                              ; preds = %682
-  %758 = load float, ptr %.sroa_idx1037, align 8
-  %759 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
-  %760 = load float, ptr %.sroa_idx, align 4
-  %761 = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %762 = getelementptr inbounds i8, ptr %685, i64 4
-  %763 = load i8, ptr %762, align 4
-  %764 = trunc i8 %763 to i1
-  %765 = getelementptr inbounds i8, ptr %685, i64 8
-  %766 = load ptr, ptr %765, align 8
-  %767 = getelementptr inbounds i8, ptr %685, i64 16
-  %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds i8, ptr %685, i64 24
-  br i1 %764, label %770, label %796
+742:                                              ; preds = %667
+  %743 = load float, ptr %.sroa_idx1037, align 8
+  %744 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
+  %745 = load float, ptr %.sroa_idx, align 4
+  %746 = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %747 = getelementptr inbounds i8, ptr %670, i64 4
+  %748 = load i8, ptr %747, align 4
+  %749 = trunc i8 %748 to i1
+  %750 = getelementptr inbounds i8, ptr %670, i64 8
+  %751 = load ptr, ptr %750, align 8
+  %752 = getelementptr inbounds i8, ptr %670, i64 16
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds i8, ptr %670, i64 24
+  br i1 %749, label %755, label %781
 
-770:                                              ; preds = %757
-  %771 = load i32, ptr %769, align 4
-  %.not833 = icmp eq i32 %771, 0
-  br i1 %.not833, label %772, label %786
+755:                                              ; preds = %742
+  %756 = load i32, ptr %754, align 4
+  %.not833 = icmp eq i32 %756, 0
+  br i1 %.not833, label %757, label %771
 
-772:                                              ; preds = %770
-  %773 = getelementptr inbounds i8, ptr %685, i64 36
-  %774 = load float, ptr %773, align 4
-  %775 = getelementptr inbounds i8, ptr %685, i64 40
-  %776 = load float, ptr %775, align 4
-  %777 = getelementptr inbounds i8, ptr %766, i64 16
-  %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds i8, ptr %766, i64 56
-  %780 = load ptr, ptr %779, align 8
-  %.not.i.i931 = icmp eq ptr %780, null
-  br i1 %.not.i.i931, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932, label %781
+757:                                              ; preds = %755
+  %758 = getelementptr inbounds i8, ptr %670, i64 36
+  %759 = load float, ptr %758, align 4
+  %760 = getelementptr inbounds i8, ptr %670, i64 40
+  %761 = load float, ptr %760, align 4
+  %762 = getelementptr inbounds i8, ptr %751, i64 16
+  %763 = load ptr, ptr %762, align 8
+  %764 = getelementptr inbounds i8, ptr %751, i64 56
+  %765 = load ptr, ptr %764, align 8
+  %.not.i.i931 = icmp eq ptr %765, null
+  br i1 %.not.i.i931, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932, label %766
 
-781:                                              ; preds = %772
-  %782 = load ptr, ptr %780, align 8
+766:                                              ; preds = %757
+  %767 = load ptr, ptr %765, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932: ; preds = %781, %772
-  %783 = phi ptr [ %782, %781 ], [ null, %772 ]
-  invoke void %778(ptr noundef nonnull %766, ptr noundef %768, ptr noundef nonnull %769, float noundef %774, float noundef %776, ptr noundef %783)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932: ; preds = %766, %757
+  %768 = phi ptr [ %767, %766 ], [ null, %757 ]
+  invoke void %763(ptr noundef nonnull %751, ptr noundef %753, ptr noundef nonnull %754, float noundef %759, float noundef %761, ptr noundef %768)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i932
-  store i32 1, ptr %769, align 4
-  %784 = getelementptr inbounds i8, ptr %685, i64 28
-  %785 = load <2 x float>, ptr %773, align 4
-  store <2 x float> %785, ptr %784, align 4
-  br label %786
+  store i32 1, ptr %754, align 4
+  %769 = getelementptr inbounds i8, ptr %670, i64 28
+  %770 = load <2 x float>, ptr %758, align 4
+  store <2 x float> %770, ptr %769, align 4
+  br label %771
 
-786:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933, %770
-  %787 = getelementptr inbounds i8, ptr %766, i64 32
-  %788 = load ptr, ptr %787, align 8
-  %789 = getelementptr inbounds i8, ptr %766, i64 56
-  %790 = load ptr, ptr %789, align 8
-  %.not.i934 = icmp eq ptr %790, null
-  br i1 %.not.i934, label %794, label %791
+771:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit933, %755
+  %772 = getelementptr inbounds i8, ptr %751, i64 32
+  %773 = load ptr, ptr %772, align 8
+  %774 = getelementptr inbounds i8, ptr %751, i64 56
+  %775 = load ptr, ptr %774, align 8
+  %.not.i934 = icmp eq ptr %775, null
+  br i1 %.not.i934, label %779, label %776
 
-791:                                              ; preds = %786
-  %792 = getelementptr inbounds i8, ptr %790, i64 16
-  %793 = load ptr, ptr %792, align 8
-  br label %794
+776:                                              ; preds = %771
+  %777 = getelementptr inbounds i8, ptr %775, i64 16
+  %778 = load ptr, ptr %777, align 8
+  br label %779
 
-794:                                              ; preds = %791, %786
-  %795 = phi ptr [ %793, %791 ], [ null, %786 ]
-  invoke void %788(ptr noundef nonnull %766, ptr noundef %768, ptr noundef nonnull %769, float noundef %758, float noundef %759, float noundef %760, float noundef %761, ptr noundef %795)
+779:                                              ; preds = %776, %771
+  %780 = phi ptr [ %778, %776 ], [ null, %771 ]
+  invoke void %773(ptr noundef nonnull %751, ptr noundef %753, ptr noundef nonnull %754, float noundef %743, float noundef %744, float noundef %745, float noundef %746, ptr noundef %780)
           to label %.sink.split unwind label %.loopexit1101
 
-796:                                              ; preds = %757
-  %797 = load float, ptr %685, align 8
-  %798 = call float @llvm.fmuladd.f32(float %759, float %797, float %758)
-  %799 = call float @llvm.fmuladd.f32(float %761, float %797, float %760)
-  %800 = load i32, ptr %769, align 4
-  %.not832 = icmp eq i32 %800, 0
-  br i1 %.not832, label %801, label %815
+781:                                              ; preds = %742
+  %782 = load float, ptr %670, align 8
+  %783 = call float @llvm.fmuladd.f32(float %744, float %782, float %743)
+  %784 = call float @llvm.fmuladd.f32(float %746, float %782, float %745)
+  %785 = load i32, ptr %754, align 4
+  %.not832 = icmp eq i32 %785, 0
+  br i1 %.not832, label %786, label %800
 
-801:                                              ; preds = %796
-  %802 = getelementptr inbounds i8, ptr %685, i64 36
-  %803 = load float, ptr %802, align 4
-  %804 = getelementptr inbounds i8, ptr %685, i64 40
-  %805 = load float, ptr %804, align 4
-  %806 = getelementptr inbounds i8, ptr %766, i64 16
-  %807 = load ptr, ptr %806, align 8
-  %808 = getelementptr inbounds i8, ptr %766, i64 56
-  %809 = load ptr, ptr %808, align 8
-  %.not.i.i936 = icmp eq ptr %809, null
-  br i1 %.not.i.i936, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937, label %810
+786:                                              ; preds = %781
+  %787 = getelementptr inbounds i8, ptr %670, i64 36
+  %788 = load float, ptr %787, align 4
+  %789 = getelementptr inbounds i8, ptr %670, i64 40
+  %790 = load float, ptr %789, align 4
+  %791 = getelementptr inbounds i8, ptr %751, i64 16
+  %792 = load ptr, ptr %791, align 8
+  %793 = getelementptr inbounds i8, ptr %751, i64 56
+  %794 = load ptr, ptr %793, align 8
+  %.not.i.i936 = icmp eq ptr %794, null
+  br i1 %.not.i.i936, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937, label %795
 
-810:                                              ; preds = %801
-  %811 = load ptr, ptr %809, align 8
+795:                                              ; preds = %786
+  %796 = load ptr, ptr %794, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937: ; preds = %810, %801
-  %812 = phi ptr [ %811, %810 ], [ null, %801 ]
-  invoke void %807(ptr noundef nonnull %766, ptr noundef %768, ptr noundef nonnull %769, float noundef %803, float noundef %805, ptr noundef %812)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937: ; preds = %795, %786
+  %797 = phi ptr [ %796, %795 ], [ null, %786 ]
+  invoke void %792(ptr noundef nonnull %751, ptr noundef %753, ptr noundef nonnull %754, float noundef %788, float noundef %790, ptr noundef %797)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i937
-  store i32 1, ptr %769, align 4
-  %813 = getelementptr inbounds i8, ptr %685, i64 28
-  %814 = load <2 x float>, ptr %802, align 4
-  store <2 x float> %814, ptr %813, align 4
-  br label %815
+  store i32 1, ptr %754, align 4
+  %798 = getelementptr inbounds i8, ptr %670, i64 28
+  %799 = load <2 x float>, ptr %787, align 4
+  store <2 x float> %799, ptr %798, align 4
+  br label %800
 
-815:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938, %796
-  %816 = getelementptr inbounds i8, ptr %766, i64 32
-  %817 = load ptr, ptr %816, align 8
-  %818 = getelementptr inbounds i8, ptr %766, i64 56
-  %819 = load ptr, ptr %818, align 8
-  %.not.i939 = icmp eq ptr %819, null
-  br i1 %.not.i939, label %823, label %820
+800:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit938, %781
+  %801 = getelementptr inbounds i8, ptr %751, i64 32
+  %802 = load ptr, ptr %801, align 8
+  %803 = getelementptr inbounds i8, ptr %751, i64 56
+  %804 = load ptr, ptr %803, align 8
+  %.not.i939 = icmp eq ptr %804, null
+  br i1 %.not.i939, label %808, label %805
 
-820:                                              ; preds = %815
-  %821 = getelementptr inbounds i8, ptr %819, i64 16
-  %822 = load ptr, ptr %821, align 8
-  br label %823
+805:                                              ; preds = %800
+  %806 = getelementptr inbounds i8, ptr %804, i64 16
+  %807 = load ptr, ptr %806, align 8
+  br label %808
 
-823:                                              ; preds = %820, %815
-  %824 = phi ptr [ %822, %820 ], [ null, %815 ]
-  invoke void %817(ptr noundef nonnull %766, ptr noundef %768, ptr noundef nonnull %769, float noundef %798, float noundef %759, float noundef %799, float noundef %761, ptr noundef %824)
+808:                                              ; preds = %805, %800
+  %809 = phi ptr [ %807, %805 ], [ null, %800 ]
+  invoke void %802(ptr noundef nonnull %751, ptr noundef %753, ptr noundef nonnull %754, float noundef %783, float noundef %744, float noundef %784, float noundef %746, ptr noundef %809)
           to label %.sink.split unwind label %.loopexit1101
 
-825:                                              ; preds = %680, %677
-  %826 = load i8, ptr %30, align 4
-  %827 = trunc i8 %826 to i1
-  %828 = trunc i8 %.pre1114.pre to i1
-  br i1 %827, label %829, label %973
+810:                                              ; preds = %665, %662
+  %811 = load i8, ptr %30, align 4
+  %812 = trunc i8 %811 to i1
+  %813 = trunc i8 %.pre1114.pre to i1
+  br i1 %812, label %814, label %958
 
-829:                                              ; preds = %825
-  br i1 %828, label %830, label %.thread
+814:                                              ; preds = %810
+  br i1 %813, label %815, label %.thread
 
-830:                                              ; preds = %829
-  %831 = load i8, ptr %31, align 8
-  %832 = trunc i8 %831 to i1
-  %833 = load ptr, ptr %28, align 8
-  br i1 %832, label %834, label %905
+815:                                              ; preds = %814
+  %816 = load i8, ptr %31, align 8
+  %817 = trunc i8 %816 to i1
+  %818 = load ptr, ptr %28, align 8
+  br i1 %817, label %819, label %890
 
-834:                                              ; preds = %830
-  %835 = load float, ptr %32, align 4
-  %836 = load float, ptr %33, align 8
-  %837 = load float, ptr %.sroa_idx1033, align 8
-  %838 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
-  %839 = load float, ptr %.sroa_idx, align 4
-  %840 = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %841 = getelementptr inbounds i8, ptr %833, i64 4
-  %842 = load i8, ptr %841, align 4
-  %843 = trunc i8 %842 to i1
-  %844 = getelementptr inbounds i8, ptr %833, i64 8
-  %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds i8, ptr %833, i64 16
-  %847 = load ptr, ptr %846, align 8
-  %848 = getelementptr inbounds i8, ptr %833, i64 24
-  br i1 %843, label %849, label %875
+819:                                              ; preds = %815
+  %820 = load float, ptr %32, align 4
+  %821 = load float, ptr %33, align 8
+  %822 = load float, ptr %.sroa_idx1033, align 8
+  %823 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
+  %824 = load float, ptr %.sroa_idx, align 4
+  %825 = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %826 = getelementptr inbounds i8, ptr %818, i64 4
+  %827 = load i8, ptr %826, align 4
+  %828 = trunc i8 %827 to i1
+  %829 = getelementptr inbounds i8, ptr %818, i64 8
+  %830 = load ptr, ptr %829, align 8
+  %831 = getelementptr inbounds i8, ptr %818, i64 16
+  %832 = load ptr, ptr %831, align 8
+  %833 = getelementptr inbounds i8, ptr %818, i64 24
+  br i1 %828, label %834, label %860
 
-849:                                              ; preds = %834
-  %850 = load i32, ptr %848, align 4
-  %.not831 = icmp eq i32 %850, 0
-  br i1 %.not831, label %851, label %865
+834:                                              ; preds = %819
+  %835 = load i32, ptr %833, align 4
+  %.not831 = icmp eq i32 %835, 0
+  br i1 %.not831, label %836, label %850
 
-851:                                              ; preds = %849
-  %852 = getelementptr inbounds i8, ptr %833, i64 36
-  %853 = load float, ptr %852, align 4
-  %854 = getelementptr inbounds i8, ptr %833, i64 40
-  %855 = load float, ptr %854, align 4
-  %856 = getelementptr inbounds i8, ptr %845, i64 16
-  %857 = load ptr, ptr %856, align 8
-  %858 = getelementptr inbounds i8, ptr %845, i64 56
-  %859 = load ptr, ptr %858, align 8
-  %.not.i.i941 = icmp eq ptr %859, null
-  br i1 %.not.i.i941, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942, label %860
+836:                                              ; preds = %834
+  %837 = getelementptr inbounds i8, ptr %818, i64 36
+  %838 = load float, ptr %837, align 4
+  %839 = getelementptr inbounds i8, ptr %818, i64 40
+  %840 = load float, ptr %839, align 4
+  %841 = getelementptr inbounds i8, ptr %830, i64 16
+  %842 = load ptr, ptr %841, align 8
+  %843 = getelementptr inbounds i8, ptr %830, i64 56
+  %844 = load ptr, ptr %843, align 8
+  %.not.i.i941 = icmp eq ptr %844, null
+  br i1 %.not.i.i941, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942, label %845
 
-860:                                              ; preds = %851
-  %861 = load ptr, ptr %859, align 8
+845:                                              ; preds = %836
+  %846 = load ptr, ptr %844, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942: ; preds = %860, %851
-  %862 = phi ptr [ %861, %860 ], [ null, %851 ]
-  invoke void %857(ptr noundef nonnull %845, ptr noundef %847, ptr noundef nonnull %848, float noundef %853, float noundef %855, ptr noundef %862)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942: ; preds = %845, %836
+  %847 = phi ptr [ %846, %845 ], [ null, %836 ]
+  invoke void %842(ptr noundef nonnull %830, ptr noundef %832, ptr noundef nonnull %833, float noundef %838, float noundef %840, ptr noundef %847)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i942
-  store i32 1, ptr %848, align 4
-  %863 = getelementptr inbounds i8, ptr %833, i64 28
-  %864 = load <2 x float>, ptr %852, align 4
-  store <2 x float> %864, ptr %863, align 4
-  br label %865
+  store i32 1, ptr %833, align 4
+  %848 = getelementptr inbounds i8, ptr %818, i64 28
+  %849 = load <2 x float>, ptr %837, align 4
+  store <2 x float> %849, ptr %848, align 4
+  br label %850
 
-865:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943, %849
-  %866 = getelementptr inbounds i8, ptr %845, i64 40
-  %867 = load ptr, ptr %866, align 8
-  %868 = getelementptr inbounds i8, ptr %845, i64 56
-  %869 = load ptr, ptr %868, align 8
-  %.not.i944 = icmp eq ptr %869, null
-  br i1 %.not.i944, label %873, label %870
+850:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit943, %834
+  %851 = getelementptr inbounds i8, ptr %830, i64 40
+  %852 = load ptr, ptr %851, align 8
+  %853 = getelementptr inbounds i8, ptr %830, i64 56
+  %854 = load ptr, ptr %853, align 8
+  %.not.i944 = icmp eq ptr %854, null
+  br i1 %.not.i944, label %858, label %855
 
-870:                                              ; preds = %865
-  %871 = getelementptr inbounds i8, ptr %869, i64 24
-  %872 = load ptr, ptr %871, align 8
-  br label %873
+855:                                              ; preds = %850
+  %856 = getelementptr inbounds i8, ptr %854, i64 24
+  %857 = load ptr, ptr %856, align 8
+  br label %858
 
-873:                                              ; preds = %870, %865
-  %874 = phi ptr [ %872, %870 ], [ null, %865 ]
-  invoke void %867(ptr noundef nonnull %845, ptr noundef %847, ptr noundef nonnull %848, float noundef %835, float noundef %836, float noundef %837, float noundef %838, float noundef %839, float noundef %840, ptr noundef %874)
+858:                                              ; preds = %855, %850
+  %859 = phi ptr [ %857, %855 ], [ null, %850 ]
+  invoke void %852(ptr noundef nonnull %830, ptr noundef %832, ptr noundef nonnull %833, float noundef %820, float noundef %821, float noundef %822, float noundef %823, float noundef %824, float noundef %825, ptr noundef %859)
           to label %.sink.split unwind label %.loopexit1101
 
-875:                                              ; preds = %834
-  %876 = load float, ptr %833, align 8
-  %877 = call float @llvm.fmuladd.f32(float %836, float %876, float %835)
-  %878 = call float @llvm.fmuladd.f32(float %838, float %876, float %837)
-  %879 = call float @llvm.fmuladd.f32(float %840, float %876, float %839)
-  %880 = load i32, ptr %848, align 4
-  %.not830 = icmp eq i32 %880, 0
-  br i1 %.not830, label %881, label %895
+860:                                              ; preds = %819
+  %861 = load float, ptr %818, align 8
+  %862 = call float @llvm.fmuladd.f32(float %821, float %861, float %820)
+  %863 = call float @llvm.fmuladd.f32(float %823, float %861, float %822)
+  %864 = call float @llvm.fmuladd.f32(float %825, float %861, float %824)
+  %865 = load i32, ptr %833, align 4
+  %.not830 = icmp eq i32 %865, 0
+  br i1 %.not830, label %866, label %880
 
-881:                                              ; preds = %875
-  %882 = getelementptr inbounds i8, ptr %833, i64 36
-  %883 = load float, ptr %882, align 4
-  %884 = getelementptr inbounds i8, ptr %833, i64 40
-  %885 = load float, ptr %884, align 4
-  %886 = getelementptr inbounds i8, ptr %845, i64 16
-  %887 = load ptr, ptr %886, align 8
-  %888 = getelementptr inbounds i8, ptr %845, i64 56
-  %889 = load ptr, ptr %888, align 8
-  %.not.i.i946 = icmp eq ptr %889, null
-  br i1 %.not.i.i946, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947, label %890
+866:                                              ; preds = %860
+  %867 = getelementptr inbounds i8, ptr %818, i64 36
+  %868 = load float, ptr %867, align 4
+  %869 = getelementptr inbounds i8, ptr %818, i64 40
+  %870 = load float, ptr %869, align 4
+  %871 = getelementptr inbounds i8, ptr %830, i64 16
+  %872 = load ptr, ptr %871, align 8
+  %873 = getelementptr inbounds i8, ptr %830, i64 56
+  %874 = load ptr, ptr %873, align 8
+  %.not.i.i946 = icmp eq ptr %874, null
+  br i1 %.not.i.i946, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947, label %875
 
-890:                                              ; preds = %881
-  %891 = load ptr, ptr %889, align 8
+875:                                              ; preds = %866
+  %876 = load ptr, ptr %874, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947: ; preds = %890, %881
-  %892 = phi ptr [ %891, %890 ], [ null, %881 ]
-  invoke void %887(ptr noundef nonnull %845, ptr noundef %847, ptr noundef nonnull %848, float noundef %883, float noundef %885, ptr noundef %892)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947: ; preds = %875, %866
+  %877 = phi ptr [ %876, %875 ], [ null, %866 ]
+  invoke void %872(ptr noundef nonnull %830, ptr noundef %832, ptr noundef nonnull %833, float noundef %868, float noundef %870, ptr noundef %877)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i947
-  store i32 1, ptr %848, align 4
-  %893 = getelementptr inbounds i8, ptr %833, i64 28
-  %894 = load <2 x float>, ptr %882, align 4
-  store <2 x float> %894, ptr %893, align 4
-  br label %895
+  store i32 1, ptr %833, align 4
+  %878 = getelementptr inbounds i8, ptr %818, i64 28
+  %879 = load <2 x float>, ptr %867, align 4
+  store <2 x float> %879, ptr %878, align 4
+  br label %880
 
-895:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948, %875
-  %896 = getelementptr inbounds i8, ptr %845, i64 40
-  %897 = load ptr, ptr %896, align 8
-  %898 = getelementptr inbounds i8, ptr %845, i64 56
-  %899 = load ptr, ptr %898, align 8
-  %.not.i949 = icmp eq ptr %899, null
-  br i1 %.not.i949, label %903, label %900
+880:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit948, %860
+  %881 = getelementptr inbounds i8, ptr %830, i64 40
+  %882 = load ptr, ptr %881, align 8
+  %883 = getelementptr inbounds i8, ptr %830, i64 56
+  %884 = load ptr, ptr %883, align 8
+  %.not.i949 = icmp eq ptr %884, null
+  br i1 %.not.i949, label %888, label %885
 
-900:                                              ; preds = %895
-  %901 = getelementptr inbounds i8, ptr %899, i64 24
-  %902 = load ptr, ptr %901, align 8
-  br label %903
+885:                                              ; preds = %880
+  %886 = getelementptr inbounds i8, ptr %884, i64 24
+  %887 = load ptr, ptr %886, align 8
+  br label %888
 
-903:                                              ; preds = %900, %895
-  %904 = phi ptr [ %902, %900 ], [ null, %895 ]
-  invoke void %897(ptr noundef nonnull %845, ptr noundef %847, ptr noundef nonnull %848, float noundef %877, float noundef %836, float noundef %878, float noundef %838, float noundef %879, float noundef %840, ptr noundef %904)
+888:                                              ; preds = %885, %880
+  %889 = phi ptr [ %887, %885 ], [ null, %880 ]
+  invoke void %882(ptr noundef nonnull %830, ptr noundef %832, ptr noundef nonnull %833, float noundef %862, float noundef %821, float noundef %863, float noundef %823, float noundef %864, float noundef %825, ptr noundef %889)
           to label %.sink.split unwind label %.loopexit1101
 
-905:                                              ; preds = %830
-  %906 = load float, ptr %.sroa_idx1033, align 8
-  %907 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
-  %908 = load float, ptr %.sroa_idx, align 4
-  %909 = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %910 = getelementptr inbounds i8, ptr %833, i64 4
-  %911 = load i8, ptr %910, align 4
-  %912 = trunc i8 %911 to i1
-  %913 = getelementptr inbounds i8, ptr %833, i64 8
-  %914 = load ptr, ptr %913, align 8
-  %915 = getelementptr inbounds i8, ptr %833, i64 16
-  %916 = load ptr, ptr %915, align 8
-  %917 = getelementptr inbounds i8, ptr %833, i64 24
-  br i1 %912, label %918, label %944
+890:                                              ; preds = %815
+  %891 = load float, ptr %.sroa_idx1033, align 8
+  %892 = load float, ptr %.sroa.13.0..sroa_idx1017, align 4
+  %893 = load float, ptr %.sroa_idx, align 4
+  %894 = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %895 = getelementptr inbounds i8, ptr %818, i64 4
+  %896 = load i8, ptr %895, align 4
+  %897 = trunc i8 %896 to i1
+  %898 = getelementptr inbounds i8, ptr %818, i64 8
+  %899 = load ptr, ptr %898, align 8
+  %900 = getelementptr inbounds i8, ptr %818, i64 16
+  %901 = load ptr, ptr %900, align 8
+  %902 = getelementptr inbounds i8, ptr %818, i64 24
+  br i1 %897, label %903, label %929
 
-918:                                              ; preds = %905
-  %919 = load i32, ptr %917, align 4
-  %.not829 = icmp eq i32 %919, 0
-  br i1 %.not829, label %920, label %934
+903:                                              ; preds = %890
+  %904 = load i32, ptr %902, align 4
+  %.not829 = icmp eq i32 %904, 0
+  br i1 %.not829, label %905, label %919
 
-920:                                              ; preds = %918
-  %921 = getelementptr inbounds i8, ptr %833, i64 36
-  %922 = load float, ptr %921, align 4
-  %923 = getelementptr inbounds i8, ptr %833, i64 40
-  %924 = load float, ptr %923, align 4
-  %925 = getelementptr inbounds i8, ptr %914, i64 16
-  %926 = load ptr, ptr %925, align 8
-  %927 = getelementptr inbounds i8, ptr %914, i64 56
-  %928 = load ptr, ptr %927, align 8
-  %.not.i.i951 = icmp eq ptr %928, null
-  br i1 %.not.i.i951, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952, label %929
+905:                                              ; preds = %903
+  %906 = getelementptr inbounds i8, ptr %818, i64 36
+  %907 = load float, ptr %906, align 4
+  %908 = getelementptr inbounds i8, ptr %818, i64 40
+  %909 = load float, ptr %908, align 4
+  %910 = getelementptr inbounds i8, ptr %899, i64 16
+  %911 = load ptr, ptr %910, align 8
+  %912 = getelementptr inbounds i8, ptr %899, i64 56
+  %913 = load ptr, ptr %912, align 8
+  %.not.i.i951 = icmp eq ptr %913, null
+  br i1 %.not.i.i951, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952, label %914
 
-929:                                              ; preds = %920
-  %930 = load ptr, ptr %928, align 8
+914:                                              ; preds = %905
+  %915 = load ptr, ptr %913, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952: ; preds = %929, %920
-  %931 = phi ptr [ %930, %929 ], [ null, %920 ]
-  invoke void %926(ptr noundef nonnull %914, ptr noundef %916, ptr noundef nonnull %917, float noundef %922, float noundef %924, ptr noundef %931)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952: ; preds = %914, %905
+  %916 = phi ptr [ %915, %914 ], [ null, %905 ]
+  invoke void %911(ptr noundef nonnull %899, ptr noundef %901, ptr noundef nonnull %902, float noundef %907, float noundef %909, ptr noundef %916)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i952
-  store i32 1, ptr %917, align 4
-  %932 = getelementptr inbounds i8, ptr %833, i64 28
-  %933 = load <2 x float>, ptr %921, align 4
-  store <2 x float> %933, ptr %932, align 4
-  br label %934
+  store i32 1, ptr %902, align 4
+  %917 = getelementptr inbounds i8, ptr %818, i64 28
+  %918 = load <2 x float>, ptr %906, align 4
+  store <2 x float> %918, ptr %917, align 4
+  br label %919
 
-934:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953, %918
-  %935 = getelementptr inbounds i8, ptr %914, i64 32
-  %936 = load ptr, ptr %935, align 8
-  %937 = getelementptr inbounds i8, ptr %914, i64 56
-  %938 = load ptr, ptr %937, align 8
-  %.not.i954 = icmp eq ptr %938, null
-  br i1 %.not.i954, label %942, label %939
+919:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit953, %903
+  %920 = getelementptr inbounds i8, ptr %899, i64 32
+  %921 = load ptr, ptr %920, align 8
+  %922 = getelementptr inbounds i8, ptr %899, i64 56
+  %923 = load ptr, ptr %922, align 8
+  %.not.i954 = icmp eq ptr %923, null
+  br i1 %.not.i954, label %927, label %924
 
-939:                                              ; preds = %934
-  %940 = getelementptr inbounds i8, ptr %938, i64 16
-  %941 = load ptr, ptr %940, align 8
-  br label %942
+924:                                              ; preds = %919
+  %925 = getelementptr inbounds i8, ptr %923, i64 16
+  %926 = load ptr, ptr %925, align 8
+  br label %927
 
-942:                                              ; preds = %939, %934
-  %943 = phi ptr [ %941, %939 ], [ null, %934 ]
-  invoke void %936(ptr noundef nonnull %914, ptr noundef %916, ptr noundef nonnull %917, float noundef %906, float noundef %907, float noundef %908, float noundef %909, ptr noundef %943)
+927:                                              ; preds = %924, %919
+  %928 = phi ptr [ %926, %924 ], [ null, %919 ]
+  invoke void %921(ptr noundef nonnull %899, ptr noundef %901, ptr noundef nonnull %902, float noundef %891, float noundef %892, float noundef %893, float noundef %894, ptr noundef %928)
           to label %.sink.split unwind label %.loopexit1101
 
-944:                                              ; preds = %905
-  %945 = load float, ptr %833, align 8
-  %946 = call float @llvm.fmuladd.f32(float %907, float %945, float %906)
-  %947 = call float @llvm.fmuladd.f32(float %909, float %945, float %908)
-  %948 = load i32, ptr %917, align 4
-  %.not828 = icmp eq i32 %948, 0
-  br i1 %.not828, label %949, label %963
+929:                                              ; preds = %890
+  %930 = load float, ptr %818, align 8
+  %931 = call float @llvm.fmuladd.f32(float %892, float %930, float %891)
+  %932 = call float @llvm.fmuladd.f32(float %894, float %930, float %893)
+  %933 = load i32, ptr %902, align 4
+  %.not828 = icmp eq i32 %933, 0
+  br i1 %.not828, label %934, label %948
 
-949:                                              ; preds = %944
-  %950 = getelementptr inbounds i8, ptr %833, i64 36
-  %951 = load float, ptr %950, align 4
-  %952 = getelementptr inbounds i8, ptr %833, i64 40
-  %953 = load float, ptr %952, align 4
-  %954 = getelementptr inbounds i8, ptr %914, i64 16
-  %955 = load ptr, ptr %954, align 8
-  %956 = getelementptr inbounds i8, ptr %914, i64 56
-  %957 = load ptr, ptr %956, align 8
-  %.not.i.i956 = icmp eq ptr %957, null
-  br i1 %.not.i.i956, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957, label %958
+934:                                              ; preds = %929
+  %935 = getelementptr inbounds i8, ptr %818, i64 36
+  %936 = load float, ptr %935, align 4
+  %937 = getelementptr inbounds i8, ptr %818, i64 40
+  %938 = load float, ptr %937, align 4
+  %939 = getelementptr inbounds i8, ptr %899, i64 16
+  %940 = load ptr, ptr %939, align 8
+  %941 = getelementptr inbounds i8, ptr %899, i64 56
+  %942 = load ptr, ptr %941, align 8
+  %.not.i.i956 = icmp eq ptr %942, null
+  br i1 %.not.i.i956, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957, label %943
 
-958:                                              ; preds = %949
-  %959 = load ptr, ptr %957, align 8
+943:                                              ; preds = %934
+  %944 = load ptr, ptr %942, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957: ; preds = %958, %949
-  %960 = phi ptr [ %959, %958 ], [ null, %949 ]
-  invoke void %955(ptr noundef nonnull %914, ptr noundef %916, ptr noundef nonnull %917, float noundef %951, float noundef %953, ptr noundef %960)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957: ; preds = %943, %934
+  %945 = phi ptr [ %944, %943 ], [ null, %934 ]
+  invoke void %940(ptr noundef nonnull %899, ptr noundef %901, ptr noundef nonnull %902, float noundef %936, float noundef %938, ptr noundef %945)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i957
-  store i32 1, ptr %917, align 4
-  %961 = getelementptr inbounds i8, ptr %833, i64 28
-  %962 = load <2 x float>, ptr %950, align 4
-  store <2 x float> %962, ptr %961, align 4
-  br label %963
+  store i32 1, ptr %902, align 4
+  %946 = getelementptr inbounds i8, ptr %818, i64 28
+  %947 = load <2 x float>, ptr %935, align 4
+  store <2 x float> %947, ptr %946, align 4
+  br label %948
 
-963:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958, %944
-  %964 = getelementptr inbounds i8, ptr %914, i64 32
-  %965 = load ptr, ptr %964, align 8
-  %966 = getelementptr inbounds i8, ptr %914, i64 56
-  %967 = load ptr, ptr %966, align 8
-  %.not.i959 = icmp eq ptr %967, null
-  br i1 %.not.i959, label %971, label %968
+948:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit958, %929
+  %949 = getelementptr inbounds i8, ptr %899, i64 32
+  %950 = load ptr, ptr %949, align 8
+  %951 = getelementptr inbounds i8, ptr %899, i64 56
+  %952 = load ptr, ptr %951, align 8
+  %.not.i959 = icmp eq ptr %952, null
+  br i1 %.not.i959, label %956, label %953
 
-968:                                              ; preds = %963
-  %969 = getelementptr inbounds i8, ptr %967, i64 16
-  %970 = load ptr, ptr %969, align 8
-  br label %971
+953:                                              ; preds = %948
+  %954 = getelementptr inbounds i8, ptr %952, i64 16
+  %955 = load ptr, ptr %954, align 8
+  br label %956
 
-971:                                              ; preds = %968, %963
-  %972 = phi ptr [ %970, %968 ], [ null, %963 ]
-  invoke void %965(ptr noundef nonnull %914, ptr noundef %916, ptr noundef nonnull %917, float noundef %946, float noundef %907, float noundef %947, float noundef %909, ptr noundef %972)
+956:                                              ; preds = %953, %948
+  %957 = phi ptr [ %955, %953 ], [ null, %948 ]
+  invoke void %950(ptr noundef nonnull %899, ptr noundef %901, ptr noundef nonnull %902, float noundef %931, float noundef %892, float noundef %932, float noundef %894, ptr noundef %957)
           to label %.sink.split unwind label %.loopexit1101
 
-973:                                              ; preds = %825
-  br i1 %828, label %974, label %.thread
+958:                                              ; preds = %810
+  br i1 %813, label %959, label %.thread
 
-974:                                              ; preds = %973
-  %975 = load ptr, ptr %28, align 8
-  %976 = load float, ptr %.sroa_idx, align 4
-  %977 = load float, ptr %.sroa.13.0..sroa_idx, align 8
-  %978 = getelementptr inbounds i8, ptr %975, i64 4
-  %979 = load i8, ptr %978, align 4
-  %980 = trunc i8 %979 to i1
-  %981 = getelementptr inbounds i8, ptr %975, i64 8
-  %982 = load ptr, ptr %981, align 8
-  %983 = getelementptr inbounds i8, ptr %975, i64 16
-  %984 = load ptr, ptr %983, align 8
-  %985 = getelementptr inbounds i8, ptr %975, i64 24
-  br i1 %980, label %986, label %1012
+959:                                              ; preds = %958
+  %960 = load ptr, ptr %28, align 8
+  %961 = load float, ptr %.sroa_idx, align 4
+  %962 = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %963 = getelementptr inbounds i8, ptr %960, i64 4
+  %964 = load i8, ptr %963, align 4
+  %965 = trunc i8 %964 to i1
+  %966 = getelementptr inbounds i8, ptr %960, i64 8
+  %967 = load ptr, ptr %966, align 8
+  %968 = getelementptr inbounds i8, ptr %960, i64 16
+  %969 = load ptr, ptr %968, align 8
+  %970 = getelementptr inbounds i8, ptr %960, i64 24
+  br i1 %965, label %971, label %997
 
-986:                                              ; preds = %974
-  %987 = load i32, ptr %985, align 4
-  %.not827 = icmp eq i32 %987, 0
-  br i1 %.not827, label %988, label %1002
+971:                                              ; preds = %959
+  %972 = load i32, ptr %970, align 4
+  %.not827 = icmp eq i32 %972, 0
+  br i1 %.not827, label %973, label %987
 
-988:                                              ; preds = %986
-  %989 = getelementptr inbounds i8, ptr %975, i64 36
-  %990 = load float, ptr %989, align 4
-  %991 = getelementptr inbounds i8, ptr %975, i64 40
-  %992 = load float, ptr %991, align 4
-  %993 = getelementptr inbounds i8, ptr %982, i64 16
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %982, i64 56
-  %996 = load ptr, ptr %995, align 8
-  %.not.i.i961 = icmp eq ptr %996, null
-  br i1 %.not.i.i961, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962, label %997
+973:                                              ; preds = %971
+  %974 = getelementptr inbounds i8, ptr %960, i64 36
+  %975 = load float, ptr %974, align 4
+  %976 = getelementptr inbounds i8, ptr %960, i64 40
+  %977 = load float, ptr %976, align 4
+  %978 = getelementptr inbounds i8, ptr %967, i64 16
+  %979 = load ptr, ptr %978, align 8
+  %980 = getelementptr inbounds i8, ptr %967, i64 56
+  %981 = load ptr, ptr %980, align 8
+  %.not.i.i961 = icmp eq ptr %981, null
+  br i1 %.not.i.i961, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962, label %982
 
-997:                                              ; preds = %988
-  %998 = load ptr, ptr %996, align 8
+982:                                              ; preds = %973
+  %983 = load ptr, ptr %981, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962: ; preds = %997, %988
-  %999 = phi ptr [ %998, %997 ], [ null, %988 ]
-  invoke void %994(ptr noundef nonnull %982, ptr noundef %984, ptr noundef nonnull %985, float noundef %990, float noundef %992, ptr noundef %999)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962: ; preds = %982, %973
+  %984 = phi ptr [ %983, %982 ], [ null, %973 ]
+  invoke void %979(ptr noundef nonnull %967, ptr noundef %969, ptr noundef nonnull %970, float noundef %975, float noundef %977, ptr noundef %984)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i962
-  store i32 1, ptr %985, align 4
-  %1000 = getelementptr inbounds i8, ptr %975, i64 28
-  %1001 = load <2 x float>, ptr %989, align 4
-  store <2 x float> %1001, ptr %1000, align 4
-  br label %1002
+  store i32 1, ptr %970, align 4
+  %985 = getelementptr inbounds i8, ptr %960, i64 28
+  %986 = load <2 x float>, ptr %974, align 4
+  store <2 x float> %986, ptr %985, align 4
+  br label %987
 
-1002:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963, %986
-  %1003 = getelementptr inbounds i8, ptr %982, i64 24
-  %1004 = load ptr, ptr %1003, align 8
-  %1005 = getelementptr inbounds i8, ptr %982, i64 56
-  %1006 = load ptr, ptr %1005, align 8
-  %.not.i964 = icmp eq ptr %1006, null
-  br i1 %.not.i964, label %1010, label %1007
+987:                                              ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit963, %971
+  %988 = getelementptr inbounds i8, ptr %967, i64 24
+  %989 = load ptr, ptr %988, align 8
+  %990 = getelementptr inbounds i8, ptr %967, i64 56
+  %991 = load ptr, ptr %990, align 8
+  %.not.i964 = icmp eq ptr %991, null
+  br i1 %.not.i964, label %995, label %992
 
-1007:                                             ; preds = %1002
-  %1008 = getelementptr inbounds i8, ptr %1006, i64 8
-  %1009 = load ptr, ptr %1008, align 8
-  br label %1010
+992:                                              ; preds = %987
+  %993 = getelementptr inbounds i8, ptr %991, i64 8
+  %994 = load ptr, ptr %993, align 8
+  br label %995
 
-1010:                                             ; preds = %1007, %1002
-  %1011 = phi ptr [ %1009, %1007 ], [ null, %1002 ]
-  invoke void %1004(ptr noundef nonnull %982, ptr noundef %984, ptr noundef nonnull %985, float noundef %976, float noundef %977, ptr noundef %1011)
+995:                                              ; preds = %992, %987
+  %996 = phi ptr [ %994, %992 ], [ null, %987 ]
+  invoke void %989(ptr noundef nonnull %967, ptr noundef %969, ptr noundef nonnull %970, float noundef %961, float noundef %962, ptr noundef %996)
           to label %.sink.split unwind label %.loopexit1101
 
-1012:                                             ; preds = %974
-  %1013 = load float, ptr %975, align 8
-  %1014 = call float @llvm.fmuladd.f32(float %977, float %1013, float %976)
-  %1015 = load i32, ptr %985, align 4
-  %.not826 = icmp eq i32 %1015, 0
-  br i1 %.not826, label %1016, label %1030
+997:                                              ; preds = %959
+  %998 = load float, ptr %960, align 8
+  %999 = call float @llvm.fmuladd.f32(float %962, float %998, float %961)
+  %1000 = load i32, ptr %970, align 4
+  %.not826 = icmp eq i32 %1000, 0
+  br i1 %.not826, label %1001, label %1015
 
-1016:                                             ; preds = %1012
-  %1017 = getelementptr inbounds i8, ptr %975, i64 36
-  %1018 = load float, ptr %1017, align 4
-  %1019 = getelementptr inbounds i8, ptr %975, i64 40
-  %1020 = load float, ptr %1019, align 4
-  %1021 = getelementptr inbounds i8, ptr %982, i64 16
-  %1022 = load ptr, ptr %1021, align 8
-  %1023 = getelementptr inbounds i8, ptr %982, i64 56
-  %1024 = load ptr, ptr %1023, align 8
-  %.not.i.i966 = icmp eq ptr %1024, null
-  br i1 %.not.i.i966, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967, label %1025
+1001:                                             ; preds = %997
+  %1002 = getelementptr inbounds i8, ptr %960, i64 36
+  %1003 = load float, ptr %1002, align 4
+  %1004 = getelementptr inbounds i8, ptr %960, i64 40
+  %1005 = load float, ptr %1004, align 4
+  %1006 = getelementptr inbounds i8, ptr %967, i64 16
+  %1007 = load ptr, ptr %1006, align 8
+  %1008 = getelementptr inbounds i8, ptr %967, i64 56
+  %1009 = load ptr, ptr %1008, align 8
+  %.not.i.i966 = icmp eq ptr %1009, null
+  br i1 %.not.i.i966, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967, label %1010
 
-1025:                                             ; preds = %1016
-  %1026 = load ptr, ptr %1024, align 8
+1010:                                             ; preds = %1001
+  %1011 = load ptr, ptr %1009, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967: ; preds = %1025, %1016
-  %1027 = phi ptr [ %1026, %1025 ], [ null, %1016 ]
-  invoke void %1022(ptr noundef nonnull %982, ptr noundef %984, ptr noundef nonnull %985, float noundef %1018, float noundef %1020, ptr noundef %1027)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967: ; preds = %1010, %1001
+  %1012 = phi ptr [ %1011, %1010 ], [ null, %1001 ]
+  invoke void %1007(ptr noundef nonnull %967, ptr noundef %969, ptr noundef nonnull %970, float noundef %1003, float noundef %1005, ptr noundef %1012)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i967
-  store i32 1, ptr %985, align 4
-  %1028 = getelementptr inbounds i8, ptr %975, i64 28
-  %1029 = load <2 x float>, ptr %1017, align 4
-  store <2 x float> %1029, ptr %1028, align 4
-  br label %1030
+  store i32 1, ptr %970, align 4
+  %1013 = getelementptr inbounds i8, ptr %960, i64 28
+  %1014 = load <2 x float>, ptr %1002, align 4
+  store <2 x float> %1014, ptr %1013, align 4
+  br label %1015
 
-1030:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968, %1012
-  %1031 = getelementptr inbounds i8, ptr %982, i64 24
-  %1032 = load ptr, ptr %1031, align 8
-  %1033 = getelementptr inbounds i8, ptr %982, i64 56
-  %1034 = load ptr, ptr %1033, align 8
-  %.not.i969 = icmp eq ptr %1034, null
-  br i1 %.not.i969, label %1038, label %1035
+1015:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit968, %997
+  %1016 = getelementptr inbounds i8, ptr %967, i64 24
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds i8, ptr %967, i64 56
+  %1019 = load ptr, ptr %1018, align 8
+  %.not.i969 = icmp eq ptr %1019, null
+  br i1 %.not.i969, label %1023, label %1020
 
-1035:                                             ; preds = %1030
-  %1036 = getelementptr inbounds i8, ptr %1034, i64 8
-  %1037 = load ptr, ptr %1036, align 8
-  br label %1038
+1020:                                             ; preds = %1015
+  %1021 = getelementptr inbounds i8, ptr %1019, i64 8
+  %1022 = load ptr, ptr %1021, align 8
+  br label %1023
 
-1038:                                             ; preds = %1035, %1030
-  %1039 = phi ptr [ %1037, %1035 ], [ null, %1030 ]
-  invoke void %1032(ptr noundef nonnull %982, ptr noundef %984, ptr noundef nonnull %985, float noundef %1014, float noundef %977, ptr noundef %1039)
+1023:                                             ; preds = %1020, %1015
+  %1024 = phi ptr [ %1022, %1020 ], [ null, %1015 ]
+  invoke void %1017(ptr noundef nonnull %967, ptr noundef %969, ptr noundef nonnull %970, float noundef %999, float noundef %962, ptr noundef %1024)
           to label %.sink.split unwind label %.loopexit1101
 
-.thread:                                          ; preds = %829, %973
-  br i1 %679, label %1040, label %1182
+.thread:                                          ; preds = %814, %958
+  br i1 %664, label %1025, label %1167
 
-1040:                                             ; preds = %.thread
-  %1041 = load float, ptr %.sroa_idx1037, align 8
-  %1042 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
-  %1043 = load ptr, ptr %28, align 8
-  %1044 = getelementptr inbounds i8, ptr %1043, i64 4
-  %1045 = load i8, ptr %1044, align 4
-  %1046 = trunc i8 %1045 to i1
-  %1047 = getelementptr inbounds i8, ptr %1043, i64 8
-  %1048 = load ptr, ptr %1047, align 8
-  %1049 = getelementptr inbounds i8, ptr %1043, i64 16
-  %1050 = load ptr, ptr %1049, align 8
-  %1051 = getelementptr inbounds i8, ptr %1043, i64 24
-  br i1 %1046, label %1052, label %1082
+1025:                                             ; preds = %.thread
+  %1026 = load float, ptr %.sroa_idx1037, align 8
+  %1027 = load float, ptr %.sroa.13.0..sroa_idx1019, align 4
+  %1028 = load ptr, ptr %28, align 8
+  %1029 = getelementptr inbounds i8, ptr %1028, i64 4
+  %1030 = load i8, ptr %1029, align 4
+  %1031 = trunc i8 %1030 to i1
+  %1032 = getelementptr inbounds i8, ptr %1028, i64 8
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = getelementptr inbounds i8, ptr %1028, i64 16
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = getelementptr inbounds i8, ptr %1028, i64 24
+  br i1 %1031, label %1037, label %1067
 
-1052:                                             ; preds = %1040
-  %1053 = load i32, ptr %1051, align 4
-  %.not823 = icmp eq i32 %1053, 0
-  br i1 %.not823, label %1114, label %1054
+1037:                                             ; preds = %1025
+  %1038 = load i32, ptr %1036, align 4
+  %.not823 = icmp eq i32 %1038, 0
+  br i1 %.not823, label %1099, label %1039
 
-1054:                                             ; preds = %1052
-  %1055 = getelementptr inbounds i8, ptr %1043, i64 28
-  %1056 = load float, ptr %1055, align 4
-  %1057 = getelementptr inbounds i8, ptr %1043, i64 36
-  %1058 = load float, ptr %1057, align 4
-  %1059 = fcmp une float %1056, %1058
-  %.phi.trans.insert1119 = getelementptr inbounds i8, ptr %1043, i64 32
+1039:                                             ; preds = %1037
+  %1040 = getelementptr inbounds i8, ptr %1028, i64 28
+  %1041 = load float, ptr %1040, align 4
+  %1042 = getelementptr inbounds i8, ptr %1028, i64 36
+  %1043 = load float, ptr %1042, align 4
+  %1044 = fcmp une float %1041, %1043
+  %.phi.trans.insert1119 = getelementptr inbounds i8, ptr %1028, i64 32
   %.pre1120 = load float, ptr %.phi.trans.insert1119, align 4
-  br i1 %1059, label %._crit_edge1118, label %1060
+  br i1 %1044, label %._crit_edge1118, label %1045
 
-1060:                                             ; preds = %1054
-  %1061 = getelementptr inbounds i8, ptr %1043, i64 40
-  %1062 = load float, ptr %1061, align 4
-  %1063 = fcmp une float %.pre1120, %1062
-  br i1 %1063, label %._crit_edge1118, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
+1045:                                             ; preds = %1039
+  %1046 = getelementptr inbounds i8, ptr %1028, i64 40
+  %1047 = load float, ptr %1046, align 4
+  %1048 = fcmp une float %.pre1120, %1047
+  br i1 %1048, label %._crit_edge1118, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
 
-._crit_edge1118:                                  ; preds = %1054, %1060
-  %1064 = getelementptr inbounds i8, ptr %1048, i64 24
-  %1065 = load ptr, ptr %1064, align 8
-  %1066 = getelementptr inbounds i8, ptr %1048, i64 56
-  %1067 = load ptr, ptr %1066, align 8
-  %.not.i971 = icmp eq ptr %1067, null
-  br i1 %.not.i971, label %1071, label %1068
+._crit_edge1118:                                  ; preds = %1039, %1045
+  %1049 = getelementptr inbounds i8, ptr %1033, i64 24
+  %1050 = load ptr, ptr %1049, align 8
+  %1051 = getelementptr inbounds i8, ptr %1033, i64 56
+  %1052 = load ptr, ptr %1051, align 8
+  %.not.i971 = icmp eq ptr %1052, null
+  br i1 %.not.i971, label %1056, label %1053
 
-1068:                                             ; preds = %._crit_edge1118
-  %1069 = getelementptr inbounds i8, ptr %1067, i64 8
-  %1070 = load ptr, ptr %1069, align 8
-  br label %1071
+1053:                                             ; preds = %._crit_edge1118
+  %1054 = getelementptr inbounds i8, ptr %1052, i64 8
+  %1055 = load ptr, ptr %1054, align 8
+  br label %1056
 
-1071:                                             ; preds = %1068, %._crit_edge1118
-  %1072 = phi ptr [ %1070, %1068 ], [ null, %._crit_edge1118 ]
-  invoke void %1065(ptr noundef nonnull %1048, ptr noundef %1050, ptr noundef nonnull %1051, float noundef %1056, float noundef %.pre1120, ptr noundef %1072)
+1056:                                             ; preds = %1053, %._crit_edge1118
+  %1057 = phi ptr [ %1055, %1053 ], [ null, %._crit_edge1118 ]
+  invoke void %1050(ptr noundef nonnull %1033, ptr noundef %1035, ptr noundef nonnull %1036, float noundef %1041, float noundef %.pre1120, ptr noundef %1057)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %1071, %1060
-  %1073 = getelementptr inbounds i8, ptr %1048, i64 48
-  %1074 = load ptr, ptr %1073, align 8
-  %1075 = getelementptr inbounds i8, ptr %1048, i64 56
-  %1076 = load ptr, ptr %1075, align 8
-  %.not.i973 = icmp eq ptr %1076, null
-  br i1 %.not.i973, label %1080, label %1077
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972: ; preds = %1056, %1045
+  %1058 = getelementptr inbounds i8, ptr %1033, i64 48
+  %1059 = load ptr, ptr %1058, align 8
+  %1060 = getelementptr inbounds i8, ptr %1033, i64 56
+  %1061 = load ptr, ptr %1060, align 8
+  %.not.i973 = icmp eq ptr %1061, null
+  br i1 %.not.i973, label %1065, label %1062
 
-1077:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
-  %1078 = getelementptr inbounds i8, ptr %1076, i64 32
-  %1079 = load ptr, ptr %1078, align 8
-  br label %1080
+1062:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
+  %1063 = getelementptr inbounds i8, ptr %1061, i64 32
+  %1064 = load ptr, ptr %1063, align 8
+  br label %1065
 
-1080:                                             ; preds = %1077, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
-  %1081 = phi ptr [ %1079, %1077 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972 ]
-  invoke void %1074(ptr noundef nonnull %1048, ptr noundef %1050, ptr noundef nonnull %1051, ptr noundef %1081)
+1065:                                             ; preds = %1062, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972
+  %1066 = phi ptr [ %1064, %1062 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit972 ]
+  invoke void %1059(ptr noundef nonnull %1033, ptr noundef %1035, ptr noundef nonnull %1036, ptr noundef %1066)
           to label %.sink.split1143 unwind label %.loopexit1101
 
-1082:                                             ; preds = %1040
-  %1083 = load float, ptr %1043, align 8
-  %1084 = call float @llvm.fmuladd.f32(float %1042, float %1083, float %1041)
-  %1085 = load i32, ptr %1051, align 4
-  %.not822 = icmp eq i32 %1085, 0
-  br i1 %.not822, label %1114, label %1086
+1067:                                             ; preds = %1025
+  %1068 = load float, ptr %1028, align 8
+  %1069 = call float @llvm.fmuladd.f32(float %1027, float %1068, float %1026)
+  %1070 = load i32, ptr %1036, align 4
+  %.not822 = icmp eq i32 %1070, 0
+  br i1 %.not822, label %1099, label %1071
 
-1086:                                             ; preds = %1082
-  %1087 = getelementptr inbounds i8, ptr %1043, i64 28
-  %1088 = load float, ptr %1087, align 4
-  %1089 = getelementptr inbounds i8, ptr %1043, i64 36
-  %1090 = load float, ptr %1089, align 4
-  %1091 = fcmp une float %1088, %1090
-  %.phi.trans.insert1116 = getelementptr inbounds i8, ptr %1043, i64 32
+1071:                                             ; preds = %1067
+  %1072 = getelementptr inbounds i8, ptr %1028, i64 28
+  %1073 = load float, ptr %1072, align 4
+  %1074 = getelementptr inbounds i8, ptr %1028, i64 36
+  %1075 = load float, ptr %1074, align 4
+  %1076 = fcmp une float %1073, %1075
+  %.phi.trans.insert1116 = getelementptr inbounds i8, ptr %1028, i64 32
   %.pre1117 = load float, ptr %.phi.trans.insert1116, align 4
-  br i1 %1091, label %._crit_edge1115, label %1092
+  br i1 %1076, label %._crit_edge1115, label %1077
 
-1092:                                             ; preds = %1086
-  %1093 = getelementptr inbounds i8, ptr %1043, i64 40
-  %1094 = load float, ptr %1093, align 4
-  %1095 = fcmp une float %.pre1117, %1094
-  br i1 %1095, label %._crit_edge1115, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
+1077:                                             ; preds = %1071
+  %1078 = getelementptr inbounds i8, ptr %1028, i64 40
+  %1079 = load float, ptr %1078, align 4
+  %1080 = fcmp une float %.pre1117, %1079
+  br i1 %1080, label %._crit_edge1115, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
 
-._crit_edge1115:                                  ; preds = %1086, %1092
-  %1096 = getelementptr inbounds i8, ptr %1048, i64 24
-  %1097 = load ptr, ptr %1096, align 8
-  %1098 = getelementptr inbounds i8, ptr %1048, i64 56
-  %1099 = load ptr, ptr %1098, align 8
-  %.not.i975 = icmp eq ptr %1099, null
-  br i1 %.not.i975, label %1103, label %1100
+._crit_edge1115:                                  ; preds = %1071, %1077
+  %1081 = getelementptr inbounds i8, ptr %1033, i64 24
+  %1082 = load ptr, ptr %1081, align 8
+  %1083 = getelementptr inbounds i8, ptr %1033, i64 56
+  %1084 = load ptr, ptr %1083, align 8
+  %.not.i975 = icmp eq ptr %1084, null
+  br i1 %.not.i975, label %1088, label %1085
 
-1100:                                             ; preds = %._crit_edge1115
-  %1101 = getelementptr inbounds i8, ptr %1099, i64 8
-  %1102 = load ptr, ptr %1101, align 8
-  br label %1103
+1085:                                             ; preds = %._crit_edge1115
+  %1086 = getelementptr inbounds i8, ptr %1084, i64 8
+  %1087 = load ptr, ptr %1086, align 8
+  br label %1088
 
-1103:                                             ; preds = %1100, %._crit_edge1115
-  %1104 = phi ptr [ %1102, %1100 ], [ null, %._crit_edge1115 ]
-  invoke void %1097(ptr noundef nonnull %1048, ptr noundef %1050, ptr noundef nonnull %1051, float noundef %1088, float noundef %.pre1117, ptr noundef %1104)
+1088:                                             ; preds = %1085, %._crit_edge1115
+  %1089 = phi ptr [ %1087, %1085 ], [ null, %._crit_edge1115 ]
+  invoke void %1082(ptr noundef nonnull %1033, ptr noundef %1035, ptr noundef nonnull %1036, float noundef %1073, float noundef %.pre1117, ptr noundef %1089)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976: ; preds = %1103, %1092
-  %1105 = getelementptr inbounds i8, ptr %1048, i64 48
-  %1106 = load ptr, ptr %1105, align 8
-  %1107 = getelementptr inbounds i8, ptr %1048, i64 56
-  %1108 = load ptr, ptr %1107, align 8
-  %.not.i977 = icmp eq ptr %1108, null
-  br i1 %.not.i977, label %1112, label %1109
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976: ; preds = %1088, %1077
+  %1090 = getelementptr inbounds i8, ptr %1033, i64 48
+  %1091 = load ptr, ptr %1090, align 8
+  %1092 = getelementptr inbounds i8, ptr %1033, i64 56
+  %1093 = load ptr, ptr %1092, align 8
+  %.not.i977 = icmp eq ptr %1093, null
+  br i1 %.not.i977, label %1097, label %1094
 
-1109:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
-  %1110 = getelementptr inbounds i8, ptr %1108, i64 32
-  %1111 = load ptr, ptr %1110, align 8
-  br label %1112
+1094:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
+  %1095 = getelementptr inbounds i8, ptr %1093, i64 32
+  %1096 = load ptr, ptr %1095, align 8
+  br label %1097
 
-1112:                                             ; preds = %1109, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
-  %1113 = phi ptr [ %1111, %1109 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976 ]
-  invoke void %1106(ptr noundef nonnull %1048, ptr noundef %1050, ptr noundef nonnull %1051, ptr noundef %1113)
+1097:                                             ; preds = %1094, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976
+  %1098 = phi ptr [ %1096, %1094 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit976 ]
+  invoke void %1091(ptr noundef nonnull %1033, ptr noundef %1035, ptr noundef nonnull %1036, ptr noundef %1098)
           to label %.sink.split1143 unwind label %.loopexit1101
 
-.sink.split1143:                                  ; preds = %1112, %1080
-  %.sink1135.ph = phi float [ %1041, %1080 ], [ %1084, %1112 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1051, i8 0, i64 20, i1 false)
-  br label %1114
+.sink.split1143:                                  ; preds = %1097, %1065
+  %.sink1135.ph = phi float [ %1026, %1065 ], [ %1069, %1097 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1036, i8 0, i64 20, i1 false)
+  br label %1099
 
-1114:                                             ; preds = %.sink.split1143, %1082, %1052
-  %.sink1135 = phi float [ %1041, %1052 ], [ %1084, %1082 ], [ %.sink1135.ph, %.sink.split1143 ]
-  %1115 = getelementptr inbounds i8, ptr %1043, i64 36
-  store float %.sink1135, ptr %1115, align 4
-  %1116 = getelementptr inbounds i8, ptr %1043, i64 40
-  store float %1042, ptr %1116, align 4
-  %1117 = load ptr, ptr %28, align 8
-  %1118 = getelementptr inbounds i8, ptr %1117, i64 4
-  %1119 = load i8, ptr %1118, align 4
-  %1120 = trunc i8 %1119 to i1
-  %1121 = getelementptr inbounds i8, ptr %1117, i64 8
-  %1122 = load ptr, ptr %1121, align 8
-  %1123 = getelementptr inbounds i8, ptr %1117, i64 16
-  %1124 = load ptr, ptr %1123, align 8
-  %1125 = getelementptr inbounds i8, ptr %1117, i64 24
-  br i1 %1120, label %1126, label %1152
+1099:                                             ; preds = %.sink.split1143, %1067, %1037
+  %.sink1135 = phi float [ %1026, %1037 ], [ %1069, %1067 ], [ %.sink1135.ph, %.sink.split1143 ]
+  %1100 = getelementptr inbounds i8, ptr %1028, i64 36
+  store float %.sink1135, ptr %1100, align 4
+  %1101 = getelementptr inbounds i8, ptr %1028, i64 40
+  store float %1027, ptr %1101, align 4
+  %1102 = load ptr, ptr %28, align 8
+  %1103 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1104 = load i8, ptr %1103, align 4
+  %1105 = trunc i8 %1104 to i1
+  %1106 = getelementptr inbounds i8, ptr %1102, i64 8
+  %1107 = load ptr, ptr %1106, align 8
+  %1108 = getelementptr inbounds i8, ptr %1102, i64 16
+  %1109 = load ptr, ptr %1108, align 8
+  %1110 = getelementptr inbounds i8, ptr %1102, i64 24
+  br i1 %1105, label %1111, label %1137
 
-1126:                                             ; preds = %1114
-  %1127 = load i32, ptr %1125, align 4
-  %.not825 = icmp eq i32 %1127, 0
-  br i1 %.not825, label %1128, label %1142
+1111:                                             ; preds = %1099
+  %1112 = load i32, ptr %1110, align 4
+  %.not825 = icmp eq i32 %1112, 0
+  br i1 %.not825, label %1113, label %1127
 
-1128:                                             ; preds = %1126
-  %1129 = getelementptr inbounds i8, ptr %1117, i64 36
-  %1130 = load float, ptr %1129, align 4
-  %1131 = getelementptr inbounds i8, ptr %1117, i64 40
-  %1132 = load float, ptr %1131, align 4
-  %1133 = getelementptr inbounds i8, ptr %1122, i64 16
-  %1134 = load ptr, ptr %1133, align 8
-  %1135 = getelementptr inbounds i8, ptr %1122, i64 56
-  %1136 = load ptr, ptr %1135, align 8
-  %.not.i.i979 = icmp eq ptr %1136, null
-  br i1 %.not.i.i979, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980, label %1137
+1113:                                             ; preds = %1111
+  %1114 = getelementptr inbounds i8, ptr %1102, i64 36
+  %1115 = load float, ptr %1114, align 4
+  %1116 = getelementptr inbounds i8, ptr %1102, i64 40
+  %1117 = load float, ptr %1116, align 4
+  %1118 = getelementptr inbounds i8, ptr %1107, i64 16
+  %1119 = load ptr, ptr %1118, align 8
+  %1120 = getelementptr inbounds i8, ptr %1107, i64 56
+  %1121 = load ptr, ptr %1120, align 8
+  %.not.i.i979 = icmp eq ptr %1121, null
+  br i1 %.not.i.i979, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980, label %1122
 
-1137:                                             ; preds = %1128
-  %1138 = load ptr, ptr %1136, align 8
+1122:                                             ; preds = %1113
+  %1123 = load ptr, ptr %1121, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980: ; preds = %1137, %1128
-  %1139 = phi ptr [ %1138, %1137 ], [ null, %1128 ]
-  invoke void %1134(ptr noundef nonnull %1122, ptr noundef %1124, ptr noundef nonnull %1125, float noundef %1130, float noundef %1132, ptr noundef %1139)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980: ; preds = %1122, %1113
+  %1124 = phi ptr [ %1123, %1122 ], [ null, %1113 ]
+  invoke void %1119(ptr noundef nonnull %1107, ptr noundef %1109, ptr noundef nonnull %1110, float noundef %1115, float noundef %1117, ptr noundef %1124)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i980
-  store i32 1, ptr %1125, align 4
-  %1140 = getelementptr inbounds i8, ptr %1117, i64 28
-  %1141 = load <2 x float>, ptr %1129, align 4
-  store <2 x float> %1141, ptr %1140, align 4
-  br label %1142
+  store i32 1, ptr %1110, align 4
+  %1125 = getelementptr inbounds i8, ptr %1102, i64 28
+  %1126 = load <2 x float>, ptr %1114, align 4
+  store <2 x float> %1126, ptr %1125, align 4
+  br label %1127
 
-1142:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981, %1126
-  %1143 = getelementptr inbounds i8, ptr %1122, i64 32
-  %1144 = load ptr, ptr %1143, align 8
-  %1145 = getelementptr inbounds i8, ptr %1122, i64 56
-  %1146 = load ptr, ptr %1145, align 8
-  %.not.i982 = icmp eq ptr %1146, null
-  br i1 %.not.i982, label %1150, label %1147
+1127:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit981, %1111
+  %1128 = getelementptr inbounds i8, ptr %1107, i64 32
+  %1129 = load ptr, ptr %1128, align 8
+  %1130 = getelementptr inbounds i8, ptr %1107, i64 56
+  %1131 = load ptr, ptr %1130, align 8
+  %.not.i982 = icmp eq ptr %1131, null
+  br i1 %.not.i982, label %1135, label %1132
 
-1147:                                             ; preds = %1142
-  %1148 = getelementptr inbounds i8, ptr %1146, i64 16
-  %1149 = load ptr, ptr %1148, align 8
-  br label %1150
+1132:                                             ; preds = %1127
+  %1133 = getelementptr inbounds i8, ptr %1131, i64 16
+  %1134 = load ptr, ptr %1133, align 8
+  br label %1135
 
-1150:                                             ; preds = %1147, %1142
-  %1151 = phi ptr [ %1149, %1147 ], [ null, %1142 ]
-  invoke void %1144(ptr noundef nonnull %1122, ptr noundef %1124, ptr noundef nonnull %1125, float noundef %1041, float noundef %1042, float noundef %1041, float noundef %1042, ptr noundef %1151)
+1135:                                             ; preds = %1132, %1127
+  %1136 = phi ptr [ %1134, %1132 ], [ null, %1127 ]
+  invoke void %1129(ptr noundef nonnull %1107, ptr noundef %1109, ptr noundef nonnull %1110, float noundef %1026, float noundef %1027, float noundef %1026, float noundef %1027, ptr noundef %1136)
           to label %.sink.split unwind label %.loopexit1101
 
-1152:                                             ; preds = %1114
-  %1153 = load float, ptr %1117, align 8
-  %1154 = call float @llvm.fmuladd.f32(float %1042, float %1153, float %1041)
-  %1155 = load i32, ptr %1125, align 4
-  %.not824 = icmp eq i32 %1155, 0
-  br i1 %.not824, label %1156, label %1170
+1137:                                             ; preds = %1099
+  %1138 = load float, ptr %1102, align 8
+  %1139 = call float @llvm.fmuladd.f32(float %1027, float %1138, float %1026)
+  %1140 = load i32, ptr %1110, align 4
+  %.not824 = icmp eq i32 %1140, 0
+  br i1 %.not824, label %1141, label %1155
 
-1156:                                             ; preds = %1152
-  %1157 = getelementptr inbounds i8, ptr %1117, i64 36
-  %1158 = load float, ptr %1157, align 4
-  %1159 = getelementptr inbounds i8, ptr %1117, i64 40
-  %1160 = load float, ptr %1159, align 4
-  %1161 = getelementptr inbounds i8, ptr %1122, i64 16
-  %1162 = load ptr, ptr %1161, align 8
-  %1163 = getelementptr inbounds i8, ptr %1122, i64 56
-  %1164 = load ptr, ptr %1163, align 8
-  %.not.i.i984 = icmp eq ptr %1164, null
-  br i1 %.not.i.i984, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985, label %1165
+1141:                                             ; preds = %1137
+  %1142 = getelementptr inbounds i8, ptr %1102, i64 36
+  %1143 = load float, ptr %1142, align 4
+  %1144 = getelementptr inbounds i8, ptr %1102, i64 40
+  %1145 = load float, ptr %1144, align 4
+  %1146 = getelementptr inbounds i8, ptr %1107, i64 16
+  %1147 = load ptr, ptr %1146, align 8
+  %1148 = getelementptr inbounds i8, ptr %1107, i64 56
+  %1149 = load ptr, ptr %1148, align 8
+  %.not.i.i984 = icmp eq ptr %1149, null
+  br i1 %.not.i.i984, label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985, label %1150
 
-1165:                                             ; preds = %1156
-  %1166 = load ptr, ptr %1164, align 8
+1150:                                             ; preds = %1141
+  %1151 = load ptr, ptr %1149, align 8
   br label %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985
 
-_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985: ; preds = %1165, %1156
-  %1167 = phi ptr [ %1166, %1165 ], [ null, %1156 ]
-  invoke void %1162(ptr noundef nonnull %1122, ptr noundef %1124, ptr noundef nonnull %1125, float noundef %1158, float noundef %1160, ptr noundef %1167)
+_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985: ; preds = %1150, %1141
+  %1152 = phi ptr [ %1151, %1150 ], [ null, %1141 ]
+  invoke void %1147(ptr noundef nonnull %1107, ptr noundef %1109, ptr noundef nonnull %1110, float noundef %1143, float noundef %1145, ptr noundef %1152)
           to label %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986 unwind label %.loopexit1101
 
 _ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986: ; preds = %_ZN15hb_draw_funcs_t12emit_move_toEPvR15hb_draw_state_tff.exit.i985
-  store i32 1, ptr %1125, align 4
-  %1168 = getelementptr inbounds i8, ptr %1117, i64 28
-  %1169 = load <2 x float>, ptr %1157, align 4
-  store <2 x float> %1169, ptr %1168, align 4
-  br label %1170
+  store i32 1, ptr %1110, align 4
+  %1153 = getelementptr inbounds i8, ptr %1102, i64 28
+  %1154 = load <2 x float>, ptr %1142, align 4
+  store <2 x float> %1154, ptr %1153, align 4
+  br label %1155
 
-1170:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986, %1152
-  %1171 = getelementptr inbounds i8, ptr %1122, i64 32
-  %1172 = load ptr, ptr %1171, align 8
-  %1173 = getelementptr inbounds i8, ptr %1122, i64 56
-  %1174 = load ptr, ptr %1173, align 8
-  %.not.i987 = icmp eq ptr %1174, null
-  br i1 %.not.i987, label %1178, label %1175
+1155:                                             ; preds = %_ZN15hb_draw_funcs_t10start_pathEPvR15hb_draw_state_t.exit986, %1137
+  %1156 = getelementptr inbounds i8, ptr %1107, i64 32
+  %1157 = load ptr, ptr %1156, align 8
+  %1158 = getelementptr inbounds i8, ptr %1107, i64 56
+  %1159 = load ptr, ptr %1158, align 8
+  %.not.i987 = icmp eq ptr %1159, null
+  br i1 %.not.i987, label %1163, label %1160
 
-1175:                                             ; preds = %1170
-  %1176 = getelementptr inbounds i8, ptr %1174, i64 16
-  %1177 = load ptr, ptr %1176, align 8
-  br label %1178
+1160:                                             ; preds = %1155
+  %1161 = getelementptr inbounds i8, ptr %1159, i64 16
+  %1162 = load ptr, ptr %1161, align 8
+  br label %1163
 
-1178:                                             ; preds = %1175, %1170
-  %1179 = phi ptr [ %1177, %1175 ], [ null, %1170 ]
-  invoke void %1172(ptr noundef nonnull %1122, ptr noundef %1124, ptr noundef nonnull %1125, float noundef %1154, float noundef %1042, float noundef %1154, float noundef %1042, ptr noundef %1179)
+1163:                                             ; preds = %1160, %1155
+  %1164 = phi ptr [ %1162, %1160 ], [ null, %1155 ]
+  invoke void %1157(ptr noundef nonnull %1107, ptr noundef %1109, ptr noundef nonnull %1110, float noundef %1139, float noundef %1027, float noundef %1139, float noundef %1027, ptr noundef %1164)
           to label %.sink.split unwind label %.loopexit1101
 
-.sink.split:                                      ; preds = %1178, %1150, %1038, %1010, %971, %942, %903, %873, %823, %794, %755, %725
-  %.sink1142 = phi ptr [ %685, %725 ], [ %685, %755 ], [ %685, %794 ], [ %685, %823 ], [ %833, %873 ], [ %833, %903 ], [ %833, %942 ], [ %833, %971 ], [ %975, %1010 ], [ %975, %1038 ], [ %1117, %1150 ], [ %1117, %1178 ]
-  %.sink1140 = phi float [ %691, %725 ], [ %731, %755 ], [ %760, %794 ], [ %799, %823 ], [ %839, %873 ], [ %879, %903 ], [ %908, %942 ], [ %947, %971 ], [ %976, %1010 ], [ %1014, %1038 ], [ %1041, %1150 ], [ %1154, %1178 ]
-  %.sink1137 = phi float [ %692, %725 ], [ %692, %755 ], [ %761, %794 ], [ %761, %823 ], [ %840, %873 ], [ %840, %903 ], [ %909, %942 ], [ %909, %971 ], [ %977, %1010 ], [ %977, %1038 ], [ %1042, %1150 ], [ %1042, %1178 ]
-  %1180 = getelementptr inbounds i8, ptr %.sink1142, i64 36
-  store float %.sink1140, ptr %1180, align 4
-  %1181 = getelementptr inbounds i8, ptr %.sink1142, i64 40
-  store float %.sink1137, ptr %1181, align 4
-  br label %1182
+.sink.split:                                      ; preds = %1163, %1135, %1023, %995, %956, %927, %888, %858, %808, %779, %740, %710
+  %.sink1142 = phi ptr [ %670, %710 ], [ %670, %740 ], [ %670, %779 ], [ %670, %808 ], [ %818, %858 ], [ %818, %888 ], [ %818, %927 ], [ %818, %956 ], [ %960, %995 ], [ %960, %1023 ], [ %1102, %1135 ], [ %1102, %1163 ]
+  %.sink1140 = phi float [ %676, %710 ], [ %716, %740 ], [ %745, %779 ], [ %784, %808 ], [ %824, %858 ], [ %864, %888 ], [ %893, %927 ], [ %932, %956 ], [ %961, %995 ], [ %999, %1023 ], [ %1026, %1135 ], [ %1139, %1163 ]
+  %.sink1137 = phi float [ %677, %710 ], [ %677, %740 ], [ %746, %779 ], [ %746, %808 ], [ %825, %858 ], [ %825, %888 ], [ %894, %927 ], [ %894, %956 ], [ %962, %995 ], [ %962, %1023 ], [ %1027, %1135 ], [ %1027, %1163 ]
+  %1165 = getelementptr inbounds i8, ptr %.sink1142, i64 36
+  store float %.sink1140, ptr %1165, align 4
+  %1166 = getelementptr inbounds i8, ptr %.sink1142, i64 40
+  store float %.sink1137, ptr %1166, align 4
+  br label %1167
 
-1182:                                             ; preds = %.sink.split, %.thread
+1167:                                             ; preds = %.sink.split, %.thread
   store i8 0, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
-  %1183 = load ptr, ptr %28, align 8
-  %1184 = getelementptr inbounds i8, ptr %1183, i64 8
-  %1185 = load ptr, ptr %1184, align 8
-  %1186 = getelementptr inbounds i8, ptr %1183, i64 16
-  %1187 = load ptr, ptr %1186, align 8
-  %1188 = getelementptr inbounds i8, ptr %1183, i64 24
-  %1189 = load i32, ptr %1188, align 4
-  %.not836 = icmp eq i32 %1189, 0
-  br i1 %.not836, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992, label %1190
+  %1168 = load ptr, ptr %28, align 8
+  %1169 = getelementptr inbounds i8, ptr %1168, i64 8
+  %1170 = load ptr, ptr %1169, align 8
+  %1171 = getelementptr inbounds i8, ptr %1168, i64 16
+  %1172 = load ptr, ptr %1171, align 8
+  %1173 = getelementptr inbounds i8, ptr %1168, i64 24
+  %1174 = load i32, ptr %1173, align 4
+  %.not836 = icmp eq i32 %1174, 0
+  br i1 %.not836, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992, label %1175
 
-1190:                                             ; preds = %1182
-  %1191 = getelementptr inbounds i8, ptr %1183, i64 28
-  %1192 = load float, ptr %1191, align 4
-  %1193 = getelementptr inbounds i8, ptr %1183, i64 36
-  %1194 = load float, ptr %1193, align 4
-  %1195 = fcmp une float %1192, %1194
-  %.phi.trans.insert1122 = getelementptr inbounds i8, ptr %1183, i64 32
+1175:                                             ; preds = %1167
+  %1176 = getelementptr inbounds i8, ptr %1168, i64 28
+  %1177 = load float, ptr %1176, align 4
+  %1178 = getelementptr inbounds i8, ptr %1168, i64 36
+  %1179 = load float, ptr %1178, align 4
+  %1180 = fcmp une float %1177, %1179
+  %.phi.trans.insert1122 = getelementptr inbounds i8, ptr %1168, i64 32
   %.pre1123 = load float, ptr %.phi.trans.insert1122, align 4
-  br i1 %1195, label %._crit_edge1121, label %1196
+  br i1 %1180, label %._crit_edge1121, label %1181
 
-1196:                                             ; preds = %1190
-  %1197 = getelementptr inbounds i8, ptr %1183, i64 40
-  %1198 = load float, ptr %1197, align 4
-  %1199 = fcmp une float %.pre1123, %1198
-  br i1 %1199, label %._crit_edge1121, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
+1181:                                             ; preds = %1175
+  %1182 = getelementptr inbounds i8, ptr %1168, i64 40
+  %1183 = load float, ptr %1182, align 4
+  %1184 = fcmp une float %.pre1123, %1183
+  br i1 %1184, label %._crit_edge1121, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
 
-._crit_edge1121:                                  ; preds = %1190, %1196
-  %1200 = getelementptr inbounds i8, ptr %1185, i64 24
-  %1201 = load ptr, ptr %1200, align 8
-  %1202 = getelementptr inbounds i8, ptr %1185, i64 56
-  %1203 = load ptr, ptr %1202, align 8
-  %.not.i989 = icmp eq ptr %1203, null
-  br i1 %.not.i989, label %1207, label %1204
+._crit_edge1121:                                  ; preds = %1175, %1181
+  %1185 = getelementptr inbounds i8, ptr %1170, i64 24
+  %1186 = load ptr, ptr %1185, align 8
+  %1187 = getelementptr inbounds i8, ptr %1170, i64 56
+  %1188 = load ptr, ptr %1187, align 8
+  %.not.i989 = icmp eq ptr %1188, null
+  br i1 %.not.i989, label %1192, label %1189
 
-1204:                                             ; preds = %._crit_edge1121
-  %1205 = getelementptr inbounds i8, ptr %1203, i64 8
-  %1206 = load ptr, ptr %1205, align 8
-  br label %1207
+1189:                                             ; preds = %._crit_edge1121
+  %1190 = getelementptr inbounds i8, ptr %1188, i64 8
+  %1191 = load ptr, ptr %1190, align 8
+  br label %1192
 
-1207:                                             ; preds = %1204, %._crit_edge1121
-  %1208 = phi ptr [ %1206, %1204 ], [ null, %._crit_edge1121 ]
-  invoke void %1201(ptr noundef nonnull %1185, ptr noundef %1187, ptr noundef nonnull %1188, float noundef %1192, float noundef %.pre1123, ptr noundef %1208)
+1192:                                             ; preds = %1189, %._crit_edge1121
+  %1193 = phi ptr [ %1191, %1189 ], [ null, %._crit_edge1121 ]
+  invoke void %1186(ptr noundef nonnull %1170, ptr noundef %1172, ptr noundef nonnull %1173, float noundef %1177, float noundef %.pre1123, ptr noundef %1193)
           to label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990: ; preds = %1207, %1196
-  %1209 = getelementptr inbounds i8, ptr %1185, i64 48
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = getelementptr inbounds i8, ptr %1185, i64 56
-  %1212 = load ptr, ptr %1211, align 8
-  %.not.i991 = icmp eq ptr %1212, null
-  br i1 %.not.i991, label %1216, label %1213
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990: ; preds = %1192, %1181
+  %1194 = getelementptr inbounds i8, ptr %1170, i64 48
+  %1195 = load ptr, ptr %1194, align 8
+  %1196 = getelementptr inbounds i8, ptr %1170, i64 56
+  %1197 = load ptr, ptr %1196, align 8
+  %.not.i991 = icmp eq ptr %1197, null
+  br i1 %.not.i991, label %1201, label %1198
 
-1213:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
-  %1214 = getelementptr inbounds i8, ptr %1212, i64 32
-  %1215 = load ptr, ptr %1214, align 8
-  br label %1216
+1198:                                             ; preds = %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
+  %1199 = getelementptr inbounds i8, ptr %1197, i64 32
+  %1200 = load ptr, ptr %1199, align 8
+  br label %1201
 
-1216:                                             ; preds = %1213, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
-  %1217 = phi ptr [ %1215, %1213 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990 ]
-  invoke void %1210(ptr noundef nonnull %1185, ptr noundef %1187, ptr noundef nonnull %1188, ptr noundef %1217)
+1201:                                             ; preds = %1198, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990
+  %1202 = phi ptr [ %1200, %1198 ], [ null, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit990 ]
+  invoke void %1195(ptr noundef nonnull %1170, ptr noundef %1172, ptr noundef nonnull %1173, ptr noundef %1202)
           to label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992 unwind label %.loopexit1101
 
-_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992: ; preds = %1216, %1182
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1188, i8 0, i64 20, i1 false)
-  br label %1218
+_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992: ; preds = %1201, %1167
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1173, i8 0, i64 20, i1 false)
+  br label %1203
 
-1218:                                             ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992, %520
-  %1219 = getelementptr inbounds i8, ptr %.08001103, i64 12
-  %.not803 = icmp eq ptr %1219, %26
+1203:                                             ; preds = %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit992, %505
+  %1204 = getelementptr inbounds i8, ptr %.08001103, i64 12
+  %.not803 = icmp eq ptr %1204, %26
   br i1 %.not803, label %.loopexit, label %37
 
-.loopexit:                                        ; preds = %1218, %20, %13
-  %1220 = load i32, ptr %5, align 8
-  %.not.i.i.i993 = icmp eq i32 %1220, 0
-  br i1 %.not.i.i.i993, label %_ZN22contour_point_vector_tD2Ev.exit994, label %1221
+.loopexit:                                        ; preds = %1203, %20, %13
+  %1205 = load i32, ptr %5, align 8
+  %.not.i.i.i993 = icmp eq i32 %1205, 0
+  br i1 %.not.i.i.i993, label %_ZN22contour_point_vector_tD2Ev.exit994, label %1206
 
-1221:                                             ; preds = %.loopexit
-  %1222 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 0, ptr %1222, align 4
-  %1223 = getelementptr inbounds i8, ptr %5, i64 8
-  %1224 = load ptr, ptr %1223, align 8
-  call void @free(ptr noundef %1224) #22
+1206:                                             ; preds = %.loopexit
+  %1207 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 0, ptr %1207, align 4
+  %1208 = getelementptr inbounds i8, ptr %5, i64 8
+  %1209 = load ptr, ptr %1208, align 8
+  call void @free(ptr noundef %1209) #22
   br label %_ZN22contour_point_vector_tD2Ev.exit994
 
-_ZN22contour_point_vector_tD2Ev.exit994:          ; preds = %1221, %.loopexit, %4
-  %.1 = phi i1 [ false, %4 ], [ %12, %.loopexit ], [ %12, %1221 ]
+_ZN22contour_point_vector_tD2Ev.exit994:          ; preds = %1206, %.loopexit, %4
+  %.1 = phi i1 [ false, %4 ], [ %12, %.loopexit ], [ %12, %1206 ]
   ret i1 %.1
 }
 

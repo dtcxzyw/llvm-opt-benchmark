@@ -339,32 +339,32 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge118.i ], [ %164, %.thread.i ]
   %179 = phi <2 x double> [ %158, %._crit_edge118.i ], [ %178, %.thread.i ]
   %180 = load <2 x double>, ptr %2, align 8
-  %181 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %182 = insertelement <2 x double> poison, double %4, i64 0
-  %183 = insertelement <2 x double> %182, double %5, i64 1
-  %184 = fmul <2 x double> %181, %183
-  %185 = getelementptr %struct.Pxy_t, ptr %2, i64 %.pre-phi.i
-  %186 = getelementptr i8, ptr %185, i64 -16
-  %187 = load <2 x double>, ptr %186, align 8
-  %188 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> zeroinitializer
-  %189 = insertelement <2 x double> poison, double %6, i64 0
-  %190 = insertelement <2 x double> %189, double %7, i64 1
-  %191 = fmul <2 x double> %188, %190
+  %181 = extractelement <2 x double> %180, i64 1
+  %182 = extractelement <2 x double> %180, i64 0
+  %183 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %184 = insertelement <2 x double> poison, double %4, i64 0
+  %185 = insertelement <2 x double> %184, double %5, i64 1
+  %186 = fmul <2 x double> %183, %185
+  %187 = getelementptr %struct.Pxy_t, ptr %2, i64 %.pre-phi.i
+  %188 = getelementptr i8, ptr %187, i64 -16
+  %189 = load <2 x double>, ptr %188, align 8
+  %190 = shufflevector <2 x double> %179, <2 x double> poison, <2 x i32> zeroinitializer
+  %191 = insertelement <2 x double> poison, double %6, i64 0
+  %192 = insertelement <2 x double> %191, double %7, i64 1
+  %193 = fmul <2 x double> %190, %192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
-  %192 = icmp eq i32 %3, 2
-  %193 = getelementptr inbounds i8, ptr %13, i64 16
-  %194 = getelementptr inbounds i8, ptr %13, i64 32
-  %195 = getelementptr inbounds i8, ptr %13, i64 48
+  %194 = icmp eq i32 %3, 2
+  %195 = getelementptr inbounds i8, ptr %13, i64 16
+  %196 = getelementptr inbounds i8, ptr %13, i64 32
+  %197 = getelementptr inbounds i8, ptr %13, i64 48
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
-  %196 = icmp sgt i32 %1, 0
-  %197 = getelementptr inbounds i8, ptr %9, i64 24
-  %198 = getelementptr inbounds i8, ptr %9, i64 16
-  %199 = getelementptr inbounds i8, ptr %9, i64 8
+  %198 = icmp sgt i32 %1, 0
+  %199 = getelementptr inbounds i8, ptr %9, i64 24
+  %200 = getelementptr inbounds i8, ptr %9, i64 16
+  %201 = getelementptr inbounds i8, ptr %9, i64 8
   %wide.trip.count76.i.i = zext nneg i32 %1 to i64
-  %200 = extractelement <2 x double> %180, i64 0
-  %201 = extractelement <2 x double> %180, i64 1
-  %202 = extractelement <2 x double> %187, i64 0
-  %203 = extractelement <2 x double> %187, i64 1
+  %202 = extractelement <2 x double> %189, i64 0
+  %203 = extractelement <2 x double> %189, i64 1
   br label %204
 
 204:                                              ; preds = %434, %mkspline.exit
@@ -373,15 +373,15 @@ mkspline.exit:                                    ; preds = %._crit_edge118.i, %
   store <2 x double> %180, ptr %13, align 16
   %205 = insertelement <2 x double> poison, double %.033.i, i64 0
   %206 = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> zeroinitializer
-  %207 = fmul <2 x double> %184, %206
+  %207 = fmul <2 x double> %186, %206
   %208 = fdiv <2 x double> %207, <double 3.000000e+00, double 3.000000e+00>
   %209 = fadd <2 x double> %180, %208
-  store <2 x double> %209, ptr %193, align 16
-  %210 = fmul <2 x double> %191, %206
+  store <2 x double> %209, ptr %195, align 16
+  %210 = fmul <2 x double> %193, %206
   %211 = fdiv <2 x double> %210, <double 3.000000e+00, double 3.000000e+00>
-  %212 = fsub <2 x double> %187, %211
-  store <2 x double> %212, ptr %194, align 16
-  store <2 x double> %187, ptr %195, align 16
+  %212 = fsub <2 x double> %189, %211
+  store <2 x double> %212, ptr %196, align 16
+  store <2 x double> %189, ptr %197, align 16
   br i1 %.not.i, label %239, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %204, %.lr.ph.i.i
@@ -433,16 +433,16 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
 
 239:                                              ; preds = %dist_n.exit41.i, %204
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  br i1 %196, label %.lr.ph65.i.i, label %.loopexit.i
+  br i1 %198, label %.lr.ph65.i.i, label %.loopexit.i
 
 .lr.ph65.i.i:                                     ; preds = %239
   %240 = extractelement <2 x double> %209, i64 0
   %241 = call double @llvm.fmuladd.f64(double %240, double 3.000000e+00, double %202)
   %242 = extractelement <2 x double> %212, i64 0
-  %243 = call double @llvm.fmuladd.f64(double %242, double 3.000000e+00, double %200)
+  %243 = call double @llvm.fmuladd.f64(double %242, double 3.000000e+00, double %182)
   %244 = fsub double %241, %243
   %245 = fmul double %242, 3.000000e+00
-  %246 = call double @llvm.fmuladd.f64(double %200, double 3.000000e+00, double %245)
+  %246 = call double @llvm.fmuladd.f64(double %182, double 3.000000e+00, double %245)
   %247 = call double @llvm.fmuladd.f64(double %240, double -6.000000e+00, double %246)
   %248 = fsub <2 x double> %209, %180
   %249 = extractelement <2 x double> %248, i64 0
@@ -450,12 +450,12 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
   %251 = extractelement <2 x double> %209, i64 1
   %252 = call double @llvm.fmuladd.f64(double %251, double 3.000000e+00, double %203)
   %253 = extractelement <2 x double> %212, i64 1
-  %254 = call double @llvm.fmuladd.f64(double %253, double 3.000000e+00, double %201)
+  %254 = call double @llvm.fmuladd.f64(double %253, double 3.000000e+00, double %181)
   %255 = fsub double %252, %254
   %256 = fmul double %253, 3.000000e+00
-  %257 = call double @llvm.fmuladd.f64(double %201, double 3.000000e+00, double %256)
+  %257 = call double @llvm.fmuladd.f64(double %181, double 3.000000e+00, double %256)
   %258 = call double @llvm.fmuladd.f64(double %251, double -6.000000e+00, double %257)
-  %259 = fsub double %251, %201
+  %259 = fsub double %251, %181
   %260 = fmul double %259, 3.000000e+00
   br label %261
 
@@ -479,19 +479,19 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
 
 267:                                              ; preds = %261
   %268 = fcmp oeq double %265, 0.000000e+00
-  store double %244, ptr %197, align 8
-  store double %247, ptr %198, align 16
-  store double %250, ptr %199, align 8
-  %269 = fsub double %200, %.sroa.0.0.copyload.i.i
+  store double %244, ptr %199, align 8
+  store double %247, ptr %200, align 16
+  store double %250, ptr %201, align 8
+  %269 = fsub double %182, %.sroa.0.0.copyload.i.i
   store double %269, ptr %9, align 16
   %270 = call i32 @solve3(ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   br i1 %268, label %271, label %308
 
 271:                                              ; preds = %267
-  store double %255, ptr %197, align 8
-  store double %258, ptr %198, align 16
-  store double %260, ptr %199, align 8
-  %272 = fsub double %201, %.sroa.3.0.copyload.i.i
+  store double %255, ptr %199, align 8
+  store double %258, ptr %200, align 16
+  store double %260, ptr %201, align 8
+  %272 = fsub double %181, %.sroa.3.0.copyload.i.i
   store double %272, ptr %9, align 16
   %273 = call i32 @solve3(ptr noundef nonnull %9, ptr noundef nonnull %11) #9
   %274 = icmp eq i32 %270, 4
@@ -639,7 +639,7 @@ addroot.exit123.i.i.i:                            ; preds = %304, %.lr.ph175.i.i
 316:                                              ; preds = %311
   %317 = call double @llvm.fmuladd.f64(double %313, double %255, double %258)
   %318 = call double @llvm.fmuladd.f64(double %313, double %317, double %260)
-  %319 = call double @llvm.fmuladd.f64(double %313, double %318, double %201)
+  %319 = call double @llvm.fmuladd.f64(double %313, double %318, double %181)
   %320 = fsub double %319, %.sroa.3.0.copyload.i.i
   %321 = fdiv double %320, %265
   %322 = fcmp oge double %321, 0.000000e+00
@@ -663,21 +663,21 @@ addroot.exit127.i.i.i:                            ; preds = %316
 328:                                              ; preds = %261
   %329 = fdiv double %265, %264
   %330 = fneg double %329
-  %331 = call double @llvm.fmuladd.f64(double %330, double %200, double %201)
+  %331 = call double @llvm.fmuladd.f64(double %330, double %182, double %181)
   %332 = call double @llvm.fmuladd.f64(double %330, double %240, double %251)
   %333 = call double @llvm.fmuladd.f64(double %330, double %242, double %253)
   %334 = call double @llvm.fmuladd.f64(double %330, double %202, double %203)
   %335 = call double @llvm.fmuladd.f64(double %332, double 3.000000e+00, double %334)
   %336 = call double @llvm.fmuladd.f64(double %333, double 3.000000e+00, double %331)
   %337 = fsub double %335, %336
-  store double %337, ptr %197, align 8
+  store double %337, ptr %199, align 8
   %338 = fmul double %333, 3.000000e+00
   %339 = call double @llvm.fmuladd.f64(double %331, double 3.000000e+00, double %338)
   %340 = call double @llvm.fmuladd.f64(double %332, double -6.000000e+00, double %339)
-  store double %340, ptr %198, align 16
+  store double %340, ptr %200, align 16
   %341 = fsub double %332, %331
   %342 = fmul double %341, 3.000000e+00
-  store double %342, ptr %199, align 8
+  store double %342, ptr %201, align 8
   %343 = fneg double %.sroa.3.0.copyload.i.i
   %344 = call double @llvm.fmuladd.f64(double %329, double %.sroa.0.0.copyload.i.i, double %343)
   %345 = fadd double %344, %331
@@ -707,7 +707,7 @@ addroot.exit127.i.i.i:                            ; preds = %316
 353:                                              ; preds = %.lr.ph.i.i.i
   %354 = call double @llvm.fmuladd.f64(double %350, double %244, double %247)
   %355 = call double @llvm.fmuladd.f64(double %350, double %354, double %250)
-  %356 = call double @llvm.fmuladd.f64(double %350, double %355, double %200)
+  %356 = call double @llvm.fmuladd.f64(double %350, double %355, double %182)
   %357 = fsub double %356, %.sroa.0.0.copyload.i.i
   %358 = fdiv double %357, %264
   %359 = fcmp oge double %358, 0.000000e+00
@@ -775,11 +775,11 @@ splineintersectsline.exit.i.i:                    ; preds = %364, %327, %._crit_
   %380 = fmul double %376, %376
   %381 = fmul double %376, %380
   %382 = fmul double %240, %379
-  %383 = call double @llvm.fmuladd.f64(double %381, double %200, double %382)
+  %383 = call double @llvm.fmuladd.f64(double %381, double %182, double %382)
   %384 = call double @llvm.fmuladd.f64(double %377, double %242, double %383)
   %385 = call double @llvm.fmuladd.f64(double %373, double %202, double %384)
   %386 = fmul double %251, %379
-  %387 = call double @llvm.fmuladd.f64(double %381, double %201, double %386)
+  %387 = call double @llvm.fmuladd.f64(double %381, double %181, double %386)
   %388 = call double @llvm.fmuladd.f64(double %377, double %253, double %387)
   %389 = call double @llvm.fmuladd.f64(double %373, double %203, double %388)
   %390 = fsub double %385, %.sroa.0.0.copyload.i.i
@@ -851,7 +851,7 @@ growops.exit.i:                                   ; preds = %409, %.loopexit.i
   br i1 %417, label %418, label %434
 
 418:                                              ; preds = %416
-  br i1 %192, label %419, label %.loopexit
+  br i1 %194, label %419, label %.loopexit
 
 419:                                              ; preds = %418
   %420 = load i32, ptr @opl, align 4
@@ -909,15 +909,15 @@ splinefits.exit:                                  ; preds = %430, %412
 
 .loopexit:                                        ; preds = %dist_n.exit41.i, %418
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  %438 = extractelement <2 x double> %184, i64 0
+  %438 = extractelement <2 x double> %186, i64 0
   %439 = fmul double %438, 0x3FD5555555555555
-  %440 = extractelement <2 x double> %184, i64 1
+  %440 = extractelement <2 x double> %186, i64 1
   %441 = fmul double %440, 0x3FD5555555555555
-  %442 = fadd double %200, %439
-  %443 = fadd double %201, %441
-  %444 = extractelement <2 x double> %191, i64 0
+  %442 = fadd double %182, %439
+  %443 = fadd double %181, %441
+  %444 = extractelement <2 x double> %193, i64 0
   %445 = fmul double %444, 0x3FD5555555555555
-  %446 = extractelement <2 x double> %191, i64 1
+  %446 = extractelement <2 x double> %193, i64 1
   %447 = fmul double %446, 0x3FD5555555555555
   %448 = fsub double %202, %445
   %449 = fsub double %203, %447
@@ -943,7 +943,7 @@ splinefits.exit:                                  ; preds = %430, %412
   %459 = fmul double %458, %455
   %460 = fmul double %455, %459
   %461 = fmul double %442, %460
-  %462 = call double @llvm.fmuladd.f64(double %457, double %200, double %461)
+  %462 = call double @llvm.fmuladd.f64(double %457, double %182, double %461)
   %463 = fmul double %454, %458
   %464 = fmul double %455, %463
   %465 = call double @llvm.fmuladd.f64(double %464, double %448, double %462)
@@ -951,7 +951,7 @@ splinefits.exit:                                  ; preds = %430, %412
   %467 = fmul double %454, %466
   %468 = call double @llvm.fmuladd.f64(double %467, double %202, double %465)
   %469 = fmul double %443, %460
-  %470 = call double @llvm.fmuladd.f64(double %457, double %201, double %469)
+  %470 = call double @llvm.fmuladd.f64(double %457, double %181, double %469)
   %471 = call double @llvm.fmuladd.f64(double %464, double %449, double %470)
   %472 = call double @llvm.fmuladd.f64(double %467, double %203, double %471)
   %473 = getelementptr inbounds %struct.Pxy_t, ptr %2, i64 %indvars.iv225

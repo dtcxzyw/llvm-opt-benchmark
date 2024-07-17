@@ -1615,22 +1615,22 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %35 = insertelement <2 x float> poison, float %17, i64 0
   %36 = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> zeroinitializer
   %37 = fadd <2 x float> %36, %0
+  %38 = extractelement <2 x float> %37, i64 1
+  %39 = extractelement <2 x float> %37, i64 0
   store <2 x float> %37, ptr %10, align 16
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.46.72..sroa_idx = getelementptr inbounds i8, ptr %10, i64 12
-  %39 = extractelement <2 x float> %37, i64 1
-  store float %39, ptr %.sroa.46.72..sroa_idx, align 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 16
-  %41 = fsub <2 x float> %34, %36
-  %42 = extractelement <2 x float> %41, i64 0
-  store float %42, ptr %38, align 8
-  store <2 x float> %41, ptr %40, align 16
-  %43 = getelementptr inbounds i8, ptr %10, i64 24
-  %44 = extractelement <2 x float> %37, i64 0
-  store float %44, ptr %43, align 8
+  store float %38, ptr %.sroa.46.72..sroa_idx, align 4
+  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  %42 = fsub <2 x float> %34, %36
+  %43 = extractelement <2 x float> %42, i64 1
+  %44 = extractelement <2 x float> %42, i64 0
+  store float %44, ptr %40, align 8
+  store <2 x float> %42, ptr %41, align 16
+  %45 = getelementptr inbounds i8, ptr %10, i64 24
+  store float %39, ptr %45, align 8
   %.sroa.64.88..sroa_idx = getelementptr inbounds i8, ptr %10, i64 28
-  %45 = extractelement <2 x float> %41, i64 1
-  store float %45, ptr %.sroa.64.88..sroa_idx, align 4
+  store float %43, ptr %.sroa.64.88..sroa_idx, align 4
   %.sroa.0.0.copyload373 = load i32, ptr @texShapes, align 16
   tail call void @rlSetTexture(i32 noundef %.sroa.0.0.copyload373) #16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
@@ -1780,7 +1780,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %141 = sitofp i32 %140 to float
   %142 = fdiv float %.sroa.035.4.vec.extract, %141
   tail call void @rlTexCoord2f(float noundef %139, float noundef %142) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %8) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %8) #16
   %143 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %144 = sitofp i32 %143 to float
   %145 = fdiv float %.sroa.035.0.vec.extract, %144
@@ -1788,7 +1788,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %147 = sitofp i32 %146 to float
   %148 = fdiv float %51, %147
   tail call void @rlTexCoord2f(float noundef %145, float noundef %148) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %38) #16
   %149 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %150 = sitofp i32 %149 to float
   %151 = fdiv float %49, %150
@@ -1796,7 +1796,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %153 = sitofp i32 %152 to float
   %154 = fdiv float %51, %153
   tail call void @rlTexCoord2f(float noundef %151, float noundef %154) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %38) #16
   %155 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %156 = sitofp i32 %155 to float
   %157 = fdiv float %49, %156
@@ -1804,7 +1804,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %159 = sitofp i32 %158 to float
   %160 = fdiv float %.sroa.035.4.vec.extract, %159
   tail call void @rlTexCoord2f(float noundef %157, float noundef %160) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %8) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %8) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %161 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %162 = sitofp i32 %161 to float
@@ -1814,7 +1814,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %166 = fdiv float %.sroa.035.4.vec.extract, %165
   tail call void @rlTexCoord2f(float noundef %163, float noundef %166) #16
   %167 = extractelement <2 x float> %34, i64 0
-  tail call void @rlVertex2f(float noundef %167, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %167, float noundef %38) #16
   %168 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %169 = sitofp i32 %168 to float
   %170 = fdiv float %.sroa.035.0.vec.extract, %169
@@ -1822,7 +1822,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %172 = sitofp i32 %171 to float
   %173 = fdiv float %51, %172
   tail call void @rlTexCoord2f(float noundef %170, float noundef %173) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %38) #16
   %174 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %175 = sitofp i32 %174 to float
   %176 = fdiv float %49, %175
@@ -1830,7 +1830,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %178 = sitofp i32 %177 to float
   %179 = fdiv float %51, %178
   tail call void @rlTexCoord2f(float noundef %176, float noundef %179) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %43) #16
   %180 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %181 = sitofp i32 %180 to float
   %182 = fdiv float %49, %181
@@ -1838,7 +1838,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %184 = sitofp i32 %183 to float
   %185 = fdiv float %.sroa.035.4.vec.extract, %184
   tail call void @rlTexCoord2f(float noundef %182, float noundef %185) #16
-  tail call void @rlVertex2f(float noundef %167, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %167, float noundef %43) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %186 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %187 = sitofp i32 %186 to float
@@ -1847,7 +1847,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %190 = sitofp i32 %189 to float
   %191 = fdiv float %.sroa.035.4.vec.extract, %190
   tail call void @rlTexCoord2f(float noundef %188, float noundef %191) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %43) #16
   %192 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %193 = sitofp i32 %192 to float
   %194 = fdiv float %.sroa.035.0.vec.extract, %193
@@ -1856,7 +1856,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %197 = fdiv float %51, %196
   tail call void @rlTexCoord2f(float noundef %194, float noundef %197) #16
   %198 = extractelement <2 x float> %34, i64 1
-  tail call void @rlVertex2f(float noundef %44, float noundef %198) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %198) #16
   %199 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %200 = sitofp i32 %199 to float
   %201 = fdiv float %49, %200
@@ -1864,7 +1864,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %203 = sitofp i32 %202 to float
   %204 = fdiv float %51, %203
   tail call void @rlTexCoord2f(float noundef %201, float noundef %204) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %198) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %198) #16
   %205 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %206 = sitofp i32 %205 to float
   %207 = fdiv float %49, %206
@@ -1872,7 +1872,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %209 = sitofp i32 %208 to float
   %210 = fdiv float %.sroa.035.4.vec.extract, %209
   tail call void @rlTexCoord2f(float noundef %207, float noundef %210) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %43) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %211 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %212 = sitofp i32 %211 to float
@@ -1881,7 +1881,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %215 = sitofp i32 %214 to float
   %216 = fdiv float %.sroa.035.4.vec.extract, %215
   tail call void @rlTexCoord2f(float noundef %213, float noundef %216) #16
-  tail call void @rlVertex2f(float noundef %9, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %9, float noundef %38) #16
   %217 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %218 = sitofp i32 %217 to float
   %219 = fdiv float %.sroa.035.0.vec.extract, %218
@@ -1889,7 +1889,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %221 = sitofp i32 %220 to float
   %222 = fdiv float %51, %221
   tail call void @rlTexCoord2f(float noundef %219, float noundef %222) #16
-  tail call void @rlVertex2f(float noundef %9, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %9, float noundef %43) #16
   %223 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %224 = sitofp i32 %223 to float
   %225 = fdiv float %49, %224
@@ -1897,7 +1897,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %227 = sitofp i32 %226 to float
   %228 = fdiv float %51, %227
   tail call void @rlTexCoord2f(float noundef %225, float noundef %228) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %43) #16
   %229 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %230 = sitofp i32 %229 to float
   %231 = fdiv float %49, %230
@@ -1905,7 +1905,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %233 = sitofp i32 %232 to float
   %234 = fdiv float %.sroa.035.4.vec.extract, %233
   tail call void @rlTexCoord2f(float noundef %231, float noundef %234) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %38) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %235 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %236 = sitofp i32 %235 to float
@@ -1914,7 +1914,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %239 = sitofp i32 %238 to float
   %240 = fdiv float %.sroa.035.4.vec.extract, %239
   tail call void @rlTexCoord2f(float noundef %237, float noundef %240) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %38) #16
   %241 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %242 = sitofp i32 %241 to float
   %243 = fdiv float %.sroa.035.0.vec.extract, %242
@@ -1922,7 +1922,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %245 = sitofp i32 %244 to float
   %246 = fdiv float %51, %245
   tail call void @rlTexCoord2f(float noundef %243, float noundef %246) #16
-  tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %39, float noundef %43) #16
   %247 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %248 = sitofp i32 %247 to float
   %249 = fdiv float %49, %248
@@ -1930,7 +1930,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %251 = sitofp i32 %250 to float
   %252 = fdiv float %51, %251
   tail call void @rlTexCoord2f(float noundef %249, float noundef %252) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %43) #16
   %253 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %254 = sitofp i32 %253 to float
   %255 = fdiv float %49, %254
@@ -1938,7 +1938,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %257 = sitofp i32 %256 to float
   %258 = fdiv float %.sroa.035.4.vec.extract, %257
   tail call void @rlTexCoord2f(float noundef %255, float noundef %258) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
+  tail call void @rlVertex2f(float noundef %44, float noundef %38) #16
   tail call void @rlEnd() #16
   tail call void @rlSetTexture(i32 noundef 0) #16
   br label %259
@@ -2059,27 +2059,27 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %64 = insertelement <2 x float> poison, float %46, i64 0
   %65 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> zeroinitializer
   %66 = fadd <2 x float> %65, %0
-  %67 = extractelement <2 x float> %66, i64 0
-  store float %67, ptr %9, align 16
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
-  %69 = fsub float %7, %.0392
-  store float %69, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %9, i64 8
-  %71 = getelementptr inbounds i8, ptr %9, i64 12
-  store float %69, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %9, i64 16
-  %73 = getelementptr inbounds i8, ptr %9, i64 20
-  %74 = extractelement <2 x float> %66, i64 1
-  store float %74, ptr %73, align 4
+  %67 = extractelement <2 x float> %66, i64 1
+  %68 = extractelement <2 x float> %66, i64 0
+  store float %68, ptr %9, align 16
+  %69 = getelementptr inbounds i8, ptr %9, i64 4
+  %70 = fsub float %7, %.0392
+  store float %70, ptr %69, align 4
+  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 12
+  store float %70, ptr %72, align 4
+  %73 = getelementptr inbounds i8, ptr %9, i64 16
+  %74 = getelementptr inbounds i8, ptr %9, i64 20
+  store float %67, ptr %74, align 4
   %75 = getelementptr inbounds i8, ptr %9, i64 24
   %76 = getelementptr inbounds i8, ptr %9, i64 28
   %77 = fadd <2 x float> %0, %1
   %78 = fsub <2 x float> %77, %65
   %79 = extractelement <2 x float> %78, i64 0
-  store float %79, ptr %70, align 8
+  store float %79, ptr %71, align 8
   %80 = extractelement <2 x float> %77, i64 0
   %81 = fadd float %80, %.0392
-  store float %81, ptr %72, align 16
+  store float %81, ptr %73, align 16
   store float %81, ptr %75, align 8
   %82 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %82, ptr %76, align 4
@@ -2088,7 +2088,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %85 = fadd float %84, %.0392
   store float %85, ptr %83, align 4
   %86 = getelementptr inbounds i8, ptr %9, i64 40
-  store float %67, ptr %86, align 8
+  store float %68, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %9, i64 44
   store float %85, ptr %87, align 4
   %88 = getelementptr inbounds i8, ptr %9, i64 48
@@ -2100,9 +2100,9 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %92 = getelementptr inbounds i8, ptr %9, i64 56
   store float %89, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %9, i64 60
-  store float %74, ptr %93, align 4
+  store float %67, ptr %93, align 4
   %94 = getelementptr inbounds i8, ptr %9, i64 64
-  store float %67, ptr %94, align 16
+  store float %68, ptr %94, align 16
   %95 = getelementptr inbounds i8, ptr %9, i64 68
   store float %7, ptr %95, align 4
   %96 = getelementptr inbounds i8, ptr %9, i64 72
@@ -2112,12 +2112,12 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %98 = getelementptr inbounds i8, ptr %9, i64 80
   store float %80, ptr %98, align 16
   %99 = getelementptr inbounds i8, ptr %9, i64 84
-  store float %74, ptr %99, align 4
+  store float %67, ptr %99, align 4
   %100 = getelementptr inbounds i8, ptr %9, i64 88
   %101 = shufflevector <2 x float> %77, <2 x float> %78, <4 x i32> <i32 0, i32 3, i32 2, i32 1>
   store <4 x float> %101, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %9, i64 104
-  store float %67, ptr %102, align 8
+  store float %68, ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %9, i64 108
   store float %84, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %9, i64 112
@@ -2127,16 +2127,16 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %106 = getelementptr inbounds i8, ptr %9, i64 120
   store float %8, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %9, i64 124
-  store float %74, ptr %107, align 4
+  store float %67, ptr %107, align 4
   store <2 x float> %66, ptr %10, align 16
   %108 = getelementptr inbounds i8, ptr %10, i64 8
   store float %79, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %10, i64 12
-  store float %74, ptr %109, align 4
+  store float %67, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %10, i64 16
   store <2 x float> %78, ptr %110, align 16
   %111 = getelementptr inbounds i8, ptr %10, i64 24
-  store float %67, ptr %111, align 8
+  store float %68, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %10, i64 28
   store float %91, ptr %112, align 4
   %113 = fcmp ogt float %.0392, 1.000000e+00
@@ -2240,7 +2240,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %172 = sitofp i32 %171 to float
   %173 = fdiv float %.sroa.040.4.vec.extract, %172
   tail call void @rlTexCoord2f(float noundef %170, float noundef %173) #16
-  tail call void @rlVertex2f(float noundef %67, float noundef %69) #16
+  tail call void @rlVertex2f(float noundef %68, float noundef %70) #16
   %174 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %175 = sitofp i32 %174 to float
   %176 = fdiv float %.sroa.040.0.vec.extract, %175
@@ -2248,7 +2248,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %178 = sitofp i32 %177 to float
   %179 = fdiv float %119, %178
   tail call void @rlTexCoord2f(float noundef %176, float noundef %179) #16
-  tail call void @rlVertex2f(float noundef %67, float noundef %7) #16
+  tail call void @rlVertex2f(float noundef %68, float noundef %7) #16
   %180 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %181 = sitofp i32 %180 to float
   %182 = fdiv float %117, %181
@@ -2264,7 +2264,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %190 = sitofp i32 %189 to float
   %191 = fdiv float %.sroa.040.4.vec.extract, %190
   tail call void @rlTexCoord2f(float noundef %188, float noundef %191) #16
-  tail call void @rlVertex2f(float noundef %79, float noundef %69) #16
+  tail call void @rlVertex2f(float noundef %79, float noundef %70) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %192 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %193 = sitofp i32 %192 to float
@@ -2273,7 +2273,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %196 = sitofp i32 %195 to float
   %197 = fdiv float %.sroa.040.4.vec.extract, %196
   tail call void @rlTexCoord2f(float noundef %194, float noundef %197) #16
-  tail call void @rlVertex2f(float noundef %81, float noundef %74) #16
+  tail call void @rlVertex2f(float noundef %81, float noundef %67) #16
   %198 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %199 = sitofp i32 %198 to float
   %200 = fdiv float %.sroa.040.0.vec.extract, %199
@@ -2281,7 +2281,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %202 = sitofp i32 %201 to float
   %203 = fdiv float %119, %202
   tail call void @rlTexCoord2f(float noundef %200, float noundef %203) #16
-  tail call void @rlVertex2f(float noundef %80, float noundef %74) #16
+  tail call void @rlVertex2f(float noundef %80, float noundef %67) #16
   %204 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %205 = sitofp i32 %204 to float
   %206 = fdiv float %117, %205
@@ -2306,7 +2306,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %220 = sitofp i32 %219 to float
   %221 = fdiv float %.sroa.040.4.vec.extract, %220
   tail call void @rlTexCoord2f(float noundef %218, float noundef %221) #16
-  tail call void @rlVertex2f(float noundef %67, float noundef %84) #16
+  tail call void @rlVertex2f(float noundef %68, float noundef %84) #16
   %222 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %223 = sitofp i32 %222 to float
   %224 = fdiv float %.sroa.040.0.vec.extract, %223
@@ -2314,7 +2314,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %226 = sitofp i32 %225 to float
   %227 = fdiv float %119, %226
   tail call void @rlTexCoord2f(float noundef %224, float noundef %227) #16
-  tail call void @rlVertex2f(float noundef %67, float noundef %85) #16
+  tail call void @rlVertex2f(float noundef %68, float noundef %85) #16
   %228 = load i32, ptr getelementptr inbounds (i8, ptr @texShapes, i64 4), align 4
   %229 = sitofp i32 %228 to float
   %230 = fdiv float %117, %229

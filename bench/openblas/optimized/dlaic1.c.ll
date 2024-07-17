@@ -302,27 +302,27 @@ define void @dlaic1_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %191 = insertelement <2 x double> poison, double %22, i64 0
   %192 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> zeroinitializer
   %193 = fdiv <2 x double> %190, %192
-  %194 = extractelement <2 x double> %193, i64 0
-  %195 = tail call double @llvm.fmuladd.f64(double %194, double %194, double 1.000000e+00)
-  %196 = extractelement <2 x double> %193, i64 1
-  %197 = fmul double %194, %196
+  %194 = extractelement <2 x double> %193, i64 1
+  %195 = extractelement <2 x double> %193, i64 0
+  %196 = tail call double @llvm.fmuladd.f64(double %195, double %195, double 1.000000e+00)
+  %197 = fmul double %195, %194
   %198 = fcmp oge double %197, 0.000000e+00
   %199 = fneg double %197
   %200 = select i1 %198, double %197, double %199
-  %201 = fadd double %195, %200
-  %202 = tail call double @llvm.fmuladd.f64(double %196, double %196, double %200)
+  %201 = fadd double %196, %200
+  %202 = tail call double @llvm.fmuladd.f64(double %194, double %194, double %200)
   %203 = fcmp oge double %201, %202
   %204 = select i1 %203, double %201, double %202
-  %205 = fsub double %194, %196
+  %205 = fsub double %195, %194
   %206 = fmul double %205, 2.000000e+00
-  %207 = fadd double %194, %196
+  %207 = fadd double %195, %194
   %208 = tail call double @llvm.fmuladd.f64(double %206, double %207, double 1.000000e+00)
   %209 = fcmp ult double %208, 0.000000e+00
   br i1 %209, label %229, label %210
 
 210:                                              ; preds = %188
-  %211 = fmul double %196, %196
-  %212 = tail call double @llvm.fmuladd.f64(double %194, double %194, double %211)
+  %211 = fmul double %194, %194
+  %212 = tail call double @llvm.fmuladd.f64(double %195, double %195, double %211)
   %213 = fadd double %212, 1.000000e+00
   %214 = fmul double %213, 5.000000e-01
   %215 = fneg double %211
@@ -344,7 +344,7 @@ define void @dlaic1_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 229:                                              ; preds = %188
   %230 = fmul <2 x double> %193, %193
   %231 = extractelement <2 x double> %230, i64 0
-  %232 = tail call double @llvm.fmuladd.f64(double %196, double %196, double %231)
+  %232 = tail call double @llvm.fmuladd.f64(double %194, double %194, double %231)
   %233 = fadd double %232, -1.000000e+00
   %234 = fmul double %233, 5.000000e-01
   %235 = fcmp ult double %234, 0.000000e+00

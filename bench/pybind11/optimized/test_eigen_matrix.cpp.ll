@@ -49562,7 +49562,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
 
 14:                                               ; preds = %8
   invoke void @_ZN8pybind116detail10EigenPropsIN5Eigen3RefINS2_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS2_11OuterStrideILin1EEEEEE11conformableERKNS_5arrayE(ptr dead_on_unwind nonnull writable sret(%"struct.pybind11::detail::EigenConformable.644") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %15 unwind label %18
+          to label %15 unwind label %19
 
 15:                                               ; preds = %14
   %.sroa.023.0.copyload = load i8, ptr %5, align 8
@@ -49570,37 +49570,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %.sroa.324.0.copyload = load i64, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load <2 x i64>, ptr %.sroa.6.0..sroa_idx, align 8
+  %17 = extractelement <2 x i64> %16, i64 0
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %17 = trunc i8 %.sroa.023.0.copyload to i1
-  br i1 %17, label %20, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit
+  %18 = trunc i8 %.sroa.023.0.copyload to i1
+  br i1 %18, label %21, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind117array_tIdLi17EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #35
   br label %87
 
-20:                                               ; preds = %15
+21:                                               ; preds = %15
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
   %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 8
-  %21 = trunc i8 %.sroa.11.0.copyload to i1
-  br i1 %21, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit, label %22
+  %22 = trunc i8 %.sroa.11.0.copyload to i1
+  br i1 %22, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit, label %23
 
-22:                                               ; preds = %20
-  %23 = icmp eq i64 %.sroa.324.0.copyload, 0
-  %24 = extractelement <2 x i64> %16, i64 0
-  %25 = icmp eq i64 %24, 0
-  %or.cond = select i1 %23, i1 true, i1 %25
+23:                                               ; preds = %21
+  %24 = icmp eq i64 %.sroa.324.0.copyload, 0
+  %25 = icmp eq i64 %17, 0
+  %or.cond = select i1 %24, i1 true, i1 %25
   br i1 %or.cond, label %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, label %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
 
-_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit: ; preds = %22
+_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit: ; preds = %23
   %26 = icmp eq i64 %.sroa.9.0.copyload, 1
-  %27 = icmp eq i64 %24, 1
+  %27 = icmp eq i64 %17, 1
   %or.cond.i = or i1 %27, %26
   br i1 %or.cond.i, label %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit
 
-_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread: ; preds = %22, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
+_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread: ; preds = %23, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %.not.i.i.i.i = icmp eq ptr %28, %4
   br i1 %.not.i.i.i.i, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit, label %29
@@ -49631,11 +49631,11 @@ _ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenProps
   call void @__clang_call_terminate(ptr %38) #36
   unreachable
 
-_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit: ; preds = %20, %35, %32, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit, %8, %15
-  %.sroa.324.0.ph = phi i64 [ %.sroa.324.0.copyload, %35 ], [ %.sroa.324.0.copyload, %32 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ 0, %8 ], [ %.sroa.324.0.copyload, %15 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %.sroa.324.0.copyload, %20 ]
-  %.113.ph = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ true, %8 ], [ false, %15 ], [ true, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ true, %20 ]
-  %switch.not = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ false, %8 ], [ true, %15 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ false, %20 ]
-  %39 = phi <2 x i64> [ %16, %35 ], [ %16, %32 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ zeroinitializer, %8 ], [ %16, %15 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %16, %20 ]
+_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi17EEEEET_NS_6handleE.exit: ; preds = %21, %35, %32, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit, %8, %15
+  %.sroa.324.0.ph = phi i64 [ %.sroa.324.0.copyload, %35 ], [ %.sroa.324.0.copyload, %32 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ 0, %8 ], [ %.sroa.324.0.copyload, %15 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %.sroa.324.0.copyload, %21 ]
+  %.113.ph = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ true, %8 ], [ false, %15 ], [ true, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ true, %21 ]
+  %switch.not = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ false, %8 ], [ true, %15 ], [ false, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ false, %21 ]
+  %39 = phi <2 x i64> [ %16, %35 ], [ %16, %32 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ zeroinitializer, %8 ], [ %16, %15 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb1EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %16, %21 ]
   %.pr = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i16 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i16, label %_ZN8pybind117array_tIdLi17EED2Ev.exit, label %40
@@ -49765,8 +49765,8 @@ _ZNSt10unique_ptrIN5Eigen3RefINS0_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS0_11O
   %.1 = phi i1 [ false, %_ZN8pybind117array_tIdLi17EED2Ev.exit ], [ true, %67 ], [ true, %_ZNKSt14default_deleteIN5Eigen3RefINS0_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS0_11OuterStrideILin1EEEEEEclEPS6_.exit.i.i21 ], [ false, %3 ], [ false, %7 ]
   ret i1 %.1
 
-87:                                               ; preds = %.body, %18
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
+87:                                               ; preds = %.body, %19
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -58649,7 +58649,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
 
 14:                                               ; preds = %8
   invoke void @_ZN8pybind116detail10EigenPropsIN5Eigen3RefINS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS2_11OuterStrideILin1EEEEEE11conformableERKNS_5arrayE(ptr dead_on_unwind nonnull writable sret(%"struct.pybind11::detail::EigenConformable") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %15 unwind label %18
+          to label %15 unwind label %19
 
 15:                                               ; preds = %14
   %.sroa.023.0.copyload = load i8, ptr %5, align 8
@@ -58657,37 +58657,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %.sroa.324.0.copyload = load i64, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load <2 x i64>, ptr %.sroa.6.0..sroa_idx, align 8
+  %17 = extractelement <2 x i64> %16, i64 0
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %17 = trunc i8 %.sroa.023.0.copyload to i1
-  br i1 %17, label %20, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit
+  %18 = trunc i8 %.sroa.023.0.copyload to i1
+  br i1 %18, label %21, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind117array_tIdLi18EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #35
   br label %87
 
-20:                                               ; preds = %15
+21:                                               ; preds = %15
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
   %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 8
-  %21 = trunc i8 %.sroa.11.0.copyload to i1
-  br i1 %21, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit, label %22
+  %22 = trunc i8 %.sroa.11.0.copyload to i1
+  br i1 %22, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit, label %23
 
-22:                                               ; preds = %20
-  %23 = icmp eq i64 %.sroa.324.0.copyload, 0
-  %24 = extractelement <2 x i64> %16, i64 0
-  %25 = icmp eq i64 %24, 0
-  %or.cond.i = select i1 %23, i1 true, i1 %25
+23:                                               ; preds = %21
+  %24 = icmp eq i64 %.sroa.324.0.copyload, 0
+  %25 = icmp eq i64 %17, 0
+  %or.cond.i = select i1 %24, i1 true, i1 %25
   br i1 %or.cond.i, label %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, label %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
 
-_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit: ; preds = %22
+_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit: ; preds = %23
   %26 = icmp eq i64 %.sroa.9.0.copyload, 1
   %27 = icmp eq i64 %.sroa.324.0.copyload, 1
   %or.cond5.i = or i1 %27, %26
   br i1 %or.cond5.i, label %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit
 
-_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread: ; preds = %22, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
+_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread: ; preds = %23, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %.not.i.i.i.i = icmp eq ptr %28, %4
   br i1 %.not.i.i.i.i, label %_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit, label %29
@@ -58718,11 +58718,11 @@ _ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenProps
   call void @__clang_call_terminate(ptr %38) #36
   unreachable
 
-_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit: ; preds = %20, %35, %32, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit, %8, %15
-  %.sroa.324.0.ph = phi i64 [ %.sroa.324.0.copyload, %35 ], [ %.sroa.324.0.copyload, %32 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ 0, %8 ], [ %.sroa.324.0.copyload, %15 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %.sroa.324.0.copyload, %20 ]
-  %.113.ph = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ true, %8 ], [ false, %15 ], [ true, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ true, %20 ]
-  %switch.not = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ false, %8 ], [ true, %15 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ false, %20 ]
-  %39 = phi <2 x i64> [ %16, %35 ], [ %16, %32 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ zeroinitializer, %8 ], [ %16, %15 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %16, %20 ]
+_ZN8pybind1118reinterpret_borrowINS_7array_tIdLi18EEEEET_NS_6handleE.exit: ; preds = %21, %35, %32, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit, %8, %15
+  %.sroa.324.0.ph = phi i64 [ %.sroa.324.0.copyload, %35 ], [ %.sroa.324.0.copyload, %32 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ 0, %8 ], [ %.sroa.324.0.copyload, %15 ], [ %.sroa.324.0.copyload, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %.sroa.324.0.copyload, %21 ]
+  %.113.ph = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ true, %8 ], [ false, %15 ], [ true, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ true, %21 ]
+  %switch.not = phi i1 [ false, %35 ], [ false, %32 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ false, %8 ], [ true, %15 ], [ false, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ false, %21 ]
+  %39 = phi <2 x i64> [ %16, %35 ], [ %16, %32 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit.thread ], [ zeroinitializer, %8 ], [ %16, %15 ], [ %16, %_ZNK8pybind116detail16EigenConformableILb0EE17stride_compatibleINS0_10EigenPropsIN5Eigen3RefINS5_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS5_11OuterStrideILin1EEEEEEEEEbv.exit ], [ %16, %21 ]
   %.pr = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i16 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i.i.i16, label %_ZN8pybind117array_tIdLi18EED2Ev.exit, label %40
@@ -58852,8 +58852,8 @@ _ZNSt10unique_ptrIN5Eigen3RefINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS0_11O
   %.1 = phi i1 [ false, %_ZN8pybind117array_tIdLi18EED2Ev.exit ], [ true, %67 ], [ true, %_ZNKSt14default_deleteIN5Eigen3RefINS0_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS0_11OuterStrideILin1EEEEEEclEPS6_.exit.i.i21 ], [ false, %3 ], [ false, %7 ]
   ret i1 %.1
 
-87:                                               ; preds = %.body, %18
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
+87:                                               ; preds = %.body, %19
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %20, %19 ]
   resume { ptr, i32 } %.pn
 }
 

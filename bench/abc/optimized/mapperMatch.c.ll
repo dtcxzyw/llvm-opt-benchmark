@@ -229,10 +229,10 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
 18:                                               ; preds = %.lr.ph128, %._crit_edge
   %.sroa.7.sroa.0.0 = phi i64 [ %9, %.lr.ph128 ], [ %.sroa.7.sroa.0.3, %._crit_edge ]
   %.075126 = phi ptr [ %.075119, %.lr.ph128 ], [ %.075, %._crit_edge ]
-  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %169, %._crit_edge ]
+  %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %166, %._crit_edge ]
   %.076124 = phi float [ %4, %.lr.ph128 ], [ %.1.lcssa, %._crit_edge ]
   %.sroa.3.0123 = phi ptr [ %.sroa.3.0.copyload, %.lr.ph128 ], [ %.sroa.3.1.lcssa, %._crit_edge ]
-  %19 = phi <2 x float> [ %10, %.lr.ph128 ], [ %167, %._crit_edge ]
+  %19 = phi <2 x float> [ %10, %.lr.ph128 ], [ %164, %._crit_edge ]
   %20 = load i32, ptr %11, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %11, align 4
@@ -255,283 +255,280 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_MatchCompare.exit.thread ]
   %.1114 = phi float [ %.076124, %.lr.ph ], [ %.2, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1113 = phi ptr [ %.sroa.3.0123, %.lr.ph ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
-  %28 = phi <2 x float> [ %19, %.lr.ph ], [ %162, %Map_MatchCompare.exit.thread ]
-  %29 = load i32, ptr %12, align 8
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %12, align 8
-  %31 = load i32, ptr %13, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = xor i32 %31, %34
-  store i32 %35, ptr %14, align 4
-  %36 = load i32, ptr %15, align 4
-  switch i32 %36, label %49 [
-    i32 0, label %37
-    i32 2, label %45
-    i32 3, label %45
-    i32 4, label %47
+  %28 = phi <2 x float> [ %19, %.lr.ph ], [ %159, %Map_MatchCompare.exit.thread ]
+  %29 = extractelement <2 x float> %28, i64 1
+  %30 = extractelement <2 x float> %28, i64 0
+  %31 = load i32, ptr %12, align 8
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %12, align 8
+  %33 = load i32, ptr %13, align 8
+  %34 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 %indvars.iv
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = xor i32 %33, %36
+  store i32 %37, ptr %14, align 4
+  %38 = load i32, ptr %15, align 4
+  switch i32 %38, label %51 [
+    i32 0, label %39
+    i32 2, label %47
+    i32 3, label %47
+    i32 4, label %49
   ]
 
-37:                                               ; preds = %27
-  %38 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
-  %39 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %40 = load float, ptr %16, align 4
-  %41 = fadd float %.1114, %40
-  %42 = fcmp ogt float %39, %41
-  br i1 %42, label %Map_MatchCompare.exit.thread, label %43
+39:                                               ; preds = %27
+  %40 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
+  %41 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %42 = load float, ptr %16, align 4
+  %43 = fadd float %.1114, %42
+  %44 = fcmp ogt float %41, %43
+  br i1 %44, label %Map_MatchCompare.exit.thread, label %45
 
-43:                                               ; preds = %37
-  %44 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
-  store float %44, ptr %.sroa.10.0..sroa_idx, align 4
+45:                                               ; preds = %39
+  %46 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+  store float %46, ptr %.sroa.10.0..sroa_idx, align 4
   %.pre = load float, ptr %16, align 4
-  br label %62
+  br label %63
 
-45:                                               ; preds = %27, %27
-  %46 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
-
-47:                                               ; preds = %27
-  %48 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
+47:                                               ; preds = %27, %27
+  %48 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %53
 
 49:                                               ; preds = %27
-  %50 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
-  br label %51
+  %50 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %53
 
-51:                                               ; preds = %47, %49, %45
-  %.sink = phi float [ %48, %47 ], [ %50, %49 ], [ %46, %45 ]
+51:                                               ; preds = %27
+  %52 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+  br label %53
+
+53:                                               ; preds = %49, %51, %47
+  %.sink = phi float [ %50, %49 ], [ %52, %51 ], [ %48, %47 ]
   store float %.sink, ptr %.sroa.10.0..sroa_idx, align 4
-  %52 = load float, ptr %16, align 4
-  %53 = extractelement <2 x float> %28, i64 1
-  %54 = fadd float %53, %52
-  %55 = fcmp ogt float %.sink, %54
-  br i1 %55, label %Map_MatchCompare.exit.thread, label %56
+  %54 = load float, ptr %16, align 4
+  %55 = fadd float %29, %54
+  %56 = fcmp ogt float %.sink, %55
+  br i1 %56, label %Map_MatchCompare.exit.thread, label %57
 
-56:                                               ; preds = %51
-  %57 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
-  %58 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %59 = load float, ptr %16, align 4
-  %60 = fadd float %.1114, %59
-  %61 = fcmp ogt float %58, %60
-  br i1 %61, label %Map_MatchCompare.exit.thread, label %62
+57:                                               ; preds = %53
+  %58 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef %.1114) #10
+  %59 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %60 = load float, ptr %16, align 4
+  %61 = fadd float %.1114, %60
+  %62 = fcmp ogt float %59, %61
+  br i1 %62, label %Map_MatchCompare.exit.thread, label %63
 
-62:                                               ; preds = %56, %43
-  %63 = phi float [ %59, %56 ], [ %.pre, %43 ]
-  %64 = load i32, ptr %15, align 4
-  %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %65, label %100
+63:                                               ; preds = %57, %45
+  %64 = phi float [ %60, %57 ], [ %.pre, %45 ]
+  %65 = load i32, ptr %15, align 4
+  %.not.i = icmp eq i32 %65, 0
+  br i1 %.not.i, label %66, label %99
 
-65:                                               ; preds = %62
-  %66 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %67 = fsub float %66, %63
-  %68 = extractelement <2 x float> %28, i64 0
-  %69 = fcmp olt float %68, %67
+66:                                               ; preds = %63
+  %67 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %68 = fsub float %67, %64
+  %69 = fcmp olt float %30, %68
   br i1 %69, label %Map_MatchCompare.exit.thread, label %70
 
-70:                                               ; preds = %65
-  %71 = fadd float %63, %66
-  %72 = fcmp ogt float %68, %71
+70:                                               ; preds = %66
+  %71 = fadd float %64, %67
+  %72 = fcmp ogt float %30, %71
   br i1 %72, label %Map_MatchCompare.exit.thread107, label %73
 
 73:                                               ; preds = %70
   %74 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %75 = fsub float %74, %63
-  %76 = extractelement <2 x float> %28, i64 1
-  %77 = fcmp olt float %76, %75
-  br i1 %77, label %Map_MatchCompare.exit.thread, label %78
+  %75 = fsub float %74, %64
+  %76 = fcmp olt float %29, %75
+  br i1 %76, label %Map_MatchCompare.exit.thread, label %77
 
-78:                                               ; preds = %73
-  %79 = fadd float %63, %74
-  %80 = fcmp ogt float %76, %79
-  br i1 %80, label %Map_MatchCompare.exit.thread107, label %81
+77:                                               ; preds = %73
+  %78 = fadd float %64, %74
+  %79 = fcmp ogt float %29, %78
+  br i1 %79, label %Map_MatchCompare.exit.thread107, label %80
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = lshr i32 %83, 8
-  %85 = and i32 %84, 15
-  %86 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = lshr i32 %88, 8
-  %90 = and i32 %89, 15
-  %91 = icmp ugt i32 %85, %90
-  br i1 %91, label %Map_MatchCompare.exit.thread, label %92
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = lshr i32 %82, 8
+  %84 = and i32 %83, 15
+  %85 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = lshr i32 %87, 8
+  %89 = and i32 %88, 15
+  %90 = icmp ugt i32 %84, %89
+  br i1 %90, label %Map_MatchCompare.exit.thread, label %91
 
-92:                                               ; preds = %81
-  %93 = icmp ult i32 %85, %90
-  br i1 %93, label %Map_MatchCompare.exit.thread107, label %94
+91:                                               ; preds = %80
+  %92 = icmp ult i32 %84, %89
+  br i1 %92, label %Map_MatchCompare.exit.thread107, label %93
 
-94:                                               ; preds = %92
-  %95 = lshr i32 %83, 2
-  %96 = and i32 %95, 7
-  %97 = lshr i32 %88, 2
-  %98 = and i32 %97, 7
-  %99 = icmp ugt i32 %96, %98
-  br i1 %99, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+93:                                               ; preds = %91
+  %94 = lshr i32 %82, 2
+  %95 = and i32 %94, 7
+  %96 = lshr i32 %87, 2
+  %97 = and i32 %96, 7
+  %98 = icmp ugt i32 %95, %97
+  br i1 %98, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-100:                                              ; preds = %62
-  %101 = load float, ptr %.sroa.10.0..sroa_idx, align 4
-  %102 = fsub float %101, %63
-  %103 = extractelement <2 x float> %28, i64 1
-  %104 = fcmp olt float %103, %102
-  br i1 %104, label %Map_MatchCompare.exit.thread, label %105
+99:                                               ; preds = %63
+  %100 = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %101 = fsub float %100, %64
+  %102 = fcmp olt float %29, %101
+  br i1 %102, label %Map_MatchCompare.exit.thread, label %103
 
-105:                                              ; preds = %100
-  %106 = fadd float %63, %101
-  %107 = fcmp ogt float %103, %106
-  br i1 %107, label %Map_MatchCompare.exit.thread107, label %108
+103:                                              ; preds = %99
+  %104 = fadd float %64, %100
+  %105 = fcmp ogt float %29, %104
+  br i1 %105, label %Map_MatchCompare.exit.thread107, label %106
 
-108:                                              ; preds = %105
-  %109 = load i32, ptr %17, align 8
-  %.not69.i = icmp eq i32 %109, 0
+106:                                              ; preds = %103
+  %107 = load i32, ptr %17, align 8
+  %.not69.i = icmp eq i32 %107, 0
   %.not70.i = icmp eq ptr %.sroa.3.1113, null
   %or.cond = select i1 %.not69.i, i1 true, i1 %.not70.i
-  br i1 %or.cond, label %129, label %110
+  br i1 %or.cond, label %127, label %108
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 @Mio_GateReadProfile(ptr noundef %112) #10
-  %114 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 64
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call i32 @Mio_GateReadProfile(ptr noundef %116) #10
-  %118 = load ptr, ptr %111, align 8
-  %119 = tail call i32 @Mio_GateReadProfile2(ptr noundef %118) #10
-  %120 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 64
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call i32 @Mio_GateReadProfile2(ptr noundef %122) #10
-  %124 = icmp slt i32 %119, %113
-  %125 = icmp sgt i32 %123, %117
-  %or.cond.i = select i1 %124, i1 %125, i1 false
-  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %126
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 64
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call i32 @Mio_GateReadProfile(ptr noundef %110) #10
+  %112 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 64
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call i32 @Mio_GateReadProfile(ptr noundef %114) #10
+  %116 = load ptr, ptr %109, align 8
+  %117 = tail call i32 @Mio_GateReadProfile2(ptr noundef %116) #10
+  %118 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 64
+  %120 = load ptr, ptr %119, align 8
+  %121 = tail call i32 @Mio_GateReadProfile2(ptr noundef %120) #10
+  %122 = icmp slt i32 %117, %111
+  %123 = icmp sgt i32 %121, %115
+  %or.cond.i = select i1 %122, i1 %123, i1 false
+  br i1 %or.cond.i, label %Map_MatchCompare.exit.thread, label %124
 
-126:                                              ; preds = %110
-  %127 = icmp slt i32 %123, %117
-  %128 = icmp sgt i32 %119, %113
-  %or.cond71.i = select i1 %127, i1 %128, i1 false
+124:                                              ; preds = %108
+  %125 = icmp slt i32 %121, %115
+  %126 = icmp sgt i32 %117, %111
+  %or.cond71.i = select i1 %125, i1 %126, i1 false
   br i1 %or.cond71.i, label %Map_MatchCompare.exit.thread107, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %126
+._crit_edge.i:                                    ; preds = %124
   %.pre.i = load float, ptr %16, align 4
-  br label %129
+  br label %127
 
-129:                                              ; preds = %._crit_edge.i, %108
-  %130 = phi float [ %.pre.i, %._crit_edge.i ], [ %63, %108 ]
-  %131 = load float, ptr %.sroa.790.0..sroa_idx, align 8
-  %132 = fsub float %131, %130
-  %133 = extractelement <2 x float> %28, i64 0
-  %134 = fcmp olt float %133, %132
-  br i1 %134, label %Map_MatchCompare.exit.thread, label %135
+127:                                              ; preds = %._crit_edge.i, %106
+  %128 = phi float [ %.pre.i, %._crit_edge.i ], [ %64, %106 ]
+  %129 = load float, ptr %.sroa.790.0..sroa_idx, align 8
+  %130 = fsub float %129, %128
+  %131 = fcmp olt float %30, %130
+  br i1 %131, label %Map_MatchCompare.exit.thread, label %132
 
-135:                                              ; preds = %129
-  %136 = fadd float %130, %131
-  %137 = fcmp ogt float %133, %136
-  br i1 %137, label %Map_MatchCompare.exit.thread107, label %138
+132:                                              ; preds = %127
+  %133 = fadd float %128, %129
+  %134 = fcmp ogt float %30, %133
+  br i1 %134, label %Map_MatchCompare.exit.thread107, label %135
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
-  %140 = load i32, ptr %139, align 4
-  %141 = lshr i32 %140, 8
-  %142 = and i32 %141, 15
-  %143 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = lshr i32 %145, 8
-  %147 = and i32 %146, 15
-  %148 = icmp ugt i32 %142, %147
-  br i1 %148, label %Map_MatchCompare.exit.thread, label %149
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %.sroa.3.1113, i64 4
+  %137 = load i32, ptr %136, align 4
+  %138 = lshr i32 %137, 8
+  %139 = and i32 %138, 15
+  %140 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 4
+  %142 = load i32, ptr %141, align 4
+  %143 = lshr i32 %142, 8
+  %144 = and i32 %143, 15
+  %145 = icmp ugt i32 %139, %144
+  br i1 %145, label %Map_MatchCompare.exit.thread, label %146
 
-149:                                              ; preds = %138
-  %150 = icmp ult i32 %142, %147
-  br i1 %150, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
+146:                                              ; preds = %135
+  %147 = icmp ult i32 %139, %144
+  br i1 %147, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit
 
-Map_MatchCompare.exit:                            ; preds = %149
-  %151 = lshr i32 %140, 2
-  %152 = and i32 %151, 7
-  %153 = lshr i32 %145, 2
-  %154 = and i32 %153, 7
-  %155 = icmp ugt i32 %152, %154
-  br i1 %155, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
+Map_MatchCompare.exit:                            ; preds = %146
+  %148 = lshr i32 %137, 2
+  %149 = and i32 %148, 7
+  %150 = lshr i32 %142, 2
+  %151 = and i32 %150, 7
+  %152 = icmp ugt i32 %149, %151
+  br i1 %152, label %Map_MatchCompare.exit.thread107, label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread107:                  ; preds = %94, %149, %135, %126, %105, %92, %78, %70, %Map_MatchCompare.exit
+Map_MatchCompare.exit.thread107:                  ; preds = %93, %146, %132, %124, %103, %91, %77, %70, %Map_MatchCompare.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %.sroa.3.0.copyload82 = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %156 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %157 = load <2 x float>, ptr %.sroa.790.0..sroa_idx, align 8
-  %158 = load i32, ptr %15, align 4
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %Map_MatchCompare.exit.thread
+  %153 = load i64, ptr %.sroa.7.0..sroa_idx, align 8
+  %154 = load <2 x float>, ptr %.sroa.790.0..sroa_idx, align 8
+  %155 = load i32, ptr %15, align 4
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %157, label %Map_MatchCompare.exit.thread
 
-160:                                              ; preds = %Map_MatchCompare.exit.thread107
-  %161 = extractelement <2 x float> %157, i64 0
+157:                                              ; preds = %Map_MatchCompare.exit.thread107
+  %158 = extractelement <2 x float> %154, i64 0
   br label %Map_MatchCompare.exit.thread
 
-Map_MatchCompare.exit.thread:                     ; preds = %94, %138, %129, %110, %100, %81, %73, %65, %Map_MatchCompare.exit, %160, %Map_MatchCompare.exit.thread107, %56, %51, %37
-  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.7.sroa.0.1, %51 ], [ %.sroa.7.sroa.0.1, %56 ], [ %.sroa.7.sroa.0.1, %65 ], [ %156, %160 ], [ %156, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.1, %73 ], [ %.sroa.7.sroa.0.1, %81 ], [ %.sroa.7.sroa.0.1, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.1, %100 ], [ %.sroa.7.sroa.0.1, %129 ], [ %.sroa.7.sroa.0.1, %138 ], [ %.sroa.7.sroa.0.1, %110 ], [ %.sroa.7.sroa.0.1, %37 ], [ %.sroa.7.sroa.0.1, %94 ]
-  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %51 ], [ %.sroa.3.1113, %56 ], [ %.sroa.3.1113, %65 ], [ %.sroa.3.0.copyload82, %160 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %73 ], [ %.sroa.3.1113, %81 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %100 ], [ %.sroa.3.1113, %129 ], [ %.sroa.3.1113, %138 ], [ %.sroa.3.1113, %110 ], [ %.sroa.3.1113, %37 ], [ %.sroa.3.1113, %94 ]
-  %.2 = phi float [ %.1114, %51 ], [ %.1114, %56 ], [ %.1114, %65 ], [ %161, %160 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %73 ], [ %.1114, %81 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %100 ], [ %.1114, %129 ], [ %.1114, %138 ], [ %.1114, %110 ], [ %.1114, %37 ], [ %.1114, %94 ]
-  %162 = phi <2 x float> [ %28, %51 ], [ %28, %56 ], [ %28, %65 ], [ %157, %160 ], [ %157, %Map_MatchCompare.exit.thread107 ], [ %28, %73 ], [ %28, %81 ], [ %28, %Map_MatchCompare.exit ], [ %28, %100 ], [ %28, %129 ], [ %28, %138 ], [ %28, %110 ], [ %28, %37 ], [ %28, %94 ]
+Map_MatchCompare.exit.thread:                     ; preds = %93, %135, %127, %108, %99, %80, %73, %66, %Map_MatchCompare.exit, %157, %Map_MatchCompare.exit.thread107, %57, %53, %39
+  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.7.sroa.0.1, %53 ], [ %.sroa.7.sroa.0.1, %57 ], [ %.sroa.7.sroa.0.1, %66 ], [ %153, %157 ], [ %153, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.1, %73 ], [ %.sroa.7.sroa.0.1, %80 ], [ %.sroa.7.sroa.0.1, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.1, %99 ], [ %.sroa.7.sroa.0.1, %127 ], [ %.sroa.7.sroa.0.1, %135 ], [ %.sroa.7.sroa.0.1, %108 ], [ %.sroa.7.sroa.0.1, %39 ], [ %.sroa.7.sroa.0.1, %93 ]
+  %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %53 ], [ %.sroa.3.1113, %57 ], [ %.sroa.3.1113, %66 ], [ %.sroa.3.0.copyload82, %157 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %73 ], [ %.sroa.3.1113, %80 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %99 ], [ %.sroa.3.1113, %127 ], [ %.sroa.3.1113, %135 ], [ %.sroa.3.1113, %108 ], [ %.sroa.3.1113, %39 ], [ %.sroa.3.1113, %93 ]
+  %.2 = phi float [ %.1114, %53 ], [ %.1114, %57 ], [ %.1114, %66 ], [ %158, %157 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %73 ], [ %.1114, %80 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %99 ], [ %.1114, %127 ], [ %.1114, %135 ], [ %.1114, %108 ], [ %.1114, %39 ], [ %.1114, %93 ]
+  %159 = phi <2 x float> [ %28, %53 ], [ %28, %57 ], [ %28, %66 ], [ %154, %157 ], [ %154, %Map_MatchCompare.exit.thread107 ], [ %28, %73 ], [ %28, %80 ], [ %28, %Map_MatchCompare.exit ], [ %28, %99 ], [ %28, %127 ], [ %28, %135 ], [ %28, %108 ], [ %28, %39 ], [ %28, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load i32, ptr %24, align 4
-  %164 = lshr i32 %163, 28
-  %165 = zext nneg i32 %164 to i64
-  %166 = icmp ult i64 %indvars.iv.next, %165
-  br i1 %166, label %27, label %._crit_edge, !llvm.loop !4
+  %160 = load i32, ptr %24, align 4
+  %161 = lshr i32 %160, 28
+  %162 = zext nneg i32 %161 to i64
+  %163 = icmp ult i64 %indvars.iv.next, %162
+  br i1 %163, label %27, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %Map_MatchCompare.exit.thread, %23
   %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.0, %23 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0123, %23 ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
   %.1.lcssa = phi float [ %.076124, %23 ], [ %.2, %Map_MatchCompare.exit.thread ]
-  %167 = phi <2 x float> [ %19, %23 ], [ %162, %Map_MatchCompare.exit.thread ]
-  %168 = getelementptr inbounds i8, ptr %.075126, i64 248
-  %169 = add nuw nsw i32 %.0125, 1
-  %.075 = load ptr, ptr %168, align 8
+  %164 = phi <2 x float> [ %19, %23 ], [ %159, %Map_MatchCompare.exit.thread ]
+  %165 = getelementptr inbounds i8, ptr %.075126, i64 248
+  %166 = add nuw nsw i32 %.0125, 1
+  %.075 = load ptr, ptr %165, align 8
   %.not = icmp eq ptr %.075, null
   br i1 %.not, label %._crit_edge129, label %18, !llvm.loop !6
 
 ._crit_edge129:                                   ; preds = %._crit_edge, %18, %5
   %.sroa.7.sroa.0.5 = phi i64 [ %9, %5 ], [ %.sroa.7.sroa.0.3, %._crit_edge ], [ %.sroa.7.sroa.0.0, %18 ]
   %.sroa.3.0.lcssa = phi ptr [ %.sroa.3.0.copyload, %5 ], [ %.sroa.3.1.lcssa, %._crit_edge ], [ %.sroa.3.0123, %18 ]
-  %170 = phi <2 x float> [ %10, %5 ], [ %167, %._crit_edge ], [ %19, %18 ]
+  %167 = phi <2 x float> [ %10, %5 ], [ %164, %._crit_edge ], [ %19, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   store ptr %.sroa.3.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 %.sroa.7.sroa.0.5, ptr %.sroa.7.0..sroa_idx, align 8
-  store <2 x float> %170, ptr %.sroa.790.0..sroa_idx, align 8
+  store <2 x float> %167, ptr %.sroa.790.0..sroa_idx, align 8
   %.not80 = icmp eq ptr %.sroa.3.0.lcssa, null
-  br i1 %.not80, label %181, label %171
+  br i1 %.not80, label %178, label %168
 
-171:                                              ; preds = %._crit_edge129
-  %172 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
-  %173 = getelementptr inbounds i8, ptr %0, i64 116
-  %174 = load i32, ptr %173, align 4
-  switch i32 %174, label %179 [
-    i32 2, label %175
-    i32 3, label %175
-    i32 4, label %177
+168:                                              ; preds = %._crit_edge129
+  %169 = tail call float @Map_TimeCutComputeArrival(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, float noundef 0x47B9999980000000) #10
+  %170 = getelementptr inbounds i8, ptr %0, i64 116
+  %171 = load i32, ptr %170, align 4
+  switch i32 %171, label %176 [
+    i32 2, label %172
+    i32 3, label %172
+    i32 4, label %174
   ]
 
-175:                                              ; preds = %171, %171
-  %176 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
+172:                                              ; preds = %168, %168
+  %173 = tail call float @Map_CutGetAreaDerefed(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-177:                                              ; preds = %171
-  %178 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
+174:                                              ; preds = %168
+  %175 = tail call float @Map_SwitchCutGetDerefed(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-179:                                              ; preds = %171
-  %180 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
+176:                                              ; preds = %168
+  %177 = tail call float @Map_CutGetAreaFlow(ptr noundef nonnull %2, i32 noundef %3) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %177, %179, %175
-  %.sink139 = phi float [ %176, %175 ], [ %180, %179 ], [ %178, %177 ]
+.sink.split:                                      ; preds = %174, %176, %172
+  %.sink139 = phi float [ %173, %172 ], [ %177, %176 ], [ %175, %174 ]
   store float %.sink139, ptr %.sroa.10.0..sroa_idx, align 4
-  br label %181
+  br label %178
 
-181:                                              ; preds = %.sink.split, %._crit_edge129
+178:                                              ; preds = %.sink.split, %._crit_edge129
   ret i32 1
 }
 

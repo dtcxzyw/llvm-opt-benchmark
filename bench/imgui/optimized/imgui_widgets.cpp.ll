@@ -34420,10 +34420,10 @@ if.end450:                                        ; preds = %for.cond.i.i417, %i
   %198 = select <2 x i1> %197, <2 x float> %194, <2 x float> %196
   %199 = fcmp oge <2 x float> %198, zeroinitializer
   %200 = select <2 x i1> %199, <2 x float> %198, <2 x float> zeroinitializer
+  %201 = extractelement <2 x float> %200, i64 1
+  %202 = extractelement <2 x float> %200, i64 0
   store <2 x float> %200, ptr %ScrollingAnim, align 4
-  %201 = extractelement <2 x float> %200, i64 0
-  %202 = extractelement <2 x float> %200, i64 1
-  %cmp458 = fcmp une float %201, %202
+  %cmp458 = fcmp une float %202, %201
   %ScrollingSpeed = getelementptr inbounds i8, ptr %tab_bar, i64 88
   br i1 %cmp458, label %if.then459, label %if.else493
 
@@ -34434,7 +34434,7 @@ if.then459:                                       ; preds = %if.end450
   %mul460 = fmul float %204, 7.000000e+01
   %cmp.i455 = fcmp oge float %203, %mul460
   %cond.i456 = select i1 %cmp.i455, float %203, float %mul460
-  %sub466 = fsub float %202, %201
+  %sub466 = fsub float %201, %202
   %205 = call float @llvm.fabs.f32(float %sub466)
   %div467 = fdiv float %205, 0x3FD3333340000000
   %cmp.i457 = fcmp oge float %cond.i456, %div467
@@ -34460,27 +34460,27 @@ cond.false483:                                    ; preds = %lor.rhs473
   %DeltaTime = getelementptr inbounds i8, ptr %0, i64 24
   %210 = load float, ptr %DeltaTime, align 8
   %mul488 = fmul float %cond.i458, %210
-  %cmp.i459 = fcmp olt float %201, %202
+  %cmp.i459 = fcmp olt float %202, %201
   br i1 %cmp.i459, label %if.then.i463, label %if.end.i460
 
 if.then.i463:                                     ; preds = %cond.false483
-  %add.i464 = fadd float %201, %mul488
-  %cmp.i.i465 = fcmp olt float %add.i464, %202
-  %cond.i.i466 = select i1 %cmp.i.i465, float %add.i464, float %202
+  %add.i464 = fadd float %202, %mul488
+  %cmp.i.i465 = fcmp olt float %add.i464, %201
+  %cond.i.i466 = select i1 %cmp.i.i465, float %add.i464, float %201
   br label %cond.end490
 
 if.end.i460:                                      ; preds = %cond.false483
-  %cmp1.i = fcmp ogt float %201, %202
+  %cmp1.i = fcmp ogt float %202, %201
   br i1 %cmp1.i, label %if.then2.i, label %cond.end490
 
 if.then2.i:                                       ; preds = %if.end.i460
-  %sub.i462 = fsub float %201, %mul488
-  %cmp.i9.i = fcmp oge float %sub.i462, %202
-  %cond.i10.i = select i1 %cmp.i9.i, float %sub.i462, float %202
+  %sub.i462 = fsub float %202, %mul488
+  %cmp.i9.i = fcmp oge float %sub.i462, %201
+  %cond.i10.i = select i1 %cmp.i9.i, float %sub.i462, float %201
   br label %cond.end490
 
 cond.end490:                                      ; preds = %if.then2.i, %if.end.i460, %if.then.i463, %lor.rhs473, %if.then459
-  %cond491 = phi float [ %202, %if.then459 ], [ %202, %lor.rhs473 ], [ %cond.i.i466, %if.then.i463 ], [ %cond.i10.i, %if.then2.i ], [ %201, %if.end.i460 ]
+  %cond491 = phi float [ %201, %if.then459 ], [ %201, %lor.rhs473 ], [ %cond.i.i466, %if.then.i463 ], [ %cond.i10.i, %if.then2.i ], [ %202, %if.end.i460 ]
   store float %cond491, ptr %ScrollingAnim, align 4
   br label %if.end495
 

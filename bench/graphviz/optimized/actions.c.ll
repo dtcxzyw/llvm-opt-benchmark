@@ -4399,11 +4399,11 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   %173 = call <4 x double> @llvm.minnum.v4f64(<4 x double> %172, <4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>)
   %174 = call <4 x double> @llvm.maxnum.v4f64(<4 x double> %173, <4 x double> zeroinitializer)
   %175 = extractelement <4 x double> %174, i64 3
+  %176 = extractelement <4 x double> %174, i64 2
+  %177 = extractelement <4 x double> %174, i64 1
   store double %175, ptr %4, align 8
-  %176 = extractelement <4 x double> %174, i64 1
-  store double %176, ptr %5, align 8
-  %177 = extractelement <4 x double> %174, i64 2
-  store double %177, ptr %6, align 8
+  store double %177, ptr %5, align 8
+  store double %176, ptr %6, align 8
   %178 = extractelement <4 x double> %174, i64 0
   store double %178, ptr %7, align 8
   switch i32 %.016, label %default.unreachable [
@@ -4414,7 +4414,7 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   ]
 
 179:                                              ; preds = %164
-  %180 = fcmp ugt double %176, 0.000000e+00
+  %180 = fcmp ugt double %177, 0.000000e+00
   br i1 %180, label %181, label %hsv2rgb.exit.i
 
 181:                                              ; preds = %179
@@ -4424,14 +4424,14 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   %185 = fptosi double %184 to i32
   %186 = sitofp i32 %185 to double
   %187 = fsub double %184, %186
-  %188 = fsub double 1.000000e+00, %176
-  %189 = fmul double %188, %177
-  %190 = fneg double %176
+  %188 = fsub double 1.000000e+00, %177
+  %189 = fmul double %188, %176
+  %190 = fneg double %177
   %191 = call double @llvm.fmuladd.f64(double %190, double %187, double 1.000000e+00)
-  %192 = fmul double %177, %191
+  %192 = fmul double %176, %191
   %193 = fsub double 1.000000e+00, %187
   %194 = call double @llvm.fmuladd.f64(double %190, double %193, double 1.000000e+00)
-  %195 = fmul double %177, %194
+  %195 = fmul double %176, %194
   switch i32 %185, label %201 [
     i32 0, label %hsv2rgb.exit.i
     i32 1, label %196
@@ -4463,9 +4463,9 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   unreachable
 
 hsv2rgb.exit.i:                                   ; preds = %200, %199, %198, %197, %196, %181, %179
-  %.sink59.i.i = phi double [ %192, %196 ], [ %189, %197 ], [ %189, %198 ], [ %195, %199 ], [ %177, %200 ], [ %177, %179 ], [ %177, %181 ]
-  %.sink58.i.i = phi double [ %177, %196 ], [ %177, %197 ], [ %192, %198 ], [ %189, %199 ], [ %189, %200 ], [ %177, %179 ], [ %195, %181 ]
-  %.sink.i.i = phi double [ %189, %196 ], [ %195, %197 ], [ %177, %198 ], [ %177, %199 ], [ %192, %200 ], [ %177, %179 ], [ %189, %181 ]
+  %.sink59.i.i = phi double [ %192, %196 ], [ %189, %197 ], [ %189, %198 ], [ %195, %199 ], [ %176, %200 ], [ %176, %179 ], [ %176, %181 ]
+  %.sink58.i.i = phi double [ %176, %196 ], [ %176, %197 ], [ %192, %198 ], [ %189, %199 ], [ %189, %200 ], [ %176, %179 ], [ %195, %181 ]
+  %.sink.i.i = phi double [ %189, %196 ], [ %195, %197 ], [ %176, %198 ], [ %176, %199 ], [ %192, %200 ], [ %176, %179 ], [ %189, %181 ]
   %204 = fmul double %.sink59.i.i, 2.550000e+02
   %205 = fptosi double %204 to i32
   %206 = fmul double %.sink58.i.i, 2.550000e+02
@@ -4489,7 +4489,7 @@ hsv2rgb.exit.i:                                   ; preds = %200, %199, %198, %1
   br label %300
 
 220:                                              ; preds = %164
-  %221 = fcmp ugt double %176, 0.000000e+00
+  %221 = fcmp ugt double %177, 0.000000e+00
   br i1 %221, label %222, label %hsv2rgb.exit128.i
 
 222:                                              ; preds = %220
@@ -4499,14 +4499,14 @@ hsv2rgb.exit.i:                                   ; preds = %200, %199, %198, %1
   %226 = fptosi double %225 to i32
   %227 = sitofp i32 %226 to double
   %228 = fsub double %225, %227
-  %229 = fsub double 1.000000e+00, %176
-  %230 = fmul double %229, %177
-  %231 = fneg double %176
+  %229 = fsub double 1.000000e+00, %177
+  %230 = fmul double %229, %176
+  %231 = fneg double %177
   %232 = call double @llvm.fmuladd.f64(double %231, double %228, double 1.000000e+00)
-  %233 = fmul double %177, %232
+  %233 = fmul double %176, %232
   %234 = fsub double 1.000000e+00, %228
   %235 = call double @llvm.fmuladd.f64(double %231, double %234, double 1.000000e+00)
-  %236 = fmul double %177, %235
+  %236 = fmul double %176, %235
   switch i32 %226, label %242 [
     i32 0, label %hsv2rgb.exit128.i
     i32 1, label %237
@@ -4538,9 +4538,9 @@ hsv2rgb.exit.i:                                   ; preds = %200, %199, %198, %1
   unreachable
 
 hsv2rgb.exit128.i:                                ; preds = %241, %240, %239, %238, %237, %222, %220
-  %.sink59.i125.i = phi double [ %233, %237 ], [ %230, %238 ], [ %230, %239 ], [ %236, %240 ], [ %177, %241 ], [ %177, %220 ], [ %177, %222 ]
-  %.sink58.i126.i = phi double [ %177, %237 ], [ %177, %238 ], [ %233, %239 ], [ %230, %240 ], [ %230, %241 ], [ %177, %220 ], [ %236, %222 ]
-  %.sink.i127.i = phi double [ %230, %237 ], [ %236, %238 ], [ %177, %239 ], [ %177, %240 ], [ %233, %241 ], [ %177, %220 ], [ %230, %222 ]
+  %.sink59.i125.i = phi double [ %233, %237 ], [ %230, %238 ], [ %230, %239 ], [ %236, %240 ], [ %176, %241 ], [ %176, %220 ], [ %176, %222 ]
+  %.sink58.i126.i = phi double [ %176, %237 ], [ %176, %238 ], [ %233, %239 ], [ %230, %240 ], [ %230, %241 ], [ %176, %220 ], [ %236, %222 ]
+  %.sink.i127.i = phi double [ %230, %237 ], [ %236, %238 ], [ %176, %239 ], [ %176, %240 ], [ %233, %241 ], [ %176, %220 ], [ %230, %222 ]
   %245 = fsub double 1.000000e+00, %.sink59.i125.i
   %246 = fsub double 1.000000e+00, %.sink58.i126.i
   %247 = fsub double 1.000000e+00, %.sink.i127.i
@@ -4569,7 +4569,7 @@ hsv2rgb.exit128.i:                                ; preds = %241, %240, %239, %2
   br label %300
 
 263:                                              ; preds = %164
-  %264 = fcmp ugt double %176, 0.000000e+00
+  %264 = fcmp ugt double %177, 0.000000e+00
   br i1 %264, label %265, label %hsv2rgb.exit132.i
 
 265:                                              ; preds = %263
@@ -4579,14 +4579,14 @@ hsv2rgb.exit128.i:                                ; preds = %241, %240, %239, %2
   %269 = fptosi double %268 to i32
   %270 = sitofp i32 %269 to double
   %271 = fsub double %268, %270
-  %272 = fsub double 1.000000e+00, %176
-  %273 = fmul double %272, %177
-  %274 = fneg double %176
+  %272 = fsub double 1.000000e+00, %177
+  %273 = fmul double %272, %176
+  %274 = fneg double %177
   %275 = call double @llvm.fmuladd.f64(double %274, double %271, double 1.000000e+00)
-  %276 = fmul double %177, %275
+  %276 = fmul double %176, %275
   %277 = fsub double 1.000000e+00, %271
   %278 = call double @llvm.fmuladd.f64(double %274, double %277, double 1.000000e+00)
-  %279 = fmul double %177, %278
+  %279 = fmul double %176, %278
   switch i32 %269, label %285 [
     i32 0, label %hsv2rgb.exit132.i
     i32 1, label %280
@@ -4618,9 +4618,9 @@ hsv2rgb.exit128.i:                                ; preds = %241, %240, %239, %2
   unreachable
 
 hsv2rgb.exit132.i:                                ; preds = %284, %283, %282, %281, %280, %265, %263
-  %.sink59.i129.i = phi double [ %276, %280 ], [ %273, %281 ], [ %273, %282 ], [ %279, %283 ], [ %177, %284 ], [ %177, %263 ], [ %177, %265 ]
-  %.sink58.i130.i = phi double [ %177, %280 ], [ %177, %281 ], [ %276, %282 ], [ %273, %283 ], [ %273, %284 ], [ %177, %263 ], [ %279, %265 ]
-  %.sink.i131.i = phi double [ %273, %280 ], [ %279, %281 ], [ %177, %282 ], [ %177, %283 ], [ %276, %284 ], [ %177, %263 ], [ %273, %265 ]
+  %.sink59.i129.i = phi double [ %276, %280 ], [ %273, %281 ], [ %273, %282 ], [ %279, %283 ], [ %176, %284 ], [ %176, %263 ], [ %176, %265 ]
+  %.sink58.i130.i = phi double [ %176, %280 ], [ %176, %281 ], [ %276, %282 ], [ %273, %283 ], [ %273, %284 ], [ %176, %263 ], [ %279, %265 ]
+  %.sink.i131.i = phi double [ %273, %280 ], [ %279, %281 ], [ %176, %282 ], [ %176, %283 ], [ %276, %284 ], [ %176, %263 ], [ %273, %265 ]
   %288 = fmul double %.sink59.i129.i, 6.553500e+04
   %289 = fptosi double %288 to i32
   %.sroa.0.0.insert.ext102 = zext i32 %289 to i64

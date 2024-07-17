@@ -19526,11 +19526,11 @@ entry:
   %5 = fadd <2 x float> %4, <float -5.000000e-01, float -5.000000e-01>
   %6 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %5)
   %7 = fptosi <2 x float> %6 to <2 x i32>
+  %8 = extractelement <2 x i32> %7, i64 1
+  %9 = extractelement <2 x i32> %7, i64 0
   %conv3.i = fptosi float %1 to i32
-  %8 = extractelement <2 x i32> %7, i64 0
-  %conv.i11 = sitofp i32 %8 to float
-  %9 = extractelement <2 x i32> %7, i64 1
-  %conv2.i12 = sitofp i32 %9 to float
+  %conv.i11 = sitofp i32 %9 to float
+  %conv2.i12 = sitofp i32 %8 to float
   %conv3.i13 = sitofp i32 %conv3.i to float
   %10 = extractelement <2 x float> %5, i64 0
   %sub.i = fsub float %10, %conv.i11
@@ -19548,11 +19548,11 @@ entry:
   %.sroa.speculated10.i11.i.i = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %.sroa.speculated7.i12.i.i = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %.sroa.speculated.i13.i.i = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
-  %cmp.not.i.i = icmp sle i32 %.sroa.speculated10.i.i.i, %8
-  %cmp4.i.i = icmp sgt i32 %.sroa.speculated10.i11.i.i, %8
+  %cmp.not.i.i = icmp sle i32 %.sroa.speculated10.i.i.i, %9
+  %cmp4.i.i = icmp sgt i32 %.sroa.speculated10.i11.i.i, %9
   %or.cond.not12.not14.not17.i.not13.i = and i1 %cmp.not.i.i, %cmp4.i.i
-  %cmp8.not.i.i = icmp sle i32 %.sroa.speculated7.i.i.i, %9
-  %cmp13.i.i = icmp sgt i32 %.sroa.speculated7.i12.i.i, %9
+  %cmp8.not.i.i = icmp sle i32 %.sroa.speculated7.i.i.i, %8
+  %cmp13.i.i = icmp sgt i32 %.sroa.speculated7.i12.i.i, %8
   %.not14.i = and i1 %cmp8.not.i.i, %cmp13.i.i
   %or.cond10.not15.i.not12.i = select i1 %or.cond.not12.not14.not17.i.not13.i, i1 %.not14.i, i1 false
   %cmp17.not.i.i = icmp sle i32 %.sroa.speculated.i.i.i, %conv3.i
@@ -19570,9 +19570,9 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %mul.i = mul nsw i32 %13, %conv3.i
-  %add.i = add nsw i32 %mul.i, %9
+  %add.i = add nsw i32 %mul.i, %8
   %mul10.i = mul nsw i32 %add.i, %12
-  %add11.i = add nsw i32 %mul10.i, %8
+  %add11.i = add nsw i32 %mul10.i, %9
   %conv.i23 = sext i32 %add11.i to i64
   %ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load ptr, ptr %ptr.i.i, align 8
@@ -19590,7 +19590,7 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i)
   %16 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i, 0
   %17 = extractvalue { <2 x float>, <2 x float> } %call13.pn.i, 1
-  %add.i26 = add nsw i32 %8, 1
+  %add.i26 = add nsw i32 %9, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2531)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2531, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i34)
@@ -19606,8 +19606,8 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %cmp.not.i.i50 = icmp sle i32 %.sroa.speculated10.i.i.i38, %add.i26
   %cmp4.i.i51 = icmp sgt i32 %.sroa.speculated10.i11.i.i41, %add.i26
   %or.cond.not12.not14.not17.i.not13.i52 = and i1 %cmp.not.i.i50, %cmp4.i.i51
-  %cmp8.not.i.i53 = icmp sle i32 %.sroa.speculated7.i.i.i39, %9
-  %cmp13.i.i54 = icmp sgt i32 %.sroa.speculated7.i12.i.i42, %9
+  %cmp8.not.i.i53 = icmp sle i32 %.sroa.speculated7.i.i.i39, %8
+  %cmp13.i.i54 = icmp sgt i32 %.sroa.speculated7.i12.i.i42, %8
   %.not14.i55 = and i1 %cmp8.not.i.i53, %cmp13.i.i54
   %or.cond10.not15.i.not12.i56 = select i1 %or.cond.not12.not14.not17.i.not13.i52, i1 %.not14.i55, i1 false
   %cmp17.not.i.i57 = icmp sle i32 %.sroa.speculated.i.i.i40, %conv3.i
@@ -19625,7 +19625,7 @@ if.then.i60:                                      ; preds = %_ZNK4pbrt11SampledG
 
 if.end.i63:                                       ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
   %mul.i64 = mul nsw i32 %19, %conv3.i
-  %add.i65 = add nsw i32 %mul.i64, %9
+  %add.i65 = add nsw i32 %mul.i64, %8
   %mul10.i66 = mul nsw i32 %add.i65, %18
   %add11.i67 = add nsw i32 %mul10.i66, %add.i26
   %conv.i68 = sext i32 %add11.i67 to i64
@@ -19713,7 +19713,7 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   %retval.sroa.2.0.copyload.i.i = load <2 x float>, ptr %ref.tmp.sroa.2.0.ret.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %add4.i81 = add nsw i32 %9, 1
+  %add4.i81 = add nsw i32 %8, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3990)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3990, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i93)
@@ -19726,8 +19726,8 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   %.sroa.speculated10.i11.i.i100 = call i32 @llvm.smax.i32(i32 %30, i32 0)
   %.sroa.speculated7.i12.i.i101 = call i32 @llvm.smax.i32(i32 %31, i32 0)
   %.sroa.speculated.i13.i.i102 = call i32 @llvm.smax.i32(i32 %32, i32 0)
-  %cmp.not.i.i109 = icmp sle i32 %.sroa.speculated10.i.i.i97, %8
-  %cmp4.i.i110 = icmp sgt i32 %.sroa.speculated10.i11.i.i100, %8
+  %cmp.not.i.i109 = icmp sle i32 %.sroa.speculated10.i.i.i97, %9
+  %cmp4.i.i110 = icmp sgt i32 %.sroa.speculated10.i11.i.i100, %9
   %or.cond.not12.not14.not17.i.not13.i111 = and i1 %cmp.not.i.i109, %cmp4.i.i110
   %cmp8.not.i.i112 = icmp sle i32 %.sroa.speculated7.i.i.i98, %add4.i81
   %cmp13.i.i113 = icmp sgt i32 %.sroa.speculated7.i12.i.i101, %add4.i81
@@ -19750,7 +19750,7 @@ if.end.i122:                                      ; preds = %_ZN4pbrt4LerpEfRKNS
   %mul.i123 = mul nsw i32 %31, %conv3.i
   %add.i124 = add nsw i32 %mul.i123, %add4.i81
   %mul10.i125 = mul nsw i32 %add.i124, %30
-  %add11.i126 = add nsw i32 %mul10.i125, %8
+  %add11.i126 = add nsw i32 %mul10.i125, %9
   %conv.i127 = sext i32 %add11.i126 to i64
   %ptr.i.i128 = getelementptr inbounds i8, ptr %this, i64 8
   %34 = load ptr, ptr %ptr.i.i128, align 8
@@ -19902,11 +19902,11 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit227: ; preds = %for.body.i.i15.i21
   %.sroa.speculated10.i11.i.i254 = call i32 @llvm.smax.i32(i32 %52, i32 0)
   %53 = extractelement <2 x i32> %50, i64 1
   %.sroa.speculated7.i12.i.i255 = call i32 @llvm.smax.i32(i32 %53, i32 0)
-  %cmp4.i.i264 = icmp sgt i32 %.sroa.speculated10.i11.i.i254, %8
+  %cmp4.i.i264 = icmp sgt i32 %.sroa.speculated10.i11.i.i254, %9
   %54 = icmp sle <2 x i32> %51, %7
   %55 = extractelement <2 x i1> %54, i64 0
   %or.cond.not12.not14.not17.i.not13.i265 = and i1 %55, %cmp4.i.i264
-  %cmp13.i.i267 = icmp sgt i32 %.sroa.speculated7.i12.i.i255, %9
+  %cmp13.i.i267 = icmp sgt i32 %.sroa.speculated7.i12.i.i255, %8
   %56 = extractelement <2 x i1> %54, i64 1
   %.not14.i268 = and i1 %56, %cmp13.i.i267
   %or.cond10.not15.i.not12.i269 = select i1 %or.cond.not12.not14.not17.i.not13.i265, i1 %.not14.i268, i1 false
@@ -19925,9 +19925,9 @@ if.then.i273:                                     ; preds = %_ZN4pbrt4LerpEfRKNS
 
 if.end.i276:                                      ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit227
   %mul.i277 = mul nsw i32 %53, %add6.i237
-  %add.i278 = add nsw i32 %mul.i277, %9
+  %add.i278 = add nsw i32 %mul.i277, %8
   %mul10.i279 = mul nsw i32 %add.i278, %52
-  %add11.i280 = add nsw i32 %mul10.i279, %8
+  %add11.i280 = add nsw i32 %mul10.i279, %9
   %conv.i281 = sext i32 %add11.i280 to i64
   %ptr.i.i282 = getelementptr inbounds i8, ptr %this, i64 8
   %58 = load ptr, ptr %ptr.i.i282, align 8
@@ -19960,8 +19960,8 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %cmp.not.i.i321 = icmp sle i32 %.sroa.speculated10.i.i.i309, %add.i26
   %cmp4.i.i322 = icmp sgt i32 %.sroa.speculated10.i11.i.i312, %add.i26
   %or.cond.not12.not14.not17.i.not13.i323 = and i1 %cmp.not.i.i321, %cmp4.i.i322
-  %cmp8.not.i.i324 = icmp sle i32 %.sroa.speculated7.i.i.i310, %9
-  %cmp13.i.i325 = icmp sgt i32 %.sroa.speculated7.i12.i.i313, %9
+  %cmp8.not.i.i324 = icmp sle i32 %.sroa.speculated7.i.i.i310, %8
+  %cmp13.i.i325 = icmp sgt i32 %.sroa.speculated7.i12.i.i313, %8
   %.not14.i326 = and i1 %cmp8.not.i.i324, %cmp13.i.i325
   %or.cond10.not15.i.not12.i327 = select i1 %or.cond.not12.not14.not17.i.not13.i323, i1 %.not14.i326, i1 false
   %cmp17.not.i.i328 = icmp sle i32 %.sroa.speculated.i.i.i311, %add6.i237
@@ -19979,7 +19979,7 @@ if.then.i331:                                     ; preds = %_ZNK4pbrt11SampledG
 
 if.end.i334:                                      ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit285
   %mul.i335 = mul nsw i32 %62, %add6.i237
-  %add.i336 = add nsw i32 %mul.i335, %9
+  %add.i336 = add nsw i32 %mul.i335, %8
   %mul10.i337 = mul nsw i32 %add.i336, %61
   %add11.i338 = add nsw i32 %mul10.i337, %add.i26
   %conv.i339 = sext i32 %add11.i338 to i64
@@ -20078,8 +20078,8 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit381: ; preds = %for.body.i.i15.i37
   %.sroa.speculated10.i11.i.i408 = call i32 @llvm.smax.i32(i32 %73, i32 0)
   %.sroa.speculated7.i12.i.i409 = call i32 @llvm.smax.i32(i32 %74, i32 0)
   %.sroa.speculated.i13.i.i410 = call i32 @llvm.smax.i32(i32 %75, i32 0)
-  %cmp.not.i.i417 = icmp sle i32 %.sroa.speculated10.i.i.i405, %8
-  %cmp4.i.i418 = icmp sgt i32 %.sroa.speculated10.i11.i.i408, %8
+  %cmp.not.i.i417 = icmp sle i32 %.sroa.speculated10.i.i.i405, %9
+  %cmp4.i.i418 = icmp sgt i32 %.sroa.speculated10.i11.i.i408, %9
   %or.cond.not12.not14.not17.i.not13.i419 = and i1 %cmp.not.i.i417, %cmp4.i.i418
   %cmp8.not.i.i420 = icmp sle i32 %.sroa.speculated7.i.i.i406, %add4.i81
   %cmp13.i.i421 = icmp sgt i32 %.sroa.speculated7.i12.i.i409, %add4.i81
@@ -20102,7 +20102,7 @@ if.end.i430:                                      ; preds = %_ZN4pbrt4LerpEfRKNS
   %mul.i431 = mul nsw i32 %74, %add6.i237
   %add.i432 = add nsw i32 %mul.i431, %add4.i81
   %mul10.i433 = mul nsw i32 %add.i432, %73
-  %add11.i434 = add nsw i32 %mul10.i433, %8
+  %add11.i434 = add nsw i32 %mul10.i433, %9
   %conv.i435 = sext i32 %add11.i434 to i64
   %ptr.i.i436 = getelementptr inbounds i8, ptr %this, i64 8
   %77 = load ptr, ptr %ptr.i.i436, align 8

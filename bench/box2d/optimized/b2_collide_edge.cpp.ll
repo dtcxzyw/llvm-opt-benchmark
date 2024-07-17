@@ -235,78 +235,78 @@ entry:
   %11 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %13 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> %0, <2 x float> %10)
-  %14 = insertelement <2 x float> poison, float %sub3.i.i, i64 0
-  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> zeroinitializer
-  %16 = fmul <2 x float> %5, %15
-  %17 = insertelement <2 x float> %11, float %7, i64 1
-  %18 = insertelement <2 x float> poison, float %sub.i.i, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %19, <2 x float> %16)
+  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %15 = insertelement <2 x float> poison, float %sub3.i.i, i64 0
+  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
+  %17 = fmul <2 x float> %5, %16
+  %18 = insertelement <2 x float> %11, float %7, i64 1
+  %19 = insertelement <2 x float> poison, float %sub.i.i, i64 0
+  %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
+  %21 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %18, <2 x float> %20, <2 x float> %17)
   %m_centroid = getelementptr inbounds i8, ptr %polygonB, i64 16
-  %21 = load float, ptr %m_centroid, align 4
+  %22 = load float, ptr %m_centroid, align 4
   %y.i = getelementptr inbounds i8, ptr %polygonB, i64 20
-  %22 = load float, ptr %y.i, align 4
-  %23 = extractelement <2 x float> %13, i64 0
-  %24 = fneg float %23
-  %neg.i = fmul float %22, %24
-  %25 = extractelement <2 x float> %13, i64 1
-  %26 = tail call float @llvm.fmuladd.f32(float %25, float %21, float %neg.i)
-  %27 = extractelement <2 x float> %20, i64 0
-  %add.i = fadd float %27, %26
-  %mul12.i = fmul float %25, %22
-  %28 = tail call float @llvm.fmuladd.f32(float %23, float %21, float %mul12.i)
-  %29 = extractelement <2 x float> %20, i64 1
-  %add15.i = fadd float %29, %28
+  %23 = load float, ptr %y.i, align 4
+  %24 = extractelement <2 x float> %13, i64 0
+  %25 = fneg float %24
+  %neg.i = fmul float %23, %25
+  %26 = extractelement <2 x float> %13, i64 1
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float %22, float %neg.i)
+  %28 = extractelement <2 x float> %21, i64 0
+  %add.i = fadd float %28, %27
+  %mul12.i = fmul float %26, %23
+  %29 = tail call float @llvm.fmuladd.f32(float %24, float %22, float %mul12.i)
+  %30 = extractelement <2 x float> %21, i64 1
+  %add15.i = fadd float %30, %29
   %m_vertex1 = getelementptr inbounds i8, ptr %edgeA, i64 16
-  %30 = load <2 x i32>, ptr %m_vertex1, align 8
-  %31 = bitcast <2 x i32> %30 to <2 x float>
+  %31 = load <2 x i32>, ptr %m_vertex1, align 8
+  %32 = bitcast <2 x i32> %31 to <2 x float>
   %m_vertex2 = getelementptr inbounds i8, ptr %edgeA, i64 24
-  %32 = load <2 x i32>, ptr %m_vertex2, align 8
-  %33 = bitcast <2 x i32> %32 to <2 x float>
-  %34 = fsub <2 x float> %33, %31
-  %35 = fmul <2 x float> %34, %34
-  %mul4.i.i = extractelement <2 x float> %35, i64 1
-  %36 = extractelement <2 x float> %34, i64 0
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %mul4.i.i)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %37)
+  %33 = load <2 x i32>, ptr %m_vertex2, align 8
+  %34 = bitcast <2 x i32> %33 to <2 x float>
+  %35 = fsub <2 x float> %34, %32
+  %36 = fmul <2 x float> %35, %35
+  %mul4.i.i = extractelement <2 x float> %36, i64 1
+  %37 = extractelement <2 x float> %35, i64 0
+  %38 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %mul4.i.i)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %38)
   %cmp.i = fcmp olt float %sqrt.i.i, 0x3E80000000000000
   %indvars.iv344.sroa.gep361 = getelementptr inbounds i8, ptr %clipPoints2, i64 12
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
-  %38 = insertelement <2 x float> poison, float %div.i, i64 0
-  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
-  %40 = fmul <2 x float> %34, %39
-  %edge1.sroa.0.0 = select i1 %cmp.i, <2 x float> %34, <2 x float> %40
+  %39 = insertelement <2 x float> poison, float %div.i, i64 0
+  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
+  %41 = fmul <2 x float> %35, %40
+  %edge1.sroa.0.0 = select i1 %cmp.i, <2 x float> %35, <2 x float> %41
   %edge1.sroa.0.4.vec.extract = extractelement <2 x float> %edge1.sroa.0.0, i64 1
   %edge1.sroa.0.0.vec.extract = extractelement <2 x float> %edge1.sroa.0.0, i64 0
   %fneg = fneg float %edge1.sroa.0.0.vec.extract
-  %41 = extractelement <2 x float> %31, i64 0
-  %sub.i68 = fsub float %add.i, %41
-  %42 = extractelement <2 x float> %31, i64 1
-  %sub3.i71 = fsub float %add15.i, %42
+  %42 = extractelement <2 x float> %32, i64 0
+  %sub.i68 = fsub float %add.i, %42
+  %43 = extractelement <2 x float> %32, i64 1
+  %sub3.i71 = fsub float %add15.i, %43
   %mul3.i = fmul float %sub3.i71, %fneg
-  %43 = tail call noundef float @llvm.fmuladd.f32(float %edge1.sroa.0.4.vec.extract, float %sub.i68, float %mul3.i)
+  %44 = tail call noundef float @llvm.fmuladd.f32(float %edge1.sroa.0.4.vec.extract, float %sub.i68, float %mul3.i)
   %m_oneSided = getelementptr inbounds i8, ptr %edgeA, i64 48
-  %44 = load i8, ptr %m_oneSided, align 8
-  %tobool = trunc i8 %44 to i1
-  %cmp = fcmp olt float %43, 0.000000e+00
+  %45 = load i8, ptr %m_oneSided, align 8
+  %tobool = trunc i8 %45 to i1
+  %cmp = fcmp olt float %44, 0.000000e+00
   %or.cond = and i1 %cmp, %tobool
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_count = getelementptr inbounds i8, ptr %polygonB, i64 152
-  %45 = load i32, ptr %m_count, align 8
+  %46 = load i32, ptr %m_count, align 8
   %count = getelementptr inbounds i8, ptr %tempPolygonB, i64 128
-  store i32 %45, ptr %count, align 4
-  %cmp8329 = icmp sgt i32 %45, 0
+  store i32 %46, ptr %count, align 4
+  %cmp8329 = icmp sgt i32 %46, 0
   br i1 %cmp8329, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %m_vertices = getelementptr inbounds i8, ptr %polygonB, i64 24
   %m_normals = getelementptr inbounds i8, ptr %polygonB, i64 88
   %normals = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
-  %wide.trip.count = zext nneg i32 %45 to i64
-  %46 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %47 = insertelement <2 x float> %13, float %24, i64 0
+  %wide.trip.count = zext nneg i32 %46 to i64
+  %47 = insertelement <2 x float> %13, float %25, i64 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -320,8 +320,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %52 = fmul <2 x float> %51, %47
   %53 = insertelement <2 x float> poison, float %48, i64 0
   %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
-  %55 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %46, <2 x float> %54, <2 x float> %52)
-  %56 = fadd <2 x float> %20, %55
+  %55 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %14, <2 x float> %54, <2 x float> %52)
+  %56 = fadd <2 x float> %21, %55
   %arrayidx12 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv
   store <2 x float> %56, ptr %arrayidx12, align 4
   %arrayidx15 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_normals, i64 0, i64 %indvars.iv
@@ -333,7 +333,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %61 = fmul <2 x float> %60, %47
   %62 = insertelement <2 x float> poison, float %57, i64 0
   %63 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
-  %64 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %46, <2 x float> %63, <2 x float> %61)
+  %64 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %14, <2 x float> %63, <2 x float> %61)
   %arrayidx18 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %normals, i64 0, i64 %indvars.iv
   store <2 x float> %64, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -345,7 +345,7 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
-  %65 = phi i32 [ %.pre, %for.end.loopexit ], [ %45, %if.end ]
+  %65 = phi i32 [ %.pre, %for.end.loopexit ], [ %46, %if.end ]
   %m_radius = getelementptr inbounds i8, ptr %polygonB, i64 12
   %66 = load float, ptr %m_radius, align 4
   %m_radius19 = getelementptr inbounds i8, ptr %edgeA, i64 12
@@ -399,10 +399,10 @@ for.body3.us.i:                                   ; preds = %for.body3.us.i, %fo
   %sj.02.us.i = phi float [ 0x47EFFFFFE0000000, %for.cond1.preheader.us.i ], [ %sj.1.us.i, %for.body3.us.i ]
   %arrayidx5.us.i = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv7.i
   %77 = load float, ptr %arrayidx5.us.i, align 4, !noalias !6
-  %sub.i.us.i = fsub float %77, %41
+  %sub.i.us.i = fsub float %77, %42
   %y.i13.us.i = getelementptr inbounds i8, ptr %arrayidx5.us.i, i64 4
   %78 = load float, ptr %y.i13.us.i, align 4, !noalias !6
-  %sub3.i.us.i = fsub float %78, %42
+  %sub3.i.us.i = fsub float %78, %43
   %mul3.i.us.i = fmul float %74, %sub3.i.us.i
   %79 = tail call noundef float @llvm.fmuladd.f32(float %73, float %sub.i.us.i, float %mul3.i.us.i)
   %cmp8.us.i = fcmp olt float %79, %sj.02.us.i
@@ -452,9 +452,9 @@ if.end22:                                         ; preds = %_ZL23b2ComputeEdgeS
 for.body.lr.ph.i:                                 ; preds = %if.end22
   %normals.i = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
   %wide.trip.count.i100 = zext nneg i32 %65 to i64
-  %86 = shufflevector <2 x i32> %30, <2 x i32> %32, <2 x i32> <i32 0, i32 2>
+  %86 = shufflevector <2 x i32> %31, <2 x i32> %33, <2 x i32> <i32 0, i32 2>
   %87 = bitcast <2 x i32> %86 to <2 x float>
-  %88 = shufflevector <2 x i32> %30, <2 x i32> %32, <2 x i32> <i32 1, i32 3>
+  %88 = shufflevector <2 x i32> %31, <2 x i32> %33, <2 x i32> <i32 1, i32 3>
   %89 = bitcast <2 x i32> %88 to <2 x float>
   br label %for.body.i
 
@@ -528,7 +528,7 @@ if.end26:                                         ; preds = %_ZL26b2ComputePolyg
 if.then34:                                        ; preds = %if.end26
   %m_vertex0 = getelementptr inbounds i8, ptr %edgeA, i64 32
   %112 = load <2 x float>, ptr %m_vertex0, align 4
-  %113 = fsub <2 x float> %31, %112
+  %113 = fsub <2 x float> %32, %112
   %114 = fmul <2 x float> %113, %113
   %mul4.i.i116 = extractelement <2 x float> %114, i64 1
   %115 = extractelement <2 x float> %113, i64 0
@@ -548,7 +548,7 @@ if.then34:                                        ; preds = %if.end26
   %121 = tail call noundef float @llvm.fmuladd.f32(float %edge0.sroa.0.0.vec.extract, float %edge1.sroa.0.4.vec.extract, float %neg.i127)
   %m_vertex3 = getelementptr inbounds i8, ptr %edgeA, i64 40
   %122 = load <2 x float>, ptr %m_vertex3, align 4
-  %123 = fsub <2 x float> %122, %33
+  %123 = fsub <2 x float> %122, %34
   %124 = fmul <2 x float> %123, %123
   %mul4.i.i135 = extractelement <2 x float> %124, i64 1
   %125 = extractelement <2 x float> %123, i64 0
@@ -669,16 +669,16 @@ for.end99:                                        ; preds = %for.body88, %if.the
   %i2134 = getelementptr inbounds i8, ptr %ref, i64 4
   store i32 1, ptr %i2134, align 4
   %v1135 = getelementptr inbounds i8, ptr %ref, i64 8
-  %150 = extractelement <2 x i32> %30, i64 0
+  %150 = extractelement <2 x i32> %31, i64 0
   store i32 %150, ptr %v1135, align 4
   %v1135.sroa_idx = getelementptr inbounds i8, ptr %ref, i64 12
-  %151 = extractelement <2 x i32> %30, i64 1
+  %151 = extractelement <2 x i32> %31, i64 1
   store i32 %151, ptr %v1135.sroa_idx, align 4
   %v2136 = getelementptr inbounds i8, ptr %ref, i64 16
-  %152 = extractelement <2 x i32> %32, i64 0
+  %152 = extractelement <2 x i32> %33, i64 0
   store i32 %152, ptr %v2136, align 4
   %v2136.sroa_idx = getelementptr inbounds i8, ptr %ref, i64 20
-  %153 = extractelement <2 x i32> %32, i64 1
+  %153 = extractelement <2 x i32> %33, i64 1
   store i32 %153, ptr %v2136.sroa_idx, align 4
   %normal138 = getelementptr inbounds i8, ptr %ref, i64 24
   store <2 x float> %138, ptr %normal138, align 4
@@ -688,17 +688,17 @@ for.end99:                                        ; preds = %for.body88, %if.the
   store <2 x float> %retval.sroa.0.4.vec.insert.i165, ptr %sideNormal1, align 4
   %sideNormal2 = getelementptr inbounds i8, ptr %ref, i64 44
   store <2 x float> %edge1.sroa.0.0, ptr %sideNormal2, align 4
-  %154 = extractelement <2 x float> %33, i64 0
-  %155 = extractelement <2 x float> %33, i64 1
+  %154 = extractelement <2 x float> %34, i64 0
+  %155 = extractelement <2 x float> %34, i64 1
   br label %if.end212
 
 if.else141:                                       ; preds = %if.end76
   %type142 = getelementptr inbounds i8, ptr %manifold, i64 56
   store i32 2, ptr %type142, align 4
-  %156 = extractelement <2 x i32> %32, i64 0
+  %156 = extractelement <2 x i32> %33, i64 0
   store i32 %156, ptr %clipPoints, align 16
   %clipPoints.sroa_idx = getelementptr inbounds i8, ptr %clipPoints, i64 4
-  %157 = extractelement <2 x i32> %32, i64 1
+  %157 = extractelement <2 x i32> %33, i64 1
   store i32 %157, ptr %clipPoints.sroa_idx, align 4
   %id146 = getelementptr inbounds i8, ptr %clipPoints, i64 8
   store i8 1, ptr %id146, align 8
@@ -710,10 +710,10 @@ if.else141:                                       ; preds = %if.end76
   %typeB157 = getelementptr inbounds i8, ptr %clipPoints, i64 11
   store i8 1, ptr %typeB157, align 1
   %arrayidx158 = getelementptr inbounds i8, ptr %clipPoints, i64 12
-  %158 = extractelement <2 x i32> %30, i64 0
+  %158 = extractelement <2 x i32> %31, i64 0
   store i32 %158, ptr %arrayidx158, align 4
   %arrayidx158.sroa_idx = getelementptr inbounds i8, ptr %clipPoints, i64 16
-  %159 = extractelement <2 x i32> %30, i64 1
+  %159 = extractelement <2 x i32> %31, i64 1
   store i32 %159, ptr %arrayidx158.sroa_idx, align 16
   %id161 = getelementptr inbounds i8, ptr %clipPoints, i64 20
   store i8 0, ptr %id161, align 4
@@ -778,9 +778,9 @@ if.end212:                                        ; preds = %if.else141, %for.en
   %181 = phi float [ %175, %if.else141 ], [ %edge1.sroa.0.4.vec.extract, %for.end99 ]
   %182 = phi float [ %174, %if.else141 ], [ %154, %for.end99 ]
   %183 = phi float [ %fneg.i167, %if.else141 ], [ %edge1.sroa.0.0.vec.extract, %for.end99 ]
-  %184 = phi float [ %172, %if.else141 ], [ %42, %for.end99 ]
+  %184 = phi float [ %172, %if.else141 ], [ %43, %for.end99 ]
   %185 = phi float [ %fneg207, %if.else141 ], [ %fneg.i.i, %for.end99 ]
-  %186 = phi float [ %169, %if.else141 ], [ %41, %for.end99 ]
+  %186 = phi float [ %169, %if.else141 ], [ %42, %for.end99 ]
   %187 = phi float [ %165, %if.else141 ], [ %fneg, %for.end99 ]
   %cmp77326 = phi i1 [ false, %if.else141 ], [ true, %for.end99 ]
   %sideNormal1213 = getelementptr inbounds i8, ptr %ref, i64 32
@@ -856,7 +856,7 @@ if.end252:                                        ; preds = %if.else241, %if.the
   %211 = getelementptr inbounds i8, ptr %manifold, i64 48
   store i64 %.sink, ptr %211, align 4
   %212 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %213 = insertelement <2 x float> %212, float %24, i64 1
+  %213 = insertelement <2 x float> %212, float %25, i64 1
   br label %for.body257
 
 for.body257:                                      ; preds = %if.end252, %for.inc315
@@ -879,8 +879,8 @@ if.then268:                                       ; preds = %for.body257
   br i1 %cmp77326, label %if.then272, label %if.else283
 
 if.then272:                                       ; preds = %if.then268
-  %sub.i187 = fsub float %214, %27
-  %sub4.i = fsub float %215, %29
+  %sub.i187 = fsub float %214, %28
+  %sub4.i = fsub float %215, %30
   %217 = insertelement <2 x float> poison, float %sub4.i, i64 0
   %218 = shufflevector <2 x float> %217, <2 x float> poison, <2 x i32> zeroinitializer
   %219 = fmul <2 x float> %13, %218

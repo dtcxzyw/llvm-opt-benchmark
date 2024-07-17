@@ -47,7 +47,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %167
+  br label %168
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -62,7 +62,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
 
 12:                                               ; preds = %6
   %13 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
-  br label %167
+  br label %168
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 448
@@ -141,19 +141,19 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
   %83 = insertelement <2 x double> %82, double %35, i64 1
   %84 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %85 = fmul <2 x double> %83, %84
-  %86 = shufflevector <2 x double> %45, <2 x double> %85, <2 x i32> <i32 0, i32 2>
-  %87 = fmul <2 x double> %86, %44
-  %88 = fdiv <2 x double> %87, %47
-  %89 = extractelement <2 x double> %88, i64 0
-  store double %89, ptr %28, align 8
-  store <2 x double> %88, ptr %27, align 8
-  %90 = extractelement <2 x double> %85, i64 1
-  %91 = fmul double %90, %50
+  %86 = extractelement <2 x double> %85, i64 1
+  %87 = shufflevector <2 x double> %45, <2 x double> %85, <2 x i32> <i32 0, i32 2>
+  %88 = fmul <2 x double> %87, %44
+  %89 = fdiv <2 x double> %88, %47
+  %90 = extractelement <2 x double> %89, i64 0
+  store double %90, ptr %28, align 8
+  store <2 x double> %89, ptr %27, align 8
+  %91 = fmul double %86, %50
   %92 = shufflevector <2 x double> %85, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %93 = insertelement <2 x double> %92, double %91, i64 1
   %94 = fdiv <2 x double> %93, <double 2.400000e+01, double 2.400000e+01>
   store <2 x double> %94, ptr %48, align 8
-  %95 = fmul double %90, %52
+  %95 = fmul double %86, %52
   %96 = insertelement <2 x double> poison, double %95, i64 0
   %97 = insertelement <2 x double> %96, double %37, i64 1
   %98 = fdiv <2 x double> %97, %55
@@ -166,7 +166,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
   %103 = fmul <2 x double> %102, %75
   %104 = fdiv <2 x double> %103, <double 4.800000e+01, double 2.400000e+01>
   store <2 x double> %104, ptr %71, align 8
-  %105 = fdiv double %90, 1.200000e+02
+  %105 = fdiv double %86, 1.200000e+02
   store double %105, ptr %76, align 8
   %106 = insertelement <2 x double> poison, double %77, i64 0
   %107 = insertelement <2 x double> %106, double %81, i64 1
@@ -176,14 +176,14 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
   store <2 x double> %110, ptr %79, align 8
   %111 = tail call double @llvm.fmuladd.f64(double %38, double 1.200000e+01, double 1.300000e+01)
   %112 = tail call double @llvm.fmuladd.f64(double %38, double %111, double 4.000000e+00)
-  %113 = fmul double %90, %112
+  %113 = fmul double %86, %112
   %114 = fdiv double %113, 2.400000e+01
   %115 = getelementptr inbounds i8, ptr %2, i64 152
   store double %114, ptr %115, align 8
-  %116 = fmul double %90, 6.250000e-02
+  %116 = fmul double %86, 6.250000e-02
   %117 = getelementptr inbounds i8, ptr %2, i64 160
   store double %116, ptr %117, align 8
-  %118 = fmul double %37, %90
+  %118 = fmul double %37, %86
   %119 = tail call double @llvm.fmuladd.f64(double %38, double 1.600000e+01, double 3.300000e+01)
   %120 = tail call double @llvm.fmuladd.f64(double %38, double %119, double 1.100000e+01)
   %121 = getelementptr inbounds i8, ptr %2, i64 168
@@ -212,40 +212,41 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_roussP8PJconsts(ptr 
   store <2 x double> %139, ptr %132, align 8
   %140 = tail call double @llvm.fmuladd.f64(double %38, double 6.000000e+00, double 6.000000e+00)
   %141 = getelementptr inbounds i8, ptr %2, i64 224
-  %142 = fmul double %38, %90
+  %142 = fmul double %38, %86
   %143 = insertelement <2 x double> <double poison, double 4.000000e+00>, double %140, i64 0
   %144 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %73, <2 x double> %143, <2 x double> <double 1.000000e+00, double 3.000000e+00>)
-  %145 = insertelement <2 x double> %92, double %142, i64 1
-  %146 = fmul <2 x double> %145, %144
-  %147 = fmul <2 x double> %146, <double 6.250000e-02, double 1.250000e-01>
-  store <2 x double> %147, ptr %141, align 8
-  %148 = getelementptr inbounds i8, ptr %2, i64 240
-  %149 = fneg double %38
-  %150 = tail call double @llvm.fmuladd.f64(double %149, double 2.600000e+01, double 1.780000e+02)
-  %151 = tail call double @llvm.fmuladd.f64(double %38, double %150, double -2.100000e+01)
-  %152 = fmul double %118, %151
-  %153 = insertelement <2 x double> %92, double %152, i64 1
-  %154 = fdiv <2 x double> %153, <double 8.000000e+01, double 7.200000e+02>
-  store <2 x double> %154, ptr %148, align 8
-  %155 = tail call double @llvm.fmuladd.f64(double %38, double 4.800000e+01, double 8.600000e+01)
-  %156 = fmul double %32, 9.600000e+01
-  %157 = getelementptr inbounds i8, ptr %2, i64 256
-  %158 = insertelement <2 x double> <double poison, double 4.400000e+01>, double %155, i64 0
-  %159 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %73, <2 x double> %158, <2 x double> <double 2.900000e+01, double 3.700000e+01>)
-  %160 = fmul <2 x double> %123, %159
-  %161 = insertelement <2 x double> poison, double %156, i64 0
-  %162 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> zeroinitializer
-  %163 = fdiv <2 x double> %160, %162
-  store <2 x double> %163, ptr %157, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr @_ZL15rouss_e_forward5PJ_LPP8PJconsts, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @_ZL15rouss_e_inverse5PJ_XYP8PJconsts, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr @_ZL19pj_rouss_destructorP8PJconstsi, ptr %166, align 8
-  br label %167
+  %145 = shufflevector <2 x double> %85, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %146 = insertelement <2 x double> %145, double %142, i64 1
+  %147 = fmul <2 x double> %146, %144
+  %148 = fmul <2 x double> %147, <double 6.250000e-02, double 1.250000e-01>
+  store <2 x double> %148, ptr %141, align 8
+  %149 = getelementptr inbounds i8, ptr %2, i64 240
+  %150 = fneg double %38
+  %151 = tail call double @llvm.fmuladd.f64(double %150, double 2.600000e+01, double 1.780000e+02)
+  %152 = tail call double @llvm.fmuladd.f64(double %38, double %151, double -2.100000e+01)
+  %153 = fmul double %118, %152
+  %154 = insertelement <2 x double> %145, double %153, i64 1
+  %155 = fdiv <2 x double> %154, <double 8.000000e+01, double 7.200000e+02>
+  store <2 x double> %155, ptr %149, align 8
+  %156 = tail call double @llvm.fmuladd.f64(double %38, double 4.800000e+01, double 8.600000e+01)
+  %157 = fmul double %32, 9.600000e+01
+  %158 = getelementptr inbounds i8, ptr %2, i64 256
+  %159 = insertelement <2 x double> <double poison, double 4.400000e+01>, double %156, i64 0
+  %160 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %73, <2 x double> %159, <2 x double> <double 2.900000e+01, double 3.700000e+01>)
+  %161 = fmul <2 x double> %123, %160
+  %162 = insertelement <2 x double> poison, double %157, i64 0
+  %163 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> zeroinitializer
+  %164 = fdiv <2 x double> %161, %163
+  store <2 x double> %164, ptr %158, align 8
+  %165 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL15rouss_e_forward5PJ_LPP8PJconsts, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL15rouss_e_inverse5PJ_XYP8PJconsts, ptr %166, align 8
+  %167 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr @_ZL19pj_rouss_destructorP8PJconstsi, ptr %167, align 8
+  br label %168
 
-167:                                              ; preds = %14, %12, %4
+168:                                              ; preds = %14, %12, %4
   %.0 = phi ptr [ %5, %4 ], [ %0, %14 ], [ %13, %12 ]
   ret ptr %.0
 }

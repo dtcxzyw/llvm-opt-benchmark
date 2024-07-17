@@ -17,97 +17,96 @@ define void @dlas2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %15 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
   %16 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %17 = select <2 x i1> %14, <2 x double> %15, <2 x double> %16
-  %18 = extractelement <2 x double> %17, i64 0
-  %19 = fcmp olt double %18, 0x10000000000000
-  br i1 %19, label %20, label %32
+  %18 = extractelement <2 x double> %17, i64 1
+  %19 = extractelement <2 x double> %17, i64 0
+  %20 = fcmp olt double %19, 0x10000000000000
+  br i1 %20, label %21, label %32
 
-20:                                               ; preds = %5
+21:                                               ; preds = %5
   store double 0.000000e+00, ptr %3, align 8
-  %21 = extractelement <2 x double> %17, i64 1
-  %22 = fcmp olt double %21, 0x10000000000000
-  br i1 %22, label %84, label %23
+  %22 = fcmp olt double %18, 0x10000000000000
+  br i1 %22, label %83, label %23
 
-23:                                               ; preds = %20
-  %24 = fcmp ogt double %21, %8
-  %25 = select i1 %24, double %21, double %8
-  %26 = fcmp olt double %21, %8
-  %27 = select i1 %26, double %21, double %8
+23:                                               ; preds = %21
+  %24 = fcmp ogt double %18, %8
+  %25 = select i1 %24, double %18, double %8
+  %26 = fcmp olt double %18, %8
+  %27 = select i1 %26, double %18, double %8
   %28 = fdiv double %27, %25
   %29 = fmul double %28, %28
   %30 = fadd double %29, 1.000000e+00
   %sqrt = tail call double @llvm.sqrt.f64(double %30)
   %31 = fmul double %25, %sqrt
-  br label %84
+  br label %83
 
 32:                                               ; preds = %5
-  %33 = extractelement <2 x double> %17, i64 1
-  %34 = fcmp olt double %8, %33
-  br i1 %34, label %35, label %55
+  %33 = fcmp olt double %8, %18
+  br i1 %33, label %34, label %54
 
-35:                                               ; preds = %32
-  %36 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %37 = fdiv <2 x double> %17, %36
-  %38 = fsub <2 x double> %17, %36
-  %39 = shufflevector <2 x double> %37, <2 x double> %38, <2 x i32> <i32 0, i32 3>
-  %40 = fdiv double %8, %33
-  %41 = fmul double %40, %40
-  %42 = insertelement <2 x double> %17, double 1.000000e+00, i64 0
-  %43 = fadd <2 x double> %39, %42
-  %44 = fdiv <2 x double> %39, %42
-  %45 = shufflevector <2 x double> %43, <2 x double> %44, <2 x i32> <i32 0, i32 3>
-  %46 = insertelement <2 x double> poison, double %41, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %45, <2 x double> %47)
-  %49 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %48)
-  %shift = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %50 = fadd <2 x double> %49, %shift
-  %51 = extractelement <2 x double> %50, i64 0
-  %52 = fdiv double 2.000000e+00, %51
-  %53 = fmul double %18, %52
-  store double %53, ptr %3, align 8
-  %54 = fdiv double %33, %52
-  br label %84
+34:                                               ; preds = %32
+  %35 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %36 = fdiv <2 x double> %17, %35
+  %37 = fsub <2 x double> %17, %35
+  %38 = shufflevector <2 x double> %36, <2 x double> %37, <2 x i32> <i32 0, i32 3>
+  %39 = fdiv double %8, %18
+  %40 = fmul double %39, %39
+  %41 = insertelement <2 x double> %17, double 1.000000e+00, i64 0
+  %42 = fadd <2 x double> %38, %41
+  %43 = fdiv <2 x double> %38, %41
+  %44 = shufflevector <2 x double> %42, <2 x double> %43, <2 x i32> <i32 0, i32 3>
+  %45 = insertelement <2 x double> poison, double %40, i64 0
+  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> zeroinitializer
+  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %44, <2 x double> %46)
+  %48 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %47)
+  %shift = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %49 = fadd <2 x double> %48, %shift
+  %50 = extractelement <2 x double> %49, i64 0
+  %51 = fdiv double 2.000000e+00, %50
+  %52 = fmul double %19, %51
+  store double %52, ptr %3, align 8
+  %53 = fdiv double %18, %51
+  br label %83
 
-55:                                               ; preds = %32
-  %56 = fdiv double %33, %8
-  %57 = tail call noundef double @llvm.fabs.f64(double %56)
-  %58 = fcmp olt double %57, 0x10000000000000
-  br i1 %58, label %59, label %62
+54:                                               ; preds = %32
+  %55 = fdiv double %18, %8
+  %56 = tail call noundef double @llvm.fabs.f64(double %55)
+  %57 = fcmp olt double %56, 0x10000000000000
+  br i1 %57, label %58, label %61
 
-59:                                               ; preds = %55
-  %60 = fmul double %18, %33
-  %61 = fdiv double %60, %8
-  store double %61, ptr %3, align 8
-  br label %84
+58:                                               ; preds = %54
+  %59 = fmul double %19, %18
+  %60 = fdiv double %59, %8
+  store double %60, ptr %3, align 8
+  br label %83
 
-62:                                               ; preds = %55
-  %63 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %64 = fdiv <2 x double> %17, %63
-  %65 = fsub <2 x double> %17, %63
-  %66 = shufflevector <2 x double> %64, <2 x double> %65, <2 x i32> <i32 0, i32 3>
-  %67 = insertelement <2 x double> %17, double 1.000000e+00, i64 0
-  %68 = fadd <2 x double> %66, %67
-  %69 = fdiv <2 x double> %66, %67
-  %70 = shufflevector <2 x double> %68, <2 x double> %69, <2 x i32> <i32 0, i32 3>
-  %71 = insertelement <2 x double> poison, double %56, i64 0
-  %72 = shufflevector <2 x double> %71, <2 x double> poison, <2 x i32> zeroinitializer
-  %73 = fmul <2 x double> %72, %70
-  %74 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %73, <2 x double> %73, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
-  %75 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %74)
-  %shift93 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %76 = fadd <2 x double> %75, %shift93
-  %77 = extractelement <2 x double> %76, i64 0
-  %78 = fdiv double 1.000000e+00, %77
-  %79 = fmul double %18, %78
-  %80 = fmul double %56, %79
-  %81 = fadd double %80, %80
-  store double %81, ptr %3, align 8
-  %82 = fadd double %78, %78
-  %83 = fdiv double %8, %82
-  br label %84
+61:                                               ; preds = %54
+  %62 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %63 = fdiv <2 x double> %17, %62
+  %64 = fsub <2 x double> %17, %62
+  %65 = shufflevector <2 x double> %63, <2 x double> %64, <2 x i32> <i32 0, i32 3>
+  %66 = insertelement <2 x double> %17, double 1.000000e+00, i64 0
+  %67 = fadd <2 x double> %65, %66
+  %68 = fdiv <2 x double> %65, %66
+  %69 = shufflevector <2 x double> %67, <2 x double> %68, <2 x i32> <i32 0, i32 3>
+  %70 = insertelement <2 x double> poison, double %55, i64 0
+  %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
+  %72 = fmul <2 x double> %71, %69
+  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %72, <2 x double> %72, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
+  %74 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %73)
+  %shift93 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %75 = fadd <2 x double> %74, %shift93
+  %76 = extractelement <2 x double> %75, i64 0
+  %77 = fdiv double 1.000000e+00, %76
+  %78 = fmul double %19, %77
+  %79 = fmul double %55, %78
+  %80 = fadd double %79, %79
+  store double %80, ptr %3, align 8
+  %81 = fadd double %77, %77
+  %82 = fdiv double %8, %81
+  br label %83
 
-84:                                               ; preds = %20, %35, %62, %59, %23
-  %.sink = phi double [ %54, %35 ], [ %83, %62 ], [ %8, %59 ], [ %31, %23 ], [ %8, %20 ]
+83:                                               ; preds = %21, %34, %61, %58, %23
+  %.sink = phi double [ %53, %34 ], [ %82, %61 ], [ %8, %58 ], [ %31, %23 ], [ %8, %21 ]
   store double %.sink, ptr %4, align 8
   ret void
 }

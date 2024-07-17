@@ -3019,10 +3019,10 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %215 = insertelement <2 x double> %214, double %213, i64 1
   %216 = call <2 x double> @llvm.minnum.v2f64(<2 x double> %215, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
   %217 = call <2 x double> @llvm.maxnum.v2f64(<2 x double> %216, <2 x double> zeroinitializer)
-  %218 = extractelement <2 x double> %217, i64 0
-  store double %218, ptr %5, align 8
-  %219 = extractelement <2 x double> %217, i64 1
-  store double %219, ptr %6, align 8
+  %218 = extractelement <2 x double> %217, i64 1
+  %219 = extractelement <2 x double> %217, i64 0
+  store double %219, ptr %5, align 8
+  store double %218, ptr %6, align 8
   %220 = load double, ptr %7, align 8
   %221 = load double, ptr %8, align 8
   %222 = insertelement <2 x double> poison, double %220, i64 0
@@ -3050,19 +3050,19 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   br label %364
 
 230:                                              ; preds = %211
-  %231 = fcmp ugt double %219, 0.000000e+00
+  %231 = fcmp ugt double %218, 0.000000e+00
   br i1 %231, label %232, label %hsv2rgb.exit
 
 232:                                              ; preds = %230
-  %233 = fcmp ult double %218, 1.000000e+00
-  %234 = fmul double %218, 6.000000e+00
+  %233 = fcmp ult double %219, 1.000000e+00
+  %234 = fmul double %219, 6.000000e+00
   %235 = select i1 %233, double %234, double 0.000000e+00
   %236 = fptosi double %235 to i32
   %237 = sitofp i32 %236 to double
   %238 = fsub double %235, %237
-  %239 = fsub double 1.000000e+00, %219
+  %239 = fsub double 1.000000e+00, %218
   %240 = fmul double %239, %226
-  %241 = fneg double %219
+  %241 = fneg double %218
   %242 = call double @llvm.fmuladd.f64(double %241, double %238, double 1.000000e+00)
   %243 = fmul double %226, %242
   %244 = fsub double 1.000000e+00, %238
@@ -3113,19 +3113,19 @@ hsv2rgb.exit:                                     ; preds = %230, %232, %247, %2
   br label %364
 
 262:                                              ; preds = %211
-  %263 = fcmp ugt double %219, 0.000000e+00
+  %263 = fcmp ugt double %218, 0.000000e+00
   br i1 %263, label %264, label %hsv2rgb.exit128
 
 264:                                              ; preds = %262
-  %265 = fcmp ult double %218, 1.000000e+00
-  %266 = fmul double %218, 6.000000e+00
+  %265 = fcmp ult double %219, 1.000000e+00
+  %266 = fmul double %219, 6.000000e+00
   %267 = select i1 %265, double %266, double 0.000000e+00
   %268 = fptosi double %267 to i32
   %269 = sitofp i32 %268 to double
   %270 = fsub double %267, %269
-  %271 = fsub double 1.000000e+00, %219
+  %271 = fsub double 1.000000e+00, %218
   %272 = fmul double %271, %226
-  %273 = fneg double %219
+  %273 = fneg double %218
   %274 = call double @llvm.fmuladd.f64(double %273, double %270, double 1.000000e+00)
   %275 = fmul double %226, %274
   %276 = fsub double 1.000000e+00, %270
@@ -3184,19 +3184,19 @@ hsv2rgb.exit128:                                  ; preds = %262, %264, %279, %2
   br label %364
 
 302:                                              ; preds = %211
-  %303 = fcmp ugt double %219, 0.000000e+00
+  %303 = fcmp ugt double %218, 0.000000e+00
   br i1 %303, label %304, label %hsv2rgb.exit132
 
 304:                                              ; preds = %302
-  %305 = fcmp ult double %218, 1.000000e+00
-  %306 = fmul double %218, 6.000000e+00
+  %305 = fcmp ult double %219, 1.000000e+00
+  %306 = fmul double %219, 6.000000e+00
   %307 = select i1 %305, double %306, double 0.000000e+00
   %308 = fptosi double %307 to i32
   %309 = sitofp i32 %308 to double
   %310 = fsub double %307, %309
-  %311 = fsub double 1.000000e+00, %219
+  %311 = fsub double 1.000000e+00, %218
   %312 = fmul double %311, %226
-  %313 = fneg double %219
+  %313 = fneg double %218
   %314 = call double @llvm.fmuladd.f64(double %313, double %310, double 1.000000e+00)
   %315 = fmul double %226, %314
   %316 = fsub double 1.000000e+00, %310
@@ -3246,19 +3246,19 @@ hsv2rgb.exit132:                                  ; preds = %302, %304, %319, %3
   br label %364
 
 333:                                              ; preds = %211
-  %334 = fcmp ugt double %219, 0.000000e+00
+  %334 = fcmp ugt double %218, 0.000000e+00
   br i1 %334, label %335, label %hsv2rgb.exit136
 
 335:                                              ; preds = %333
-  %336 = fcmp ult double %218, 1.000000e+00
-  %337 = fmul double %218, 6.000000e+00
+  %336 = fcmp ult double %219, 1.000000e+00
+  %337 = fmul double %219, 6.000000e+00
   %338 = select i1 %336, double %337, double 0.000000e+00
   %339 = fptosi double %338 to i32
   %340 = sitofp i32 %339 to double
   %341 = fsub double %338, %340
-  %342 = fsub double 1.000000e+00, %219
+  %342 = fsub double 1.000000e+00, %218
   %343 = fmul double %342, %226
-  %344 = fneg double %219
+  %344 = fneg double %218
   %345 = call double @llvm.fmuladd.f64(double %344, double %341, double 1.000000e+00)
   %346 = fmul double %226, %345
   %347 = fsub double 1.000000e+00, %341

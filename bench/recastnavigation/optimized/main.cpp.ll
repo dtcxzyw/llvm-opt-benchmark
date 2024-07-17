@@ -457,11 +457,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit605: ;
   %.sroa.0321.0 = phi i32 [ %.sroa.0321.1, %976 ], [ 0, %.preheader837 ]
   %.sroa.7328.0 = phi i32 [ %.sroa.7328.1, %976 ], [ 0, %.preheader837 ]
   %.sroa.0323.0 = phi i32 [ %.sroa.0323.1, %976 ], [ 0, %.preheader837 ]
-  %.0386 = phi i32 [ %265, %976 ], [ %85, %.preheader837 ]
+  %.0386 = phi i32 [ %267, %976 ], [ %85, %.preheader837 ]
   %.0384 = phi float [ %.1385.lcssa, %976 ], [ 0.000000e+00, %.preheader837 ]
   %140 = phi <2 x float> [ %922, %976 ], [ <float 4.500000e+01, float -4.500000e+01>, %.preheader837 ]
   %141 = phi <2 x float> [ %150, %976 ], [ zeroinitializer, %.preheader837 ]
-  %142 = phi <2 x float> [ %303, %976 ], [ zeroinitializer, %.preheader837 ]
+  %142 = phi <2 x float> [ %305, %976 ], [ zeroinitializer, %.preheader837 ]
   %143 = phi <2 x float> [ %921, %976 ], [ zeroinitializer, %.preheader837 ]
   br i1 %.0397, label %978, label %.preheader833
 
@@ -580,7 +580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit605: ;
           cleanup
   br label %.body612
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %311
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %313
   %lpad.loopexit830 = landingpad { ptr, i32 }
           cleanup
   br label %.body612
@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit605: ;
           cleanup
   br label %.body612
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %773, %685, %580, %976, %975, %974, %973, %972, %971, %956, %955, %954, %946, %944, %940, %937, %935, %923, %._crit_edge1044.thread, %764, %._crit_edge1037.thread, %680, %671, %664, %662, %.thread701, %625, %602, %600, %596, %.thread686, %594, %590, %_ZN9rcContext8resetLogEv.exit, %574, %570, %569, %567, %553, %529, %528, %526, %523, %522, %520, %516, %513, %511, %510, %505, %500, %498, %497, %496, %495, %494, %493, %492, %491, %490, %485, %449, %441, %365, %356, %352, %351, %345, %343, %341, %340, %339, %338, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %324, %299, %289, %273, %270, %260, %258, %256
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %773, %685, %580, %976, %975, %974, %973, %972, %971, %956, %955, %954, %946, %944, %940, %937, %935, %923, %._crit_edge1044.thread, %764, %._crit_edge1037.thread, %680, %671, %664, %662, %.thread701, %625, %602, %600, %596, %.thread686, %594, %590, %_ZN9rcContext8resetLogEv.exit, %574, %570, %569, %567, %553, %529, %528, %526, %523, %522, %520, %516, %513, %511, %510, %505, %500, %498, %497, %496, %495, %494, %493, %492, %491, %490, %485, %449, %441, %365, %356, %352, %351, %345, %344, %343, %342, %341, %340, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %326, %301, %291, %275, %272, %262, %260, %256
   %lpad.loopexit838 = landingpad { ptr, i32 }
           cleanup
   br label %.body612
@@ -849,203 +849,203 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.backedge1628
 
 256:                                              ; preds = %152
-  %257 = invoke i32 @SDL_GetMouseState(ptr noundef null, ptr noundef null)
-          to label %258 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-258:                                              ; preds = %256
+  %257 = extractelement <2 x float> %149, i64 0
+  %258 = extractelement <2 x float> %149, i64 1
   %259 = invoke i32 @SDL_GetMouseState(ptr noundef null, ptr noundef null)
           to label %260 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-260:                                              ; preds = %258
-  %261 = trunc i32 %257 to i8
-  %spec.select575 = and i8 %261, 1
-  %262 = trunc i32 %259 to i8
-  %263 = lshr i8 %262, 1
-  %264 = and i8 %263, 2
-  %spec.select576 = or disjoint i8 %264, %spec.select575
-  %265 = invoke i32 @SDL_GetTicks()
-          to label %266 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+260:                                              ; preds = %256
+  %261 = invoke i32 @SDL_GetMouseState(ptr noundef null, ptr noundef null)
+          to label %262 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-266:                                              ; preds = %260
-  %267 = sub i32 %265, %.0386
-  %268 = uitofp i32 %267 to float
-  %269 = fdiv float %268, 1.000000e+03
+262:                                              ; preds = %260
+  %263 = trunc i32 %259 to i8
+  %spec.select575 = and i8 %263, 1
+  %264 = trunc i32 %261 to i8
+  %265 = lshr i8 %264, 1
+  %266 = and i8 %265, 2
+  %spec.select576 = or disjoint i8 %266, %spec.select575
+  %267 = invoke i32 @SDL_GetTicks()
+          to label %268 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+268:                                              ; preds = %262
+  %269 = sub i32 %267, %.0386
+  %270 = uitofp i32 %269 to float
+  %271 = fdiv float %270, 1.000000e+03
   %or.cond7 = select i1 %.0393, i1 %146, i1 false
   %or.cond9 = select i1 %or.cond7, i1 %145, i1 false
-  br i1 %or.cond9, label %270, label %.preheader829
+  br i1 %or.cond9, label %272, label %.preheader829
 
-270:                                              ; preds = %266
-  %271 = invoke noundef zeroext i1 @_ZN9InputGeom11raycastMeshEPfS0_Rf(ptr noundef nonnull align 8 dereferenceable(50312) %.0410, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(4) %27)
-          to label %272 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+272:                                              ; preds = %268
+  %273 = invoke noundef zeroext i1 @_ZN9InputGeom11raycastMeshEPfS0_Rf(ptr noundef nonnull align 8 dereferenceable(50312) %.0410, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(4) %27)
+          to label %274 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-272:                                              ; preds = %270
-  br i1 %271, label %273, label %299
+274:                                              ; preds = %272
+  br i1 %273, label %275, label %301
 
-273:                                              ; preds = %272
-  %274 = invoke i32 @SDL_GetModState()
-          to label %275 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+275:                                              ; preds = %274
+  %276 = invoke i32 @SDL_GetModState()
+          to label %277 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-275:                                              ; preds = %273
-  %276 = and i32 %274, 192
-  %.not538 = icmp eq i32 %276, 0
-  %277 = load float, ptr %6, align 8
-  %278 = load float, ptr %7, align 8
-  %279 = fsub float %278, %277
-  %280 = load float, ptr %27, align 4
-  %281 = call float @llvm.fmuladd.f32(float %279, float %280, float %277)
-  br i1 %.not538, label %289, label %282
+277:                                              ; preds = %275
+  %278 = and i32 %276, 192
+  %.not538 = icmp eq i32 %278, 0
+  %279 = load float, ptr %6, align 8
+  %280 = load float, ptr %7, align 8
+  %281 = fsub float %280, %279
+  %282 = load float, ptr %27, align 4
+  %283 = call float @llvm.fmuladd.f32(float %281, float %282, float %279)
+  br i1 %.not538, label %291, label %284
 
-282:                                              ; preds = %275
-  %283 = load <2 x float>, ptr %115, align 4
-  %284 = load <2 x float>, ptr %116, align 4
-  %285 = fsub <2 x float> %284, %283
-  %286 = insertelement <2 x float> poison, float %280, i64 0
-  %287 = shufflevector <2 x float> %286, <2 x float> poison, <2 x i32> zeroinitializer
-  %288 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %285, <2 x float> %287, <2 x float> %283)
+284:                                              ; preds = %277
+  %285 = load <2 x float>, ptr %115, align 4
+  %286 = load <2 x float>, ptr %116, align 4
+  %287 = fsub <2 x float> %286, %285
+  %288 = insertelement <2 x float> poison, float %282, i64 0
+  %289 = shufflevector <2 x float> %288, <2 x float> poison, <2 x i32> zeroinitializer
+  %290 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %287, <2 x float> %289, <2 x float> %285)
   br label %.preheader829
 
-289:                                              ; preds = %275
-  store float %281, ptr %28, align 4
-  %290 = load <2 x float>, ptr %115, align 4
-  %291 = load <2 x float>, ptr %116, align 4
-  %292 = fsub <2 x float> %291, %290
-  %293 = insertelement <2 x float> poison, float %280, i64 0
-  %294 = shufflevector <2 x float> %293, <2 x float> poison, <2 x i32> zeroinitializer
-  %295 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %292, <2 x float> %294, <2 x float> %290)
-  store <2 x float> %295, ptr %119, align 4
-  %296 = load ptr, ptr %.0402, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 40
-  %298 = load ptr, ptr %297, align 8
-  invoke void %298(ptr noundef nonnull align 8 dereferenceable(200) %.0402, ptr noundef nonnull %6, ptr noundef nonnull %28, i1 noundef zeroext %.0391)
+291:                                              ; preds = %277
+  store float %283, ptr %28, align 4
+  %292 = load <2 x float>, ptr %115, align 4
+  %293 = load <2 x float>, ptr %116, align 4
+  %294 = fsub <2 x float> %293, %292
+  %295 = insertelement <2 x float> poison, float %282, i64 0
+  %296 = shufflevector <2 x float> %295, <2 x float> poison, <2 x i32> zeroinitializer
+  %297 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %294, <2 x float> %296, <2 x float> %292)
+  store <2 x float> %297, ptr %119, align 4
+  %298 = load ptr, ptr %.0402, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i64 40
+  %300 = load ptr, ptr %299, align 8
+  invoke void %300(ptr noundef nonnull align 8 dereferenceable(200) %.0402, ptr noundef nonnull %6, ptr noundef nonnull %28, i1 noundef zeroext %.0391)
           to label %.preheader829 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-299:                                              ; preds = %272
-  %300 = invoke i32 @SDL_GetModState()
-          to label %301 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+301:                                              ; preds = %274
+  %302 = invoke i32 @SDL_GetModState()
+          to label %303 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-301:                                              ; preds = %299
-  %302 = and i32 %300, 192
-  %.not537 = icmp eq i32 %302, 0
+303:                                              ; preds = %301
+  %304 = and i32 %302, 192
+  %.not537 = icmp eq i32 %304, 0
   %spec.select577 = select i1 %.not537, i1 %.0418, i1 false
   br label %.preheader829
 
-.preheader829:                                    ; preds = %301, %289, %282, %266
-  %.sroa.0.1 = phi float [ %281, %282 ], [ %.sroa.0.0, %289 ], [ %.sroa.0.0, %266 ], [ %.sroa.0.0, %301 ]
-  %.1419 = phi i1 [ true, %282 ], [ %.0418, %289 ], [ %.0418, %266 ], [ %spec.select577, %301 ]
-  %303 = phi <2 x float> [ %288, %282 ], [ %142, %289 ], [ %142, %266 ], [ %142, %301 ]
-  %304 = fadd float %.0384, %269
-  %305 = fcmp olt float %304, -1.000000e+00
-  %306 = fcmp ogt float %304, 1.000000e+00
-  %307 = select i1 %306, float 1.000000e+00, float %304
-  %.1385.ph = select i1 %305, float -1.000000e+00, float %307
-  %308 = fcmp ogt float %.1385.ph, 0x3FA99999A0000000
-  br i1 %308, label %.lr.ph, label %._crit_edge
+.preheader829:                                    ; preds = %303, %291, %284, %268
+  %.sroa.0.1 = phi float [ %283, %284 ], [ %.sroa.0.0, %291 ], [ %.sroa.0.0, %268 ], [ %.sroa.0.0, %303 ]
+  %.1419 = phi i1 [ true, %284 ], [ %.0418, %291 ], [ %.0418, %268 ], [ %spec.select577, %303 ]
+  %305 = phi <2 x float> [ %290, %284 ], [ %142, %291 ], [ %142, %268 ], [ %142, %303 ]
+  %306 = fadd float %.0384, %271
+  %307 = fcmp olt float %306, -1.000000e+00
+  %308 = fcmp ogt float %306, 1.000000e+00
+  %309 = select i1 %308, float 1.000000e+00, float %306
+  %.1385.ph = select i1 %307, float -1.000000e+00, float %309
+  %310 = fcmp ogt float %.1385.ph, 0x3FA99999A0000000
+  br i1 %310, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader829, %315
-  %.13851029 = phi float [ %309, %315 ], [ %.1385.ph, %.preheader829 ]
-  %.03881028 = phi i32 [ %316, %315 ], [ 0, %.preheader829 ]
-  %309 = fadd float %.13851029, 0xBFA99999A0000000
-  %310 = icmp ult i32 %.03881028, 5
-  %or.cond11 = select i1 %310, i1 %145, i1 false
-  br i1 %or.cond11, label %311, label %315
+.lr.ph:                                           ; preds = %.preheader829, %317
+  %.13851029 = phi float [ %311, %317 ], [ %.1385.ph, %.preheader829 ]
+  %.03881028 = phi i32 [ %318, %317 ], [ 0, %.preheader829 ]
+  %311 = fadd float %.13851029, 0xBFA99999A0000000
+  %312 = icmp ult i32 %.03881028, 5
+  %or.cond11 = select i1 %312, i1 %145, i1 false
+  br i1 %or.cond11, label %313, label %317
 
-311:                                              ; preds = %.lr.ph
-  %312 = load ptr, ptr %.0402, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 96
-  %314 = load ptr, ptr %313, align 8
-  invoke void %314(ptr noundef nonnull align 8 dereferenceable(200) %.0402, float noundef 0x3FA99999A0000000)
-          to label %315 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+313:                                              ; preds = %.lr.ph
+  %314 = load ptr, ptr %.0402, align 8
+  %315 = getelementptr inbounds i8, ptr %314, i64 96
+  %316 = load ptr, ptr %315, align 8
+  invoke void %316(ptr noundef nonnull align 8 dereferenceable(200) %.0402, float noundef 0x3FA99999A0000000)
+          to label %317 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-315:                                              ; preds = %311, %.lr.ph
-  %316 = add nuw nsw i32 %.03881028, 1
-  %317 = fcmp ogt float %309, 0x3FA99999A0000000
-  br i1 %317, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+317:                                              ; preds = %313, %.lr.ph
+  %318 = add nuw nsw i32 %.03881028, 1
+  %319 = fcmp ogt float %311, 0x3FA99999A0000000
+  br i1 %319, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %315, %.preheader829
-  %.1385.lcssa = phi float [ %.1385.ph, %.preheader829 ], [ %309, %315 ]
-  %318 = fcmp olt float %269, 0x3F999999A0000000
-  br i1 %318, label %319, label %326
+._crit_edge:                                      ; preds = %317, %.preheader829
+  %.1385.lcssa = phi float [ %.1385.ph, %.preheader829 ], [ %311, %317 ]
+  %320 = fcmp olt float %271, 0x3F999999A0000000
+  br i1 %320, label %321, label %328
 
-319:                                              ; preds = %._crit_edge
-  %320 = fsub float 0x3F999999A0000000, %269
-  %321 = fmul float %320, 1.000000e+03
-  %322 = fptosi float %321 to i32
-  %323 = icmp sgt i32 %322, -1
-  br i1 %323, label %324, label %326
+321:                                              ; preds = %._crit_edge
+  %322 = fsub float 0x3F999999A0000000, %271
+  %323 = fmul float %322, 1.000000e+03
+  %324 = fptosi float %323 to i32
+  %325 = icmp sgt i32 %324, -1
+  br i1 %325, label %326, label %328
 
-324:                                              ; preds = %319
-  %325 = call i32 @llvm.umin.i32(i32 %322, i32 10)
-  invoke void @SDL_Delay(i32 noundef %325)
-          to label %326 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-326:                                              ; preds = %319, %324, %._crit_edge
-  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %70, i32 noundef %71)
-          to label %327 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-327:                                              ; preds = %326
-  invoke void @glGetIntegerv(i32 noundef 2978, ptr noundef nonnull %29)
+326:                                              ; preds = %321
+  %327 = call i32 @llvm.umin.i32(i32 %324, i32 10)
+  invoke void @SDL_Delay(i32 noundef %327)
           to label %328 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-328:                                              ; preds = %327
-  invoke void @glClearColor(float noundef 0x3FD3333340000000, float noundef 0x3FD3333340000000, float noundef 0x3FD47AE140000000, float noundef 1.000000e+00)
+328:                                              ; preds = %321, %326, %._crit_edge
+  invoke void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %70, i32 noundef %71)
           to label %329 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 329:                                              ; preds = %328
-  invoke void @glClear(i32 noundef 16640)
+  invoke void @glGetIntegerv(i32 noundef 2978, ptr noundef nonnull %29)
           to label %330 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 330:                                              ; preds = %329
-  invoke void @glEnable(i32 noundef 3042)
+  invoke void @glClearColor(float noundef 0x3FD3333340000000, float noundef 0x3FD3333340000000, float noundef 0x3FD47AE140000000, float noundef 1.000000e+00)
           to label %331 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 331:                                              ; preds = %330
-  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
+  invoke void @glClear(i32 noundef 16640)
           to label %332 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 332:                                              ; preds = %331
-  invoke void @glDisable(i32 noundef 3553)
+  invoke void @glEnable(i32 noundef 3042)
           to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 333:                                              ; preds = %332
-  invoke void @glEnable(i32 noundef 2929)
+  invoke void @glBlendFunc(i32 noundef 770, i32 noundef 771)
           to label %334 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 334:                                              ; preds = %333
-  invoke void @glMatrixMode(i32 noundef 5889)
+  invoke void @glDisable(i32 noundef 3553)
           to label %335 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 335:                                              ; preds = %334
-  invoke void @glLoadIdentity()
+  invoke void @glEnable(i32 noundef 2929)
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 336:                                              ; preds = %335
-  %337 = fpext float %.0513 to double
-  invoke void @gluPerspective(double noundef 5.000000e+01, double noundef %123, double noundef 1.000000e+00, double noundef %337)
+  invoke void @glMatrixMode(i32 noundef 5889)
+          to label %337 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+337:                                              ; preds = %336
+  invoke void @glLoadIdentity()
           to label %338 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-338:                                              ; preds = %336
-  invoke void @glGetDoublev(i32 noundef 2983, ptr noundef nonnull %30)
-          to label %339 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-339:                                              ; preds = %338
-  invoke void @glMatrixMode(i32 noundef 5888)
+338:                                              ; preds = %337
+  %339 = fpext float %.0513 to double
+  invoke void @gluPerspective(double noundef 5.000000e+01, double noundef %123, double noundef 1.000000e+00, double noundef %339)
           to label %340 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-340:                                              ; preds = %339
-  invoke void @glLoadIdentity()
+340:                                              ; preds = %338
+  invoke void @glGetDoublev(i32 noundef 2983, ptr noundef nonnull %30)
           to label %341 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 341:                                              ; preds = %340
-  %342 = extractelement <2 x float> %149, i64 0
-  invoke void @glRotatef(float noundef %342, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  invoke void @glMatrixMode(i32 noundef 5888)
+          to label %342 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+342:                                              ; preds = %341
+  invoke void @glLoadIdentity()
           to label %343 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-343:                                              ; preds = %341
-  %344 = extractelement <2 x float> %149, i64 1
-  invoke void @glRotatef(float noundef %344, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
+343:                                              ; preds = %342
+  invoke void @glRotatef(float noundef %257, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
+          to label %344 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+344:                                              ; preds = %343
+  invoke void @glRotatef(float noundef %258, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00)
           to label %345 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-345:                                              ; preds = %343
+345:                                              ; preds = %344
   %346 = extractelement <2 x float> %143, i64 0
   %347 = fneg float %346
   %348 = extractelement <2 x float> %143, i64 1
@@ -1091,7 +1091,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %374 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 374:                                              ; preds = %365
-  %375 = fmul float %269, 4.000000e+00
+  %375 = fmul float %271, 4.000000e+00
   %376 = getelementptr inbounds i8, ptr %373, i64 26
   %377 = load i8, ptr %376, align 1
   %.not539 = icmp eq i8 %377, 0
@@ -1233,11 +1233,11 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.0387 = select i1 %.not545, float 2.200000e+01, float 8.800000e+01
   %451 = fsub float %423, %399
   %452 = fmul float %451, %.0387
-  %453 = fmul float %269, %452
+  %453 = fmul float %271, %452
   %454 = fsub float %411, %387
   %455 = fmul float %454, %.0387
   %456 = fmul float %.1505, 2.000000e+00
-  %457 = call float @llvm.fmuladd.f32(float %455, float %269, float %456)
+  %457 = call float @llvm.fmuladd.f32(float %455, float %271, float %456)
   %458 = load <2 x double>, ptr %31, align 16
   %459 = load double, ptr %124, align 16
   %460 = fptrunc double %459 to float
@@ -1262,7 +1262,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %479 = insertelement <2 x float> poison, float %457, i64 0
   %480 = insertelement <2 x float> %479, float %478, i64 1
   %481 = insertelement <2 x float> poison, float %466, i64 0
-  %482 = insertelement <2 x float> %481, float %269, i64 1
+  %482 = insertelement <2 x float> %481, float %271, i64 1
   %483 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %480, <2 x float> %482, <2 x float> %473)
   invoke void @glEnable(i32 noundef 2912)
           to label %484 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2488,9 +2488,9 @@ _ZN9rcContext8resetLogEv.exit648:                 ; preds = %.thread751, %857
 
 946:                                              ; preds = %945
   %947 = fpext float %.sroa.0.1 to double
-  %948 = extractelement <2 x float> %303, i64 0
+  %948 = extractelement <2 x float> %305, i64 0
   %949 = fpext float %948 to double
-  %950 = extractelement <2 x float> %303, i64 1
+  %950 = extractelement <2 x float> %305, i64 1
   %951 = fpext float %950 to double
   %952 = invoke i32 @gluProject(double noundef %947, double noundef %949, double noundef %951, ptr noundef nonnull %31, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
           to label %953 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit

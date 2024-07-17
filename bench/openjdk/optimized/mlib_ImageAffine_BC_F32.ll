@@ -100,18 +100,18 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr nocapture noundef rea
   br label %88
 
 75:                                               ; preds = %50
-  %76 = fmul <2 x float> %59, %59
-  %77 = fmul <2 x float> %59, %76
-  %78 = fmul <2 x float> %76, <float 2.000000e+00, float 2.000000e+00>
-  %79 = shufflevector <2 x float> %77, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %80 = shufflevector <2 x float> %59, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %81 = fsub <2 x float> %77, %78
-  %82 = shufflevector <2 x float> %76, <2 x float> %78, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %83 = fsub <4 x float> %82, %79
-  %84 = fadd <4 x float> %83, %80
-  %85 = fsub <4 x float> %83, %80
+  %76 = shufflevector <2 x float> %59, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %77 = fmul <2 x float> %59, %59
+  %78 = fmul <2 x float> %59, %77
+  %79 = fmul <2 x float> %77, <float 2.000000e+00, float 2.000000e+00>
+  %80 = shufflevector <2 x float> %78, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %81 = fsub <2 x float> %78, %79
+  %82 = shufflevector <2 x float> %77, <2 x float> %79, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %83 = fsub <4 x float> %82, %80
+  %84 = fadd <4 x float> %83, %76
+  %85 = fsub <4 x float> %83, %76
   %86 = shufflevector <4 x float> %84, <4 x float> %85, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %87 = fsub <2 x float> %77, %76
+  %87 = fsub <2 x float> %78, %77
   br label %88
 
 88:                                               ; preds = %75, %60

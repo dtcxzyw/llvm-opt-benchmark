@@ -17009,461 +17009,487 @@ define hidden noundef i8 @_ZN10tokenizers14pre_tokenizers15unicode_scripts7scrip
     i32 129328, label %switch.lookup
     i32 129472, label %switch.lookup
     i32 917505, label %switch.lookup
-    i32 170, label %68
-    i32 186, label %69
-    i32 443, label %70
-    i32 660, label %71
-    i32 8305, label %72
-    i32 8319, label %73
-    i32 8498, label %74
-    i32 8526, label %75
-    i32 42864, label %76
-    i32 42895, label %77
-    i32 42999, label %78
-    i32 43002, label %79
-    i32 885, label %80
-    i32 890, label %81
-    i32 895, label %82
-    i32 900, label %83
-    i32 902, label %84
-    i32 908, label %85
-    i32 1014, label %86
-    i32 7615, label %87
-    i32 8025, label %88
-    i32 8027, label %89
-    i32 8029, label %90
-    i32 8125, label %91
-    i32 8126, label %92
-    i32 8486, label %93
-    i32 43877, label %94
-    i32 65952, label %95
-    i32 119365, label %96
-    i32 1154, label %97
-    i32 1159, label %98
-    i32 7467, label %99
-    i32 7544, label %100
-    i32 42606, label %101
-    i32 42607, label %102
-    i32 42611, label %103
-    i32 42622, label %104
-    i32 42623, label %105
-    i32 1369, label %106
-    i32 1418, label %107
-    i32 1423, label %108
-    i32 1470, label %109
-    i32 1471, label %110
-    i32 1472, label %111
-    i32 1475, label %112
-    i32 1478, label %113
-    i32 1479, label %114
-    i32 64285, label %115
-    i32 64286, label %116
-    i32 64297, label %117
-    i32 64318, label %118
-    i32 1547, label %119
-    i32 1549, label %120
-    i32 1566, label %121
-    i32 1748, label %122
-    i32 1749, label %123
-    i32 1758, label %124
-    i32 1769, label %125
-    i32 1791, label %126
-    i32 65020, label %127
-    i32 65021, label %128
-    i32 126500, label %129
-    i32 126503, label %130
-    i32 126521, label %131
-    i32 126523, label %132
-    i32 126530, label %133
-    i32 126535, label %134
-    i32 126537, label %135
-    i32 126539, label %136
-    i32 126548, label %137
-    i32 126551, label %138
-    i32 126553, label %139
-    i32 126555, label %140
-    i32 126557, label %141
-    i32 126559, label %142
-    i32 126564, label %143
-    i32 126590, label %144
-    i32 1807, label %145
-    i32 1808, label %146
-    i32 1809, label %147
-    i32 1969, label %148
-    i32 2307, label %149
-    i32 2362, label %150
-    i32 2363, label %151
-    i32 2364, label %152
-    i32 2365, label %153
-    i32 2381, label %154
-    i32 2384, label %155
-    i32 2416, label %156
-    i32 2417, label %157
-    i32 43259, label %158
-    i32 43260, label %159
-    i32 43261, label %160
-    i32 2432, label %161
-    i32 2433, label %162
-    i32 2482, label %163
-    i32 2492, label %164
-    i32 2493, label %165
-    i32 2509, label %166
-    i32 2510, label %167
-    i32 2519, label %168
-    i32 2554, label %169
-    i32 2555, label %170
-    i32 2563, label %171
-    i32 2620, label %172
-    i32 2641, label %173
-    i32 2654, label %174
-    i32 2677, label %175
-    i32 2691, label %176
-    i32 2748, label %177
-    i32 2749, label %178
-    i32 2761, label %179
-    i32 2765, label %180
-    i32 2768, label %181
-    i32 2800, label %182
-    i32 2801, label %183
-    i32 2809, label %184
-    i32 2817, label %185
-    i32 2876, label %186
-    i32 2877, label %187
-    i32 2878, label %188
-    i32 2879, label %189
-    i32 2880, label %190
-    i32 2893, label %191
-    i32 2902, label %192
-    i32 2903, label %193
-    i32 2928, label %194
-    i32 2929, label %195
-    i32 2946, label %196
-    i32 2947, label %197
-    i32 2972, label %198
-    i32 3008, label %199
-    i32 3021, label %200
-    i32 3024, label %201
-    i32 3031, label %202
-    i32 3065, label %203
-    i32 3066, label %204
-    i32 3072, label %205
-    i32 3133, label %206
-    i32 3199, label %207
-    i32 3200, label %208
-    i32 3201, label %209
-    i32 3260, label %210
-    i32 3261, label %211
-    i32 3262, label %212
-    i32 3263, label %213
-    i32 3270, label %214
-    i32 3294, label %215
-    i32 3329, label %216
-    i32 3389, label %217
-    i32 3405, label %218
-    i32 3406, label %219
-    i32 3407, label %220
-    i32 3415, label %221
-    i32 3449, label %222
-    i32 3517, label %223
-    i32 3530, label %224
-    i32 3542, label %225
-    i32 3572, label %226
-    i32 3633, label %227
-    i32 3654, label %228
-    i32 3663, label %229
-    i32 3716, label %230
-    i32 3722, label %231
-    i32 3725, label %232
-    i32 3749, label %233
-    i32 3751, label %234
-    i32 3761, label %235
-    i32 3773, label %236
-    i32 3782, label %237
-    i32 3840, label %238
-    i32 3859, label %239
-    i32 3860, label %240
-    i32 3892, label %241
-    i32 3893, label %242
-    i32 3894, label %243
-    i32 3895, label %244
-    i32 3896, label %245
-    i32 3897, label %246
-    i32 3898, label %247
-    i32 3899, label %248
-    i32 3900, label %249
-    i32 3901, label %250
-    i32 3967, label %251
-    i32 3973, label %252
-    i32 4038, label %253
-    i32 4145, label %254
-    i32 4152, label %255
-    i32 4159, label %256
-    i32 4193, label %257
-    i32 4226, label %258
-    i32 4237, label %259
-    i32 4238, label %260
-    i32 4239, label %261
-    i32 4253, label %262
-    i32 43493, label %263
-    i32 43494, label %264
-    i32 43632, label %265
-    i32 43642, label %266
-    i32 43643, label %267
-    i32 43644, label %268
-    i32 43645, label %269
-    i32 4295, label %270
-    i32 4301, label %271
-    i32 4348, label %272
-    i32 11559, label %273
-    i32 11565, label %274
-    i32 4696, label %275
-    i32 4800, label %276
-    i32 5120, label %277
-    i32 5760, label %278
-    i32 5787, label %279
-    i32 5788, label %280
-    i32 6070, label %281
-    i32 6086, label %282
-    i32 6103, label %283
-    i32 6107, label %284
-    i32 6108, label %285
-    i32 6109, label %286
-    i32 6148, label %287
-    i32 6150, label %288
-    i32 6158, label %289
-    i32 6211, label %290
-    i32 6313, label %291
-    i32 6314, label %292
-    i32 12447, label %293
-    i32 110593, label %294
-    i32 127488, label %295
-    i32 12543, label %296
-    i32 110592, label %297
-    i32 12293, label %298
-    i32 12295, label %299
-    i32 12347, label %300
-    i32 40981, label %301
-    i32 66369, label %302
-    i32 66378, label %303
-    i32 1648, label %304
-    i32 6846, label %305
-    i32 7405, label %306
-    i32 7412, label %307
-    i32 8417, label %308
-    i32 66045, label %309
-    i32 66272, label %310
-    i32 6450, label %311
-    i32 6464, label %312
-    i32 66463, label %313
-    i32 67592, label %314
-    i32 67644, label %315
-    i32 67647, label %316
-    i32 6683, label %317
-    i32 11517, label %318
-    i32 6618, label %319
-    i32 11631, label %320
-    i32 11632, label %321
-    i32 11647, label %322
-    i32 43010, label %323
-    i32 43014, label %324
-    i32 43019, label %325
-    i32 43047, label %326
-    i32 66512, label %327
-    i32 68096, label %328
-    i32 68159, label %329
-    i32 6916, label %330
-    i32 6964, label %331
-    i32 6965, label %332
-    i32 6971, label %333
-    i32 6972, label %334
-    i32 6978, label %335
-    i32 67871, label %336
-    i32 2038, label %337
-    i32 2042, label %338
-    i32 7042, label %339
-    i32 7073, label %340
-    i32 7082, label %341
-    i32 42508, label %342
-    i32 43311, label %343
-    i32 43359, label %344
-    i32 67903, label %345
-    i32 43587, label %346
-    i32 43596, label %347
-    i32 43597, label %348
-    i32 6741, label %349
-    i32 6742, label %350
-    i32 6743, label %351
-    i32 6752, label %352
-    i32 6753, label %353
-    i32 6754, label %354
-    i32 6783, label %355
-    i32 6823, label %356
-    i32 43696, label %357
-    i32 43697, label %358
-    i32 43712, label %359
-    i32 43713, label %360
-    i32 43714, label %361
-    i32 43741, label %362
-    i32 2074, label %363
-    i32 2084, label %364
-    i32 2088, label %365
-    i32 43395, label %366
-    i32 43443, label %367
-    i32 43452, label %368
-    i32 43755, label %369
-    i32 43762, label %370
-    i32 43765, label %371
-    i32 43766, label %372
-    i32 44005, label %373
-    i32 44008, label %374
-    i32 44011, label %375
-    i32 44012, label %376
-    i32 44013, label %377
-    i32 67671, label %378
-    i32 68223, label %379
-    i32 69762, label %380
-    i32 69821, label %381
-    i32 7142, label %382
-    i32 7143, label %383
-    i32 7149, label %384
-    i32 7150, label %385
-    i32 69632, label %386
-    i32 69633, label %387
-    i32 69634, label %388
-    i32 69759, label %389
-    i32 2142, label %390
-    i32 69932, label %391
-    i32 94032, label %392
-    i32 70018, label %393
-    i32 70093, label %394
-    i32 70106, label %395
-    i32 70107, label %396
-    i32 70108, label %397
-    i32 71339, label %398
-    i32 71340, label %399
-    i32 71341, label %400
-    i32 71350, label %401
-    i32 71351, label %402
-    i32 66927, label %403
-    i32 92917, label %404
-    i32 113820, label %405
-    i32 113823, label %406
-    i32 70460, label %407
-    i32 70461, label %408
-    i32 70464, label %409
-    i32 70480, label %410
-    i32 70487, label %411
-    i32 92996, label %412
-    i32 92997, label %413
-    i32 70196, label %414
-    i32 70197, label %415
-    i32 70206, label %416
-    i32 70003, label %417
-    i32 70006, label %418
-    i32 68296, label %419
-    i32 71229, label %420
-    i32 71230, label %421
-    i32 71236, label %422
-    i32 71102, label %423
-    i32 70367, label %424
-    i32 70841, label %425
-    i32 70842, label %426
-    i32 70849, label %427
-    i32 70854, label %428
-    i32 70855, label %429
-    i32 71935, label %430
-    i32 71462, label %431
-    i32 71487, label %432
-    i32 70280, label %433
-    i32 70313, label %434
-    i32 121461, label %435
-    i32 121476, label %436
-    i32 72751, label %437
-    i32 72766, label %438
-    i32 72767, label %439
-    i32 72768, label %440
-    i32 72873, label %441
-    i32 72881, label %442
-    i32 72884, label %443
-    i32 70725, label %444
-    i32 70726, label %445
-    i32 70747, label %446
-    i32 70749, label %447
-    i32 94176, label %448
+    i32 170, label %55
+    i32 186, label %56
+    i32 443, label %57
+    i32 660, label %58
+    i32 8305, label %59
+    i32 8319, label %60
+    i32 8498, label %61
+    i32 8526, label %62
+    i32 42864, label %63
+    i32 42895, label %64
+    i32 42999, label %65
+    i32 43002, label %66
+    i32 885, label %67
+    i32 890, label %68
+    i32 895, label %69
+    i32 900, label %70
+    i32 902, label %71
+    i32 908, label %72
+    i32 1014, label %73
+    i32 7615, label %74
+    i32 8025, label %75
+    i32 8027, label %76
+    i32 8029, label %77
+    i32 8125, label %78
+    i32 8126, label %79
+    i32 8486, label %80
+    i32 43877, label %81
+    i32 65952, label %82
+    i32 119365, label %83
+    i32 1154, label %84
+    i32 1159, label %85
+    i32 7467, label %86
+    i32 7544, label %87
+    i32 42606, label %88
+    i32 42607, label %89
+    i32 42611, label %90
+    i32 42622, label %91
+    i32 42623, label %92
+    i32 1369, label %93
+    i32 1418, label %94
+    i32 1423, label %95
+    i32 1470, label %96
+    i32 1471, label %97
+    i32 1472, label %98
+    i32 1475, label %99
+    i32 1478, label %100
+    i32 1479, label %101
+    i32 64285, label %102
+    i32 64286, label %103
+    i32 64297, label %104
+    i32 64318, label %105
+    i32 1547, label %106
+    i32 1549, label %107
+    i32 1566, label %108
+    i32 1748, label %109
+    i32 1749, label %110
+    i32 1758, label %111
+    i32 1769, label %112
+    i32 1791, label %113
+    i32 65020, label %114
+    i32 65021, label %115
+    i32 126500, label %116
+    i32 126503, label %117
+    i32 126521, label %118
+    i32 126523, label %119
+    i32 126530, label %120
+    i32 126535, label %121
+    i32 126537, label %122
+    i32 126539, label %123
+    i32 126548, label %124
+    i32 126551, label %125
+    i32 126553, label %126
+    i32 126555, label %127
+    i32 126557, label %128
+    i32 126559, label %129
+    i32 126564, label %130
+    i32 126590, label %131
+    i32 1807, label %132
+    i32 1808, label %133
+    i32 1809, label %134
+    i32 1969, label %135
+    i32 2307, label %136
+    i32 2362, label %137
+    i32 2363, label %138
+    i32 2364, label %139
+    i32 2365, label %140
+    i32 2381, label %141
+    i32 2384, label %142
+    i32 2416, label %143
+    i32 2417, label %144
+    i32 43259, label %145
+    i32 43260, label %146
+    i32 43261, label %147
+    i32 2432, label %148
+    i32 2433, label %149
+    i32 2482, label %150
+    i32 2492, label %151
+    i32 2493, label %152
+    i32 2509, label %153
+    i32 2510, label %154
+    i32 2519, label %155
+    i32 2554, label %156
+    i32 2555, label %157
+    i32 2563, label %158
+    i32 2620, label %159
+    i32 2641, label %160
+    i32 2654, label %161
+    i32 2677, label %162
+    i32 2691, label %163
+    i32 2748, label %164
+    i32 2749, label %165
+    i32 2761, label %166
+    i32 2765, label %167
+    i32 2768, label %168
+    i32 2800, label %169
+    i32 2801, label %170
+    i32 2809, label %171
+    i32 2817, label %172
+    i32 2876, label %173
+    i32 2877, label %174
+    i32 2878, label %175
+    i32 2879, label %176
+    i32 2880, label %177
+    i32 2893, label %178
+    i32 2902, label %179
+    i32 2903, label %180
+    i32 2928, label %181
+    i32 2929, label %182
+    i32 2946, label %183
+    i32 2947, label %184
+    i32 2972, label %185
+    i32 3008, label %186
+    i32 3021, label %187
+    i32 3024, label %188
+    i32 3031, label %189
+    i32 3065, label %190
+    i32 3066, label %191
+    i32 3072, label %192
+    i32 3133, label %193
+    i32 3199, label %194
+    i32 3200, label %195
+    i32 3201, label %196
+    i32 3260, label %197
+    i32 3261, label %198
+    i32 3262, label %199
+    i32 3263, label %200
+    i32 3270, label %201
+    i32 3294, label %202
+    i32 3329, label %203
+    i32 3389, label %204
+    i32 3405, label %205
+    i32 3406, label %206
+    i32 3407, label %207
+    i32 3415, label %208
+    i32 3449, label %209
+    i32 3517, label %210
+    i32 3530, label %211
+    i32 3542, label %212
+    i32 3572, label %213
+    i32 3633, label %214
+    i32 3654, label %215
+    i32 3663, label %216
+    i32 3716, label %217
+    i32 3722, label %218
+    i32 3725, label %219
+    i32 3749, label %220
+    i32 3751, label %221
+    i32 3761, label %222
+    i32 3773, label %223
+    i32 3782, label %224
+    i32 3840, label %225
+    i32 3859, label %226
+    i32 3860, label %227
+    i32 3892, label %228
+    i32 3893, label %229
+    i32 3894, label %230
+    i32 3895, label %231
+    i32 3896, label %232
+    i32 3897, label %233
+    i32 3898, label %234
+    i32 3899, label %235
+    i32 3900, label %236
+    i32 3901, label %237
+    i32 3967, label %238
+    i32 3973, label %239
+    i32 4038, label %240
+    i32 4145, label %241
+    i32 4152, label %242
+    i32 4159, label %243
+    i32 4193, label %244
+    i32 4226, label %245
+    i32 4237, label %246
+    i32 4238, label %247
+    i32 4239, label %248
+    i32 4253, label %249
+    i32 43493, label %250
+    i32 43494, label %251
+    i32 43632, label %252
+    i32 43642, label %253
+    i32 43643, label %254
+    i32 43644, label %255
+    i32 43645, label %256
+    i32 4295, label %257
+    i32 4301, label %258
+    i32 4348, label %259
+    i32 11559, label %260
+    i32 11565, label %261
+    i32 4696, label %262
+    i32 4800, label %263
+    i32 5120, label %264
+    i32 5760, label %265
+    i32 5787, label %266
+    i32 5788, label %267
+    i32 6070, label %268
+    i32 6086, label %269
+    i32 6103, label %270
+    i32 6107, label %271
+    i32 6108, label %272
+    i32 6109, label %273
+    i32 6148, label %274
+    i32 6150, label %275
+    i32 6158, label %276
+    i32 6211, label %277
+    i32 6313, label %278
+    i32 6314, label %279
+    i32 12447, label %280
+    i32 110593, label %281
+    i32 127488, label %282
+    i32 12543, label %283
+    i32 110592, label %284
+    i32 12293, label %285
+    i32 12295, label %286
+    i32 12347, label %287
+    i32 40981, label %288
+    i32 66369, label %289
+    i32 66378, label %290
+    i32 1648, label %291
+    i32 6846, label %292
+    i32 7405, label %293
+    i32 7412, label %294
+    i32 8417, label %295
+    i32 66045, label %296
+    i32 66272, label %297
+    i32 6450, label %298
+    i32 6464, label %299
+    i32 66463, label %300
+    i32 67592, label %301
+    i32 67644, label %302
+    i32 67647, label %303
+    i32 6683, label %304
+    i32 11517, label %305
+    i32 6618, label %306
+    i32 11631, label %307
+    i32 11632, label %308
+    i32 11647, label %309
+    i32 43010, label %310
+    i32 43014, label %311
+    i32 43019, label %312
+    i32 43047, label %313
+    i32 66512, label %314
+    i32 68096, label %315
+    i32 68159, label %316
+    i32 6916, label %317
+    i32 6964, label %318
+    i32 6965, label %319
+    i32 6971, label %320
+    i32 6972, label %321
+    i32 6978, label %322
+    i32 67871, label %323
+    i32 2038, label %324
+    i32 2042, label %325
+    i32 7042, label %326
+    i32 7073, label %327
+    i32 7082, label %328
+    i32 42508, label %329
+    i32 43311, label %330
+    i32 43359, label %331
+    i32 67903, label %332
+    i32 43587, label %333
+    i32 43596, label %334
+    i32 43597, label %335
+    i32 6741, label %336
+    i32 6742, label %337
+    i32 6743, label %338
+    i32 6752, label %339
+    i32 6753, label %340
+    i32 6754, label %341
+    i32 6783, label %342
+    i32 6823, label %343
+    i32 43696, label %344
+    i32 43697, label %345
+    i32 43712, label %346
+    i32 43713, label %347
+    i32 43714, label %348
+    i32 43741, label %349
+    i32 2074, label %350
+    i32 2084, label %351
+    i32 2088, label %352
+    i32 43395, label %353
+    i32 43443, label %354
+    i32 43452, label %355
+    i32 43755, label %356
+    i32 43762, label %357
+    i32 43765, label %358
+    i32 43766, label %359
+    i32 44005, label %360
+    i32 44008, label %361
+    i32 44011, label %362
+    i32 44012, label %363
+    i32 44013, label %364
+    i32 67671, label %365
+    i32 68223, label %366
+    i32 69762, label %367
+    i32 69821, label %368
+    i32 7142, label %369
+    i32 7143, label %370
+    i32 7149, label %371
+    i32 7150, label %372
+    i32 69632, label %373
+    i32 69633, label %374
+    i32 69634, label %375
+    i32 69759, label %376
+    i32 2142, label %377
+    i32 69932, label %378
+    i32 94032, label %379
+    i32 70018, label %380
+    i32 70093, label %381
+    i32 70106, label %382
+    i32 70107, label %383
+    i32 70108, label %384
+    i32 71339, label %385
+    i32 71340, label %386
+    i32 71341, label %387
+    i32 71350, label %388
+    i32 71351, label %389
+    i32 66927, label %390
+    i32 92917, label %391
+    i32 113820, label %392
+    i32 113823, label %393
+    i32 70460, label %394
+    i32 70461, label %395
+    i32 70464, label %396
+    i32 70480, label %397
+    i32 70487, label %398
+    i32 92996, label %399
+    i32 92997, label %400
+    i32 70196, label %401
+    i32 70197, label %402
+    i32 70206, label %403
+    i32 70003, label %404
+    i32 70006, label %405
+    i32 68296, label %406
+    i32 71229, label %407
+    i32 71230, label %408
+    i32 71236, label %409
+    i32 71102, label %410
+    i32 70367, label %411
+    i32 70841, label %412
+    i32 70842, label %413
+    i32 70849, label %414
+    i32 70854, label %415
+    i32 70855, label %416
+    i32 71935, label %417
+    i32 71462, label %418
+    i32 71487, label %419
+    i32 70280, label %420
+    i32 70313, label %421
+    i32 121461, label %422
+    i32 121476, label %423
+    i32 72751, label %424
+    i32 72766, label %425
+    i32 72767, label %426
+    i32 72768, label %427
+    i32 72873, label %428
+    i32 72881, label %429
+    i32 72884, label %430
+    i32 70725, label %431
+    i32 70726, label %432
+    i32 70747, label %433
+    i32 70749, label %434
+    i32 94176, label %435
   ]
 
 4:                                                ; preds = %3
   %5 = icmp ne i32 %0, 32
   %6 = icmp ult i32 %0, 36
   %or.cond1 = and i1 %5, %6
-  %7 = insertelement <2 x i32> poison, i32 %0, i64 0
-  %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> zeroinitializer
-  %9 = and <2 x i32> %8, <i32 -16, i32 -2>
-  %10 = shufflevector <2 x i32> %9, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 1>
-  %11 = and i32 %0, -6
-  %12 = and <2 x i32> %8, <i32 -10, i32 -8>
-  %13 = and <2 x i32> %8, <i32 -4, i32 -256>
-  %14 = shufflevector <2 x i32> %9, <2 x i32> poison, <32 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %15 = shufflevector <2 x i32> %9, <2 x i32> poison, <32 x i32> <i32 1, i32 1, i32 poison, i32 1, i32 1, i32 1, i32 1, i32 1, i32 poison, i32 1, i32 1, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %16 = shufflevector <2 x i32> %13, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %17 = shufflevector <2 x i32> %9, <2 x i32> %13, <4 x i32> <i32 1, i32 1, i32 2, i32 1>
-  %18 = shufflevector <4 x i32> %17, <4 x i32> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %19 = shufflevector <32 x i32> %15, <32 x i32> %18, <32 x i32> <i32 0, i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 9, i32 10, i32 11, i32 32, i32 33, i32 34, i32 35, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %20 = shufflevector <2 x i32> %9, <2 x i32> %13, <4 x i32> <i32 0, i32 1, i32 1, i32 2>
-  %21 = shufflevector <4 x i32> %20, <4 x i32> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %22 = shufflevector <32 x i32> %19, <32 x i32> %21, <32 x i32> <i32 0, i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 32, i32 33, i32 34, i32 35, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %23 = shufflevector <32 x i32> %22, <32 x i32> %14, <32 x i32> <i32 0, i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 33, i32 33, i32 33, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %24 = shufflevector <2 x i32> %9, <2 x i32> %13, <4 x i32> <i32 1, i32 poison, i32 0, i32 2>
-  %25 = shufflevector <4 x i32> %24, <4 x i32> poison, <32 x i32> <i32 0, i32 poison, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %26 = shufflevector <32 x i32> %23, <32 x i32> %25, <32 x i32> <i32 0, i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 poison, i32 32, i32 poison, i32 34, i32 35, i32 poison, i32 poison, i32 poison, i32 poison>
-  %27 = shufflevector <32 x i32> %26, <32 x i32> %14, <32 x i32> <i32 0, i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 poison, i32 24, i32 poison, i32 26, i32 27, i32 33, i32 33, i32 33, i32 33>
-  %28 = insertelement <32 x i32> %27, i32 %11, i64 2
-  %29 = shufflevector <2 x i32> %12, <2 x i32> poison, <32 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %30 = shufflevector <32 x i32> %28, <32 x i32> %29, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 33, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 poison, i32 24, i32 poison, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %31 = shufflevector <32 x i32> %30, <32 x i32> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 8, i32 24, i32 8, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %32 = icmp eq <32 x i32> %31, <i32 46, i32 58, i32 178, i32 2404, i32 6146, i32 7410, i32 8206, i32 8214, i32 8224, i32 8448, i32 8456, i32 8470, i32 8492, i32 8506, i32 8508, i32 8524, i32 8528, i32 8586, i32 8602, i32 8604, i32 8612, i32 8654, i32 8656, i32 8960, i32 8992, i32 9720, i32 10224, i32 11244, i32 11776, i32 11800, i32 11806, i32 11834>
-  %33 = and <2 x i32> %8, <i32 -64, i32 -32>
-  %34 = and i32 %0, -5
-  %35 = shufflevector <4 x i32> %16, <4 x i32> %10, <4 x i32> <i32 0, i32 5, i32 5, i32 5>
-  %36 = shufflevector <4 x i32> %35, <4 x i32> %10, <16 x i32> <i32 0, i32 1, i32 2, i32 poison, i32 5, i32 poison, i32 poison, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %37 = shufflevector <2 x i32> %9, <2 x i32> poison, <16 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %38 = shufflevector <16 x i32> %36, <16 x i32> %37, <16 x i32> <i32 0, i32 1, i32 2, i32 poison, i32 4, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 17, i32 17, i32 poison, i32 poison, i32 poison, i32 poison>
-  %39 = shufflevector <4 x i32> %35, <4 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %40 = shufflevector <16 x i32> %38, <16 x i32> %39, <16 x i32> <i32 0, i32 1, i32 2, i32 poison, i32 4, i32 poison, i32 poison, i32 7, i32 poison, i32 poison, i32 10, i32 11, i32 16, i32 17, i32 18, i32 19>
-  %41 = shufflevector <2 x i32> %12, <2 x i32> poison, <16 x i32> <i32 0, i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %42 = shufflevector <16 x i32> %40, <16 x i32> %41, <16 x i32> <i32 0, i32 1, i32 2, i32 16, i32 4, i32 18, i32 poison, i32 7, i32 poison, i32 poison, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %43 = shufflevector <2 x i32> %33, <2 x i32> poison, <16 x i32> <i32 0, i32 poison, i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %44 = shufflevector <16 x i32> %42, <16 x i32> %43, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 16, i32 7, i32 poison, i32 19, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %45 = shufflevector <16 x i32> %44, <16 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 6, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %46 = icmp eq <16 x i32> %45, <i32 11836, i32 12306, i32 12318, i32 12342, i32 12688, i32 12872, i32 12928, i32 12992, i32 19904, i32 42752, i32 42784, i32 43062, i32 65108, i32 65130, i32 65294, i32 65306>
-  %47 = insertelement <128 x i32> poison, i32 %0, i64 0
-  %48 = insertelement <128 x i32> %47, i32 %34, i64 1
-  %49 = shufflevector <128 x i32> %48, <128 x i32> poison, <128 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
-  %50 = add <128 x i32> %49, <i32 -37, i32 -48, i32 -60, i32 -127, i32 -162, i32 -188, i32 -697, i32 -741, i32 -751, i32 -4053, i32 -5867, i32 -5941, i32 -7401, i32 -7406, i32 -7413, i32 -8192, i32 -8208, i32 -8219, i32 -8234, i32 -8240, i32 -8251, i32 -8263, i32 -8277, i32 -8288, i32 -8294, i32 -8308, i32 -8320, i32 -8352, i32 -8451, i32 -8458, i32 -8473, i32 -8495, i32 -8499, i32 -8512, i32 -8592, i32 -8609, i32 -8615, i32 -8623, i32 -8661, i32 -8972, i32 -8994, i32 -9003, i32 -9085, i32 -9216, i32 -9280, i32 -9312, i32 -9656, i32 -9666, i32 -9728, i32 -9840, i32 -10102, i32 -10183, i32 -10496, i32 -10649, i32 -10716, i32 -10750, i32 -11126, i32 -11160, i32 -11197, i32 -11210, i32 -11782, i32 -11790, i32 -11818, i32 -11824, i32 -11843, i32 -12272, i32 -12289, i32 -12337, i32 -12443, i32 -12690, i32 -12736, i32 -12832, i32 -12881, i32 -13144, i32 -42889, i32 -43056, i32 -65040, i32 -65073, i32 -65093, i32 -65097, i32 -65119, i32 -65124, i32 -65281, i32 -65296, i32 -65308, i32 -65509, i32 -65513, i32 -65529, i32 -65792, i32 -65799, i32 -65847, i32 -65936, i32 -66000, i32 -66273, i32 -118784, i32 -119040, i32 -119081, i32 -119146, i32 -119171, i32 -119180, i32 -119214, i32 -119552, i32 -119648, i32 -119808, i32 -119894, i32 -119973, i32 -119977, i32 -119982, i32 -119997, i32 -120005, i32 -120071, i32 -120077, i32 -120086, i32 -120094, i32 -120123, i32 -120128, i32 -120138, i32 -120146, i32 -120488, i32 -120514, i32 -120540, i32 -120572, i32 -120598, i32 -120630, i32 -120656, i32 -120688, i32 -120714, i32 -120746>
-  %51 = icmp ult <128 x i32> %50, <i32 3, i32 10, i32 5, i32 33, i32 4, i32 3, i32 39, i32 5, i32 17, i32 4, i32 3, i32 2, i32 4, i32 4, i32 2, i32 11, i32 6, i32 2, i32 5, i32 9, i32 9, i32 11, i32 10, i32 5, i32 10, i32 9, i32 13, i32 31, i32 4, i32 10, i32 11, i32 3, i32 6, i32 10, i32 10, i32 2, i32 7, i32 31, i32 299, i32 20, i32 7, i32 81, i32 130, i32 39, i32 11, i32 343, i32 9, i32 54, i32 111, i32 248, i32 79, i32 31, i32 131, i32 63, i32 32, i32 374, i32 32, i32 34, i32 12, i32 8, i32 3, i32 9, i32 5, i32 10, i32 2, i32 12, i32 3, i32 5, i32 2, i32 14, i32 36, i32 40, i32 15, i32 168, i32 2, i32 6, i32 7, i32 4, i32 2, i32 10, i32 3, i32 3, i32 3, i32 10, i32 5, i32 2, i32 6, i32 3, i32 3, i32 45, i32 9, i32 12, i32 45, i32 27, i32 246, i32 39, i32 62, i32 17, i32 2, i32 30, i32 59, i32 87, i32 18, i32 85, i32 71, i32 2, i32 4, i32 12, i32 7, i32 65, i32 4, i32 8, i32 7, i32 28, i32 4, i32 5, i32 7, i32 340, i32 25, i32 25, i32 31, i32 25, i32 31, i32 25, i32 31, i32 25, i32 31, i32 25>
-  %52 = insertelement <32 x i32> poison, i32 %0, i64 0
-  %53 = shufflevector <32 x i32> %52, <32 x i32> poison, <32 x i32> zeroinitializer
-  %54 = add <32 x i32> %53, <i32 -120772, i32 -120782, i32 -126976, i32 -127024, i32 -127136, i32 -127153, i32 -127169, i32 -127185, i32 -127232, i32 -127248, i32 -127280, i32 -127344, i32 -127462, i32 -127489, i32 -127504, i32 -127552, i32 -128000, i32 -128736, i32 -128752, i32 -128768, i32 -128896, i32 -129024, i32 -129040, i32 -129104, i32 -129120, i32 -129168, i32 -129296, i32 -129331, i32 -129344, i32 -129360, i32 -129408, i32 -917536>
-  %55 = shufflevector <2 x i32> %9, <2 x i32> %13, <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 2, i32 1, i32 1, i32 3>
-  %56 = icmp eq <8 x i32> %55, <i32 65380, i32 65438, i32 65504, i32 65532, i32 113824, i32 119966, i32 127568, i32 127744>
-  %57 = extractelement <2 x i32> %12, i64 1
-  %or.cond257 = icmp eq i32 %57, 129312
-  %58 = icmp ult <32 x i32> %54, <i32 8, i32 50, i32 44, i32 100, i32 15, i32 15, i32 15, i32 37, i32 13, i32 31, i32 60, i32 61, i32 26, i32 2, i32 44, i32 9, i32 723, i32 13, i32 7, i32 116, i32 85, i32 12, i32 56, i32 10, i32 40, i32 30, i32 15, i32 12, i32 12, i32 15, i32 18, i32 96>
-  %59 = bitcast <128 x i1> %51 to i128
-  %60 = icmp ne i128 %59, 0
-  %61 = or <32 x i1> %58, %32
-  %62 = bitcast <32 x i1> %61 to i32
-  %63 = icmp ne i32 %62, 0
-  %op.rdx2517 = or i1 %60, %63
-  %64 = bitcast <16 x i1> %46 to i16
-  %65 = icmp ne i16 %64, 0
-  %op.rdx2518 = or i1 %op.rdx2517, %65
-  %66 = bitcast <8 x i1> %56 to i8
-  %67 = icmp ne i8 %66, 0
-  %op.rdx2519 = or i1 %op.rdx2518, %67
-  %op.rdx2520 = or i1 %op.rdx2519, %or.cond257
-  %op.rdx2521 = or i1 %op.rdx2520, %or.cond1
-  br i1 %op.rdx2521, label %switch.lookup, label %449
+  %7 = insertelement <4 x i32> poison, i32 %0, i64 0
+  %8 = shufflevector <4 x i32> %7, <4 x i32> poison, <4 x i32> zeroinitializer
+  %9 = and <4 x i32> %8, <i32 -4, i32 -256, i32 -2, i32 -8>
+  %10 = extractelement <4 x i32> %9, i64 3
+  %11 = extractelement <4 x i32> %9, i64 2
+  %12 = extractelement <4 x i32> %9, i64 0
+  %13 = and i32 %0, -6
+  %14 = insertelement <2 x i32> poison, i32 %0, i64 0
+  %15 = shufflevector <2 x i32> %14, <2 x i32> poison, <2 x i32> zeroinitializer
+  %16 = and <2 x i32> %15, <i32 -16, i32 -32>
+  %17 = shufflevector <2 x i32> %16, <2 x i32> poison, <32 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %18 = extractelement <2 x i32> %16, i64 1
+  %19 = extractelement <2 x i32> %16, i64 0
+  %20 = shufflevector <4 x i32> %9, <4 x i32> poison, <32 x i32> <i32 2, i32 2, i32 poison, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 2, i32 2, i32 2, i32 2, i32 2, i32 0, i32 2, i32 poison, i32 2, i32 2, i32 0, i32 2, i32 2, i32 2, i32 3, i32 2, i32 3, i32 poison, i32 0, i32 2, i32 2, i32 2, i32 2>
+  %21 = insertelement <32 x i32> %20, i32 %13, i64 2
+  %22 = shufflevector <32 x i32> %21, <32 x i32> %17, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 32, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 poison, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %23 = shufflevector <32 x i32> %22, <32 x i32> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 16, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %24 = icmp eq <32 x i32> %23, <i32 46, i32 58, i32 178, i32 2404, i32 6146, i32 7410, i32 8206, i32 8214, i32 8224, i32 8448, i32 8456, i32 8470, i32 8492, i32 8506, i32 8508, i32 8524, i32 8528, i32 8586, i32 8602, i32 8604, i32 8612, i32 8654, i32 8656, i32 8960, i32 8992, i32 9720, i32 10224, i32 11244, i32 11776, i32 11800, i32 11806, i32 11834>
+  %25 = and i32 %0, -10
+  %26 = and i32 %0, -64
+  %27 = and i32 %0, -5
+  %28 = shufflevector <4 x i32> %9, <4 x i32> poison, <16 x i32> <i32 0, i32 2, i32 2, i32 poison, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison, i32 2, i32 2, i32 0, i32 2, i32 2, i32 2>
+  %29 = insertelement <16 x i32> %28, i32 %25, i64 3
+  %30 = insertelement <16 x i32> %29, i32 %26, i64 6
+  %31 = shufflevector <2 x i32> %16, <2 x i32> poison, <16 x i32> <i32 0, i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %32 = shufflevector <16 x i32> %30, <16 x i32> %31, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 16, i32 poison, i32 18, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %33 = shufflevector <16 x i32> %32, <16 x i32> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 6, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %34 = icmp eq <16 x i32> %33, <i32 11836, i32 12306, i32 12318, i32 12342, i32 12688, i32 12872, i32 12928, i32 12992, i32 19904, i32 42752, i32 42784, i32 43062, i32 65108, i32 65130, i32 65294, i32 65306>
+  %35 = insertelement <128 x i32> poison, i32 %0, i64 0
+  %36 = insertelement <128 x i32> %35, i32 %27, i64 1
+  %37 = shufflevector <128 x i32> %36, <128 x i32> poison, <128 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
+  %38 = add <128 x i32> %37, <i32 -37, i32 -48, i32 -60, i32 -127, i32 -162, i32 -188, i32 -697, i32 -741, i32 -751, i32 -4053, i32 -5867, i32 -5941, i32 -7401, i32 -7406, i32 -7413, i32 -8192, i32 -8208, i32 -8219, i32 -8234, i32 -8240, i32 -8251, i32 -8263, i32 -8277, i32 -8288, i32 -8294, i32 -8308, i32 -8320, i32 -8352, i32 -8451, i32 -8458, i32 -8473, i32 -8495, i32 -8499, i32 -8512, i32 -8592, i32 -8609, i32 -8615, i32 -8623, i32 -8661, i32 -8972, i32 -8994, i32 -9003, i32 -9085, i32 -9216, i32 -9280, i32 -9312, i32 -9656, i32 -9666, i32 -9728, i32 -9840, i32 -10102, i32 -10183, i32 -10496, i32 -10649, i32 -10716, i32 -10750, i32 -11126, i32 -11160, i32 -11197, i32 -11210, i32 -11782, i32 -11790, i32 -11818, i32 -11824, i32 -11843, i32 -12272, i32 -12289, i32 -12337, i32 -12443, i32 -12690, i32 -12736, i32 -12832, i32 -12881, i32 -13144, i32 -42889, i32 -43056, i32 -65040, i32 -65073, i32 -65093, i32 -65097, i32 -65119, i32 -65124, i32 -65281, i32 -65296, i32 -65308, i32 -65509, i32 -65513, i32 -65529, i32 -65792, i32 -65799, i32 -65847, i32 -65936, i32 -66000, i32 -66273, i32 -118784, i32 -119040, i32 -119081, i32 -119146, i32 -119171, i32 -119180, i32 -119214, i32 -119552, i32 -119648, i32 -119808, i32 -119894, i32 -119973, i32 -119977, i32 -119982, i32 -119997, i32 -120005, i32 -120071, i32 -120077, i32 -120086, i32 -120094, i32 -120123, i32 -120128, i32 -120138, i32 -120146, i32 -120488, i32 -120514, i32 -120540, i32 -120572, i32 -120598, i32 -120630, i32 -120656, i32 -120688, i32 -120714, i32 -120746>
+  %39 = icmp ult <128 x i32> %38, <i32 3, i32 10, i32 5, i32 33, i32 4, i32 3, i32 39, i32 5, i32 17, i32 4, i32 3, i32 2, i32 4, i32 4, i32 2, i32 11, i32 6, i32 2, i32 5, i32 9, i32 9, i32 11, i32 10, i32 5, i32 10, i32 9, i32 13, i32 31, i32 4, i32 10, i32 11, i32 3, i32 6, i32 10, i32 10, i32 2, i32 7, i32 31, i32 299, i32 20, i32 7, i32 81, i32 130, i32 39, i32 11, i32 343, i32 9, i32 54, i32 111, i32 248, i32 79, i32 31, i32 131, i32 63, i32 32, i32 374, i32 32, i32 34, i32 12, i32 8, i32 3, i32 9, i32 5, i32 10, i32 2, i32 12, i32 3, i32 5, i32 2, i32 14, i32 36, i32 40, i32 15, i32 168, i32 2, i32 6, i32 7, i32 4, i32 2, i32 10, i32 3, i32 3, i32 3, i32 10, i32 5, i32 2, i32 6, i32 3, i32 3, i32 45, i32 9, i32 12, i32 45, i32 27, i32 246, i32 39, i32 62, i32 17, i32 2, i32 30, i32 59, i32 87, i32 18, i32 85, i32 71, i32 2, i32 4, i32 12, i32 7, i32 65, i32 4, i32 8, i32 7, i32 28, i32 4, i32 5, i32 7, i32 340, i32 25, i32 25, i32 31, i32 25, i32 31, i32 25, i32 31, i32 25, i32 31, i32 25>
+  %40 = insertelement <32 x i32> poison, i32 %0, i64 0
+  %41 = shufflevector <32 x i32> %40, <32 x i32> poison, <32 x i32> zeroinitializer
+  %42 = add <32 x i32> %41, <i32 -120772, i32 -120782, i32 -126976, i32 -127024, i32 -127136, i32 -127153, i32 -127169, i32 -127185, i32 -127232, i32 -127248, i32 -127280, i32 -127344, i32 -127462, i32 -127489, i32 -127504, i32 -127552, i32 -128000, i32 -128736, i32 -128752, i32 -128768, i32 -128896, i32 -129024, i32 -129040, i32 -129104, i32 -129120, i32 -129168, i32 -129296, i32 -129331, i32 -129344, i32 -129360, i32 -129408, i32 -917536>
+  %43 = shufflevector <4 x i32> %9, <4 x i32> poison, <8 x i32> <i32 2, i32 2, i32 2, i32 2, i32 0, i32 2, i32 1, i32 2>
+  %44 = icmp eq <8 x i32> %43, <i32 65380, i32 65438, i32 65504, i32 65532, i32 113824, i32 119966, i32 127744, i32 127568>
+  %or.cond257 = icmp eq i32 %10, 129312
+  %45 = icmp ult <32 x i32> %42, <i32 8, i32 50, i32 44, i32 100, i32 15, i32 15, i32 15, i32 37, i32 13, i32 31, i32 60, i32 61, i32 26, i32 2, i32 44, i32 9, i32 723, i32 13, i32 7, i32 116, i32 85, i32 12, i32 56, i32 10, i32 40, i32 30, i32 15, i32 12, i32 12, i32 15, i32 18, i32 96>
+  %46 = bitcast <128 x i1> %39 to i128
+  %47 = icmp ne i128 %46, 0
+  %48 = or <32 x i1> %45, %24
+  %49 = bitcast <32 x i1> %48 to i32
+  %50 = icmp ne i32 %49, 0
+  %op.rdx2530 = or i1 %47, %50
+  %51 = bitcast <16 x i1> %34 to i16
+  %52 = icmp ne i16 %51, 0
+  %op.rdx2531 = or i1 %op.rdx2530, %52
+  %53 = bitcast <8 x i1> %44 to i8
+  %54 = icmp ne i8 %53, 0
+  %op.rdx2532 = or i1 %op.rdx2531, %54
+  %op.rdx2533 = or i1 %op.rdx2532, %or.cond257
+  %op.rdx2534 = or i1 %op.rdx2533, %or.cond1
+  br i1 %op.rdx2534, label %switch.lookup, label %436
+
+55:                                               ; preds = %3
+  br label %switch.lookup
+
+56:                                               ; preds = %3
+  br label %switch.lookup
+
+57:                                               ; preds = %3
+  br label %switch.lookup
+
+58:                                               ; preds = %3
+  br label %switch.lookup
+
+59:                                               ; preds = %3
+  br label %switch.lookup
+
+60:                                               ; preds = %3
+  br label %switch.lookup
+
+61:                                               ; preds = %3
+  br label %switch.lookup
+
+62:                                               ; preds = %3
+  br label %switch.lookup
+
+63:                                               ; preds = %3
+  br label %switch.lookup
+
+64:                                               ; preds = %3
+  br label %switch.lookup
+
+65:                                               ; preds = %3
+  br label %switch.lookup
+
+66:                                               ; preds = %3
+  br label %switch.lookup
+
+67:                                               ; preds = %3
+  br label %switch.lookup
 
 68:                                               ; preds = %3
   br label %switch.lookup
@@ -18569,795 +18595,763 @@ define hidden noundef i8 @_ZN10tokenizers14pre_tokenizers15unicode_scripts7scrip
 435:                                              ; preds = %3
   br label %switch.lookup
 
-436:                                              ; preds = %3
-  br label %switch.lookup
-
-437:                                              ; preds = %3
-  br label %switch.lookup
-
-438:                                              ; preds = %3
-  br label %switch.lookup
-
-439:                                              ; preds = %3
-  br label %switch.lookup
-
-440:                                              ; preds = %3
-  br label %switch.lookup
-
-441:                                              ; preds = %3
-  br label %switch.lookup
-
-442:                                              ; preds = %3
-  br label %switch.lookup
-
-443:                                              ; preds = %3
-  br label %switch.lookup
-
-444:                                              ; preds = %3
-  br label %switch.lookup
-
-445:                                              ; preds = %3
-  br label %switch.lookup
-
-446:                                              ; preds = %3
-  br label %switch.lookup
-
-447:                                              ; preds = %3
-  br label %switch.lookup
-
-448:                                              ; preds = %3
-  br label %switch.lookup
-
 switch.hole_check:                                ; preds = %switch.early.test2312
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %784
+  br i1 %switch.lobit, label %switch.lookup, label %739
 
 switch.hole_check2334:                            ; preds = %switch.early.test2314
   %switch.maskindex2336 = trunc nuw i32 %switch.tableidx2333 to i16
   %switch.shifted2337 = lshr i16 399, %switch.maskindex2336
   %switch.lobit2338 = trunc i16 %switch.shifted2337 to i1
-  br i1 %switch.lobit2338, label %switch.lookup, label %813
+  br i1 %switch.lobit2338, label %switch.lookup, label %768
 
 switch.hole_check2341:                            ; preds = %switch.early.test
   %switch.maskindex2343 = trunc nuw i32 %switch.tableidx2340 to i8
   %switch.shifted2344 = lshr i8 59, %switch.maskindex2343
   %switch.lobit2345 = trunc i8 %switch.shifted2344 to i1
-  br i1 %switch.lobit2345, label %switch.lookup, label %863
+  br i1 %switch.lobit2345, label %switch.lookup, label %818
 
 switch.hole_check2348:                            ; preds = %switch.early.test2320
   %switch.shifted2350 = lshr i32 8323087, %switch.tableidx2347
   %switch.lobit2351 = trunc i32 %switch.shifted2350 to i1
-  br i1 %switch.lobit2351, label %switch.lookup, label %1053
+  br i1 %switch.lobit2351, label %switch.lookup, label %1007
 
 switch.hole_check2354:                            ; preds = %switch.early.test2321
   %switch.maskindex2356 = trunc nuw i32 %switch.tableidx2353 to i16
   %switch.shifted2357 = lshr i16 3971, %switch.maskindex2356
   %switch.lobit2358 = trunc i16 %switch.shifted2357 to i1
-  br i1 %switch.lobit2358, label %switch.lookup, label %1081
+  br i1 %switch.lobit2358, label %switch.lookup, label %1035
 
-switch.lookup:                                    ; preds = %switch.early.test2526, %switch.early.test2526, %1107, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %switch.early.test2525, %822, %switch.early.test2524, %switch.early.test2524, %784, %switch.hole_check2354, %switch.hole_check2348, %switch.hole_check2341, %switch.hole_check2334, %switch.hole_check, %860, %1078, %1050, %1045, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %1005, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %954, %925, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %912, %810, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %807, %781, %775, %714, %1121, %1123, %1118, %1113, %1099, %1096, %1089, %1085, %1081, %1076, %1069, %1067, %1062, %1057, %1053, %1048, %1046, %1042, %1041, %1038, %1033, %1029, %1024, %1022, %1019, %1013, %1007, %1003, %997, %994, %992, %988, %985, %980, %975, %974, %970, %966, %964, %960, %956, %952, %950, %948, %946, %944, %937, %931, %927, %919, %917, %914, %903, %898, %896, %894, %892, %890, %888, %884, %880, %878, %872, %863, %858, %856, %852, %845, %838, %835, %830, %828, %818, %813, %809, %804, %802, %800, %793, %790, %779, %777, %766, %764, %761, %760, %756, %745, %742, %735, %732, %724, %716, %712, %709, %705, %686, %675, %671, %656, %647, %635, %629, %620, %612, %602, %592, %582, %570, %562, %553, %539, %530, %528, %523, %506, %500, %492, %485, %471, %449, %4, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %1, %448, %447, %446, %445, %444, %443, %442, %441, %440, %439, %438, %437, %436, %435, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
-  %.0 = phi i8 [ 127, %448 ], [ 87, %447 ], [ 87, %446 ], [ 87, %445 ], [ 87, %444 ], [ 74, %443 ], [ 74, %442 ], [ 74, %441 ], [ 12, %440 ], [ 12, %439 ], [ 12, %438 ], [ 12, %437 ], [ 114, %436 ], [ 114, %435 ], [ 83, %434 ], [ 83, %433 ], [ 2, %432 ], [ 2, %431 ], [ -120, %430 ], [ -123, %429 ], [ -123, %428 ], [ -123, %427 ], [ -123, %426 ], [ -123, %425 ], [ 60, %424 ], [ 113, %423 ], [ 80, %422 ], [ 80, %421 ], [ 80, %420 ], [ 73, %419 ], [ 70, %418 ], [ 70, %417 ], [ 59, %416 ], [ 59, %415 ], [ 59, %414 ], [ 101, %413 ], [ 101, %412 ], [ 38, %411 ], [ 38, %410 ], [ 38, %409 ], [ 38, %408 ], [ 38, %407 ], [ 31, %406 ], [ 31, %405 ], [ 9, %404 ], [ 20, %403 ], [ 125, %402 ], [ 125, %401 ], [ 125, %400 ], [ 125, %399 ], [ 125, %398 ], [ 111, %397 ], [ 111, %396 ], [ 111, %395 ], [ 111, %394 ], [ 111, %393 ], [ 79, %392 ], [ 21, %391 ], [ 72, %390 ], [ 14, %389 ], [ 14, %388 ], [ 14, %387 ], [ 14, %386 ], [ 10, %385 ], [ 10, %384 ], [ 10, %383 ], [ 10, %382 ], [ 53, %381 ], [ 53, %380 ], [ 96, %379 ], [ 48, %378 ], [ 75, %377 ], [ 75, %376 ], [ 75, %375 ], [ 75, %374 ], [ 75, %373 ], [ 75, %372 ], [ 75, %371 ], [ 75, %370 ], [ 75, %369 ], [ 52, %368 ], [ 52, %367 ], [ 52, %366 ], [ 109, %365 ], [ 109, %364 ], [ 109, %363 ], [ 124, %362 ], [ 124, %361 ], [ 124, %360 ], [ 124, %359 ], [ 124, %358 ], [ 124, %357 ], [ 123, %356 ], [ 123, %355 ], [ 123, %354 ], [ 123, %353 ], [ 123, %352 ], [ 123, %351 ], [ 123, %350 ], [ 123, %349 ], [ 22, %348 ], [ 22, %347 ], [ 22, %346 ], [ 69, %345 ], [ 107, %344 ], [ 56, %343 ], [ -121, %342 ], [ 117, %341 ], [ 117, %340 ], [ 117, %339 ], [ 88, %338 ], [ 88, %337 ], [ 105, %336 ], [ 7, %335 ], [ 7, %334 ], [ 7, %333 ], [ 7, %332 ], [ 7, %331 ], [ 7, %330 ], [ 57, %329 ], [ 57, %328 ], [ 95, %327 ], [ 118, %326 ], [ 118, %325 ], [ 118, %324 ], [ 118, %323 ], [ -124, %322 ], [ -124, %321 ], [ -124, %320 ], [ 86, %319 ], [ 25, %318 ], [ 16, %317 ], [ 27, %316 ], [ 27, %315 ], [ 27, %314 ], [ -122, %313 ], [ 64, %312 ], [ 64, %311 ], [ 49, %310 ], [ 49, %309 ], [ 49, %308 ], [ 49, %307 ], [ 49, %306 ], [ 49, %305 ], [ 49, %304 ], [ 37, %303 ], [ 37, %302 ], [ -119, %301 ], [ 42, %300 ], [ 42, %299 ], [ 42, %298 ], [ 55, %297 ], [ 55, %296 ], [ 47, %295 ], [ 47, %294 ], [ 47, %293 ], [ 81, %292 ], [ 81, %291 ], [ 81, %290 ], [ 81, %289 ], [ 81, %288 ], [ 81, %287 ], [ 58, %286 ], [ 58, %285 ], [ 58, %284 ], [ 58, %283 ], [ 58, %282 ], [ 58, %281 ], [ 89, %280 ], [ 89, %279 ], [ 89, %278 ], [ 18, %277 ], [ 34, %276 ], [ 34, %275 ], [ 35, %274 ], [ 35, %273 ], [ 35, %272 ], [ 35, %271 ], [ 35, %270 ], [ 84, %269 ], [ 84, %268 ], [ 84, %267 ], [ 84, %266 ], [ 84, %265 ], [ 84, %264 ], [ 84, %263 ], [ 84, %262 ], [ 84, %261 ], [ 84, %260 ], [ 84, %259 ], [ 84, %258 ], [ 84, %257 ], [ 84, %256 ], [ 84, %255 ], [ 84, %254 ], [ -125, %253 ], [ -125, %252 ], [ -125, %251 ], [ -125, %250 ], [ -125, %249 ], [ -125, %248 ], [ -125, %247 ], [ -125, %246 ], [ -125, %245 ], [ -125, %244 ], [ -125, %243 ], [ -125, %242 ], [ -125, %241 ], [ -125, %240 ], [ -125, %239 ], [ -125, %238 ], [ 61, %237 ], [ 61, %236 ], [ 61, %235 ], [ 61, %234 ], [ 61, %233 ], [ 61, %232 ], [ 61, %231 ], [ 61, %230 ], [ -126, %229 ], [ -126, %228 ], [ -126, %227 ], [ 115, %226 ], [ 115, %225 ], [ 115, %224 ], [ 115, %223 ], [ 71, %222 ], [ 71, %221 ], [ 71, %220 ], [ 71, %219 ], [ 71, %218 ], [ 71, %217 ], [ 71, %216 ], [ 54, %215 ], [ 54, %214 ], [ 54, %213 ], [ 54, %212 ], [ 54, %211 ], [ 54, %210 ], [ 54, %209 ], [ 54, %208 ], [ -128, %207 ], [ -128, %206 ], [ -128, %205 ], [ 126, %204 ], [ 126, %203 ], [ 126, %202 ], [ 126, %201 ], [ 126, %200 ], [ 126, %199 ], [ 126, %198 ], [ 126, %197 ], [ 126, %196 ], [ 98, %195 ], [ 98, %194 ], [ 98, %193 ], [ 98, %192 ], [ 98, %191 ], [ 98, %190 ], [ 98, %189 ], [ 98, %188 ], [ 98, %187 ], [ 98, %186 ], [ 98, %185 ], [ 40, %184 ], [ 40, %183 ], [ 40, %182 ], [ 40, %181 ], [ 40, %180 ], [ 40, %179 ], [ 40, %178 ], [ 40, %177 ], [ 40, %176 ], [ 41, %175 ], [ 41, %174 ], [ 41, %173 ], [ 41, %172 ], [ 41, %171 ], [ 11, %170 ], [ 11, %169 ], [ 11, %168 ], [ 11, %167 ], [ 11, %166 ], [ 11, %165 ], [ 11, %164 ], [ 11, %163 ], [ 11, %162 ], [ 11, %161 ], [ 30, %160 ], [ 30, %159 ], [ 30, %158 ], [ 30, %157 ], [ 30, %156 ], [ 30, %155 ], [ 30, %154 ], [ 30, %153 ], [ 30, %152 ], [ 30, %151 ], [ 30, %150 ], [ 30, %149 ], [ -127, %148 ], [ 119, %147 ], [ 119, %146 ], [ 119, %145 ], [ 4, %144 ], [ 4, %143 ], [ 4, %142 ], [ 4, %141 ], [ 4, %140 ], [ 4, %139 ], [ 4, %138 ], [ 4, %137 ], [ 4, %136 ], [ 4, %135 ], [ 4, %134 ], [ 4, %133 ], [ 4, %132 ], [ 4, %131 ], [ 4, %130 ], [ 4, %129 ], [ 4, %128 ], [ 4, %127 ], [ 4, %126 ], [ 4, %125 ], [ 4, %124 ], [ 4, %123 ], [ 4, %122 ], [ 4, %121 ], [ 4, %120 ], [ 4, %119 ], [ 46, %118 ], [ 46, %117 ], [ 46, %116 ], [ 46, %115 ], [ 46, %114 ], [ 46, %113 ], [ 46, %112 ], [ 46, %111 ], [ 46, %110 ], [ 46, %109 ], [ 5, %108 ], [ 5, %107 ], [ 5, %106 ], [ 28, %105 ], [ 28, %104 ], [ 28, %103 ], [ 28, %102 ], [ 28, %101 ], [ 28, %100 ], [ 28, %99 ], [ 28, %98 ], [ 28, %97 ], [ 39, %96 ], [ 39, %95 ], [ 39, %94 ], [ 39, %93 ], [ 39, %92 ], [ 39, %91 ], [ 39, %90 ], [ 39, %89 ], [ 39, %88 ], [ 39, %87 ], [ 39, %86 ], [ 39, %85 ], [ 39, %84 ], [ 39, %83 ], [ 39, %82 ], [ 39, %81 ], [ 39, %80 ], [ 62, %79 ], [ 62, %78 ], [ 62, %77 ], [ 62, %76 ], [ 62, %75 ], [ 62, %74 ], [ 62, %73 ], [ 62, %72 ], [ 62, %71 ], [ 62, %70 ], [ 62, %69 ], [ 62, %68 ], [ 24, %1 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %4 ], [ 62, %449 ], [ 39, %471 ], [ 28, %485 ], [ 5, %492 ], [ 46, %500 ], [ 4, %506 ], [ 119, %523 ], [ -127, %528 ], [ 30, %530 ], [ 11, %539 ], [ 41, %553 ], [ 40, %562 ], [ 98, %570 ], [ 126, %582 ], [ -128, %592 ], [ 54, %602 ], [ 71, %612 ], [ 115, %620 ], [ -126, %629 ], [ 61, %635 ], [ -125, %647 ], [ 84, %656 ], [ 35, %671 ], [ 43, %675 ], [ 34, %686 ], [ 23, %705 ], [ 18, %709 ], [ 89, %712 ], [ 58, %716 ], [ 81, %724 ], [ 47, %732 ], [ 55, %735 ], [ 13, %742 ], [ 42, %745 ], [ -119, %756 ], [ 92, %760 ], [ 37, %761 ], [ 29, %764 ], [ 49, %766 ], [ 44, %777 ], [ 17, %779 ], [ 64, %switch.early.test2524 ], [ 122, %790 ], [ 66, %793 ], [ -122, %800 ], [ 112, %802 ], [ 100, %804 ], [ 27, %switch.early.test2313 ], [ 15, %809 ], [ 25, %813 ], [ 86, %818 ], [ 36, %switch.early.test2525 ], [ -124, %828 ], [ 118, %830 ], [ 95, %835 ], [ 57, %838 ], [ 7, %845 ], [ 26, %852 ], [ 105, %856 ], [ 104, %858 ], [ 117, %863 ], [ 63, %872 ], [ 90, %878 ], [ -121, %880 ], [ 110, %884 ], [ 56, %888 ], [ 107, %890 ], [ 68, %892 ], [ 19, %894 ], [ 69, %896 ], [ 22, %898 ], [ 123, %903 ], [ 124, %switch.early.test2315 ], [ 6, %914 ], [ 32, %917 ], [ 109, %919 ], [ 8, %927 ], [ 52, %931 ], [ 75, %937 ], [ 48, %944 ], [ 96, %946 ], [ 51, %948 ], [ 50, %950 ], [ 97, %952 ], [ 53, %switch.early.test2317 ], [ 10, %956 ], [ 14, %960 ], [ 72, %964 ], [ 21, %966 ], [ 77, %970 ], [ 78, %974 ], [ 79, %975 ], [ 111, %980 ], [ 116, %985 ], [ 125, %988 ], [ 20, %992 ], [ 9, %994 ], [ 31, %997 ], [ 33, %1003 ], [ 38, %switch.early.test2318 ], [ 101, %1007 ], [ 59, %1013 ], [ 65, %1019 ], [ 70, %1022 ], [ 73, %1024 ], [ 76, %1029 ], [ 80, %1033 ], [ 82, %1038 ], [ 93, %1041 ], [ 85, %1042 ], [ 103, %1046 ], [ 94, %1048 ], [ 113, %1053 ], [ 60, %1057 ], [ -123, %1062 ], [ -120, %1067 ], [ 2, %1069 ], [ 3, %1076 ], [ 83, %1081 ], [ 91, %1085 ], [ 114, %1089 ], [ 1, %1096 ], [ 12, %1099 ], [ 74, %switch.early.test2526 ], [ 87, %1113 ], [ 99, %1118 ], [ %., %1123 ], [ 127, %1121 ], [ 108, %714 ], [ 120, %775 ], [ 121, %781 ], [ 27, %807 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 16, %810 ], [ 124, %912 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 67, %925 ], [ 53, %954 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 38, %1005 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 102, %1045 ], [ 106, %1050 ], [ 45, %1078 ], [ 88, %860 ], [ 121, %switch.hole_check ], [ 16, %switch.hole_check2334 ], [ 88, %switch.hole_check2341 ], [ 106, %switch.hole_check2348 ], [ 45, %switch.hole_check2354 ], [ 64, %784 ], [ 64, %switch.early.test2524 ], [ 36, %822 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 36, %switch.early.test2525 ], [ 74, %1107 ], [ 74, %switch.early.test2526 ]
+switch.lookup:                                    ; preds = %switch.early.test2539, %switch.early.test2539, %1061, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %switch.early.test2538, %777, %switch.early.test2537, %switch.early.test2537, %739, %switch.hole_check2354, %switch.hole_check2348, %switch.hole_check2341, %switch.hole_check2334, %switch.hole_check, %815, %1032, %1004, %999, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %switch.early.test2318, %959, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %switch.early.test2317, %908, %879, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %switch.early.test2315, %866, %765, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %switch.early.test2313, %762, %736, %730, %669, %1075, %1077, %1072, %1067, %1053, %1050, %1043, %1039, %1035, %1030, %1023, %1021, %1016, %1011, %1007, %1002, %1000, %996, %995, %992, %987, %983, %978, %976, %973, %967, %961, %957, %951, %948, %946, %942, %939, %934, %929, %928, %924, %920, %918, %914, %910, %906, %904, %902, %900, %898, %891, %885, %881, %873, %871, %868, %857, %852, %850, %848, %846, %844, %842, %838, %834, %832, %826, %818, %813, %811, %807, %800, %793, %790, %785, %783, %773, %768, %764, %759, %757, %755, %748, %745, %734, %732, %721, %719, %716, %715, %711, %700, %697, %690, %687, %679, %671, %667, %664, %660, %642, %632, %628, %617, %608, %601, %595, %586, %578, %570, %560, %550, %538, %530, %521, %512, %503, %501, %496, %485, %479, %473, %467, %455, %436, %4, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %1, %435, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %422, %421, %420, %419, %418, %417, %416, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55
+  %.0 = phi i8 [ 127, %435 ], [ 87, %434 ], [ 87, %433 ], [ 87, %432 ], [ 87, %431 ], [ 74, %430 ], [ 74, %429 ], [ 74, %428 ], [ 12, %427 ], [ 12, %426 ], [ 12, %425 ], [ 12, %424 ], [ 114, %423 ], [ 114, %422 ], [ 83, %421 ], [ 83, %420 ], [ 2, %419 ], [ 2, %418 ], [ -120, %417 ], [ -123, %416 ], [ -123, %415 ], [ -123, %414 ], [ -123, %413 ], [ -123, %412 ], [ 60, %411 ], [ 113, %410 ], [ 80, %409 ], [ 80, %408 ], [ 80, %407 ], [ 73, %406 ], [ 70, %405 ], [ 70, %404 ], [ 59, %403 ], [ 59, %402 ], [ 59, %401 ], [ 101, %400 ], [ 101, %399 ], [ 38, %398 ], [ 38, %397 ], [ 38, %396 ], [ 38, %395 ], [ 38, %394 ], [ 31, %393 ], [ 31, %392 ], [ 9, %391 ], [ 20, %390 ], [ 125, %389 ], [ 125, %388 ], [ 125, %387 ], [ 125, %386 ], [ 125, %385 ], [ 111, %384 ], [ 111, %383 ], [ 111, %382 ], [ 111, %381 ], [ 111, %380 ], [ 79, %379 ], [ 21, %378 ], [ 72, %377 ], [ 14, %376 ], [ 14, %375 ], [ 14, %374 ], [ 14, %373 ], [ 10, %372 ], [ 10, %371 ], [ 10, %370 ], [ 10, %369 ], [ 53, %368 ], [ 53, %367 ], [ 96, %366 ], [ 48, %365 ], [ 75, %364 ], [ 75, %363 ], [ 75, %362 ], [ 75, %361 ], [ 75, %360 ], [ 75, %359 ], [ 75, %358 ], [ 75, %357 ], [ 75, %356 ], [ 52, %355 ], [ 52, %354 ], [ 52, %353 ], [ 109, %352 ], [ 109, %351 ], [ 109, %350 ], [ 124, %349 ], [ 124, %348 ], [ 124, %347 ], [ 124, %346 ], [ 124, %345 ], [ 124, %344 ], [ 123, %343 ], [ 123, %342 ], [ 123, %341 ], [ 123, %340 ], [ 123, %339 ], [ 123, %338 ], [ 123, %337 ], [ 123, %336 ], [ 22, %335 ], [ 22, %334 ], [ 22, %333 ], [ 69, %332 ], [ 107, %331 ], [ 56, %330 ], [ -121, %329 ], [ 117, %328 ], [ 117, %327 ], [ 117, %326 ], [ 88, %325 ], [ 88, %324 ], [ 105, %323 ], [ 7, %322 ], [ 7, %321 ], [ 7, %320 ], [ 7, %319 ], [ 7, %318 ], [ 7, %317 ], [ 57, %316 ], [ 57, %315 ], [ 95, %314 ], [ 118, %313 ], [ 118, %312 ], [ 118, %311 ], [ 118, %310 ], [ -124, %309 ], [ -124, %308 ], [ -124, %307 ], [ 86, %306 ], [ 25, %305 ], [ 16, %304 ], [ 27, %303 ], [ 27, %302 ], [ 27, %301 ], [ -122, %300 ], [ 64, %299 ], [ 64, %298 ], [ 49, %297 ], [ 49, %296 ], [ 49, %295 ], [ 49, %294 ], [ 49, %293 ], [ 49, %292 ], [ 49, %291 ], [ 37, %290 ], [ 37, %289 ], [ -119, %288 ], [ 42, %287 ], [ 42, %286 ], [ 42, %285 ], [ 55, %284 ], [ 55, %283 ], [ 47, %282 ], [ 47, %281 ], [ 47, %280 ], [ 81, %279 ], [ 81, %278 ], [ 81, %277 ], [ 81, %276 ], [ 81, %275 ], [ 81, %274 ], [ 58, %273 ], [ 58, %272 ], [ 58, %271 ], [ 58, %270 ], [ 58, %269 ], [ 58, %268 ], [ 89, %267 ], [ 89, %266 ], [ 89, %265 ], [ 18, %264 ], [ 34, %263 ], [ 34, %262 ], [ 35, %261 ], [ 35, %260 ], [ 35, %259 ], [ 35, %258 ], [ 35, %257 ], [ 84, %256 ], [ 84, %255 ], [ 84, %254 ], [ 84, %253 ], [ 84, %252 ], [ 84, %251 ], [ 84, %250 ], [ 84, %249 ], [ 84, %248 ], [ 84, %247 ], [ 84, %246 ], [ 84, %245 ], [ 84, %244 ], [ 84, %243 ], [ 84, %242 ], [ 84, %241 ], [ -125, %240 ], [ -125, %239 ], [ -125, %238 ], [ -125, %237 ], [ -125, %236 ], [ -125, %235 ], [ -125, %234 ], [ -125, %233 ], [ -125, %232 ], [ -125, %231 ], [ -125, %230 ], [ -125, %229 ], [ -125, %228 ], [ -125, %227 ], [ -125, %226 ], [ -125, %225 ], [ 61, %224 ], [ 61, %223 ], [ 61, %222 ], [ 61, %221 ], [ 61, %220 ], [ 61, %219 ], [ 61, %218 ], [ 61, %217 ], [ -126, %216 ], [ -126, %215 ], [ -126, %214 ], [ 115, %213 ], [ 115, %212 ], [ 115, %211 ], [ 115, %210 ], [ 71, %209 ], [ 71, %208 ], [ 71, %207 ], [ 71, %206 ], [ 71, %205 ], [ 71, %204 ], [ 71, %203 ], [ 54, %202 ], [ 54, %201 ], [ 54, %200 ], [ 54, %199 ], [ 54, %198 ], [ 54, %197 ], [ 54, %196 ], [ 54, %195 ], [ -128, %194 ], [ -128, %193 ], [ -128, %192 ], [ 126, %191 ], [ 126, %190 ], [ 126, %189 ], [ 126, %188 ], [ 126, %187 ], [ 126, %186 ], [ 126, %185 ], [ 126, %184 ], [ 126, %183 ], [ 98, %182 ], [ 98, %181 ], [ 98, %180 ], [ 98, %179 ], [ 98, %178 ], [ 98, %177 ], [ 98, %176 ], [ 98, %175 ], [ 98, %174 ], [ 98, %173 ], [ 98, %172 ], [ 40, %171 ], [ 40, %170 ], [ 40, %169 ], [ 40, %168 ], [ 40, %167 ], [ 40, %166 ], [ 40, %165 ], [ 40, %164 ], [ 40, %163 ], [ 41, %162 ], [ 41, %161 ], [ 41, %160 ], [ 41, %159 ], [ 41, %158 ], [ 11, %157 ], [ 11, %156 ], [ 11, %155 ], [ 11, %154 ], [ 11, %153 ], [ 11, %152 ], [ 11, %151 ], [ 11, %150 ], [ 11, %149 ], [ 11, %148 ], [ 30, %147 ], [ 30, %146 ], [ 30, %145 ], [ 30, %144 ], [ 30, %143 ], [ 30, %142 ], [ 30, %141 ], [ 30, %140 ], [ 30, %139 ], [ 30, %138 ], [ 30, %137 ], [ 30, %136 ], [ -127, %135 ], [ 119, %134 ], [ 119, %133 ], [ 119, %132 ], [ 4, %131 ], [ 4, %130 ], [ 4, %129 ], [ 4, %128 ], [ 4, %127 ], [ 4, %126 ], [ 4, %125 ], [ 4, %124 ], [ 4, %123 ], [ 4, %122 ], [ 4, %121 ], [ 4, %120 ], [ 4, %119 ], [ 4, %118 ], [ 4, %117 ], [ 4, %116 ], [ 4, %115 ], [ 4, %114 ], [ 4, %113 ], [ 4, %112 ], [ 4, %111 ], [ 4, %110 ], [ 4, %109 ], [ 4, %108 ], [ 4, %107 ], [ 4, %106 ], [ 46, %105 ], [ 46, %104 ], [ 46, %103 ], [ 46, %102 ], [ 46, %101 ], [ 46, %100 ], [ 46, %99 ], [ 46, %98 ], [ 46, %97 ], [ 46, %96 ], [ 5, %95 ], [ 5, %94 ], [ 5, %93 ], [ 28, %92 ], [ 28, %91 ], [ 28, %90 ], [ 28, %89 ], [ 28, %88 ], [ 28, %87 ], [ 28, %86 ], [ 28, %85 ], [ 28, %84 ], [ 39, %83 ], [ 39, %82 ], [ 39, %81 ], [ 39, %80 ], [ 39, %79 ], [ 39, %78 ], [ 39, %77 ], [ 39, %76 ], [ 39, %75 ], [ 39, %74 ], [ 39, %73 ], [ 39, %72 ], [ 39, %71 ], [ 39, %70 ], [ 39, %69 ], [ 39, %68 ], [ 39, %67 ], [ 62, %66 ], [ 62, %65 ], [ 62, %64 ], [ 62, %63 ], [ 62, %62 ], [ 62, %61 ], [ 62, %60 ], [ 62, %59 ], [ 62, %58 ], [ 62, %57 ], [ 62, %56 ], [ 62, %55 ], [ 24, %1 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %3 ], [ 24, %4 ], [ 62, %436 ], [ 39, %455 ], [ 28, %467 ], [ 5, %473 ], [ 46, %479 ], [ 4, %485 ], [ 119, %496 ], [ -127, %501 ], [ 30, %503 ], [ 11, %512 ], [ 41, %521 ], [ 40, %530 ], [ 98, %538 ], [ 126, %550 ], [ -128, %560 ], [ 54, %570 ], [ 71, %578 ], [ 115, %586 ], [ -126, %595 ], [ 61, %601 ], [ -125, %608 ], [ 84, %617 ], [ 35, %628 ], [ 43, %632 ], [ 34, %642 ], [ 23, %660 ], [ 18, %664 ], [ 89, %667 ], [ 58, %671 ], [ 81, %679 ], [ 47, %687 ], [ 55, %690 ], [ 13, %697 ], [ 42, %700 ], [ -119, %711 ], [ 92, %715 ], [ 37, %716 ], [ 29, %719 ], [ 49, %721 ], [ 44, %732 ], [ 17, %734 ], [ 64, %switch.early.test2537 ], [ 122, %745 ], [ 66, %748 ], [ -122, %755 ], [ 112, %757 ], [ 100, %759 ], [ 27, %switch.early.test2313 ], [ 15, %764 ], [ 25, %768 ], [ 86, %773 ], [ 36, %switch.early.test2538 ], [ -124, %783 ], [ 118, %785 ], [ 95, %790 ], [ 57, %793 ], [ 7, %800 ], [ 26, %807 ], [ 105, %811 ], [ 104, %813 ], [ 117, %818 ], [ 63, %826 ], [ 90, %832 ], [ -121, %834 ], [ 110, %838 ], [ 56, %842 ], [ 107, %844 ], [ 68, %846 ], [ 19, %848 ], [ 69, %850 ], [ 22, %852 ], [ 123, %857 ], [ 124, %switch.early.test2315 ], [ 6, %868 ], [ 32, %871 ], [ 109, %873 ], [ 8, %881 ], [ 52, %885 ], [ 75, %891 ], [ 48, %898 ], [ 96, %900 ], [ 51, %902 ], [ 50, %904 ], [ 97, %906 ], [ 53, %switch.early.test2317 ], [ 10, %910 ], [ 14, %914 ], [ 72, %918 ], [ 21, %920 ], [ 77, %924 ], [ 78, %928 ], [ 79, %929 ], [ 111, %934 ], [ 116, %939 ], [ 125, %942 ], [ 20, %946 ], [ 9, %948 ], [ 31, %951 ], [ 33, %957 ], [ 38, %switch.early.test2318 ], [ 101, %961 ], [ 59, %967 ], [ 65, %973 ], [ 70, %976 ], [ 73, %978 ], [ 76, %983 ], [ 80, %987 ], [ 82, %992 ], [ 93, %995 ], [ 85, %996 ], [ 103, %1000 ], [ 94, %1002 ], [ 113, %1007 ], [ 60, %1011 ], [ -123, %1016 ], [ -120, %1021 ], [ 2, %1023 ], [ 3, %1030 ], [ 83, %1035 ], [ 91, %1039 ], [ 114, %1043 ], [ 1, %1050 ], [ 12, %1053 ], [ 74, %switch.early.test2539 ], [ 87, %1067 ], [ 99, %1072 ], [ %., %1077 ], [ 127, %1075 ], [ 108, %669 ], [ 120, %730 ], [ 121, %736 ], [ 27, %762 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 27, %switch.early.test2313 ], [ 16, %765 ], [ 124, %866 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 124, %switch.early.test2315 ], [ 67, %879 ], [ 53, %908 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 53, %switch.early.test2317 ], [ 38, %959 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 38, %switch.early.test2318 ], [ 102, %999 ], [ 106, %1004 ], [ 45, %1032 ], [ 88, %815 ], [ 121, %switch.hole_check ], [ 16, %switch.hole_check2334 ], [ 88, %switch.hole_check2341 ], [ 106, %switch.hole_check2348 ], [ 45, %switch.hole_check2354 ], [ 64, %739 ], [ 64, %switch.early.test2537 ], [ 36, %777 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 36, %switch.early.test2538 ], [ 74, %1061 ], [ 74, %switch.early.test2539 ]
   ret i8 %.0
 
-449:                                              ; preds = %4
-  %450 = and i32 %0, -33
-  %451 = insertelement <16 x i32> poison, i32 %0, i64 0
-  %452 = insertelement <16 x i32> %451, i32 %450, i64 1
-  %453 = shufflevector <16 x i32> %452, <16 x i32> poison, <16 x i32> <i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
-  %454 = add <16 x i32> %453, <i32 -192, i32 -65, i32 -216, i32 -248, i32 -452, i32 -661, i32 -736, i32 -7424, i32 -7468, i32 -7522, i32 -7531, i32 -7545, i32 -8336, i32 -8544, i32 -11360, i32 -42786>
-  %455 = icmp ult <16 x i32> %454, <i32 23, i32 26, i32 31, i32 195, i32 208, i32 36, i32 5, i32 38, i32 49, i32 4, i32 13, i32 70, i32 13, i32 41, i32 28, i32 78>
-  %456 = insertelement <8 x i32> poison, i32 %0, i64 0
-  %457 = shufflevector <8 x i32> %456, <8 x i32> poison, <8 x i32> zeroinitializer
-  %458 = add <8 x i32> %457, <i32 -42865, i32 -42891, i32 -42896, i32 -43003, i32 -43824, i32 -43872, i32 -64256, i32 -65313>
-  %459 = shufflevector <4 x i32> %16, <4 x i32> %10, <4 x i32> <i32 0, i32 1, i32 6, i32 poison>
-  %460 = shufflevector <2 x i32> %12, <2 x i32> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %461 = shufflevector <4 x i32> %459, <4 x i32> %460, <4 x i32> <i32 0, i32 1, i32 2, i32 5>
-  %462 = shufflevector <4 x i32> %461, <4 x i32> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 2, i32 0, i32 3, i32 2, i32 0>
-  %463 = icmp eq <8 x i32> %462, <i32 444, i32 448, i32 7680, i32 8490, i32 11388, i32 42928, i32 43000, i32 43868>
-  %464 = icmp ult <8 x i32> %458, <i32 23, i32 4, i32 31, i32 5, i32 43, i32 5, i32 7, i32 26>
-  %465 = add i32 %0, -65345
-  %or.cond301 = icmp ult i32 %465, 26
-  %466 = bitcast <16 x i1> %455 to i16
-  %467 = icmp ne i16 %466, 0
-  %468 = or <8 x i1> %464, %463
-  %469 = bitcast <8 x i1> %468 to i8
-  %470 = icmp ne i8 %469, 0
-  %op.rdx2514 = or i1 %467, %470
-  %op.rdx2515 = or i1 %op.rdx2514, %or.cond301
-  br i1 %op.rdx2515, label %switch.lookup, label %471
+436:                                              ; preds = %4
+  %437 = shufflevector <4 x i32> %9, <4 x i32> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 2, i32 0, i32 3, i32 2, i32 0>
+  %438 = and i32 %0, -33
+  %439 = icmp eq <8 x i32> %437, <i32 444, i32 448, i32 7680, i32 8490, i32 11388, i32 42928, i32 43000, i32 43868>
+  %440 = insertelement <16 x i32> poison, i32 %0, i64 0
+  %441 = insertelement <16 x i32> %440, i32 %438, i64 1
+  %442 = shufflevector <16 x i32> %441, <16 x i32> poison, <16 x i32> <i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0>
+  %443 = add <16 x i32> %442, <i32 -192, i32 -65, i32 -216, i32 -248, i32 -452, i32 -661, i32 -736, i32 -7424, i32 -7468, i32 -7522, i32 -7531, i32 -7545, i32 -8336, i32 -8544, i32 -11360, i32 -42786>
+  %444 = icmp ult <16 x i32> %443, <i32 23, i32 26, i32 31, i32 195, i32 208, i32 36, i32 5, i32 38, i32 49, i32 4, i32 13, i32 70, i32 13, i32 41, i32 28, i32 78>
+  %445 = insertelement <8 x i32> poison, i32 %0, i64 0
+  %446 = shufflevector <8 x i32> %445, <8 x i32> poison, <8 x i32> zeroinitializer
+  %447 = add <8 x i32> %446, <i32 -42865, i32 -42891, i32 -42896, i32 -43003, i32 -43824, i32 -43872, i32 -64256, i32 -65313>
+  %448 = icmp ult <8 x i32> %447, <i32 23, i32 4, i32 31, i32 5, i32 43, i32 5, i32 7, i32 26>
+  %449 = add i32 %0, -65345
+  %or.cond301 = icmp ult i32 %449, 26
+  %450 = bitcast <16 x i1> %444 to i16
+  %451 = icmp ne i16 %450, 0
+  %452 = or <8 x i1> %448, %439
+  %453 = bitcast <8 x i1> %452 to i8
+  %454 = icmp ne i8 %453, 0
+  %op.rdx2527 = or i1 %451, %454
+  %op.rdx2528 = or i1 %op.rdx2527, %or.cond301
+  br i1 %op.rdx2528, label %switch.lookup, label %455
 
-471:                                              ; preds = %449
-  %472 = extractelement <2 x i32> %13, i64 0
-  %or.cond302 = icmp eq i32 %472, 880
-  %473 = extractelement <2 x i32> %9, i64 1
-  %or.cond303 = icmp eq i32 %473, 886
-  %474 = shufflevector <16 x i32> %451, <16 x i32> poison, <16 x i32> zeroinitializer
-  %475 = add <16 x i32> %474, <i32 -891, i32 -904, i32 -910, i32 -931, i32 -1008, i32 -1015, i32 -7462, i32 -7517, i32 -7526, i32 -7936, i32 -7960, i32 -7968, i32 -8008, i32 -8031, i32 -8064, i32 -8118>
-  %or.cond317 = icmp eq i32 %57, 8016
-  %476 = icmp ult <16 x i32> %475, <i32 3, i32 3, i32 20, i32 63, i32 6, i32 9, i32 5, i32 5, i32 5, i32 22, i32 6, i32 38, i32 6, i32 31, i32 53, i32 7>
-  %477 = add <8 x i32> %457, <i32 -8127, i32 -8134, i32 -8150, i32 -8157, i32 -8178, i32 -8182, i32 -65856, i32 -65932>
-  %or.cond325 = icmp eq i32 %472, 8144
-  %or.cond336 = icmp eq i32 %473, 65930
-  %478 = icmp ult <8 x i32> %477, <i32 6, i32 10, i32 6, i32 19, i32 3, i32 9, i32 74, i32 3>
-  %479 = add i32 %0, -119296
-  %480 = icmp ult i32 %479, 69
-  %481 = bitcast <16 x i1> %476 to i16
-  %482 = icmp ne i16 %481, 0
-  %483 = bitcast <8 x i1> %478 to i8
+455:                                              ; preds = %436
+  %or.cond302 = icmp eq i32 %12, 880
+  %or.cond303 = icmp eq i32 %11, 886
+  %456 = shufflevector <16 x i32> %440, <16 x i32> poison, <16 x i32> zeroinitializer
+  %457 = add <16 x i32> %456, <i32 -891, i32 -904, i32 -910, i32 -931, i32 -1008, i32 -1015, i32 -7462, i32 -7517, i32 -7526, i32 -7936, i32 -7960, i32 -7968, i32 -8008, i32 -8031, i32 -8064, i32 -8118>
+  %or.cond317 = icmp eq i32 %10, 8016
+  %458 = icmp ult <16 x i32> %457, <i32 3, i32 3, i32 20, i32 63, i32 6, i32 9, i32 5, i32 5, i32 5, i32 22, i32 6, i32 38, i32 6, i32 31, i32 53, i32 7>
+  %459 = add <8 x i32> %446, <i32 -8127, i32 -8134, i32 -8150, i32 -8157, i32 -8178, i32 -8182, i32 -65856, i32 -65932>
+  %or.cond325 = icmp eq i32 %12, 8144
+  %or.cond336 = icmp eq i32 %11, 65930
+  %460 = icmp ult <8 x i32> %459, <i32 6, i32 10, i32 6, i32 19, i32 3, i32 9, i32 74, i32 3>
+  %461 = add i32 %0, -119296
+  %462 = icmp ult i32 %461, 69
+  %463 = bitcast <16 x i1> %458 to i16
+  %464 = icmp ne i16 %463, 0
+  %465 = bitcast <8 x i1> %460 to i8
+  %466 = icmp ne i8 %465, 0
+  %op.rdx2519 = or i1 %464, %466
+  %op.rdx2520 = or i1 %op.rdx2519, %462
+  %op.rdx2521 = or i1 %or.cond302, %or.cond303
+  %op.rdx2522 = or i1 %or.cond317, %or.cond325
+  %op.rdx2523 = or i1 %op.rdx2520, %op.rdx2521
+  %op.rdx2524 = or i1 %op.rdx2522, %or.cond336
+  %op.rdx2525 = or i1 %op.rdx2523, %op.rdx2524
+  br i1 %op.rdx2525, label %switch.lookup, label %467
+
+467:                                              ; preds = %455
+  %468 = add <8 x i32> %446, <i32 -1024, i32 -1155, i32 -1162, i32 -7296, i32 -42560, i32 -42608, i32 -42612, i32 -42624>
+  %or.cond342 = icmp eq i32 %11, 1160
+  %or.cond345 = icmp eq i32 %18, 11744
+  %469 = icmp ult <8 x i32> %468, <i32 130, i32 2, i32 166, i32 9, i32 46, i32 3, i32 10, i32 28>
+  %470 = icmp eq i32 %12, 42652
+  %or.cond352 = icmp eq i32 %11, 65070
+  %471 = bitcast <8 x i1> %469 to i8
+  %472 = icmp ne i8 %471, 0
+  %op.rdx2515 = or i1 %472, %or.cond342
+  %op.rdx2516 = or i1 %or.cond345, %470
+  %op.rdx2517 = or i1 %op.rdx2515, %op.rdx2516
+  %op.rdx2518 = or i1 %op.rdx2517, %or.cond352
+  br i1 %op.rdx2518, label %switch.lookup, label %473
+
+473:                                              ; preds = %467
+  %474 = add <4 x i32> %8, <i32 -1329, i32 -1370, i32 -1377, i32 -1421>
+  %475 = icmp ult <4 x i32> %474, <i32 38, i32 6, i32 39, i32 2>
+  %476 = add i32 %0, -64275
+  %or.cond357 = icmp ult i32 %476, 5
+  %477 = bitcast <4 x i1> %475 to i4
+  %478 = icmp ne i4 %477, 0
+  %op.rdx2514 = or i1 %478, %or.cond357
+  br i1 %op.rdx2514, label %switch.lookup, label %479
+
+479:                                              ; preds = %473
+  %480 = add <8 x i32> %446, <i32 -1425, i32 -1473, i32 -1488, i32 -1520, i32 -64287, i32 -64298, i32 -64312, i32 -64323>
+  %or.cond360 = icmp eq i32 %11, 1476
+  %or.cond367 = icmp eq i32 %11, 64320
+  %481 = icmp ult <8 x i32> %480, <i32 45, i32 2, i32 27, i32 5, i32 10, i32 13, i32 5, i32 2>
+  %482 = add i32 %0, -64326
+  %or.cond369 = icmp ult i32 %482, 10
+  %483 = bitcast <8 x i1> %481 to i8
   %484 = icmp ne i8 %483, 0
-  %op.rdx2506 = or i1 %482, %484
-  %op.rdx2507 = or i1 %op.rdx2506, %480
-  %op.rdx2508 = or i1 %or.cond302, %or.cond303
-  %op.rdx2509 = or i1 %or.cond317, %or.cond325
-  %op.rdx2510 = or i1 %op.rdx2507, %op.rdx2508
-  %op.rdx2511 = or i1 %op.rdx2509, %or.cond336
-  %op.rdx2512 = or i1 %op.rdx2510, %op.rdx2511
-  br i1 %op.rdx2512, label %switch.lookup, label %485
+  %op.rdx2511 = or i1 %484, %or.cond369
+  %op.rdx2512 = or i1 %or.cond360, %or.cond367
+  %op.rdx2513 = or i1 %op.rdx2511, %op.rdx2512
+  br i1 %op.rdx2513, label %switch.lookup, label %485
 
-485:                                              ; preds = %471
-  %486 = add <8 x i32> %457, <i32 -1024, i32 -1155, i32 -1162, i32 -7296, i32 -42560, i32 -42608, i32 -42612, i32 -42624>
-  %or.cond342 = icmp eq i32 %473, 1160
-  %487 = extractelement <2 x i32> %33, i64 1
-  %or.cond345 = icmp eq i32 %487, 11744
-  %488 = icmp ult <8 x i32> %486, <i32 130, i32 2, i32 166, i32 9, i32 46, i32 3, i32 10, i32 28>
-  %489 = icmp eq i32 %472, 42652
-  %or.cond352 = icmp eq i32 %473, 65070
-  %490 = bitcast <8 x i1> %488 to i8
-  %491 = icmp ne i8 %490, 0
-  %op.rdx2502 = or i1 %491, %or.cond342
-  %op.rdx2503 = or i1 %or.cond345, %489
-  %op.rdx2504 = or i1 %op.rdx2502, %op.rdx2503
-  %op.rdx2505 = or i1 %op.rdx2504, %or.cond352
-  br i1 %op.rdx2505, label %switch.lookup, label %492
+485:                                              ; preds = %479
+  %486 = add <32 x i32> %41, <i32 -1536, i32 -1542, i32 -1552, i32 -1601, i32 -1622, i32 -1649, i32 -1750, i32 -1759, i32 -1770, i32 -1776, i32 -1872, i32 -2208, i32 -2230, i32 -2260, i32 -2275, i32 -64336, i32 -64467, i32 -64848, i32 -64914, i32 -65008, i32 -65136, i32 -65142, i32 -69216, i32 -126469, i32 -126497, i32 -126505, i32 -126541, i32 -126545, i32 -126561, i32 -126567, i32 -126572, i32 -126585>
+  %or.cond373 = icmp eq i32 %11, 1550
+  %or.cond375 = icmp eq i32 %18, 1568
+  %or.cond405 = icmp eq i32 %12, 126464
+  %or.cond409 = icmp eq i32 %12, 126516
+  %or.cond415 = icmp eq i32 %12, 126580
+  %487 = icmp ult <32 x i32> %486, <i32 5, i32 5, i32 11, i32 10, i32 24, i32 99, i32 7, i32 10, i32 4, i32 15, i32 48, i32 21, i32 8, i32 14, i32 29, i32 114, i32 363, i32 64, i32 54, i32 12, i32 5, i32 135, i32 31, i32 27, i32 2, i32 10, i32 3, i32 2, i32 2, i32 4, i32 7, i32 4>
+  %488 = add <4 x i32> %8, <i32 -126592, i32 -126603, i32 -126625, i32 -126629>
+  %489 = icmp ult <4 x i32> %488, <i32 10, i32 17, i32 3, i32 5>
+  %490 = add i32 %0, -126635
+  %or.cond421 = icmp ult i32 %490, 17
+  %or.cond422 = icmp eq i32 %11, 126704
+  %491 = bitcast <32 x i1> %487 to i32
+  %492 = icmp ne i32 %491, 0
+  %493 = bitcast <4 x i1> %489 to i4
+  %494 = icmp ne i4 %493, 0
+  %op.rdx2501 = or i1 %492, %494
+  %op.rdx2502 = or i1 %op.rdx2501, %or.cond421
+  %op.rdx2503 = or i1 %or.cond373, %or.cond375
+  %495 = and i32 %11, -130
+  %op.rdx2504 = icmp eq i32 %495, 1646
+  %op.rdx2505 = or i1 %or.cond405, %or.cond409
+  %op.rdx2506 = or i1 %or.cond415, %or.cond422
+  %op.rdx2507 = or i1 %op.rdx2502, %op.rdx2503
+  %op.rdx2508 = or i1 %op.rdx2504, %op.rdx2505
+  %op.rdx2509 = or i1 %op.rdx2507, %op.rdx2508
+  %op.rdx2510 = or i1 %op.rdx2509, %op.rdx2506
+  br i1 %op.rdx2510, label %switch.lookup, label %496
 
-492:                                              ; preds = %485
-  %493 = insertelement <4 x i32> poison, i32 %0, i64 0
-  %494 = shufflevector <4 x i32> %493, <4 x i32> poison, <4 x i32> zeroinitializer
-  %495 = add <4 x i32> %494, <i32 -1329, i32 -1370, i32 -1377, i32 -1421>
-  %496 = icmp ult <4 x i32> %495, <i32 38, i32 6, i32 39, i32 2>
-  %497 = add i32 %0, -64275
-  %or.cond357 = icmp ult i32 %497, 5
-  %498 = bitcast <4 x i1> %496 to i4
-  %499 = icmp ne i4 %498, 0
-  %op.rdx2501 = or i1 %499, %or.cond357
-  br i1 %op.rdx2501, label %switch.lookup, label %500
-
-500:                                              ; preds = %492
-  %501 = add <8 x i32> %457, <i32 -1425, i32 -1473, i32 -1488, i32 -1520, i32 -64287, i32 -64298, i32 -64312, i32 -64323>
-  %or.cond360 = icmp eq i32 %473, 1476
-  %or.cond367 = icmp eq i32 %473, 64320
-  %502 = icmp ult <8 x i32> %501, <i32 45, i32 2, i32 27, i32 5, i32 10, i32 13, i32 5, i32 2>
-  %503 = add i32 %0, -64326
-  %or.cond369 = icmp ult i32 %503, 10
-  %504 = bitcast <8 x i1> %502 to i8
-  %505 = icmp ne i8 %504, 0
-  %op.rdx2498 = or i1 %505, %or.cond369
-  %op.rdx2499 = or i1 %or.cond360, %or.cond367
-  %op.rdx2500 = or i1 %op.rdx2498, %op.rdx2499
-  br i1 %op.rdx2500, label %switch.lookup, label %506
-
-506:                                              ; preds = %500
-  %507 = add <32 x i32> %53, <i32 -1536, i32 -1542, i32 -1552, i32 -1601, i32 -1622, i32 -1649, i32 -1750, i32 -1759, i32 -1770, i32 -1776, i32 -1872, i32 -2208, i32 -2230, i32 -2260, i32 -2275, i32 -64336, i32 -64467, i32 -64848, i32 -64914, i32 -65008, i32 -65136, i32 -65142, i32 -69216, i32 -126469, i32 -126497, i32 -126505, i32 -126541, i32 -126545, i32 -126561, i32 -126567, i32 -126572, i32 -126585>
-  %508 = icmp ult <32 x i32> %507, <i32 5, i32 5, i32 11, i32 10, i32 24, i32 99, i32 7, i32 10, i32 4, i32 15, i32 48, i32 21, i32 8, i32 14, i32 29, i32 114, i32 363, i32 64, i32 54, i32 12, i32 5, i32 135, i32 31, i32 27, i32 2, i32 10, i32 3, i32 2, i32 2, i32 4, i32 7, i32 4>
-  %509 = add <4 x i32> %494, <i32 -126592, i32 -126603, i32 -126625, i32 -126629>
-  %510 = icmp ult <4 x i32> %509, <i32 10, i32 17, i32 3, i32 5>
-  %511 = add i32 %0, -126635
-  %or.cond421 = icmp ult i32 %511, 17
-  %512 = shufflevector <2 x i32> %9, <2 x i32> %33, <8 x i32> <i32 1, i32 3, i32 1, i32 1, i32 poison, i32 poison, i32 poison, i32 1>
-  %513 = shufflevector <2 x i32> %13, <2 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %514 = shufflevector <8 x i32> %512, <8 x i32> %513, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 poison, i32 poison, i32 7>
-  %515 = shufflevector <8 x i32> %514, <8 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 4, i32 7>
-  %516 = icmp eq <8 x i32> %515, <i32 1550, i32 1568, i32 1646, i32 1774, i32 126464, i32 126516, i32 126580, i32 126704>
-  %517 = bitcast <32 x i1> %508 to i32
-  %518 = icmp ne i32 %517, 0
-  %519 = bitcast <8 x i1> %516 to i8
-  %520 = icmp ne i8 %519, 0
-  %521 = bitcast <4 x i1> %510 to i4
-  %522 = icmp ne i4 %521, 0
-  %op.rdx2495 = or i1 %522, %or.cond421
-  %op.rdx2496 = or i1 %520, %518
-  %op.rdx2497 = or i1 %op.rdx2495, %op.rdx2496
-  br i1 %op.rdx2497, label %switch.lookup, label %523
-
-523:                                              ; preds = %506
-  %524 = add i32 %0, -1792
-  %or.cond423 = icmp ult i32 %524, 14
-  %525 = add i32 %0, -1810
-  %526 = icmp ult i32 %525, 57
-  %or.cond1641 = or i1 %or.cond423, %526
-  %527 = add i32 %0, -1869
-  %or.cond426 = icmp ult i32 %527, 3
+496:                                              ; preds = %485
+  %497 = add i32 %0, -1792
+  %or.cond423 = icmp ult i32 %497, 14
+  %498 = add i32 %0, -1810
+  %499 = icmp ult i32 %498, 57
+  %or.cond1641 = or i1 %or.cond423, %499
+  %500 = add i32 %0, -1869
+  %or.cond426 = icmp ult i32 %500, 3
   %or.cond1642 = or i1 %or.cond426, %or.cond1641
-  br i1 %or.cond1642, label %switch.lookup, label %528
+  br i1 %or.cond1642, label %switch.lookup, label %501
 
-528:                                              ; preds = %523
-  %529 = add i32 %0, -1920
-  %or.cond1643 = icmp ult i32 %529, 49
-  br i1 %or.cond1643, label %switch.lookup, label %530
+501:                                              ; preds = %496
+  %502 = add i32 %0, -1920
+  %or.cond1643 = icmp ult i32 %502, 49
+  br i1 %or.cond1643, label %switch.lookup, label %503
 
-530:                                              ; preds = %528
-  %531 = add <4 x i32> %494, <i32 -2304, i32 -2308, i32 -2366, i32 -2387>
-  %or.cond434 = icmp eq i32 %473, 2382
-  %532 = icmp ult <4 x i32> %531, <i32 3, i32 54, i32 15, i32 15>
-  %or.cond437 = icmp eq i32 %473, 2402
-  %533 = add i32 %0, -2406
-  %or.cond438 = icmp ult i32 %533, 10
-  %534 = add i32 %0, -2418
-  %or.cond439 = icmp ult i32 %534, 14
-  %535 = add i32 %0, -43232
-  %536 = icmp ult i32 %535, 27
-  %537 = bitcast <4 x i1> %532 to i4
-  %538 = icmp ne i4 %537, 0
-  %op.rdx2484 = or i1 %538, %or.cond438
-  %op.rdx2485 = or i1 %or.cond439, %536
-  %op.rdx2486 = or i1 %or.cond434, %or.cond437
-  %op.rdx2487 = or i1 %op.rdx2484, %op.rdx2485
-  %op.rdx2488 = or i1 %op.rdx2487, %op.rdx2486
-  br i1 %op.rdx2488, label %switch.lookup, label %539
+503:                                              ; preds = %501
+  %504 = add <4 x i32> %8, <i32 -2304, i32 -2308, i32 -2366, i32 -2387>
+  %or.cond434 = icmp eq i32 %11, 2382
+  %505 = icmp ult <4 x i32> %504, <i32 3, i32 54, i32 15, i32 15>
+  %or.cond437 = icmp eq i32 %11, 2402
+  %506 = add i32 %0, -2406
+  %or.cond438 = icmp ult i32 %506, 10
+  %507 = add i32 %0, -2418
+  %or.cond439 = icmp ult i32 %507, 14
+  %508 = add i32 %0, -43232
+  %509 = icmp ult i32 %508, 27
+  %510 = bitcast <4 x i1> %505 to i4
+  %511 = icmp ne i4 %510, 0
+  %op.rdx2496 = or i1 %511, %or.cond438
+  %op.rdx2497 = or i1 %or.cond439, %509
+  %op.rdx2498 = or i1 %or.cond434, %or.cond437
+  %op.rdx2499 = or i1 %op.rdx2496, %op.rdx2497
+  %op.rdx2500 = or i1 %op.rdx2499, %op.rdx2498
+  br i1 %op.rdx2500, label %switch.lookup, label %512
 
-539:                                              ; preds = %530
-  %540 = add <8 x i32> %457, <i32 -2437, i32 -2447, i32 -2451, i32 -2474, i32 -2486, i32 -2494, i32 -2503, i32 -2507>
-  %541 = icmp ult <8 x i32> %540, <i32 8, i32 2, i32 22, i32 7, i32 4, i32 7, i32 2, i32 2>
-  %542 = add i32 %0, -2527
-  %or.cond454 = icmp ult i32 %542, 3
-  %543 = add i32 %0, -2534
-  %or.cond456 = icmp ult i32 %543, 10
-  %544 = shufflevector <2 x i32> %9, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %545 = shufflevector <2 x i32> %544, <2 x i32> %13, <2 x i32> <i32 0, i32 2>
-  %546 = shufflevector <2 x i32> %545, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %547 = icmp eq <4 x i32> %546, <i32 2434, i32 2524, i32 2530, i32 2544>
-  %548 = add i32 %0, -2548
-  %or.cond459 = icmp ult i32 %548, 6
-  %549 = bitcast <8 x i1> %541 to i8
-  %550 = icmp ne i8 %549, 0
-  %551 = bitcast <4 x i1> %547 to i4
-  %552 = icmp ne i4 %551, 0
-  %op.rdx2480 = or i1 %550, %552
-  %op.rdx2481 = or i1 %op.rdx2480, %or.cond454
-  %op.rdx2482 = or i1 %or.cond456, %or.cond459
+512:                                              ; preds = %503
+  %or.cond443 = icmp eq i32 %11, 2434
+  %513 = add <8 x i32> %446, <i32 -2437, i32 -2447, i32 -2451, i32 -2474, i32 -2486, i32 -2494, i32 -2503, i32 -2507>
+  %514 = icmp ult <8 x i32> %513, <i32 8, i32 2, i32 22, i32 7, i32 4, i32 7, i32 2, i32 2>
+  %or.cond453 = icmp eq i32 %11, 2524
+  %515 = add i32 %0, -2527
+  %or.cond454 = icmp ult i32 %515, 3
+  %or.cond455 = icmp eq i32 %11, 2530
+  %516 = add i32 %0, -2534
+  %or.cond456 = icmp ult i32 %516, 10
+  %517 = icmp eq i32 %12, 2544
+  %518 = add i32 %0, -2548
+  %or.cond459 = icmp ult i32 %518, 6
+  %519 = bitcast <8 x i1> %514 to i8
+  %520 = icmp ne i8 %519, 0
+  %op.rdx2489 = or i1 %520, %or.cond454
+  %op.rdx2490 = or i1 %or.cond456, %or.cond459
+  %op.rdx2491 = or i1 %or.cond443, %or.cond453
+  %op.rdx2492 = or i1 %or.cond455, %517
+  %op.rdx2493 = or i1 %op.rdx2489, %op.rdx2490
+  %op.rdx2494 = or i1 %op.rdx2491, %op.rdx2492
+  %op.rdx2495 = or i1 %op.rdx2493, %op.rdx2494
+  br i1 %op.rdx2495, label %switch.lookup, label %521
+
+521:                                              ; preds = %512
+  %522 = add <8 x i32> %446, <i32 -2561, i32 -2565, i32 -2575, i32 -2579, i32 -2602, i32 -2613, i32 -2622, i32 -2631>
+  %or.cond465 = icmp eq i32 %11, 2610
+  %or.cond467 = icmp eq i32 %11, 2616
+  %523 = icmp ult <8 x i32> %522, <i32 2, i32 6, i32 2, i32 22, i32 7, i32 2, i32 5, i32 2>
+  %524 = add <4 x i32> %8, <i32 -2635, i32 -2649, i32 -2662, i32 -2674>
+  %or.cond474 = icmp eq i32 %11, 2672
+  %525 = icmp ult <4 x i32> %524, <i32 3, i32 4, i32 10, i32 3>
+  %526 = bitcast <8 x i1> %523 to i8
+  %527 = icmp ne i8 %526, 0
+  %528 = bitcast <4 x i1> %525 to i4
+  %529 = icmp ne i4 %528, 0
+  %op.rdx2485 = or i1 %527, %529
+  %op.rdx2486 = or i1 %op.rdx2485, %or.cond465
+  %op.rdx2487 = or i1 %or.cond467, %or.cond474
+  %op.rdx2488 = or i1 %op.rdx2486, %op.rdx2487
+  br i1 %op.rdx2488, label %switch.lookup, label %530
+
+530:                                              ; preds = %521
+  %531 = add <8 x i32> %446, <i32 -2689, i32 -2693, i32 -2703, i32 -2707, i32 -2730, i32 -2741, i32 -2750, i32 -2759>
+  %or.cond481 = icmp eq i32 %11, 2738
+  %532 = icmp ult <8 x i32> %531, <i32 2, i32 9, i32 3, i32 22, i32 7, i32 5, i32 8, i32 2>
+  %533 = add i32 %0, -2763
+  %or.cond486 = icmp ult i32 %533, 2
+  %534 = icmp eq i32 %12, 2784
+  %535 = add i32 %0, -2790
+  %or.cond489 = icmp ult i32 %535, 10
+  %536 = bitcast <8 x i1> %532 to i8
+  %537 = icmp ne i8 %536, 0
+  %op.rdx2481 = or i1 %537, %or.cond486
+  %op.rdx2482 = or i1 %or.cond489, %or.cond481
   %op.rdx2483 = or i1 %op.rdx2481, %op.rdx2482
-  br i1 %op.rdx2483, label %switch.lookup, label %553
+  %op.rdx2484 = or i1 %op.rdx2483, %534
+  br i1 %op.rdx2484, label %switch.lookup, label %538
 
-553:                                              ; preds = %539
-  %554 = add <8 x i32> %457, <i32 -2561, i32 -2565, i32 -2575, i32 -2579, i32 -2602, i32 -2613, i32 -2622, i32 -2631>
-  %or.cond465 = icmp eq i32 %473, 2610
-  %or.cond467 = icmp eq i32 %473, 2616
-  %555 = icmp ult <8 x i32> %554, <i32 2, i32 6, i32 2, i32 22, i32 7, i32 2, i32 5, i32 2>
-  %556 = add <4 x i32> %494, <i32 -2635, i32 -2649, i32 -2662, i32 -2674>
-  %or.cond474 = icmp eq i32 %473, 2672
-  %557 = icmp ult <4 x i32> %556, <i32 3, i32 4, i32 10, i32 3>
-  %558 = bitcast <8 x i1> %555 to i8
-  %559 = icmp ne i8 %558, 0
-  %560 = bitcast <4 x i1> %557 to i4
-  %561 = icmp ne i4 %560, 0
-  %op.rdx2476 = or i1 %559, %561
-  %op.rdx2477 = or i1 %op.rdx2476, %or.cond465
-  %op.rdx2478 = or i1 %or.cond467, %or.cond474
-  %op.rdx2479 = or i1 %op.rdx2477, %op.rdx2478
-  br i1 %op.rdx2479, label %switch.lookup, label %562
+538:                                              ; preds = %530
+  %539 = shufflevector <4 x i32> %9, <4 x i32> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %540 = icmp eq <4 x i32> %539, <i32 2818, i32 2866, i32 2908, i32 2914>
+  %541 = add <8 x i32> %446, <i32 -2821, i32 -2831, i32 -2835, i32 -2858, i32 -2869, i32 -2881, i32 -2887, i32 -2891>
+  %542 = icmp ult <8 x i32> %541, <i32 8, i32 2, i32 22, i32 7, i32 5, i32 4, i32 2, i32 2>
+  %543 = add i32 %0, -2911
+  %or.cond501 = icmp ult i32 %543, 3
+  %544 = add i32 %0, -2918
+  %or.cond503 = icmp ult i32 %544, 10
+  %545 = add i32 %0, -2930
+  %or.cond504 = icmp ult i32 %545, 6
+  %546 = bitcast <8 x i1> %542 to i8
+  %547 = icmp ne i8 %546, 0
+  %548 = bitcast <4 x i1> %540 to i4
+  %549 = icmp ne i4 %548, 0
+  %op.rdx2477 = or i1 %547, %549
+  %op.rdx2478 = or i1 %op.rdx2477, %or.cond501
+  %op.rdx2479 = or i1 %or.cond503, %or.cond504
+  %op.rdx2480 = or i1 %op.rdx2478, %op.rdx2479
+  br i1 %op.rdx2480, label %switch.lookup, label %550
 
-562:                                              ; preds = %553
-  %563 = add <8 x i32> %457, <i32 -2689, i32 -2693, i32 -2703, i32 -2707, i32 -2730, i32 -2741, i32 -2750, i32 -2759>
-  %or.cond481 = icmp eq i32 %473, 2738
-  %564 = icmp ult <8 x i32> %563, <i32 2, i32 9, i32 3, i32 22, i32 7, i32 5, i32 8, i32 2>
-  %565 = add i32 %0, -2763
-  %or.cond486 = icmp ult i32 %565, 2
-  %566 = icmp eq i32 %472, 2784
-  %567 = add i32 %0, -2790
-  %or.cond489 = icmp ult i32 %567, 10
-  %568 = bitcast <8 x i1> %564 to i8
-  %569 = icmp ne i8 %568, 0
-  %op.rdx2472 = or i1 %569, %or.cond486
-  %op.rdx2473 = or i1 %or.cond489, %or.cond481
-  %op.rdx2474 = or i1 %op.rdx2472, %op.rdx2473
-  %op.rdx2475 = or i1 %op.rdx2474, %566
-  br i1 %op.rdx2475, label %switch.lookup, label %570
+550:                                              ; preds = %538
+  %551 = add <8 x i32> %446, <i32 -2949, i32 -2958, i32 -2962, i32 -2969, i32 -2979, i32 -2984, i32 -2990, i32 -3009>
+  %552 = icmp ult <8 x i32> %551, <i32 6, i32 3, i32 4, i32 2, i32 2, i32 3, i32 12, i32 2>
+  %553 = add i32 %0, -3014
+  %or.cond515 = icmp ult i32 %553, 3
+  %554 = add i32 %0, -3018
+  %or.cond516 = icmp ult i32 %554, 3
+  %555 = add i32 %0, -3046
+  %556 = icmp ult i32 %555, 19
+  %557 = bitcast <8 x i1> %552 to i8
+  %558 = icmp ne i8 %557, 0
+  %op.rdx2472 = or i1 %558, %or.cond515
+  %op.rdx2473 = or i1 %or.cond516, %556
+  %559 = and i32 %11, -34
+  %op.rdx2474 = icmp eq i32 %559, 2974
+  %op.rdx2475 = or i1 %op.rdx2472, %op.rdx2473
+  %op.rdx2476 = or i1 %op.rdx2475, %op.rdx2474
+  br i1 %op.rdx2476, label %switch.lookup, label %560
 
-570:                                              ; preds = %562
-  %571 = add <8 x i32> %457, <i32 -2821, i32 -2831, i32 -2835, i32 -2858, i32 -2869, i32 -2881, i32 -2887, i32 -2891>
-  %572 = icmp ult <8 x i32> %571, <i32 8, i32 2, i32 22, i32 7, i32 5, i32 4, i32 2, i32 2>
-  %573 = add i32 %0, -2911
-  %or.cond501 = icmp ult i32 %573, 3
-  %574 = shufflevector <2 x i32> %9, <2 x i32> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %575 = icmp eq <4 x i32> %574, <i32 2818, i32 2866, i32 2908, i32 2914>
-  %576 = add i32 %0, -2918
-  %or.cond503 = icmp ult i32 %576, 10
-  %577 = add i32 %0, -2930
-  %or.cond504 = icmp ult i32 %577, 6
-  %578 = bitcast <8 x i1> %572 to i8
-  %579 = icmp ne i8 %578, 0
-  %580 = bitcast <4 x i1> %575 to i4
-  %581 = icmp ne i4 %580, 0
-  %op.rdx2468 = or i1 %579, %581
-  %op.rdx2469 = or i1 %op.rdx2468, %or.cond501
-  %op.rdx2470 = or i1 %or.cond503, %or.cond504
-  %op.rdx2471 = or i1 %op.rdx2469, %op.rdx2470
-  br i1 %op.rdx2471, label %switch.lookup, label %582
+560:                                              ; preds = %550
+  %561 = add <8 x i32> %446, <i32 -3073, i32 -3077, i32 -3086, i32 -3090, i32 -3114, i32 -3134, i32 -3142, i32 -3146>
+  %562 = icmp ult <8 x i32> %561, <i32 3, i32 8, i32 3, i32 23, i32 16, i32 7, i32 3, i32 4>
+  %563 = add <4 x i32> %8, <i32 -3157, i32 -3160, i32 -3174, i32 -3192>
+  %564 = icmp eq i32 %12, 3168
+  %565 = icmp ult <4 x i32> %563, <i32 2, i32 3, i32 10, i32 7>
+  %566 = bitcast <8 x i1> %562 to i8
+  %567 = icmp ne i8 %566, 0
+  %568 = bitcast <4 x i1> %565 to i4
+  %569 = icmp ne i4 %568, 0
+  %op.rdx2470 = or i1 %567, %569
+  %op.rdx2471 = or i1 %op.rdx2470, %564
+  br i1 %op.rdx2471, label %switch.lookup, label %570
 
-582:                                              ; preds = %570
-  %583 = add <8 x i32> %457, <i32 -2949, i32 -2958, i32 -2962, i32 -2969, i32 -2979, i32 -2984, i32 -2990, i32 -3009>
-  %584 = icmp ult <8 x i32> %583, <i32 6, i32 3, i32 4, i32 2, i32 2, i32 3, i32 12, i32 2>
-  %585 = add i32 %0, -3014
-  %or.cond515 = icmp ult i32 %585, 3
-  %586 = add i32 %0, -3018
-  %or.cond516 = icmp ult i32 %586, 3
-  %587 = add i32 %0, -3046
-  %588 = icmp ult i32 %587, 19
-  %589 = bitcast <8 x i1> %584 to i8
-  %590 = icmp ne i8 %589, 0
-  %op.rdx2463 = or i1 %590, %or.cond515
-  %op.rdx2464 = or i1 %or.cond516, %588
-  %591 = and i32 %473, -34
-  %op.rdx2465 = icmp eq i32 %591, 2974
-  %op.rdx2466 = or i1 %op.rdx2463, %op.rdx2464
-  %op.rdx2467 = or i1 %op.rdx2466, %op.rdx2465
-  br i1 %op.rdx2467, label %switch.lookup, label %592
+570:                                              ; preds = %560
+  %or.cond535 = icmp eq i32 %11, 3202
+  %571 = add <8 x i32> %446, <i32 -3205, i32 -3214, i32 -3218, i32 -3242, i32 -3253, i32 -3264, i32 -3271, i32 -3285>
+  %or.cond543 = icmp eq i32 %11, 3274
+  %or.cond544 = icmp eq i32 %11, 3276
+  %572 = icmp ult <8 x i32> %571, <i32 8, i32 3, i32 23, i32 10, i32 5, i32 5, i32 2, i32 2>
+  %573 = icmp eq i32 %12, 3296
+  %574 = add i32 %0, -3302
+  %or.cond548 = icmp ult i32 %574, 10
+  %575 = add i32 %0, -3313
+  %or.cond549 = icmp ult i32 %575, 2
+  %576 = bitcast <8 x i1> %572 to i8
+  %577 = icmp ne i8 %576, 0
+  %op.rdx2464 = or i1 %577, %or.cond548
+  %op.rdx2465 = or i1 %or.cond549, %or.cond535
+  %op.rdx2466 = or i1 %or.cond543, %or.cond544
+  %op.rdx2467 = or i1 %op.rdx2464, %op.rdx2465
+  %op.rdx2468 = or i1 %op.rdx2466, %573
+  %op.rdx2469 = or i1 %op.rdx2467, %op.rdx2468
+  br i1 %op.rdx2469, label %switch.lookup, label %578
 
-592:                                              ; preds = %582
-  %593 = add <8 x i32> %457, <i32 -3073, i32 -3077, i32 -3086, i32 -3090, i32 -3114, i32 -3134, i32 -3142, i32 -3146>
-  %594 = icmp ult <8 x i32> %593, <i32 3, i32 8, i32 3, i32 23, i32 16, i32 7, i32 3, i32 4>
-  %595 = add <4 x i32> %494, <i32 -3157, i32 -3160, i32 -3174, i32 -3192>
-  %596 = icmp eq i32 %472, 3168
-  %597 = icmp ult <4 x i32> %595, <i32 2, i32 3, i32 10, i32 7>
-  %598 = bitcast <8 x i1> %594 to i8
-  %599 = icmp ne i8 %598, 0
-  %600 = bitcast <4 x i1> %597 to i4
-  %601 = icmp ne i4 %600, 0
-  %op.rdx2461 = or i1 %599, %601
-  %op.rdx2462 = or i1 %op.rdx2461, %596
-  br i1 %op.rdx2462, label %switch.lookup, label %602
+578:                                              ; preds = %570
+  %or.cond550 = icmp eq i32 %11, 3330
+  %579 = add <8 x i32> %446, <i32 -3333, i32 -3342, i32 -3346, i32 -3390, i32 -3398, i32 -3402, i32 -3412, i32 -3416>
+  %580 = icmp ult <8 x i32> %579, <i32 8, i32 3, i32 41, i32 7, i32 3, i32 3, i32 3, i32 10>
+  %or.cond561 = icmp eq i32 %11, 3426
+  %581 = add i32 %0, -3430
+  %582 = icmp ult i32 %581, 19
+  %583 = add i32 %0, -3450
+  %or.cond564 = icmp ult i32 %583, 6
+  %584 = bitcast <8 x i1> %580 to i8
+  %585 = icmp ne i8 %584, 0
+  %op.rdx2460 = or i1 %585, %582
+  %op.rdx2461 = or i1 %or.cond564, %or.cond550
+  %op.rdx2462 = or i1 %op.rdx2460, %op.rdx2461
+  %op.rdx2463 = or i1 %op.rdx2462, %or.cond561
+  br i1 %op.rdx2463, label %switch.lookup, label %586
 
-602:                                              ; preds = %592
-  %603 = add <8 x i32> %457, <i32 -3205, i32 -3214, i32 -3218, i32 -3242, i32 -3253, i32 -3264, i32 -3271, i32 -3285>
-  %604 = icmp ult <8 x i32> %603, <i32 8, i32 3, i32 23, i32 10, i32 5, i32 5, i32 2, i32 2>
-  %605 = icmp eq <4 x i32> %546, <i32 3202, i32 3274, i32 3276, i32 3296>
-  %606 = add i32 %0, -3302
-  %or.cond548 = icmp ult i32 %606, 10
-  %607 = add i32 %0, -3313
-  %or.cond549 = icmp ult i32 %607, 2
-  %608 = bitcast <8 x i1> %604 to i8
-  %609 = icmp ne i8 %608, 0
-  %610 = bitcast <4 x i1> %605 to i4
-  %611 = icmp ne i4 %610, 0
-  %op.rdx2458 = or i1 %609, %611
-  %op.rdx2459 = or i1 %op.rdx2458, %or.cond548
-  %op.rdx2460 = or i1 %op.rdx2459, %or.cond549
-  br i1 %op.rdx2460, label %switch.lookup, label %612
+586:                                              ; preds = %578
+  %or.cond565 = icmp eq i32 %11, 3458
+  %587 = add <4 x i32> %8, <i32 -3461, i32 -3482, i32 -3507, i32 -3520>
+  %588 = icmp ult <4 x i32> %587, <i32 18, i32 24, i32 9, i32 7>
+  %589 = add i32 %0, -3535
+  %590 = icmp ult i32 %589, 6
+  %or.cond572 = icmp eq i32 %10, 3544
+  %591 = add i32 %0, -3558
+  %or.cond573 = icmp ult i32 %591, 10
+  %or.cond574 = icmp eq i32 %11, 3570
+  %592 = add i32 %0, -70113
+  %or.cond575 = icmp ult i32 %592, 20
+  %593 = bitcast <4 x i1> %588 to i4
+  %594 = icmp ne i4 %593, 0
+  %op.rdx2454 = or i1 %594, %590
+  %op.rdx2455 = or i1 %or.cond573, %or.cond575
+  %op.rdx2456 = or i1 %or.cond565, %or.cond572
+  %op.rdx2457 = or i1 %op.rdx2454, %op.rdx2455
+  %op.rdx2458 = or i1 %op.rdx2456, %or.cond574
+  %op.rdx2459 = or i1 %op.rdx2457, %op.rdx2458
+  br i1 %op.rdx2459, label %switch.lookup, label %595
 
-612:                                              ; preds = %602
-  %or.cond550 = icmp eq i32 %473, 3330
-  %613 = add <8 x i32> %457, <i32 -3333, i32 -3342, i32 -3346, i32 -3390, i32 -3398, i32 -3402, i32 -3412, i32 -3416>
-  %614 = icmp ult <8 x i32> %613, <i32 8, i32 3, i32 41, i32 7, i32 3, i32 3, i32 3, i32 10>
-  %or.cond561 = icmp eq i32 %473, 3426
-  %615 = add i32 %0, -3430
-  %616 = icmp ult i32 %615, 19
-  %617 = add i32 %0, -3450
-  %or.cond564 = icmp ult i32 %617, 6
-  %618 = bitcast <8 x i1> %614 to i8
-  %619 = icmp ne i8 %618, 0
-  %op.rdx2454 = or i1 %619, %616
-  %op.rdx2455 = or i1 %or.cond564, %or.cond550
-  %op.rdx2456 = or i1 %op.rdx2454, %op.rdx2455
-  %op.rdx2457 = or i1 %op.rdx2456, %or.cond561
-  br i1 %op.rdx2457, label %switch.lookup, label %620
-
-620:                                              ; preds = %612
-  %or.cond565 = icmp eq i32 %473, 3458
-  %621 = add <4 x i32> %494, <i32 -3461, i32 -3482, i32 -3507, i32 -3520>
-  %622 = icmp ult <4 x i32> %621, <i32 18, i32 24, i32 9, i32 7>
-  %623 = add i32 %0, -3535
-  %624 = icmp ult i32 %623, 6
-  %or.cond572 = icmp eq i32 %57, 3544
-  %625 = add i32 %0, -3558
-  %or.cond573 = icmp ult i32 %625, 10
-  %or.cond574 = icmp eq i32 %473, 3570
-  %626 = add i32 %0, -70113
-  %or.cond575 = icmp ult i32 %626, 20
-  %627 = bitcast <4 x i1> %622 to i4
-  %628 = icmp ne i4 %627, 0
-  %op.rdx2448 = or i1 %628, %624
-  %op.rdx2449 = or i1 %or.cond573, %or.cond575
-  %op.rdx2450 = or i1 %or.cond565, %or.cond572
-  %op.rdx2451 = or i1 %op.rdx2448, %op.rdx2449
-  %op.rdx2452 = or i1 %op.rdx2450, %or.cond574
+595:                                              ; preds = %586
+  %596 = add <4 x i32> %8, <i32 -3585, i32 -3636, i32 -3648, i32 -3655>
+  %or.cond577 = icmp eq i32 %11, 3634
+  %597 = icmp ult <4 x i32> %596, <i32 48, i32 7, i32 6, i32 8>
+  %598 = add i32 %0, -3664
+  %or.cond581 = icmp ult i32 %598, 10
+  %or.cond582 = icmp eq i32 %11, 3674
+  %599 = bitcast <4 x i1> %597 to i4
+  %600 = icmp ne i4 %599, 0
+  %op.rdx2451 = or i1 %600, %or.cond581
+  %op.rdx2452 = or i1 %or.cond577, %or.cond582
   %op.rdx2453 = or i1 %op.rdx2451, %op.rdx2452
-  br i1 %op.rdx2453, label %switch.lookup, label %629
+  br i1 %op.rdx2453, label %switch.lookup, label %601
 
-629:                                              ; preds = %620
-  %630 = add <4 x i32> %494, <i32 -3585, i32 -3636, i32 -3648, i32 -3655>
-  %or.cond577 = icmp eq i32 %473, 3634
-  %631 = icmp ult <4 x i32> %630, <i32 48, i32 7, i32 6, i32 8>
-  %632 = add i32 %0, -3664
-  %or.cond581 = icmp ult i32 %632, 10
-  %or.cond582 = icmp eq i32 %473, 3674
-  %633 = bitcast <4 x i1> %631 to i4
-  %634 = icmp ne i4 %633, 0
-  %op.rdx2445 = or i1 %634, %or.cond581
-  %op.rdx2446 = or i1 %or.cond577, %or.cond582
-  %op.rdx2447 = or i1 %op.rdx2445, %op.rdx2446
-  br i1 %op.rdx2447, label %switch.lookup, label %635
+601:                                              ; preds = %595
+  %602 = add <8 x i32> %446, <i32 -3713, i32 -3719, i32 -3737, i32 -3745, i32 -3757, i32 -3764, i32 -3771, i32 -3776>
+  %or.cond585 = icmp eq i32 %12, 3732
+  %or.cond588 = icmp eq i32 %11, 3754
+  %or.cond590 = icmp eq i32 %11, 3762
+  %603 = icmp ult <8 x i32> %602, <i32 2, i32 2, i32 7, i32 3, i32 4, i32 6, i32 2, i32 5>
+  %604 = add i32 %0, -3784
+  %or.cond594 = icmp ult i32 %604, 6
+  %605 = add i32 %0, -3792
+  %or.cond595 = icmp ult i32 %605, 10
+  %or.cond596 = icmp eq i32 %12, 3804
+  %606 = bitcast <8 x i1> %603 to i8
+  %607 = icmp ne i8 %606, 0
+  %op.rdx2445 = or i1 %607, %or.cond594
+  %op.rdx2446 = or i1 %or.cond595, %or.cond585
+  %op.rdx2447 = or i1 %or.cond588, %or.cond590
+  %op.rdx2448 = or i1 %op.rdx2445, %op.rdx2446
+  %op.rdx2449 = or i1 %op.rdx2447, %or.cond596
+  %op.rdx2450 = or i1 %op.rdx2448, %op.rdx2449
+  br i1 %op.rdx2450, label %switch.lookup, label %608
 
-635:                                              ; preds = %629
-  %636 = add <8 x i32> %457, <i32 -3713, i32 -3719, i32 -3737, i32 -3745, i32 -3757, i32 -3764, i32 -3771, i32 -3776>
-  %637 = icmp ult <8 x i32> %636, <i32 2, i32 2, i32 7, i32 3, i32 4, i32 6, i32 2, i32 5>
-  %638 = add i32 %0, -3784
-  %or.cond594 = icmp ult i32 %638, 6
-  %639 = add i32 %0, -3792
-  %or.cond595 = icmp ult i32 %639, 10
-  %640 = and <2 x i32> %8, <i32 -4, i32 -2>
-  %641 = shufflevector <2 x i32> %640, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %642 = icmp eq <4 x i32> %641, <i32 3732, i32 3754, i32 3804, i32 3762>
-  %643 = bitcast <8 x i1> %637 to i8
-  %644 = icmp ne i8 %643, 0
-  %645 = bitcast <4 x i1> %642 to i4
-  %646 = icmp ne i4 %645, 0
-  %op.rdx2442 = or i1 %644, %646
-  %op.rdx2443 = or i1 %op.rdx2442, %or.cond594
-  %op.rdx2444 = or i1 %op.rdx2443, %or.cond595
-  br i1 %op.rdx2444, label %switch.lookup, label %647
+608:                                              ; preds = %601
+  %609 = add <8 x i32> %446, <i32 -3841, i32 -3861, i32 -3866, i32 -3913, i32 -3953, i32 -3968, i32 -3976, i32 -3993>
+  %or.cond600 = icmp eq i32 %11, 3864
+  %or.cond604 = icmp eq i32 %11, 3902
+  %or.cond605 = icmp eq i32 %10, 3904
+  %or.cond609 = icmp eq i32 %11, 3974
+  %610 = icmp ult <8 x i32> %609, <i32 18, i32 3, i32 26, i32 36, i32 14, i32 5, i32 16, i32 36>
+  %611 = add <4 x i32> %8, <i32 -4030, i32 -4039, i32 -4048, i32 -4057>
+  %or.cond615 = icmp eq i32 %11, 4046
+  %612 = icmp ult <4 x i32> %611, <i32 8, i32 6, i32 5, i32 2>
+  %613 = bitcast <8 x i1> %610 to i8
+  %614 = icmp ne i8 %613, 0
+  %615 = bitcast <4 x i1> %612 to i4
+  %616 = icmp ne i4 %615, 0
+  %op.rdx2439 = or i1 %614, %616
+  %op.rdx2440 = or i1 %op.rdx2439, %or.cond600
+  %op.rdx2441 = or i1 %or.cond604, %or.cond605
+  %op.rdx2442 = or i1 %or.cond609, %or.cond615
+  %op.rdx2443 = or i1 %op.rdx2440, %op.rdx2441
+  %op.rdx2444 = or i1 %op.rdx2443, %op.rdx2442
+  br i1 %op.rdx2444, label %switch.lookup, label %617
 
-647:                                              ; preds = %635
-  %648 = add <8 x i32> %457, <i32 -3841, i32 -3861, i32 -3866, i32 -3913, i32 -3953, i32 -3968, i32 -3976, i32 -3993>
-  %or.cond600 = icmp eq i32 %473, 3864
-  %or.cond604 = icmp eq i32 %473, 3902
-  %or.cond605 = icmp eq i32 %57, 3904
-  %or.cond609 = icmp eq i32 %473, 3974
-  %649 = icmp ult <8 x i32> %648, <i32 18, i32 3, i32 26, i32 36, i32 14, i32 5, i32 16, i32 36>
-  %650 = add <4 x i32> %494, <i32 -4030, i32 -4039, i32 -4048, i32 -4057>
-  %or.cond615 = icmp eq i32 %473, 4046
-  %651 = icmp ult <4 x i32> %650, <i32 8, i32 6, i32 5, i32 2>
-  %652 = bitcast <8 x i1> %649 to i8
-  %653 = icmp ne i8 %652, 0
-  %654 = bitcast <4 x i1> %651 to i4
-  %655 = icmp ne i4 %654, 0
-  %op.rdx2436 = or i1 %653, %655
-  %op.rdx2437 = or i1 %op.rdx2436, %or.cond600
-  %op.rdx2438 = or i1 %or.cond604, %or.cond605
-  %op.rdx2439 = or i1 %or.cond609, %or.cond615
-  %op.rdx2440 = or i1 %op.rdx2437, %op.rdx2438
-  %op.rdx2441 = or i1 %op.rdx2440, %op.rdx2439
-  br i1 %op.rdx2441, label %switch.lookup, label %656
+617:                                              ; preds = %608
+  %618 = add <8 x i32> %446, <i32 -4096, i32 -4146, i32 -4153, i32 -4176, i32 -4186, i32 -4194, i32 -4227, i32 -4240>
+  %619 = icmp eq i32 %19, 4160
+  %or.cond628 = icmp eq i32 %11, 4182
+  %or.cond629 = icmp eq i32 %11, 4184
+  %620 = icmp ult <8 x i32> %618, <i32 49, i32 6, i32 6, i32 6, i32 7, i32 32, i32 10, i32 13>
+  %or.cond643 = icmp eq i32 %11, 4254
+  %621 = add i32 %0, -43488
+  %or.cond644 = icmp ult i32 %621, 5
+  %622 = add i32 %0, -43495
+  %623 = icmp ult i32 %622, 24
+  %or.cond648 = icmp eq i32 %19, 43616
+  %624 = add i32 %0, -43633
+  %625 = icmp ult i32 %624, 9
+  %or.cond651 = icmp eq i32 %11, 43646
+  %626 = bitcast <8 x i1> %620 to i8
+  %627 = icmp ne i8 %626, 0
+  %op.rdx2430 = or i1 %627, %or.cond644
+  %op.rdx2431 = or i1 %623, %625
+  %op.rdx2432 = or i1 %619, %or.cond628
+  %op.rdx2433 = or i1 %or.cond629, %or.cond643
+  %op.rdx2434 = or i1 %or.cond648, %or.cond651
+  %op.rdx2435 = or i1 %op.rdx2430, %op.rdx2431
+  %op.rdx2436 = or i1 %op.rdx2432, %op.rdx2433
+  %op.rdx2437 = or i1 %op.rdx2435, %op.rdx2436
+  %op.rdx2438 = or i1 %op.rdx2437, %op.rdx2434
+  br i1 %op.rdx2438, label %switch.lookup, label %628
 
-656:                                              ; preds = %647
-  %657 = add <8 x i32> %457, <i32 -4096, i32 -4146, i32 -4153, i32 -4176, i32 -4186, i32 -4194, i32 -4227, i32 -4240>
-  %658 = icmp eq <4 x i32> %10, <i32 4160, i32 4182, i32 4184, i32 4254>
-  %659 = icmp ult <8 x i32> %657, <i32 49, i32 6, i32 6, i32 6, i32 7, i32 32, i32 10, i32 13>
-  %660 = add i32 %0, -43488
-  %or.cond644 = icmp ult i32 %660, 5
-  %661 = add i32 %0, -43495
-  %662 = icmp ult i32 %661, 24
-  %663 = add i32 %0, -43633
-  %664 = icmp ult i32 %663, 9
-  %665 = icmp eq <2 x i32> %9, <i32 43616, i32 43646>
-  %666 = bitcast <8 x i1> %659 to i8
-  %667 = icmp ne i8 %666, 0
-  %668 = bitcast <4 x i1> %658 to i4
-  %669 = icmp ne i4 %668, 0
-  %op.rdx2430 = or i1 %667, %669
-  %op.rdx2431 = or i1 %op.rdx2430, %or.cond644
-  %op.rdx2432 = or i1 %662, %664
-  %shift = shufflevector <2 x i1> %665, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %670 = or <2 x i1> %665, %shift
-  %op.rdx2433 = extractelement <2 x i1> %670, i64 0
-  %op.rdx2434 = or i1 %op.rdx2431, %op.rdx2432
-  %op.rdx2435 = or i1 %op.rdx2434, %op.rdx2433
-  br i1 %op.rdx2435, label %switch.lookup, label %671
+628:                                              ; preds = %617
+  %629 = add <4 x i32> %8, <i32 -4256, i32 -4304, i32 -4349, i32 -11520>
+  %630 = icmp ult <4 x i32> %629, <i32 38, i32 43, i32 3, i32 38>
+  %631 = bitcast <4 x i1> %630 to i4
+  %.not = icmp eq i4 %631, 0
+  br i1 %.not, label %632, label %switch.lookup
 
-671:                                              ; preds = %656
-  %672 = add <4 x i32> %494, <i32 -4256, i32 -4304, i32 -4349, i32 -11520>
-  %673 = icmp ult <4 x i32> %672, <i32 38, i32 43, i32 3, i32 38>
-  %674 = bitcast <4 x i1> %673 to i4
-  %.not = icmp eq i4 %674, 0
-  br i1 %.not, label %675, label %switch.lookup
-
-675:                                              ; preds = %671
-  %676 = extractelement <2 x i32> %13, i64 1
-  %or.cond656 = icmp eq i32 %676, 4352
-  %or.cond657 = icmp eq i32 %473, 12334
-  %677 = add <8 x i32> %457, <i32 -12593, i32 -12800, i32 -12896, i32 -43360, i32 -44032, i32 -55216, i32 -55243, i32 -65440>
-  %678 = icmp ult <8 x i32> %677, <i32 94, i32 31, i32 31, i32 29, i32 11172, i32 23, i32 49, i32 31>
-  %679 = extractelement <2 x i32> %12, i64 0
-  %680 = add i32 %679, -65474
-  %681 = icmp ult i32 %680, 6
-  %682 = add i32 %0, -65490
-  %or.cond668 = icmp ult i32 %682, 6
-  %683 = add i32 %0, -65498
-  %or.cond669 = icmp ult i32 %683, 3
-  %684 = bitcast <8 x i1> %678 to i8
-  %685 = icmp ne i8 %684, 0
-  %op.rdx2425 = or i1 %685, %681
+632:                                              ; preds = %628
+  %633 = extractelement <4 x i32> %9, i64 1
+  %or.cond656 = icmp eq i32 %633, 4352
+  %or.cond657 = icmp eq i32 %11, 12334
+  %634 = add <8 x i32> %446, <i32 -12593, i32 -12800, i32 -12896, i32 -43360, i32 -44032, i32 -55216, i32 -55243, i32 -65440>
+  %635 = icmp ult <8 x i32> %634, <i32 94, i32 31, i32 31, i32 29, i32 11172, i32 23, i32 49, i32 31>
+  %636 = add i32 %25, -65474
+  %637 = icmp ult i32 %636, 6
+  %638 = add i32 %0, -65490
+  %or.cond668 = icmp ult i32 %638, 6
+  %639 = add i32 %0, -65498
+  %or.cond669 = icmp ult i32 %639, 3
+  %640 = bitcast <8 x i1> %635 to i8
+  %641 = icmp ne i8 %640, 0
+  %op.rdx2425 = or i1 %641, %637
   %op.rdx2426 = or i1 %or.cond668, %or.cond669
   %op.rdx2427 = or i1 %or.cond656, %or.cond657
   %op.rdx2428 = or i1 %op.rdx2425, %op.rdx2426
   %op.rdx2429 = or i1 %op.rdx2428, %op.rdx2427
-  br i1 %op.rdx2429, label %switch.lookup, label %686
+  br i1 %op.rdx2429, label %switch.lookup, label %642
 
-686:                                              ; preds = %675
-  %687 = add <16 x i32> %474, <i32 -4608, i32 -4682, i32 -4688, i32 -4698, i32 -4704, i32 -4746, i32 -4752, i32 -4786, i32 -4792, i32 -4802, i32 -4808, i32 -4824, i32 -4882, i32 -4888, i32 -4957, i32 -5008>
-  %688 = extractelement <2 x i32> %9, i64 0
-  %or.cond687 = icmp eq i32 %688, 4992
-  %689 = icmp ult <16 x i32> %687, <i32 73, i32 4, i32 7, i32 4, i32 41, i32 4, i32 33, i32 4, i32 7, i32 4, i32 15, i32 57, i32 4, i32 67, i32 32, i32 10>
-  %690 = add i32 %0, -11648
-  %or.cond689 = icmp ult i32 %690, 23
-  %691 = and i32 %0, -9
-  %692 = and i32 %0, -25
-  %693 = add i32 %692, -11680
-  %694 = icmp ult i32 %693, 7
-  %695 = and i32 %0, -25
-  %696 = add i32 %695, -11712
-  %697 = icmp ult i32 %696, 7
-  %698 = add i32 %691, -43777
-  %699 = icmp ult i32 %698, 6
-  %700 = add i32 %0, -43793
-  %or.cond700 = icmp ult i32 %700, 6
-  %701 = add i32 %691, -43808
-  %702 = icmp ult i32 %701, 7
-  %703 = bitcast <16 x i1> %689 to i16
-  %704 = icmp ne i16 %703, 0
-  %op.rdx2418 = or i1 %704, %or.cond689
-  %op.rdx2419 = or i1 %694, %697
-  %op.rdx2420 = or i1 %699, %or.cond700
-  %op.rdx2421 = or i1 %702, %or.cond687
+642:                                              ; preds = %632
+  %643 = add <16 x i32> %456, <i32 -4608, i32 -4682, i32 -4688, i32 -4698, i32 -4704, i32 -4746, i32 -4752, i32 -4786, i32 -4792, i32 -4802, i32 -4808, i32 -4824, i32 -4882, i32 -4888, i32 -4957, i32 -5008>
+  %or.cond687 = icmp eq i32 %19, 4992
+  %644 = icmp ult <16 x i32> %643, <i32 73, i32 4, i32 7, i32 4, i32 41, i32 4, i32 33, i32 4, i32 7, i32 4, i32 15, i32 57, i32 4, i32 67, i32 32, i32 10>
+  %645 = add i32 %0, -11648
+  %or.cond689 = icmp ult i32 %645, 23
+  %646 = and i32 %0, -9
+  %647 = and i32 %0, -25
+  %648 = add i32 %647, -11680
+  %649 = icmp ult i32 %648, 7
+  %650 = and i32 %0, -25
+  %651 = add i32 %650, -11712
+  %652 = icmp ult i32 %651, 7
+  %653 = add i32 %646, -43777
+  %654 = icmp ult i32 %653, 6
+  %655 = add i32 %0, -43793
+  %or.cond700 = icmp ult i32 %655, 6
+  %656 = add i32 %646, -43808
+  %657 = icmp ult i32 %656, 7
+  %658 = bitcast <16 x i1> %644 to i16
+  %659 = icmp ne i16 %658, 0
+  %op.rdx2418 = or i1 %659, %or.cond689
+  %op.rdx2419 = or i1 %649, %652
+  %op.rdx2420 = or i1 %654, %or.cond700
+  %op.rdx2421 = or i1 %657, %or.cond687
   %op.rdx2422 = or i1 %op.rdx2418, %op.rdx2419
   %op.rdx2423 = or i1 %op.rdx2420, %op.rdx2421
   %op.rdx2424 = or i1 %op.rdx2422, %op.rdx2423
-  br i1 %op.rdx2424, label %switch.lookup, label %705
+  br i1 %op.rdx2424, label %switch.lookup, label %660
 
-705:                                              ; preds = %686
-  %706 = add i32 %0, -5024
-  %or.cond703 = icmp ult i32 %706, 86
-  %707 = add i32 %0, -5112
-  %or.cond704 = icmp ult i32 %707, 6
+660:                                              ; preds = %642
+  %661 = add i32 %0, -5024
+  %or.cond703 = icmp ult i32 %661, 86
+  %662 = add i32 %0, -5112
+  %or.cond704 = icmp ult i32 %662, 6
   %or.cond1901 = or i1 %or.cond703, %or.cond704
-  %708 = add i32 %0, -43888
-  %or.cond705 = icmp ult i32 %708, 80
+  %663 = add i32 %0, -43888
+  %or.cond705 = icmp ult i32 %663, 80
   %or.cond1902 = or i1 %or.cond705, %or.cond1901
-  br i1 %or.cond1902, label %switch.lookup, label %709
+  br i1 %or.cond1902, label %switch.lookup, label %664
 
-709:                                              ; preds = %705
-  %710 = add i32 %0, -5121
-  %or.cond1904 = icmp ult i32 %710, 639
-  %711 = add i32 %0, -6320
-  %or.cond709 = icmp ult i32 %711, 70
+664:                                              ; preds = %660
+  %665 = add i32 %0, -5121
+  %or.cond1904 = icmp ult i32 %665, 639
+  %666 = add i32 %0, -6320
+  %or.cond709 = icmp ult i32 %666, 70
   %or.cond1905 = or i1 %or.cond1904, %or.cond709
-  br i1 %or.cond1905, label %switch.lookup, label %712
+  br i1 %or.cond1905, label %switch.lookup, label %667
 
-712:                                              ; preds = %709
-  %713 = add i32 %0, -5761
-  %or.cond710 = icmp ult i32 %713, 26
-  br i1 %or.cond710, label %switch.lookup, label %714
+667:                                              ; preds = %664
+  %668 = add i32 %0, -5761
+  %or.cond710 = icmp ult i32 %668, 26
+  br i1 %or.cond710, label %switch.lookup, label %669
 
-714:                                              ; preds = %712
-  %715 = add i32 %0, -5792
-  %or.cond711 = icmp ult i32 %715, 75
+669:                                              ; preds = %667
+  %670 = add i32 %0, -5792
+  %or.cond711 = icmp ult i32 %670, 75
   %.off = add i32 %0, -5870
   %switch = icmp ult i32 %.off, 11
   %or.cond2322 = or i1 %or.cond711, %switch
-  br i1 %or.cond2322, label %switch.lookup, label %716
+  br i1 %or.cond2322, label %switch.lookup, label %671
 
-716:                                              ; preds = %714
-  %717 = add <4 x i32> %494, <i32 -6016, i32 -6071, i32 -6087, i32 -6104>
-  %or.cond715 = icmp eq i32 %473, 6068
-  %718 = icmp ult <4 x i32> %717, <i32 52, i32 15, i32 16, i32 3>
-  %719 = and i32 %0, -18
-  %720 = add i32 %719, -6112
-  %721 = icmp ult i32 %720, 10
-  %or.cond724 = icmp eq i32 %487, 6624
-  %722 = bitcast <4 x i1> %718 to i4
-  %723 = icmp ne i4 %722, 0
-  %op.rdx2415 = or i1 %723, %721
+671:                                              ; preds = %669
+  %672 = add <4 x i32> %8, <i32 -6016, i32 -6071, i32 -6087, i32 -6104>
+  %or.cond715 = icmp eq i32 %11, 6068
+  %673 = icmp ult <4 x i32> %672, <i32 52, i32 15, i32 16, i32 3>
+  %674 = and i32 %0, -18
+  %675 = add i32 %674, -6112
+  %676 = icmp ult i32 %675, 10
+  %or.cond724 = icmp eq i32 %18, 6624
+  %677 = bitcast <4 x i1> %673 to i4
+  %678 = icmp ne i4 %677, 0
+  %op.rdx2415 = or i1 %678, %676
   %op.rdx2416 = or i1 %or.cond715, %or.cond724
   %op.rdx2417 = or i1 %op.rdx2415, %op.rdx2416
-  br i1 %op.rdx2417, label %switch.lookup, label %724
+  br i1 %op.rdx2417, label %switch.lookup, label %679
 
-724:                                              ; preds = %716
-  %or.cond725 = icmp eq i32 %473, 6144
-  %725 = add <4 x i32> %494, <i32 -6151, i32 -6160, i32 -6176, i32 -6212>
-  %726 = icmp ult <4 x i32> %725, <i32 7, i32 10, i32 35, i32 52>
-  %727 = add i32 %0, -6272
-  %728 = icmp ult i32 %727, 41
-  %729 = add i32 %0, -71264
-  %or.cond734 = icmp ult i32 %729, 13
-  %730 = bitcast <4 x i1> %726 to i4
-  %731 = icmp ne i4 %730, 0
-  %op.rdx2412 = or i1 %731, %728
+679:                                              ; preds = %671
+  %or.cond725 = icmp eq i32 %11, 6144
+  %680 = add <4 x i32> %8, <i32 -6151, i32 -6160, i32 -6176, i32 -6212>
+  %681 = icmp ult <4 x i32> %680, <i32 7, i32 10, i32 35, i32 52>
+  %682 = add i32 %0, -6272
+  %683 = icmp ult i32 %682, 41
+  %684 = add i32 %0, -71264
+  %or.cond734 = icmp ult i32 %684, 13
+  %685 = bitcast <4 x i1> %681 to i4
+  %686 = icmp ne i4 %685, 0
+  %op.rdx2412 = or i1 %686, %683
   %op.rdx2413 = or i1 %or.cond734, %or.cond725
   %op.rdx2414 = or i1 %op.rdx2412, %op.rdx2413
-  br i1 %op.rdx2414, label %switch.lookup, label %732
+  br i1 %op.rdx2414, label %switch.lookup, label %687
 
-732:                                              ; preds = %724
-  %733 = add i32 %0, -12353
-  %or.cond735 = icmp ult i32 %733, 86
-  %734 = add i32 %0, -12445
-  %or.cond736 = icmp ult i32 %734, 2
+687:                                              ; preds = %679
+  %688 = add i32 %0, -12353
+  %or.cond735 = icmp ult i32 %688, 86
+  %689 = add i32 %0, -12445
+  %or.cond736 = icmp ult i32 %689, 2
   %or.cond1927 = or i1 %or.cond735, %or.cond736
-  br i1 %or.cond1927, label %switch.lookup, label %735
+  br i1 %or.cond1927, label %switch.lookup, label %690
 
-735:                                              ; preds = %732
-  %736 = add <4 x i32> %494, <i32 -12449, i32 -12541, i32 -13008, i32 -13056>
-  %or.cond739 = icmp eq i32 %688, 12784
-  %737 = icmp ult <4 x i32> %736, <i32 90, i32 2, i32 47, i32 88>
-  %738 = add i32 %0, -65382
-  %or.cond742 = icmp ult i32 %738, 10
-  %739 = add i32 %0, -65393
-  %or.cond743 = icmp ult i32 %739, 45
-  %740 = bitcast <4 x i1> %737 to i4
-  %741 = icmp ne i4 %740, 0
-  %op.rdx2409 = or i1 %741, %or.cond742
+690:                                              ; preds = %687
+  %691 = add <4 x i32> %8, <i32 -12449, i32 -12541, i32 -13008, i32 -13056>
+  %or.cond739 = icmp eq i32 %19, 12784
+  %692 = icmp ult <4 x i32> %691, <i32 90, i32 2, i32 47, i32 88>
+  %693 = add i32 %0, -65382
+  %or.cond742 = icmp ult i32 %693, 10
+  %694 = add i32 %0, -65393
+  %or.cond743 = icmp ult i32 %694, 45
+  %695 = bitcast <4 x i1> %692 to i4
+  %696 = icmp ne i4 %695, 0
+  %op.rdx2409 = or i1 %696, %or.cond742
   %op.rdx2410 = or i1 %or.cond743, %or.cond739
   %op.rdx2411 = or i1 %op.rdx2409, %op.rdx2410
-  br i1 %op.rdx2411, label %switch.lookup, label %742
+  br i1 %op.rdx2411, label %switch.lookup, label %697
 
-742:                                              ; preds = %735
-  %or.cond744 = icmp eq i32 %473, 746
-  %743 = add i32 %0, -12549
-  %or.cond745 = icmp ult i32 %743, 41
+697:                                              ; preds = %690
+  %or.cond744 = icmp eq i32 %11, 746
+  %698 = add i32 %0, -12549
+  %or.cond745 = icmp ult i32 %698, 41
   %or.cond1934 = or i1 %or.cond744, %or.cond745
-  %744 = add i32 %0, -12704
-  %or.cond746 = icmp ult i32 %744, 27
+  %699 = add i32 %0, -12704
+  %or.cond746 = icmp ult i32 %699, 27
   %or.cond1935 = or i1 %or.cond746, %or.cond1934
-  br i1 %or.cond1935, label %switch.lookup, label %745
+  br i1 %or.cond1935, label %switch.lookup, label %700
 
-745:                                              ; preds = %742
-  %746 = add <8 x i32> %457, <i32 -11904, i32 -11931, i32 -12032, i32 -12321, i32 -12344, i32 -13312, i32 -19968, i32 -63744>
-  %747 = icmp ult <8 x i32> %746, <i32 26, i32 89, i32 214, i32 9, i32 3, i32 6582, i32 20950, i32 366>
-  %748 = add <4 x i32> %494, <i32 -64112, i32 -131072, i32 -173824, i32 -177984>
-  %749 = icmp ult <4 x i32> %748, <i32 106, i32 42711, i32 4149, i32 222>
-  %750 = add i32 %0, -178208
-  %or.cond759 = icmp ult i32 %750, 5762
-  %751 = add i32 %0, -194560
-  %or.cond760 = icmp ult i32 %751, 542
-  %752 = bitcast <8 x i1> %747 to i8
-  %753 = icmp ne i8 %752, 0
-  %754 = bitcast <4 x i1> %749 to i4
-  %755 = icmp ne i4 %754, 0
-  %op.rdx2406 = or i1 %753, %755
+700:                                              ; preds = %697
+  %701 = add <8 x i32> %446, <i32 -11904, i32 -11931, i32 -12032, i32 -12321, i32 -12344, i32 -13312, i32 -19968, i32 -63744>
+  %702 = icmp ult <8 x i32> %701, <i32 26, i32 89, i32 214, i32 9, i32 3, i32 6582, i32 20950, i32 366>
+  %703 = add <4 x i32> %8, <i32 -64112, i32 -131072, i32 -173824, i32 -177984>
+  %704 = icmp ult <4 x i32> %703, <i32 106, i32 42711, i32 4149, i32 222>
+  %705 = add i32 %0, -178208
+  %or.cond759 = icmp ult i32 %705, 5762
+  %706 = add i32 %0, -194560
+  %or.cond760 = icmp ult i32 %706, 542
+  %707 = bitcast <8 x i1> %702 to i8
+  %708 = icmp ne i8 %707, 0
+  %709 = bitcast <4 x i1> %704 to i4
+  %710 = icmp ne i4 %709, 0
+  %op.rdx2406 = or i1 %708, %710
   %op.rdx2407 = or i1 %op.rdx2406, %or.cond759
   %op.rdx2408 = or i1 %op.rdx2407, %or.cond760
-  br i1 %op.rdx2408, label %switch.lookup, label %756
+  br i1 %op.rdx2408, label %switch.lookup, label %711
 
-756:                                              ; preds = %745
-  %757 = add i32 %0, -40960
-  %or.cond761 = icmp ult i32 %757, 21
-  %758 = add i32 %0, -40982
-  %or.cond762 = icmp ult i32 %758, 1143
+711:                                              ; preds = %700
+  %712 = add i32 %0, -40960
+  %or.cond761 = icmp ult i32 %712, 21
+  %713 = add i32 %0, -40982
+  %or.cond762 = icmp ult i32 %713, 1143
   %or.cond1949 = or i1 %or.cond761, %or.cond762
-  %759 = add i32 %0, -42128
-  %or.cond763 = icmp ult i32 %759, 55
+  %714 = add i32 %0, -42128
+  %or.cond763 = icmp ult i32 %714, 55
   %or.cond1950 = or i1 %or.cond763, %or.cond1949
-  br i1 %or.cond1950, label %switch.lookup, label %760
+  br i1 %or.cond1950, label %switch.lookup, label %715
 
-760:                                              ; preds = %756
-  %or.cond764 = icmp eq i32 %487, 66304
-  %or.cond765 = icmp eq i32 %472, 66336
+715:                                              ; preds = %711
+  %or.cond764 = icmp eq i32 %18, 66304
+  %or.cond765 = icmp eq i32 %12, 66336
   %or.cond1951 = or i1 %or.cond764, %or.cond765
-  br i1 %or.cond1951, label %switch.lookup, label %761
+  br i1 %or.cond1951, label %switch.lookup, label %716
 
-761:                                              ; preds = %760
-  %762 = add i32 %0, -66352
-  %or.cond766 = icmp ult i32 %762, 17
-  %763 = add i32 %0, -66370
-  %or.cond767 = icmp ult i32 %763, 8
+716:                                              ; preds = %715
+  %717 = add i32 %0, -66352
+  %or.cond766 = icmp ult i32 %717, 17
+  %718 = add i32 %0, -66370
+  %or.cond767 = icmp ult i32 %718, 8
   %or.cond1952 = or i1 %or.cond766, %or.cond767
-  br i1 %or.cond1952, label %switch.lookup, label %764
+  br i1 %or.cond1952, label %switch.lookup, label %719
 
-764:                                              ; preds = %761
-  %765 = add i32 %0, -66560
-  %or.cond768 = icmp ult i32 %765, 80
-  br i1 %or.cond768, label %switch.lookup, label %766
+719:                                              ; preds = %716
+  %720 = add i32 %0, -66560
+  %or.cond768 = icmp ult i32 %720, 80
+  br i1 %or.cond768, label %switch.lookup, label %721
 
-766:                                              ; preds = %764
-  %767 = add <16 x i32> %474, <i32 -768, i32 -1157, i32 -1611, i32 -2385, i32 -6832, i32 -7376, i32 -7380, i32 -7394, i32 -7616, i32 -7675, i32 -8400, i32 -8418, i32 -12330, i32 -12441, i32 -65056, i32 -119143>
-  %or.cond777 = icmp eq i32 %473, 7416
-  %or.cond780 = icmp eq i32 %473, 8204
-  %or.cond787 = icmp eq i32 %688, 65024
-  %768 = icmp ult <16 x i32> %767, <i32 112, i32 2, i32 11, i32 2, i32 14, i32 3, i32 13, i32 7, i32 54, i32 5, i32 17, i32 15, i32 4, i32 2, i32 14, i32 3>
-  %769 = add <4 x i32> %494, <i32 -119163, i32 -119173, i32 -119210, i32 -917760>
-  %770 = icmp ult <4 x i32> %769, <i32 8, i32 7, i32 4, i32 240>
-  %771 = bitcast <16 x i1> %768 to i16
-  %772 = icmp ne i16 %771, 0
-  %773 = bitcast <4 x i1> %770 to i4
-  %774 = icmp ne i4 %773, 0
-  %op.rdx2402 = or i1 %772, %774
+721:                                              ; preds = %719
+  %722 = add <16 x i32> %456, <i32 -768, i32 -1157, i32 -1611, i32 -2385, i32 -6832, i32 -7376, i32 -7380, i32 -7394, i32 -7616, i32 -7675, i32 -8400, i32 -8418, i32 -12330, i32 -12441, i32 -65056, i32 -119143>
+  %or.cond777 = icmp eq i32 %11, 7416
+  %or.cond780 = icmp eq i32 %11, 8204
+  %or.cond787 = icmp eq i32 %19, 65024
+  %723 = icmp ult <16 x i32> %722, <i32 112, i32 2, i32 11, i32 2, i32 14, i32 3, i32 13, i32 7, i32 54, i32 5, i32 17, i32 15, i32 4, i32 2, i32 14, i32 3>
+  %724 = add <4 x i32> %8, <i32 -119163, i32 -119173, i32 -119210, i32 -917760>
+  %725 = icmp ult <4 x i32> %724, <i32 8, i32 7, i32 4, i32 240>
+  %726 = bitcast <16 x i1> %723 to i16
+  %727 = icmp ne i16 %726, 0
+  %728 = bitcast <4 x i1> %725 to i4
+  %729 = icmp ne i4 %728, 0
+  %op.rdx2402 = or i1 %727, %729
   %op.rdx2403 = or i1 %op.rdx2402, %or.cond777
   %op.rdx2404 = or i1 %or.cond780, %or.cond787
   %op.rdx2405 = or i1 %op.rdx2403, %op.rdx2404
-  br i1 %op.rdx2405, label %switch.lookup, label %775
+  br i1 %op.rdx2405, label %switch.lookup, label %730
 
-775:                                              ; preds = %766
-  %776 = add i32 %0, -5888
-  %or.cond794 = icmp ult i32 %776, 13
+730:                                              ; preds = %721
+  %731 = add i32 %0, -5888
+  %or.cond794 = icmp ult i32 %731, 13
   %.off2323 = add i32 %0, -5902
   %switch2324 = icmp ult i32 %.off2323, 7
   %or.cond2325 = or i1 %or.cond794, %switch2324
-  br i1 %or.cond2325, label %switch.lookup, label %777
+  br i1 %or.cond2325, label %switch.lookup, label %732
 
-777:                                              ; preds = %775
-  %778 = add i32 %0, -5920
-  %or.cond1979 = icmp ult i32 %778, 21
-  br i1 %or.cond1979, label %switch.lookup, label %779
+732:                                              ; preds = %730
+  %733 = add i32 %0, -5920
+  %or.cond1979 = icmp ult i32 %733, 21
+  br i1 %or.cond1979, label %switch.lookup, label %734
 
-779:                                              ; preds = %777
-  %780 = add i32 %0, -5952
-  %or.cond799 = icmp ult i32 %780, 18
-  %or.cond800 = icmp eq i32 %473, 5970
+734:                                              ; preds = %732
+  %735 = add i32 %0, -5952
+  %or.cond799 = icmp ult i32 %735, 18
+  %or.cond800 = icmp eq i32 %11, 5970
   %or.cond1980 = or i1 %or.cond799, %or.cond800
-  br i1 %or.cond1980, label %switch.lookup, label %781
+  br i1 %or.cond1980, label %switch.lookup, label %736
 
-781:                                              ; preds = %779
-  %782 = add i32 %0, -5984
-  %or.cond801 = icmp ult i32 %782, 13
+736:                                              ; preds = %734
+  %737 = add i32 %0, -5984
+  %or.cond801 = icmp ult i32 %737, 13
   br i1 %or.cond801, label %switch.lookup, label %switch.early.test2312
 
-switch.early.test2312:                            ; preds = %781
+switch.early.test2312:                            ; preds = %736
   %switch.tableidx = add i32 %0, -5998
-  %783 = icmp ult i32 %switch.tableidx, 6
-  br i1 %783, label %switch.hole_check, label %784
+  %738 = icmp ult i32 %switch.tableidx, 6
+  br i1 %738, label %switch.hole_check, label %739
 
-784:                                              ; preds = %switch.hole_check, %switch.early.test2312
-  %785 = add <4 x i32> %494, <i32 -6400, i32 -6432, i32 -6451, i32 -6470>
-  %786 = icmp ult <4 x i32> %785, <i32 31, i32 12, i32 9, i32 10>
-  %787 = bitcast <4 x i1> %786 to i4
-  %788 = icmp ne i4 %787, 0
-  %789 = freeze i1 %788
-  br i1 %789, label %switch.lookup, label %switch.early.test2524
+739:                                              ; preds = %switch.hole_check, %switch.early.test2312
+  %740 = add <4 x i32> %8, <i32 -6400, i32 -6432, i32 -6451, i32 -6470>
+  %741 = icmp ult <4 x i32> %740, <i32 31, i32 12, i32 9, i32 10>
+  %742 = bitcast <4 x i1> %741 to i4
+  %743 = icmp ne i4 %742, 0
+  %744 = freeze i1 %743
+  br i1 %744, label %switch.lookup, label %switch.early.test2537
 
-switch.early.test2524:                            ; preds = %784
-  switch i32 %473, label %790 [
+switch.early.test2537:                            ; preds = %739
+  switch i32 %11, label %745 [
     i32 6468, label %switch.lookup
     i32 6448, label %switch.lookup
   ]
 
-790:                                              ; preds = %switch.early.test2524
-  %791 = add i32 %0, -6480
-  %or.cond814 = icmp ult i32 %791, 30
-  %792 = add i32 %0, -6512
-  %or.cond815 = icmp ult i32 %792, 5
+745:                                              ; preds = %switch.early.test2537
+  %746 = add i32 %0, -6480
+  %or.cond814 = icmp ult i32 %746, 30
+  %747 = add i32 %0, -6512
+  %or.cond815 = icmp ult i32 %747, 5
   %or.cond1992 = or i1 %or.cond814, %or.cond815
-  br i1 %or.cond1992, label %switch.lookup, label %793
+  br i1 %or.cond1992, label %switch.lookup, label %748
 
-793:                                              ; preds = %790
-  %794 = add <4 x i32> %494, <i32 -65536, i32 -65549, i32 -65576, i32 -65599>
-  %or.cond819 = icmp eq i32 %473, 65596
-  %795 = icmp ult <4 x i32> %794, <i32 12, i32 26, i32 19, i32 15>
-  %796 = add i32 %0, -65616
-  %or.cond821 = icmp ult i32 %796, 14
-  %797 = add i32 %0, -65664
-  %or.cond822 = icmp ult i32 %797, 123
-  %798 = bitcast <4 x i1> %795 to i4
-  %799 = icmp ne i4 %798, 0
-  %op.rdx2397 = or i1 %799, %or.cond821
+748:                                              ; preds = %745
+  %749 = add <4 x i32> %8, <i32 -65536, i32 -65549, i32 -65576, i32 -65599>
+  %or.cond819 = icmp eq i32 %11, 65596
+  %750 = icmp ult <4 x i32> %749, <i32 12, i32 26, i32 19, i32 15>
+  %751 = add i32 %0, -65616
+  %or.cond821 = icmp ult i32 %751, 14
+  %752 = add i32 %0, -65664
+  %or.cond822 = icmp ult i32 %752, 123
+  %753 = bitcast <4 x i1> %750 to i4
+  %754 = icmp ne i4 %753, 0
+  %op.rdx2397 = or i1 %754, %or.cond821
   %op.rdx2398 = or i1 %or.cond822, %or.cond819
   %op.rdx2399 = or i1 %op.rdx2397, %op.rdx2398
-  br i1 %op.rdx2399, label %switch.lookup, label %800
+  br i1 %op.rdx2399, label %switch.lookup, label %755
 
-800:                                              ; preds = %793
-  %801 = add i32 %0, -66432
-  %or.cond823 = icmp ult i32 %801, 30
-  br i1 %or.cond823, label %switch.lookup, label %802
+755:                                              ; preds = %748
+  %756 = add i32 %0, -66432
+  %or.cond823 = icmp ult i32 %756, 30
+  br i1 %or.cond823, label %switch.lookup, label %757
 
-802:                                              ; preds = %800
-  %803 = add i32 %0, -66640
-  %or.cond824 = icmp ult i32 %803, 48
-  br i1 %or.cond824, label %switch.lookup, label %804
+757:                                              ; preds = %755
+  %758 = add i32 %0, -66640
+  %or.cond824 = icmp ult i32 %758, 48
+  br i1 %or.cond824, label %switch.lookup, label %759
 
-804:                                              ; preds = %802
-  %805 = add i32 %0, -66688
-  %or.cond825 = icmp ult i32 %805, 30
-  %806 = add i32 %0, -66720
-  %or.cond826 = icmp ult i32 %806, 10
+759:                                              ; preds = %757
+  %760 = add i32 %0, -66688
+  %or.cond825 = icmp ult i32 %760, 30
+  %761 = add i32 %0, -66720
+  %or.cond826 = icmp ult i32 %761, 10
   %or.cond1999 = or i1 %or.cond825, %or.cond826
-  br i1 %or.cond1999, label %switch.lookup, label %807
+  br i1 %or.cond1999, label %switch.lookup, label %762
 
-807:                                              ; preds = %804
-  %808 = add i32 %0, -67594
-  %or.cond828 = icmp ult i32 %808, 44
+762:                                              ; preds = %759
+  %763 = add i32 %0, -67594
+  %or.cond828 = icmp ult i32 %763, 44
   br i1 %or.cond828, label %switch.lookup, label %switch.early.test2313
 
-switch.early.test2313:                            ; preds = %807
-  switch i32 %0, label %809 [
+switch.early.test2313:                            ; preds = %762
+  switch i32 %0, label %764 [
     i32 67640, label %switch.lookup
     i32 67639, label %switch.lookup
     i32 67589, label %switch.lookup
@@ -19368,58 +19362,58 @@ switch.early.test2313:                            ; preds = %807
     i32 67584, label %switch.lookup
   ]
 
-809:                                              ; preds = %switch.early.test2313
-  %or.cond830 = icmp eq i32 %676, 10240
-  br i1 %or.cond830, label %switch.lookup, label %810
+764:                                              ; preds = %switch.early.test2313
+  %or.cond830 = icmp eq i32 %633, 10240
+  br i1 %or.cond830, label %switch.lookup, label %765
 
-810:                                              ; preds = %809
-  %811 = add i32 %0, -6656
-  %or.cond831 = icmp ult i32 %811, 23
+765:                                              ; preds = %764
+  %766 = add i32 %0, -6656
+  %or.cond831 = icmp ult i32 %766, 23
   br i1 %or.cond831, label %switch.lookup, label %switch.early.test2314
 
-switch.early.test2314:                            ; preds = %810
+switch.early.test2314:                            ; preds = %765
   %switch.tableidx2333 = add i32 %0, -6679
-  %812 = icmp ult i32 %switch.tableidx2333, 9
-  br i1 %812, label %switch.hole_check2334, label %813
+  %767 = icmp ult i32 %switch.tableidx2333, 9
+  br i1 %767, label %switch.hole_check2334, label %768
 
-813:                                              ; preds = %switch.hole_check2334, %switch.early.test2314
-  %814 = add i32 %0, -994
-  %or.cond835 = icmp ult i32 %814, 14
-  %815 = add i32 %0, -11392
-  %816 = icmp ult i32 %815, 114
-  %or.cond2008 = or i1 %or.cond835, %816
-  %or.cond840 = icmp eq i32 %473, 11506
+768:                                              ; preds = %switch.hole_check2334, %switch.early.test2314
+  %769 = add i32 %0, -994
+  %or.cond835 = icmp ult i32 %769, 14
+  %770 = add i32 %0, -11392
+  %771 = icmp ult i32 %770, 114
+  %or.cond2008 = or i1 %or.cond835, %771
+  %or.cond840 = icmp eq i32 %11, 11506
   %or.cond2009 = or i1 %or.cond840, %or.cond2008
-  %817 = add i32 %0, -11513
-  %or.cond841 = icmp ult i32 %817, 4
+  %772 = add i32 %0, -11513
+  %or.cond841 = icmp ult i32 %772, 4
   %or.cond2010 = or i1 %or.cond841, %or.cond2009
-  %or.cond842 = icmp eq i32 %473, 11518
+  %or.cond842 = icmp eq i32 %11, 11518
   %or.cond2011 = or i1 %or.cond842, %or.cond2010
-  br i1 %or.cond2011, label %switch.lookup, label %818
+  br i1 %or.cond2011, label %switch.lookup, label %773
 
-818:                                              ; preds = %813
-  %819 = add i32 %0, -6528
-  %or.cond843 = icmp ult i32 %819, 44
-  %820 = add i32 %0, -6576
-  %or.cond844 = icmp ult i32 %820, 26
+773:                                              ; preds = %768
+  %774 = add i32 %0, -6528
+  %or.cond843 = icmp ult i32 %774, 44
+  %775 = add i32 %0, -6576
+  %or.cond844 = icmp ult i32 %775, 26
   %or.cond2012 = or i1 %or.cond843, %or.cond844
-  %821 = add i32 %0, -6608
-  %or.cond845 = icmp ult i32 %821, 10
+  %776 = add i32 %0, -6608
+  %or.cond845 = icmp ult i32 %776, 10
   %or.cond2013 = or i1 %or.cond845, %or.cond2012
-  %or.cond846 = icmp eq i32 %473, 6622
+  %or.cond846 = icmp eq i32 %11, 6622
   %or.cond2014 = or i1 %or.cond846, %or.cond2013
-  br i1 %or.cond2014, label %switch.lookup, label %822
+  br i1 %or.cond2014, label %switch.lookup, label %777
 
-822:                                              ; preds = %818
-  %823 = add <4 x i32> %494, <i32 -11264, i32 -11312, i32 -122880, i32 -122888>
-  %824 = icmp ult <4 x i32> %823, <i32 47, i32 47, i32 7, i32 17>
-  %825 = bitcast <4 x i1> %824 to i4
-  %826 = icmp ne i4 %825, 0
-  %827 = freeze i1 %826
-  br i1 %827, label %switch.lookup, label %switch.early.test2525
+777:                                              ; preds = %773
+  %778 = add <4 x i32> %8, <i32 -11264, i32 -11312, i32 -122880, i32 -122888>
+  %779 = icmp ult <4 x i32> %778, <i32 47, i32 47, i32 7, i32 17>
+  %780 = bitcast <4 x i1> %779 to i4
+  %781 = icmp ne i4 %780, 0
+  %782 = freeze i1 %781
+  br i1 %782, label %switch.lookup, label %switch.early.test2538
 
-switch.early.test2525:                            ; preds = %822
-  switch i32 %0, label %828 [
+switch.early.test2538:                            ; preds = %777
+  switch i32 %0, label %783 [
     i32 122922, label %switch.lookup
     i32 122921, label %switch.lookup
     i32 122920, label %switch.lookup
@@ -19436,228 +19430,227 @@ switch.early.test2525:                            ; preds = %822
     i32 122907, label %switch.lookup
   ]
 
-828:                                              ; preds = %switch.early.test2525
-  %829 = add i32 %0, -11568
-  %or.cond854 = icmp ult i32 %829, 56
-  br i1 %or.cond854, label %switch.lookup, label %830
+783:                                              ; preds = %switch.early.test2538
+  %784 = add i32 %0, -11568
+  %or.cond854 = icmp ult i32 %784, 56
+  br i1 %or.cond854, label %switch.lookup, label %785
 
-830:                                              ; preds = %828
-  %or.cond855 = icmp eq i32 %473, 43008
-  %831 = add i32 %0, -43011
-  %or.cond856 = icmp ult i32 %831, 3
+785:                                              ; preds = %783
+  %or.cond855 = icmp eq i32 %11, 43008
+  %786 = add i32 %0, -43011
+  %or.cond856 = icmp ult i32 %786, 3
   %or.cond2021 = or i1 %or.cond855, %or.cond856
-  %832 = add i32 %0, -43015
-  %or.cond857 = icmp ult i32 %832, 4
+  %787 = add i32 %0, -43015
+  %or.cond857 = icmp ult i32 %787, 4
   %or.cond2022 = or i1 %or.cond857, %or.cond2021
-  %833 = add i32 %0, -43020
-  %834 = icmp ult i32 %833, 27
-  %or.cond2025 = or i1 %834, %or.cond2022
-  %or.cond861 = icmp eq i32 %472, 43048
+  %788 = add i32 %0, -43020
+  %789 = icmp ult i32 %788, 27
+  %or.cond2025 = or i1 %789, %or.cond2022
+  %or.cond861 = icmp eq i32 %12, 43048
   %or.cond2026 = or i1 %or.cond861, %or.cond2025
-  br i1 %or.cond2026, label %switch.lookup, label %835
+  br i1 %or.cond2026, label %switch.lookup, label %790
 
-835:                                              ; preds = %830
-  %836 = add i32 %0, -66464
-  %or.cond862 = icmp ult i32 %836, 36
-  %or.cond863 = icmp eq i32 %57, 66504
+790:                                              ; preds = %785
+  %791 = add i32 %0, -66464
+  %or.cond862 = icmp ult i32 %791, 36
+  %or.cond863 = icmp eq i32 %10, 66504
   %or.cond2027 = or i1 %or.cond862, %or.cond863
-  %837 = add i32 %0, -66513
-  %or.cond864 = icmp ult i32 %837, 5
+  %792 = add i32 %0, -66513
+  %or.cond864 = icmp ult i32 %792, 5
   %or.cond2028 = or i1 %or.cond864, %or.cond2027
-  br i1 %or.cond2028, label %switch.lookup, label %838
+  br i1 %or.cond2028, label %switch.lookup, label %793
 
-838:                                              ; preds = %835
-  %839 = add <4 x i32> %494, <i32 -68097, i32 -68101, i32 -68117, i32 -68121>
-  %or.cond867 = icmp eq i32 %472, 68108
-  %or.cond868 = icmp eq i32 %472, 68112
-  %840 = icmp ult <4 x i32> %839, <i32 3, i32 2, i32 3, i32 27>
-  %841 = add i32 %0, -68152
-  %or.cond871 = icmp ult i32 %841, 3
-  %or.cond872 = icmp eq i32 %57, 68160
-  %842 = add i32 %0, -68176
-  %or.cond873 = icmp ult i32 %842, 9
-  %843 = bitcast <4 x i1> %840 to i4
-  %844 = icmp ne i4 %843, 0
-  %op.rdx2389 = or i1 %844, %or.cond871
+793:                                              ; preds = %790
+  %794 = add <4 x i32> %8, <i32 -68097, i32 -68101, i32 -68117, i32 -68121>
+  %or.cond867 = icmp eq i32 %12, 68108
+  %or.cond868 = icmp eq i32 %12, 68112
+  %795 = icmp ult <4 x i32> %794, <i32 3, i32 2, i32 3, i32 27>
+  %796 = add i32 %0, -68152
+  %or.cond871 = icmp ult i32 %796, 3
+  %or.cond872 = icmp eq i32 %10, 68160
+  %797 = add i32 %0, -68176
+  %or.cond873 = icmp ult i32 %797, 9
+  %798 = bitcast <4 x i1> %795 to i4
+  %799 = icmp ne i4 %798, 0
+  %op.rdx2389 = or i1 %799, %or.cond871
   %op.rdx2390 = or i1 %or.cond873, %or.cond867
   %op.rdx2391 = or i1 %or.cond868, %or.cond872
   %op.rdx2392 = or i1 %op.rdx2389, %op.rdx2390
   %op.rdx2393 = or i1 %op.rdx2392, %op.rdx2391
-  br i1 %op.rdx2393, label %switch.lookup, label %845
+  br i1 %op.rdx2393, label %switch.lookup, label %800
 
-845:                                              ; preds = %838
-  %or.cond874 = icmp eq i32 %472, 6912
-  %846 = add <4 x i32> %494, <i32 -6917, i32 -6966, i32 -6973, i32 -6979>
-  %847 = icmp ult <4 x i32> %846, <i32 47, i32 5, i32 5, i32 9>
-  %848 = add i32 %0, -6992
-  %849 = icmp ult i32 %848, 45
-  %850 = bitcast <4 x i1> %847 to i4
-  %851 = icmp ne i4 %850, 0
-  %op.rdx2387 = or i1 %851, %849
+800:                                              ; preds = %793
+  %or.cond874 = icmp eq i32 %12, 6912
+  %801 = add <4 x i32> %8, <i32 -6917, i32 -6966, i32 -6973, i32 -6979>
+  %802 = icmp ult <4 x i32> %801, <i32 47, i32 5, i32 5, i32 9>
+  %803 = add i32 %0, -6992
+  %804 = icmp ult i32 %803, 45
+  %805 = bitcast <4 x i1> %802 to i4
+  %806 = icmp ne i4 %805, 0
+  %op.rdx2387 = or i1 %806, %804
   %op.rdx2388 = or i1 %op.rdx2387, %or.cond874
-  br i1 %op.rdx2388, label %switch.lookup, label %852
+  br i1 %op.rdx2388, label %switch.lookup, label %807
 
-852:                                              ; preds = %845
-  %853 = add <4 x i32> %494, <i32 -73728, i32 -74752, i32 -74864, i32 -74880>
-  %854 = icmp ult <4 x i32> %853, <i32 922, i32 111, i32 5, i32 196>
-  %855 = bitcast <4 x i1> %854 to i4
-  %.not2522 = icmp eq i4 %855, 0
-  br i1 %.not2522, label %856, label %switch.lookup
+807:                                              ; preds = %800
+  %808 = add <4 x i32> %8, <i32 -73728, i32 -74752, i32 -74864, i32 -74880>
+  %809 = icmp ult <4 x i32> %808, <i32 922, i32 111, i32 5, i32 196>
+  %810 = bitcast <4 x i1> %809 to i4
+  %.not2535 = icmp eq i4 %810, 0
+  br i1 %.not2535, label %811, label %switch.lookup
 
-856:                                              ; preds = %852
-  %857 = add i32 %0, -67840
-  %or.cond2050 = icmp ult i32 %857, 28
-  br i1 %or.cond2050, label %switch.lookup, label %858
+811:                                              ; preds = %807
+  %812 = add i32 %0, -67840
+  %or.cond2050 = icmp ult i32 %812, 28
+  br i1 %or.cond2050, label %switch.lookup, label %813
 
-858:                                              ; preds = %856
-  %859 = add i32 %0, -43072
-  %or.cond891 = icmp ult i32 %859, 52
-  %or.cond892 = icmp eq i32 %472, 43124
+813:                                              ; preds = %811
+  %814 = add i32 %0, -43072
+  %or.cond891 = icmp ult i32 %814, 52
+  %or.cond892 = icmp eq i32 %12, 43124
   %or.cond2051 = or i1 %or.cond891, %or.cond892
-  br i1 %or.cond2051, label %switch.lookup, label %860
+  br i1 %or.cond2051, label %switch.lookup, label %815
 
-860:                                              ; preds = %858
-  %861 = add i32 %0, -1984
-  %or.cond2053 = icmp ult i32 %861, 52
+815:                                              ; preds = %813
+  %816 = add i32 %0, -1984
+  %or.cond2053 = icmp ult i32 %816, 52
   br i1 %or.cond2053, label %switch.lookup, label %switch.early.test
 
-switch.early.test:                                ; preds = %860
+switch.early.test:                                ; preds = %815
   %switch.tableidx2340 = add i32 %0, -2036
-  %862 = icmp ult i32 %switch.tableidx2340, 6
-  br i1 %862, label %switch.hole_check2341, label %863
+  %817 = icmp ult i32 %switch.tableidx2340, 6
+  br i1 %817, label %switch.hole_check2341, label %818
 
-863:                                              ; preds = %switch.hole_check2341, %switch.early.test
-  %864 = shufflevector <2 x i32> %9, <2 x i32> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %865 = icmp eq <4 x i32> %864, <i32 7040, i32 7078, i32 7080, i32 7086>
-  %866 = add i32 %0, -7043
-  %or.cond899 = icmp ult i32 %866, 30
-  %867 = add i32 %0, -7074
-  %or.cond900 = icmp ult i32 %867, 4
-  %868 = add i32 %0, -7083
-  %or.cond903 = icmp ult i32 %868, 3
-  %869 = icmp eq i32 %688, 7088
-  %or.cond907 = icmp eq i32 %57, 7360
-  %870 = bitcast <4 x i1> %865 to i4
-  %871 = icmp ne i4 %870, 0
-  %op.rdx2382 = or i1 %871, %869
+818:                                              ; preds = %switch.hole_check2341, %switch.early.test
+  %819 = icmp eq <4 x i32> %539, <i32 7040, i32 7078, i32 7080, i32 7086>
+  %820 = add i32 %0, -7043
+  %or.cond899 = icmp ult i32 %820, 30
+  %821 = add i32 %0, -7074
+  %or.cond900 = icmp ult i32 %821, 4
+  %822 = add i32 %0, -7083
+  %or.cond903 = icmp ult i32 %822, 3
+  %823 = icmp eq i32 %19, 7088
+  %or.cond907 = icmp eq i32 %10, 7360
+  %824 = bitcast <4 x i1> %819 to i4
+  %825 = icmp ne i4 %824, 0
+  %op.rdx2382 = or i1 %825, %823
   %op.rdx2383 = or i1 %or.cond907, %or.cond899
   %op.rdx2384 = or i1 %or.cond900, %or.cond903
   %op.rdx2385 = or i1 %op.rdx2382, %op.rdx2383
   %op.rdx2386 = or i1 %op.rdx2385, %op.rdx2384
-  br i1 %op.rdx2386, label %switch.lookup, label %872
+  br i1 %op.rdx2386, label %switch.lookup, label %826
 
-872:                                              ; preds = %863
-  %873 = add i32 %0, -7168
-  %or.cond2066 = icmp ult i32 %873, 52
-  %874 = icmp eq i32 %472, 7220
-  %or.cond2068 = or i1 %or.cond2066, %874
-  %875 = add i32 %0, -7227
-  %876 = icmp ult i32 %875, 15
-  %or.cond2070 = or i1 %876, %or.cond2068
-  %877 = add i32 %0, -7245
-  %or.cond915 = icmp ult i32 %877, 3
+826:                                              ; preds = %818
+  %827 = add i32 %0, -7168
+  %or.cond2066 = icmp ult i32 %827, 52
+  %828 = icmp eq i32 %12, 7220
+  %or.cond2068 = or i1 %or.cond2066, %828
+  %829 = add i32 %0, -7227
+  %830 = icmp ult i32 %829, 15
+  %or.cond2070 = or i1 %830, %or.cond2068
+  %831 = add i32 %0, -7245
+  %or.cond915 = icmp ult i32 %831, 3
   %or.cond2071 = or i1 %or.cond915, %or.cond2070
-  br i1 %or.cond2071, label %switch.lookup, label %878
+  br i1 %or.cond2071, label %switch.lookup, label %832
 
-878:                                              ; preds = %872
-  %879 = add i32 %0, -7248
-  %or.cond2073 = icmp ult i32 %879, 46
-  %or.cond919 = icmp eq i32 %473, 7294
+832:                                              ; preds = %826
+  %833 = add i32 %0, -7248
+  %or.cond2073 = icmp ult i32 %833, 46
+  %or.cond919 = icmp eq i32 %11, 7294
   %or.cond2074 = or i1 %or.cond2073, %or.cond919
-  br i1 %or.cond2074, label %switch.lookup, label %880
+  br i1 %or.cond2074, label %switch.lookup, label %834
 
-880:                                              ; preds = %878
-  %881 = add i32 %0, -42240
-  %or.cond920 = icmp ult i32 %881, 268
-  %882 = add i32 %0, -42509
-  %or.cond921 = icmp ult i32 %882, 3
+834:                                              ; preds = %832
+  %835 = add i32 %0, -42240
+  %or.cond920 = icmp ult i32 %835, 268
+  %836 = add i32 %0, -42509
+  %or.cond921 = icmp ult i32 %836, 3
   %or.cond2075 = or i1 %or.cond920, %or.cond921
-  %or.cond922 = icmp eq i32 %688, 42512
+  %or.cond922 = icmp eq i32 %19, 42512
   %or.cond2076 = or i1 %or.cond922, %or.cond2075
-  %883 = add i32 %0, -42528
-  %or.cond923 = icmp ult i32 %883, 10
+  %837 = add i32 %0, -42528
+  %or.cond923 = icmp ult i32 %837, 10
   %or.cond2077 = or i1 %or.cond923, %or.cond2076
-  %or.cond924 = icmp eq i32 %473, 42538
+  %or.cond924 = icmp eq i32 %11, 42538
   %or.cond2078 = or i1 %or.cond924, %or.cond2077
-  br i1 %or.cond2078, label %switch.lookup, label %884
+  br i1 %or.cond2078, label %switch.lookup, label %838
 
-884:                                              ; preds = %880
-  %or.cond925 = icmp eq i32 %473, 43136
-  %885 = add i32 %0, -43138
-  %886 = icmp ult i32 %885, 66
-  %or.cond2080 = or i1 %or.cond925, %886
-  %or.cond928 = icmp eq i32 %473, 43204
+838:                                              ; preds = %834
+  %or.cond925 = icmp eq i32 %11, 43136
+  %839 = add i32 %0, -43138
+  %840 = icmp ult i32 %839, 66
+  %or.cond2080 = or i1 %or.cond925, %840
+  %or.cond928 = icmp eq i32 %11, 43204
   %or.cond2081 = or i1 %or.cond928, %or.cond2080
-  %or.cond929 = icmp eq i32 %473, 43214
+  %or.cond929 = icmp eq i32 %11, 43214
   %or.cond2082 = or i1 %or.cond929, %or.cond2081
-  %887 = add i32 %0, -43216
-  %or.cond930 = icmp ult i32 %887, 10
+  %841 = add i32 %0, -43216
+  %or.cond930 = icmp ult i32 %841, 10
   %or.cond2083 = or i1 %or.cond930, %or.cond2082
-  br i1 %or.cond2083, label %switch.lookup, label %888
+  br i1 %or.cond2083, label %switch.lookup, label %842
 
-888:                                              ; preds = %884
-  %889 = add i32 %0, -43264
-  %or.cond2085 = icmp ult i32 %889, 46
-  br i1 %or.cond2085, label %switch.lookup, label %890
+842:                                              ; preds = %838
+  %843 = add i32 %0, -43264
+  %or.cond2085 = icmp ult i32 %843, 46
+  br i1 %or.cond2085, label %switch.lookup, label %844
 
-890:                                              ; preds = %888
-  %891 = add i32 %0, -43312
-  %or.cond2086 = icmp ult i32 %891, 34
-  %or.cond936 = icmp eq i32 %473, 43346
+844:                                              ; preds = %842
+  %845 = add i32 %0, -43312
+  %or.cond2086 = icmp ult i32 %845, 34
+  %or.cond936 = icmp eq i32 %11, 43346
   %or.cond2087 = or i1 %or.cond2086, %or.cond936
-  br i1 %or.cond2087, label %switch.lookup, label %892
+  br i1 %or.cond2087, label %switch.lookup, label %846
 
-892:                                              ; preds = %890
-  %893 = add i32 %0, -66176
-  %or.cond937 = icmp ult i32 %893, 29
-  br i1 %or.cond937, label %switch.lookup, label %894
+846:                                              ; preds = %844
+  %847 = add i32 %0, -66176
+  %or.cond937 = icmp ult i32 %847, 29
+  br i1 %or.cond937, label %switch.lookup, label %848
 
-894:                                              ; preds = %892
-  %895 = add i32 %0, -66208
-  %or.cond938 = icmp ult i32 %895, 49
-  br i1 %or.cond938, label %switch.lookup, label %896
+848:                                              ; preds = %846
+  %849 = add i32 %0, -66208
+  %or.cond938 = icmp ult i32 %849, 49
+  br i1 %or.cond938, label %switch.lookup, label %850
 
-896:                                              ; preds = %894
-  %897 = add i32 %0, -67872
-  %or.cond939 = icmp ult i32 %897, 26
-  br i1 %or.cond939, label %switch.lookup, label %898
+850:                                              ; preds = %848
+  %851 = add i32 %0, -67872
+  %or.cond939 = icmp ult i32 %851, 26
+  br i1 %or.cond939, label %switch.lookup, label %852
 
-898:                                              ; preds = %896
-  %899 = add <4 x i32> %494, <i32 -43520, i32 -43584, i32 -43588, i32 -43600>
-  %900 = icmp ult <4 x i32> %899, <i32 55, i32 3, i32 8, i32 10>
-  %or.cond949 = icmp eq i32 %472, 43612
-  %901 = bitcast <4 x i1> %900 to i4
-  %902 = icmp ne i4 %901, 0
-  %op.rdx2381 = or i1 %902, %or.cond949
-  br i1 %op.rdx2381, label %switch.lookup, label %903
+852:                                              ; preds = %850
+  %853 = add <4 x i32> %8, <i32 -43520, i32 -43584, i32 -43588, i32 -43600>
+  %854 = icmp ult <4 x i32> %853, <i32 55, i32 3, i32 8, i32 10>
+  %or.cond949 = icmp eq i32 %12, 43612
+  %855 = bitcast <4 x i1> %854 to i4
+  %856 = icmp ne i4 %855, 0
+  %op.rdx2381 = or i1 %856, %or.cond949
+  br i1 %op.rdx2381, label %switch.lookup, label %857
 
-903:                                              ; preds = %898
-  %904 = add i32 %0, -6688
-  %or.cond950 = icmp ult i32 %904, 53
-  %905 = add i32 %0, -6744
-  %or.cond951 = icmp ult i32 %905, 7
+857:                                              ; preds = %852
+  %858 = add i32 %0, -6688
+  %or.cond950 = icmp ult i32 %858, 53
+  %859 = add i32 %0, -6744
+  %or.cond951 = icmp ult i32 %859, 7
   %or.cond2097 = or i1 %or.cond950, %or.cond951
-  %906 = add i32 %0, -6755
-  %907 = icmp ult i32 %906, 26
-  %or.cond2101 = or i1 %907, %or.cond2097
-  %908 = add i32 %719, -6784
-  %909 = icmp ult i32 %908, 10
-  %or.cond2103 = or i1 %909, %or.cond2101
-  %910 = add i32 %0, -6816
-  %or.cond958 = icmp ult i32 %910, 7
+  %860 = add i32 %0, -6755
+  %861 = icmp ult i32 %860, 26
+  %or.cond2101 = or i1 %861, %or.cond2097
+  %862 = add i32 %674, -6784
+  %863 = icmp ult i32 %862, 10
+  %or.cond2103 = or i1 %863, %or.cond2101
+  %864 = add i32 %0, -6816
+  %or.cond958 = icmp ult i32 %864, 7
   %or.cond2104 = or i1 %or.cond958, %or.cond2103
-  %911 = add i32 %0, -6824
-  %or.cond959 = icmp ult i32 %911, 6
+  %865 = add i32 %0, -6824
+  %or.cond959 = icmp ult i32 %865, 6
   %or.cond2105 = or i1 %or.cond959, %or.cond2104
-  br i1 %or.cond2105, label %switch.lookup, label %912
+  br i1 %or.cond2105, label %switch.lookup, label %866
 
-912:                                              ; preds = %903
-  %913 = add i32 %0, -43648
-  %or.cond960 = icmp ult i32 %913, 48
+866:                                              ; preds = %857
+  %867 = add i32 %0, -43648
+  %or.cond960 = icmp ult i32 %867, 48
   br i1 %or.cond960, label %switch.lookup, label %switch.early.test2315
 
-switch.early.test2315:                            ; preds = %912
-  switch i32 %0, label %914 [
+switch.early.test2315:                            ; preds = %866
+  switch i32 %0, label %868 [
     i32 43743, label %switch.lookup
     i32 43742, label %switch.lookup
     i32 43740, label %switch.lookup
@@ -19678,119 +19671,119 @@ switch.early.test2315:                            ; preds = %912
     i32 43698, label %switch.lookup
   ]
 
-914:                                              ; preds = %switch.early.test2315
-  %915 = add i32 %0, -68352
-  %or.cond968 = icmp ult i32 %915, 54
-  %916 = add i32 %0, -68409
-  %or.cond969 = icmp ult i32 %916, 7
+868:                                              ; preds = %switch.early.test2315
+  %869 = add i32 %0, -68352
+  %or.cond968 = icmp ult i32 %869, 54
+  %870 = add i32 %0, -68409
+  %or.cond969 = icmp ult i32 %870, 7
   %or.cond2113 = or i1 %or.cond968, %or.cond969
-  br i1 %or.cond2113, label %switch.lookup, label %917
+  br i1 %or.cond2113, label %switch.lookup, label %871
 
-917:                                              ; preds = %914
-  %918 = add i32 %0, -77824
-  %or.cond970 = icmp ult i32 %918, 1071
-  br i1 %or.cond970, label %switch.lookup, label %919
+871:                                              ; preds = %868
+  %872 = add i32 %0, -77824
+  %or.cond970 = icmp ult i32 %872, 1071
+  br i1 %or.cond970, label %switch.lookup, label %873
 
-919:                                              ; preds = %917
-  %920 = add <4 x i32> %494, <i32 -2048, i32 -2075, i32 -2085, i32 -2089>
-  %921 = icmp ult <4 x i32> %920, <i32 26, i32 9, i32 3, i32 5>
-  %922 = add i32 %0, -2096
-  %or.cond976 = icmp ult i32 %922, 15
-  %923 = bitcast <4 x i1> %921 to i4
-  %924 = icmp ne i4 %923, 0
-  %op.rdx2380 = or i1 %924, %or.cond976
-  br i1 %op.rdx2380, label %switch.lookup, label %925
+873:                                              ; preds = %871
+  %874 = add <4 x i32> %8, <i32 -2048, i32 -2075, i32 -2085, i32 -2089>
+  %875 = icmp ult <4 x i32> %874, <i32 26, i32 9, i32 3, i32 5>
+  %876 = add i32 %0, -2096
+  %or.cond976 = icmp ult i32 %876, 15
+  %877 = bitcast <4 x i1> %875 to i4
+  %878 = icmp ne i4 %877, 0
+  %op.rdx2380 = or i1 %878, %or.cond976
+  br i1 %op.rdx2380, label %switch.lookup, label %879
 
-925:                                              ; preds = %919
-  %926 = add i32 %0, -42192
-  %or.cond977 = icmp ult i32 %926, 40
-  %switch2327 = icmp eq i32 %57, 42232
+879:                                              ; preds = %873
+  %880 = add i32 %0, -42192
+  %or.cond977 = icmp ult i32 %880, 40
+  %switch2327 = icmp eq i32 %10, 42232
   %or.cond2328 = or i1 %or.cond977, %switch2327
-  br i1 %or.cond2328, label %switch.lookup, label %927
+  br i1 %or.cond2328, label %switch.lookup, label %881
 
-927:                                              ; preds = %925
-  %928 = add i32 %0, -42656
-  %or.cond2121 = icmp ult i32 %928, 80
-  %or.cond982 = icmp eq i32 %473, 42736
+881:                                              ; preds = %879
+  %882 = add i32 %0, -42656
+  %or.cond2121 = icmp ult i32 %882, 80
+  %or.cond982 = icmp eq i32 %11, 42736
   %or.cond2122 = or i1 %or.cond2121, %or.cond982
-  %929 = add i32 %0, -42738
-  %or.cond983 = icmp ult i32 %929, 6
+  %883 = add i32 %0, -42738
+  %or.cond983 = icmp ult i32 %883, 6
   %or.cond2123 = or i1 %or.cond983, %or.cond2122
-  %930 = add i32 %0, -92160
-  %or.cond984 = icmp ult i32 %930, 569
+  %884 = add i32 %0, -92160
+  %or.cond984 = icmp ult i32 %884, 569
   %or.cond2124 = or i1 %or.cond984, %or.cond2123
-  br i1 %or.cond2124, label %switch.lookup, label %931
+  br i1 %or.cond2124, label %switch.lookup, label %885
 
-931:                                              ; preds = %927
-  %932 = add <4 x i32> %494, <i32 -43392, i32 -43396, i32 -43446, i32 -43453>
-  %or.cond987 = icmp eq i32 %473, 43444
-  %or.cond989 = icmp eq i32 %473, 43450
-  %933 = icmp ult <4 x i32> %932, <i32 3, i32 47, i32 4, i32 17>
-  %934 = add i32 %0, -43472
-  %or.cond992 = icmp ult i32 %934, 10
-  %or.cond993 = icmp eq i32 %473, 43486
-  %935 = bitcast <4 x i1> %933 to i4
-  %936 = icmp ne i4 %935, 0
-  %op.rdx2376 = or i1 %936, %or.cond992
+885:                                              ; preds = %881
+  %886 = add <4 x i32> %8, <i32 -43392, i32 -43396, i32 -43446, i32 -43453>
+  %or.cond987 = icmp eq i32 %11, 43444
+  %or.cond989 = icmp eq i32 %11, 43450
+  %887 = icmp ult <4 x i32> %886, <i32 3, i32 47, i32 4, i32 17>
+  %888 = add i32 %0, -43472
+  %or.cond992 = icmp ult i32 %888, 10
+  %or.cond993 = icmp eq i32 %11, 43486
+  %889 = bitcast <4 x i1> %887 to i4
+  %890 = icmp ne i4 %889, 0
+  %op.rdx2376 = or i1 %890, %or.cond992
   %op.rdx2377 = or i1 %or.cond987, %or.cond989
   %op.rdx2378 = or i1 %op.rdx2376, %op.rdx2377
   %op.rdx2379 = or i1 %op.rdx2378, %or.cond993
-  br i1 %op.rdx2379, label %switch.lookup, label %937
+  br i1 %op.rdx2379, label %switch.lookup, label %891
 
-937:                                              ; preds = %931
-  %938 = add <4 x i32> %494, <i32 -43744, i32 -43763, i32 -43968, i32 -44009>
-  %939 = icmp eq i32 %472, 43756
-  %or.cond997 = icmp eq i32 %473, 43760
-  %or.cond1001 = icmp eq i32 %473, 44006
-  %940 = icmp ult <4 x i32> %938, <i32 11, i32 2, i32 37, i32 2>
-  %941 = add i32 %0, -44016
-  %or.cond1003 = icmp ult i32 %941, 10
-  %942 = bitcast <4 x i1> %940 to i4
-  %943 = icmp ne i4 %942, 0
-  %op.rdx2372 = or i1 %943, %or.cond1003
-  %op.rdx2373 = or i1 %939, %or.cond997
+891:                                              ; preds = %885
+  %892 = add <4 x i32> %8, <i32 -43744, i32 -43763, i32 -43968, i32 -44009>
+  %893 = icmp eq i32 %12, 43756
+  %or.cond997 = icmp eq i32 %11, 43760
+  %or.cond1001 = icmp eq i32 %11, 44006
+  %894 = icmp ult <4 x i32> %892, <i32 11, i32 2, i32 37, i32 2>
+  %895 = add i32 %0, -44016
+  %or.cond1003 = icmp ult i32 %895, 10
+  %896 = bitcast <4 x i1> %894 to i4
+  %897 = icmp ne i4 %896, 0
+  %op.rdx2372 = or i1 %897, %or.cond1003
+  %op.rdx2373 = or i1 %893, %or.cond997
   %op.rdx2374 = or i1 %op.rdx2372, %op.rdx2373
   %op.rdx2375 = or i1 %op.rdx2374, %or.cond1001
-  br i1 %op.rdx2375, label %switch.lookup, label %944
+  br i1 %op.rdx2375, label %switch.lookup, label %898
 
-944:                                              ; preds = %937
-  %945 = add i32 %0, -67648
-  %or.cond1004 = icmp ult i32 %945, 22
-  %or.cond1005 = icmp eq i32 %57, 67672
+898:                                              ; preds = %891
+  %899 = add i32 %0, -67648
+  %or.cond1004 = icmp ult i32 %899, 22
+  %or.cond1005 = icmp eq i32 %10, 67672
   %or.cond2142 = or i1 %or.cond1004, %or.cond1005
-  br i1 %or.cond2142, label %switch.lookup, label %946
+  br i1 %or.cond2142, label %switch.lookup, label %900
 
-946:                                              ; preds = %944
-  %947 = add i32 %0, -68192
-  %or.cond2143 = icmp ult i32 %947, 31
-  br i1 %or.cond2143, label %switch.lookup, label %948
+900:                                              ; preds = %898
+  %901 = add i32 %0, -68192
+  %or.cond2143 = icmp ult i32 %901, 31
+  br i1 %or.cond2143, label %switch.lookup, label %902
 
-948:                                              ; preds = %946
-  %949 = add i32 %0, -68416
-  %or.cond1008 = icmp ult i32 %949, 22
-  %or.cond1009 = icmp eq i32 %57, 68440
+902:                                              ; preds = %900
+  %903 = add i32 %0, -68416
+  %or.cond1008 = icmp ult i32 %903, 22
+  %or.cond1009 = icmp eq i32 %10, 68440
   %or.cond2144 = or i1 %or.cond1008, %or.cond1009
-  br i1 %or.cond2144, label %switch.lookup, label %950
+  br i1 %or.cond2144, label %switch.lookup, label %904
 
-950:                                              ; preds = %948
-  %951 = add i32 %0, -68448
-  %or.cond1010 = icmp ult i32 %951, 19
-  %or.cond1011 = icmp eq i32 %57, 68472
+904:                                              ; preds = %902
+  %905 = add i32 %0, -68448
+  %or.cond1010 = icmp ult i32 %905, 19
+  %or.cond1011 = icmp eq i32 %10, 68472
   %or.cond2145 = or i1 %or.cond1010, %or.cond1011
-  br i1 %or.cond2145, label %switch.lookup, label %952
+  br i1 %or.cond2145, label %switch.lookup, label %906
 
-952:                                              ; preds = %950
-  %953 = add i32 %0, -68608
-  %or.cond1012 = icmp ult i32 %953, 73
-  br i1 %or.cond1012, label %switch.lookup, label %954
+906:                                              ; preds = %904
+  %907 = add i32 %0, -68608
+  %or.cond1012 = icmp ult i32 %907, 73
+  br i1 %or.cond1012, label %switch.lookup, label %908
 
-954:                                              ; preds = %952
-  %955 = add i32 %0, -69763
-  %or.cond1014 = icmp ult i32 %955, 45
+908:                                              ; preds = %906
+  %909 = add i32 %0, -69763
+  %or.cond1014 = icmp ult i32 %909, 45
   br i1 %or.cond1014, label %switch.lookup, label %switch.early.test2317
 
-switch.early.test2317:                            ; preds = %954
-  switch i32 %0, label %956 [
+switch.early.test2317:                            ; preds = %908
+  switch i32 %0, label %910 [
     i32 69825, label %switch.lookup
     i32 69824, label %switch.lookup
     i32 69823, label %switch.lookup
@@ -19812,145 +19805,145 @@ switch.early.test2317:                            ; preds = %954
     i32 69760, label %switch.lookup
   ]
 
-956:                                              ; preds = %switch.early.test2317
-  %957 = add i32 %0, -7104
-  %or.cond1021 = icmp ult i32 %957, 38
-  %or.cond1022 = icmp eq i32 %473, 7144
+910:                                              ; preds = %switch.early.test2317
+  %911 = add i32 %0, -7104
+  %or.cond1021 = icmp ult i32 %911, 38
+  %or.cond1022 = icmp eq i32 %11, 7144
   %or.cond2153 = or i1 %or.cond1021, %or.cond1022
-  %958 = add i32 %0, -7146
-  %or.cond1023 = icmp ult i32 %958, 3
+  %912 = add i32 %0, -7146
+  %or.cond1023 = icmp ult i32 %912, 3
   %or.cond2154 = or i1 %or.cond1023, %or.cond2153
-  %959 = add i32 %0, -7151
-  %or.cond1024 = icmp ult i32 %959, 3
+  %913 = add i32 %0, -7151
+  %or.cond1024 = icmp ult i32 %913, 3
   %or.cond2155 = or i1 %or.cond1024, %or.cond2154
-  %or.cond1025 = icmp eq i32 %473, 7154
+  %or.cond1025 = icmp eq i32 %11, 7154
   %or.cond2156 = or i1 %or.cond1025, %or.cond2155
-  %or.cond1026 = icmp eq i32 %472, 7164
+  %or.cond1026 = icmp eq i32 %12, 7164
   %or.cond2157 = or i1 %or.cond1026, %or.cond2156
-  br i1 %or.cond2157, label %switch.lookup, label %960
+  br i1 %or.cond2157, label %switch.lookup, label %914
 
-960:                                              ; preds = %956
-  %961 = add i32 %0, -69635
-  %or.cond2159 = icmp ult i32 %961, 75
-  %962 = add i32 %0, -69714
-  %963 = icmp ult i32 %962, 30
-  %or.cond2161 = or i1 %or.cond2159, %963
-  br i1 %or.cond2161, label %switch.lookup, label %964
+914:                                              ; preds = %910
+  %915 = add i32 %0, -69635
+  %or.cond2159 = icmp ult i32 %915, 75
+  %916 = add i32 %0, -69714
+  %917 = icmp ult i32 %916, 30
+  %or.cond2161 = or i1 %or.cond2159, %917
+  br i1 %or.cond2161, label %switch.lookup, label %918
 
-964:                                              ; preds = %960
-  %965 = add i32 %0, -2112
-  %or.cond2162 = icmp ult i32 %965, 28
-  br i1 %or.cond2162, label %switch.lookup, label %966
+918:                                              ; preds = %914
+  %919 = add i32 %0, -2112
+  %or.cond2162 = icmp ult i32 %919, 28
+  br i1 %or.cond2162, label %switch.lookup, label %920
 
-966:                                              ; preds = %964
-  %967 = add i32 %0, -69888
-  %or.cond2164 = icmp ult i32 %967, 44
-  %968 = add i32 %0, -69933
-  %or.cond1037 = icmp ult i32 %968, 8
+920:                                              ; preds = %918
+  %921 = add i32 %0, -69888
+  %or.cond2164 = icmp ult i32 %921, 44
+  %922 = add i32 %0, -69933
+  %or.cond1037 = icmp ult i32 %922, 8
   %or.cond2165 = or i1 %or.cond2164, %or.cond1037
-  %969 = add i32 %0, -69942
-  %or.cond1038 = icmp ult i32 %969, 10
+  %923 = add i32 %0, -69942
+  %or.cond1038 = icmp ult i32 %923, 10
   %or.cond2166 = or i1 %or.cond1038, %or.cond2165
-  %or.cond1039 = icmp eq i32 %472, 69952
+  %or.cond1039 = icmp eq i32 %12, 69952
   %or.cond2167 = or i1 %or.cond1039, %or.cond2166
-  br i1 %or.cond2167, label %switch.lookup, label %970
+  br i1 %or.cond2167, label %switch.lookup, label %924
 
-970:                                              ; preds = %966
-  %971 = add i32 %0, -68000
-  %or.cond1040 = icmp ult i32 %971, 24
-  %972 = icmp eq i32 %472, 68028
-  %or.cond2169 = or i1 %or.cond1040, %972
-  %or.cond1043 = icmp eq i32 %688, 68032
+924:                                              ; preds = %920
+  %925 = add i32 %0, -68000
+  %or.cond1040 = icmp ult i32 %925, 24
+  %926 = icmp eq i32 %12, 68028
+  %or.cond2169 = or i1 %or.cond1040, %926
+  %or.cond1043 = icmp eq i32 %19, 68032
   %or.cond2170 = or i1 %or.cond1043, %or.cond2169
-  %973 = add i32 %0, -68050
-  %or.cond1044 = icmp ult i32 %973, 46
+  %927 = add i32 %0, -68050
+  %or.cond1044 = icmp ult i32 %927, 46
   %or.cond2171 = or i1 %or.cond1044, %or.cond2170
-  br i1 %or.cond2171, label %switch.lookup, label %974
+  br i1 %or.cond2171, label %switch.lookup, label %928
 
-974:                                              ; preds = %970
-  %or.cond1045 = icmp eq i32 %487, 67968
-  br i1 %or.cond1045, label %switch.lookup, label %975
+928:                                              ; preds = %924
+  %or.cond1045 = icmp eq i32 %18, 67968
+  br i1 %or.cond1045, label %switch.lookup, label %929
 
-975:                                              ; preds = %974
-  %976 = add i32 %0, -93952
-  %or.cond1046 = icmp ult i32 %976, 69
-  %977 = add i32 %0, -94033
-  %or.cond1047 = icmp ult i32 %977, 46
+929:                                              ; preds = %928
+  %930 = add i32 %0, -93952
+  %or.cond1046 = icmp ult i32 %930, 69
+  %931 = add i32 %0, -94033
+  %or.cond1047 = icmp ult i32 %931, 46
   %or.cond2172 = or i1 %or.cond1046, %or.cond1047
-  %978 = add i32 %0, -94095
-  %979 = icmp ult i32 %978, 17
-  %or.cond2174 = or i1 %979, %or.cond2172
-  br i1 %or.cond2174, label %switch.lookup, label %980
+  %932 = add i32 %0, -94095
+  %933 = icmp ult i32 %932, 17
+  %or.cond2174 = or i1 %933, %or.cond2172
+  br i1 %or.cond2174, label %switch.lookup, label %934
 
-980:                                              ; preds = %975
-  %or.cond1050 = icmp eq i32 %473, 70016
-  %981 = add i32 %0, -70019
-  %982 = icmp ult i32 %981, 74
-  %or.cond2181 = or i1 %or.cond1050, %982
-  %983 = add i32 %0, -70096
-  %or.cond1058 = icmp ult i32 %983, 10
+934:                                              ; preds = %929
+  %or.cond1050 = icmp eq i32 %11, 70016
+  %935 = add i32 %0, -70019
+  %936 = icmp ult i32 %935, 74
+  %or.cond2181 = or i1 %or.cond1050, %936
+  %937 = add i32 %0, -70096
+  %or.cond1058 = icmp ult i32 %937, 10
   %or.cond2182 = or i1 %or.cond1058, %or.cond2181
-  %984 = add i32 %0, -70109
-  %or.cond1059 = icmp ult i32 %984, 3
+  %938 = add i32 %0, -70109
+  %or.cond1059 = icmp ult i32 %938, 3
   %or.cond2183 = or i1 %or.cond1059, %or.cond2182
-  br i1 %or.cond2183, label %switch.lookup, label %985
+  br i1 %or.cond2183, label %switch.lookup, label %939
 
-985:                                              ; preds = %980
-  %986 = add i32 %0, -69840
-  %or.cond1060 = icmp ult i32 %986, 25
-  %987 = add i32 %0, -69872
-  %or.cond1061 = icmp ult i32 %987, 10
+939:                                              ; preds = %934
+  %940 = add i32 %0, -69840
+  %or.cond1060 = icmp ult i32 %940, 25
+  %941 = add i32 %0, -69872
+  %or.cond1061 = icmp ult i32 %941, 10
   %or.cond2184 = or i1 %or.cond1060, %or.cond1061
-  br i1 %or.cond2184, label %switch.lookup, label %988
+  br i1 %or.cond2184, label %switch.lookup, label %942
 
-988:                                              ; preds = %985
-  %989 = add i32 %0, -71296
-  %or.cond1062 = icmp ult i32 %989, 43
-  %or.cond1063 = icmp eq i32 %473, 71342
+942:                                              ; preds = %939
+  %943 = add i32 %0, -71296
+  %or.cond1062 = icmp ult i32 %943, 43
+  %or.cond1063 = icmp eq i32 %11, 71342
   %or.cond2185 = or i1 %or.cond1062, %or.cond1063
-  %990 = add i32 %0, -71344
-  %or.cond1064 = icmp ult i32 %990, 6
+  %944 = add i32 %0, -71344
+  %or.cond1064 = icmp ult i32 %944, 6
   %or.cond2186 = or i1 %or.cond1064, %or.cond2185
-  %991 = add i32 %0, -71360
-  %or.cond1065 = icmp ult i32 %991, 10
+  %945 = add i32 %0, -71360
+  %or.cond1065 = icmp ult i32 %945, 10
   %or.cond2187 = or i1 %or.cond1065, %or.cond2186
-  br i1 %or.cond2187, label %switch.lookup, label %992
+  br i1 %or.cond2187, label %switch.lookup, label %946
 
-992:                                              ; preds = %988
-  %993 = add i32 %0, -66864
-  %or.cond1066 = icmp ult i32 %993, 52
-  br i1 %or.cond1066, label %switch.lookup, label %994
+946:                                              ; preds = %942
+  %947 = add i32 %0, -66864
+  %or.cond1066 = icmp ult i32 %947, 52
+  br i1 %or.cond1066, label %switch.lookup, label %948
 
-994:                                              ; preds = %992
-  %995 = add i32 %0, -92880
-  %or.cond1067 = icmp ult i32 %995, 30
-  %996 = add i32 %0, -92912
-  %or.cond1068 = icmp ult i32 %996, 5
+948:                                              ; preds = %946
+  %949 = add i32 %0, -92880
+  %or.cond1067 = icmp ult i32 %949, 30
+  %950 = add i32 %0, -92912
+  %or.cond1068 = icmp ult i32 %950, 5
   %or.cond2188 = or i1 %or.cond1067, %or.cond1068
-  br i1 %or.cond2188, label %switch.lookup, label %997
+  br i1 %or.cond2188, label %switch.lookup, label %951
 
-997:                                              ; preds = %994
-  %998 = add <4 x i32> %494, <i32 -113664, i32 -113776, i32 -113792, i32 -113808>
-  %999 = icmp ult <4 x i32> %998, <i32 107, i32 13, i32 9, i32 10>
-  %1000 = add i32 %0, -113821
-  %or.cond1073 = icmp ult i32 %1000, 2
-  %1001 = bitcast <4 x i1> %999 to i4
-  %1002 = icmp ne i4 %1001, 0
-  %op.rdx2371 = or i1 %1002, %or.cond1073
-  br i1 %op.rdx2371, label %switch.lookup, label %1003
+951:                                              ; preds = %948
+  %952 = add <4 x i32> %8, <i32 -113664, i32 -113776, i32 -113792, i32 -113808>
+  %953 = icmp ult <4 x i32> %952, <i32 107, i32 13, i32 9, i32 10>
+  %954 = add i32 %0, -113821
+  %or.cond1073 = icmp ult i32 %954, 2
+  %955 = bitcast <4 x i1> %953 to i4
+  %956 = icmp ne i4 %955, 0
+  %op.rdx2371 = or i1 %956, %or.cond1073
+  br i1 %op.rdx2371, label %switch.lookup, label %957
 
-1003:                                             ; preds = %997
-  %1004 = add i32 %0, -66816
-  %or.cond1074 = icmp ult i32 %1004, 40
-  br i1 %or.cond1074, label %switch.lookup, label %1005
+957:                                              ; preds = %951
+  %958 = add i32 %0, -66816
+  %or.cond1074 = icmp ult i32 %958, 40
+  br i1 %or.cond1074, label %switch.lookup, label %959
 
-1005:                                             ; preds = %1003
-  %1006 = add i32 %0, -70419
-  %or.cond1079 = icmp ult i32 %1006, 22
+959:                                              ; preds = %957
+  %960 = add i32 %0, -70419
+  %or.cond1079 = icmp ult i32 %960, 22
   br i1 %or.cond1079, label %switch.lookup, label %switch.early.test2318
 
-switch.early.test2318:                            ; preds = %1005
-  switch i32 %0, label %1007 [
+switch.early.test2318:                            ; preds = %959
+  switch i32 %0, label %961 [
     i32 70516, label %switch.lookup
     i32 70515, label %switch.lookup
     i32 70514, label %switch.lookup
@@ -20011,301 +20004,301 @@ switch.early.test2318:                            ; preds = %1005
     i32 70400, label %switch.lookup
   ]
 
-1007:                                             ; preds = %switch.early.test2318
-  %1008 = add <4 x i32> %494, <i32 -92928, i32 -93008, i32 -93019, i32 -93027>
-  %or.cond1094 = icmp eq i32 %472, 92988
-  %or.cond1095 = icmp eq i32 %472, 92992
-  %1009 = icmp ult <4 x i32> %1008, <i32 60, i32 10, i32 7, i32 21>
-  %1010 = add i32 %0, -93053
-  %or.cond1099 = icmp ult i32 %1010, 19
-  %1011 = bitcast <4 x i1> %1009 to i4
-  %1012 = icmp ne i4 %1011, 0
-  %op.rdx2368 = or i1 %1012, %or.cond1099
+961:                                              ; preds = %switch.early.test2318
+  %962 = add <4 x i32> %8, <i32 -92928, i32 -93008, i32 -93019, i32 -93027>
+  %or.cond1094 = icmp eq i32 %12, 92988
+  %or.cond1095 = icmp eq i32 %12, 92992
+  %963 = icmp ult <4 x i32> %962, <i32 60, i32 10, i32 7, i32 21>
+  %964 = add i32 %0, -93053
+  %or.cond1099 = icmp ult i32 %964, 19
+  %965 = bitcast <4 x i1> %963 to i4
+  %966 = icmp ne i4 %965, 0
+  %op.rdx2368 = or i1 %966, %or.cond1099
   %op.rdx2369 = or i1 %or.cond1094, %or.cond1095
   %op.rdx2370 = or i1 %op.rdx2368, %op.rdx2369
-  br i1 %op.rdx2370, label %switch.lookup, label %1013
+  br i1 %op.rdx2370, label %switch.lookup, label %967
 
-1013:                                             ; preds = %1007
-  %1014 = add i32 %0, -70144
-  %or.cond1100 = icmp ult i32 %1014, 18
-  %1015 = add i32 %0, -70163
-  %1016 = icmp ult i32 %1015, 31
-  %or.cond2218 = or i1 %or.cond1100, %1016
-  %1017 = icmp eq i32 %11, 70194
-  %or.cond2220 = or i1 %1017, %or.cond2218
-  %1018 = add i32 %0, -70200
-  %or.cond1106 = icmp ult i32 %1018, 6
+967:                                              ; preds = %961
+  %968 = add i32 %0, -70144
+  %or.cond1100 = icmp ult i32 %968, 18
+  %969 = add i32 %0, -70163
+  %970 = icmp ult i32 %969, 31
+  %or.cond2218 = or i1 %or.cond1100, %970
+  %971 = icmp eq i32 %13, 70194
+  %or.cond2220 = or i1 %971, %or.cond2218
+  %972 = add i32 %0, -70200
+  %or.cond1106 = icmp ult i32 %972, 6
   %or.cond2221 = or i1 %or.cond1106, %or.cond2220
-  br i1 %or.cond2221, label %switch.lookup, label %1019
+  br i1 %or.cond2221, label %switch.lookup, label %973
 
-1019:                                             ; preds = %1013
-  %1020 = add i32 %0, -67072
-  %or.cond1107 = icmp ult i32 %1020, 311
-  %1021 = add i32 %0, -67392
-  %or.cond1108 = icmp ult i32 %1021, 22
+973:                                              ; preds = %967
+  %974 = add i32 %0, -67072
+  %or.cond1107 = icmp ult i32 %974, 311
+  %975 = add i32 %0, -67392
+  %or.cond1108 = icmp ult i32 %975, 22
   %or.cond2222 = or i1 %or.cond1107, %or.cond1108
-  %or.cond1109 = icmp eq i32 %57, 67424
+  %or.cond1109 = icmp eq i32 %10, 67424
   %or.cond2223 = or i1 %or.cond1109, %or.cond2222
-  br i1 %or.cond2223, label %switch.lookup, label %1022
+  br i1 %or.cond2223, label %switch.lookup, label %976
 
-1022:                                             ; preds = %1019
-  %1023 = add i32 %0, -69968
-  %or.cond1110 = icmp ult i32 %1023, 35
-  %or.cond1111 = icmp eq i32 %473, 70004
+976:                                              ; preds = %973
+  %977 = add i32 %0, -69968
+  %or.cond1110 = icmp ult i32 %977, 35
+  %or.cond1111 = icmp eq i32 %11, 70004
   %or.cond2224 = or i1 %or.cond1110, %or.cond1111
-  br i1 %or.cond2224, label %switch.lookup, label %1024
+  br i1 %or.cond2224, label %switch.lookup, label %978
 
-1024:                                             ; preds = %1022
-  %or.cond1112 = icmp eq i32 %57, 68288
-  %1025 = add i32 %0, -68297
-  %1026 = icmp ult i32 %1025, 30
-  %or.cond2226 = or i1 %or.cond1112, %1026
-  %1027 = add i32 %0, -68331
-  %1028 = icmp ult i32 %1027, 12
-  %or.cond2228 = or i1 %1028, %or.cond2226
-  br i1 %or.cond2228, label %switch.lookup, label %1029
+978:                                              ; preds = %976
+  %or.cond1112 = icmp eq i32 %10, 68288
+  %979 = add i32 %0, -68297
+  %980 = icmp ult i32 %979, 30
+  %or.cond2226 = or i1 %or.cond1112, %980
+  %981 = add i32 %0, -68331
+  %982 = icmp ult i32 %981, 12
+  %or.cond2228 = or i1 %982, %or.cond2226
+  br i1 %or.cond2228, label %switch.lookup, label %983
 
-1029:                                             ; preds = %1024
-  %1030 = add i32 %0, -124928
-  %or.cond1117 = icmp ult i32 %1030, 197
-  %1031 = add i32 %0, -125127
-  %1032 = icmp ult i32 %1031, 16
-  %or.cond2230 = or i1 %or.cond1117, %1032
-  br i1 %or.cond2230, label %switch.lookup, label %1033
+983:                                              ; preds = %978
+  %984 = add i32 %0, -124928
+  %or.cond1117 = icmp ult i32 %984, 197
+  %985 = add i32 %0, -125127
+  %986 = icmp ult i32 %985, 16
+  %or.cond2230 = or i1 %or.cond1117, %986
+  br i1 %or.cond2230, label %switch.lookup, label %987
 
-1033:                                             ; preds = %1029
-  %1034 = add i32 %0, -71168
-  %or.cond2233 = icmp ult i32 %1034, 61
-  %1035 = add i32 %0, -71231
-  %1036 = icmp ult i32 %1035, 5
-  %or.cond2235 = or i1 %or.cond2233, %1036
-  %1037 = add i32 %0, -71248
-  %or.cond1126 = icmp ult i32 %1037, 10
+987:                                              ; preds = %983
+  %988 = add i32 %0, -71168
+  %or.cond2233 = icmp ult i32 %988, 61
+  %989 = add i32 %0, -71231
+  %990 = icmp ult i32 %989, 5
+  %or.cond2235 = or i1 %or.cond2233, %990
+  %991 = add i32 %0, -71248
+  %or.cond1126 = icmp ult i32 %991, 10
   %or.cond2236 = or i1 %or.cond1126, %or.cond2235
-  br i1 %or.cond2236, label %switch.lookup, label %1038
+  br i1 %or.cond2236, label %switch.lookup, label %992
 
-1038:                                             ; preds = %1033
-  %1039 = add i32 %0, -92736
-  %or.cond1127 = icmp ult i32 %1039, 31
-  %1040 = add i32 %0, -92768
-  %or.cond1128 = icmp ult i32 %1040, 10
+992:                                              ; preds = %987
+  %993 = add i32 %0, -92736
+  %or.cond1127 = icmp ult i32 %993, 31
+  %994 = add i32 %0, -92768
+  %or.cond1128 = icmp ult i32 %994, 10
   %or.cond2237 = or i1 %or.cond1127, %or.cond1128
-  %or.cond1129 = icmp eq i32 %473, 92782
+  %or.cond1129 = icmp eq i32 %11, 92782
   %or.cond2238 = or i1 %or.cond1129, %or.cond2237
-  br i1 %or.cond2238, label %switch.lookup, label %1041
+  br i1 %or.cond2238, label %switch.lookup, label %995
 
-1041:                                             ; preds = %1038
-  %or.cond2239 = icmp eq i32 %487, 68224
-  br i1 %or.cond2239, label %switch.lookup, label %1042
+995:                                              ; preds = %992
+  %or.cond2239 = icmp eq i32 %18, 68224
+  br i1 %or.cond2239, label %switch.lookup, label %996
 
-1042:                                             ; preds = %1041
-  %1043 = add i32 %0, -67712
-  %or.cond1132 = icmp ult i32 %1043, 31
-  %1044 = add i32 %0, -67751
-  %or.cond1133 = icmp ult i32 %1044, 9
+996:                                              ; preds = %995
+  %997 = add i32 %0, -67712
+  %or.cond1132 = icmp ult i32 %997, 31
+  %998 = add i32 %0, -67751
+  %or.cond1133 = icmp ult i32 %998, 9
   %or.cond2240 = or i1 %or.cond1132, %or.cond1133
-  br i1 %or.cond2240, label %switch.lookup, label %1045
+  br i1 %or.cond2240, label %switch.lookup, label %999
 
-1045:                                             ; preds = %1042
-  %or.cond2331 = icmp eq i32 %487, 67680
-  br i1 %or.cond2331, label %switch.lookup, label %1046
+999:                                              ; preds = %996
+  %or.cond2331 = icmp eq i32 %18, 67680
+  br i1 %or.cond2331, label %switch.lookup, label %1000
 
-1046:                                             ; preds = %1045
-  %1047 = add i32 %0, -72384
-  %or.cond1137 = icmp ult i32 %1047, 57
-  br i1 %or.cond1137, label %switch.lookup, label %1048
+1000:                                             ; preds = %999
+  %1001 = add i32 %0, -72384
+  %or.cond1137 = icmp ult i32 %1001, 57
+  br i1 %or.cond1137, label %switch.lookup, label %1002
 
-1048:                                             ; preds = %1046
-  %1049 = add i32 %0, -66384
-  %or.cond2243 = icmp ult i32 %1049, 43
-  br i1 %or.cond2243, label %switch.lookup, label %1050
+1002:                                             ; preds = %1000
+  %1003 = add i32 %0, -66384
+  %or.cond2243 = icmp ult i32 %1003, 43
+  br i1 %or.cond2243, label %switch.lookup, label %1004
 
-1050:                                             ; preds = %1048
-  %1051 = add i32 %0, -68480
-  %or.cond1140 = icmp ult i32 %1051, 18
+1004:                                             ; preds = %1002
+  %1005 = add i32 %0, -68480
+  %or.cond1140 = icmp ult i32 %1005, 18
   br i1 %or.cond1140, label %switch.lookup, label %switch.early.test2320
 
-switch.early.test2320:                            ; preds = %1050
+switch.early.test2320:                            ; preds = %1004
   %switch.tableidx2347 = add i32 %0, -68505
-  %1052 = icmp ult i32 %switch.tableidx2347, 23
-  br i1 %1052, label %switch.hole_check2348, label %1053
+  %1006 = icmp ult i32 %switch.tableidx2347, 23
+  br i1 %1006, label %switch.hole_check2348, label %1007
 
-1053:                                             ; preds = %switch.hole_check2348, %switch.early.test2320
-  %1054 = add i32 %0, -71040
-  %or.cond2247 = icmp ult i32 %1054, 54
-  %or.cond1146 = icmp eq i32 %472, 71096
+1007:                                             ; preds = %switch.hole_check2348, %switch.early.test2320
+  %1008 = add i32 %0, -71040
+  %or.cond2247 = icmp ult i32 %1008, 54
+  %or.cond1146 = icmp eq i32 %12, 71096
   %or.cond2248 = or i1 %or.cond2247, %or.cond1146
-  %or.cond1147 = icmp eq i32 %473, 71100
+  %or.cond1147 = icmp eq i32 %11, 71100
   %or.cond2249 = or i1 %or.cond1147, %or.cond2248
-  %1055 = add i32 %0, -71103
-  %1056 = icmp ult i32 %1055, 25
-  %or.cond2251 = or i1 %1056, %or.cond2249
-  %or.cond1150 = icmp eq i32 %472, 71128
+  %1009 = add i32 %0, -71103
+  %1010 = icmp ult i32 %1009, 25
+  %or.cond2251 = or i1 %1010, %or.cond2249
+  %or.cond1150 = icmp eq i32 %12, 71128
   %or.cond2252 = or i1 %or.cond1150, %or.cond2251
-  %or.cond1151 = icmp eq i32 %473, 71132
+  %or.cond1151 = icmp eq i32 %11, 71132
   %or.cond2253 = or i1 %or.cond1151, %or.cond2252
-  br i1 %or.cond2253, label %switch.lookup, label %1057
+  br i1 %or.cond2253, label %switch.lookup, label %1011
 
-1057:                                             ; preds = %1053
-  %1058 = add i32 %0, -70320
-  %or.cond1152 = icmp ult i32 %1058, 47
-  %1059 = add i32 %0, -70368
-  %1060 = icmp ult i32 %1059, 11
-  %or.cond2255 = or i1 %or.cond1152, %1060
-  %1061 = add i32 %0, -70384
-  %or.cond1155 = icmp ult i32 %1061, 10
+1011:                                             ; preds = %1007
+  %1012 = add i32 %0, -70320
+  %or.cond1152 = icmp ult i32 %1012, 47
+  %1013 = add i32 %0, -70368
+  %1014 = icmp ult i32 %1013, 11
+  %or.cond2255 = or i1 %or.cond1152, %1014
+  %1015 = add i32 %0, -70384
+  %or.cond1155 = icmp ult i32 %1015, 10
   %or.cond2256 = or i1 %or.cond1155, %or.cond2255
-  br i1 %or.cond2256, label %switch.lookup, label %1062
+  br i1 %or.cond2256, label %switch.lookup, label %1016
 
-1062:                                             ; preds = %1057
-  %1063 = add i32 %0, -70784
-  %or.cond2258 = icmp ult i32 %1063, 57
-  %1064 = add i32 %0, -70843
-  %1065 = icmp ult i32 %1064, 6
-  %or.cond2260 = or i1 %or.cond2258, %1065
-  %or.cond1161 = icmp eq i32 %473, 70850
+1016:                                             ; preds = %1011
+  %1017 = add i32 %0, -70784
+  %or.cond2258 = icmp ult i32 %1017, 57
+  %1018 = add i32 %0, -70843
+  %1019 = icmp ult i32 %1018, 6
+  %or.cond2260 = or i1 %or.cond2258, %1019
+  %or.cond1161 = icmp eq i32 %11, 70850
   %or.cond2261 = or i1 %or.cond1161, %or.cond2260
-  %or.cond1162 = icmp eq i32 %473, 70852
+  %or.cond1162 = icmp eq i32 %11, 70852
   %or.cond2262 = or i1 %or.cond1162, %or.cond2261
-  %1066 = add i32 %0, -70864
-  %or.cond1163 = icmp ult i32 %1066, 10
+  %1020 = add i32 %0, -70864
+  %or.cond1163 = icmp ult i32 %1020, 10
   %or.cond2263 = or i1 %or.cond1163, %or.cond2262
-  br i1 %or.cond2263, label %switch.lookup, label %1067
+  br i1 %or.cond2263, label %switch.lookup, label %1021
 
-1067:                                             ; preds = %1062
-  %1068 = add i32 %0, -71840
-  %or.cond2265 = icmp ult i32 %1068, 83
-  br i1 %or.cond2265, label %switch.lookup, label %1069
+1021:                                             ; preds = %1016
+  %1022 = add i32 %0, -71840
+  %or.cond2265 = icmp ult i32 %1022, 83
+  br i1 %or.cond2265, label %switch.lookup, label %1023
 
-1069:                                             ; preds = %1067
-  %1070 = add <4 x i32> %494, <i32 -71424, i32 -71453, i32 -71458, i32 -71463>
-  %or.cond1169 = icmp eq i32 %473, 71456
-  %1071 = icmp ult <4 x i32> %1070, <i32 26, i32 3, i32 4, i32 5>
-  %1072 = add i32 %0, -71472
-  %or.cond1172 = icmp ult i32 %1072, 10
-  %or.cond1173 = icmp eq i32 %473, 71482
-  %1073 = add i32 %0, -71484
-  %or.cond1174 = icmp ult i32 %1073, 3
-  %1074 = bitcast <4 x i1> %1071 to i4
-  %1075 = icmp ne i4 %1074, 0
-  %op.rdx2364 = or i1 %1075, %or.cond1172
+1023:                                             ; preds = %1021
+  %1024 = add <4 x i32> %8, <i32 -71424, i32 -71453, i32 -71458, i32 -71463>
+  %or.cond1169 = icmp eq i32 %11, 71456
+  %1025 = icmp ult <4 x i32> %1024, <i32 26, i32 3, i32 4, i32 5>
+  %1026 = add i32 %0, -71472
+  %or.cond1172 = icmp ult i32 %1026, 10
+  %or.cond1173 = icmp eq i32 %11, 71482
+  %1027 = add i32 %0, -71484
+  %or.cond1174 = icmp ult i32 %1027, 3
+  %1028 = bitcast <4 x i1> %1025 to i4
+  %1029 = icmp ne i4 %1028, 0
+  %op.rdx2364 = or i1 %1029, %or.cond1172
   %op.rdx2365 = or i1 %or.cond1174, %or.cond1169
   %op.rdx2366 = or i1 %op.rdx2364, %op.rdx2365
   %op.rdx2367 = or i1 %op.rdx2366, %or.cond1173
-  br i1 %op.rdx2367, label %switch.lookup, label %1076
+  br i1 %op.rdx2367, label %switch.lookup, label %1030
 
-1076:                                             ; preds = %1069
-  %1077 = add i32 %0, -82944
-  %or.cond1175 = icmp ult i32 %1077, 583
-  br i1 %or.cond1175, label %switch.lookup, label %1078
+1030:                                             ; preds = %1023
+  %1031 = add i32 %0, -82944
+  %or.cond1175 = icmp ult i32 %1031, 583
+  br i1 %or.cond1175, label %switch.lookup, label %1032
 
-1078:                                             ; preds = %1076
-  %1079 = add i32 %0, -67808
-  %or.cond1176 = icmp ult i32 %1079, 19
+1032:                                             ; preds = %1030
+  %1033 = add i32 %0, -67808
+  %or.cond1176 = icmp ult i32 %1033, 19
   br i1 %or.cond1176, label %switch.lookup, label %switch.early.test2321
 
-switch.early.test2321:                            ; preds = %1078
+switch.early.test2321:                            ; preds = %1032
   %switch.tableidx2353 = add i32 %0, -67828
-  %1080 = icmp ult i32 %switch.tableidx2353, 12
-  br i1 %1080, label %switch.hole_check2354, label %1081
+  %1034 = icmp ult i32 %switch.tableidx2353, 12
+  br i1 %1034, label %switch.hole_check2354, label %1035
 
-1081:                                             ; preds = %switch.hole_check2354, %switch.early.test2321
-  %1082 = add <4 x i32> %494, <i32 -70272, i32 -70282, i32 -70287, i32 -70303>
-  %1083 = icmp ult <4 x i32> %1082, <i32 7, i32 4, i32 15, i32 10>
-  %1084 = bitcast <4 x i1> %1083 to i4
-  %.not2523 = icmp eq i4 %1084, 0
-  br i1 %.not2523, label %1085, label %switch.lookup
+1035:                                             ; preds = %switch.hole_check2354, %switch.early.test2321
+  %1036 = add <4 x i32> %8, <i32 -70272, i32 -70282, i32 -70287, i32 -70303>
+  %1037 = icmp ult <4 x i32> %1036, <i32 7, i32 4, i32 15, i32 10>
+  %1038 = bitcast <4 x i1> %1037 to i4
+  %.not2536 = icmp eq i4 %1038, 0
+  br i1 %.not2536, label %1039, label %switch.lookup
 
-1085:                                             ; preds = %1081
-  %1086 = and i32 %0, -65
-  %1087 = add i32 %1086, -68736
-  %or.cond2278 = icmp ult i32 %1087, 51
-  %1088 = add i32 %0, -68858
-  %or.cond1185 = icmp ult i32 %1088, 6
+1039:                                             ; preds = %1035
+  %1040 = and i32 %0, -65
+  %1041 = add i32 %1040, -68736
+  %or.cond2278 = icmp ult i32 %1041, 51
+  %1042 = add i32 %0, -68858
+  %or.cond1185 = icmp ult i32 %1042, 6
   %or.cond2279 = or i1 %or.cond1185, %or.cond2278
-  br i1 %or.cond2279, label %switch.lookup, label %1089
+  br i1 %or.cond2279, label %switch.lookup, label %1043
 
-1089:                                             ; preds = %1085
-  %1090 = and i32 %0, -512
-  %or.cond1186 = icmp eq i32 %1090, 120832
-  %1091 = add <4 x i32> %494, <i32 -121344, i32 -121462, i32 -121477, i32 -121499>
-  %1092 = icmp ult <4 x i32> %1091, <i32 117, i32 14, i32 7, i32 5>
-  %1093 = add i32 %0, -121505
-  %or.cond1195 = icmp ult i32 %1093, 15
-  %1094 = bitcast <4 x i1> %1092 to i4
-  %1095 = icmp ne i4 %1094, 0
-  %op.rdx2362 = or i1 %1095, %or.cond1195
+1043:                                             ; preds = %1039
+  %1044 = and i32 %0, -512
+  %or.cond1186 = icmp eq i32 %1044, 120832
+  %1045 = add <4 x i32> %8, <i32 -121344, i32 -121462, i32 -121477, i32 -121499>
+  %1046 = icmp ult <4 x i32> %1045, <i32 117, i32 14, i32 7, i32 5>
+  %1047 = add i32 %0, -121505
+  %or.cond1195 = icmp ult i32 %1047, 15
+  %1048 = bitcast <4 x i1> %1046 to i4
+  %1049 = icmp ne i4 %1048, 0
+  %op.rdx2362 = or i1 %1049, %or.cond1195
   %op.rdx2363 = or i1 %op.rdx2362, %or.cond1186
-  br i1 %op.rdx2363, label %switch.lookup, label %1096
+  br i1 %op.rdx2363, label %switch.lookup, label %1050
 
-1096:                                             ; preds = %1089
-  %1097 = add i32 %0, -125184
-  %or.cond2289 = icmp ult i32 %1097, 75
-  %1098 = add i32 %0, -125264
-  %or.cond1198 = icmp ult i32 %1098, 10
+1050:                                             ; preds = %1043
+  %1051 = add i32 %0, -125184
+  %or.cond2289 = icmp ult i32 %1051, 75
+  %1052 = add i32 %0, -125264
+  %or.cond1198 = icmp ult i32 %1052, 10
   %or.cond2290 = or i1 %or.cond2289, %or.cond1198
-  %or.cond1199 = icmp eq i32 %473, 125278
+  %or.cond1199 = icmp eq i32 %11, 125278
   %or.cond2291 = or i1 %or.cond1199, %or.cond2290
-  br i1 %or.cond2291, label %switch.lookup, label %1099
+  br i1 %or.cond2291, label %switch.lookup, label %1053
 
-1099:                                             ; preds = %1096
-  %1100 = add <4 x i32> %494, <i32 -72704, i32 -72714, i32 -72752, i32 -72760>
-  %1101 = icmp ult <4 x i32> %1100, <i32 9, i32 37, i32 7, i32 6>
-  %1102 = add i32 %0, -72769
-  %or.cond1204 = icmp ult i32 %1102, 5
-  %1103 = add i32 %0, -72784
-  %1104 = icmp ult i32 %1103, 29
-  %1105 = bitcast <4 x i1> %1101 to i4
-  %1106 = icmp ne i4 %1105, 0
-  %op.rdx2360 = or i1 %1106, %or.cond1204
-  %op.rdx2361 = or i1 %op.rdx2360, %1104
-  br i1 %op.rdx2361, label %switch.lookup, label %1107
+1053:                                             ; preds = %1050
+  %1054 = add <4 x i32> %8, <i32 -72704, i32 -72714, i32 -72752, i32 -72760>
+  %1055 = icmp ult <4 x i32> %1054, <i32 9, i32 37, i32 7, i32 6>
+  %1056 = add i32 %0, -72769
+  %or.cond1204 = icmp ult i32 %1056, 5
+  %1057 = add i32 %0, -72784
+  %1058 = icmp ult i32 %1057, 29
+  %1059 = bitcast <4 x i1> %1055 to i4
+  %1060 = icmp ne i4 %1059, 0
+  %op.rdx2360 = or i1 %1060, %or.cond1204
+  %op.rdx2361 = or i1 %op.rdx2360, %1058
+  br i1 %op.rdx2361, label %switch.lookup, label %1061
 
-1107:                                             ; preds = %1099
-  %1108 = add <4 x i32> %494, <i32 -72818, i32 -72850, i32 -72874, i32 -72885>
-  %1109 = icmp ult <4 x i32> %1108, <i32 30, i32 22, i32 7, i32 2>
-  %1110 = bitcast <4 x i1> %1109 to i4
-  %1111 = icmp ne i4 %1110, 0
-  %1112 = freeze i1 %1111
-  br i1 %1112, label %switch.lookup, label %switch.early.test2526
+1061:                                             ; preds = %1053
+  %1062 = add <4 x i32> %8, <i32 -72818, i32 -72850, i32 -72874, i32 -72885>
+  %1063 = icmp ult <4 x i32> %1062, <i32 30, i32 22, i32 7, i32 2>
+  %1064 = bitcast <4 x i1> %1063 to i4
+  %1065 = icmp ne i4 %1064, 0
+  %1066 = freeze i1 %1065
+  br i1 %1066, label %switch.lookup, label %switch.early.test2539
 
-switch.early.test2526:                            ; preds = %1107
-  switch i32 %473, label %1113 [
+switch.early.test2539:                            ; preds = %1061
+  switch i32 %11, label %1067 [
     i32 72882, label %switch.lookup
     i32 72816, label %switch.lookup
   ]
 
-1113:                                             ; preds = %switch.early.test2526
-  %1114 = add i32 %0, -70656
-  %or.cond2303 = icmp ult i32 %1114, 56
-  %or.cond1215 = icmp eq i32 %57, 70712
+1067:                                             ; preds = %switch.early.test2539
+  %1068 = add i32 %0, -70656
+  %or.cond2303 = icmp ult i32 %1068, 56
+  %or.cond1215 = icmp eq i32 %10, 70712
   %or.cond2304 = or i1 %or.cond2303, %or.cond1215
-  %or.cond1216 = icmp eq i32 %473, 70720
+  %or.cond1216 = icmp eq i32 %11, 70720
   %or.cond2305 = or i1 %or.cond1216, %or.cond2304
-  %1115 = add i32 %0, -70722
-  %or.cond1217 = icmp ult i32 %1115, 3
+  %1069 = add i32 %0, -70722
+  %or.cond1217 = icmp ult i32 %1069, 3
   %or.cond2306 = or i1 %or.cond1217, %or.cond2305
-  %1116 = add i32 %0, -70727
-  %1117 = icmp ult i32 %1116, 19
-  %or.cond2309 = or i1 %1117, %or.cond2306
-  br i1 %or.cond2309, label %switch.lookup, label %1118
+  %1070 = add i32 %0, -70727
+  %1071 = icmp ult i32 %1070, 19
+  %or.cond2309 = or i1 %1071, %or.cond2306
+  br i1 %or.cond2309, label %switch.lookup, label %1072
 
-1118:                                             ; preds = %1113
-  %1119 = add i32 %0, -66736
-  %or.cond1221 = icmp ult i32 %1119, 36
-  %1120 = add i32 %0, -66776
-  %or.cond1222 = icmp ult i32 %1120, 36
+1072:                                             ; preds = %1067
+  %1073 = add i32 %0, -66736
+  %or.cond1221 = icmp ult i32 %1073, 36
+  %1074 = add i32 %0, -66776
+  %or.cond1222 = icmp ult i32 %1074, 36
   %or.cond2310 = or i1 %or.cond1221, %or.cond1222
-  br i1 %or.cond2310, label %switch.lookup, label %1121
+  br i1 %or.cond2310, label %switch.lookup, label %1075
 
-1121:                                             ; preds = %1118
-  %1122 = add i32 %0, -94208
-  %or.cond1223 = icmp ult i32 %1122, 6125
-  br i1 %or.cond1223, label %switch.lookup, label %1123
+1075:                                             ; preds = %1072
+  %1076 = add i32 %0, -94208
+  %or.cond1223 = icmp ult i32 %1076, 6125
+  br i1 %or.cond1223, label %switch.lookup, label %1077
 
-1123:                                             ; preds = %1121
-  %1124 = add i32 %0, -100352
-  %or.cond1224 = icmp ult i32 %1124, 755
+1077:                                             ; preds = %1075
+  %1078 = add i32 %0, -100352
+  %or.cond1224 = icmp ult i32 %1078, 755
   %. = select i1 %or.cond1224, i8 127, i8 0
   br label %switch.lookup
 }

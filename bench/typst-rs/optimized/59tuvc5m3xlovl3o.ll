@@ -44263,6 +44263,7 @@ define hidden void @_ZN5typst6layout4grid6layout8CellGrid7resolve17h27f789c88585
   %.sroa.16.0..sroa_idx1039 = getelementptr inbounds i8, ptr %161, i64 128
   %232 = getelementptr inbounds i8, ptr %150, i64 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 16
+  %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 24
   %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 32
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 40
   %233 = getelementptr inbounds i8, ptr %155, i64 40
@@ -46720,7 +46721,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha99a26f791558937E.exit.thread:
   %924 = extractelement <2 x i64> %731, i64 0
   store i64 %924, ptr %150, align 8
   store i64 %.0.i866, ptr %232, align 8
-  store <2 x i64> %730, ptr %.sroa.232.0..sroa_idx, align 8
+  store i64 %919, ptr %.sroa.232.0..sroa_idx, align 8
+  store i64 %917, ptr %.sroa.333.0..sroa_idx, align 8
   store ptr %922, ptr %.sroa.434.0..sroa_idx, align 8
   store i8 %923, ptr %.sroa.535.0..sroa_idx, align 8
   %925 = load i64, ptr %188, align 8, !alias.scope !8812, !noalias !8815, !noundef !4
@@ -48769,6 +48771,7 @@ define hidden void @_ZN5typst6layout4grid6layout8CellGrid7resolve17h32531e7173a9
   %.sroa.16.0..sroa_idx1039 = getelementptr inbounds i8, ptr %161, i64 128
   %232 = getelementptr inbounds i8, ptr %150, i64 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 16
+  %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 24
   %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 32
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %150, i64 40
   %233 = getelementptr inbounds i8, ptr %155, i64 40
@@ -51226,7 +51229,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4139ca34bde5ff77E.exit.thread:
   %924 = extractelement <2 x i64> %731, i64 0
   store i64 %924, ptr %150, align 8
   store i64 %.0.i866, ptr %232, align 8
-  store <2 x i64> %730, ptr %.sroa.232.0..sroa_idx, align 8
+  store i64 %919, ptr %.sroa.232.0..sroa_idx, align 8
+  store i64 %917, ptr %.sroa.333.0..sroa_idx, align 8
   store ptr %922, ptr %.sroa.434.0..sroa_idx, align 8
   store i8 %923, ptr %.sroa.535.0..sroa_idx, align 8
   %925 = load i64, ptr %188, align 8, !alias.scope !9354, !noalias !9357, !noundef !4
