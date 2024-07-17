@@ -369,21 +369,11 @@ for.end:                                          ; preds = %for.body
   %add113 = sub i128 %mul.i284, %mul.i276
   %add114 = add i128 %add113, %mul.i252
   %add126 = add i128 %add114, %mul.i268
-  %sub133 = add i128 %add126, %shr96
   %sub107 = sub i128 %mul.i276, %mul.i260
   %add115 = add i128 %sub107, %mul.i252
   %add132 = add i128 %add115, %mul.i292
-  %add134 = add i128 %add132, %shr95
-  %conv135 = trunc i128 %add134 to i64
-  %and136 = and i64 %conv135, 72057594037927935
   %arrayidx137 = getelementptr inbounds i8, ptr %cs, i64 8
-  store i64 %and136, ptr %arrayidx137, align 8
-  %conv138 = trunc i128 %sub133 to i64
-  %and139 = and i64 %conv138, 72057594037927935
   %arrayidx140 = getelementptr inbounds i8, ptr %cs, i64 40
-  store i64 %and139, ptr %arrayidx140, align 8
-  %shr141 = lshr i128 %add134, 56
-  %shr142 = lshr i128 %sub133, 56
   %mul.i300 = mul nuw i128 %conv1.i139, %conv1.i139
   %mul.i308 = mul nuw i128 %conv1.i, %conv1.i
   %mul.i316 = mul nuw i128 %conv1.i147, %conv1.i147
@@ -398,20 +388,26 @@ for.end:                                          ; preds = %for.body
   %add157 = add i128 %add156, %mul.i356
   %add169 = sub i128 %add157, %add180
   %add185 = add i128 %add169, %mul.i332
-  %sub191 = add i128 %add185, %shr142
   %sub151 = sub i128 %mul.i300, %mul.i308
   %add158 = add i128 %sub151, %add180
   %add175 = add i128 %add158, %mul.i364
   %add190 = add i128 %add175, %mul.i340
+  %add134 = add i128 %add132, %shr95
+  %shr141 = lshr i128 %add134, 56
   %add192 = add i128 %add190, %shr141
-  %conv193 = trunc i128 %add192 to i64
-  %and194 = and i64 %conv193, 72057594037927935
-  %arrayidx195 = getelementptr inbounds i8, ptr %cs, i64 16
-  store i64 %and194, ptr %arrayidx195, align 8
-  %conv196 = trunc i128 %sub191 to i64
-  %and197 = and i64 %conv196, 72057594037927935
-  %arrayidx198 = getelementptr inbounds i8, ptr %cs, i64 48
-  store i64 %and197, ptr %arrayidx198, align 8
+  %16 = insertelement <2 x i128> poison, i128 %add134, i64 0
+  %17 = insertelement <2 x i128> %16, i128 %add192, i64 1
+  %18 = trunc <2 x i128> %17 to <2 x i64>
+  %19 = and <2 x i64> %18, <i64 72057594037927935, i64 72057594037927935>
+  store <2 x i64> %19, ptr %arrayidx137, align 8
+  %sub133 = add i128 %add126, %shr96
+  %shr142 = lshr i128 %sub133, 56
+  %sub191 = add i128 %add185, %shr142
+  %20 = insertelement <2 x i128> poison, i128 %sub133, i64 0
+  %21 = insertelement <2 x i128> %20, i128 %sub191, i64 1
+  %22 = trunc <2 x i128> %21 to <2 x i64>
+  %23 = and <2 x i64> %22, <i64 72057594037927935, i64 72057594037927935>
+  store <2 x i64> %23, ptr %arrayidx140, align 8
   %shr199 = lshr i128 %add192, 56
   %shr200 = lshr i128 %sub191, 56
   %conv202 = zext nneg i64 %and to i128

@@ -3325,7 +3325,8 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %16 = inttoptr i64 %and.i.i.i to ptr
   %retval.sroa.0.0.i.i.i = load <2 x float>, ptr %16, align 4
   %pixelBounds = getelementptr inbounds i8, ptr %this, i64 8
-  %agg.tmp1.sroa.0.0.copyload.i146 = load <2 x i32>, ptr %pixelBounds, align 8
+  %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %pixelBounds, align 8
+  %t1.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp1.sroa.0.0.copyload.i, 32
   %17 = fadd <2 x float> %p.coerce, <float 5.000000e-01, float 5.000000e-01>
   %18 = fsub <2 x float> %17, %retval.sroa.0.0.i.i.i
   %19 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %18)
@@ -3335,18 +3336,25 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %23 = fptosi <2 x float> %22 to <2 x i32>
   %24 = add nsw <2 x i32> %23, <i32 1, i32 1>
   %25 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %24, <2 x i32> %20)
-  %26 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %25, <2 x i32> %agg.tmp1.sroa.0.0.copyload.i146)
+  %26 = insertelement <2 x i64> poison, i64 %agg.tmp1.sroa.0.0.copyload.i, i64 0
+  %27 = insertelement <2 x i64> %26, i64 %t1.sroa.3.0.extract.shift.i.i, i64 1
+  %28 = trunc <2 x i64> %27 to <2 x i32>
+  %29 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %25, <2 x i32> %28)
   %pMax7.i = getelementptr inbounds i8, ptr %this, i64 16
-  %agg.tmp6.sroa.0.0.copyload.i147 = load <2 x i32>, ptr %pMax7.i, align 8
-  %27 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %20, <2 x i32> %24)
-  %28 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %agg.tmp6.sroa.0.0.copyload.i147, <2 x i32> %27)
-  %29 = extractelement <2 x i32> %26, i64 1
-  %30 = extractelement <2 x i32> %28, i64 1
-  %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %30)
-  %32 = icmp sge <2 x i32> %26, %28
-  %33 = extractelement <2 x i1> %32, i64 0
-  %34 = extractelement <2 x i1> %32, i64 1
-  %cmp4.i.i129.not = select i1 %33, i1 true, i1 %34
+  %agg.tmp6.sroa.0.0.copyload.i = load i64, ptr %pMax7.i, align 8
+  %t1.sroa.3.0.extract.shift.i7.i = lshr i64 %agg.tmp6.sroa.0.0.copyload.i, 32
+  %30 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %20, <2 x i32> %24)
+  %31 = insertelement <2 x i64> poison, i64 %agg.tmp6.sroa.0.0.copyload.i, i64 0
+  %32 = insertelement <2 x i64> %31, i64 %t1.sroa.3.0.extract.shift.i7.i, i64 1
+  %33 = trunc <2 x i64> %32 to <2 x i32>
+  %34 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %33, <2 x i32> %30)
+  %35 = extractelement <2 x i32> %29, i64 1
+  %36 = extractelement <2 x i32> %34, i64 1
+  %37 = tail call i32 @llvm.smax.i32(i32 %35, i32 %36)
+  %38 = icmp sge <2 x i32> %29, %34
+  %39 = extractelement <2 x i1> %38, i64 0
+  %40 = extractelement <2 x i1> %38, i64 1
+  %cmp4.i.i129.not = select i1 %39, i1 true, i1 %40
   br i1 %cmp4.i.i129.not, label %for.end77, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZSt3maxIfET_St16initializer_listIS0_E.exit
@@ -3356,41 +3364,41 @@ for.body.lr.ph:                                   ; preds = %_ZSt3maxIfET_St16in
   %pMax.i80 = getelementptr inbounds i8, ptr %this, i64 144
   %rgb.sroa.0.0.vec.extract115 = extractelement <2 x float> %rgb.sroa.0.0, i64 0
   %rgb.sroa.0.4.vec.extract120 = extractelement <2 x float> %rgb.sroa.0.0, i64 1
-  %35 = extractelement <2 x i32> %26, i64 0
-  %36 = extractelement <2 x i32> %28, i64 0
+  %41 = extractelement <2 x i32> %29, i64 0
+  %42 = extractelement <2 x i32> %34, i64 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc75
-  %37 = phi <2 x i32> [ %26, %for.body.lr.ph ], [ %60, %for.inc75 ]
-  %38 = sitofp <2 x i32> %37 to <2 x float>
-  %39 = fsub <2 x float> %p.coerce, %38
-  %40 = fadd <2 x float> %39, <float -5.000000e-01, float -5.000000e-01>
+  %43 = phi <2 x i32> [ %29, %for.body.lr.ph ], [ %66, %for.inc75 ]
+  %44 = sitofp <2 x i32> %43 to <2 x float>
+  %45 = fsub <2 x float> %p.coerce, %44
+  %46 = fadd <2 x float> %45, <float -5.000000e-01, float -5.000000e-01>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
-  store <2 x float> %40, ptr %p.i, align 8
+  store <2 x float> %46, ptr %p.i, align 8
   store ptr %p.i, ptr %eval.i, align 8
-  %41 = load i64, ptr %filter, align 8
-  %and.i.i.i76 = and i64 %41, 144115188075855871
-  %42 = inttoptr i64 %and.i.i.i76 to ptr
-  %shr.i.i.i = lshr i64 %41, 57
+  %47 = load i64, ptr %filter, align 8
+  %and.i.i.i76 = and i64 %47, 144115188075855871
+  %48 = inttoptr i64 %and.i.i.i76 to ptr
+  %shr.i.i.i = lshr i64 %47, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
-  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %42, i32 noundef %sub.i.i)
+  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %48, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i)
   %cmp65 = fcmp une float %call3.i.i, 0.000000e+00
   br i1 %cmp65, label %if.then66, label %for.inc75
 
 if.then66:                                        ; preds = %for.body
-  %43 = load i32, ptr %pixels, align 8
-  %44 = extractelement <2 x i32> %37, i64 0
-  %sub.i78 = sub i32 %44, %43
-  %45 = load i32, ptr %y.i79, align 4
-  %46 = extractelement <2 x i32> %37, i64 1
-  %sub6.i = sub nsw i32 %46, %45
-  %47 = load ptr, ptr %values.i, align 8
-  %48 = load i32, ptr %pMax.i80, align 8
-  %sub13.i = sub nsw i32 %48, %43
+  %49 = load i32, ptr %pixels, align 8
+  %50 = extractelement <2 x i32> %43, i64 0
+  %sub.i78 = sub i32 %50, %49
+  %51 = load i32, ptr %y.i79, align 4
+  %52 = extractelement <2 x i32> %43, i64 1
+  %sub6.i = sub nsw i32 %52, %51
+  %53 = load ptr, ptr %values.i, align 8
+  %54 = load i32, ptr %pMax.i80, align 8
+  %sub13.i = sub nsw i32 %54, %49
   %mul.i81 = mul nsw i32 %sub13.i, %sub6.i
   %add.i82 = add nsw i32 %sub.i78, %mul.i81
   %idxprom.i = sext i32 %add.i82 to i64
@@ -3398,9 +3406,9 @@ if.then66:                                        ; preds = %for.body
 
 for.body72:                                       ; preds = %if.then66, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then66 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
-  %arrayidx = getelementptr inbounds %"struct.pbrt::RGBFilm::Pixel", ptr %47, i64 %idxprom.i, i32 2, i64 %indvars.iv
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %49, label %if.end4.i [
+  %arrayidx = getelementptr inbounds %"struct.pbrt::RGBFilm::Pixel", ptr %53, i64 %idxprom.i, i32 2, i64 %indvars.iv
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %55, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
   ]
@@ -3415,18 +3423,18 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %for.body72, %if.the
   %retval.0.i.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract120, %if.then3.i ], [ %rgb.sroa.9.0, %if.end4.i ], [ %rgb.sroa.0.0.vec.extract115, %for.body72 ]
   %mul = fmul float %call3.i.i, %retval.0.i.sroa.speculated
   %conv = fpext float %mul to double
-  %50 = load atomic i64, ptr %arrayidx seq_cst, align 8
+  %56 = load atomic i64, ptr %arrayidx seq_cst, align 8
   br label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %_ZN4pbrt3RGBixEi.exit
-  %oldBits.0.i = phi i64 [ %50, %_ZN4pbrt3RGBixEi.exit ], [ %55, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
-  %51 = bitcast i64 %oldBits.0.i to double
-  %add.i85 = fadd double %conv, %51
-  %52 = bitcast double %add.i85 to i64
-  %53 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %52 seq_cst seq_cst, align 8
-  %54 = extractvalue { i64, i1 } %53, 1
-  %55 = extractvalue { i64, i1 } %53, 0
-  br i1 %54, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
+  %oldBits.0.i = phi i64 [ %56, %_ZN4pbrt3RGBixEi.exit ], [ %61, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
+  %57 = bitcast i64 %oldBits.0.i to double
+  %add.i85 = fadd double %conv, %57
+  %58 = bitcast double %add.i85 to i64
+  %59 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %58 seq_cst seq_cst, align 8
+  %60 = extractvalue { i64, i1 } %59, 1
+  %61 = extractvalue { i64, i1 } %59, 0
+  br i1 %60, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
 
 _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3434,19 +3442,19 @@ _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_bas
   br i1 %exitcond.not, label %for.inc75, label %for.body72, !llvm.loop !13
 
 for.inc75:                                        ; preds = %_ZN4pbrt12AtomicDouble3AddEd.exit, %for.body
-  %56 = extractelement <2 x i32> %37, i64 0
-  %inc.i.i = add nsw i32 %56, 1
-  %cmp.i.i = icmp eq i32 %inc.i.i, %36
+  %62 = extractelement <2 x i32> %43, i64 0
+  %inc.i.i = add nsw i32 %62, 1
+  %cmp.i.i = icmp eq i32 %inc.i.i, %42
   %inc10.i.i = zext i1 %cmp.i.i to i32
-  %57 = extractelement <2 x i32> %37, i64 1
-  %__begin1.sroa.7.1 = add nsw i32 %57, %inc10.i.i
-  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %35, i32 %inc.i.i
-  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %35
-  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %31
-  %58 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
-  %59 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
-  %60 = insertelement <2 x i32> %59, i32 %__begin1.sroa.7.1, i64 1
-  br i1 %58, label %for.body, label %for.end77
+  %63 = extractelement <2 x i32> %43, i64 1
+  %__begin1.sroa.7.1 = add nsw i32 %63, %inc10.i.i
+  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %41, i32 %inc.i.i
+  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %41
+  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %37
+  %64 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
+  %65 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
+  %66 = insertelement <2 x i32> %65, i32 %__begin1.sroa.7.1, i64 1
+  br i1 %64, label %for.body, label %for.end77
 
 for.end77:                                        ; preds = %for.inc75, %_ZSt3maxIfET_St16initializer_listIS0_E.exit
   ret void
@@ -5420,7 +5428,8 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %16 = inttoptr i64 %and.i.i.i to ptr
   %retval.sroa.0.0.i.i.i = load <2 x float>, ptr %16, align 4
   %pixelBounds = getelementptr inbounds i8, ptr %this, i64 8
-  %agg.tmp1.sroa.0.0.copyload.i147 = load <2 x i32>, ptr %pixelBounds, align 8
+  %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %pixelBounds, align 8
+  %t1.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp1.sroa.0.0.copyload.i, 32
   %17 = fadd <2 x float> %p.coerce, <float 5.000000e-01, float 5.000000e-01>
   %18 = fsub <2 x float> %17, %retval.sroa.0.0.i.i.i
   %19 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %18)
@@ -5430,18 +5439,25 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %23 = fptosi <2 x float> %22 to <2 x i32>
   %24 = add nsw <2 x i32> %23, <i32 1, i32 1>
   %25 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %24, <2 x i32> %20)
-  %26 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %25, <2 x i32> %agg.tmp1.sroa.0.0.copyload.i147)
+  %26 = insertelement <2 x i64> poison, i64 %agg.tmp1.sroa.0.0.copyload.i, i64 0
+  %27 = insertelement <2 x i64> %26, i64 %t1.sroa.3.0.extract.shift.i.i, i64 1
+  %28 = trunc <2 x i64> %27 to <2 x i32>
+  %29 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %25, <2 x i32> %28)
   %pMax7.i = getelementptr inbounds i8, ptr %this, i64 16
-  %agg.tmp6.sroa.0.0.copyload.i148 = load <2 x i32>, ptr %pMax7.i, align 8
-  %27 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %20, <2 x i32> %24)
-  %28 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %agg.tmp6.sroa.0.0.copyload.i148, <2 x i32> %27)
-  %29 = extractelement <2 x i32> %26, i64 1
-  %30 = extractelement <2 x i32> %28, i64 1
-  %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %30)
-  %32 = icmp sge <2 x i32> %26, %28
-  %33 = extractelement <2 x i1> %32, i64 0
-  %34 = extractelement <2 x i1> %32, i64 1
-  %cmp4.i.i130.not = select i1 %33, i1 true, i1 %34
+  %agg.tmp6.sroa.0.0.copyload.i = load i64, ptr %pMax7.i, align 8
+  %t1.sroa.3.0.extract.shift.i7.i = lshr i64 %agg.tmp6.sroa.0.0.copyload.i, 32
+  %30 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %20, <2 x i32> %24)
+  %31 = insertelement <2 x i64> poison, i64 %agg.tmp6.sroa.0.0.copyload.i, i64 0
+  %32 = insertelement <2 x i64> %31, i64 %t1.sroa.3.0.extract.shift.i7.i, i64 1
+  %33 = trunc <2 x i64> %32 to <2 x i32>
+  %34 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %33, <2 x i32> %30)
+  %35 = extractelement <2 x i32> %29, i64 1
+  %36 = extractelement <2 x i32> %34, i64 1
+  %37 = tail call i32 @llvm.smax.i32(i32 %35, i32 %36)
+  %38 = icmp sge <2 x i32> %29, %34
+  %39 = extractelement <2 x i1> %38, i64 0
+  %40 = extractelement <2 x i1> %38, i64 1
+  %cmp4.i.i130.not = select i1 %39, i1 true, i1 %40
   br i1 %cmp4.i.i130.not, label %for.end80, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZSt3maxIfET_St16initializer_listIS0_E.exit
@@ -5451,41 +5467,41 @@ for.body.lr.ph:                                   ; preds = %_ZSt3maxIfET_St16in
   %pMax.i81 = getelementptr inbounds i8, ptr %this, i64 792
   %rgb.sroa.0.0.vec.extract116 = extractelement <2 x float> %rgb.sroa.0.0, i64 0
   %rgb.sroa.0.4.vec.extract121 = extractelement <2 x float> %rgb.sroa.0.0, i64 1
-  %35 = extractelement <2 x i32> %26, i64 0
-  %36 = extractelement <2 x i32> %28, i64 0
+  %41 = extractelement <2 x i32> %29, i64 0
+  %42 = extractelement <2 x i32> %34, i64 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc78
-  %37 = phi <2 x i32> [ %26, %for.body.lr.ph ], [ %60, %for.inc78 ]
-  %38 = sitofp <2 x i32> %37 to <2 x float>
-  %39 = fsub <2 x float> %p.coerce, %38
-  %40 = fadd <2 x float> %39, <float -5.000000e-01, float -5.000000e-01>
+  %43 = phi <2 x i32> [ %29, %for.body.lr.ph ], [ %66, %for.inc78 ]
+  %44 = sitofp <2 x i32> %43 to <2 x float>
+  %45 = fsub <2 x float> %p.coerce, %44
+  %46 = fadd <2 x float> %45, <float -5.000000e-01, float -5.000000e-01>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
-  store <2 x float> %40, ptr %p.i, align 8
+  store <2 x float> %46, ptr %p.i, align 8
   store ptr %p.i, ptr %eval.i, align 8
-  %41 = load i64, ptr %filter, align 8
-  %and.i.i.i77 = and i64 %41, 144115188075855871
-  %42 = inttoptr i64 %and.i.i.i77 to ptr
-  %shr.i.i.i = lshr i64 %41, 57
+  %47 = load i64, ptr %filter, align 8
+  %and.i.i.i77 = and i64 %47, 144115188075855871
+  %48 = inttoptr i64 %and.i.i.i77 to ptr
+  %shr.i.i.i = lshr i64 %47, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
-  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %42, i32 noundef %sub.i.i)
+  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %48, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i)
   %cmp68 = fcmp une float %call3.i.i, 0.000000e+00
   br i1 %cmp68, label %if.then69, label %for.inc78
 
 if.then69:                                        ; preds = %for.body
-  %43 = load i32, ptr %pixels, align 8
-  %44 = extractelement <2 x i32> %37, i64 0
-  %sub.i79 = sub i32 %44, %43
-  %45 = load i32, ptr %y.i80, align 4
-  %46 = extractelement <2 x i32> %37, i64 1
-  %sub6.i = sub nsw i32 %46, %45
-  %47 = load ptr, ptr %values.i, align 8
-  %48 = load i32, ptr %pMax.i81, align 8
-  %sub13.i = sub nsw i32 %48, %43
+  %49 = load i32, ptr %pixels, align 8
+  %50 = extractelement <2 x i32> %43, i64 0
+  %sub.i79 = sub i32 %50, %49
+  %51 = load i32, ptr %y.i80, align 4
+  %52 = extractelement <2 x i32> %43, i64 1
+  %sub6.i = sub nsw i32 %52, %51
+  %53 = load ptr, ptr %values.i, align 8
+  %54 = load i32, ptr %pMax.i81, align 8
+  %sub13.i = sub nsw i32 %54, %49
   %mul.i82 = mul nsw i32 %sub13.i, %sub6.i
   %add.i83 = add nsw i32 %sub.i79, %mul.i82
   %idxprom.i = sext i32 %add.i83 to i64
@@ -5493,9 +5509,9 @@ if.then69:                                        ; preds = %for.body
 
 for.body75:                                       ; preds = %if.then69, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then69 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
-  %arrayidx = getelementptr inbounds %"struct.pbrt::GBufferFilm::Pixel", ptr %47, i64 %idxprom.i, i32 3, i64 %indvars.iv
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %49, label %if.end4.i [
+  %arrayidx = getelementptr inbounds %"struct.pbrt::GBufferFilm::Pixel", ptr %53, i64 %idxprom.i, i32 3, i64 %indvars.iv
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %55, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
   ]
@@ -5510,18 +5526,18 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %for.body75, %if.the
   %retval.0.i.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract121, %if.then3.i ], [ %rgb.sroa.9.0, %if.end4.i ], [ %rgb.sroa.0.0.vec.extract116, %for.body75 ]
   %mul = fmul float %call3.i.i, %retval.0.i.sroa.speculated
   %conv = fpext float %mul to double
-  %50 = load atomic i64, ptr %arrayidx seq_cst, align 8
+  %56 = load atomic i64, ptr %arrayidx seq_cst, align 8
   br label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %_ZN4pbrt3RGBixEi.exit
-  %oldBits.0.i = phi i64 [ %50, %_ZN4pbrt3RGBixEi.exit ], [ %55, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
-  %51 = bitcast i64 %oldBits.0.i to double
-  %add.i86 = fadd double %conv, %51
-  %52 = bitcast double %add.i86 to i64
-  %53 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %52 seq_cst seq_cst, align 8
-  %54 = extractvalue { i64, i1 } %53, 1
-  %55 = extractvalue { i64, i1 } %53, 0
-  br i1 %54, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
+  %oldBits.0.i = phi i64 [ %56, %_ZN4pbrt3RGBixEi.exit ], [ %61, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
+  %57 = bitcast i64 %oldBits.0.i to double
+  %add.i86 = fadd double %conv, %57
+  %58 = bitcast double %add.i86 to i64
+  %59 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %58 seq_cst seq_cst, align 8
+  %60 = extractvalue { i64, i1 } %59, 1
+  %61 = extractvalue { i64, i1 } %59, 0
+  br i1 %60, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
 
 _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5529,19 +5545,19 @@ _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_bas
   br i1 %exitcond.not, label %for.inc78, label %for.body75, !llvm.loop !23
 
 for.inc78:                                        ; preds = %_ZN4pbrt12AtomicDouble3AddEd.exit, %for.body
-  %56 = extractelement <2 x i32> %37, i64 0
-  %inc.i.i = add nsw i32 %56, 1
-  %cmp.i.i = icmp eq i32 %inc.i.i, %36
+  %62 = extractelement <2 x i32> %43, i64 0
+  %inc.i.i = add nsw i32 %62, 1
+  %cmp.i.i = icmp eq i32 %inc.i.i, %42
   %inc10.i.i = zext i1 %cmp.i.i to i32
-  %57 = extractelement <2 x i32> %37, i64 1
-  %__begin1.sroa.7.1 = add nsw i32 %57, %inc10.i.i
-  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %35, i32 %inc.i.i
-  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %35
-  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %31
-  %58 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
-  %59 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
-  %60 = insertelement <2 x i32> %59, i32 %__begin1.sroa.7.1, i64 1
-  br i1 %58, label %for.body, label %for.end80
+  %63 = extractelement <2 x i32> %43, i64 1
+  %__begin1.sroa.7.1 = add nsw i32 %63, %inc10.i.i
+  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %41, i32 %inc.i.i
+  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %41
+  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %37
+  %64 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
+  %65 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
+  %66 = insertelement <2 x i32> %65, i32 %__begin1.sroa.7.1, i64 1
+  br i1 %64, label %for.body, label %for.end80
 
 for.end80:                                        ; preds = %for.inc78, %_ZSt3maxIfET_St16initializer_listIS0_E.exit
   ret void
@@ -9252,7 +9268,8 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %for.body.i.i
   %23 = inttoptr i64 %and.i.i.i to ptr
   %retval.sroa.0.0.i.i.i = load <2 x float>, ptr %23, align 4
   %pixelBounds = getelementptr inbounds i8, ptr %this, i64 8
-  %agg.tmp1.sroa.0.0.copyload.i203 = load <2 x i32>, ptr %pixelBounds, align 8
+  %agg.tmp1.sroa.0.0.copyload.i = load i64, ptr %pixelBounds, align 8
+  %t1.sroa.3.0.extract.shift.i.i = lshr i64 %agg.tmp1.sroa.0.0.copyload.i, 32
   %24 = fadd <2 x float> %p.coerce, <float 5.000000e-01, float 5.000000e-01>
   %25 = fsub <2 x float> %24, %retval.sroa.0.0.i.i.i
   %26 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %25)
@@ -9262,18 +9279,25 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %for.body.i.i
   %30 = fptosi <2 x float> %29 to <2 x i32>
   %31 = add nsw <2 x i32> %30, <i32 1, i32 1>
   %32 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %31, <2 x i32> %27)
-  %33 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %32, <2 x i32> %agg.tmp1.sroa.0.0.copyload.i203)
+  %33 = insertelement <2 x i64> poison, i64 %agg.tmp1.sroa.0.0.copyload.i, i64 0
+  %34 = insertelement <2 x i64> %33, i64 %t1.sroa.3.0.extract.shift.i.i, i64 1
+  %35 = trunc <2 x i64> %34 to <2 x i32>
+  %36 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %32, <2 x i32> %35)
   %pMax7.i = getelementptr inbounds i8, ptr %this, i64 16
-  %agg.tmp6.sroa.0.0.copyload.i204 = load <2 x i32>, ptr %pMax7.i, align 8
-  %34 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %27, <2 x i32> %31)
-  %35 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %agg.tmp6.sroa.0.0.copyload.i204, <2 x i32> %34)
-  %36 = extractelement <2 x i32> %33, i64 1
-  %37 = extractelement <2 x i32> %35, i64 1
-  %38 = tail call i32 @llvm.smax.i32(i32 %36, i32 %37)
-  %39 = icmp sge <2 x i32> %33, %35
-  %40 = extractelement <2 x i1> %39, i64 0
-  %41 = extractelement <2 x i1> %39, i64 1
-  %cmp4.i.i180.not = select i1 %40, i1 true, i1 %41
+  %agg.tmp6.sroa.0.0.copyload.i = load i64, ptr %pMax7.i, align 8
+  %t1.sroa.3.0.extract.shift.i7.i = lshr i64 %agg.tmp6.sroa.0.0.copyload.i, 32
+  %37 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %27, <2 x i32> %31)
+  %38 = insertelement <2 x i64> poison, i64 %agg.tmp6.sroa.0.0.copyload.i, i64 0
+  %39 = insertelement <2 x i64> %38, i64 %t1.sroa.3.0.extract.shift.i7.i, i64 1
+  %40 = trunc <2 x i64> %39 to <2 x i32>
+  %41 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %40, <2 x i32> %37)
+  %42 = extractelement <2 x i32> %36, i64 1
+  %43 = extractelement <2 x i32> %41, i64 1
+  %44 = tail call i32 @llvm.smax.i32(i32 %42, i32 %43)
+  %45 = icmp sge <2 x i32> %36, %41
+  %46 = extractelement <2 x i1> %45, i64 0
+  %47 = extractelement <2 x i1> %45, i64 1
+  %cmp4.i.i180.not = select i1 %46, i1 true, i1 %47
   br i1 %cmp4.i.i180.not, label %for.end113, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4pbrt15SampledSpectrumdvEf.exit
@@ -9286,45 +9310,45 @@ for.body.lr.ph:                                   ; preds = %_ZNK4pbrt15SampledS
   %nBuckets.i = getelementptr inbounds i8, ptr %this, i64 96
   %lambdaMin.i = getelementptr inbounds i8, ptr %this, i64 88
   %lambdaMax.i = getelementptr inbounds i8, ptr %this, i64 92
-  %42 = extractelement <2 x i32> %33, i64 0
-  %43 = extractelement <2 x i32> %35, i64 0
+  %48 = extractelement <2 x i32> %36, i64 0
+  %49 = extractelement <2 x i32> %41, i64 0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc111
-  %44 = phi <2 x i32> [ %33, %for.body.lr.ph ], [ %79, %for.inc111 ]
-  %45 = sitofp <2 x i32> %44 to <2 x float>
-  %46 = fsub <2 x float> %p.coerce, %45
-  %47 = fadd <2 x float> %46, <float -5.000000e-01, float -5.000000e-01>
+  %50 = phi <2 x i32> [ %36, %for.body.lr.ph ], [ %85, %for.inc111 ]
+  %51 = sitofp <2 x i32> %50 to <2 x float>
+  %52 = fsub <2 x float> %p.coerce, %51
+  %53 = fadd <2 x float> %52, <float -5.000000e-01, float -5.000000e-01>
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %eval.i)
-  store <2 x float> %47, ptr %p.i, align 8
+  store <2 x float> %53, ptr %p.i, align 8
   store ptr %p.i, ptr %eval.i, align 8
-  %48 = load i64, ptr %filter, align 8
-  %and.i.i.i110 = and i64 %48, 144115188075855871
-  %49 = inttoptr i64 %and.i.i.i110 to ptr
-  %shr.i.i.i = lshr i64 %48, 57
+  %54 = load i64, ptr %filter, align 8
+  %and.i.i.i110 = and i64 %54, 144115188075855871
+  %55 = inttoptr i64 %and.i.i.i110 to ptr
+  %shr.i.i.i = lshr i64 %54, 57
   %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
-  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %49, i32 noundef %sub.i.i)
+  %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_6Filter8EvaluateENS_6Point2IfEEEUlT_E_fNS_9BoxFilterENS_14GaussianFilterENS_14MitchellFilterENS_17LanczosSincFilterENS_14TriangleFilterEEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %eval.i, ptr noundef %55, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eval.i)
   %cmp86 = fcmp une float %call3.i.i, 0.000000e+00
   br i1 %cmp86, label %if.then87, label %for.inc111
 
 if.then87:                                        ; preds = %for.body
-  %50 = load i32, ptr %pixels, align 8
-  %51 = extractelement <2 x i32> %44, i64 0
-  %sub.i112 = sub i32 %51, %50
-  %52 = load i32, ptr %y.i113, align 4
-  %53 = extractelement <2 x i32> %44, i64 1
-  %sub6.i = sub nsw i32 %53, %52
-  %54 = load ptr, ptr %values.i, align 8
-  %55 = load i32, ptr %pMax.i114, align 8
-  %sub13.i = sub nsw i32 %55, %50
+  %56 = load i32, ptr %pixels, align 8
+  %57 = extractelement <2 x i32> %50, i64 0
+  %sub.i112 = sub i32 %57, %56
+  %58 = load i32, ptr %y.i113, align 4
+  %59 = extractelement <2 x i32> %50, i64 1
+  %sub6.i = sub nsw i32 %59, %58
+  %60 = load ptr, ptr %values.i, align 8
+  %61 = load i32, ptr %pMax.i114, align 8
+  %sub13.i = sub nsw i32 %61, %56
   %mul.i115 = mul nsw i32 %sub13.i, %sub6.i
   %add.i116 = add nsw i32 %sub.i112, %mul.i115
   %idxprom.i = sext i32 %add.i116 to i64
-  %arrayidx.i = getelementptr inbounds %"struct.pbrt::SpectralFilm::Pixel", ptr %54, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %"struct.pbrt::SpectralFilm::Pixel", ptr %60, i64 %idxprom.i
   %rgbSplat = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   br label %for.body93
 
@@ -9335,8 +9359,8 @@ for.cond96.preheader:                             ; preds = %_ZN4pbrt12AtomicDou
 for.body93:                                       ; preds = %if.then87, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then87 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
   %arrayidx = getelementptr inbounds [3 x %"class.pbrt::AtomicDouble"], ptr %rgbSplat, i64 0, i64 %indvars.iv
-  %56 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %56, label %if.end4.i [
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %62, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
   ]
@@ -9351,18 +9375,18 @@ _ZN4pbrt3RGBixEi.exit:                            ; preds = %for.body93, %if.the
   %retval.0.i.sroa.speculated = phi float [ %rgb.sroa.0.4.vec.extract170, %if.then3.i ], [ %rgb.sroa.9.0, %if.end4.i ], [ %rgb.sroa.0.0.vec.extract165, %for.body93 ]
   %mul = fmul float %call3.i.i, %retval.0.i.sroa.speculated
   %conv = fpext float %mul to double
-  %57 = load atomic i64, ptr %arrayidx seq_cst, align 8
+  %63 = load atomic i64, ptr %arrayidx seq_cst, align 8
   br label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %_ZN4pbrt3RGBixEi.exit
-  %oldBits.0.i = phi i64 [ %57, %_ZN4pbrt3RGBixEi.exit ], [ %62, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
-  %58 = bitcast i64 %oldBits.0.i to double
-  %add.i119 = fadd double %conv, %58
-  %59 = bitcast double %add.i119 to i64
-  %60 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %59 seq_cst seq_cst, align 8
-  %61 = extractvalue { i64, i1 } %60, 1
-  %62 = extractvalue { i64, i1 } %60, 0
-  br i1 %61, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
+  %oldBits.0.i = phi i64 [ %63, %_ZN4pbrt3RGBixEi.exit ], [ %68, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
+  %64 = bitcast i64 %oldBits.0.i to double
+  %add.i119 = fadd double %conv, %64
+  %65 = bitcast double %add.i119 to i64
+  %66 = cmpxchg weak ptr %arrayidx, i64 %oldBits.0.i, i64 %65 seq_cst seq_cst, align 8
+  %67 = extractvalue { i64, i1 } %66, 1
+  %68 = extractvalue { i64, i1 } %66, 0
+  br i1 %67, label %_ZN4pbrt12AtomicDouble3AddEd.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !12
 
 _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9372,39 +9396,39 @@ _ZN4pbrt12AtomicDouble3AddEd.exit:                ; preds = %_ZNSt13__atomic_bas
 for.body98:                                       ; preds = %for.cond96.preheader, %_ZN4pbrt12AtomicDouble3AddEd.exit134
   %indvars.iv184 = phi i64 [ 0, %for.cond96.preheader ], [ %indvars.iv.next185, %_ZN4pbrt12AtomicDouble3AddEd.exit134 ]
   %arrayidx.i.i121 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv184
-  %63 = load float, ptr %arrayidx.i.i121, align 4
-  %64 = load i32, ptr %nBuckets.i, align 8
-  %conv.i122 = sitofp i32 %64 to float
-  %65 = load float, ptr %lambdaMin.i, align 8
-  %sub.i123 = fsub float %63, %65
+  %69 = load float, ptr %arrayidx.i.i121, align 4
+  %70 = load i32, ptr %nBuckets.i, align 8
+  %conv.i122 = sitofp i32 %70 to float
+  %71 = load float, ptr %lambdaMin.i, align 8
+  %sub.i123 = fsub float %69, %71
   %mul.i124 = fmul float %sub.i123, %conv.i122
-  %66 = load float, ptr %lambdaMax.i, align 4
-  %sub3.i = fsub float %66, %65
+  %72 = load float, ptr %lambdaMax.i, align 4
+  %sub3.i = fsub float %72, %71
   %div.i125 = fdiv float %mul.i124, %sub3.i
   %conv4.i126 = fptosi float %div.i125 to i32
-  %sub6.i127 = add nsw i32 %64, -1
+  %sub6.i127 = add nsw i32 %70, -1
   %cmp.i.i128 = icmp slt i32 %conv4.i126, 0
   %high.val.i.i = call i32 @llvm.smin.i32(i32 %conv4.i126, i32 %sub6.i127)
   %retval.0.i.i = select i1 %cmp.i.i128, i32 0, i32 %high.val.i.i
-  %67 = load ptr, ptr %bucketSplats, align 8
+  %73 = load ptr, ptr %bucketSplats, align 8
   %idxprom102 = sext i32 %retval.0.i.i to i64
-  %arrayidx103 = getelementptr inbounds %"class.pbrt::AtomicDouble", ptr %67, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds %"class.pbrt::AtomicDouble", ptr %73, i64 %idxprom102
   %arrayidx.i.i130 = getelementptr inbounds [4 x float], ptr %L, i64 0, i64 %indvars.iv184
-  %68 = load float, ptr %arrayidx.i.i130, align 4
-  %mul105 = fmul float %call3.i.i, %68
+  %74 = load float, ptr %arrayidx.i.i130, align 4
+  %mul105 = fmul float %call3.i.i, %74
   %conv106 = fpext float %mul105 to double
-  %69 = load atomic i64, ptr %arrayidx103 seq_cst, align 8
+  %75 = load atomic i64, ptr %arrayidx103 seq_cst, align 8
   br label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131, %for.body98
-  %oldBits.0.i132 = phi i64 [ %69, %for.body98 ], [ %74, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131 ]
-  %70 = bitcast i64 %oldBits.0.i132 to double
-  %add.i133 = fadd double %conv106, %70
-  %71 = bitcast double %add.i133 to i64
-  %72 = cmpxchg weak ptr %arrayidx103, i64 %oldBits.0.i132, i64 %71 seq_cst seq_cst, align 8
-  %73 = extractvalue { i64, i1 } %72, 1
-  %74 = extractvalue { i64, i1 } %72, 0
-  br i1 %73, label %_ZN4pbrt12AtomicDouble3AddEd.exit134, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131, !llvm.loop !12
+  %oldBits.0.i132 = phi i64 [ %75, %for.body98 ], [ %80, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131 ]
+  %76 = bitcast i64 %oldBits.0.i132 to double
+  %add.i133 = fadd double %conv106, %76
+  %77 = bitcast double %add.i133 to i64
+  %78 = cmpxchg weak ptr %arrayidx103, i64 %oldBits.0.i132, i64 %77 seq_cst seq_cst, align 8
+  %79 = extractvalue { i64, i1 } %78, 1
+  %80 = extractvalue { i64, i1 } %78, 0
+  br i1 %79, label %_ZN4pbrt12AtomicDouble3AddEd.exit134, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131, !llvm.loop !12
 
 _ZN4pbrt12AtomicDouble3AddEd.exit134:             ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i131
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
@@ -9412,19 +9436,19 @@ _ZN4pbrt12AtomicDouble3AddEd.exit134:             ; preds = %_ZNSt13__atomic_bas
   br i1 %exitcond187.not, label %for.inc111, label %for.body98, !llvm.loop !30
 
 for.inc111:                                       ; preds = %_ZN4pbrt12AtomicDouble3AddEd.exit134, %for.body
-  %75 = extractelement <2 x i32> %44, i64 0
-  %inc.i.i = add nsw i32 %75, 1
-  %cmp.i.i135 = icmp eq i32 %inc.i.i, %43
+  %81 = extractelement <2 x i32> %50, i64 0
+  %inc.i.i = add nsw i32 %81, 1
+  %cmp.i.i135 = icmp eq i32 %inc.i.i, %49
   %inc10.i.i = zext i1 %cmp.i.i135 to i32
-  %76 = extractelement <2 x i32> %44, i64 1
-  %__begin1.sroa.7.1 = add nsw i32 %76, %inc10.i.i
-  %__begin1.sroa.0.1 = select i1 %cmp.i.i135, i32 %42, i32 %inc.i.i
-  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %42
-  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %38
-  %77 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
-  %78 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
-  %79 = insertelement <2 x i32> %78, i32 %__begin1.sroa.7.1, i64 1
-  br i1 %77, label %for.body, label %for.end113
+  %82 = extractelement <2 x i32> %50, i64 1
+  %__begin1.sroa.7.1 = add nsw i32 %82, %inc10.i.i
+  %__begin1.sroa.0.1 = select i1 %cmp.i.i135, i32 %48, i32 %inc.i.i
+  %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %48
+  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %44
+  %83 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
+  %84 = insertelement <2 x i32> poison, i32 %__begin1.sroa.0.1, i64 0
+  %85 = insertelement <2 x i32> %84, i32 %__begin1.sroa.7.1, i64 1
+  br i1 %83, label %for.body, label %for.end113
 
 for.end113:                                       ; preds = %for.inc111, %_ZNK4pbrt15SampledSpectrumdvEf.exit
   ret void

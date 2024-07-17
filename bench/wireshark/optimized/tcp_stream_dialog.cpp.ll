@@ -19489,7 +19489,7 @@ define void @_ZN15TCPStreamDialog13getZoomRangesE5QRect(ptr dead_on_unwind noali
   %27 = add i32 %26, 1
   %28 = sub i32 %27, %24
   %29 = icmp slt i32 %28, 20
-  br i1 %29, label %79, label %30
+  br i1 %29, label %83, label %30
 
 30:                                               ; preds = %22, %4
   %31 = call noundef ptr @_ZNK11QCustomPlot8axisRectEi(ptr noundef nonnull align 8 dereferenceable(513) %12, i32 noundef 0)
@@ -19497,13 +19497,15 @@ define void @_ZN15TCPStreamDialog13getZoomRangesE5QRect(ptr dead_on_unwind noali
   %33 = load <2 x i64>, ptr %32, align 4
   store <2 x i64> %33, ptr %7, align 16
   %34 = call noundef zeroext i1 @_ZNK5QRect10intersectsERKS_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6) #24
-  br i1 %34, label %35, label %79
+  br i1 %34, label %35, label %83
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %7, i64 8
   %37 = call { i64, i64 } @_ZNK5QRectanERKS_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6) #24
   %38 = extractvalue { i64, i64 } %37, 0
+  %.sroa.3.0.extract.shift = lshr i64 %38, 32
   %39 = extractvalue { i64, i64 } %37, 1
+  %.sroa.6.8.extract.shift = lshr i64 %39, 32
   %40 = getelementptr inbounds i8, ptr %12, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 304
@@ -19535,26 +19537,30 @@ define void @_ZN15TCPStreamDialog13getZoomRangesE5QRect(ptr dead_on_unwind noali
   %61 = insertelement <2 x i32> poison, i32 %45, i64 0
   %62 = insertelement <2 x i32> %61, i32 %55, i64 1
   %63 = sitofp <2 x i32> %62 to <2 x double>
-  %64 = bitcast i64 %38 to <2 x i32>
-  %65 = bitcast i64 %39 to <2 x i32>
-  %66 = insertelement <2 x i32> %64, i32 %51, i64 1
-  %67 = insertelement <2 x i32> %65, i32 %43, i64 0
-  %68 = sub <2 x i32> %66, %67
-  %69 = sitofp <2 x i32> %68 to <2 x double>
-  %70 = fmul <2 x double> %60, %69
-  %71 = fdiv <2 x double> %70, %63
-  %72 = fadd <2 x double> %59, %71
-  %73 = fadd <2 x double> %72, zeroinitializer
-  store <2 x double> %73, ptr %0, align 8
-  %74 = add <2 x i32> %65, <i32 1, i32 1>
-  %75 = sub <2 x i32> %74, %64
-  %76 = sitofp <2 x i32> %75 to <2 x double>
-  %77 = fmul <2 x double> %60, %76
-  %78 = fdiv <2 x double> %77, %63
-  store <2 x double> %78, ptr %46, align 8
-  br label %79
+  %64 = insertelement <2 x i64> poison, i64 %38, i64 0
+  %65 = insertelement <2 x i64> %64, i64 %.sroa.3.0.extract.shift, i64 1
+  %66 = trunc <2 x i64> %65 to <2 x i32>
+  %67 = insertelement <2 x i64> poison, i64 %39, i64 0
+  %68 = insertelement <2 x i64> %67, i64 %.sroa.6.8.extract.shift, i64 1
+  %69 = trunc <2 x i64> %68 to <2 x i32>
+  %70 = insertelement <2 x i32> %66, i32 %51, i64 1
+  %71 = insertelement <2 x i32> %69, i32 %43, i64 0
+  %72 = sub <2 x i32> %70, %71
+  %73 = sitofp <2 x i32> %72 to <2 x double>
+  %74 = fmul <2 x double> %60, %73
+  %75 = fdiv <2 x double> %74, %63
+  %76 = fadd <2 x double> %59, %75
+  %77 = fadd <2 x double> %76, zeroinitializer
+  store <2 x double> %77, ptr %0, align 8
+  %78 = add <2 x i32> %69, <i32 1, i32 1>
+  %79 = sub <2 x i32> %78, %66
+  %80 = sitofp <2 x i32> %79 to <2 x double>
+  %81 = fmul <2 x double> %60, %80
+  %82 = fdiv <2 x double> %81, %63
+  store <2 x double> %82, ptr %46, align 8
+  br label %83
 
-79:                                               ; preds = %30, %35, %22
+83:                                               ; preds = %30, %35, %22
   ret void
 }
 

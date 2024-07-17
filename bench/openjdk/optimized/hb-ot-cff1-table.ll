@@ -787,103 +787,101 @@ define linkonce_odr hidden void @_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_
   %13 = getelementptr inbounds i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %7
-  %16 = trunc i32 %3 to i16
-  %17 = insertelement <2 x i16> poison, i16 %16, i64 0
-  %18 = trunc i32 %12 to i16
-  %19 = insertelement <2 x i16> %17, i16 %18, i64 1
-  %20 = sitofp <2 x i16> %19 to <2 x float>
-  %21 = trunc i32 %15 to i16
-  %22 = insertelement <2 x i16> poison, i16 %21, i64 0
-  %23 = trunc i32 %7 to i16
-  %24 = insertelement <2 x i16> %22, i16 %23, i64 1
-  %25 = sitofp <2 x i16> %24 to <2 x float>
-  %26 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x float> %26, %20
-  %28 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> zeroinitializer
-  %29 = fmul <2 x float> %28, %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  %31 = load float, ptr %30, align 8
-  %32 = fcmp une float %31, 0.000000e+00
-  br i1 %32, label %33, label %43
+  %16 = insertelement <2 x i32> poison, i32 %3, i64 0
+  %17 = insertelement <2 x i32> %16, i32 %12, i64 1
+  %18 = trunc <2 x i32> %17 to <2 x i16>
+  %19 = sitofp <2 x i16> %18 to <2 x float>
+  %20 = insertelement <2 x i32> poison, i32 %15, i64 0
+  %21 = insertelement <2 x i32> %20, i32 %7, i64 1
+  %22 = trunc <2 x i32> %21 to <2 x i16>
+  %23 = sitofp <2 x i16> %22 to <2 x float>
+  %24 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> zeroinitializer
+  %25 = fmul <2 x float> %24, %19
+  %26 = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> zeroinitializer
+  %27 = fmul <2 x float> %26, %23
+  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = load float, ptr %28, align 8
+  %30 = fcmp une float %29, 0.000000e+00
+  br i1 %30, label %31, label %41
 
-33:                                               ; preds = %2
-  %34 = insertelement <2 x float> poison, float %31, i64 0
-  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
-  %36 = fmul <2 x float> %29, %35
-  %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %38 = fcmp oge <2 x float> %36, %37
-  %39 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %40 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = select <2 x i1> %38, <2 x float> %39, <2 x float> %40
-  %42 = fadd <2 x float> %27, %41
-  br label %43
+31:                                               ; preds = %2
+  %32 = insertelement <2 x float> poison, float %29, i64 0
+  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
+  %34 = fmul <2 x float> %27, %33
+  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %36 = fcmp oge <2 x float> %34, %35
+  %37 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %38 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
+  %39 = select <2 x i1> %36, <2 x float> %37, <2 x float> %38
+  %40 = fadd <2 x float> %25, %39
+  br label %41
 
-43:                                               ; preds = %33, %2
-  %44 = phi <2 x float> [ %42, %33 ], [ %27, %2 ]
-  %45 = extractelement <2 x float> %44, i64 0
-  %46 = tail call float @llvm.floor.f32(float %45)
-  %47 = fptosi float %46 to i32
-  store i32 %47, ptr %1, align 4
-  %48 = extractelement <2 x float> %29, i64 1
-  %49 = tail call float @llvm.floor.f32(float %48)
-  %50 = extractelement <2 x float> %44, i64 1
-  %51 = tail call float @llvm.ceil.f32(float %50)
-  %52 = sitofp i32 %47 to float
-  %53 = fsub float %51, %52
-  %54 = insertelement <2 x float> poison, float %49, i64 0
-  %55 = insertelement <2 x float> %54, float %53, i64 1
-  %56 = fptosi <2 x float> %55 to <2 x i32>
-  store <2 x i32> %56, ptr %6, align 4
-  %57 = extractelement <2 x float> %29, i64 0
-  %58 = tail call float @llvm.ceil.f32(float %57)
-  %59 = extractelement <2 x i32> %56, i64 0
-  %60 = sitofp i32 %59 to float
-  %61 = fsub float %58, %60
-  %62 = fptosi float %61 to i32
-  store i32 %62, ptr %13, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 60
-  %64 = load i32, ptr %63, align 4
-  %.not = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
-  %66 = load i32, ptr %65, align 8
-  %.not36 = icmp eq i32 %66, 0
+41:                                               ; preds = %31, %2
+  %42 = phi <2 x float> [ %40, %31 ], [ %25, %2 ]
+  %43 = extractelement <2 x float> %42, i64 0
+  %44 = tail call float @llvm.floor.f32(float %43)
+  %45 = fptosi float %44 to i32
+  store i32 %45, ptr %1, align 4
+  %46 = extractelement <2 x float> %27, i64 1
+  %47 = tail call float @llvm.floor.f32(float %46)
+  %48 = extractelement <2 x float> %42, i64 1
+  %49 = tail call float @llvm.ceil.f32(float %48)
+  %50 = sitofp i32 %45 to float
+  %51 = fsub float %49, %50
+  %52 = insertelement <2 x float> poison, float %47, i64 0
+  %53 = insertelement <2 x float> %52, float %51, i64 1
+  %54 = fptosi <2 x float> %53 to <2 x i32>
+  store <2 x i32> %54, ptr %6, align 4
+  %55 = extractelement <2 x float> %27, i64 0
+  %56 = tail call float @llvm.ceil.f32(float %55)
+  %57 = extractelement <2 x i32> %54, i64 0
+  %58 = sitofp i32 %57 to float
+  %59 = fsub float %56, %58
+  %60 = fptosi float %59 to i32
+  store i32 %60, ptr %13, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 60
+  %62 = load i32, ptr %61, align 4
+  %.not = icmp eq i32 %62, 0
+  %63 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = load i32, ptr %63, align 8
+  %.not36 = icmp eq i32 %64, 0
   %or.cond = select i1 %.not, i1 %.not36, i1 false
-  br i1 %or.cond, label %87, label %67
+  br i1 %or.cond, label %85, label %65
 
-67:                                               ; preds = %43
-  %68 = getelementptr inbounds i8, ptr %0, i64 44
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp slt i32 %69, 0
-  %71 = sub nsw i32 0, %66
-  %spec.select = select i1 %70, i32 %71, i32 %66
-  %72 = add nsw i32 %spec.select, %59
-  store i32 %72, ptr %6, align 4
-  %73 = sub nsw i32 %62, %spec.select
-  store i32 %73, ptr %13, align 4
-  %74 = load i32, ptr %63, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp slt i32 %76, 0
-  %78 = sub nsw i32 0, %74
-  %.0 = select i1 %77, i32 %78, i32 %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 56
-  %80 = load i8, ptr %79, align 8
-  %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %84
+65:                                               ; preds = %41
+  %66 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp slt i32 %67, 0
+  %69 = sub nsw i32 0, %64
+  %spec.select = select i1 %68, i32 %69, i32 %64
+  %70 = add nsw i32 %spec.select, %57
+  store i32 %70, ptr %6, align 4
+  %71 = sub nsw i32 %60, %spec.select
+  store i32 %71, ptr %13, align 4
+  %72 = load i32, ptr %61, align 4
+  %73 = getelementptr inbounds i8, ptr %0, i64 40
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp slt i32 %74, 0
+  %76 = sub nsw i32 0, %72
+  %.0 = select i1 %75, i32 %76, i32 %72
+  %77 = getelementptr inbounds i8, ptr %0, i64 56
+  %78 = load i8, ptr %77, align 8
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %80, label %82
 
-82:                                               ; preds = %67
+80:                                               ; preds = %65
   %.neg = sdiv i32 %.0, -2
-  %83 = add i32 %.neg, %47
-  store i32 %83, ptr %1, align 4
-  br label %84
+  %81 = add i32 %.neg, %45
+  store i32 %81, ptr %1, align 4
+  br label %82
 
-84:                                               ; preds = %82, %67
-  %85 = extractelement <2 x i32> %56, i64 1
-  %86 = add nsw i32 %.0, %85
-  store i32 %86, ptr %10, align 4
-  br label %87
+82:                                               ; preds = %80, %65
+  %83 = extractelement <2 x i32> %54, i64 1
+  %84 = add nsw i32 %.0, %83
+  store i32 %84, ptr %10, align 4
+  br label %85
 
-87:                                               ; preds = %43, %84
+85:                                               ; preds = %41, %82
   ret void
 }
 

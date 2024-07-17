@@ -42696,61 +42696,58 @@ define void @DrawModelEx(ptr noundef byval(%struct.Model) align 8 %0, <2 x float
   %.sroa.224.0.extract.shift = lshr i32 %8, 8
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = getelementptr inbounds i8, ptr %0, i64 88
-  %22 = trunc i32 %8 to i8
-  %23 = insertelement <4 x i8> poison, i8 %22, i64 0
-  %24 = trunc i32 %.sroa.224.0.extract.shift to i8
-  %25 = insertelement <4 x i8> %23, i8 %24, i64 1
-  %26 = trunc i32 %.sroa.325.0.extract.shift to i8
-  %27 = insertelement <4 x i8> %25, i8 %26, i64 2
-  %28 = trunc nuw i32 %.sroa.426.0.extract.shift to i8
-  %29 = insertelement <4 x i8> %27, i8 %28, i64 3
-  %30 = uitofp <4 x i8> %29 to <4 x float>
-  %31 = fdiv <4 x float> %30, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  br label %33
+  %22 = insertelement <4 x i32> poison, i32 %8, i64 0
+  %23 = insertelement <4 x i32> %22, i32 %.sroa.224.0.extract.shift, i64 1
+  %24 = insertelement <4 x i32> %23, i32 %.sroa.325.0.extract.shift, i64 2
+  %25 = insertelement <4 x i32> %24, i32 %.sroa.426.0.extract.shift, i64 3
+  %26 = trunc <4 x i32> %25 to <4 x i8>
+  %27 = uitofp <4 x i8> %26 to <4 x float>
+  %28 = fdiv <4 x float> %27, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  br label %30
 
-33:                                               ; preds = %.lr.ph, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = load ptr, ptr %20, align 8
-  %35 = load ptr, ptr %21, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.Material, ptr %34, i64 %38, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 20
-  %42 = load <4 x i8>, ptr %41, align 4
-  %43 = uitofp <4 x i8> %42 to <4 x float>
-  %44 = fdiv <4 x float> %43, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %45 = fmul <4 x float> %31, %44
-  %46 = fmul <4 x float> %45, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %47 = fptoui <4 x float> %46 to <4 x i8>
-  store <4 x i8> %47, ptr %41, align 4
-  %48 = load ptr, ptr %32, align 8
-  %49 = getelementptr inbounds %struct.Mesh, ptr %48, i64 %indvars.iv
-  %50 = load ptr, ptr %20, align 8
-  %51 = load ptr, ptr %21, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.Material, ptr %50, i64 %54
-  call void @DrawMesh(ptr noundef byval(%struct.Mesh) align 8 %49, ptr noundef byval(%struct.Material) align 8 %55, ptr noundef nonnull byval(%struct.Matrix) align 8 %0)
-  %56 = load ptr, ptr %20, align 8
-  %57 = load ptr, ptr %21, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv
-  %59 = load i32, ptr %58, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.Material, ptr %56, i64 %60, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 20
-  store <4 x i8> %42, ptr %63, align 4
+30:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %31 = load ptr, ptr %20, align 8
+  %32 = load ptr, ptr %21, align 8
+  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %struct.Material, ptr %31, i64 %35, i32 1
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 20
+  %39 = load <4 x i8>, ptr %38, align 4
+  %40 = uitofp <4 x i8> %39 to <4 x float>
+  %41 = fdiv <4 x float> %40, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %42 = fmul <4 x float> %28, %41
+  %43 = fmul <4 x float> %42, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %44 = fptoui <4 x float> %43 to <4 x i8>
+  store <4 x i8> %44, ptr %38, align 4
+  %45 = load ptr, ptr %29, align 8
+  %46 = getelementptr inbounds %struct.Mesh, ptr %45, i64 %indvars.iv
+  %47 = load ptr, ptr %20, align 8
+  %48 = load ptr, ptr %21, align 8
+  %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.Material, ptr %47, i64 %51
+  call void @DrawMesh(ptr noundef byval(%struct.Mesh) align 8 %46, ptr noundef byval(%struct.Material) align 8 %52, ptr noundef nonnull byval(%struct.Matrix) align 8 %0)
+  %53 = load ptr, ptr %20, align 8
+  %54 = load ptr, ptr %21, align 8
+  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.Material, ptr %53, i64 %57, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  store <4 x i8> %39, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load i32, ptr %17, align 8
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %33, label %._crit_edge
+  %61 = load i32, ptr %17, align 8
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %30, label %._crit_edge
 
-._crit_edge:                                      ; preds = %33, %9
+._crit_edge:                                      ; preds = %30, %9
   ret void
 }
 

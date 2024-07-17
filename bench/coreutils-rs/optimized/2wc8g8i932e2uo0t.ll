@@ -411,19 +411,27 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = lshr i32 %0, 12
-  %60 = lshr i32 %0, 6
-  %61 = trunc i32 %0 to i8
-  %62 = trunc i32 %58 to i8
-  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
-  %64 = trunc i32 %59 to i8
-  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
-  %66 = trunc i32 %60 to i8
-  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
-  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
-  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
-  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %70, ptr %1, align 1
+  %59 = trunc i32 %58 to i8
+  %60 = and i8 %59, 7
+  %61 = or disjoint i8 %60, -16
+  store i8 %61, ptr %1, align 1
+  %62 = lshr i32 %0, 12
+  %63 = trunc i32 %62 to i8
+  %64 = and i8 %63, 63
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = or disjoint i8 %64, -128
+  store i8 %66, ptr %65, align 1
+  %67 = lshr i32 %0, 6
+  %68 = trunc i32 %67 to i8
+  %69 = and i8 %68, 63
+  %70 = getelementptr inbounds i8, ptr %1, i64 2
+  %71 = or disjoint i8 %69, -128
+  store i8 %71, ptr %70, align 1
+  %72 = trunc i32 %0 to i8
+  %73 = and i8 %72, 63
+  %74 = getelementptr inbounds i8, ptr %1, i64 3
+  %75 = or disjoint i8 %73, -128
+  store i8 %75, ptr %74, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18c8d08831497432E.exit"
 }
 

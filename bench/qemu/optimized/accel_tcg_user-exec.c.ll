@@ -1901,8 +1901,6 @@ if.end34.i:                                       ; preds = %sw.bb27.i
 
 if.then.i.i.i:                                    ; preds = %if.end34.i
   %17 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !11
-  %retval.sroa.0.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %17, i64 0
-  %retval.sroa.2.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %17, i64 1
   br label %load_atom_extract_al16_or_exit.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end34.i
@@ -1925,44 +1923,44 @@ if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end8.i.i.i
   %20 = load i128, ptr %16, align 16
-  %retval.sroa.0.0.extract.trunc5.i.i.i = trunc i128 %20 to i64
   %retval.sroa.4.0.extract.shift7.i.i.i = lshr i128 %20, 64
-  %retval.sroa.4.0.extract.trunc8.i.i.i = trunc nuw i128 %retval.sroa.4.0.extract.shift7.i.i.i to i64
+  %21 = insertelement <2 x i128> poison, i128 %20, i64 0
+  %22 = insertelement <2 x i128> %21, i128 %retval.sroa.4.0.extract.shift7.i.i.i, i64 1
+  %23 = trunc <2 x i128> %22 to <2 x i64>
   br label %cleanup.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 16) ]
-  %21 = load i32, ptr @cpuinfo, align 4
-  %and.i12.i.i.i = and i32 %21, 65536
+  %24 = load i32, ptr @cpuinfo, align 4
+  %and.i12.i.i.i = and i32 %24, 65536
   %tobool.not.i.i.i.i = icmp eq i32 %and.i12.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !12
-  %extract.t.i.i.i.i = extractelement <2 x i64> %22, i64 0
-  %extract.t3.i.i.i.i = extractelement <2 x i64> %22, i64 1
+  %25 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %16) #19, !srcloc !12
   br label %cleanup.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %23 = cmpxchg ptr %16, i128 0, i128 0 seq_cst seq_cst, align 16
-  %24 = extractvalue { i128, i1 } %23, 0
-  %extract.t2.i.i.i.i = trunc i128 %24 to i64
-  %extract4.i.i.i.i = lshr i128 %24, 64
-  %extract.t5.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i to i64
+  %26 = cmpxchg ptr %16, i128 0, i128 0 seq_cst seq_cst, align 16
+  %27 = extractvalue { i128, i1 } %26, 0
+  %extract4.i.i.i.i = lshr i128 %27, 64
+  %28 = insertelement <2 x i128> poison, i128 %27, i64 0
+  %29 = insertelement <2 x i128> %28, i128 %extract4.i.i.i.i, i64 1
+  %30 = trunc <2 x i128> %29 to <2 x i64>
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %31 = phi <2 x i64> [ %23, %if.then12.i.i.i ], [ %25, %if.then.i.i.i.i ], [ %30, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.0.i.i.i, %cleanup.i.i.i ]
-  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.4.1.i.i.i to i128
+  %32 = phi <2 x i64> [ %17, %if.then.i.i.i ], [ %31, %cleanup.i.i.i ]
+  %33 = extractelement <2 x i64> %32, i64 1
+  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %33 to i128
   %a.sroa.2.0.insert.shift.i.i24.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i23.i, 64
-  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %retval.sroa.0.1.i.i.i to i128
+  %34 = extractelement <2 x i64> %32, i64 0
+  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %34 to i128
   %a.sroa.0.0.insert.insert.i.i26.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i24.i, %a.sroa.0.0.insert.ext.i.i25.i
   %shr.i.i28.i = lshr i128 %a.sroa.0.0.insert.insert.i.i26.i, 56
   %conv36.i = trunc i128 %shr.i.i28.i to i16
@@ -1976,10 +1974,10 @@ load_atom_2.exit:                                 ; preds = %if.then.i9, %load_a
   %retval.0.i = phi i16 [ %3, %if.then.i9 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %if.then31.i ], [ %conv36.i, %load_atom_extract_al16_or_exit.exit.i ], [ %pv.val.i, %sw.bb.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
-  %25 = and i32 %oi, 256
-  %tobool.not = icmp eq i32 %25, 0
-  %26 = tail call i16 @llvm.bswap.i16(i16 %retval.0.i)
-  %spec.select = select i1 %tobool.not, i16 %retval.0.i, i16 %26
+  %35 = and i32 %oi, 256
+  %tobool.not = icmp eq i32 %35, 0
+  %36 = tail call i16 @llvm.bswap.i16(i16 %retval.0.i)
+  %spec.select = select i1 %tobool.not, i16 %retval.0.i, i16 %36
   ret i16 %spec.select
 }
 
@@ -2214,8 +2212,6 @@ if.end31.i:                                       ; preds = %sw.bb26.i
 
 if.then.i.i.i:                                    ; preds = %if.end31.i
   %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !11
-  %retval.sroa.0.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %22, i64 0
-  %retval.sroa.2.0.extract.trunc.i.i.i.i = extractelement <2 x i64> %22, i64 1
   br label %load_atom_extract_al16_or_exit.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end31.i
@@ -2238,47 +2234,47 @@ if.end8.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end8.i.i.i
   %25 = load i128, ptr %21, align 16
-  %retval.sroa.0.0.extract.trunc5.i.i.i = trunc i128 %25 to i64
   %retval.sroa.4.0.extract.shift7.i.i.i = lshr i128 %25, 64
-  %retval.sroa.4.0.extract.trunc8.i.i.i = trunc nuw i128 %retval.sroa.4.0.extract.shift7.i.i.i to i64
+  %26 = insertelement <2 x i128> poison, i128 %25, i64 0
+  %27 = insertelement <2 x i128> %26, i128 %retval.sroa.4.0.extract.shift7.i.i.i, i64 1
+  %28 = trunc <2 x i128> %27 to <2 x i64>
   br label %cleanup.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end8.i.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
-  %26 = load i32, ptr @cpuinfo, align 4
-  %and.i12.i.i.i = and i32 %26, 65536
+  %29 = load i32, ptr @cpuinfo, align 4
+  %and.i12.i.i.i = and i32 %29, 65536
   %tobool.not.i.i.i.i = icmp eq i32 %and.i12.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %27 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !12
-  %extract.t.i.i.i.i = extractelement <2 x i64> %27, i64 0
-  %extract.t3.i.i.i.i = extractelement <2 x i64> %27, i64 1
+  %30 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #19, !srcloc !12
   br label %cleanup.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
-  %28 = cmpxchg ptr %21, i128 0, i128 0 seq_cst seq_cst, align 16
-  %29 = extractvalue { i128, i1 } %28, 0
-  %extract.t2.i.i.i.i = trunc i128 %29 to i64
-  %extract4.i.i.i.i = lshr i128 %29, 64
-  %extract.t5.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i to i64
+  %31 = cmpxchg ptr %21, i128 0, i128 0 seq_cst seq_cst, align 16
+  %32 = extractvalue { i128, i1 } %31, 0
+  %extract4.i.i.i.i = lshr i128 %32, 64
+  %33 = insertelement <2 x i128> poison, i128 %32, i64 0
+  %34 = insertelement <2 x i128> %33, i128 %extract4.i.i.i.i, i64 1
+  %35 = trunc <2 x i128> %34 to <2 x i64>
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %36 = phi <2 x i64> [ %28, %if.then12.i.i.i ], [ %30, %if.then.i.i.i.i ], [ %35, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.0.i.i.i, %cleanup.i.i.i ]
-  %30 = trunc i64 %add.i.i.i to i32
-  %conv.i24.i = shl i32 %30, 3
+  %37 = phi <2 x i64> [ %22, %if.then.i.i.i ], [ %36, %cleanup.i.i.i ]
+  %38 = trunc i64 %add.i.i.i to i32
+  %conv.i24.i = shl i32 %38, 3
   %mul.i25.i = and i32 %conv.i24.i, 56
-  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %retval.sroa.4.1.i.i.i to i128
+  %39 = extractelement <2 x i64> %37, i64 1
+  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %39 to i128
   %a.sroa.2.0.insert.shift.i.i27.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i26.i, 64
-  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %retval.sroa.0.1.i.i.i to i128
+  %40 = extractelement <2 x i64> %37, i64 0
+  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %40 to i128
   %a.sroa.0.0.insert.insert.i.i29.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i27.i, %a.sroa.0.0.insert.ext.i.i28.i
   %sh_prom.i.i30.i = zext nneg i32 %mul.i25.i to i128
   %shr.i.i31.i = lshr i128 %a.sroa.0.0.insert.insert.i.i29.i, %sh_prom.i.i30.i
@@ -2293,10 +2289,10 @@ load_atom_4.exit:                                 ; preds = %if.then.i10, %load_
   %retval.0.i = phi i32 [ %3, %if.then.i10 ], [ %conv21.i, %load_atom_extract_al16_or_al8.exit.i ], [ %conv33.i, %load_atom_extract_al16_or_exit.exit.i ], [ %conv3.i.i, %if.then29.i ], [ %or.i.i, %sw.bb.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %1, align 8
-  %31 = and i32 %oi, 256
-  %tobool.not = icmp eq i32 %31, 0
-  %32 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i)
-  %spec.select = select i1 %tobool.not, i32 %retval.0.i, i32 %32
+  %41 = and i32 %oi, 256
+  %tobool.not = icmp eq i32 %41, 0
+  %42 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i)
+  %spec.select = select i1 %tobool.not, i32 %retval.0.i, i32 %42
   ret i32 %spec.select
 }
 

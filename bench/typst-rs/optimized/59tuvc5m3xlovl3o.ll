@@ -15031,19 +15031,27 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f5
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = lshr i32 %0, 12
-  %60 = lshr i32 %0, 6
-  %61 = trunc i32 %0 to i8
-  %62 = trunc i32 %58 to i8
-  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
-  %64 = trunc i32 %59 to i8
-  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
-  %66 = trunc i32 %60 to i8
-  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
-  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
-  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
-  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %70, ptr %1, align 1
+  %59 = trunc i32 %58 to i8
+  %60 = and i8 %59, 7
+  %61 = or disjoint i8 %60, -16
+  store i8 %61, ptr %1, align 1
+  %62 = lshr i32 %0, 12
+  %63 = trunc i32 %62 to i8
+  %64 = and i8 %63, 63
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = or disjoint i8 %64, -128
+  store i8 %66, ptr %65, align 1
+  %67 = lshr i32 %0, 6
+  %68 = trunc i32 %67 to i8
+  %69 = and i8 %68, 63
+  %70 = getelementptr inbounds i8, ptr %1, i64 2
+  %71 = or disjoint i8 %69, -128
+  store i8 %71, ptr %70, align 1
+  %72 = trunc i32 %0 to i8
+  %73 = and i8 %72, 63
+  %74 = getelementptr inbounds i8, ptr %1, i64 3
+  %75 = or disjoint i8 %73, -128
+  store i8 %75, ptr %74, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf43acd7d0c40b5fE.exit"
 }
 
@@ -15941,8 +15949,8 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %16 = trunc i32 %1 to i8
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  store i8 %18, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !3463, !noalias !3460
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %18, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !3463, !noalias !3460
   br label %"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert..From$LT$char$GT$$GT$4from17h30b79ba3faa047faE.llvm.5857379167208991996.exit"
 
 19:                                               ; preds = %8
@@ -15954,43 +15962,51 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %24 = trunc i32 %23 to i8
   %25 = and i8 %24, 63
   %26 = or disjoint i8 %25, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
-  store i8 %26, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !3463, !noalias !3460
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %26, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !3463, !noalias !3460
   %27 = trunc i32 %1 to i8
   %28 = and i8 %27, 63
   %29 = or disjoint i8 %28, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
-  store i8 %29, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !3463, !noalias !3460
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
+  store i8 %29, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !3463, !noalias !3460
   br label %"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert..From$LT$char$GT$$GT$4from17h30b79ba3faa047faE.llvm.5857379167208991996.exit"
 
 30:                                               ; preds = %8
   %31 = lshr i32 %1, 18
-  %32 = lshr i32 %1, 12
-  %33 = lshr i32 %1, 6
-  %34 = trunc i32 %1 to i8
-  %35 = trunc i32 %31 to i8
-  %36 = insertelement <4 x i8> poison, i8 %35, i64 0
-  %37 = trunc i32 %32 to i8
-  %38 = insertelement <4 x i8> %36, i8 %37, i64 1
-  %39 = trunc i32 %33 to i8
-  %40 = insertelement <4 x i8> %38, i8 %39, i64 2
-  %41 = insertelement <4 x i8> %40, i8 %34, i64 3
-  %42 = and <4 x i8> %41, <i8 7, i8 63, i8 63, i8 63>
-  %43 = or disjoint <4 x i8> %42, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %43, ptr %.sroa.0.i, align 4, !alias.scope !3463, !noalias !3460
+  %32 = trunc i32 %31 to i8
+  %33 = and i8 %32, 7
+  %34 = or disjoint i8 %33, -16
+  store i8 %34, ptr %.sroa.0.i, align 4, !alias.scope !3463, !noalias !3460
+  %35 = lshr i32 %1, 12
+  %36 = trunc i32 %35 to i8
+  %37 = and i8 %36, 63
+  %38 = or disjoint i8 %37, -128
+  %.sroa.0.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 1
+  store i8 %38, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !3463, !noalias !3460
+  %39 = lshr i32 %1, 6
+  %40 = trunc i32 %39 to i8
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, -128
+  %.sroa.0.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 2
+  store i8 %42, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !3463, !noalias !3460
+  %43 = trunc i32 %1 to i8
+  %44 = and i8 %43, 63
+  %45 = or disjoint i8 %44, -128
+  %.sroa.0.i.3.i.3.i.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 3
+  store i8 %45, ptr %.sroa.0.i.3.i.3.i.3..sroa_idx, align 1, !alias.scope !3463, !noalias !3460
   br label %"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert..From$LT$char$GT$$GT$4from17h30b79ba3faa047faE.llvm.5857379167208991996.exit"
 
 "_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert..From$LT$char$GT$$GT$4from17h30b79ba3faa047faE.llvm.5857379167208991996.exit": ; preds = %10, %12, %19, %30
   %.sroa.phi = phi ptr [ %.sroa.gep, %30 ], [ %.sroa.gep4, %19 ], [ %.sroa.gep5, %12 ], [ %.sroa.gep6, %10 ]
-  %44 = phi i64 [ 4, %30 ], [ 3, %19 ], [ 2, %12 ], [ 1, %10 ]
-  %45 = xor i64 %44, 15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi, i8 0, i64 %45, i1 false), !noalias !3460
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %44, i1 false), !noalias !3460
-  %46 = trunc nuw nsw i64 %44 to i8
-  %47 = or disjoint i8 %46, -128
+  %46 = phi i64 [ 4, %30 ], [ 3, %19 ], [ 2, %12 ], [ 1, %10 ]
+  %47 = xor i64 %46, 15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi, i8 0, i64 %47, i1 false), !noalias !3460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %4, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i, i64 %46, i1 false), !noalias !3460
+  %48 = trunc nuw nsw i64 %46 to i8
+  %49 = or disjoint i8 %48, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %4, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 15
-  store i8 %47, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 1, !alias.scope !3460
+  store i8 %49, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 1, !alias.scope !3460
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4)
   ret void
@@ -18872,8 +18888,8 @@ define hidden void @"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   store i32 0, ptr %.sroa.0, align 4
   %4 = icmp ult i32 %1, 128
   %.sroa.gep = getelementptr inbounds i8, ptr %3, i64 4
-  %.sroa.gep14 = getelementptr inbounds i8, ptr %3, i64 3
-  %.sroa.gep15 = getelementptr inbounds i8, ptr %3, i64 2
+  %.sroa.gep16 = getelementptr inbounds i8, ptr %3, i64 3
+  %.sroa.gep17 = getelementptr inbounds i8, ptr %3, i64 2
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
@@ -18885,10 +18901,10 @@ define hidden void @"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2
-  %.sroa.gep16 = getelementptr inbounds i8, ptr %3, i64 1
+  %.sroa.gep18 = getelementptr inbounds i8, ptr %3, i64 1
   %10 = trunc nuw i32 %1 to i8
   store i8 %10, ptr %.sroa.0, align 4, !alias.scope !3862
-  br label %43
+  br label %45
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
@@ -18898,9 +18914,9 @@ define hidden void @"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   %15 = trunc i32 %1 to i8
   %16 = and i8 %15, 63
   %17 = or disjoint i8 %16, -128
-  %.sroa.0.1..sroa_idx13 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
-  store i8 %17, ptr %.sroa.0.1..sroa_idx13, align 1, !alias.scope !3862
-  br label %43
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
+  store i8 %17, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !3862
+  br label %45
 
 18:                                               ; preds = %7
   %19 = lshr i32 %1, 12
@@ -18911,43 +18927,51 @@ define hidden void @"_ZN75_$LT$ecow..string..EcoString$u20$as$u20$core..convert.
   %23 = trunc i32 %22 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 1
-  store i8 %25, ptr %.sroa.0.1..sroa_idx, align 1, !alias.scope !3862
+  %.sroa.0.1..sroa_idx13 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
+  store i8 %25, ptr %.sroa.0.1..sroa_idx13, align 1, !alias.scope !3862
   %26 = trunc i32 %1 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 2
-  store i8 %28, ptr %.sroa.0.2..sroa_idx, align 2, !alias.scope !3862
-  br label %43
+  %.sroa.0.2..sroa_idx15 = getelementptr inbounds i8, ptr %.sroa.0, i64 2
+  store i8 %28, ptr %.sroa.0.2..sroa_idx15, align 2, !alias.scope !3862
+  br label %45
 
 29:                                               ; preds = %7
   %30 = lshr i32 %1, 18
-  %31 = lshr i32 %1, 12
-  %32 = lshr i32 %1, 6
-  %33 = trunc i32 %1 to i8
-  %34 = trunc i32 %30 to i8
-  %35 = insertelement <4 x i8> poison, i8 %34, i64 0
-  %36 = trunc i32 %31 to i8
-  %37 = insertelement <4 x i8> %35, i8 %36, i64 1
-  %38 = trunc i32 %32 to i8
-  %39 = insertelement <4 x i8> %37, i8 %38, i64 2
-  %40 = insertelement <4 x i8> %39, i8 %33, i64 3
-  %41 = and <4 x i8> %40, <i8 7, i8 63, i8 63, i8 63>
-  %42 = or disjoint <4 x i8> %41, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %42, ptr %.sroa.0, align 4, !alias.scope !3862
-  br label %43
+  %31 = trunc i32 %30 to i8
+  %32 = and i8 %31, 7
+  %33 = or disjoint i8 %32, -16
+  store i8 %33, ptr %.sroa.0, align 4, !alias.scope !3862
+  %34 = lshr i32 %1, 12
+  %35 = trunc i32 %34 to i8
+  %36 = and i8 %35, 63
+  %37 = or disjoint i8 %36, -128
+  %.sroa.0.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 1
+  store i8 %37, ptr %.sroa.0.1..sroa_idx, align 1, !alias.scope !3862
+  %38 = lshr i32 %1, 6
+  %39 = trunc i32 %38 to i8
+  %40 = and i8 %39, 63
+  %41 = or disjoint i8 %40, -128
+  %.sroa.0.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 2
+  store i8 %41, ptr %.sroa.0.2..sroa_idx, align 2, !alias.scope !3862
+  %42 = trunc i32 %1 to i8
+  %43 = and i8 %42, 63
+  %44 = or disjoint i8 %43, -128
+  %.sroa.0.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 3
+  store i8 %44, ptr %.sroa.0.3..sroa_idx, align 1, !alias.scope !3862
+  br label %45
 
-43:                                               ; preds = %29, %18, %11, %9
-  %.sroa.phi = phi ptr [ %.sroa.gep, %29 ], [ %.sroa.gep14, %18 ], [ %.sroa.gep15, %11 ], [ %.sroa.gep16, %9 ]
-  %44 = phi i64 [ 4, %29 ], [ 3, %18 ], [ 2, %11 ], [ 1, %9 ]
-  %45 = xor i64 %44, 15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi, i8 0, i64 %45, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %44, i1 false)
-  %46 = trunc nuw nsw i64 %44 to i8
-  %47 = or disjoint i8 %46, -128
+45:                                               ; preds = %29, %18, %11, %9
+  %.sroa.phi = phi ptr [ %.sroa.gep, %29 ], [ %.sroa.gep16, %18 ], [ %.sroa.gep17, %11 ], [ %.sroa.gep18, %9 ]
+  %46 = phi i64 [ 4, %29 ], [ 3, %18 ], [ 2, %11 ], [ 1, %9 ]
+  %47 = xor i64 %46, 15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi, i8 0, i64 %47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %46, i1 false)
+  %48 = trunc nuw nsw i64 %46 to i8
+  %49 = or disjoint i8 %48, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %0, ptr noundef nonnull align 8 dereferenceable(15) %3, i64 15, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
-  store i8 %47, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1
+  store i8 %49, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   ret void
 }
@@ -83723,8 +83747,8 @@ define hidden void @_ZN5typst4text8TextElem6packed17hde3883c3f40bf536E(ptr noali
   %16 = trunc i32 %1 to i8
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, -128
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 1
-  store i8 %18, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !14732, !noalias !14727
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 1
+  store i8 %18, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !14732, !noalias !14727
   br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h87dadc37c3d6b75fE.llvm.5857379167208991996.exit"
 
 19:                                               ; preds = %8
@@ -83736,44 +83760,52 @@ define hidden void @_ZN5typst4text8TextElem6packed17hde3883c3f40bf536E(ptr noali
   %24 = trunc i32 %23 to i8
   %25 = and i8 %24, 63
   %26 = or disjoint i8 %25, -128
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 1
-  store i8 %26, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !14732, !noalias !14727
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 1
+  store i8 %26, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !14732, !noalias !14727
   %27 = trunc i32 %1 to i8
   %28 = and i8 %27, 63
   %29 = or disjoint i8 %28, -128
-  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 2
-  store i8 %29, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !14732, !noalias !14727
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 2
+  store i8 %29, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !14732, !noalias !14727
   br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h87dadc37c3d6b75fE.llvm.5857379167208991996.exit"
 
 30:                                               ; preds = %8
   %31 = lshr i32 %1, 18
-  %32 = lshr i32 %1, 12
-  %33 = lshr i32 %1, 6
-  %34 = trunc i32 %1 to i8
-  %35 = trunc i32 %31 to i8
-  %36 = insertelement <4 x i8> poison, i8 %35, i64 0
-  %37 = trunc i32 %32 to i8
-  %38 = insertelement <4 x i8> %36, i8 %37, i64 1
-  %39 = trunc i32 %33 to i8
-  %40 = insertelement <4 x i8> %38, i8 %39, i64 2
-  %41 = insertelement <4 x i8> %40, i8 %34, i64 3
-  %42 = and <4 x i8> %41, <i8 7, i8 63, i8 63, i8 63>
-  %43 = or disjoint <4 x i8> %42, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %43, ptr %.sroa.0.i.i, align 4, !alias.scope !14732, !noalias !14727
+  %32 = trunc i32 %31 to i8
+  %33 = and i8 %32, 7
+  %34 = or disjoint i8 %33, -16
+  store i8 %34, ptr %.sroa.0.i.i, align 4, !alias.scope !14732, !noalias !14727
+  %35 = lshr i32 %1, 12
+  %36 = trunc i32 %35 to i8
+  %37 = and i8 %36, 63
+  %38 = or disjoint i8 %37, -128
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 1
+  store i8 %38, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !alias.scope !14732, !noalias !14727
+  %39 = lshr i32 %1, 6
+  %40 = trunc i32 %39 to i8
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, -128
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 2
+  store i8 %42, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !14732, !noalias !14727
+  %43 = trunc i32 %1 to i8
+  %44 = and i8 %43, 63
+  %45 = or disjoint i8 %44, -128
+  %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 3
+  store i8 %45, ptr %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx, align 1, !alias.scope !14732, !noalias !14727
   br label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h87dadc37c3d6b75fE.llvm.5857379167208991996.exit"
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h87dadc37c3d6b75fE.llvm.5857379167208991996.exit": ; preds = %10, %12, %19, %30
   %.sroa.phi.i = phi ptr [ %.sroa.gep.i, %30 ], [ %.sroa.gep4.i, %19 ], [ %.sroa.gep5.i, %12 ], [ %.sroa.gep6.i, %10 ]
-  %44 = phi i64 [ 4, %30 ], [ 3, %19 ], [ 2, %12 ], [ 1, %10 ]
-  %45 = xor i64 %44, 15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi.i, i8 0, i64 %45, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i.i, i64 %44, i1 false)
-  %46 = trunc nuw nsw i64 %44 to i8
-  %47 = or disjoint i8 %46, -128
+  %46 = phi i64 [ 4, %30 ], [ 3, %19 ], [ 2, %12 ], [ 1, %10 ]
+  %47 = xor i64 %46, 15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.phi.i, i8 0, i64 %47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i.i, i64 %46, i1 false)
+  %48 = trunc nuw nsw i64 %46 to i8
+  %49 = or disjoint i8 %48, -128
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4, ptr noundef nonnull align 8 dereferenceable(15) %3, i64 15, i1 false), !alias.scope !14735
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 15
-  store i8 %47, ptr %.sroa.4.0..sroa_idx, align 1, !alias.scope !14735
+  store i8 %49, ptr %.sroa.4.0..sroa_idx, align 1, !alias.scope !14735
   call void @_ZN5typst11foundations7content7Content3new17h32cb12f228c66b15E(ptr noalias nocapture noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void

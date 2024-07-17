@@ -1598,35 +1598,43 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$9ends_with
 
 33:                                               ; preds = %8
   %34 = lshr i32 %2, 18
-  %35 = lshr i32 %2, 12
-  %36 = lshr i32 %2, 6
-  %37 = trunc i32 %2 to i8
-  %38 = trunc i32 %34 to i8
-  %39 = insertelement <4 x i8> poison, i8 %38, i64 0
-  %40 = trunc i32 %35 to i8
-  %41 = insertelement <4 x i8> %39, i8 %40, i64 1
-  %42 = trunc i32 %36 to i8
-  %43 = insertelement <4 x i8> %41, i8 %42, i64 2
-  %44 = insertelement <4 x i8> %43, i8 %37, i64 3
-  %45 = and <4 x i8> %44, <i8 7, i8 63, i8 63, i8 63>
-  %46 = or disjoint <4 x i8> %45, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %46, ptr %4, align 4, !alias.scope !363, !noalias !360
+  %35 = trunc i32 %34 to i8
+  %36 = and i8 %35, 7
+  %37 = or disjoint i8 %36, -16
+  store i8 %37, ptr %4, align 4, !alias.scope !363, !noalias !360
+  %38 = lshr i32 %2, 12
+  %39 = trunc i32 %38 to i8
+  %40 = and i8 %39, 63
+  %41 = getelementptr inbounds i8, ptr %4, i64 1
+  %42 = or disjoint i8 %40, -128
+  store i8 %42, ptr %41, align 1, !alias.scope !363, !noalias !360
+  %43 = lshr i32 %2, 6
+  %44 = trunc i32 %43 to i8
+  %45 = and i8 %44, 63
+  %46 = getelementptr inbounds i8, ptr %4, i64 2
+  %47 = or disjoint i8 %45, -128
+  store i8 %47, ptr %46, align 2, !alias.scope !363, !noalias !360
+  %48 = trunc i32 %2 to i8
+  %49 = and i8 %48, 63
+  %50 = getelementptr inbounds i8, ptr %4, i64 3
+  %51 = or disjoint i8 %49, -128
+  store i8 %51, ptr %50, align 1, !alias.scope !363, !noalias !360
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i: ; preds = %33, %20, %12, %10
-  %47 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
-  %.not.i.i = icmp ugt i64 %47, %1
-  br i1 %.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit", label %48
+  %52 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
+  %.not.i.i = icmp ugt i64 %52, %1
+  br i1 %.not.i.i, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit", label %53
 
-48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i
-  %49 = sub i64 %1, %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %50, i64 %47), !alias.scope !366
-  %51 = icmp eq i32 %bcmp.i.i.i, 0
+53:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i
+  %54 = sub i64 %1, %52
+  %55 = getelementptr inbounds i8, ptr %0, i64 %54
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %55, i64 %52), !alias.scope !366
+  %56 = icmp eq i32 %bcmp.i.i.i, 0
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit"
 
-"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i, %48
-  %.0.i.i = phi i1 [ %51, %48 ], [ false, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i ]
+"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$12is_suffix_of17h8f956c62f2bfc634E.llvm.906605461179275197.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i, %53
+  %.0.i.i = phi i1 [ %56, %53 ], [ false, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !360
   ret i1 %.0.i.i
 }
@@ -1743,19 +1751,27 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = lshr i32 %0, 12
-  %60 = lshr i32 %0, 6
-  %61 = trunc i32 %0 to i8
-  %62 = trunc i32 %58 to i8
-  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
-  %64 = trunc i32 %59 to i8
-  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
-  %66 = trunc i32 %60 to i8
-  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
-  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
-  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
-  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %70, ptr %1, align 1
+  %59 = trunc i32 %58 to i8
+  %60 = and i8 %59, 7
+  %61 = or disjoint i8 %60, -16
+  store i8 %61, ptr %1, align 1
+  %62 = lshr i32 %0, 12
+  %63 = trunc i32 %62 to i8
+  %64 = and i8 %63, 63
+  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = or disjoint i8 %64, -128
+  store i8 %66, ptr %65, align 1
+  %67 = lshr i32 %0, 6
+  %68 = trunc i32 %67 to i8
+  %69 = and i8 %68, 63
+  %70 = getelementptr inbounds i8, ptr %1, i64 2
+  %71 = or disjoint i8 %69, -128
+  store i8 %71, ptr %70, align 1
+  %72 = trunc i32 %0 to i8
+  %73 = and i8 %72, 63
+  %74 = getelementptr inbounds i8, ptr %1, i64 3
+  %75 = or disjoint i8 %73, -128
+  store i8 %75, ptr %74, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd36f77b4a6cd3578E.exit"
 }
 
@@ -1903,35 +1919,43 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern.
 
 33:                                               ; preds = %8
   %34 = lshr i32 %0, 18
-  %35 = lshr i32 %0, 12
-  %36 = lshr i32 %0, 6
-  %37 = trunc i32 %0 to i8
-  %38 = trunc i32 %34 to i8
-  %39 = insertelement <4 x i8> poison, i8 %38, i64 0
-  %40 = trunc i32 %35 to i8
-  %41 = insertelement <4 x i8> %39, i8 %40, i64 1
-  %42 = trunc i32 %36 to i8
-  %43 = insertelement <4 x i8> %41, i8 %42, i64 2
-  %44 = insertelement <4 x i8> %43, i8 %37, i64 3
-  %45 = and <4 x i8> %44, <i8 7, i8 63, i8 63, i8 63>
-  %46 = or disjoint <4 x i8> %45, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %46, ptr %4, align 4, !alias.scope !379
+  %35 = trunc i32 %34 to i8
+  %36 = and i8 %35, 7
+  %37 = or disjoint i8 %36, -16
+  store i8 %37, ptr %4, align 4, !alias.scope !379
+  %38 = lshr i32 %0, 12
+  %39 = trunc i32 %38 to i8
+  %40 = and i8 %39, 63
+  %41 = getelementptr inbounds i8, ptr %4, i64 1
+  %42 = or disjoint i8 %40, -128
+  store i8 %42, ptr %41, align 1, !alias.scope !379
+  %43 = lshr i32 %0, 6
+  %44 = trunc i32 %43 to i8
+  %45 = and i8 %44, 63
+  %46 = getelementptr inbounds i8, ptr %4, i64 2
+  %47 = or disjoint i8 %45, -128
+  store i8 %47, ptr %46, align 2, !alias.scope !379
+  %48 = trunc i32 %0 to i8
+  %49 = and i8 %48, 63
+  %50 = getelementptr inbounds i8, ptr %4, i64 3
+  %51 = or disjoint i8 %49, -128
+  store i8 %51, ptr %50, align 1, !alias.scope !379
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit: ; preds = %10, %12, %20, %33
-  %47 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
-  %.not.i = icmp ugt i64 %47, %2
-  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit", label %48
+  %52 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
+  %.not.i = icmp ugt i64 %52, %2
+  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit", label %53
 
-48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit
-  %49 = sub i64 %2, %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 %49
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %50, i64 %47), !alias.scope !382
-  %51 = icmp eq i32 %bcmp.i.i, 0
+53:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit
+  %54 = sub i64 %2, %52
+  %55 = getelementptr inbounds i8, ptr %1, i64 %54
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %55, i64 %52), !alias.scope !382
+  %56 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit, %48
-  %.0.i = phi i1 [ %51, %48 ], [ false, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb82f83160d86f135E.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit, %53
+  %.0.i = phi i1 [ %56, %53 ], [ false, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.906605461179275197.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i1 %.0.i
 }

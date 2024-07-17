@@ -130,7 +130,6 @@ if.end:                                           ; preds = %lor.lhs.false3
   %add.i3 = add i64 %0, 1
   %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
   %arrayidx8.i = getelementptr inbounds i8, ptr %x, i64 24
-  %arrayidx11.i = getelementptr inbounds i8, ptr %x, i64 32
   call void @_sodium_fe25519_invert(ptr noundef nonnull %one_minus_y, ptr noundef nonnull %one_minus_y) #4
   %conv.i = zext i64 %add.i3 to i128
   %conv2.i = zext i64 %1 to i128
@@ -206,18 +205,18 @@ if.end:                                           ; preds = %lor.lhs.false3
   %add52.i = add i128 %add50.i, %mul49.i
   %add54.i = add i128 %add52.i, %mul48.i
   %add56.i = add i128 %add54.i, %mul55.i
-  %add81.i = add i128 %add56.i, %conv80.i
-  %conv82.i = trunc i128 %add81.i to i64
-  %and83.i = and i64 %conv82.i, 2251799813685247
-  %shr84.i = lshr i128 %add81.i, 51
-  %conv86.i = and i128 %shr84.i, 18446744073709551615
   %add59.i = add i128 %mul62.i, %mul64.i
   %add61.i = add i128 %add59.i, %mul60.i
   %add63.i = add i128 %add61.i, %mul58.i
   %add65.i = add i128 %add63.i, %mul57.i
+  %add81.i = add i128 %add56.i, %conv80.i
+  %shr84.i = lshr i128 %add81.i, 51
+  %conv86.i = and i128 %shr84.i, 18446744073709551615
   %add87.i = add i128 %add65.i, %conv86.i
-  %conv88.i = trunc i128 %add87.i to i64
-  %and89.i = and i64 %conv88.i, 2251799813685247
+  %10 = insertelement <2 x i128> poison, i128 %add81.i, i64 0
+  %11 = insertelement <2 x i128> %10, i128 %add87.i, i64 1
+  %12 = trunc <2 x i128> %11 to <2 x i64>
+  %13 = and <2 x i64> %12, <i64 2251799813685247, i64 2251799813685247>
   %shr90.i = lshr i128 %add87.i, 51
   %conv91.i = trunc i128 %shr90.i to i64
   %mul92.i = mul i64 %conv91.i, 19
@@ -231,8 +230,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   store i64 %and95.i, ptr %x, align 16
   store i64 %and98.i, ptr %arrayidx1.i2, align 8
   store i64 %add99.i, ptr %arrayidx5.i, align 16
-  store i64 %and83.i, ptr %arrayidx8.i, align 8
-  store i64 %and89.i, ptr %arrayidx11.i, align 16
+  store <2 x i64> %13, ptr %arrayidx8.i, align 8
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %curve25519_pk, ptr noundef nonnull %x) #4
   br label %return
 

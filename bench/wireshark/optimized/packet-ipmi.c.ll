@@ -2498,83 +2498,91 @@ define internal void @parse_6bit_ascii(ptr nocapture noundef writeonly %0, ptr n
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.038 = phi i32 [ %23, %.lr.ph ], [ 0, %4 ]
-  %.03437 = phi ptr [ %22, %.lr.ph ], [ %0, %4 ]
+  %.038 = phi i32 [ %28, %.lr.ph ], [ 0, %4 ]
+  %.03437 = phi ptr [ %27, %.lr.ph ], [ %0, %4 ]
   %6 = mul nuw i32 %.038, 3
   %7 = add i32 %6, %2
   %8 = tail call i32 @tvb_get_letoh24(ptr noundef %1, i32 noundef %7) #13
-  %9 = lshr i32 %8, 6
-  %10 = lshr i32 %8, 12
-  %11 = lshr i32 %8, 18
-  %12 = trunc i32 %8 to i8
-  %13 = insertelement <4 x i8> poison, i8 %12, i64 0
-  %14 = trunc i32 %9 to i8
-  %15 = insertelement <4 x i8> %13, i8 %14, i64 1
-  %16 = trunc i32 %10 to i8
-  %17 = insertelement <4 x i8> %15, i8 %16, i64 2
-  %18 = trunc i32 %11 to i8
-  %19 = insertelement <4 x i8> %17, i8 %18, i64 3
-  %20 = and <4 x i8> %19, <i8 63, i8 63, i8 63, i8 63>
-  %21 = add nuw nsw <4 x i8> %20, <i8 32, i8 32, i8 32, i8 32>
-  store <4 x i8> %21, ptr %.03437, align 1
-  %22 = getelementptr i8, ptr %.03437, i64 4
-  %23 = add nuw nsw i32 %.038, 1
-  %exitcond.not = icmp eq i32 %23, %5
+  %9 = trunc i32 %8 to i8
+  %10 = and i8 %9, 63
+  %11 = add nuw nsw i8 %10, 32
+  store i8 %11, ptr %.03437, align 1
+  %12 = lshr i32 %8, 6
+  %13 = trunc i32 %12 to i8
+  %14 = and i8 %13, 63
+  %15 = add nuw nsw i8 %14, 32
+  %16 = getelementptr i8, ptr %.03437, i64 1
+  store i8 %15, ptr %16, align 1
+  %17 = lshr i32 %8, 12
+  %18 = trunc i32 %17 to i8
+  %19 = and i8 %18, 63
+  %20 = add nuw nsw i8 %19, 32
+  %21 = getelementptr i8, ptr %.03437, i64 2
+  store i8 %20, ptr %21, align 1
+  %22 = lshr i32 %8, 18
+  %23 = trunc i32 %22 to i8
+  %24 = and i8 %23, 63
+  %25 = add nuw nsw i8 %24, 32
+  %26 = getelementptr i8, ptr %.03437, i64 3
+  store i8 %25, ptr %26, align 1
+  %27 = getelementptr i8, ptr %.03437, i64 4
+  %28 = add nuw nsw i32 %.038, 1
+  %exitcond.not = icmp eq i32 %28, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.034.lcssa = phi ptr [ %0, %4 ], [ %22, %.lr.ph ]
-  %24 = add i32 %5, %2
-  %25 = and i32 %3, 3
-  switch i32 %25, label %default.unreachable [
-    i32 3, label %26
+  %.034.lcssa = phi ptr [ %0, %4 ], [ %27, %.lr.ph ]
+  %29 = add i32 %5, %2
+  %30 = and i32 %3, 3
+  switch i32 %30, label %default.unreachable [
+    i32 3, label %31
     i32 2, label %._crit_edge._crit_edge
-    i32 1, label %44
-    i32 0, label %47
+    i32 1, label %49
+    i32 0, label %52
   ]
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre = add i32 %24, 1
-  br label %36
+  %.pre = add i32 %29, 1
+  br label %41
 
-26:                                               ; preds = %._crit_edge
-  %27 = add i32 %24, 2
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %27) #13
-  %29 = shl i8 %28, 4
-  %30 = add i32 %24, 1
-  %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %30) #13
-  %32 = lshr i8 %31, 4
-  %.masked = and i8 %29, 48
-  %33 = or disjoint i8 %32, 32
-  %34 = add nuw nsw i8 %33, %.masked
-  %35 = getelementptr i8, ptr %.034.lcssa, i64 2
-  store i8 %34, ptr %35, align 1
-  br label %36
+31:                                               ; preds = %._crit_edge
+  %32 = add i32 %29, 2
+  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %32) #13
+  %34 = shl i8 %33, 4
+  %35 = add i32 %29, 1
+  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %35) #13
+  %37 = lshr i8 %36, 4
+  %.masked = and i8 %34, 48
+  %38 = or disjoint i8 %37, 32
+  %39 = add nuw nsw i8 %38, %.masked
+  %40 = getelementptr i8, ptr %.034.lcssa, i64 2
+  store i8 %39, ptr %40, align 1
+  br label %41
 
-36:                                               ; preds = %._crit_edge._crit_edge, %26
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %30, %26 ]
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.pre-phi) #13
-  %38 = shl i8 %37, 2
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %24) #13
-  %40 = lshr i8 %39, 6
-  %.masked36 = and i8 %38, 60
-  %41 = or disjoint i8 %40, 32
-  %42 = add nuw nsw i8 %41, %.masked36
-  %43 = getelementptr i8, ptr %.034.lcssa, i64 1
-  store i8 %42, ptr %43, align 1
-  br label %44
+41:                                               ; preds = %._crit_edge._crit_edge, %31
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %35, %31 ]
+  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.pre-phi) #13
+  %43 = shl i8 %42, 2
+  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %29) #13
+  %45 = lshr i8 %44, 6
+  %.masked36 = and i8 %43, 60
+  %46 = or disjoint i8 %45, 32
+  %47 = add nuw nsw i8 %46, %.masked36
+  %48 = getelementptr i8, ptr %.034.lcssa, i64 1
+  store i8 %47, ptr %48, align 1
+  br label %49
 
-44:                                               ; preds = %._crit_edge, %36
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %24) #13
-  %46 = and i8 %45, 63
-  %narrow = add nuw nsw i8 %46, 32
+49:                                               ; preds = %._crit_edge, %41
+  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %29) #13
+  %51 = and i8 %50, 63
+  %narrow = add nuw nsw i8 %51, 32
   store i8 %narrow, ptr %.034.lcssa, align 1
-  br label %47
+  br label %52
 
 default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
-47:                                               ; preds = %._crit_edge, %44
+52:                                               ; preds = %._crit_edge, %49
   ret void
 }
 

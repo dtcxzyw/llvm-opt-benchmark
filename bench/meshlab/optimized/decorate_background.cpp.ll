@@ -3180,195 +3180,192 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %29 = srem i32 %28, 3
   %30 = srem i32 %0, 3
   store i32 %12, ptr %19, align 4
-  %31 = trunc i32 %12 to i8
-  %32 = insertelement <4 x i8> poison, i8 %31, i64 0
-  %33 = trunc i32 %.sroa.3.0.extract.shift to i8
-  %34 = insertelement <4 x i8> %32, i8 %33, i64 1
-  %35 = trunc i32 %.sroa.5.0.extract.shift to i8
-  %36 = insertelement <4 x i8> %34, i8 %35, i64 2
-  %37 = trunc nuw i32 %.sroa.7.0.extract.shift to i8
-  %38 = insertelement <4 x i8> %36, i8 %37, i64 3
-  %39 = uitofp <4 x i8> %38 to <4 x double>
-  %40 = fmul <4 x double> %39, <double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 5.000000e-01>
-  %41 = fcmp olt <4 x double> %40, <double 2.550000e+02, double 2.550000e+02, double 2.550000e+02, double 1.270000e+02>
-  %42 = select <4 x i1> %41, <4 x double> %40, <4 x double> <double 2.550000e+02, double 2.550000e+02, double 2.550000e+02, double 1.270000e+02>
-  %43 = fptoui <4 x double> %42 to <4 x i8>
-  store <4 x i8> %43, ptr %20, align 4
-  %44 = extractelement <4 x double> %39, i64 0
+  %31 = insertelement <4 x i32> poison, i32 %12, i64 0
+  %32 = insertelement <4 x i32> %31, i32 %.sroa.3.0.extract.shift, i64 1
+  %33 = insertelement <4 x i32> %32, i32 %.sroa.5.0.extract.shift, i64 2
+  %34 = insertelement <4 x i32> %33, i32 %.sroa.7.0.extract.shift, i64 3
+  %35 = trunc <4 x i32> %34 to <4 x i8>
+  %36 = uitofp <4 x i8> %35 to <4 x double>
+  %37 = fmul <4 x double> %36, <double 2.000000e+00, double 2.000000e+00, double 2.000000e+00, double 5.000000e-01>
+  %38 = fcmp olt <4 x double> %37, <double 2.550000e+02, double 2.550000e+02, double 2.550000e+02, double 1.270000e+02>
+  %39 = select <4 x i1> %38, <4 x double> %37, <4 x double> <double 2.550000e+02, double 2.550000e+02, double 2.550000e+02, double 1.270000e+02>
+  %40 = fptoui <4 x double> %39 to <4 x i8>
+  store <4 x i8> %40, ptr %20, align 4
+  %41 = extractelement <4 x double> %36, i64 0
+  %42 = fmul double %41, 6.600000e-01
+  %43 = fptoui double %42 to i8
+  store i8 %43, ptr %21, align 1
+  %44 = extractelement <4 x double> %36, i64 1
   %45 = fmul double %44, 6.600000e-01
   %46 = fptoui double %45 to i8
-  store i8 %46, ptr %21, align 1
-  %47 = extractelement <4 x double> %39, i64 1
-  %48 = fmul double %47, 6.600000e-01
-  %49 = fptoui double %48 to i8
-  %50 = getelementptr inbounds i8, ptr %21, i64 1
-  store i8 %49, ptr %50, align 1
-  %51 = extractelement <4 x double> %39, i64 2
-  %52 = fmul double %51, 6.600000e-01
-  %53 = fptoui double %52 to i8
-  %54 = getelementptr inbounds i8, ptr %21, i64 2
-  store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %21, i64 3
-  store i8 -1, ptr %55, align 1
+  %47 = getelementptr inbounds i8, ptr %21, i64 1
+  store i8 %46, ptr %47, align 1
+  %48 = extractelement <4 x double> %36, i64 2
+  %49 = fmul double %48, 6.600000e-01
+  %50 = fptoui double %49 to i8
+  %51 = getelementptr inbounds i8, ptr %21, i64 2
+  store i8 %50, ptr %51, align 1
+  %52 = getelementptr inbounds i8, ptr %21, i64 3
+  store i8 -1, ptr %52, align 1
   %.not = icmp eq i32 %1, 0
-  %56 = sext i32 %30 to i64
-  %57 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %56
-  %58 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %56
-  %.in = select i1 %.not, ptr %58, ptr %57
-  %59 = load float, ptr %.in, align 4
-  %60 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %56
-  store float %59, ptr %60, align 4
-  %61 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %56
-  store float %59, ptr %61, align 4
-  %62 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %56
-  store float %59, ptr %62, align 4
-  %63 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %56
-  store float %59, ptr %63, align 4
-  %64 = sext i32 %29 to i64
-  %65 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %64
+  %53 = sext i32 %30 to i64
+  %54 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %53
+  %55 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %53
+  %.in = select i1 %.not, ptr %55, ptr %54
+  %56 = load float, ptr %.in, align 4
+  %57 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %53
+  store float %56, ptr %57, align 4
+  %58 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %53
+  store float %56, ptr %58, align 4
+  %59 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %53
+  store float %56, ptr %59, align 4
+  %60 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %53
+  store float %56, ptr %60, align 4
+  %61 = sext i32 %29 to i64
+  %62 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %61
+  %63 = load float, ptr %62, align 4
+  %64 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %61
+  store float %63, ptr %64, align 4
+  %65 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %61
   %66 = load float, ptr %65, align 4
-  %67 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %64
+  %67 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %61
   store float %66, ptr %67, align 4
-  %68 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %64
-  %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %64
-  store float %69, ptr %70, align 4
-  %71 = sext i32 %27 to i64
-  %72 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %71
+  %68 = sext i32 %27 to i64
+  %69 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %68
+  %70 = load float, ptr %69, align 4
+  %71 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %68
+  store float %70, ptr %71, align 4
+  %72 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %68
   %73 = load float, ptr %72, align 4
-  %74 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %71
+  %74 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %68
   store float %73, ptr %74, align 4
-  %75 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %71
-  %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %71
-  store float %76, ptr %77, align 4
-  %78 = fmul float %13, 5.000000e-01
-  tail call void @glLineWidth(float noundef %78)
+  %75 = fmul float %13, 5.000000e-01
+  tail call void @glLineWidth(float noundef %75)
   call void @glColor4ubv(ptr noundef nonnull %20)
   call void @glBegin(i32 noundef 1)
-  %79 = fcmp ugt float %73, %76
-  br i1 %79, label %.preheader104, label %.lr.ph
+  %76 = fcmp ugt float %70, %73
+  br i1 %76, label %.preheader104, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %80 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %71
-  %81 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %71
-  br label %85
+  %77 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %68
+  %78 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %68
+  br label %82
 
-.preheader104:                                    ; preds = %85, %14
-  %82 = fcmp ugt float %66, %69
-  br i1 %82, label %._crit_edge, label %.lr.ph107
+.preheader104:                                    ; preds = %82, %14
+  %79 = fcmp ugt float %63, %66
+  br i1 %79, label %._crit_edge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader104
-  %83 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %64
-  %84 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %64
-  br label %88
+  %80 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %61
+  %81 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %61
+  br label %85
 
-85:                                               ; preds = %.lr.ph, %85
-  %.080105 = phi float [ %73, %.lr.ph ], [ %86, %85 ]
-  store float %.080105, ptr %80, align 4
-  store float %.080105, ptr %81, align 4
+82:                                               ; preds = %.lr.ph, %82
+  %.080105 = phi float [ %70, %.lr.ph ], [ %83, %82 ]
+  store float %.080105, ptr %77, align 4
+  store float %.080105, ptr %78, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  %86 = fadd float %.080105, %11
-  %87 = fcmp ugt float %86, %76
-  br i1 %87, label %.preheader104, label %85, !llvm.loop !90
+  %83 = fadd float %.080105, %11
+  %84 = fcmp ugt float %83, %73
+  br i1 %84, label %.preheader104, label %82, !llvm.loop !90
 
-88:                                               ; preds = %.lr.ph107, %88
-  %.079106 = phi float [ %66, %.lr.ph107 ], [ %89, %88 ]
-  store float %.079106, ptr %83, align 4
-  store float %.079106, ptr %84, align 4
+85:                                               ; preds = %.lr.ph107, %85
+  %.079106 = phi float [ %63, %.lr.ph107 ], [ %86, %85 ]
+  store float %.079106, ptr %80, align 4
+  store float %.079106, ptr %81, align 4
   call void @glVertex3fv(ptr noundef nonnull %24)
   call void @glVertex3fv(ptr noundef nonnull %25)
-  %89 = fadd float %.079106, %11
-  %90 = fcmp ugt float %89, %69
-  br i1 %90, label %._crit_edge, label %88, !llvm.loop !91
+  %86 = fadd float %.079106, %11
+  %87 = fcmp ugt float %86, %66
+  br i1 %87, label %._crit_edge, label %85, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %88, %.preheader104
+._crit_edge:                                      ; preds = %85, %.preheader104
   call void @glEnd()
   call void @glLineWidth(float noundef %13)
   call void @glColor4ubv(ptr noundef nonnull %19)
   call void @glBegin(i32 noundef 1)
-  br i1 %79, label %.preheader, label %.lr.ph110
+  br i1 %76, label %.preheader, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %._crit_edge
-  %91 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %71
-  %92 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %71
-  br label %95
+  %88 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %68
+  %89 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %68
+  br label %92
 
-.preheader:                                       ; preds = %95, %._crit_edge
-  br i1 %82, label %._crit_edge113, label %.lr.ph112
+.preheader:                                       ; preds = %92, %._crit_edge
+  br i1 %79, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.preheader
-  %93 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %64
-  %94 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %64
-  br label %98
+  %90 = getelementptr inbounds [3 x float], ptr %25, i64 0, i64 %61
+  %91 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %61
+  br label %95
 
-95:                                               ; preds = %.lr.ph110, %95
-  %.078108 = phi float [ %73, %.lr.ph110 ], [ %96, %95 ]
-  store float %.078108, ptr %91, align 4
-  store float %.078108, ptr %92, align 4
+92:                                               ; preds = %.lr.ph110, %92
+  %.078108 = phi float [ %70, %.lr.ph110 ], [ %93, %92 ]
+  store float %.078108, ptr %88, align 4
+  store float %.078108, ptr %89, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  %96 = fadd float %.078108, %10
-  %97 = fcmp ugt float %96, %76
-  br i1 %97, label %.preheader, label %95, !llvm.loop !92
+  %93 = fadd float %.078108, %10
+  %94 = fcmp ugt float %93, %73
+  br i1 %94, label %.preheader, label %92, !llvm.loop !92
 
-98:                                               ; preds = %.lr.ph112, %98
-  %.0111 = phi float [ %66, %.lr.ph112 ], [ %99, %98 ]
-  store float %.0111, ptr %93, align 4
-  store float %.0111, ptr %94, align 4
+95:                                               ; preds = %.lr.ph112, %95
+  %.0111 = phi float [ %63, %.lr.ph112 ], [ %96, %95 ]
+  store float %.0111, ptr %90, align 4
+  store float %.0111, ptr %91, align 4
   call void @glVertex3fv(ptr noundef nonnull %24)
   call void @glVertex3fv(ptr noundef nonnull %25)
-  %99 = fadd float %.0111, %10
-  %100 = fcmp ugt float %99, %69
-  br i1 %100, label %._crit_edge113, label %98, !llvm.loop !93
+  %96 = fadd float %.0111, %10
+  %97 = fcmp ugt float %96, %66
+  br i1 %97, label %._crit_edge113, label %95, !llvm.loop !93
 
-._crit_edge113:                                   ; preds = %98, %.preheader
+._crit_edge113:                                   ; preds = %95, %.preheader
   call void @glEnd()
   call void @glColor4ubv(ptr noundef nonnull %21)
-  %101 = fmul float %13, 1.500000e+00
-  call void @glLineWidth(float noundef %101)
+  %98 = fmul float %13, 1.500000e+00
+  call void @glLineWidth(float noundef %98)
   call void @glBegin(i32 noundef 1)
-  %102 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %71
-  %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %71
-  %105 = load float, ptr %104, align 4
-  %106 = fmul float %103, %105
-  %107 = fcmp olt float %106, 0.000000e+00
-  br i1 %107, label %108, label %111
+  %99 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %68
+  %100 = load float, ptr %99, align 4
+  %101 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %68
+  %102 = load float, ptr %101, align 4
+  %103 = fmul float %100, %102
+  %104 = fcmp olt float %103, 0.000000e+00
+  br i1 %104, label %105, label %108
 
-108:                                              ; preds = %._crit_edge113
+105:                                              ; preds = %._crit_edge113
+  store float %63, ptr %64, align 4
   store float %66, ptr %67, align 4
-  store float %69, ptr %70, align 4
-  %109 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %71
-  store float 0.000000e+00, ptr %109, align 4
-  %110 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %71
-  store float 0.000000e+00, ptr %110, align 4
+  %106 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %68
+  store float 0.000000e+00, ptr %106, align 4
+  %107 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %68
+  store float 0.000000e+00, ptr %107, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  br label %111
+  br label %108
 
-111:                                              ; preds = %108, %._crit_edge113
-  %112 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %64
-  %113 = load float, ptr %112, align 4
-  %114 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %64
-  %115 = load float, ptr %114, align 4
-  %116 = fmul float %113, %115
-  %117 = fcmp olt float %116, 0.000000e+00
-  br i1 %117, label %118, label %121
+108:                                              ; preds = %105, %._crit_edge113
+  %109 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %61
+  %110 = load float, ptr %109, align 4
+  %111 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %61
+  %112 = load float, ptr %111, align 4
+  %113 = fmul float %110, %112
+  %114 = fcmp olt float %113, 0.000000e+00
+  br i1 %114, label %115, label %118
 
-118:                                              ; preds = %111
-  %119 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %71
-  store float %73, ptr %119, align 4
-  %120 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %71
-  store float %76, ptr %120, align 4
-  store float 0.000000e+00, ptr %70, align 4
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %68
+  store float %70, ptr %116, align 4
+  %117 = getelementptr inbounds [3 x float], ptr %23, i64 0, i64 %68
+  store float %73, ptr %117, align 4
   store float 0.000000e+00, ptr %67, align 4
+  store float 0.000000e+00, ptr %64, align 4
   call void @glVertex3fv(ptr noundef nonnull %22)
   call void @glVertex3fv(ptr noundef nonnull %23)
-  br label %121
+  br label %118
 
-121:                                              ; preds = %118, %111
+118:                                              ; preds = %115, %108
   call void @glEnd()
   ret void
 }

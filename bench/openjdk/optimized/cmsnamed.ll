@@ -996,12 +996,12 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br label %10
 
 10:                                               ; preds = %.lr.ph, %._crit_edge86
-  %11 = phi i32 [ %5, %.lr.ph ], [ %81, %._crit_edge86 ]
-  %.085 = phi i32 [ 0, %.lr.ph ], [ %80, %._crit_edge86 ]
+  %11 = phi i32 [ %5, %.lr.ph ], [ %86, %._crit_edge86 ]
+  %.085 = phi i32 [ 0, %.lr.ph ], [ %85, %._crit_edge86 ]
   %.06084 = phi i32 [ 0, %.lr.ph ], [ %.2, %._crit_edge86 ]
   %.06183 = phi i32 [ 0, %.lr.ph ], [ %.263, %._crit_edge86 ]
   %.06482 = phi ptr [ %0, %.lr.ph ], [ %.6, %._crit_edge86 ]
-  %.06781 = phi ptr [ %1, %.lr.ph ], [ %79, %._crit_edge86 ]
+  %.06781 = phi ptr [ %1, %.lr.ph ], [ %84, %._crit_edge86 ]
   %12 = and i32 %11, -1024
   %or.cond73 = icmp eq i32 %12, 55296
   br i1 %or.cond73, label %13, label %16
@@ -1098,33 +1098,41 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
 
 64:                                               ; preds = %61
   %65 = lshr i32 %.162, 18
-  %66 = lshr i32 %.162, 12
-  %67 = lshr i32 %.162, 6
-  %68 = getelementptr inbounds i8, ptr %.06482, i64 4
-  %69 = trunc i32 %65 to i8
-  %70 = insertelement <4 x i8> poison, i8 %69, i64 0
-  %71 = trunc i32 %66 to i8
-  %72 = insertelement <4 x i8> %70, i8 %71, i64 1
-  %73 = trunc i32 %67 to i8
-  %74 = insertelement <4 x i8> %72, i8 %73, i64 2
-  %75 = trunc i32 %.162 to i8
-  %76 = insertelement <4 x i8> %74, i8 %75, i64 3
-  %77 = and <4 x i8> %76, <i8 7, i8 63, i8 63, i8 63>
-  %78 = or disjoint <4 x i8> %77, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %78, ptr %.06482, align 1
+  %66 = trunc i32 %65 to i8
+  %67 = and i8 %66, 7
+  %68 = or disjoint i8 %67, -16
+  %69 = getelementptr inbounds i8, ptr %.06482, i64 1
+  store i8 %68, ptr %.06482, align 1
+  %70 = lshr i32 %.162, 12
+  %71 = trunc i32 %70 to i8
+  %72 = and i8 %71, 63
+  %73 = or disjoint i8 %72, -128
+  %74 = getelementptr inbounds i8, ptr %.06482, i64 2
+  store i8 %73, ptr %69, align 1
+  %75 = lshr i32 %.162, 6
+  %76 = trunc i32 %75 to i8
+  %77 = and i8 %76, 63
+  %78 = or disjoint i8 %77, -128
+  %79 = getelementptr inbounds i8, ptr %.06482, i64 3
+  store i8 %78, ptr %74, align 1
+  %80 = trunc i32 %.162 to i8
+  %81 = and i8 %80, 63
+  %82 = or disjoint i8 %81, -128
+  %83 = getelementptr inbounds i8, ptr %.06482, i64 4
+  store i8 %82, ptr %79, align 1
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %20, %21, %23, %61, %64, %44, %47, %28, %32, %13
-  %.6 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %68, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
+  %.6 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %83, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
   %.263 = phi i32 [ %15, %13 ], [ 0, %32 ], [ 0, %28 ], [ 0, %47 ], [ 0, %44 ], [ 0, %64 ], [ 0, %61 ], [ 0, %23 ], [ 0, %21 ], [ 0, %20 ]
   %.2 = phi i32 [ %.06084, %13 ], [ %30, %32 ], [ %30, %28 ], [ %45, %47 ], [ %45, %44 ], [ %62, %64 ], [ %62, %61 ], [ %.pre, %23 ], [ %.pre, %21 ], [ %.pre, %20 ]
-  %79 = getelementptr inbounds i8, ptr %.06781, i64 4
-  %80 = add nuw nsw i32 %.085, 1
-  %81 = load i32, ptr %79, align 4
-  %82 = icmp ne i32 %81, 0
-  %83 = icmp ult i32 %80, %2
-  %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %10, label %._crit_edge, !llvm.loop !14
+  %84 = getelementptr inbounds i8, ptr %.06781, i64 4
+  %85 = add nuw nsw i32 %.085, 1
+  %86 = load i32, ptr %84, align 4
+  %87 = icmp ne i32 %86, 0
+  %88 = icmp ult i32 %85, %2
+  %89 = select i1 %87, i1 %88, i1 false
+  br i1 %89, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %._crit_edge86, %4
   %.060.lcssa = phi i32 [ 0, %4 ], [ %.2, %._crit_edge86 ]

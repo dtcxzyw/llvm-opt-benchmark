@@ -1396,17 +1396,14 @@ land.end:                                         ; preds = %land.rhs, %entry
   %shr = lshr i32 %color.1, 8
   %shr11 = lshr i32 %color.1, 16
   %shr18 = lshr i32 %color.1, 24
-  %3 = trunc i32 %color.1 to i8
-  %4 = insertelement <4 x i8> poison, i8 %3, i64 0
-  %5 = trunc i32 %shr to i8
-  %6 = insertelement <4 x i8> %4, i8 %5, i64 1
-  %7 = trunc i32 %shr11 to i8
-  %8 = insertelement <4 x i8> %6, i8 %7, i64 2
-  %9 = trunc nuw i32 %shr18 to i8
-  %10 = insertelement <4 x i8> %8, i8 %9, i64 3
-  %11 = uitofp <4 x i8> %10 to <4 x float>
-  %12 = fmul <4 x float> %11, <float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000>
-  store <4 x float> %12, ptr %m_background_color, align 4
+  %3 = insertelement <4 x i32> poison, i32 %color.1, i64 0
+  %4 = insertelement <4 x i32> %3, i32 %shr, i64 1
+  %5 = insertelement <4 x i32> %4, i32 %shr11, i64 2
+  %6 = insertelement <4 x i32> %5, i32 %shr18, i64 3
+  %7 = trunc <4 x i32> %6 to <4 x i8>
+  %8 = uitofp <4 x i8> %7 to <4 x float>
+  %9 = fmul <4 x float> %8, <float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000>
+  store <4 x float> %9, ptr %m_background_color, align 4
   ret i1 %2
 }
 

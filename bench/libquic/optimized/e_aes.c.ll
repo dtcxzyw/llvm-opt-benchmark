@@ -1620,6 +1620,9 @@ for.cond33.preheader.preheader:                   ; preds = %if.end25
   %2 = load i64, ptr %spec.select25, align 1
   store i64 %2, ptr %A, align 16
   %add.ptr38 = getelementptr inbounds i8, ptr %A, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %A, i64 7
+  %arrayidx47 = getelementptr inbounds i8, ptr %A, i64 6
+  %arrayidx53 = getelementptr inbounds i8, ptr %A, i64 5
   %arrayidx59 = getelementptr inbounds i8, ptr %A, i64 4
   br label %for.cond33.preheader
 
@@ -1636,22 +1639,27 @@ for.body36:                                       ; preds = %for.cond33.preheade
   store i64 %5, ptr %add.ptr38, align 8
   call void @AES_encrypt(ptr noundef nonnull %A, ptr noundef nonnull %A, ptr noundef nonnull %ks) #10
   %6 = add nuw nsw i64 %indvars.iv, %3
+  %7 = load i8, ptr %arrayidx, align 1
+  %8 = trunc i64 %6 to i8
+  %conv45 = xor i8 %7, %8
+  store i8 %conv45, ptr %arrayidx, align 1
+  %9 = load i8, ptr %arrayidx47, align 2
   %shr39 = lshr i64 %6, 8
+  %10 = trunc i64 %shr39 to i8
+  %conv50 = xor i8 %9, %10
+  store i8 %conv50, ptr %arrayidx47, align 2
+  %11 = load i8, ptr %arrayidx53, align 1
   %shr5140 = lshr i64 %6, 16
-  %7 = load <4 x i8>, ptr %arrayidx59, align 4
+  %12 = trunc i64 %shr5140 to i8
+  %conv56 = xor i8 %11, %12
+  store i8 %conv56, ptr %arrayidx53, align 1
+  %13 = load i8, ptr %arrayidx59, align 4
   %shr5741 = lshr i64 %6, 24
-  %8 = trunc i64 %shr5741 to i8
-  %9 = insertelement <4 x i8> poison, i8 %8, i64 0
-  %10 = trunc i64 %shr5140 to i8
-  %11 = insertelement <4 x i8> %9, i8 %10, i64 1
-  %12 = trunc i64 %shr39 to i8
-  %13 = insertelement <4 x i8> %11, i8 %12, i64 2
-  %14 = trunc i64 %6 to i8
-  %15 = insertelement <4 x i8> %13, i8 %14, i64 3
-  %16 = xor <4 x i8> %7, %15
-  store <4 x i8> %16, ptr %arrayidx59, align 4
-  %17 = load i64, ptr %add.ptr38, align 8
-  store i64 %17, ptr %add.ptr39, align 1
+  %14 = trunc i64 %shr5741 to i8
+  %conv62 = xor i8 %13, %14
+  store i8 %conv62, ptr %arrayidx59, align 4
+  %15 = load i64, ptr %add.ptr38, align 8
+  store i64 %15, ptr %add.ptr39, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %div24
   br i1 %exitcond.not, label %for.cond33.for.inc68_crit_edge, label %for.body36, !llvm.loop !10
@@ -1750,6 +1758,9 @@ for.cond29.preheader.preheader:                   ; preds = %if.end20
   store i64 %2, ptr %A, align 16
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr, i64 %sub16, i1 false)
+  %arrayidx = getelementptr inbounds i8, ptr %A, i64 7
+  %arrayidx36 = getelementptr inbounds i8, ptr %A, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %A, i64 5
   %arrayidx48 = getelementptr inbounds i8, ptr %A, i64 4
   %add.ptr53 = getelementptr inbounds i8, ptr %A, i64 8
   %3 = and i64 %conv, 4294967295
@@ -1763,32 +1774,37 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
 for.body32:                                       ; preds = %for.cond29.preheader, %for.body32
   %indvars.iv = phi i64 [ %3, %for.cond29.preheader ], [ %indvars.iv.next, %for.body32 ]
   %5 = add nuw i64 %indvars.iv, %4
+  %6 = load i8, ptr %arrayidx, align 1
+  %7 = trunc i64 %5 to i8
+  %conv34 = xor i8 %6, %7
+  store i8 %conv34, ptr %arrayidx, align 1
+  %8 = load i8, ptr %arrayidx36, align 2
   %shr36 = lshr i64 %5, 8
+  %9 = trunc i64 %shr36 to i8
+  %conv39 = xor i8 %8, %9
+  store i8 %conv39, ptr %arrayidx36, align 2
+  %10 = load i8, ptr %arrayidx42, align 1
   %shr4037 = lshr i64 %5, 16
-  %6 = load <4 x i8>, ptr %arrayidx48, align 4
+  %11 = trunc i64 %shr4037 to i8
+  %conv45 = xor i8 %10, %11
+  store i8 %conv45, ptr %arrayidx42, align 1
+  %12 = load i8, ptr %arrayidx48, align 4
   %shr4638 = lshr i64 %5, 24
-  %7 = trunc i64 %shr4638 to i8
-  %8 = insertelement <4 x i8> poison, i8 %7, i64 0
-  %9 = trunc i64 %shr4037 to i8
-  %10 = insertelement <4 x i8> %8, i8 %9, i64 1
-  %11 = trunc i64 %shr36 to i8
-  %12 = insertelement <4 x i8> %10, i8 %11, i64 2
-  %13 = trunc i64 %5 to i8
-  %14 = insertelement <4 x i8> %12, i8 %13, i64 3
-  %15 = xor <4 x i8> %6, %14
-  store <4 x i8> %15, ptr %arrayidx48, align 4
+  %13 = trunc i64 %shr4638 to i8
+  %conv51 = xor i8 %12, %13
+  store i8 %conv51, ptr %arrayidx48, align 4
   %sub54 = shl i64 %indvars.iv, 3
   %mul55 = add i64 %sub54, 4294967288
   %idx.ext = and i64 %mul55, 4294967288
   %add.ptr56 = getelementptr inbounds i8, ptr %out, i64 %idx.ext
-  %16 = load i64, ptr %add.ptr56, align 1
-  store i64 %16, ptr %add.ptr53, align 8
+  %14 = load i64, ptr %add.ptr56, align 1
+  store i64 %14, ptr %add.ptr53, align 8
   call void @AES_decrypt(ptr noundef nonnull %A, ptr noundef nonnull %A, ptr noundef nonnull %ks) #10
-  %17 = load i64, ptr %add.ptr53, align 8
-  store i64 %17, ptr %add.ptr56, align 1
+  %15 = load i64, ptr %add.ptr53, align 8
+  store i64 %15, ptr %add.ptr56, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = and i64 %indvars.iv.next, 4294967295
-  %cmp30.not = icmp eq i64 %18, 0
+  %16 = and i64 %indvars.iv.next, 4294967295
+  %cmp30.not = icmp eq i64 %16, 0
   br i1 %cmp30.not, label %for.cond29.for.inc65_crit_edge, label %for.body32, !llvm.loop !12
 
 for.cond29.for.inc65_crit_edge:                   ; preds = %for.body32

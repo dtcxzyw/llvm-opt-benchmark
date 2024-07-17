@@ -928,24 +928,26 @@ if.then11:                                        ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %sub = add i32 %call8, 983040
   %shr = lshr i32 %sub, 10
+  %4 = trunc i32 %shr to i16
+  %5 = and i16 %4, 1023
+  %conv16 = or disjoint i16 %5, -10240
   %idxprom18 = sext i32 %len.021 to i64
   %arrayidx19 = getelementptr inbounds i16, ptr %call1, i64 %idxprom18
-  %inc23 = add nsw i32 %len.021, 2
-  %4 = trunc i32 %shr to i16
-  %5 = insertelement <2 x i16> poison, i16 %4, i64 0
+  store i16 %conv16, ptr %arrayidx19, align 2
   %6 = trunc i32 %call8 to i16
-  %7 = insertelement <2 x i16> %5, i16 %6, i64 1
-  %8 = and <2 x i16> %7, <i16 1023, i16 1023>
-  %9 = or disjoint <2 x i16> %8, <i16 -10240, i16 -9216>
-  store <2 x i16> %9, ptr %arrayidx19, align 2
+  %7 = and i16 %6, 1023
+  %conv22 = or disjoint i16 %7, -9216
+  %inc23 = add nsw i32 %len.021, 2
+  %arrayidx25 = getelementptr i8, ptr %arrayidx19, i64 2
+  store i16 %conv22, ptr %arrayidx25, align 2
   br label %for.cond.backedge
 
 for.end.loopexit:                                 ; preds = %for.cond.backedge
-  %10 = add nsw i32 %len.0.be, 1
+  %8 = add nsw i32 %len.0.be, 1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %string_literal_end.exit
-  %len.0.lcssa = phi i32 [ 1, %string_literal_end.exit ], [ %10, %for.end.loopexit ]
+  %len.0.lcssa = phi i32 [ 1, %string_literal_end.exit ], [ %8, %for.end.loopexit ]
   %add.ptr27 = getelementptr inbounds i8, ptr %p.addr.0.i.ptr.le, i64 1
   %call.i = call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #29
   store i32 3, ptr %call.i, align 16
@@ -956,13 +958,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
   %len.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %conv.i, ptr %len.i, align 8
-  %11 = load ptr, ptr @current_file, align 8
+  %9 = load ptr, ptr @current_file, align 8
   %file.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  store ptr %11, ptr %file.i, align 16
-  %display_name.i = getelementptr inbounds i8, ptr %11, i64 24
-  %12 = load ptr, ptr %display_name.i, align 8
+  store ptr %9, ptr %file.i, align 16
+  %display_name.i = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = load ptr, ptr %display_name.i, align 8
   %filename.i = getelementptr inbounds i8, ptr %call.i, i64 88
-  store ptr %12, ptr %filename.i, align 8
+  store ptr %10, ptr %filename.i, align 8
   %.b10.i = load i1, ptr @at_bol, align 1
   %at_bol.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %frombool.i = zext i1 %.b10.i to i8
@@ -973,8 +975,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i8 %frombool3.i, ptr %has_space.i, align 1
   store i1 false, ptr @has_space, align 1
   store i1 false, ptr @at_bol, align 1
-  %13 = load ptr, ptr @ty_ushort, align 8
-  %call30 = call ptr @array_of(ptr noundef %13, i32 noundef %len.0.lcssa) #25
+  %11 = load ptr, ptr @ty_ushort, align 8
+  %call30 = call ptr @array_of(ptr noundef %11, i32 noundef %len.0.lcssa) #25
   %ty = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call30, ptr %ty, align 16
   %str = getelementptr inbounds i8, ptr %call.i, i64 72

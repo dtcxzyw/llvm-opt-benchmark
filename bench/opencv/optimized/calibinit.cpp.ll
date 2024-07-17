@@ -9396,8 +9396,8 @@ define hidden void @_ZN2cv18ChessBoardDetector17findQuadNeighborsEv(ptr noundef 
   %16 = getelementptr inbounds i8, ptr %10, i64 4
   br label %17
 
-17:                                               ; preds = %.lr.ph, %79
-  %indvars.iv49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next50, %79 ]
+17:                                               ; preds = %.lr.ph, %82
+  %indvars.iv49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next50, %82 ]
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds %"struct.cv::ChessBoardQuad", ptr %18, i64 %indvars.iv49
   %20 = getelementptr inbounds i8, ptr %19, i64 56
@@ -9408,14 +9408,14 @@ define hidden void @_ZN2cv18ChessBoardDetector17findQuadNeighborsEv(ptr noundef 
   %25 = sext i32 %22 to i64
   br label %26
 
-26:                                               ; preds = %17, %78
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %78 ]
+26:                                               ; preds = %17, %81
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %81 ]
   %27 = getelementptr inbounds [4 x ptr], ptr %20, i64 0, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %31, label %78
+  br i1 %.not, label %31, label %81
 
-29:                                               ; preds = %42, %31
+29:                                               ; preds = %46, %31
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #36
@@ -9434,131 +9434,134 @@ define hidden void @_ZN2cv18ChessBoardDetector17findQuadNeighborsEv(ptr noundef 
   %37 = load float, ptr %2, align 8
   %38 = call float @llvm.fmuladd.f32(float %36, float %37, float 1.000000e+00)
   store <2 x float> zeroinitializer, ptr %7, align 8
-  %39 = bitcast i64 %35 to <2 x float>
-  %40 = invoke noundef zeroext i1 @_ZN2cv18ChessBoardDetector15NeighborsFinder18findCornerNeighborEiRKNS_6Point_IfEERffRiS7_RS3_(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, float noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-          to label %41 unwind label %29
+  %39 = lshr i64 %35, 32
+  %40 = insertelement <2 x i64> poison, i64 %35, i64 0
+  %41 = insertelement <2 x i64> %40, i64 %39, i64 1
+  %42 = trunc <2 x i64> %41 to <2 x i32>
+  %43 = bitcast <2 x i32> %42 to <2 x float>
+  %44 = invoke noundef zeroext i1 @_ZN2cv18ChessBoardDetector15NeighborsFinder18findCornerNeighborEiRKNS_6Point_IfEERffRiS7_RS3_(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, float noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
+          to label %45 unwind label %29
 
-41:                                               ; preds = %31
-  br i1 %40, label %42, label %78
+45:                                               ; preds = %31
+  br i1 %44, label %46, label %81
 
-42:                                               ; preds = %41
-  %43 = load float, ptr %4, align 4
-  %44 = fadd float %43, 1.000000e+00
+46:                                               ; preds = %45
+  %47 = load float, ptr %4, align 4
+  %48 = fadd float %47, 1.000000e+00
   store float 0x47EFFFFFE0000000, ptr %4, align 4
   store i32 -1, ptr %8, align 4
   store i32 -1, ptr %9, align 4
   store <2 x float> zeroinitializer, ptr %10, align 8
-  %45 = load i32, ptr %5, align 4
-  %46 = invoke noundef zeroext i1 @_ZN2cv18ChessBoardDetector15NeighborsFinder18findCornerNeighborEiRKNS_6Point_IfEERffRiS7_RS3_(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, float noundef %44, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-          to label %47 unwind label %29
+  %49 = load i32, ptr %5, align 4
+  %50 = invoke noundef zeroext i1 @_ZN2cv18ChessBoardDetector15NeighborsFinder18findCornerNeighborEiRKNS_6Point_IfEERffRiS7_RS3_(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %49, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, float noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
+          to label %51 unwind label %29
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %8, align 4
-  %49 = zext i32 %48 to i64
-  %.not32 = icmp eq i64 %indvars.iv49, %49
-  %or.cond = select i1 %46, i1 %.not32, i1 false
-  %50 = load i32, ptr %9, align 4
-  %51 = zext i32 %50 to i64
-  %.not33 = icmp eq i64 %indvars.iv, %51
+51:                                               ; preds = %46
+  %52 = load i32, ptr %8, align 4
+  %53 = zext i32 %52 to i64
+  %.not32 = icmp eq i64 %indvars.iv49, %53
+  %or.cond = select i1 %50, i1 %.not32, i1 false
+  %54 = load i32, ptr %9, align 4
+  %55 = zext i32 %54 to i64
+  %.not33 = icmp eq i64 %indvars.iv, %55
   %or.cond34 = select i1 %or.cond, i1 %.not33, i1 false
-  br i1 %or.cond34, label %52, label %78
+  br i1 %or.cond34, label %56, label %81
 
-52:                                               ; preds = %47
+56:                                               ; preds = %51
   %.val = load float, ptr %10, align 8
   %.val35 = load float, ptr %16, align 4
-  %53 = trunc i64 %35 to i32
-  %54 = bitcast i32 %53 to float
-  %55 = fcmp une float %.val, %54
-  %56 = extractelement <2 x float> %39, i64 1
-  %57 = fcmp une float %.val35, %56
-  %58 = select i1 %55, i1 true, i1 %57
-  br i1 %58, label %78, label %59
+  %57 = extractelement <2 x float> %43, i64 0
+  %58 = fcmp une float %.val, %57
+  %59 = extractelement <2 x float> %43, i64 1
+  %60 = fcmp une float %.val35, %59
+  %61 = select i1 %58, i1 true, i1 %60
+  br i1 %61, label %81, label %62
 
-59:                                               ; preds = %52
-  %60 = sext i32 %45 to i64
-  %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds %"struct.cv::ChessBoardQuad", ptr %61, i64 %60
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  %64 = load i32, ptr %6, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [4 x ptr], ptr %63, i64 0, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = load <2 x float>, ptr %7, align 8
-  %69 = fadd <2 x float> %68, %39
-  %70 = fmul <2 x float> %69, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %70, ptr %67, align 8
-  %71 = load i32, ptr %19, align 8
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %19, align 8
-  store ptr %62, ptr %27, align 8
-  %73 = getelementptr inbounds [4 x ptr], ptr %24, i64 0, i64 %indvars.iv
-  store ptr %67, ptr %73, align 8
-  %74 = load i32, ptr %62, align 8
+62:                                               ; preds = %56
+  %63 = sext i32 %49 to i64
+  %64 = load ptr, ptr %14, align 8
+  %65 = getelementptr inbounds %"struct.cv::ChessBoardQuad", ptr %64, i64 %63
+  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %67 = load i32, ptr %6, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [4 x ptr], ptr %66, i64 0, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = load <2 x float>, ptr %7, align 8
+  %72 = fadd <2 x float> %71, %43
+  %73 = fmul <2 x float> %72, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %73, ptr %70, align 8
+  %74 = load i32, ptr %19, align 8
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %62, align 8
-  %76 = getelementptr inbounds i8, ptr %62, i64 56
-  %77 = getelementptr inbounds [4 x ptr], ptr %76, i64 0, i64 %65
-  store ptr %19, ptr %77, align 8
-  br label %78
+  store i32 %75, ptr %19, align 8
+  store ptr %65, ptr %27, align 8
+  %76 = getelementptr inbounds [4 x ptr], ptr %24, i64 0, i64 %indvars.iv
+  store ptr %70, ptr %76, align 8
+  %77 = load i32, ptr %65, align 8
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %65, align 8
+  %79 = getelementptr inbounds i8, ptr %65, i64 56
+  %80 = getelementptr inbounds [4 x ptr], ptr %79, i64 0, i64 %68
+  store ptr %19, ptr %80, align 8
+  br label %81
 
-78:                                               ; preds = %52, %47, %41, %26, %59
+81:                                               ; preds = %56, %51, %45, %26, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %79, label %26, !llvm.loop !142
+  br i1 %exitcond.not, label %82, label %26, !llvm.loop !142
 
-79:                                               ; preds = %78
+82:                                               ; preds = %81
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %80 = load i32, ptr %11, align 8
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next50, %81
-  br i1 %82, label %17, label %._crit_edge, !llvm.loop !143
+  %83 = load i32, ptr %11, align 8
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next50, %84
+  br i1 %85, label %17, label %._crit_edge, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %79, %1
-  %83 = getelementptr inbounds i8, ptr %2, i64 88
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i, label %86
+._crit_edge:                                      ; preds = %82, %1
+  %86 = getelementptr inbounds i8, ptr %2, i64 88
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i, label %89
 
-86:                                               ; preds = %._crit_edge
-  %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(72) %84) #36
+89:                                               ; preds = %._crit_edge
+  %90 = load ptr, ptr %87, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(72) %87) #36
   br label %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i
 
-_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i: ; preds = %86, %._crit_edge
-  %90 = getelementptr inbounds i8, ptr %2, i64 96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %90) #36
-  %91 = getelementptr inbounds i8, ptr %2, i64 64
-  %92 = load ptr, ptr %91, align 8
-  %.not.i.i.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i, label %93
+_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i: ; preds = %89, %._crit_edge
+  %93 = getelementptr inbounds i8, ptr %2, i64 96
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #36
+  %94 = getelementptr inbounds i8, ptr %2, i64 64
+  %95 = load ptr, ptr %94, align 8
+  %.not.i.i.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i, label %96
 
-93:                                               ; preds = %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %92) #34
+96:                                               ; preds = %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %95) #34
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i:  ; preds = %93, %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i
-  %94 = getelementptr inbounds i8, ptr %2, i64 40
-  %95 = load ptr, ptr %94, align 8
-  %.not.i.i.i1.i = icmp eq ptr %95, null
-  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %96
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i:  ; preds = %96, %_ZN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEED2Ev.exit.i
+  %97 = getelementptr inbounds i8, ptr %2, i64 40
+  %98 = load ptr, ptr %97, align 8
+  %.not.i.i.i1.i = icmp eq ptr %98, null
+  br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %99
 
-96:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %95) #34
+99:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %98) #34
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %96, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %.not.i.i.i2.i = icmp eq ptr %98, null
-  br i1 %.not.i.i.i2.i, label %_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit, label %99
+_ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %99, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit.i
+  %100 = getelementptr inbounds i8, ptr %2, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %.not.i.i.i2.i = icmp eq ptr %101, null
+  br i1 %.not.i.i.i2.i, label %_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit, label %102
 
-99:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %98) #34
+102:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %101) #34
   br label %_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit
 
-_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %99
+_ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %102
   ret void
 }
 

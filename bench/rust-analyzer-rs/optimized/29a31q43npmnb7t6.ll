@@ -10477,26 +10477,34 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hfa46d9796b6
 
 32:                                               ; preds = %7
   %33 = lshr i32 %1, 18
-  %34 = lshr i32 %1, 12
-  %35 = lshr i32 %1, 6
-  %36 = trunc i32 %1 to i8
-  %37 = trunc i32 %33 to i8
-  %38 = insertelement <4 x i8> poison, i8 %37, i64 0
-  %39 = trunc i32 %34 to i8
-  %40 = insertelement <4 x i8> %38, i8 %39, i64 1
-  %41 = trunc i32 %35 to i8
-  %42 = insertelement <4 x i8> %40, i8 %41, i64 2
-  %43 = insertelement <4 x i8> %42, i8 %36, i64 3
-  %44 = and <4 x i8> %43, <i8 7, i8 63, i8 63, i8 63>
-  %45 = or disjoint <4 x i8> %44, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %45, ptr %3, align 4, !alias.scope !4091
+  %34 = trunc i32 %33 to i8
+  %35 = and i8 %34, 7
+  %36 = or disjoint i8 %35, -16
+  store i8 %36, ptr %3, align 4, !alias.scope !4091
+  %37 = lshr i32 %1, 12
+  %38 = trunc i32 %37 to i8
+  %39 = and i8 %38, 63
+  %40 = getelementptr inbounds i8, ptr %3, i64 1
+  %41 = or disjoint i8 %39, -128
+  store i8 %41, ptr %40, align 1, !alias.scope !4091
+  %42 = lshr i32 %1, 6
+  %43 = trunc i32 %42 to i8
+  %44 = and i8 %43, 63
+  %45 = getelementptr inbounds i8, ptr %3, i64 2
+  %46 = or disjoint i8 %44, -128
+  store i8 %46, ptr %45, align 2, !alias.scope !4091
+  %47 = trunc i32 %1 to i8
+  %48 = and i8 %47, 63
+  %49 = getelementptr inbounds i8, ptr %3, i64 3
+  %50 = or disjoint i8 %48, -128
+  store i8 %50, ptr %49, align 1, !alias.scope !4091
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %9, %11, %19, %32
-  %46 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
+  %51 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4094)
-  %47 = load ptr, ptr %0, align 8, !alias.scope !4094, !noalias !4097, !nonnull !11, !align !20, !noundef !11
-  %48 = call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17hddd0537ea16ee1ceE.llvm.1686074433831124249(ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %46), !noalias !4094
+  %52 = load ptr, ptr %0, align 8, !alias.scope !4094, !noalias !4097, !nonnull !11, !align !20, !noundef !11
+  %53 = call noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17hddd0537ea16ee1ceE.llvm.1686074433831124249(ptr noalias noundef nonnull align 8 dereferenceable(8) %52, ptr noalias nonnull align 8 poison, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %51), !noalias !4094
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret i1 false
 }

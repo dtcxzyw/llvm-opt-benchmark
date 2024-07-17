@@ -61,65 +61,62 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h495130cb212fb
   %34 = lshr i32 %1, 18
   %35 = lshr i32 %1, 12
   %36 = lshr i32 %1, 6
-  %37 = trunc i32 %1 to i8
-  %38 = trunc i32 %34 to i8
-  %39 = insertelement <4 x i8> poison, i8 %38, i64 0
-  %40 = trunc i32 %35 to i8
-  %41 = insertelement <4 x i8> %39, i8 %40, i64 1
-  %42 = trunc i32 %36 to i8
-  %43 = insertelement <4 x i8> %41, i8 %42, i64 2
-  %44 = insertelement <4 x i8> %43, i8 %37, i64 3
-  %45 = and <4 x i8> %44, <i8 7, i8 63, i8 63, i8 63>
-  %46 = or disjoint <4 x i8> %45, <i8 -16, i8 -128, i8 -128, i8 -128>
-  store <4 x i8> %46, ptr %4, align 4, !alias.scope !4
+  %37 = insertelement <4 x i32> poison, i32 %34, i64 0
+  %38 = insertelement <4 x i32> %37, i32 %35, i64 1
+  %39 = insertelement <4 x i32> %38, i32 %36, i64 2
+  %40 = insertelement <4 x i32> %39, i32 %1, i64 3
+  %41 = trunc <4 x i32> %40 to <4 x i8>
+  %42 = and <4 x i8> %41, <i8 7, i8 63, i8 63, i8 63>
+  %43 = or disjoint <4 x i8> %42, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %43, ptr %4, align 4, !alias.scope !4
   br label %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit
 
 _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit: ; preds = %10, %12, %20, %33
-  %47 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
+  %44 = phi i64 [ 4, %33 ], [ 3, %20 ], [ 2, %12 ], [ 1, %10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %48 = load ptr, ptr %0, align 8, !alias.scope !7, !noalias !10, !nonnull !12, !align !13, !noundef !12
-  %49 = call noundef ptr @_ZN3std2io5Write9write_all17hea0f19a49495fa33E(ptr noalias noundef nonnull align 1 %48, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %47), !noalias !7
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hd5e0cb64ca9a50deE.exit"
+  %45 = load ptr, ptr %0, align 8, !alias.scope !7, !noalias !10, !nonnull !12, !align !13, !noundef !12
+  %46 = call noundef ptr @_ZN3std2io5Write9write_all17hea0f19a49495fa33E(ptr noalias noundef nonnull align 1 %45, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %44), !noalias !7
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hd5e0cb64ca9a50deE.exit"
 
-51:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val.i = load ptr, ptr %52, align 8, !alias.scope !7, !noalias !10, !noundef !12
-  %53 = icmp eq ptr %.val.i, null
-  br i1 %53, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i", label %54
+48:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val.i = load ptr, ptr %49, align 8, !alias.scope !7, !noalias !10, !noundef !12
+  %50 = icmp eq ptr %.val.i, null
+  br i1 %50, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i", label %51
 
-54:                                               ; preds = %51
+51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !14
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17hed8946d714d8edf0E.llvm.11290379560268722015(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %.val.i)
-          to label %.noexc.i unwind label %58, !noalias !7
+          to label %.noexc.i unwind label %55, !noalias !7
 
-.noexc.i:                                         ; preds = %54
-  %55 = load i8, ptr %3, align 8, !range !21, !alias.scope !22, !noalias !14, !noundef !12
-  %switch.not.i.i.i.i.i.i = icmp eq i8 %55, 3
-  br i1 %switch.not.i.i.i.i.i.i, label %56, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i"
+.noexc.i:                                         ; preds = %51
+  %52 = load i8, ptr %3, align 8, !range !21, !alias.scope !22, !noalias !14, !noundef !12
+  %switch.not.i.i.i.i.i.i = icmp eq i8 %52, 3
+  br i1 %switch.not.i.i.i.i.i.i, label %53, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i"
 
-56:                                               ; preds = %.noexc.i
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h0f645f2889a385b2E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(8) %57)
-          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i" unwind label %58, !noalias !7
+53:                                               ; preds = %.noexc.i
+  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h0f645f2889a385b2E.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(8) %54)
+          to label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i" unwind label %55, !noalias !7
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i": ; preds = %56, %.noexc.i
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i": ; preds = %53, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !14
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i"
 
-58:                                               ; preds = %56, %54
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %53, %51
+  %56 = landingpad { ptr, i32 }
           cleanup
-  store ptr %49, ptr %52, align 8, !alias.scope !7, !noalias !10
-  resume { ptr, i32 } %59
+  store ptr %46, ptr %49, align 8, !alias.scope !7, !noalias !10
+  resume { ptr, i32 } %56
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i", %51
-  store ptr %49, ptr %52, align 8, !alias.scope !7, !noalias !10
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfee47d59ec7de034E.exit.i.i", %48
+  store ptr %46, ptr %49, align 8, !alias.scope !7, !noalias !10
   br label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hd5e0cb64ca9a50deE.exit"
 
 "_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17hd5e0cb64ca9a50deE.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h2e124390df9e02f0E.exit.i"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  ret i1 %50
+  ret i1 %47
 }
 
 ; Function Attrs: nonlazybind uwtable
