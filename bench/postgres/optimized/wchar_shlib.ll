@@ -19,7 +19,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i32 %0 to i8
   store i8 %5, ptr %1, align 1
-  br label %50
+  br label %45
 
 6:                                                ; preds = %2
   %7 = icmp ult i32 %0, 2048
@@ -35,7 +35,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
   %14 = or disjoint i8 %13, -128
   %15 = getelementptr i8, ptr %1, i64 1
   store i8 %14, ptr %15, align 1
-  br label %50
+  br label %45
 
 16:                                               ; preds = %6
   %17 = icmp ult i32 %0, 65536
@@ -57,34 +57,26 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
   %29 = or disjoint i8 %28, -128
   %30 = getelementptr i8, ptr %1, i64 2
   store i8 %29, ptr %30, align 1
-  br label %50
+  br label %45
 
 31:                                               ; preds = %16
   %32 = lshr i32 %0, 18
-  %33 = trunc i32 %32 to i8
-  %34 = and i8 %33, 7
-  %35 = or disjoint i8 %34, -16
-  store i8 %35, ptr %1, align 1
-  %36 = lshr i32 %0, 12
-  %37 = trunc i32 %36 to i8
-  %38 = and i8 %37, 63
-  %39 = or disjoint i8 %38, -128
-  %40 = getelementptr i8, ptr %1, i64 1
-  store i8 %39, ptr %40, align 1
-  %41 = lshr i32 %0, 6
-  %42 = trunc i32 %41 to i8
-  %43 = and i8 %42, 63
-  %44 = or disjoint i8 %43, -128
-  %45 = getelementptr i8, ptr %1, i64 2
-  store i8 %44, ptr %45, align 1
-  %46 = trunc i32 %0 to i8
-  %47 = and i8 %46, 63
-  %48 = or disjoint i8 %47, -128
-  %49 = getelementptr i8, ptr %1, i64 3
-  store i8 %48, ptr %49, align 1
-  br label %50
+  %33 = lshr i32 %0, 12
+  %34 = lshr i32 %0, 6
+  %35 = trunc i32 %0 to i8
+  %36 = trunc i32 %32 to i8
+  %37 = insertelement <4 x i8> poison, i8 %36, i64 0
+  %38 = trunc i32 %33 to i8
+  %39 = insertelement <4 x i8> %37, i8 %38, i64 1
+  %40 = trunc i32 %34 to i8
+  %41 = insertelement <4 x i8> %39, i8 %40, i64 2
+  %42 = insertelement <4 x i8> %41, i8 %35, i64 3
+  %43 = and <4 x i8> %42, <i8 7, i8 63, i8 63, i8 63>
+  %44 = or disjoint <4 x i8> %43, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %44, ptr %1, align 1
+  br label %45
 
-50:                                               ; preds = %8, %31, %18, %4
+45:                                               ; preds = %8, %31, %18, %4
   ret ptr %1
 }
 

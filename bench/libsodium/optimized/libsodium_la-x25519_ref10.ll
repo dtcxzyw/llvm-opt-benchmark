@@ -651,16 +651,16 @@ for.body20:                                       ; preds = %for.body.preheader,
   %conv52.i426 = and i128 %shr50.i425, 18446744073709551615
   %add30.i407 = add i128 %mul31.i408, %mul29.i406
   %add32.i409 = add i128 %add30.i407, %mul28.i405
-  %add35.i432 = add i128 %mul34.i411, %mul36.i412
-  %add37.i433 = add i128 %add35.i432, %mul33.i410
   %add53.i427 = add i128 %add32.i409, %conv52.i426
+  %conv54.i428 = trunc i128 %add53.i427 to i64
+  %and55.i429 = and i64 %conv54.i428, 2251799813685247
   %shr56.i430 = lshr i128 %add53.i427, 51
   %conv58.i431 = and i128 %shr56.i430, 18446744073709551615
+  %add35.i432 = add i128 %mul34.i411, %mul36.i412
+  %add37.i433 = add i128 %add35.i432, %mul33.i410
   %add59.i434 = add i128 %add37.i433, %conv58.i431
-  %42 = insertelement <2 x i128> poison, i128 %add53.i427, i64 0
-  %43 = insertelement <2 x i128> %42, i128 %add59.i434, i64 1
-  %44 = trunc <2 x i128> %43 to <2 x i64>
-  %45 = and <2 x i64> %44, <i64 2251799813685247, i64 2251799813685247>
+  %conv60.i435 = trunc i128 %add59.i434 to i64
+  %and61.i436 = and i64 %conv60.i435, 2251799813685247
   %shr62.i437 = lshr i128 %add59.i434, 51
   %conv63.i438 = trunc i128 %shr62.i437 to i64
   %mul64.i439 = mul i64 %conv63.i438, 19
@@ -674,7 +674,8 @@ for.body20:                                       ; preds = %for.body.preheader,
   store i64 %and67.i442, ptr %z3, align 16
   store i64 %and70.i445, ptr %arrayidx1.i15, align 8
   store i64 %add71.i446, ptr %arrayidx7.i27, align 16
-  store <2 x i64> %45, ptr %arrayidx8.i28, align 8
+  store i64 %and55.i429, ptr %arrayidx8.i28, align 8
+  store i64 %and61.i436, ptr %arrayidx9.i29, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %z3, ptr noundef nonnull %z3, ptr noundef nonnull %x1)
   %conv1.i = zext nneg i64 %sub.i172 to i128
   %mul.i451 = mul nuw nsw i128 %conv1.i, 121666
@@ -725,52 +726,52 @@ for.body20:                                       ; preds = %for.body.preheader,
 for.end80:                                        ; preds = %for.body20
   %conv.i480 = zext nneg i32 %and25 to i64
   %sub.i481 = sub nsw i64 0, %conv.i480
-  %46 = load i64, ptr %x2, align 16
-  %47 = load i64, ptr %arrayidx1.i, align 8
-  %48 = load i64, ptr %arrayidx2.i, align 16
-  %49 = load i64, ptr %arrayidx3.i, align 8
-  %50 = load i64, ptr %arrayidx4.i, align 16
-  %xor.i490 = xor i64 %46, %and67.i328
-  %xor10.i491 = xor i64 %47, %and70.i331
-  %xor11.i492 = xor i64 %48, %add71.i332
-  %xor12.i493 = xor i64 %49, %and55.i315
-  %xor13.i494 = xor i64 %50, %and61.i322
-  %51 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
-  %and.i495 = and i64 %51, %xor.i490
-  %and14.i496 = and i64 %51, %xor10.i491
-  %and15.i497 = and i64 %51, %xor11.i492
-  %and16.i498 = and i64 %51, %xor12.i493
-  %and17.i499 = and i64 %xor13.i494, %51
-  %xor18.i500 = xor i64 %and.i495, %46
+  %42 = load i64, ptr %x2, align 16
+  %43 = load i64, ptr %arrayidx1.i, align 8
+  %44 = load i64, ptr %arrayidx2.i, align 16
+  %45 = load i64, ptr %arrayidx3.i, align 8
+  %46 = load i64, ptr %arrayidx4.i, align 16
+  %xor.i490 = xor i64 %42, %and67.i328
+  %xor10.i491 = xor i64 %43, %and70.i331
+  %xor11.i492 = xor i64 %44, %add71.i332
+  %xor12.i493 = xor i64 %45, %and55.i315
+  %xor13.i494 = xor i64 %46, %and61.i322
+  %47 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
+  %and.i495 = and i64 %47, %xor.i490
+  %and14.i496 = and i64 %47, %xor10.i491
+  %and15.i497 = and i64 %47, %xor11.i492
+  %and16.i498 = and i64 %47, %xor12.i493
+  %and17.i499 = and i64 %xor13.i494, %47
+  %xor18.i500 = xor i64 %and.i495, %42
   store i64 %xor18.i500, ptr %x2, align 16
-  %xor20.i501 = xor i64 %and14.i496, %47
+  %xor20.i501 = xor i64 %and14.i496, %43
   store i64 %xor20.i501, ptr %arrayidx1.i, align 8
-  %xor22.i502 = xor i64 %and15.i497, %48
+  %xor22.i502 = xor i64 %and15.i497, %44
   store i64 %xor22.i502, ptr %arrayidx2.i, align 16
-  %xor24.i503 = xor i64 %and16.i498, %49
+  %xor24.i503 = xor i64 %and16.i498, %45
   store i64 %xor24.i503, ptr %arrayidx3.i, align 8
-  %xor26.i504 = xor i64 %and17.i499, %50
+  %xor26.i504 = xor i64 %and17.i499, %46
   store i64 %xor26.i504, ptr %arrayidx4.i, align 16
-  %52 = load i64, ptr %arrayidx4.i25, align 16
-  %53 = load i64, ptr %arrayidx9.i29, align 16
-  %xor13.i524 = xor i64 %53, %52
-  %54 = load <2 x i64>, ptr %z2, align 16
-  %55 = load <2 x i64>, ptr %z3, align 16
-  %56 = xor <2 x i64> %55, %54
-  %57 = load <2 x i64>, ptr %arrayidx2.i23, align 16
-  %58 = load <2 x i64>, ptr %arrayidx7.i27, align 16
-  %59 = xor <2 x i64> %58, %57
-  %60 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
-  %61 = insertelement <2 x i64> poison, i64 %60, i64 0
-  %62 = shufflevector <2 x i64> %61, <2 x i64> poison, <2 x i32> zeroinitializer
-  %63 = and <2 x i64> %62, %56
-  %64 = and <2 x i64> %62, %59
-  %and17.i529 = and i64 %xor13.i524, %60
-  %65 = xor <2 x i64> %63, %54
-  store <2 x i64> %65, ptr %z2, align 16
-  %66 = xor <2 x i64> %64, %57
-  store <2 x i64> %66, ptr %arrayidx2.i23, align 16
-  %xor26.i534 = xor i64 %and17.i529, %52
+  %48 = load i64, ptr %arrayidx4.i25, align 16
+  %49 = load i64, ptr %arrayidx9.i29, align 16
+  %xor13.i524 = xor i64 %49, %48
+  %50 = load <2 x i64>, ptr %z2, align 16
+  %51 = load <2 x i64>, ptr %z3, align 16
+  %52 = xor <2 x i64> %51, %50
+  %53 = load <2 x i64>, ptr %arrayidx2.i23, align 16
+  %54 = load <2 x i64>, ptr %arrayidx7.i27, align 16
+  %55 = xor <2 x i64> %54, %53
+  %56 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i481) #6, !srcloc !9
+  %57 = insertelement <2 x i64> poison, i64 %56, i64 0
+  %58 = shufflevector <2 x i64> %57, <2 x i64> poison, <2 x i32> zeroinitializer
+  %59 = and <2 x i64> %58, %52
+  %60 = and <2 x i64> %58, %55
+  %and17.i529 = and i64 %xor13.i524, %56
+  %61 = xor <2 x i64> %59, %50
+  store <2 x i64> %61, ptr %z2, align 16
+  %62 = xor <2 x i64> %60, %53
+  store <2 x i64> %62, ptr %arrayidx2.i23, align 16
+  %xor26.i534 = xor i64 %and17.i529, %48
   store i64 %xor26.i534, ptr %arrayidx4.i25, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %z2, ptr noundef nonnull %z2) #6
   call fastcc void @fe25519_mul(ptr noundef nonnull %x2, ptr noundef nonnull %x2, ptr noundef nonnull %z2)
@@ -983,21 +984,18 @@ entry:
   %add52 = add i128 %add50, %mul49
   %add54 = add i128 %add52, %mul48
   %add56 = add i128 %add54, %mul55
+  %add81 = add i128 %add56, %conv80
+  %conv82 = trunc i128 %add81 to i64
+  %and83 = and i64 %conv82, 2251799813685247
+  %shr84 = lshr i128 %add81, 51
+  %conv86 = and i128 %shr84, 18446744073709551615
   %add59 = add i128 %mul62, %mul64
   %add61 = add i128 %add59, %mul60
   %add63 = add i128 %add61, %mul58
   %add65 = add i128 %add63, %mul57
-  %arrayidx101 = getelementptr i8, ptr %h, i64 8
-  %arrayidx102 = getelementptr i8, ptr %h, i64 16
-  %arrayidx103 = getelementptr i8, ptr %h, i64 24
-  %add81 = add i128 %add56, %conv80
-  %shr84 = lshr i128 %add81, 51
-  %conv86 = and i128 %shr84, 18446744073709551615
   %add87 = add i128 %add65, %conv86
-  %10 = insertelement <2 x i128> poison, i128 %add81, i64 0
-  %11 = insertelement <2 x i128> %10, i128 %add87, i64 1
-  %12 = trunc <2 x i128> %11 to <2 x i64>
-  %13 = and <2 x i64> %12, <i64 2251799813685247, i64 2251799813685247>
+  %conv88 = trunc i128 %add87 to i64
+  %and89 = and i64 %conv88, 2251799813685247
   %shr90 = lshr i128 %add87, 51
   %conv91 = trunc i128 %shr90 to i64
   %mul92 = mul i64 %conv91, 19
@@ -1009,9 +1007,14 @@ entry:
   %and98 = and i64 %add96, 2251799813685247
   %add99 = add nuw nsw i64 %shr97, %and77
   store i64 %and95, ptr %h, align 8
+  %arrayidx101 = getelementptr i8, ptr %h, i64 8
   store i64 %and98, ptr %arrayidx101, align 8
+  %arrayidx102 = getelementptr i8, ptr %h, i64 16
   store i64 %add99, ptr %arrayidx102, align 8
-  store <2 x i64> %13, ptr %arrayidx103, align 8
+  %arrayidx103 = getelementptr i8, ptr %h, i64 24
+  store i64 %and83, ptr %arrayidx103, align 8
+  %arrayidx104 = getelementptr i8, ptr %h, i64 32
+  store i64 %and89, ptr %arrayidx104, align 8
   ret void
 }
 

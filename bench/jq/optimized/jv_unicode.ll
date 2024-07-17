@@ -295,7 +295,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %5 = trunc i32 %0 to i8
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %5, ptr %1, align 1
-  br label %54
+  br label %49
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %0, 2048
@@ -312,7 +312,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %16 = or disjoint i8 %15, -128
   %17 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %16, ptr %13, align 1
-  br label %54
+  br label %49
 
 18:                                               ; preds = %7
   %19 = icmp ult i32 %0, 65536
@@ -335,41 +335,33 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %32 = or disjoint i8 %31, -128
   %33 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %32, ptr %29, align 1
-  br label %54
+  br label %49
 
 34:                                               ; preds = %18
   %35 = lshr i32 %0, 18
-  %36 = trunc i32 %35 to i8
-  %37 = and i8 %36, 7
-  %38 = or disjoint i8 %37, -16
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
-  store i8 %38, ptr %1, align 1
-  %40 = lshr i32 %0, 12
-  %41 = trunc i32 %40 to i8
-  %42 = and i8 %41, 63
-  %43 = or disjoint i8 %42, -128
-  %44 = getelementptr inbounds i8, ptr %1, i64 2
-  store i8 %43, ptr %39, align 1
-  %45 = lshr i32 %0, 6
-  %46 = trunc i32 %45 to i8
-  %47 = and i8 %46, 63
-  %48 = or disjoint i8 %47, -128
-  %49 = getelementptr inbounds i8, ptr %1, i64 3
-  store i8 %48, ptr %44, align 1
-  %50 = trunc i32 %0 to i8
-  %51 = and i8 %50, 63
-  %52 = or disjoint i8 %51, -128
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
-  store i8 %52, ptr %49, align 1
-  br label %54
+  %36 = lshr i32 %0, 12
+  %37 = lshr i32 %0, 6
+  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = trunc i32 %0 to i8
+  %40 = trunc i32 %35 to i8
+  %41 = insertelement <4 x i8> poison, i8 %40, i64 0
+  %42 = trunc i32 %36 to i8
+  %43 = insertelement <4 x i8> %41, i8 %42, i64 1
+  %44 = trunc i32 %37 to i8
+  %45 = insertelement <4 x i8> %43, i8 %44, i64 2
+  %46 = insertelement <4 x i8> %45, i8 %39, i64 3
+  %47 = and <4 x i8> %46, <i8 7, i8 63, i8 63, i8 63>
+  %48 = or disjoint <4 x i8> %47, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %48, ptr %1, align 1
+  br label %49
 
-54:                                               ; preds = %9, %34, %20, %4
-  %.0 = phi ptr [ %6, %4 ], [ %17, %9 ], [ %33, %20 ], [ %53, %34 ]
-  %55 = ptrtoint ptr %.0 to i64
-  %56 = ptrtoint ptr %1 to i64
-  %57 = sub i64 %55, %56
-  %58 = trunc i64 %57 to i32
-  ret i32 %58
+49:                                               ; preds = %9, %34, %20, %4
+  %.0 = phi ptr [ %6, %4 ], [ %17, %9 ], [ %33, %20 ], [ %38, %34 ]
+  %50 = ptrtoint ptr %.0 to i64
+  %51 = ptrtoint ptr %1 to i64
+  %52 = sub i64 %50, %51
+  %53 = trunc i64 %52 to i32
+  ret i32 %53
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

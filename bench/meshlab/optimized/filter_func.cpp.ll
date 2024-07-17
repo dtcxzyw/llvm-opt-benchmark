@@ -41558,7 +41558,7 @@ define linkonce_odr i32 @_ZN3vcg15GetColorMappingEdddNS_8ColorMapE(double nounde
   store float %22, ptr %18, align 4
   %23 = fptrunc double %0 to float
   call void @_ZN3vcg6Color4IhE12SetColorRampERKfS3_f(ptr noundef nonnull align 1 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, float noundef %23)
-  br label %150
+  br label %156
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -41670,7 +41670,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 1
   store i32 %68, ptr %15, align 4
-  br label %150
+  br label %156
 
 69:                                               ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit
   %70 = add nsw i32 %43, -1
@@ -41726,7 +41726,7 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %86 = getelementptr inbounds i8, ptr %85, i64 -4
   %87 = load i32, ptr %86, align 1
   store i32 %87, ptr %15, align 4
-  br label %150
+  br label %156
 
 88:                                               ; preds = %69
   %89 = uitofp nneg i32 %51 to double
@@ -41788,81 +41788,87 @@ _ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pair
   %109 = lshr i32 %108, 8
   %110 = lshr i32 %108, 16
   %111 = lshr i32 %108, 24
-  %112 = insertelement <4 x i32> poison, i32 %108, i64 0
-  %113 = insertelement <4 x i32> %112, i32 %109, i64 1
-  %114 = insertelement <4 x i32> %113, i32 %110, i64 2
-  %115 = insertelement <4 x i32> %114, i32 %111, i64 3
-  %116 = trunc <4 x i32> %115 to <4 x i8>
+  %112 = trunc i32 %108 to i8
+  %113 = insertelement <4 x i8> poison, i8 %112, i64 0
+  %114 = trunc i32 %109 to i8
+  %115 = insertelement <4 x i8> %113, i8 %114, i64 1
+  %116 = trunc i32 %110 to i8
+  %117 = insertelement <4 x i8> %115, i8 %116, i64 2
+  %118 = trunc nuw i32 %111 to i8
+  %119 = insertelement <4 x i8> %117, i8 %118, i64 3
   br i1 %.not10.i.i.i.i70, label %.critedge.i81, label %.lr.ph.i.i.i.i71
 
 .lr.ph.i.i.i.i71:                                 ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit69
-  %117 = load i32, ptr %16, align 4
-  br label %118
+  %120 = load i32, ptr %16, align 4
+  br label %121
 
-118:                                              ; preds = %118, %.lr.ph.i.i.i.i71
-  %.012.i.i.i.i72 = phi ptr [ %103, %.lr.ph.i.i.i.i71 ], [ %.1.i.i.i.i77, %118 ]
-  %.0811.i.i.i.i73 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %.lr.ph.i.i.i.i71 ], [ %.19.i.i.i.i74, %118 ]
-  %119 = getelementptr inbounds i8, ptr %.012.i.i.i.i72, i64 32
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp slt i32 %120, %117
-  %.19.i.i.i.i74 = select i1 %121, ptr %.0811.i.i.i.i73, ptr %.012.i.i.i.i72
-  %.1.in.v.i.i.i.i75 = select i1 %121, i64 24, i64 16
+121:                                              ; preds = %121, %.lr.ph.i.i.i.i71
+  %.012.i.i.i.i72 = phi ptr [ %103, %.lr.ph.i.i.i.i71 ], [ %.1.i.i.i.i77, %121 ]
+  %.0811.i.i.i.i73 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %.lr.ph.i.i.i.i71 ], [ %.19.i.i.i.i74, %121 ]
+  %122 = getelementptr inbounds i8, ptr %.012.i.i.i.i72, i64 32
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp slt i32 %123, %120
+  %.19.i.i.i.i74 = select i1 %124, ptr %.0811.i.i.i.i73, ptr %.012.i.i.i.i72
+  %.1.in.v.i.i.i.i75 = select i1 %124, i64 24, i64 16
   %.1.in.i.i.i.i76 = getelementptr inbounds i8, ptr %.012.i.i.i.i72, i64 %.1.in.v.i.i.i.i75
   %.1.i.i.i.i77 = load ptr, ptr %.1.in.i.i.i.i76, align 8
   %.not.i.i.i.i78 = icmp eq ptr %.1.i.i.i.i77, null
-  br i1 %.not.i.i.i.i78, label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79, label %118, !llvm.loop !180
+  br i1 %.not.i.i.i.i78, label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79, label %121, !llvm.loop !180
 
-_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79: ; preds = %118
-  %122 = icmp eq ptr %.19.i.i.i.i74, getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8)
-  br i1 %122, label %.critedge.i81, label %123
+_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79: ; preds = %121
+  %125 = icmp eq ptr %.19.i.i.i.i74, getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8)
+  br i1 %125, label %.critedge.i81, label %126
 
-123:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79
-  %124 = getelementptr inbounds i8, ptr %.19.i.i.i.i74, i64 32
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %117, %125
-  br i1 %126, label %.critedge.i81, label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83
+126:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79
+  %127 = getelementptr inbounds i8, ptr %.19.i.i.i.i74, i64 32
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp slt i32 %120, %128
+  br i1 %129, label %.critedge.i81, label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83
 
-.critedge.i81:                                    ; preds = %123, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit69
-  %.08.lcssa.i.i.i10.i82 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79 ], [ %.19.i.i.i.i74, %123 ], [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit69 ]
+.critedge.i81:                                    ; preds = %126, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit69
+  %.08.lcssa.i.i.i10.i82 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit.i79 ], [ %.19.i.i.i.i74, %126 ], [ getelementptr inbounds (i8, ptr @_ZN3vcgL9colorMapsE, i64 8), %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit69 ]
   store ptr %16, ptr %5, align 8
-  %127 = call ptr @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN3vcgL9colorMapsE, ptr %.08.lcssa.i.i.i10.i82, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %128 = load <4 x i8>, ptr %15, align 4
+  %130 = call ptr @_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN3vcgL9colorMapsE, ptr %.08.lcssa.i.i.i10.i82, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %131 = load <4 x i8>, ptr %15, align 4
   br label %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83
 
-_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83: ; preds = %123, %.critedge.i81
-  %.sroa.05.0.i80 = phi ptr [ %127, %.critedge.i81 ], [ %.19.i.i.i.i74, %123 ]
-  %129 = phi <4 x i8> [ %128, %.critedge.i81 ], [ %116, %123 ]
-  %130 = getelementptr inbounds i8, ptr %.sroa.05.0.i80, i64 40
+_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83: ; preds = %126, %.critedge.i81
+  %.sroa.05.0.i80 = phi ptr [ %130, %.critedge.i81 ], [ %.19.i.i.i.i74, %126 ]
+  %132 = phi <4 x i8> [ %131, %.critedge.i81 ], [ %119, %126 ]
+  %133 = getelementptr inbounds i8, ptr %.sroa.05.0.i80, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %"class.vcg::Color4", ptr %131, i64 %105
-  %133 = getelementptr inbounds i8, ptr %132, i64 4
-  %134 = load i32, ptr %133, align 1
-  %.sroa.2.0.extract.shift = lshr i32 %134, 8
-  %.sroa.3.0.extract.shift = lshr i32 %134, 16
-  %.sroa.4.0.extract.shift = lshr i32 %134, 24
-  %135 = uitofp <4 x i8> %129 to <4 x double>
-  %136 = fsub double 1.000000e+00, %90
-  %137 = insertelement <4 x i32> poison, i32 %134, i64 0
-  %138 = insertelement <4 x i32> %137, i32 %.sroa.2.0.extract.shift, i64 1
-  %139 = insertelement <4 x i32> %138, i32 %.sroa.3.0.extract.shift, i64 2
-  %140 = insertelement <4 x i32> %139, i32 %.sroa.4.0.extract.shift, i64 3
-  %141 = trunc <4 x i32> %140 to <4 x i8>
-  %142 = uitofp <4 x i8> %141 to <4 x double>
-  %143 = insertelement <4 x double> poison, double %136, i64 0
-  %144 = shufflevector <4 x double> %143, <4 x double> poison, <4 x i32> zeroinitializer
-  %145 = fmul <4 x double> %144, %135
-  %146 = insertelement <4 x double> poison, double %90, i64 0
-  %147 = shufflevector <4 x double> %146, <4 x double> poison, <4 x i32> zeroinitializer
-  %148 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %142, <4 x double> %147, <4 x double> %145)
-  %149 = fptoui <4 x double> %148 to <4 x i8>
-  store <4 x i8> %149, ptr %15, align 4
-  br label %150
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds %"class.vcg::Color4", ptr %134, i64 %105
+  %136 = getelementptr inbounds i8, ptr %135, i64 4
+  %137 = load i32, ptr %136, align 1
+  %.sroa.2.0.extract.shift = lshr i32 %137, 8
+  %.sroa.3.0.extract.shift = lshr i32 %137, 16
+  %.sroa.4.0.extract.shift = lshr i32 %137, 24
+  %138 = uitofp <4 x i8> %132 to <4 x double>
+  %139 = fsub double 1.000000e+00, %90
+  %140 = trunc i32 %137 to i8
+  %141 = insertelement <4 x i8> poison, i8 %140, i64 0
+  %142 = trunc i32 %.sroa.2.0.extract.shift to i8
+  %143 = insertelement <4 x i8> %141, i8 %142, i64 1
+  %144 = trunc i32 %.sroa.3.0.extract.shift to i8
+  %145 = insertelement <4 x i8> %143, i8 %144, i64 2
+  %146 = trunc nuw i32 %.sroa.4.0.extract.shift to i8
+  %147 = insertelement <4 x i8> %145, i8 %146, i64 3
+  %148 = uitofp <4 x i8> %147 to <4 x double>
+  %149 = insertelement <4 x double> poison, double %139, i64 0
+  %150 = shufflevector <4 x double> %149, <4 x double> poison, <4 x i32> zeroinitializer
+  %151 = fmul <4 x double> %150, %138
+  %152 = insertelement <4 x double> poison, double %90, i64 0
+  %153 = shufflevector <4 x double> %152, <4 x double> poison, <4 x i32> zeroinitializer
+  %154 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %148, <4 x double> %153, <4 x double> %151)
+  %155 = fptoui <4 x double> %154 to <4 x i8>
+  store <4 x i8> %155, ptr %15, align 4
+  br label %156
 
-150:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit55, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit41, %20
-  %151 = load i32, ptr %15, align 4
-  ret i32 %151
+156:                                              ; preds = %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit83, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit55, %_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEEixERSA_.exit41, %20
+  %157 = load i32, ptr %15, align 4
+  ret i32 %157
 }
 
 ; Function Attrs: mustprogress uwtable

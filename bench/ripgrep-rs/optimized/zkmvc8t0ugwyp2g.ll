@@ -499,34 +499,26 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h2cdbbed62a9d4
 
 32:                                               ; preds = %7
   %33 = lshr i32 %1, 18
-  %34 = trunc i32 %33 to i8
-  %35 = and i8 %34, 7
-  %36 = or disjoint i8 %35, -16
-  store i8 %36, ptr %3, align 4, !alias.scope !103
-  %37 = lshr i32 %1, 12
-  %38 = trunc i32 %37 to i8
-  %39 = and i8 %38, 63
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
-  %41 = or disjoint i8 %39, -128
-  store i8 %41, ptr %40, align 1, !alias.scope !103
-  %42 = lshr i32 %1, 6
-  %43 = trunc i32 %42 to i8
-  %44 = and i8 %43, 63
-  %45 = getelementptr inbounds i8, ptr %3, i64 2
-  %46 = or disjoint i8 %44, -128
-  store i8 %46, ptr %45, align 2, !alias.scope !103
-  %47 = trunc i32 %1 to i8
-  %48 = and i8 %47, 63
-  %49 = getelementptr inbounds i8, ptr %3, i64 3
-  %50 = or disjoint i8 %48, -128
-  store i8 %50, ptr %49, align 1, !alias.scope !103
+  %34 = lshr i32 %1, 12
+  %35 = lshr i32 %1, 6
+  %36 = trunc i32 %1 to i8
+  %37 = trunc i32 %33 to i8
+  %38 = insertelement <4 x i8> poison, i8 %37, i64 0
+  %39 = trunc i32 %34 to i8
+  %40 = insertelement <4 x i8> %38, i8 %39, i64 1
+  %41 = trunc i32 %35 to i8
+  %42 = insertelement <4 x i8> %40, i8 %41, i64 2
+  %43 = insertelement <4 x i8> %42, i8 %36, i64 3
+  %44 = and <4 x i8> %43, <i8 7, i8 63, i8 63, i8 63>
+  %45 = or disjoint <4 x i8> %44, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %45, ptr %3, align 4, !alias.scope !103
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %9, %11, %19, %32
-  %51 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
-  %52 = call noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h8739b8fe252a7f7aE.llvm.16693049746842284375"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %51)
+  %46 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
+  %47 = call noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h8739b8fe252a7f7aE.llvm.16693049746842284375"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  ret i1 %52
+  ret i1 %47
 }
 
 ; Function Attrs: nonlazybind uwtable

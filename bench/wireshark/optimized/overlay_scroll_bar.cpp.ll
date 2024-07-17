@@ -1179,7 +1179,7 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %19 = tail call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull %2)
   %20 = getelementptr inbounds i8, ptr %0, i64 120
   %21 = tail call noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
-  br i1 %21, label %109, label %22
+  br i1 %21, label %105, label %22
 
 22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
@@ -1221,8 +1221,8 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   %45 = invoke { i64, i64 } %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %13)
           to label %_ZN16OverlayScrollBar10grooveRectEv.exit unwind label %46
 
-common.resume:                                    ; preds = %106, %46
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %.pn.pn, %106 ]
+common.resume:                                    ; preds = %102, %46
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %.pn.pn, %102 ]
   resume { ptr, i32 } %common.resume.op
 
 46:                                               ; preds = %41, %26, %22
@@ -1236,7 +1236,6 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   %48 = extractvalue { i64, i64 } %45, 0
   %49 = extractvalue { i64, i64 } %45, 1
-  %.sroa.19.8.extract.shift = lshr i64 %49, 32
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 32
@@ -1244,142 +1243,137 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(10) %50, i32 noundef 12)
   %55 = sitofp i32 %54 to double
   %56 = fmul double %55, 0x3EF0000000000000
-  %.sroa.241.0.extract.shift = lshr i64 %48, 32
-  %57 = insertelement <2 x i64> poison, i64 %48, i64 0
-  %58 = insertelement <2 x i64> %57, i64 %.sroa.241.0.extract.shift, i64 1
-  %59 = trunc <2 x i64> %58 to <2 x i32>
-  %60 = sitofp <2 x i32> %59 to <2 x double>
-  %61 = insertelement <2 x double> poison, double %56, i64 0
-  %62 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> zeroinitializer
-  %63 = fmul <2 x double> %62, %60
-  %64 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %63)
-  %65 = fadd <2 x double> %63, %64
-  %66 = fptosi <2 x double> %65 to <2 x i32>
-  %67 = insertelement <2 x i64> poison, i64 %49, i64 0
-  %68 = insertelement <2 x i64> %67, i64 %.sroa.19.8.extract.shift, i64 1
-  %69 = trunc <2 x i64> %68 to <2 x i32>
-  %70 = add <2 x i32> %69, <i32 1, i32 1>
-  %71 = sub <2 x i32> %70, %66
-  %72 = sitofp <2 x i32> %71 to <2 x double>
-  %73 = fmul <2 x double> %62, %72
-  %74 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %73)
-  %75 = fadd <2 x double> %73, %74
-  %76 = fptosi <2 x double> %75 to <2 x i32>
-  %77 = extractelement <2 x i32> %76, i64 1
-  %.sroa.2.0.insert.ext.i20 = zext i32 %77 to i64
+  %57 = bitcast i64 %48 to <2 x i32>
+  %58 = sitofp <2 x i32> %57 to <2 x double>
+  %59 = insertelement <2 x double> poison, double %56, i64 0
+  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
+  %61 = fmul <2 x double> %60, %58
+  %62 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %61)
+  %63 = fadd <2 x double> %61, %62
+  %64 = fptosi <2 x double> %63 to <2 x i32>
+  %65 = bitcast i64 %49 to <2 x i32>
+  %66 = add <2 x i32> %65, <i32 1, i32 1>
+  %67 = sub <2 x i32> %66, %64
+  %68 = sitofp <2 x i32> %67 to <2 x double>
+  %69 = fmul <2 x double> %60, %68
+  %70 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %69)
+  %71 = fadd <2 x double> %69, %70
+  %72 = fptosi <2 x double> %71 to <2 x i32>
+  %73 = extractelement <2 x i32> %72, i64 1
+  %.sroa.2.0.insert.ext.i20 = zext i32 %73 to i64
   %.sroa.2.0.insert.shift.i21 = shl nuw i64 %.sroa.2.0.insert.ext.i20, 32
-  %78 = extractelement <2 x i32> %76, i64 0
-  call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %78, i32 noundef %77, i32 noundef 6)
+  %74 = extractelement <2 x i32> %72, i64 0
+  call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %74, i32 noundef %73, i32 noundef 6)
   invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 19)
-          to label %79 unwind label %97
+          to label %75 unwind label %93
 
-79:                                               ; preds = %_ZN16OverlayScrollBar10grooveRectEv.exit
+75:                                               ; preds = %_ZN16OverlayScrollBar10grooveRectEv.exit
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %8)
-          to label %80 unwind label %97
+          to label %76 unwind label %93
 
-80:                                               ; preds = %79
+76:                                               ; preds = %75
   invoke void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 0)
-          to label %81 unwind label %99
+          to label %77 unwind label %95
 
-81:                                               ; preds = %80
-  %.sroa.0.0.insert.ext.i26 = zext i32 %78 to i64
+77:                                               ; preds = %76
+  %.sroa.0.0.insert.ext.i26 = zext i32 %74 to i64
   %.sroa.0.0.insert.insert.i27 = or disjoint i64 %.sroa.2.0.insert.shift.i21, %.sroa.0.0.insert.ext.i26
   store i64 %.sroa.0.0.insert.insert.i27, ptr %11, align 8
   invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 4 dereferenceable(8) %11, i32 noundef 0, i32 noundef 1)
-          to label %82 unwind label %99
+          to label %78 unwind label %95
 
-82:                                               ; preds = %81
+78:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
-  %84 = sitofp <2 x i32> %76 to <2 x double>
+  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %80 = sitofp <2 x i32> %72 to <2 x double>
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store <2 x double> %84, ptr %83, align 8
-  %85 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %.noexc unwind label %101
+  store <2 x double> %80, ptr %79, align 8
+  %81 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %.noexc unwind label %97
 
-.noexc:                                           ; preds = %82
-  %86 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %.noexc28 unwind label %101
+.noexc:                                           ; preds = %78
+  %82 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+          to label %.noexc28 unwind label %97
 
 .noexc28:                                         ; preds = %.noexc
-  %87 = sitofp i32 %85 to double
-  %88 = sitofp i32 %86 to double
-  %89 = getelementptr inbounds i8, ptr %6, i64 16
+  %83 = sitofp i32 %81 to double
+  %84 = sitofp i32 %82 to double
+  %85 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store double %87, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 24
-  store double %88, ptr %90, align 8
+  store double %83, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %6, i64 24
+  store double %84, ptr %86, align 8
   invoke void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 0)
-          to label %91 unwind label %101
+          to label %87 unwind label %97
 
-91:                                               ; preds = %.noexc28
+87:                                               ; preds = %.noexc28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
   invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %56)
+          to label %88 unwind label %95
+
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds i8, ptr %0, i64 72
+  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %89)
+          to label %90 unwind label %95
+
+90:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  %91 = sitofp <2 x i32> %64 to <2 x double>
+  store <2 x double> %91, ptr %4, align 16
+  invoke void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %92 unwind label %99
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %0, i64 72
-  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %93)
-          to label %94 unwind label %99
-
-94:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %95 = sitofp <2 x i32> %66 to <2 x double>
-  store <2 x double> %95, ptr %4, align 16
-  invoke void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %96 unwind label %103
-
-96:                                               ; preds = %94
+92:                                               ; preds = %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
-  br label %109
+  br label %105
 
-97:                                               ; preds = %79, %_ZN16OverlayScrollBar10grooveRectEv.exit
+93:                                               ; preds = %75, %_ZN16OverlayScrollBar10grooveRectEv.exit
+  %94 = landingpad { ptr, i32 }
+          cleanup
+  br label %102
+
+95:                                               ; preds = %88, %87, %77, %76
+  %96 = landingpad { ptr, i32 }
+          cleanup
+  br label %101
+
+97:                                               ; preds = %.noexc28, %.noexc, %78
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
+  br label %101
 
-99:                                               ; preds = %92, %91, %81, %80
+99:                                               ; preds = %90
   %100 = landingpad { ptr, i32 }
           cleanup
-  br label %105
-
-101:                                              ; preds = %.noexc28, %.noexc, %82
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %105
-
-103:                                              ; preds = %94
-  %104 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
-  br label %105
+  br label %101
 
-105:                                              ; preds = %103, %101, %99
-  %.pn = phi { ptr, i32 } [ %104, %103 ], [ %100, %99 ], [ %102, %101 ]
+101:                                              ; preds = %99, %97, %95
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %96, %95 ], [ %98, %97 ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  br label %106
+  br label %102
 
-106:                                              ; preds = %105, %97
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %98, %97 ]
+102:                                              ; preds = %101, %93
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %101 ], [ %94, %93 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   br label %common.resume
 
 ._crit_edge:                                      ; preds = %3
-  %107 = icmp eq i16 %16, 38
-  br i1 %107, label %108, label %109
+  %103 = icmp eq i16 %16, 38
+  br i1 %103, label %104, label %105
 
-108:                                              ; preds = %._crit_edge
+104:                                              ; preds = %._crit_edge
   tail call void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
-  br label %109
+  br label %105
 
-109:                                              ; preds = %._crit_edge, %108, %18, %96
+105:                                              ; preds = %._crit_edge, %104, %18, %92
   ret i1 %or.cond
 }
 

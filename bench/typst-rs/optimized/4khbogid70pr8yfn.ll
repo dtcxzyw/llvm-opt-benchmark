@@ -971,27 +971,19 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f5
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = trunc i32 %58 to i8
-  %60 = and i8 %59, 7
-  %61 = or disjoint i8 %60, -16
-  store i8 %61, ptr %1, align 1
-  %62 = lshr i32 %0, 12
-  %63 = trunc i32 %62 to i8
-  %64 = and i8 %63, 63
-  %65 = getelementptr inbounds i8, ptr %1, i64 1
-  %66 = or disjoint i8 %64, -128
-  store i8 %66, ptr %65, align 1
-  %67 = lshr i32 %0, 6
-  %68 = trunc i32 %67 to i8
-  %69 = and i8 %68, 63
-  %70 = getelementptr inbounds i8, ptr %1, i64 2
-  %71 = or disjoint i8 %69, -128
-  store i8 %71, ptr %70, align 1
-  %72 = trunc i32 %0 to i8
-  %73 = and i8 %72, 63
-  %74 = getelementptr inbounds i8, ptr %1, i64 3
-  %75 = or disjoint i8 %73, -128
-  store i8 %75, ptr %74, align 1
+  %59 = lshr i32 %0, 12
+  %60 = lshr i32 %0, 6
+  %61 = trunc i32 %0 to i8
+  %62 = trunc i32 %58 to i8
+  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
+  %64 = trunc i32 %59 to i8
+  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
+  %66 = trunc i32 %60 to i8
+  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
+  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
+  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
+  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %70, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1a1937bd3af0cfadE.exit"
 }
 
@@ -2026,53 +2018,45 @@ define hidden noundef zeroext i1 @_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7
 
 39:                                               ; preds = %14
   %40 = lshr i32 %1, 18
-  %41 = trunc i32 %40 to i8
-  %42 = and i8 %41, 7
-  %43 = or disjoint i8 %42, -16
-  store i8 %43, ptr %3, align 4, !alias.scope !260, !noalias !257
-  %44 = lshr i32 %1, 12
-  %45 = trunc i32 %44 to i8
-  %46 = and i8 %45, 63
-  %47 = getelementptr inbounds i8, ptr %3, i64 1
-  %48 = or disjoint i8 %46, -128
-  store i8 %48, ptr %47, align 1, !alias.scope !260, !noalias !257
-  %49 = lshr i32 %1, 6
-  %50 = trunc i32 %49 to i8
-  %51 = and i8 %50, 63
-  %52 = getelementptr inbounds i8, ptr %3, i64 2
-  %53 = or disjoint i8 %51, -128
-  store i8 %53, ptr %52, align 2, !alias.scope !260, !noalias !257
-  %54 = trunc i32 %1 to i8
-  %55 = and i8 %54, 63
-  %56 = getelementptr inbounds i8, ptr %3, i64 3
-  %57 = or disjoint i8 %55, -128
-  store i8 %57, ptr %56, align 1, !alias.scope !260, !noalias !257
+  %41 = lshr i32 %1, 12
+  %42 = lshr i32 %1, 6
+  %43 = trunc i32 %1 to i8
+  %44 = trunc i32 %40 to i8
+  %45 = insertelement <4 x i8> poison, i8 %44, i64 0
+  %46 = trunc i32 %41 to i8
+  %47 = insertelement <4 x i8> %45, i8 %46, i64 1
+  %48 = trunc i32 %42 to i8
+  %49 = insertelement <4 x i8> %47, i8 %48, i64 2
+  %50 = insertelement <4 x i8> %49, i8 %43, i64 3
+  %51 = and <4 x i8> %50, <i8 7, i8 63, i8 63, i8 63>
+  %52 = or disjoint <4 x i8> %51, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %52, ptr %3, align 4, !alias.scope !260, !noalias !257
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i: ; preds = %39, %26, %18, %16
-  %58 = phi i64 [ 4, %39 ], [ 3, %26 ], [ 2, %18 ], [ 1, %16 ]
-  %.not.i.i = icmp ugt i64 %58, %10
+  %53 = phi i64 [ 4, %39 ], [ 3, %26 ], [ 2, %18 ], [ 1, %16 ]
+  %.not.i.i = icmp ugt i64 %53, %10
   br i1 %.not.i.i, label %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread", label %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit"
 
 "_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread": ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !257
-  br label %62
+  br label %57
 
 "_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 %58), !alias.scope !263
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 %53), !alias.scope !263
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
-  %59 = icmp eq i32 %bcmp.i.i.fr.i, 0
+  %54 = icmp eq i32 %bcmp.i.i.fr.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !257
-  br i1 %59, label %60, label %62
+  br i1 %54, label %55, label %57
 
-60:                                               ; preds = %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit"
-  %61 = add i64 %58, %8
-  store i64 %61, ptr %7, align 8
-  br label %62
+55:                                               ; preds = %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit"
+  %56 = add i64 %53, %8
+  store i64 %56, ptr %7, align 8
+  br label %57
 
-62:                                               ; preds = %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread", %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit", %60
-  %63 = phi i1 [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread" ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit" ], [ true, %60 ]
-  ret i1 %63
+57:                                               ; preds = %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread", %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit", %55
+  %58 = phi i1 [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit.thread" ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h2563ba4911871e58E.exit" ], [ true, %55 ]
+  ret i1 %58
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable

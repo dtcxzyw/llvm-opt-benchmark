@@ -109,27 +109,19 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
 
 53:                                               ; preds = %25
   %54 = lshr i32 %0, 18
-  %55 = trunc i32 %54 to i8
-  %56 = and i8 %55, 7
-  %57 = or disjoint i8 %56, -16
-  store i8 %57, ptr %1, align 1
-  %58 = lshr i32 %0, 12
-  %59 = trunc i32 %58 to i8
-  %60 = and i8 %59, 63
-  %61 = getelementptr inbounds i8, ptr %1, i64 1
-  %62 = or disjoint i8 %60, -128
-  store i8 %62, ptr %61, align 1
-  %63 = lshr i32 %0, 6
-  %64 = trunc i32 %63 to i8
-  %65 = and i8 %64, 63
-  %66 = getelementptr inbounds i8, ptr %1, i64 2
-  %67 = or disjoint i8 %65, -128
-  store i8 %67, ptr %66, align 1
-  %68 = trunc i32 %0 to i8
-  %69 = and i8 %68, 63
-  %70 = getelementptr inbounds i8, ptr %1, i64 3
-  %71 = or disjoint i8 %69, -128
-  store i8 %71, ptr %70, align 1
+  %55 = lshr i32 %0, 12
+  %56 = lshr i32 %0, 6
+  %57 = trunc i32 %0 to i8
+  %58 = trunc i32 %54 to i8
+  %59 = insertelement <4 x i8> poison, i8 %58, i64 0
+  %60 = trunc i32 %55 to i8
+  %61 = insertelement <4 x i8> %59, i8 %60, i64 1
+  %62 = trunc i32 %56 to i8
+  %63 = insertelement <4 x i8> %61, i8 %62, i64 2
+  %64 = insertelement <4 x i8> %63, i8 %57, i64 3
+  %65 = and <4 x i8> %64, <i8 7, i8 63, i8 63, i8 63>
+  %66 = or disjoint <4 x i8> %65, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %66, ptr %1, align 1
   br label %29
 }
 

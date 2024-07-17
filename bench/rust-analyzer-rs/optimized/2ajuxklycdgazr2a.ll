@@ -3643,34 +3643,26 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h27e181cd9a137
 
 32:                                               ; preds = %7
   %33 = lshr i32 %1, 18
-  %34 = trunc i32 %33 to i8
-  %35 = and i8 %34, 7
-  %36 = or disjoint i8 %35, -16
-  store i8 %36, ptr %3, align 4, !alias.scope !604
-  %37 = lshr i32 %1, 12
-  %38 = trunc i32 %37 to i8
-  %39 = and i8 %38, 63
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
-  %41 = or disjoint i8 %39, -128
-  store i8 %41, ptr %40, align 1, !alias.scope !604
-  %42 = lshr i32 %1, 6
-  %43 = trunc i32 %42 to i8
-  %44 = and i8 %43, 63
-  %45 = getelementptr inbounds i8, ptr %3, i64 2
-  %46 = or disjoint i8 %44, -128
-  store i8 %46, ptr %45, align 2, !alias.scope !604
-  %47 = trunc i32 %1 to i8
-  %48 = and i8 %47, 63
-  %49 = getelementptr inbounds i8, ptr %3, i64 3
-  %50 = or disjoint i8 %48, -128
-  store i8 %50, ptr %49, align 1, !alias.scope !604
+  %34 = lshr i32 %1, 12
+  %35 = lshr i32 %1, 6
+  %36 = trunc i32 %1 to i8
+  %37 = trunc i32 %33 to i8
+  %38 = insertelement <4 x i8> poison, i8 %37, i64 0
+  %39 = trunc i32 %34 to i8
+  %40 = insertelement <4 x i8> %38, i8 %39, i64 1
+  %41 = trunc i32 %35 to i8
+  %42 = insertelement <4 x i8> %40, i8 %41, i64 2
+  %43 = insertelement <4 x i8> %42, i8 %36, i64 3
+  %44 = and <4 x i8> %43, <i8 7, i8 63, i8 63, i8 63>
+  %45 = or disjoint <4 x i8> %44, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %45, ptr %3, align 4, !alias.scope !604
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.14358968814291841630.exit
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.14358968814291841630.exit: ; preds = %9, %11, %19, %32
-  %51 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
-  %52 = call noundef zeroext i1 @"_ZN72_$LT$hir_def..item_tree..pretty..Printer$u20$as$u20$core..fmt..Write$GT$9write_str17h524dcd82d172cfe1E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %51)
+  %46 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
+  %47 = call noundef zeroext i1 @"_ZN72_$LT$hir_def..item_tree..pretty..Printer$u20$as$u20$core..fmt..Write$GT$9write_str17h524dcd82d172cfe1E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  ret i1 %52
+  ret i1 %47
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3726,34 +3718,26 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hebaa3dc3d29e5
 
 32:                                               ; preds = %7
   %33 = lshr i32 %1, 18
-  %34 = trunc i32 %33 to i8
-  %35 = and i8 %34, 7
-  %36 = or disjoint i8 %35, -16
-  store i8 %36, ptr %3, align 4, !alias.scope !607
-  %37 = lshr i32 %1, 12
-  %38 = trunc i32 %37 to i8
-  %39 = and i8 %38, 63
-  %40 = getelementptr inbounds i8, ptr %3, i64 1
-  %41 = or disjoint i8 %39, -128
-  store i8 %41, ptr %40, align 1, !alias.scope !607
-  %42 = lshr i32 %1, 6
-  %43 = trunc i32 %42 to i8
-  %44 = and i8 %43, 63
-  %45 = getelementptr inbounds i8, ptr %3, i64 2
-  %46 = or disjoint i8 %44, -128
-  store i8 %46, ptr %45, align 2, !alias.scope !607
-  %47 = trunc i32 %1 to i8
-  %48 = and i8 %47, 63
-  %49 = getelementptr inbounds i8, ptr %3, i64 3
-  %50 = or disjoint i8 %48, -128
-  store i8 %50, ptr %49, align 1, !alias.scope !607
+  %34 = lshr i32 %1, 12
+  %35 = lshr i32 %1, 6
+  %36 = trunc i32 %1 to i8
+  %37 = trunc i32 %33 to i8
+  %38 = insertelement <4 x i8> poison, i8 %37, i64 0
+  %39 = trunc i32 %34 to i8
+  %40 = insertelement <4 x i8> %38, i8 %39, i64 1
+  %41 = trunc i32 %35 to i8
+  %42 = insertelement <4 x i8> %40, i8 %41, i64 2
+  %43 = insertelement <4 x i8> %42, i8 %36, i64 3
+  %44 = and <4 x i8> %43, <i8 7, i8 63, i8 63, i8 63>
+  %45 = or disjoint <4 x i8> %44, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %45, ptr %3, align 4, !alias.scope !607
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.14358968814291841630.exit
 
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.14358968814291841630.exit: ; preds = %9, %11, %19, %32
-  %51 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
-  %52 = call noundef zeroext i1 @"_ZN67_$LT$hir_def..body..pretty..Printer$u20$as$u20$core..fmt..Write$GT$9write_str17h58813111b9379755E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %51)
+  %46 = phi i64 [ 4, %32 ], [ 3, %19 ], [ 2, %11 ], [ 1, %9 ]
+  %47 = call noundef zeroext i1 @"_ZN67_$LT$hir_def..body..pretty..Printer$u20$as$u20$core..fmt..Write$GT$9write_str17h58813111b9379755E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  ret i1 %52
+  ret i1 %47
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5970,27 +5954,19 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
-  %59 = trunc i32 %58 to i8
-  %60 = and i8 %59, 7
-  %61 = or disjoint i8 %60, -16
-  store i8 %61, ptr %1, align 1
-  %62 = lshr i32 %0, 12
-  %63 = trunc i32 %62 to i8
-  %64 = and i8 %63, 63
-  %65 = getelementptr inbounds i8, ptr %1, i64 1
-  %66 = or disjoint i8 %64, -128
-  store i8 %66, ptr %65, align 1
-  %67 = lshr i32 %0, 6
-  %68 = trunc i32 %67 to i8
-  %69 = and i8 %68, 63
-  %70 = getelementptr inbounds i8, ptr %1, i64 2
-  %71 = or disjoint i8 %69, -128
-  store i8 %71, ptr %70, align 1
-  %72 = trunc i32 %0 to i8
-  %73 = and i8 %72, 63
-  %74 = getelementptr inbounds i8, ptr %1, i64 3
-  %75 = or disjoint i8 %73, -128
-  store i8 %75, ptr %74, align 1
+  %59 = lshr i32 %0, 12
+  %60 = lshr i32 %0, 6
+  %61 = trunc i32 %0 to i8
+  %62 = trunc i32 %58 to i8
+  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
+  %64 = trunc i32 %59 to i8
+  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
+  %66 = trunc i32 %60 to i8
+  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
+  %68 = insertelement <4 x i8> %67, i8 %61, i64 3
+  %69 = and <4 x i8> %68, <i8 7, i8 63, i8 63, i8 63>
+  %70 = or disjoint <4 x i8> %69, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %70, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3261259faf2ec61aE.exit"
 }
 

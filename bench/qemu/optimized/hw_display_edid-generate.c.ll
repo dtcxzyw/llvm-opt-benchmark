@@ -749,43 +749,31 @@ if.then139:                                       ; preds = %while.end
   %arrayidx17.i = getelementptr i8, ptr %did.0, i64 11
   store i8 -120, ptr %arrayidx17.i, align 1
   %add.ptr.i289 = getelementptr i8, ptr %did.0, i64 12
-  %60 = trunc i32 %58 to i16
-  %conv19.i = add i16 %60, -1
-  store i16 %conv19.i, ptr %add.ptr.i289, align 1
-  %add.ptr20.i = getelementptr i8, ptr %did.0, i64 14
-  %61 = trunc i32 %div4.i to i16
-  %conv23.i291 = add i16 %61, -1
-  store i16 %conv23.i291, ptr %add.ptr20.i, align 1
-  %add.ptr24.i = getelementptr i8, ptr %did.0, i64 16
-  %62 = trunc i32 %div.i120 to i16
-  %conv27.i = add i16 %62, -1
-  store i16 %conv27.i, ptr %add.ptr24.i, align 1
-  %add.ptr28.i = getelementptr i8, ptr %did.0, i64 18
-  %63 = trunc i32 %div2.i to i16
-  %conv31.i = add i16 %63, -1
-  store i16 %conv31.i, ptr %add.ptr28.i, align 1
-  %add.ptr32.i = getelementptr i8, ptr %did.0, i64 20
-  %64 = trunc i32 %59 to i16
-  %conv35.i293 = add i16 %64, -1
-  store i16 %conv35.i293, ptr %add.ptr32.i, align 1
-  %add.ptr36.i = getelementptr i8, ptr %did.0, i64 22
-  %65 = trunc i32 %div10.i to i16
-  %conv39.i = add i16 %65, -1
-  store i16 %conv39.i, ptr %add.ptr36.i, align 1
-  %add.ptr40.i = getelementptr i8, ptr %did.0, i64 24
-  %66 = trunc i32 %div6.i to i16
-  %conv43.i = add i16 %66, -1
-  store i16 %conv43.i, ptr %add.ptr40.i, align 1
-  %add.ptr44.i = getelementptr i8, ptr %did.0, i64 26
-  store i16 %conv43.i, ptr %add.ptr44.i, align 1
+  %60 = trunc i32 %div4.i to i16
+  %61 = trunc i32 %div.i120 to i16
+  %62 = trunc i32 %div2.i to i16
+  %63 = trunc i32 %div10.i to i16
+  %64 = trunc i32 %div6.i to i16
+  %65 = trunc i32 %58 to i16
+  %66 = insertelement <8 x i16> poison, i16 %65, i64 0
+  %67 = insertelement <8 x i16> %66, i16 %60, i64 1
+  %68 = insertelement <8 x i16> %67, i16 %61, i64 2
+  %69 = insertelement <8 x i16> %68, i16 %62, i64 3
+  %70 = trunc i32 %59 to i16
+  %71 = insertelement <8 x i16> %69, i16 %70, i64 4
+  %72 = insertelement <8 x i16> %71, i16 %63, i64 5
+  %73 = insertelement <8 x i16> %72, i16 %64, i64 6
+  %74 = add <8 x i16> %73, <i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 poison>
+  %75 = shufflevector <8 x i16> %74, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 6>
+  store <8 x i16> %75, ptr %add.ptr.i289, align 1
   br label %for.body.i.i298
 
 for.body.i.i298:                                  ; preds = %for.body.i.i298, %if.then139
   %indvars.iv.i299 = phi i64 [ 0, %if.then139 ], [ %indvars.iv.next.i304, %for.body.i.i298 ]
   %sum.09.i.i300 = phi i32 [ 0, %if.then139 ], [ %add.i.i303, %for.body.i.i298 ]
   %arrayidx.i.i301 = getelementptr i8, ptr %arrayidx1.i279, i64 %indvars.iv.i299
-  %67 = load i8, ptr %arrayidx.i.i301, align 1
-  %conv2.i.i302 = zext i8 %67 to i32
+  %76 = load i8, ptr %arrayidx.i.i301, align 1
+  %conv2.i.i302 = zext i8 %76 to i32
   %add.i.i303 = add i32 %sum.09.i.i300, %conv2.i.i302
   %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i299, 1
   %exitcond.not.i305 = icmp eq i64 %indvars.iv.next.i304, 27
@@ -797,8 +785,8 @@ for.end.i.i306:                                   ; preds = %for.body.i.i298
   br i1 %tobool.not.i.i308, label %for.body.i312.preheader, label %if.then.i.i309
 
 if.then.i.i309:                                   ; preds = %for.end.i.i306
-  %68 = trunc i32 %add.i.i303 to i8
-  %conv3.i.i310 = sub i8 0, %68
+  %77 = trunc i32 %add.i.i303 to i8
+  %conv3.i.i310 = sub i8 0, %77
   %arrayidx4.i.i311 = getelementptr i8, ptr %did.0, i64 28
   store i8 %conv3.i.i310, ptr %arrayidx4.i.i311, align 1
   br label %for.body.i312.preheader
@@ -810,8 +798,8 @@ for.body.i312:                                    ; preds = %for.body.i312.prehe
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i312 ], [ 0, %for.body.i312.preheader ]
   %sum.09.i = phi i32 [ %add.i314, %for.body.i312 ], [ 0, %for.body.i312.preheader ]
   %arrayidx.i313 = getelementptr i8, ptr %edid, i64 %indvars.iv
-  %69 = load i8, ptr %arrayidx.i313, align 1
-  %conv2.i = zext i8 %69 to i32
+  %78 = load i8, ptr %arrayidx.i313, align 1
+  %conv2.i = zext i8 %78 to i32
   %add.i314 = add i32 %sum.09.i, %conv2.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 127
@@ -823,8 +811,8 @@ for.end.i:                                        ; preds = %for.body.i312
   br i1 %tobool.not.i317, label %edid_checksum.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  %70 = trunc i32 %add.i314 to i8
-  %conv3.i318 = sub i8 0, %70
+  %79 = trunc i32 %add.i314 to i8
+  %conv3.i318 = sub i8 0, %79
   store i8 %conv3.i318, ptr %add.ptr2.i143, align 1
   br label %edid_checksum.exit
 
@@ -835,8 +823,8 @@ for.body.i321:                                    ; preds = %edid_checksum.exit,
   %indvars.iv402 = phi i64 [ %indvars.iv.next403, %for.body.i321 ], [ 0, %edid_checksum.exit ]
   %sum.09.i324 = phi i32 [ %add.i327, %for.body.i321 ], [ 0, %edid_checksum.exit ]
   %arrayidx.i325 = getelementptr i8, ptr %dta.0383413, i64 %indvars.iv402
-  %71 = load i8, ptr %arrayidx.i325, align 1
-  %conv2.i326 = zext i8 %71 to i32
+  %80 = load i8, ptr %arrayidx.i325, align 1
+  %conv2.i326 = zext i8 %80 to i32
   %add.i327 = add i32 %sum.09.i324, %conv2.i326
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, 127
@@ -848,8 +836,8 @@ for.end.i331:                                     ; preds = %for.body.i321
   br i1 %tobool.not.i333, label %if.end145, label %if.then.i334
 
 if.then.i334:                                     ; preds = %for.end.i331
-  %72 = trunc i32 %add.i327 to i8
-  %conv3.i335 = sub i8 0, %72
+  %81 = trunc i32 %add.i327 to i8
+  %conv3.i335 = sub i8 0, %81
   %arrayidx4.i336 = getelementptr i8, ptr %dta.0383413, i64 127
   store i8 %conv3.i335, ptr %arrayidx4.i336, align 1
   br label %if.end145
@@ -861,8 +849,8 @@ for.body.i339:                                    ; preds = %if.end145, %for.bod
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %for.body.i339 ], [ 0, %if.end145 ]
   %sum.09.i342 = phi i32 [ %add.i345, %for.body.i339 ], [ 0, %if.end145 ]
   %arrayidx.i343 = getelementptr i8, ptr %did.0, i64 %indvars.iv406
-  %73 = load i8, ptr %arrayidx.i343, align 1
-  %conv2.i344 = zext i8 %73 to i32
+  %82 = load i8, ptr %arrayidx.i343, align 1
+  %conv2.i344 = zext i8 %82 to i32
   %add.i345 = add i32 %sum.09.i342, %conv2.i344
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next407, 127
@@ -874,8 +862,8 @@ for.end.i349:                                     ; preds = %for.body.i339
   br i1 %tobool.not.i351, label %if.end148, label %if.then.i352
 
 if.then.i352:                                     ; preds = %for.end.i349
-  %74 = trunc i32 %add.i345 to i8
-  %conv3.i353 = sub i8 0, %74
+  %83 = trunc i32 %add.i345 to i8
+  %conv3.i353 = sub i8 0, %83
   %arrayidx4.i354 = getelementptr i8, ptr %did.0, i64 127
   store i8 %conv3.i353, ptr %arrayidx4.i354, align 1
   br label %if.end148
