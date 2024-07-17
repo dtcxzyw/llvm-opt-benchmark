@@ -519,7 +519,7 @@ _ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLink
   br label %42
 
 42:                                               ; preds = %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit
-  %.0615 = phi i64 [ 0, %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit ], [ %60, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit ]
+  %.0615 = phi i64 [ 0, %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit ], [ %61, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit ]
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 40
   %45 = load i64, ptr %44, align 8
@@ -547,32 +547,31 @@ _ZL21align_allocation_sizemm.exit.i.i:            ; preds = %.preheader.i.i.i
   %55 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %55, 1
   %.not.i.i.i.i = icmp eq i8 %not..i.i.i.i.i, 0
-  %.v.i.i.i.i.i = select i1 %.not.i.i.i.i, i64 24, i64 16
-  %.v.i.i.i1.i.i = select i1 %.not.i.i.i.i, i64 16, i64 24
-  %.v.i.i.i.pn.i.i = select i1 %54, i64 %.v.i.i.i.i.i, i64 %.v.i.i.i1.i.i
-  %56 = getelementptr inbounds i8, ptr %52, i64 %.v.i.i.i.pn.i.i
-  br label %57
+  %56 = xor i1 %54, %.not.i.i.i.i
+  %.v.i.i.i.pn.i.i = select i1 %56, i64 16, i64 24
+  %57 = getelementptr inbounds i8, ptr %52, i64 %.v.i.i.i.pn.i.i
+  br label %58
 
-57:                                               ; preds = %57, %51
-  %58 = load volatile ptr, ptr %56, align 8
+58:                                               ; preds = %58, %51
+  %59 = load volatile ptr, ptr %57, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  store ptr %58, ptr %49, align 8
-  %59 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %49, ptr %58, ptr nonnull %56) #16, !srcloc !7
-  %.not.i.i9 = icmp eq ptr %59, %58
-  br i1 %.not.i.i9, label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit, label %57, !llvm.loop !13
+  store ptr %59, ptr %49, align 8
+  %60 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %49, ptr %59, ptr nonnull %57) #16, !srcloc !7
+  %.not.i.i9 = icmp eq ptr %60, %59
+  br i1 %.not.i.i9, label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit, label %58, !llvm.loop !13
 
-_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit: ; preds = %57
-  %60 = add nuw nsw i64 %.0615, 1
-  %exitcond.not = icmp eq i64 %60, 4
-  br i1 %exitcond.not, label %61, label %42, !llvm.loop !14
+_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit: ; preds = %58
+  %61 = add nuw nsw i64 %.0615, 1
+  %exitcond.not = icmp eq i64 %61, 4
+  br i1 %exitcond.not, label %62, label %42, !llvm.loop !14
 
-61:                                               ; preds = %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit
-  %62 = load ptr, ptr %0, align 8
-  %63 = icmp ne ptr %62, null
+62:                                               ; preds = %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit
+  %63 = load ptr, ptr %0, align 8
+  %64 = icmp ne ptr %63, null
   br label %_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread
 
-_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread: ; preds = %_ZL21align_allocation_sizemm.exit.i.i, %_ZL27initialize_java_string_poolv.exit.thread11, %61
-  %.0 = phi i1 [ %63, %61 ], [ false, %_ZL27initialize_java_string_poolv.exit.thread11 ], [ false, %_ZL21align_allocation_sizemm.exit.i.i ]
+_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread: ; preds = %_ZL21align_allocation_sizemm.exit.i.i, %_ZL27initialize_java_string_poolv.exit.thread11, %62
+  %.0 = phi i1 [ %64, %62 ], [ false, %_ZL27initialize_java_string_poolv.exit.thread11 ], [ false, %_ZL21align_allocation_sizemm.exit.i.i ]
   ret i1 %.0
 }
 
@@ -608,29 +607,29 @@ _Z26migrate_outstanding_writesI19JfrStringPoolBufferEvPKT_PS1_mm.exit: ; preds =
 define hidden noundef ptr @_ZN13JfrStringPool5leaseEP6Threadm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZL9_instance, align 8
   %4 = load ptr, ptr %3, align 8
-  br label %.lr.ph.split.i
+  br label %.lr.ph.i.i
 
-.lr.ph.split.i:                                   ; preds = %.loopexit.i, %2
-  %.0915.i = phi i64 [ %27, %.loopexit.i ], [ 0, %2 ]
+.lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %2
+  %.0915.i.i = phi i64 [ %27, %.loopexit.i.i ], [ 0, %2 ]
   %5 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %not..i.i.i.i.i.i.i = and i8 %5, 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %not..i.i.i.i.i.i.i, 0
-  %.v.i.i.i1.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 16, i64 24
-  %6 = getelementptr inbounds i8, ptr %4, i64 %.v.i.i.i1.i.i.i.i
+  %not..i.i.i.i.i.i.i.i = and i8 %5, 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %not..i.i.i.i.i.i.i.i, 0
+  %.v.i.i.i.pn.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 16, i64 24
+  %6 = getelementptr inbounds i8, ptr %4, i64 %.v.i.i.i.pn.i.i.i.i.i
   %7 = load volatile ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
-  %.not1213.i10.i.i.i = icmp eq ptr %7, null
-  br i1 %.not1213.i10.i.i.i, label %.loopexit.i, label %.lr.ph.i11.i.i.i
+  %.not1213.i10.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not1213.i10.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i11.i.i.i.i
 
-.lr.ph.i11.i.i.i:                                 ; preds = %.lr.ph.split.i, %.backedge.i12.i.i.i
-  %8 = phi ptr [ %9, %.backedge.i12.i.i.i ], [ %7, %.lr.ph.split.i ]
+.lr.ph.i11.i.i.i.i:                               ; preds = %.lr.ph.i.i, %.backedge.i12.i.i.i.i
+  %8 = phi ptr [ %9, %.backedge.i12.i.i.i.i ], [ %7, %.lr.ph.i.i ]
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 @_ZNK9JfrBuffer7retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
-  br i1 %10, label %.backedge.i12.i.i.i, label %11
+  br i1 %10, label %.backedge.i12.i.i.i.i, label %11
 
-11:                                               ; preds = %.lr.ph.i11.i.i.i
+11:                                               ; preds = %.lr.ph.i11.i.i.i.i
   %12 = tail call noundef zeroext i1 @_ZN9JfrBuffer11try_acquireEPKv(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %0) #16
-  br i1 %12, label %13, label %.backedge.i12.i.i.i
+  br i1 %12, label %13, label %.backedge.i12.i.i.i.i
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %8, i64 40
@@ -646,27 +645,27 @@ define hidden noundef ptr @_ZN13JfrStringPool5leaseEP6Threadm(ptr noundef %0, i6
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  %.not.i15.i.i.i = icmp ult i64 %25, %1
-  br i1 %.not.i15.i.i.i, label %26, label %_Z31mspace_acquire_lease_with_retryI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_mP6Threadb.exit
+  %.not.i15.i.i.i.i = icmp ult i64 %25, %1
+  br i1 %.not.i15.i.i.i.i, label %26, label %_Z31mspace_acquire_lease_with_retryI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_mP6Threadb.exit
 
 26:                                               ; preds = %13
   tail call void @_ZN9JfrBuffer11set_retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
-  br label %.backedge.i12.i.i.i
+  br label %.backedge.i12.i.i.i.i
 
-.backedge.i12.i.i.i:                              ; preds = %26, %11, %.lr.ph.i11.i.i.i
-  %.not12.i13.i.i.i = icmp eq ptr %9, null
-  br i1 %.not12.i13.i.i.i, label %.loopexit.i, label %.lr.ph.i11.i.i.i, !llvm.loop !15
+.backedge.i12.i.i.i.i:                            ; preds = %26, %11, %.lr.ph.i11.i.i.i.i
+  %.not12.i13.i.i.i.i = icmp eq ptr %9, null
+  br i1 %.not12.i13.i.i.i.i, label %.loopexit.i.i, label %.lr.ph.i11.i.i.i.i, !llvm.loop !15
 
-.loopexit.i:                                      ; preds = %.backedge.i12.i.i.i, %.lr.ph.split.i
-  %27 = add nuw nsw i64 %.0915.i, 1
-  %exitcond.not.i = icmp eq i64 %27, 10
-  br i1 %exitcond.not.i, label %28, label %.lr.ph.split.i, !llvm.loop !16
+.loopexit.i.i:                                    ; preds = %.backedge.i12.i.i.i.i, %.lr.ph.i.i
+  %27 = add nuw nsw i64 %.0915.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %27, 10
+  br i1 %exitcond.not.i.i, label %28, label %.lr.ph.i.i, !llvm.loop !16
 
 _Z31mspace_acquire_lease_with_retryI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_mP6Threadb.exit: ; preds = %13
   tail call void @_ZN9JfrBuffer9set_leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
   br label %_Z44mspace_allocate_transient_lease_to_live_listI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_P6Threadb.exit
 
-28:                                               ; preds = %.loopexit.i
+28:                                               ; preds = %.loopexit.i.i
   %29 = load ptr, ptr @_ZL9_instance, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr @_Z31mspace_allocate_transient_leaseI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_P6Thread(i64 noundef %1, ptr noundef %30, ptr noundef %0)
@@ -677,8 +676,8 @@ _Z31mspace_acquire_lease_with_retryI14JfrMemorySpaceI13JfrStringPool18JfrMspaceR
   %34 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i = and i8 %34, 1
   %.not.i.i.i.i.i = icmp eq i8 %not..i.i.i.i.i.i, 0
-  %.v.i.i.i1.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 24
-  %35 = getelementptr inbounds i8, ptr %30, i64 %.v.i.i.i1.i.i.i
+  %.v.i.i.i.pn.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 24
+  %35 = getelementptr inbounds i8, ptr %30, i64 %.v.i.i.i.pn.i.i.i
   br label %36
 
 36:                                               ; preds = %36, %33
@@ -1387,9 +1386,9 @@ define hidden noundef i64 @_ZN13JfrStringPool5writeEv(ptr nocapture noundef nonn
   %13 = load ptr, ptr %0, align 8
   %14 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i = and i8 %14, 1
-  %.not.i.i.i = icmp eq i8 %not..i.i.i.i, 0
-  %.v.i.i.i.i = select i1 %.not.i.i.i, i64 24, i64 16
-  %15 = getelementptr inbounds i8, ptr %13, i64 %.v.i.i.i.i
+  %.not.i.i.i.not = icmp eq i8 %not..i.i.i.i, 0
+  %.v.i.i.i.pn.i = select i1 %.not.i.i.i.not, i64 24, i64 16
+  %15 = getelementptr inbounds i8, ptr %13, i64 %.v.i.i.i.pn.i
   store ptr %13, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %15, ptr %16, align 8
@@ -1471,8 +1470,8 @@ define hidden noundef i64 @_ZN13JfrStringPool5flushEv(ptr nocapture noundef nonn
   %13 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i = and i8 %13, 1
   %.not.i.i.i.i.i = icmp eq i8 %not..i.i.i.i.i.i, 0
-  %.v.i.i.i1.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i1.i.i.i
+  %.v.i.i.i.pn.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 24
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.pn.i.i.i
   %15 = load volatile ptr, ptr %14, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   %.not6.i.i.i = icmp eq ptr %15, null
@@ -1512,9 +1511,9 @@ define hidden noundef i64 @_ZN13JfrStringPool5clearEv(ptr nocapture noundef nonn
   %10 = load ptr, ptr %0, align 8
   %11 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i = and i8 %11, 1
-  %.not.i.i.i = icmp eq i8 %not..i.i.i.i, 0
-  %.v.i.i.i.i = select i1 %.not.i.i.i, i64 24, i64 16
-  %12 = getelementptr inbounds i8, ptr %10, i64 %.v.i.i.i.i
+  %.not.i.i.i.not = icmp eq i8 %not..i.i.i.i, 0
+  %.v.i.i.i.pn.i = select i1 %.not.i.i.i.not, i64 24, i64 16
+  %12 = getelementptr inbounds i8, ptr %10, i64 %.v.i.i.i.pn.i
   store ptr %10, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %12, ptr %13, align 8

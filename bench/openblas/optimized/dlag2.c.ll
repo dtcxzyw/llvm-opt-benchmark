@@ -218,230 +218,226 @@ define void @dlag2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %188 = fcmp oge double %186, 0.000000e+00
   %189 = fcmp oeq double %187, 0.000000e+00
   %190 = select i1 %188, i1 true, i1 %189
-  br i1 %190, label %191, label %235
+  br i1 %190, label %191, label %231
 
 191:                                              ; preds = %185
   %192 = fcmp oge double %149, 0.000000e+00
   %193 = fcmp oge double %187, 0.000000e+00
   %194 = fneg double %187
-  %195 = select i1 %193, double %187, double %194
-  %196 = select i1 %193, double %194, double %187
-  %197 = select i1 %192, double %195, double %196
-  %198 = fadd double %149, %197
-  %199 = select i1 %192, double %194, double %187
-  %200 = select i1 %192, double %187, double %194
-  %201 = select i1 %193, double %200, double %199
-  %202 = fsub double %149, %201
-  %203 = fadd double %145, %198
-  %204 = fadd double %145, %202
-  %205 = fcmp oge double %204, 0.000000e+00
-  %206 = fneg double %204
-  %207 = select i1 %205, double %204, double %206
-  %208 = fcmp oge double %203, 0.000000e+00
-  %209 = fneg double %203
-  %210 = select i1 %208, double %203, double %209
-  %211 = fmul double %210, 5.000000e-01
-  %212 = load double, ptr %4, align 8, !tbaa !7
-  %213 = fcmp oge double %207, %212
-  %214 = select i1 %213, double %207, double %212
-  %215 = fcmp ogt double %211, %214
-  br i1 %215, label %216, label %222
+  %195 = xor i1 %192, %193
+  %196 = select i1 %195, double %194, double %187
+  %197 = fadd double %149, %196
+  %198 = fsub double %149, %196
+  %199 = fadd double %145, %197
+  %200 = fadd double %145, %198
+  %201 = fcmp oge double %200, 0.000000e+00
+  %202 = fneg double %200
+  %203 = select i1 %201, double %200, double %202
+  %204 = fcmp oge double %199, 0.000000e+00
+  %205 = fneg double %199
+  %206 = select i1 %204, double %199, double %205
+  %207 = fmul double %206, 5.000000e-01
+  %208 = load double, ptr %4, align 8, !tbaa !7
+  %209 = fcmp oge double %203, %208
+  %210 = select i1 %209, double %203, double %208
+  %211 = fcmp ogt double %207, %210
+  br i1 %211, label %212, label %218
 
-216:                                              ; preds = %191
-  %217 = fneg double %54
-  %218 = fmul double %52, %217
-  %219 = tail call double @llvm.fmuladd.f64(double %51, double %56, double %218)
-  %220 = fmul double %219, %132
-  %221 = fdiv double %220, %203
-  br label %222
+212:                                              ; preds = %191
+  %213 = fneg double %54
+  %214 = fmul double %52, %213
+  %215 = tail call double @llvm.fmuladd.f64(double %51, double %56, double %214)
+  %216 = fmul double %215, %132
+  %217 = fdiv double %216, %199
+  br label %218
 
-222:                                              ; preds = %216, %191
-  %223 = phi double [ %221, %216 ], [ %204, %191 ]
-  %224 = fcmp ogt double %149, %148
-  br i1 %224, label %225, label %230
+218:                                              ; preds = %212, %191
+  %219 = phi double [ %217, %212 ], [ %200, %191 ]
+  %220 = fcmp ogt double %149, %148
+  br i1 %220, label %221, label %226
 
-225:                                              ; preds = %222
-  %226 = fcmp ole double %203, %223
-  %227 = select i1 %226, double %203, double %223
-  store double %227, ptr %7, align 8, !tbaa !7
-  %228 = fcmp oge double %203, %223
-  %229 = select i1 %228, double %203, double %223
-  br label %237
+221:                                              ; preds = %218
+  %222 = fcmp ole double %199, %219
+  %223 = select i1 %222, double %199, double %219
+  store double %223, ptr %7, align 8, !tbaa !7
+  %224 = fcmp oge double %199, %219
+  %225 = select i1 %224, double %199, double %219
+  br label %233
 
-230:                                              ; preds = %222
-  %231 = fcmp oge double %203, %223
-  %232 = select i1 %231, double %203, double %223
+226:                                              ; preds = %218
+  %227 = fcmp oge double %199, %219
+  %228 = select i1 %227, double %199, double %219
+  store double %228, ptr %7, align 8, !tbaa !7
+  %229 = fcmp ole double %199, %219
+  %230 = select i1 %229, double %199, double %219
+  br label %233
+
+231:                                              ; preds = %185
+  %232 = fadd double %145, %149
   store double %232, ptr %7, align 8, !tbaa !7
-  %233 = fcmp ole double %203, %223
-  %234 = select i1 %233, double %203, double %223
-  br label %237
+  br label %233
 
-235:                                              ; preds = %185
-  %236 = fadd double %145, %149
-  store double %236, ptr %7, align 8, !tbaa !7
-  br label %237
-
-237:                                              ; preds = %235, %230, %225
-  %238 = phi double [ %236, %235 ], [ %234, %230 ], [ %229, %225 ]
-  %239 = phi double [ %187, %235 ], [ 0.000000e+00, %230 ], [ 0.000000e+00, %225 ]
-  store double %238, ptr %8, align 8, !tbaa !7
-  store double %239, ptr %9, align 8, !tbaa !7
-  %240 = load double, ptr %4, align 8, !tbaa !7
-  %241 = fcmp ole double %50, 1.000000e+00
-  %242 = select i1 %241, double 1.000000e+00, double %50
-  %243 = fmul double %242, %240
-  %244 = fmul double %116, %243
-  %245 = fcmp ole double %114, 1.000000e+00
-  %246 = select i1 %245, double 1.000000e+00, double %114
-  %247 = fmul double %246, %240
-  %248 = fmul double %116, %240
-  %249 = fcmp ole double %116, 1.000000e+00
-  %250 = and i1 %241, %249
-  %251 = fdiv double %50, %240
-  %252 = fmul double %116, %251
-  %253 = fcmp oge double %252, 1.000000e+00
-  %254 = select i1 %253, double 1.000000e+00, double %252
-  %255 = select i1 %250, double %254, double 1.000000e+00
-  %256 = or i1 %241, %249
-  %257 = fmul double %50, %116
-  %258 = fcmp oge double %257, 1.000000e+00
-  %259 = select i1 %258, double 1.000000e+00, double %257
-  %260 = select i1 %256, double %259, double 1.000000e+00
-  %261 = load double, ptr %7, align 8, !tbaa !7
-  %262 = insertelement <2 x double> poison, double %239, i64 0
-  %263 = insertelement <2 x double> %262, double %261, i64 1
-  %264 = fcmp ult <2 x double> %263, zeroinitializer
-  %265 = fneg <2 x double> %263
-  %266 = select <2 x i1> %264, <2 x double> %265, <2 x double> %263
-  %shift5 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %267 = fadd <2 x double> %266, %shift5
-  %268 = extractelement <2 x double> %267, i64 0
-  %269 = fcmp oge double %268, %260
-  %270 = select i1 %269, double %268, double %260
-  %271 = fmul double %270, 5.000000e-01
-  %272 = fcmp oge double %240, %244
-  %273 = select i1 %272, double %240, double %244
-  %274 = tail call double @llvm.fmuladd.f64(double %268, double %247, double %248)
-  %275 = fmul double %274, 1.000010e+00
+233:                                              ; preds = %231, %226, %221
+  %234 = phi double [ %232, %231 ], [ %230, %226 ], [ %225, %221 ]
+  %235 = phi double [ %187, %231 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %221 ]
+  store double %234, ptr %8, align 8, !tbaa !7
+  store double %235, ptr %9, align 8, !tbaa !7
+  %236 = load double, ptr %4, align 8, !tbaa !7
+  %237 = fcmp ole double %50, 1.000000e+00
+  %238 = select i1 %237, double 1.000000e+00, double %50
+  %239 = fmul double %238, %236
+  %240 = fmul double %116, %239
+  %241 = fcmp ole double %114, 1.000000e+00
+  %242 = select i1 %241, double 1.000000e+00, double %114
+  %243 = fmul double %242, %236
+  %244 = fmul double %116, %236
+  %245 = fcmp ole double %116, 1.000000e+00
+  %246 = and i1 %237, %245
+  %247 = fdiv double %50, %236
+  %248 = fmul double %116, %247
+  %249 = fcmp oge double %248, 1.000000e+00
+  %250 = select i1 %249, double 1.000000e+00, double %248
+  %251 = select i1 %246, double %250, double 1.000000e+00
+  %252 = or i1 %237, %245
+  %253 = fmul double %50, %116
+  %254 = fcmp oge double %253, 1.000000e+00
+  %255 = select i1 %254, double 1.000000e+00, double %253
+  %256 = select i1 %252, double %255, double 1.000000e+00
+  %257 = load double, ptr %7, align 8, !tbaa !7
+  %258 = insertelement <2 x double> poison, double %235, i64 0
+  %259 = insertelement <2 x double> %258, double %257, i64 1
+  %260 = fcmp ult <2 x double> %259, zeroinitializer
+  %261 = fneg <2 x double> %259
+  %262 = select <2 x i1> %260, <2 x double> %261, <2 x double> %259
+  %shift5 = shufflevector <2 x double> %262, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %263 = fadd <2 x double> %262, %shift5
+  %264 = extractelement <2 x double> %263, i64 0
+  %265 = fcmp oge double %264, %256
+  %266 = select i1 %265, double %264, double %256
+  %267 = fmul double %266, 5.000000e-01
+  %268 = fcmp oge double %236, %240
+  %269 = select i1 %268, double %236, double %240
+  %270 = tail call double @llvm.fmuladd.f64(double %264, double %243, double %244)
+  %271 = fmul double %270, 1.000010e+00
+  %272 = fcmp oge double %269, %271
+  %273 = select i1 %272, double %269, double %271
+  %274 = fcmp ole double %251, %267
+  %275 = select i1 %274, double %251, double %267
   %276 = fcmp oge double %273, %275
   %277 = select i1 %276, double %273, double %275
-  %278 = fcmp ole double %255, %271
-  %279 = select i1 %278, double %255, double %271
-  %280 = fcmp oge double %277, %279
-  %281 = select i1 %280, double %277, double %279
-  %282 = fcmp une double %281, 1.000000e+00
-  br i1 %282, label %283, label %308
+  %278 = fcmp une double %277, 1.000000e+00
+  br i1 %278, label %279, label %304
 
-283:                                              ; preds = %237
-  %284 = fdiv double 1.000000e+00, %281
-  %285 = fcmp ogt double %281, 1.000000e+00
-  br i1 %285, label %286, label %290
+279:                                              ; preds = %233
+  %280 = fdiv double 1.000000e+00, %277
+  %281 = fcmp ogt double %277, 1.000000e+00
+  br i1 %281, label %282, label %286
 
-286:                                              ; preds = %283
-  %287 = fcmp oge double %50, %116
+282:                                              ; preds = %279
+  %283 = fcmp oge double %50, %116
+  %284 = select i1 %283, double %50, double %116
+  %285 = fcmp ole double %50, %116
+  br label %290
+
+286:                                              ; preds = %279
+  %287 = fcmp ole double %50, %116
   %288 = select i1 %287, double %50, double %116
-  %289 = fcmp ole double %50, %116
-  br label %294
+  %289 = fcmp oge double %50, %116
+  br label %290
 
-290:                                              ; preds = %283
-  %291 = fcmp ole double %50, %116
-  %292 = select i1 %291, double %50, double %116
-  %293 = fcmp oge double %50, %116
-  br label %294
+290:                                              ; preds = %286, %282
+  %291 = phi i1 [ %289, %286 ], [ %285, %282 ]
+  %292 = phi double [ %288, %286 ], [ %284, %282 ]
+  %293 = fmul double %280, %292
+  %294 = select i1 %291, double %50, double %116
+  %295 = fmul double %294, %293
+  store double %295, ptr %5, align 8, !tbaa !7
+  %296 = load double, ptr %7, align 8, !tbaa !7
+  %297 = fmul double %280, %296
+  store double %297, ptr %7, align 8, !tbaa !7
+  %298 = load double, ptr %9, align 8, !tbaa !7
+  %299 = fcmp une double %298, 0.000000e+00
+  br i1 %299, label %300, label %307
 
-294:                                              ; preds = %290, %286
-  %295 = phi i1 [ %293, %290 ], [ %289, %286 ]
-  %296 = phi double [ %292, %290 ], [ %288, %286 ]
-  %297 = fmul double %284, %296
-  %298 = select i1 %295, double %50, double %116
-  %299 = fmul double %298, %297
-  store double %299, ptr %5, align 8, !tbaa !7
-  %300 = load double, ptr %7, align 8, !tbaa !7
-  %301 = fmul double %284, %300
-  store double %301, ptr %7, align 8, !tbaa !7
-  %302 = load double, ptr %9, align 8, !tbaa !7
-  %303 = fcmp une double %302, 0.000000e+00
-  br i1 %303, label %304, label %311
+300:                                              ; preds = %290
+  %301 = fmul double %280, %298
+  store double %301, ptr %9, align 8, !tbaa !7
+  %302 = load double, ptr %7, align 8, !tbaa !7
+  store double %302, ptr %8, align 8, !tbaa !7
+  %303 = load double, ptr %5, align 8, !tbaa !7
+  br label %305
 
-304:                                              ; preds = %294
-  %305 = fmul double %284, %302
-  store double %305, ptr %9, align 8, !tbaa !7
-  %306 = load double, ptr %7, align 8, !tbaa !7
-  store double %306, ptr %8, align 8, !tbaa !7
-  %307 = load double, ptr %5, align 8, !tbaa !7
-  br label %309
+304:                                              ; preds = %233
+  store double %253, ptr %5, align 8, !tbaa !7
+  br label %305
 
-308:                                              ; preds = %237
-  store double %257, ptr %5, align 8, !tbaa !7
-  br label %309
-
-309:                                              ; preds = %308, %304
-  %310 = phi double [ %307, %304 ], [ %257, %308 ]
-  store double %310, ptr %6, align 8, !tbaa !7
+305:                                              ; preds = %304, %300
+  %306 = phi double [ %303, %300 ], [ %253, %304 ]
+  store double %306, ptr %6, align 8, !tbaa !7
   %.pr = load double, ptr %9, align 8, !tbaa !7
-  br label %311
+  br label %307
 
-311:                                              ; preds = %309, %294
-  %312 = phi double [ %.pr, %309 ], [ %302, %294 ]
-  %313 = fcmp oeq double %312, 0.000000e+00
-  br i1 %313, label %314, label %354
+307:                                              ; preds = %305, %290
+  %308 = phi double [ %.pr, %305 ], [ %298, %290 ]
+  %309 = fcmp oeq double %308, 0.000000e+00
+  br i1 %309, label %310, label %350
 
-314:                                              ; preds = %311
-  %315 = load double, ptr %8, align 8, !tbaa !7
-  %316 = fcmp ult double %315, 0.000000e+00
-  %317 = fneg double %315
-  %318 = select i1 %316, double %317, double %315
-  %319 = fcmp oge double %318, %260
-  %320 = select i1 %319, double %318, double %260
-  %321 = fmul double %320, 5.000000e-01
-  %322 = load double, ptr %4, align 8, !tbaa !7
-  %323 = fcmp oge double %322, %244
-  %324 = select i1 %323, double %322, double %244
-  %325 = tail call double @llvm.fmuladd.f64(double %318, double %247, double %248)
-  %326 = fmul double %325, 1.000010e+00
+310:                                              ; preds = %307
+  %311 = load double, ptr %8, align 8, !tbaa !7
+  %312 = fcmp ult double %311, 0.000000e+00
+  %313 = fneg double %311
+  %314 = select i1 %312, double %313, double %311
+  %315 = fcmp oge double %314, %256
+  %316 = select i1 %315, double %314, double %256
+  %317 = fmul double %316, 5.000000e-01
+  %318 = load double, ptr %4, align 8, !tbaa !7
+  %319 = fcmp oge double %318, %240
+  %320 = select i1 %319, double %318, double %240
+  %321 = tail call double @llvm.fmuladd.f64(double %314, double %243, double %244)
+  %322 = fmul double %321, 1.000010e+00
+  %323 = fcmp oge double %320, %322
+  %324 = select i1 %323, double %320, double %322
+  %325 = fcmp ole double %251, %317
+  %326 = select i1 %325, double %251, double %317
   %327 = fcmp oge double %324, %326
   %328 = select i1 %327, double %324, double %326
-  %329 = fcmp ole double %255, %321
-  %330 = select i1 %329, double %255, double %321
-  %331 = fcmp oge double %328, %330
-  %332 = select i1 %331, double %328, double %330
-  %333 = fcmp une double %332, 1.000000e+00
-  br i1 %333, label %334, label %353
+  %329 = fcmp une double %328, 1.000000e+00
+  br i1 %329, label %330, label %349
 
-334:                                              ; preds = %314
-  %335 = fdiv double 1.000000e+00, %332
-  %336 = fcmp ogt double %332, 1.000000e+00
-  br i1 %336, label %337, label %341
+330:                                              ; preds = %310
+  %331 = fdiv double 1.000000e+00, %328
+  %332 = fcmp ogt double %328, 1.000000e+00
+  br i1 %332, label %333, label %337
 
-337:                                              ; preds = %334
-  %338 = fcmp oge double %50, %116
+333:                                              ; preds = %330
+  %334 = fcmp oge double %50, %116
+  %335 = select i1 %334, double %50, double %116
+  %336 = fcmp ole double %50, %116
+  br label %341
+
+337:                                              ; preds = %330
+  %338 = fcmp ole double %50, %116
   %339 = select i1 %338, double %50, double %116
-  %340 = fcmp ole double %50, %116
-  br label %345
+  %340 = fcmp oge double %50, %116
+  br label %341
 
-341:                                              ; preds = %334
-  %342 = fcmp ole double %50, %116
-  %343 = select i1 %342, double %50, double %116
-  %344 = fcmp oge double %50, %116
-  br label %345
+341:                                              ; preds = %337, %333
+  %342 = phi i1 [ %340, %337 ], [ %336, %333 ]
+  %343 = phi double [ %339, %337 ], [ %335, %333 ]
+  %344 = fmul double %331, %343
+  %345 = select i1 %342, double %50, double %116
+  %346 = fmul double %345, %344
+  store double %346, ptr %6, align 8, !tbaa !7
+  %347 = load double, ptr %8, align 8, !tbaa !7
+  %348 = fmul double %331, %347
+  store double %348, ptr %8, align 8, !tbaa !7
+  br label %350
 
-345:                                              ; preds = %341, %337
-  %346 = phi i1 [ %344, %341 ], [ %340, %337 ]
-  %347 = phi double [ %343, %341 ], [ %339, %337 ]
-  %348 = fmul double %335, %347
-  %349 = select i1 %346, double %50, double %116
-  %350 = fmul double %349, %348
-  store double %350, ptr %6, align 8, !tbaa !7
-  %351 = load double, ptr %8, align 8, !tbaa !7
-  %352 = fmul double %335, %351
-  store double %352, ptr %8, align 8, !tbaa !7
-  br label %354
+349:                                              ; preds = %310
+  store double %253, ptr %6, align 8, !tbaa !7
+  br label %350
 
-353:                                              ; preds = %314
-  store double %257, ptr %6, align 8, !tbaa !7
-  br label %354
-
-354:                                              ; preds = %353, %345, %311
+350:                                              ; preds = %349, %341, %307
   ret void
 }
 
