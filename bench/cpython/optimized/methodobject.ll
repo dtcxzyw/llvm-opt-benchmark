@@ -1964,9 +1964,9 @@ if.end:                                           ; preds = %lor.lhs.false2, %Py
   %m_self5 = getelementptr inbounds i8, ptr %other, i64 24
   %4 = load ptr, ptr %m_self5, align 8
   %cmp6 = icmp eq ptr %3, %4
-  br i1 %cmp6, label %if.end13, label %.thread
+  br i1 %cmp6, label %if.then8, label %if.end13
 
-if.end13:                                         ; preds = %if.end
+if.then8:                                         ; preds = %if.end
   %m_ml = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %m_ml, align 8
   %ml_meth = getelementptr inbounds i8, ptr %5, i64 8
@@ -1976,27 +1976,24 @@ if.end13:                                         ; preds = %if.end
   %ml_meth10 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ml_meth10, align 8
   %cmp11 = icmp eq ptr %6, %8
-  %cond.fr = freeze i1 %cmp11
-  %spec.select = select i1 %cond.fr, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  %spec.select31 = select i1 %cond.fr, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  br label %.thread
+  br label %if.end13
 
-.thread:                                          ; preds = %if.end13, %if.end
-  %9 = phi ptr [ @_Py_FalseStruct, %if.end ], [ %spec.select, %if.end13 ]
-  %10 = phi ptr [ @_Py_TrueStruct, %if.end ], [ %spec.select31, %if.end13 ]
-  %cmp142328 = icmp eq i32 %op, 2
-  %res.0 = select i1 %cmp142328, ptr %9, ptr %10
-  %11 = load i32, ptr %res.0, align 8
-  %add.i.i = add i32 %11, 1
+if.end13:                                         ; preds = %if.then8, %if.end
+  %eq.0.in = phi i1 [ %cmp11, %if.then8 ], [ false, %if.end ]
+  %cmp14 = icmp eq i32 %op, 2
+  %9 = xor i1 %cmp14, %eq.0.in
+  %res.0 = select i1 %9, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
+  %10 = load i32, ptr %res.0, align 8
+  %add.i.i = add i32 %10, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %.thread
+if.end.i.i:                                       ; preds = %if.end13
   store i32 %add.i.i, ptr %res.0, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %.thread, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit14, %entry
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit14 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ %res.0, %.thread ], [ %res.0, %if.end.i.i ]
+return:                                           ; preds = %if.end.i.i, %if.end13, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit14, %entry
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit14 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ %res.0, %if.end13 ], [ %res.0, %if.end.i.i ]
   ret ptr %retval.0
 }
 

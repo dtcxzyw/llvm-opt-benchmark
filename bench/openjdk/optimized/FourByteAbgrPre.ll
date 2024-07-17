@@ -1406,19 +1406,19 @@ define hidden void @IntArgbToFourByteAbgrPreXorBlit(ptr noundef %0, ptr noundef 
   %22 = sext i32 %19 to i64
   br label %23
 
-23:                                               ; preds = %84, %8
-  %.066 = phi ptr [ %1, %8 ], [ %88, %84 ]
-  %.065 = phi ptr [ %0, %8 ], [ %86, %84 ]
-  %.0 = phi i32 [ %3, %8 ], [ %89, %84 ]
+23:                                               ; preds = %79, %8
+  %.066 = phi ptr [ %1, %8 ], [ %83, %79 ]
+  %.065 = phi ptr [ %0, %8 ], [ %81, %79 ]
+  %.0 = phi i32 [ %3, %8 ], [ %84, %79 ]
   br label %24
 
-24:                                               ; preds = %76, %23
-  %.068 = phi i32 [ %2, %23 ], [ %83, %76 ]
-  %.167 = phi ptr [ %.066, %23 ], [ %82, %76 ]
-  %.1 = phi ptr [ %.065, %23 ], [ %79, %76 ]
+24:                                               ; preds = %71, %23
+  %.068 = phi i32 [ %2, %23 ], [ %78, %71 ]
+  %.167 = phi ptr [ %.066, %23 ], [ %77, %71 ]
+  %.1 = phi ptr [ %.065, %23 ], [ %74, %71 ]
   %25 = load i32, ptr %.1, align 4
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %76, label %27
+  br i1 %26, label %71, label %27
 
 27:                                               ; preds = %24
   %28 = icmp ugt i32 %25, -16777217
@@ -1457,51 +1457,43 @@ define hidden void @IntArgbToFourByteAbgrPreXorBlit(ptr noundef %0, ptr noundef 
   %55 = or disjoint i32 %54, %.sink78
   %56 = xor i32 %55, %10
   %57 = and i32 %56, %21
-  %58 = load i8, ptr %.167, align 1
-  %59 = trunc i32 %57 to i8
-  %60 = xor i8 %58, %59
-  store i8 %60, ptr %.167, align 1
-  %61 = lshr i32 %57, 8
-  %62 = getelementptr inbounds i8, ptr %.167, i64 1
-  %63 = load i8, ptr %62, align 1
-  %64 = trunc i32 %61 to i8
-  %65 = xor i8 %63, %64
-  store i8 %65, ptr %62, align 1
-  %66 = lshr i32 %57, 16
-  %67 = getelementptr inbounds i8, ptr %.167, i64 2
-  %68 = load i8, ptr %67, align 1
-  %69 = trunc i32 %66 to i8
-  %70 = xor i8 %68, %69
-  store i8 %70, ptr %67, align 1
-  %71 = lshr i32 %57, 24
-  %72 = getelementptr inbounds i8, ptr %.167, i64 3
-  %73 = load i8, ptr %72, align 1
-  %74 = trunc nuw i32 %71 to i8
-  %75 = xor i8 %73, %74
-  store i8 %75, ptr %72, align 1
-  br label %76
+  %58 = lshr i32 %57, 8
+  %59 = lshr i32 %57, 16
+  %60 = lshr i32 %57, 24
+  %61 = load <4 x i8>, ptr %.167, align 1
+  %62 = trunc i32 %57 to i8
+  %63 = insertelement <4 x i8> poison, i8 %62, i64 0
+  %64 = trunc i32 %58 to i8
+  %65 = insertelement <4 x i8> %63, i8 %64, i64 1
+  %66 = trunc i32 %59 to i8
+  %67 = insertelement <4 x i8> %65, i8 %66, i64 2
+  %68 = trunc nuw i32 %60 to i8
+  %69 = insertelement <4 x i8> %67, i8 %68, i64 3
+  %70 = xor <4 x i8> %61, %69
+  store <4 x i8> %70, ptr %.167, align 1
+  br label %71
 
-76:                                               ; preds = %24, %53
-  %77 = ptrtoint ptr %.1 to i64
-  %78 = add nsw i64 %77, 4
-  %79 = inttoptr i64 %78 to ptr
-  %80 = ptrtoint ptr %.167 to i64
-  %81 = add nsw i64 %80, 4
-  %82 = inttoptr i64 %81 to ptr
-  %83 = add i32 %.068, -1
-  %.not = icmp eq i32 %83, 0
-  br i1 %.not, label %84, label %24, !llvm.loop !39
+71:                                               ; preds = %24, %53
+  %72 = ptrtoint ptr %.1 to i64
+  %73 = add nsw i64 %72, 4
+  %74 = inttoptr i64 %73 to ptr
+  %75 = ptrtoint ptr %.167 to i64
+  %76 = add nsw i64 %75, 4
+  %77 = inttoptr i64 %76 to ptr
+  %78 = add i32 %.068, -1
+  %.not = icmp eq i32 %78, 0
+  br i1 %.not, label %79, label %24, !llvm.loop !39
 
-84:                                               ; preds = %76
-  %85 = add nsw i64 %78, %20
-  %86 = inttoptr i64 %85 to ptr
-  %87 = add nsw i64 %81, %22
-  %88 = inttoptr i64 %87 to ptr
-  %89 = add i32 %.0, -1
-  %.not74 = icmp eq i32 %89, 0
-  br i1 %.not74, label %90, label %23, !llvm.loop !40
+79:                                               ; preds = %71
+  %80 = add nsw i64 %73, %20
+  %81 = inttoptr i64 %80 to ptr
+  %82 = add nsw i64 %76, %22
+  %83 = inttoptr i64 %82 to ptr
+  %84 = add i32 %.0, -1
+  %.not74 = icmp eq i32 %84, 0
+  br i1 %.not74, label %85, label %23, !llvm.loop !40
 
-90:                                               ; preds = %84
+85:                                               ; preds = %79
   ret void
 }
 

@@ -22550,8 +22550,8 @@ define void @_ZN14QCPLayoutInset12updateLayoutEv(ptr nocapture noundef nonnull r
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit
-  %11 = phi i64 [ 0, %.lr.ph ], [ %191, %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit ]
-  %.0241 = phi i32 [ 0, %.lr.ph ], [ %190, %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %185, %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit ]
+  %.0241 = phi i32 [ 0, %.lr.ph ], [ %184, %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit ]
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
@@ -22680,229 +22680,221 @@ _ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit: ; preds = %60
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr i32, ptr %72, i64 %11
   %74 = load i32, ptr %73, align 4
-  switch i32 %74, label %163 [
+  switch i32 %74, label %157 [
     i32 0, label %75
-    i32 1, label %118
+    i32 1, label %112
   ]
 
 75:                                               ; preds = %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit
   %76 = icmp slt i32 %.sroa.031.0.i18, 16777215
   %.sroa.038.0.extract.trunc.i22 = trunc i64 %49 to i32
   %spec.select.i23 = select i1 %76, i32 %.sroa.031.0.i18, i32 %.sroa.038.0.extract.trunc.i22
-  %.sroa.0.0.copyload.i = load i64, ptr %8, align 4
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
-  %.sroa.2186.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.4184.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
+  %.sroa.0.0.copyload.i247 = load <2 x i32>, ptr %8, align 4
+  %.sroa.2.0.copyload.i248 = load <2 x i32>, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %77 = load ptr, ptr %9, align 8
   %78 = getelementptr %class.QRectF, ptr %77, i64 %11
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = add nsw <2 x i32> %45, <i32 -1, i32 -1>
-  %81 = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
-  %82 = insertelement <2 x i64> %81, i64 %.sroa.2186.0.extract.shift, i64 1
-  %83 = trunc <2 x i64> %82 to <2 x i32>
+  %81 = sitofp <2 x i32> %.sroa.0.0.copyload.i247 to <2 x double>
+  %82 = sub <2 x i32> %.sroa.2.0.copyload.i248, %.sroa.0.0.copyload.i247
+  %83 = add <2 x i32> %82, <i32 1, i32 1>
   %84 = sitofp <2 x i32> %83 to <2 x double>
-  %85 = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i, i64 0
-  %86 = insertelement <2 x i64> %85, i64 %.sroa.4184.8.extract.shift, i64 1
-  %87 = trunc <2 x i64> %86 to <2 x i32>
-  %88 = sub <2 x i32> %87, %83
-  %89 = add <2 x i32> %88, <i32 1, i32 1>
-  %90 = sitofp <2 x i32> %89 to <2 x double>
-  %91 = load <2 x double>, ptr %78, align 8
-  %92 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %90, <2 x double> %91, <2 x double> %84)
-  %93 = fptosi <2 x double> %92 to <2 x i32>
-  %94 = load <2 x double>, ptr %79, align 8
-  %95 = fmul <2 x double> %94, %90
-  %96 = fptosi <2 x double> %95 to <2 x i32>
-  %97 = add <2 x i32> %93, <i32 -1, i32 -1>
-  %98 = add <2 x i32> %97, %96
-  %99 = icmp sgt <2 x i32> %45, %96
-  %100 = add <2 x i32> %80, %93
-  %101 = select <2 x i1> %99, <2 x i32> %100, <2 x i32> %98
-  %102 = sub <2 x i32> %101, %93
-  %103 = add <2 x i32> %102, <i32 1, i32 1>
-  %104 = extractelement <2 x i32> %97, i64 0
-  %105 = add i32 %104, %spec.select.i23
-  %106 = insertelement <2 x i32> poison, i32 %spec.select.i23, i64 0
-  %107 = insertelement <2 x i32> %106, i32 %71, i64 1
-  %108 = icmp sgt <2 x i32> %103, %107
-  %109 = extractelement <2 x i1> %108, i64 0
-  %110 = extractelement <2 x i32> %101, i64 0
-  %.sroa.33.1 = select i1 %109, i32 %105, i32 %110
-  %111 = extractelement <2 x i1> %108, i64 1
-  %112 = extractelement <2 x i32> %101, i64 1
-  %113 = extractelement <2 x i32> %93, i64 0
-  %114 = extractelement <2 x i32> %93, i64 1
-  br i1 %111, label %115, label %163
+  %85 = load <2 x double>, ptr %78, align 8
+  %86 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %84, <2 x double> %85, <2 x double> %81)
+  %87 = fptosi <2 x double> %86 to <2 x i32>
+  %88 = load <2 x double>, ptr %79, align 8
+  %89 = fmul <2 x double> %88, %84
+  %90 = fptosi <2 x double> %89 to <2 x i32>
+  %91 = add <2 x i32> %87, <i32 -1, i32 -1>
+  %92 = add <2 x i32> %91, %90
+  %93 = icmp sgt <2 x i32> %45, %90
+  %94 = add <2 x i32> %80, %87
+  %95 = select <2 x i1> %93, <2 x i32> %94, <2 x i32> %92
+  %96 = sub <2 x i32> %95, %87
+  %97 = add <2 x i32> %96, <i32 1, i32 1>
+  %98 = extractelement <2 x i32> %91, i64 0
+  %99 = add i32 %98, %spec.select.i23
+  %100 = insertelement <2 x i32> poison, i32 %spec.select.i23, i64 0
+  %101 = insertelement <2 x i32> %100, i32 %71, i64 1
+  %102 = icmp sgt <2 x i32> %97, %101
+  %103 = extractelement <2 x i1> %102, i64 0
+  %104 = extractelement <2 x i32> %95, i64 0
+  %.sroa.33.1 = select i1 %103, i32 %99, i32 %104
+  %105 = extractelement <2 x i1> %102, i64 1
+  %106 = extractelement <2 x i32> %95, i64 1
+  %107 = extractelement <2 x i32> %87, i64 0
+  %108 = extractelement <2 x i32> %87, i64 1
+  br i1 %105, label %109, label %157
 
-115:                                              ; preds = %75
-  %116 = add i32 %71, -1
-  %117 = add i32 %116, %114
-  br label %163
+109:                                              ; preds = %75
+  %110 = add i32 %71, -1
+  %111 = add i32 %110, %108
+  br label %157
 
-118:                                              ; preds = %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit
-  %119 = extractelement <2 x i32> %45, i64 0
-  %120 = add i32 %119, -1
-  %121 = extractelement <2 x i32> %45, i64 1
-  %122 = add i32 %121, -1
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr %class.QFlags.95, ptr %123, i64 %11
-  %125 = load i32, ptr %124, align 4
-  %126 = and i32 %125, 1
-  %.not = icmp eq i32 %126, 0
-  br i1 %.not, label %129, label %127
+112:                                              ; preds = %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit
+  %113 = extractelement <2 x i32> %45, i64 0
+  %114 = add i32 %113, -1
+  %115 = extractelement <2 x i32> %45, i64 1
+  %116 = add i32 %115, -1
+  %117 = load ptr, ptr %7, align 8
+  %118 = getelementptr %class.QFlags.95, ptr %117, i64 %11
+  %119 = load i32, ptr %118, align 4
+  %120 = and i32 %119, 1
+  %.not = icmp eq i32 %120, 0
+  br i1 %.not, label %123, label %121
 
-127:                                              ; preds = %118
+121:                                              ; preds = %112
   %.sroa.0.0.copyload.i77 = load i64, ptr %8, align 4
   %.sroa.0152.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i77 to i32
-  %128 = add i32 %120, %.sroa.0152.0.extract.trunc
-  br label %144
+  %122 = add i32 %114, %.sroa.0152.0.extract.trunc
+  br label %138
 
-129:                                              ; preds = %118
-  %130 = and i32 %125, 2
-  %.not237 = icmp eq i32 %130, 0
-  br i1 %.not237, label %134, label %131
+123:                                              ; preds = %112
+  %124 = and i32 %119, 2
+  %.not237 = icmp eq i32 %124, 0
+  br i1 %.not237, label %128, label %125
 
-131:                                              ; preds = %129
+125:                                              ; preds = %123
   %.sroa.2.0.copyload.i84 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.2148.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i84 to i32
-  %132 = add i32 %.sroa.2148.8.extract.trunc, 1
-  %133 = sub i32 %132, %120
-  br label %144
+  %126 = add i32 %.sroa.2148.8.extract.trunc, 1
+  %127 = sub i32 %126, %114
+  br label %138
 
-134:                                              ; preds = %129
+128:                                              ; preds = %123
   %.sroa.0.0.copyload.i92 = load i64, ptr %8, align 4
   %.sroa.2.0.copyload.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.0144.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i92 to i32
-  %135 = sitofp i32 %.sroa.0144.0.extract.trunc to double
+  %129 = sitofp i32 %.sroa.0144.0.extract.trunc to double
   %.sroa.2143.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i94 to i32
   %reass.sub = sub i32 %.sroa.2143.8.extract.trunc, %.sroa.0144.0.extract.trunc
-  %136 = add i32 %reass.sub, 1
-  %137 = sitofp i32 %136 to double
-  %138 = tail call double @llvm.fmuladd.f64(double %137, double 5.000000e-01, double %135)
-  %139 = sitofp i32 %119 to double
-  %140 = fneg double %139
-  %141 = tail call double @llvm.fmuladd.f64(double %140, double 5.000000e-01, double %138)
-  %142 = fptosi double %141 to i32
-  %143 = add i32 %120, %142
-  br label %144
+  %130 = add i32 %reass.sub, 1
+  %131 = sitofp i32 %130 to double
+  %132 = tail call double @llvm.fmuladd.f64(double %131, double 5.000000e-01, double %129)
+  %133 = sitofp i32 %113 to double
+  %134 = fneg double %133
+  %135 = tail call double @llvm.fmuladd.f64(double %134, double 5.000000e-01, double %132)
+  %136 = fptosi double %135 to i32
+  %137 = add i32 %114, %136
+  br label %138
 
-144:                                              ; preds = %131, %134, %127
-  %.sroa.0202.0 = phi i32 [ %.sroa.0152.0.extract.trunc, %127 ], [ %133, %131 ], [ %142, %134 ]
-  %.sroa.33.2 = phi i32 [ %128, %127 ], [ %132, %131 ], [ %143, %134 ]
-  %145 = and i32 %125, 32
-  %.not238 = icmp eq i32 %145, 0
-  br i1 %.not238, label %148, label %146
+138:                                              ; preds = %125, %128, %121
+  %.sroa.0202.0 = phi i32 [ %.sroa.0152.0.extract.trunc, %121 ], [ %127, %125 ], [ %136, %128 ]
+  %.sroa.33.2 = phi i32 [ %122, %121 ], [ %126, %125 ], [ %137, %128 ]
+  %139 = and i32 %119, 32
+  %.not238 = icmp eq i32 %139, 0
+  br i1 %.not238, label %142, label %140
 
-146:                                              ; preds = %144
+140:                                              ; preds = %138
   %.sroa.0.0.copyload.i102 = load i64, ptr %8, align 4
   %.sroa.1139.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i102, 32
   %.sroa.1139.0.extract.trunc = trunc nuw i64 %.sroa.1139.0.extract.shift to i32
-  %147 = add i32 %122, %.sroa.1139.0.extract.trunc
-  br label %163
+  %141 = add i32 %116, %.sroa.1139.0.extract.trunc
+  br label %157
 
-148:                                              ; preds = %144
-  %149 = and i32 %125, 64
-  %.not239 = icmp eq i32 %149, 0
-  br i1 %.not239, label %153, label %150
+142:                                              ; preds = %138
+  %143 = and i32 %119, 64
+  %.not239 = icmp eq i32 %143, 0
+  br i1 %.not239, label %147, label %144
 
-150:                                              ; preds = %148
+144:                                              ; preds = %142
   %.sroa.2.0.copyload.i109 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.3134.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i109, 32
   %.sroa.3134.8.extract.trunc = trunc nuw i64 %.sroa.3134.8.extract.shift to i32
-  %151 = add i32 %.sroa.3134.8.extract.trunc, 1
-  %152 = sub i32 %151, %122
-  br label %163
+  %145 = add i32 %.sroa.3134.8.extract.trunc, 1
+  %146 = sub i32 %145, %116
+  br label %157
 
-153:                                              ; preds = %148
+147:                                              ; preds = %142
   %.sroa.0.0.copyload.i117 = load i64, ptr %8, align 4
   %.sroa.2.0.copyload.i119 = load i64, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %.sroa.1129.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i117, 32
   %.sroa.1129.0.extract.trunc = trunc nuw i64 %.sroa.1129.0.extract.shift to i32
-  %154 = sitofp i32 %.sroa.1129.0.extract.trunc to double
+  %148 = sitofp i32 %.sroa.1129.0.extract.trunc to double
   %.sroa.3.8.extract.shift = lshr i64 %.sroa.2.0.copyload.i119, 32
   %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %reass.sub242 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.1129.0.extract.trunc
-  %155 = add i32 %reass.sub242, 1
-  %156 = sitofp i32 %155 to double
-  %157 = tail call double @llvm.fmuladd.f64(double %156, double 5.000000e-01, double %154)
-  %158 = sitofp i32 %121 to double
-  %159 = fneg double %158
-  %160 = tail call double @llvm.fmuladd.f64(double %159, double 5.000000e-01, double %157)
-  %161 = fptosi double %160 to i32
-  %162 = add i32 %122, %161
-  br label %163
+  %149 = add i32 %reass.sub242, 1
+  %150 = sitofp i32 %149 to double
+  %151 = tail call double @llvm.fmuladd.f64(double %150, double 5.000000e-01, double %148)
+  %152 = sitofp i32 %115 to double
+  %153 = fneg double %152
+  %154 = tail call double @llvm.fmuladd.f64(double %153, double 5.000000e-01, double %151)
+  %155 = fptosi double %154 to i32
+  %156 = add i32 %116, %155
+  br label %157
 
-163:                                              ; preds = %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit, %150, %153, %146, %75, %115
-  %.sroa.0202.1 = phi i32 [ %113, %115 ], [ %113, %75 ], [ %.sroa.0202.0, %146 ], [ %.sroa.0202.0, %150 ], [ %.sroa.0202.0, %153 ], [ 0, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
-  %.sroa.17.0 = phi i32 [ %114, %115 ], [ %114, %75 ], [ %.sroa.1139.0.extract.trunc, %146 ], [ %152, %150 ], [ %161, %153 ], [ 0, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
-  %.sroa.33.3 = phi i32 [ %.sroa.33.1, %115 ], [ %.sroa.33.1, %75 ], [ %.sroa.33.2, %146 ], [ %.sroa.33.2, %150 ], [ %.sroa.33.2, %153 ], [ -1, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
-  %.sroa.49.1 = phi i32 [ %117, %115 ], [ %112, %75 ], [ %147, %146 ], [ %151, %150 ], [ %162, %153 ], [ -1, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr ptr, ptr %164, i64 %11
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 108
+157:                                              ; preds = %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit, %144, %147, %140, %75, %109
+  %.sroa.0202.1 = phi i32 [ %107, %109 ], [ %107, %75 ], [ %.sroa.0202.0, %140 ], [ %.sroa.0202.0, %144 ], [ %.sroa.0202.0, %147 ], [ 0, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
+  %.sroa.17.0 = phi i32 [ %108, %109 ], [ %108, %75 ], [ %.sroa.1139.0.extract.trunc, %140 ], [ %146, %144 ], [ %155, %147 ], [ 0, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
+  %.sroa.33.3 = phi i32 [ %.sroa.33.1, %109 ], [ %.sroa.33.1, %75 ], [ %.sroa.33.2, %140 ], [ %.sroa.33.2, %144 ], [ %.sroa.33.2, %147 ], [ -1, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
+  %.sroa.49.1 = phi i32 [ %111, %109 ], [ %106, %75 ], [ %141, %140 ], [ %145, %144 ], [ %156, %147 ], [ -1, %_ZN9QCPLayout24getFinalMaximumOuterSizeEPK16QCPLayoutElement.exit ]
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr ptr, ptr %158, i64 %11
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 108
+  %162 = load i32, ptr %161, align 4
+  %.not.i.i = icmp eq i32 %162, %.sroa.0202.1
+  br i1 %.not.i.i, label %163, label %_ZneRK5QRectS1_.exit.thread.i
+
+163:                                              ; preds = %157
+  %164 = getelementptr inbounds i8, ptr %160, i64 116
+  %165 = load i32, ptr %164, align 4
+  %.not8.i.i = icmp eq i32 %165, %.sroa.33.3
+  br i1 %.not8.i.i, label %166, label %_ZneRK5QRectS1_.exit.thread.i
+
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds i8, ptr %160, i64 112
   %168 = load i32, ptr %167, align 4
-  %.not.i.i = icmp eq i32 %168, %.sroa.0202.1
-  br i1 %.not.i.i, label %169, label %_ZneRK5QRectS1_.exit.thread.i
-
-169:                                              ; preds = %163
-  %170 = getelementptr inbounds i8, ptr %166, i64 116
-  %171 = load i32, ptr %170, align 4
-  %.not8.i.i = icmp eq i32 %171, %.sroa.33.3
-  br i1 %.not8.i.i, label %172, label %_ZneRK5QRectS1_.exit.thread.i
-
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %166, i64 112
-  %174 = load i32, ptr %173, align 4
-  %.not9.i.i = icmp eq i32 %174, %.sroa.17.0
+  %.not9.i.i = icmp eq i32 %168, %.sroa.17.0
   br i1 %.not9.i.i, label %_ZneRK5QRectS1_.exit.i, label %_ZneRK5QRectS1_.exit.thread.i
 
-_ZneRK5QRectS1_.exit.i:                           ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %166, i64 120
-  %176 = load i32, ptr %175, align 4
-  %.not.i = icmp eq i32 %176, %.sroa.49.1
+_ZneRK5QRectS1_.exit.i:                           ; preds = %166
+  %169 = getelementptr inbounds i8, ptr %160, i64 120
+  %170 = load i32, ptr %169, align 4
+  %.not.i = icmp eq i32 %170, %.sroa.49.1
   br i1 %.not.i, label %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit, label %_ZneRK5QRectS1_.exit.thread.i
 
-_ZneRK5QRectS1_.exit.thread.i:                    ; preds = %_ZneRK5QRectS1_.exit.i, %172, %169, %163
-  store i32 %.sroa.0202.1, ptr %167, align 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 112
+_ZneRK5QRectS1_.exit.thread.i:                    ; preds = %_ZneRK5QRectS1_.exit.i, %166, %163, %157
+  store i32 %.sroa.0202.1, ptr %161, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 112
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx, align 4
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 116
+  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 116
   store i32 %.sroa.33.3, ptr %.sroa.33.0..sroa_idx, align 4
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 120
+  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 120
   store i32 %.sroa.49.1, ptr %.sroa.49.0..sroa_idx, align 4
-  %177 = getelementptr inbounds i8, ptr %166, i64 124
+  %171 = getelementptr inbounds i8, ptr %160, i64 124
+  %172 = load i32, ptr %171, align 4
+  %173 = getelementptr inbounds i8, ptr %160, i64 128
+  %174 = load i32, ptr %173, align 4
+  %175 = getelementptr inbounds i8, ptr %160, i64 132
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds i8, ptr %160, i64 136
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %166, i64 128
-  %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %166, i64 132
-  %182 = load i32, ptr %181, align 4
-  %183 = getelementptr inbounds i8, ptr %166, i64 136
-  %184 = load i32, ptr %183, align 4
-  %185 = add i32 %178, %.sroa.0202.1
-  %186 = add i32 %.sroa.17.0, %180
-  %187 = sub i32 %.sroa.33.3, %182
-  %188 = sub i32 %.sroa.49.1, %184
-  %.sroa.27.0.insert.ext.i.i = zext i32 %186 to i64
+  %179 = add i32 %172, %.sroa.0202.1
+  %180 = add i32 %.sroa.17.0, %174
+  %181 = sub i32 %.sroa.33.3, %176
+  %182 = sub i32 %.sroa.49.1, %178
+  %.sroa.27.0.insert.ext.i.i = zext i32 %180 to i64
   %.sroa.27.0.insert.shift.i.i = shl nuw i64 %.sroa.27.0.insert.ext.i.i, 32
-  %.sroa.06.0.insert.ext.i.i = zext i32 %185 to i64
+  %.sroa.06.0.insert.ext.i.i = zext i32 %179 to i64
   %.sroa.06.0.insert.insert.i.i = or disjoint i64 %.sroa.27.0.insert.shift.i.i, %.sroa.06.0.insert.ext.i.i
-  %.sroa.5.8.insert.ext.i.i = zext i32 %188 to i64
+  %.sroa.5.8.insert.ext.i.i = zext i32 %182 to i64
   %.sroa.5.8.insert.shift.i.i = shl nuw i64 %.sroa.5.8.insert.ext.i.i, 32
-  %.sroa.3.8.insert.ext.i.i = zext i32 %187 to i64
+  %.sroa.3.8.insert.ext.i.i = zext i32 %181 to i64
   %.sroa.3.8.insert.insert.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i, %.sroa.3.8.insert.ext.i.i
-  %189 = getelementptr inbounds i8, ptr %166, i64 92
-  store i64 %.sroa.06.0.insert.insert.i.i, ptr %189, align 4
-  %.sroa.2.0..sroa_idx.i127 = getelementptr inbounds i8, ptr %166, i64 100
+  %183 = getelementptr inbounds i8, ptr %160, i64 92
+  store i64 %.sroa.06.0.insert.insert.i.i, ptr %183, align 4
+  %.sroa.2.0..sroa_idx.i127 = getelementptr inbounds i8, ptr %160, i64 100
   store i64 %.sroa.3.8.insert.insert.i.i, ptr %.sroa.2.0..sroa_idx.i127, align 4
   br label %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit
 
 _ZN16QCPLayoutElement12setOuterRectERK5QRect.exit: ; preds = %_ZneRK5QRectS1_.exit.i, %_ZneRK5QRectS1_.exit.thread.i
-  %190 = add i32 %.0241, 1
-  %191 = sext i32 %190 to i64
-  %192 = load i64, ptr %2, align 8
-  %193 = icmp sgt i64 %192, %191
-  br i1 %193, label %10, label %._crit_edge, !llvm.loop !249
+  %184 = add i32 %.0241, 1
+  %185 = sext i32 %184 to i64
+  %186 = load i64, ptr %2, align 8
+  %187 = icmp sgt i64 %186, %185
+  br i1 %187, label %10, label %._crit_edge, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %_ZN16QCPLayoutElement12setOuterRectERK5QRect.exit, %1
   ret void
@@ -47288,7 +47280,7 @@ define void @_ZN21QCPAxisPainterPrivate14placeTickLabelEP10QCPPainterdiRK7QStrin
   %18 = getelementptr inbounds i8, ptr %4, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %328, label %21
+  br i1 %20, label %326, label %21
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %0, i64 8
@@ -47483,7 +47475,7 @@ _ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit: ; preds = %_ZN6QCacheI7QString
   %137 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %70) #49
-  br label %329
+  br label %327
 
 138:                                              ; preds = %121, %148, %147, %140, %133, %110, %_ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit
   %139 = landingpad { ptr, i32 }
@@ -47589,7 +47581,7 @@ _ZN10QCPPainterD2Ev.exit:                         ; preds = %164, %_ZN17QArrayDa
 172:                                              ; preds = %170, %138
   %.pn = phi { ptr, i32 } [ %171, %170 ], [ %139, %138 ]
   call void @_ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %9) #47
-  br label %329
+  br label %327
 
 173:                                              ; preds = %_ZN10QCPPainterD2Ev.exit, %_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE4takeERKS0_.exit
   %.0 = phi ptr [ %69, %_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE4takeERKS0_.exit ], [ %70, %_ZN10QCPPainterD2Ev.exit ]
@@ -47670,156 +47662,153 @@ _ZN10QCPPainterD2Ev.exit:                         ; preds = %164, %_ZN17QArrayDa
   %230 = getelementptr inbounds i8, ptr %.0, i64 16
   call void @_ZN8QPainter10drawPixmapERK7QPointFRK7QPixmap(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %230)
   %231 = call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %230)
-  %.sroa.291.0.extract.shift = lshr i64 %231, 32
   %232 = load ptr, ptr %57, align 8
   %233 = getelementptr inbounds i8, ptr %232, i64 96
   %234 = load double, ptr %233, align 8
-  %235 = insertelement <2 x i64> poison, i64 %231, i64 0
-  %236 = insertelement <2 x i64> %235, i64 %.sroa.291.0.extract.shift, i64 1
-  %237 = trunc <2 x i64> %236 to <2 x i32>
-  %238 = sitofp <2 x i32> %237 to <2 x double>
-  %239 = insertelement <2 x double> poison, double %234, i64 0
-  %240 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> zeroinitializer
-  %241 = fdiv <2 x double> %238, %240
-  %242 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %241)
-  %243 = fadd <2 x double> %241, %242
-  %244 = fptosi <2 x double> %243 to <2 x i32>
+  %235 = bitcast i64 %231 to <2 x i32>
+  %236 = sitofp <2 x i32> %235 to <2 x double>
+  %237 = insertelement <2 x double> poison, double %234, i64 0
+  %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> zeroinitializer
+  %239 = fdiv <2 x double> %236, %238
+  %240 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %239)
+  %241 = fadd <2 x double> %239, %240
+  %242 = fptosi <2 x double> %241 to <2 x i32>
   br label %.critedge57
 
 .critedge57:                                      ; preds = %194, %179, %201, %.critedge55, %217
-  %245 = phi <2 x i32> [ <i32 -1, i32 -1>, %179 ], [ <i32 -1, i32 -1>, %217 ], [ %244, %.critedge55 ], [ <i32 -1, i32 -1>, %201 ], [ <i32 -1, i32 -1>, %194 ]
-  %246 = call noundef zeroext i1 @_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6insertERKS0_PS2_x(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %.0, i64 noundef 1)
-  br label %316
+  %243 = phi <2 x i32> [ <i32 -1, i32 -1>, %179 ], [ <i32 -1, i32 -1>, %217 ], [ %242, %.critedge55 ], [ <i32 -1, i32 -1>, %201 ], [ <i32 -1, i32 -1>, %194 ]
+  %244 = call noundef zeroext i1 @_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6insertERKS0_PS2_x(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %.0, i64 noundef 1)
+  br label %314
 
 .critedge:                                        ; preds = %56, %61
-  %247 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK8QPainter4fontEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %248 = load ptr, ptr %0, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 56
-  %250 = load ptr, ptr %249, align 8
-  call void %250(ptr dead_on_unwind nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %17, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %247, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %251 = load ptr, ptr %0, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 64
-  %253 = load ptr, ptr %252, align 8
-  %254 = invoke { double, double } %253(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(184) %17)
-          to label %255 unwind label %284
+  %245 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZNK8QPainter4fontEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %246 = load ptr, ptr %0, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 56
+  %248 = load ptr, ptr %247, align 8
+  call void %248(ptr dead_on_unwind nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %17, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %245, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %249 = load ptr, ptr %0, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 64
+  %251 = load ptr, ptr %250, align 8
+  %252 = invoke { double, double } %251(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(184) %17)
+          to label %253 unwind label %282
 
-255:                                              ; preds = %.critedge
-  %256 = extractvalue { double, double } %254, 0
-  %257 = extractvalue { double, double } %254, 1
-  %258 = fadd double %.sroa.0113.0, %256
-  %259 = fadd double %.sroa.9.0, %257
-  %260 = getelementptr inbounds i8, ptr %0, i64 168
-  %261 = load i32, ptr %260, align 8
-  %262 = icmp eq i32 %261, 1
-  br i1 %262, label %263, label %.critedge59
+253:                                              ; preds = %.critedge
+  %254 = extractvalue { double, double } %252, 0
+  %255 = extractvalue { double, double } %252, 1
+  %256 = fadd double %.sroa.0113.0, %254
+  %257 = fadd double %.sroa.9.0, %255
+  %258 = getelementptr inbounds i8, ptr %0, i64 168
+  %259 = load i32, ptr %258, align 8
+  %260 = icmp eq i32 %259, 1
+  br i1 %260, label %261, label %.critedge59
 
-263:                                              ; preds = %255
-  %264 = load i32, ptr %22, align 8
-  switch i32 %264, label %286 [
-    i32 8, label %265
-    i32 4, label %265
+261:                                              ; preds = %253
+  %262 = load i32, ptr %22, align 8
+  switch i32 %262, label %284 [
+    i32 8, label %263
+    i32 4, label %263
   ]
 
-265:                                              ; preds = %263, %263
-  %266 = getelementptr inbounds i8, ptr %17, i64 144
-  %267 = load i32, ptr %266, align 8
-  %268 = add i32 %267, 1
-  %269 = sitofp i32 %268 to double
-  %270 = fadd double %258, %269
-  %271 = getelementptr inbounds i8, ptr %0, i64 264
-  %272 = load i32, ptr %271, align 8
-  %273 = sitofp i32 %272 to double
-  %274 = fcmp ogt double %270, %273
-  br i1 %274, label %.critedge61, label %275
+263:                                              ; preds = %261, %261
+  %264 = getelementptr inbounds i8, ptr %17, i64 144
+  %265 = load i32, ptr %264, align 8
+  %266 = add i32 %265, 1
+  %267 = sitofp i32 %266 to double
+  %268 = fadd double %256, %267
+  %269 = getelementptr inbounds i8, ptr %0, i64 264
+  %270 = load i32, ptr %269, align 8
+  %271 = sitofp i32 %270 to double
+  %272 = fcmp ogt double %268, %271
+  br i1 %272, label %.critedge61, label %273
 
-275:                                              ; preds = %265
-  %276 = getelementptr inbounds i8, ptr %0, i64 256
-  %277 = getelementptr inbounds i8, ptr %17, i64 136
-  %278 = load i32, ptr %277, align 8
-  %279 = sitofp i32 %278 to double
-  %280 = fadd double %258, %279
-  %281 = load i32, ptr %276, align 8
-  %282 = sitofp i32 %281 to double
-  %283 = fcmp olt double %280, %282
-  br i1 %283, label %.critedge61, label %.critedge59
+273:                                              ; preds = %263
+  %274 = getelementptr inbounds i8, ptr %0, i64 256
+  %275 = getelementptr inbounds i8, ptr %17, i64 136
+  %276 = load i32, ptr %275, align 8
+  %277 = sitofp i32 %276 to double
+  %278 = fadd double %256, %277
+  %279 = load i32, ptr %274, align 8
+  %280 = sitofp i32 %279 to double
+  %281 = fcmp olt double %278, %280
+  br i1 %281, label %.critedge61, label %.critedge59
 
-284:                                              ; preds = %.critedge59, %.critedge
-  %285 = landingpad { ptr, i32 }
+282:                                              ; preds = %.critedge59, %.critedge
+  %283 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #47
-  br label %329
+  br label %327
 
-286:                                              ; preds = %263
-  %287 = getelementptr inbounds i8, ptr %17, i64 148
-  %288 = load i32, ptr %287, align 4
-  %289 = add i32 %288, 1
-  %290 = sitofp i32 %289 to double
-  %291 = fadd double %259, %290
-  %292 = getelementptr inbounds i8, ptr %0, i64 268
-  %293 = load i32, ptr %292, align 4
-  %294 = sitofp i32 %293 to double
-  %295 = fcmp ogt double %291, %294
-  br i1 %295, label %.critedge61, label %296
+284:                                              ; preds = %261
+  %285 = getelementptr inbounds i8, ptr %17, i64 148
+  %286 = load i32, ptr %285, align 4
+  %287 = add i32 %286, 1
+  %288 = sitofp i32 %287 to double
+  %289 = fadd double %257, %288
+  %290 = getelementptr inbounds i8, ptr %0, i64 268
+  %291 = load i32, ptr %290, align 4
+  %292 = sitofp i32 %291 to double
+  %293 = fcmp ogt double %289, %292
+  br i1 %293, label %.critedge61, label %294
 
-296:                                              ; preds = %286
-  %297 = getelementptr inbounds i8, ptr %17, i64 140
-  %298 = load i32, ptr %297, align 4
-  %299 = sitofp i32 %298 to double
-  %300 = fadd double %259, %299
-  %301 = getelementptr inbounds i8, ptr %0, i64 260
-  %302 = load i32, ptr %301, align 4
-  %303 = sitofp i32 %302 to double
-  %304 = fcmp olt double %300, %303
-  br i1 %304, label %.critedge61, label %.critedge59
+294:                                              ; preds = %284
+  %295 = getelementptr inbounds i8, ptr %17, i64 140
+  %296 = load i32, ptr %295, align 4
+  %297 = sitofp i32 %296 to double
+  %298 = fadd double %257, %297
+  %299 = getelementptr inbounds i8, ptr %0, i64 260
+  %300 = load i32, ptr %299, align 4
+  %301 = sitofp i32 %300 to double
+  %302 = fcmp olt double %298, %301
+  br i1 %302, label %.critedge61, label %.critedge59
 
-.critedge59:                                      ; preds = %275, %255, %296
-  %305 = load ptr, ptr %0, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 48
-  %307 = load ptr, ptr %306, align 8
-  invoke void %307(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %1, double noundef %258, double noundef %259, ptr noundef nonnull align 8 dereferenceable(184) %17)
-          to label %308 unwind label %284
+.critedge59:                                      ; preds = %273, %253, %294
+  %303 = load ptr, ptr %0, align 8
+  %304 = getelementptr inbounds i8, ptr %303, i64 48
+  %305 = load ptr, ptr %304, align 8
+  invoke void %305(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %1, double noundef %256, double noundef %257, ptr noundef nonnull align 8 dereferenceable(184) %17)
+          to label %306 unwind label %282
 
-308:                                              ; preds = %.critedge59
-  %309 = getelementptr inbounds i8, ptr %17, i64 136
-  %310 = getelementptr inbounds i8, ptr %17, i64 144
-  %311 = load <2 x i32>, ptr %310, align 8
-  %312 = load <2 x i32>, ptr %309, align 8
-  %313 = add <2 x i32> %311, <i32 1, i32 1>
-  %314 = sub <2 x i32> %313, %312
+306:                                              ; preds = %.critedge59
+  %307 = getelementptr inbounds i8, ptr %17, i64 136
+  %308 = getelementptr inbounds i8, ptr %17, i64 144
+  %309 = load <2 x i32>, ptr %308, align 8
+  %310 = load <2 x i32>, ptr %307, align 8
+  %311 = add <2 x i32> %309, <i32 1, i32 1>
+  %312 = sub <2 x i32> %311, %310
   br label %.critedge61
 
-.critedge61:                                      ; preds = %275, %265, %286, %308, %296
-  %315 = phi <2 x i32> [ <i32 -1, i32 -1>, %265 ], [ <i32 -1, i32 -1>, %296 ], [ %314, %308 ], [ <i32 -1, i32 -1>, %286 ], [ <i32 -1, i32 -1>, %275 ]
+.critedge61:                                      ; preds = %273, %263, %284, %306, %294
+  %313 = phi <2 x i32> [ <i32 -1, i32 -1>, %263 ], [ <i32 -1, i32 -1>, %294 ], [ %312, %306 ], [ <i32 -1, i32 -1>, %284 ], [ <i32 -1, i32 -1>, %273 ]
   call void @_ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %17) #47
-  br label %316
+  br label %314
 
-316:                                              ; preds = %.critedge61, %.critedge57
-  %317 = phi <2 x i32> [ %315, %.critedge61 ], [ %245, %.critedge57 ]
-  %318 = load i32, ptr %5, align 4
-  %319 = extractelement <2 x i32> %317, i64 0
-  %320 = icmp sgt i32 %319, %318
-  br i1 %320, label %321, label %322
+314:                                              ; preds = %.critedge61, %.critedge57
+  %315 = phi <2 x i32> [ %313, %.critedge61 ], [ %243, %.critedge57 ]
+  %316 = load i32, ptr %5, align 4
+  %317 = extractelement <2 x i32> %315, i64 0
+  %318 = icmp sgt i32 %317, %316
+  br i1 %318, label %319, label %320
 
-321:                                              ; preds = %316
-  store i32 %319, ptr %5, align 4
-  br label %322
+319:                                              ; preds = %314
+  store i32 %317, ptr %5, align 4
+  br label %320
 
-322:                                              ; preds = %321, %316
-  %323 = getelementptr inbounds i8, ptr %5, i64 4
-  %324 = load i32, ptr %323, align 4
-  %325 = extractelement <2 x i32> %317, i64 1
-  %326 = icmp sgt i32 %325, %324
-  br i1 %326, label %327, label %328
+320:                                              ; preds = %319, %314
+  %321 = getelementptr inbounds i8, ptr %5, i64 4
+  %322 = load i32, ptr %321, align 4
+  %323 = extractelement <2 x i32> %315, i64 1
+  %324 = icmp sgt i32 %323, %322
+  br i1 %324, label %325, label %326
 
-327:                                              ; preds = %322
-  store i32 %325, ptr %323, align 4
-  br label %328
+325:                                              ; preds = %320
+  store i32 %323, ptr %321, align 4
+  br label %326
 
-328:                                              ; preds = %6, %327, %322
+326:                                              ; preds = %6, %325, %320
   ret void
 
-329:                                              ; preds = %284, %172, %136
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %172 ], [ %137, %136 ], [ %285, %284 ]
+327:                                              ; preds = %282, %172, %136
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %172 ], [ %137, %136 ], [ %283, %282 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -49458,59 +49447,56 @@ _ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6objectERKS0_.exit: ;
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = tail call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %27)
-  %.sroa.2.0.extract.shift = lshr i64 %28, 32
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
   %31 = load double, ptr %30, align 8
-  %32 = insertelement <2 x i64> poison, i64 %28, i64 0
-  %33 = insertelement <2 x i64> %32, i64 %.sroa.2.0.extract.shift, i64 1
-  %34 = trunc <2 x i64> %33 to <2 x i32>
-  %35 = sitofp <2 x i32> %34 to <2 x double>
-  %36 = insertelement <2 x double> poison, double %31, i64 0
-  %37 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> zeroinitializer
-  %38 = fdiv <2 x double> %35, %37
-  %39 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %38)
-  %40 = fadd <2 x double> %38, %39
-  %41 = fptosi <2 x double> %40 to <2 x i32>
-  br label %51
+  %32 = bitcast i64 %28 to <2 x i32>
+  %33 = sitofp <2 x i32> %32 to <2 x double>
+  %34 = insertelement <2 x double> poison, double %31, i64 0
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
+  %36 = fdiv <2 x double> %33, %35
+  %37 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %36)
+  %38 = fadd <2 x double> %36, %37
+  %39 = fptosi <2 x double> %38 to <2 x i32>
+  br label %49
 
 .critedge:                                        ; preds = %4, %10
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr dead_on_unwind nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %5, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %45 = getelementptr inbounds i8, ptr %5, i64 136
-  %46 = getelementptr inbounds i8, ptr %5, i64 144
-  %47 = load <2 x i32>, ptr %46, align 8
-  %48 = load <2 x i32>, ptr %45, align 8
-  %49 = add <2 x i32> %47, <i32 1, i32 1>
-  %50 = sub <2 x i32> %49, %48
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr dead_on_unwind nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %5, ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %43 = getelementptr inbounds i8, ptr %5, i64 136
+  %44 = getelementptr inbounds i8, ptr %5, i64 144
+  %45 = load <2 x i32>, ptr %44, align 8
+  %46 = load <2 x i32>, ptr %43, align 8
+  %47 = add <2 x i32> %45, <i32 1, i32 1>
+  %48 = sub <2 x i32> %47, %46
   call void @_ZN21QCPAxisPainterPrivate13TickLabelDataD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %5) #47
-  br label %51
+  br label %49
 
-51:                                               ; preds = %.critedge, %_ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6objectERKS0_.exit
-  %52 = phi <2 x i32> [ %41, %_ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6objectERKS0_.exit ], [ %50, %.critedge ]
-  %53 = load i32, ptr %3, align 4
-  %54 = extractelement <2 x i32> %52, i64 0
-  %55 = icmp sgt i32 %54, %53
-  br i1 %55, label %56, label %57
+49:                                               ; preds = %.critedge, %_ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6objectERKS0_.exit
+  %50 = phi <2 x i32> [ %39, %_ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6objectERKS0_.exit ], [ %48, %.critedge ]
+  %51 = load i32, ptr %3, align 4
+  %52 = extractelement <2 x i32> %50, i64 0
+  %53 = icmp sgt i32 %52, %51
+  br i1 %53, label %54, label %55
 
-56:                                               ; preds = %51
-  store i32 %54, ptr %3, align 4
-  br label %57
+54:                                               ; preds = %49
+  store i32 %52, ptr %3, align 4
+  br label %55
 
-57:                                               ; preds = %56, %51
-  %58 = getelementptr inbounds i8, ptr %3, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = extractelement <2 x i32> %52, i64 1
-  %61 = icmp sgt i32 %60, %59
-  br i1 %61, label %62, label %63
+55:                                               ; preds = %54, %49
+  %56 = getelementptr inbounds i8, ptr %3, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = extractelement <2 x i32> %50, i64 1
+  %59 = icmp sgt i32 %58, %57
+  br i1 %59, label %60, label %61
 
-62:                                               ; preds = %57
-  store i32 %60, ptr %58, align 4
-  br label %63
+60:                                               ; preds = %55
+  store i32 %58, ptr %56, align 4
+  br label %61
 
-63:                                               ; preds = %62, %57
+61:                                               ; preds = %60, %55
   ret void
 }
 
@@ -135434,469 +135420,463 @@ define void @_ZN11QCPColorMap4drawEP10QCPPainter(ptr noundef nonnull align 8 der
   %63 = and i32 %.sroa.0.0.copyload.i, 1
   %.not149 = icmp eq i32 %63, 0
   call void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  br i1 %.not149, label %105, label %64
+  br i1 %.not149, label %101, label %64
 
 64:                                               ; preds = %61
   invoke void @_ZNK8QPainter10clipRegionEv(ptr dead_on_unwind nonnull writable sret(%class.QRegion) align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %65 unwind label %101
+          to label %65 unwind label %97
 
 65:                                               ; preds = %64
   %66 = call { i64, i64 } @_ZNK7QRegion12boundingRectEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
   %67 = extractvalue { i64, i64 } %66, 0
-  %.sroa.3129.0.extract.shift = lshr i64 %67, 32
-  %68 = insertelement <2 x i64> poison, i64 %67, i64 0
-  %69 = insertelement <2 x i64> %68, i64 %.sroa.3129.0.extract.shift, i64 1
-  %70 = trunc <2 x i64> %69 to <2 x i32>
-  %71 = extractvalue { i64, i64 } %66, 1
-  %.sroa.7.8.extract.shift = lshr i64 %71, 32
-  %72 = sitofp <2 x i32> %70 to <2 x double>
-  %73 = insertelement <2 x i64> poison, i64 %71, i64 0
-  %74 = insertelement <2 x i64> %73, i64 %.sroa.7.8.extract.shift, i64 1
-  %75 = trunc <2 x i64> %74 to <2 x i32>
-  %76 = add <2 x i32> %75, <i32 1, i32 1>
-  %77 = sub <2 x i32> %76, %70
-  %78 = sitofp <2 x i32> %77 to <2 x double>
+  %68 = bitcast i64 %67 to <2 x i32>
+  %69 = extractvalue { i64, i64 } %66, 1
+  %70 = sitofp <2 x i32> %68 to <2 x double>
+  %71 = bitcast i64 %69 to <2 x i32>
+  %72 = add <2 x i32> %71, <i32 1, i32 1>
+  %73 = sub <2 x i32> %72, %68
+  %74 = sitofp <2 x i32> %73 to <2 x double>
   call void @_ZN7QRegionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
-  %79 = extractelement <2 x double> %78, i64 0
-  %80 = fmul double %79, 3.000000e+00
-  %81 = extractelement <2 x double> %78, i64 1
-  %82 = fmul double %81, 3.000000e+00
-  %83 = call double @llvm.copysign.f64(double 5.000000e-01, double %80)
-  %84 = fadd double %80, %83
-  %85 = fptosi double %84 to i32
-  %86 = call double @llvm.copysign.f64(double 5.000000e-01, double %82)
-  %87 = fadd double %82, %86
-  %88 = fptosi double %87 to i32
-  %.sroa.2.0.insert.ext.i = zext i32 %88 to i64
+  %75 = extractelement <2 x double> %74, i64 0
+  %76 = fmul double %75, 3.000000e+00
+  %77 = extractelement <2 x double> %74, i64 1
+  %78 = fmul double %77, 3.000000e+00
+  %79 = call double @llvm.copysign.f64(double 5.000000e-01, double %76)
+  %80 = fadd double %76, %79
+  %81 = fptosi double %80 to i32
+  %82 = call double @llvm.copysign.f64(double 5.000000e-01, double %78)
+  %83 = fadd double %78, %82
+  %84 = fptosi double %83 to i32
+  %.sroa.2.0.insert.ext.i = zext i32 %84 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %85 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %81 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %10, align 8
   invoke void @_ZN7QPixmapC1ERK5QSize(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-          to label %89 unwind label %101
+          to label %85 unwind label %97
 
-89:                                               ; preds = %65
+85:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #47
   store ptr getelementptr inbounds (i8, ptr @_ZTV7QPixmap, i64 16), ptr %6, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
-  %91 = getelementptr inbounds i8, ptr %9, i64 16
-  %92 = load ptr, ptr %91, align 8
-  store ptr null, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %7, i64 16
-  %94 = load ptr, ptr %93, align 8
-  store ptr %92, ptr %93, align 8
-  store ptr %94, ptr %90, align 8
+  %86 = getelementptr inbounds i8, ptr %6, i64 16
+  %87 = getelementptr inbounds i8, ptr %9, i64 16
+  %88 = load ptr, ptr %87, align 8
+  store ptr null, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %7, i64 16
+  %90 = load ptr, ptr %89, align 8
+  store ptr %88, ptr %89, align 8
+  store ptr %90, ptr %86, align 8
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #47
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %11, i32 noundef 19) #47
   invoke void @_ZN7QPixmap4fillERK6QColor(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(14) %11)
-          to label %95 unwind label %101
+          to label %91 unwind label %97
 
-95:                                               ; preds = %89
-  %96 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
-          to label %97 unwind label %101
+91:                                               ; preds = %85
+  %92 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
+          to label %93 unwind label %97
 
-97:                                               ; preds = %95
-  invoke void @_ZN10QCPPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(40) %96, ptr noundef nonnull %7)
-          to label %98 unwind label %103
+93:                                               ; preds = %91
+  invoke void @_ZN10QCPPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull %7)
+          to label %94 unwind label %99
 
-98:                                               ; preds = %97
-  invoke void @_ZN8QPainter5scaleEdd(ptr noundef nonnull align 8 dereferenceable(8) %96, double noundef 3.000000e+00, double noundef 3.000000e+00)
-          to label %99 unwind label %101
+94:                                               ; preds = %93
+  invoke void @_ZN8QPainter5scaleEdd(ptr noundef nonnull align 8 dereferenceable(8) %92, double noundef 3.000000e+00, double noundef 3.000000e+00)
+          to label %95 unwind label %97
 
-99:                                               ; preds = %98
-  %100 = fneg <2 x double> %72
-  store <2 x double> %100, ptr %12, align 16
-  invoke void @_ZN8QPainter9translateERK7QPointF(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %105 unwind label %101
+95:                                               ; preds = %94
+  %96 = fneg <2 x double> %70
+  store <2 x double> %96, ptr %12, align 16
+  invoke void @_ZN8QPainter9translateERK7QPointF(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %101 unwind label %97
 
-101:                                              ; preds = %231, %225, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77, %112, %105, %99, %98, %95, %89, %65, %64
-  %102 = landingpad { ptr, i32 }
+97:                                               ; preds = %227, %221, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77, %108, %101, %95, %94, %91, %85, %65, %64
+  %98 = landingpad { ptr, i32 }
           cleanup
-  br label %297
+  br label %293
 
-103:                                              ; preds = %97
-  %104 = landingpad { ptr, i32 }
+99:                                               ; preds = %93
+  %100 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %96) #49
-  br label %297
+  call void @_ZdlPv(ptr noundef nonnull %92) #49
+  br label %293
 
-105:                                              ; preds = %99, %61
-  %.0 = phi ptr [ %96, %99 ], [ %1, %61 ]
-  %106 = phi <2 x double> [ %72, %99 ], [ zeroinitializer, %61 ]
-  %107 = phi <2 x double> [ %78, %99 ], [ zeroinitializer, %61 ]
-  %108 = load ptr, ptr %20, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %.sroa.0.0.copyload.i56 = load double, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %108, i64 24
-  %.sroa.0.0.copyload.i59 = load double, ptr %110, align 8
-  %111 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.0.0.copyload.i56, double noundef %.sroa.0.0.copyload.i59)
-          to label %112 unwind label %101
+101:                                              ; preds = %95, %61
+  %.0 = phi ptr [ %92, %95 ], [ %1, %61 ]
+  %102 = phi <2 x double> [ %70, %95 ], [ zeroinitializer, %61 ]
+  %103 = phi <2 x double> [ %74, %95 ], [ zeroinitializer, %61 ]
+  %104 = load ptr, ptr %20, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %.sroa.0.0.copyload.i56 = load double, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %104, i64 24
+  %.sroa.0.0.copyload.i59 = load double, ptr %106, align 8
+  %107 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.0.0.copyload.i56, double noundef %.sroa.0.0.copyload.i59)
+          to label %108 unwind label %97
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr %20, align 8
-  %.sroa.2.0..sroa_idx.i65 = getelementptr inbounds i8, ptr %113, i64 16
+108:                                              ; preds = %101
+  %109 = load ptr, ptr %20, align 8
+  %.sroa.2.0..sroa_idx.i65 = getelementptr inbounds i8, ptr %109, i64 16
   %.sroa.2.0.copyload.i66 = load double, ptr %.sroa.2.0..sroa_idx.i65, align 8
-  %.sroa.2.0..sroa_idx.i70 = getelementptr inbounds i8, ptr %113, i64 32
+  %.sroa.2.0..sroa_idx.i70 = getelementptr inbounds i8, ptr %109, i64 32
   %.sroa.2.0.copyload.i71 = load double, ptr %.sroa.2.0..sroa_idx.i70, align 8
-  %114 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.2.0.copyload.i66, double noundef %.sroa.2.0.copyload.i71)
-          to label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit unwind label %101
+  %110 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.2.0.copyload.i66, double noundef %.sroa.2.0.copyload.i71)
+          to label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit unwind label %97
 
-_ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %112
-  %115 = extractvalue { double, double } %111, 1
-  %116 = extractvalue { double, double } %111, 0
-  %117 = extractvalue { double, double } %114, 0
-  %118 = extractvalue { double, double } %114, 1
-  store double %116, ptr %14, align 8
-  %119 = getelementptr inbounds i8, ptr %14, i64 8
-  store double %115, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %14, i64 16
-  %121 = insertelement <2 x double> poison, double %117, i64 0
-  %122 = insertelement <2 x double> %121, double %118, i64 1
-  %123 = insertelement <2 x double> poison, double %116, i64 0
-  %124 = insertelement <2 x double> %123, double %115, i64 1
-  %125 = fsub <2 x double> %122, %124
-  store <2 x double> %125, ptr %120, align 8
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %108
+  %111 = extractvalue { double, double } %107, 1
+  %112 = extractvalue { double, double } %107, 0
+  %113 = extractvalue { double, double } %110, 0
+  %114 = extractvalue { double, double } %110, 1
+  store double %112, ptr %14, align 8
+  %115 = getelementptr inbounds i8, ptr %14, i64 8
+  store double %111, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %14, i64 16
+  %117 = insertelement <2 x double> poison, double %113, i64 0
+  %118 = insertelement <2 x double> %117, double %114, i64 1
+  %119 = insertelement <2 x double> poison, double %112, i64 0
+  %120 = insertelement <2 x double> %119, double %111, i64 1
+  %121 = fsub <2 x double> %118, %120
+  store <2 x double> %121, ptr %116, align 8
   call void @_ZNK6QRectF10normalizedEv(ptr dead_on_unwind nonnull writable sret(%class.QRectF) align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %14) #47
-  %126 = load ptr, ptr %26, align 8, !nonnull !115, !noundef !115
-  %127 = getelementptr inbounds i8, ptr %126, i64 4
-  %128 = load atomic i32, ptr %127 monotonic, align 4
-  %129 = icmp ne i32 %128, 0
-  call void @llvm.assume(i1 %129)
-  %130 = load ptr, ptr %33, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 76
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %132, 1
-  %134 = load ptr, ptr %20, align 8
-  %135 = load i32, ptr %134, align 8
-  %136 = icmp sgt i32 %135, 1
-  br i1 %133, label %137, label %158
+  %122 = load ptr, ptr %26, align 8, !nonnull !115, !noundef !115
+  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %124 = load atomic i32, ptr %123 monotonic, align 4
+  %125 = icmp ne i32 %124, 0
+  call void @llvm.assume(i1 %125)
+  %126 = load ptr, ptr %33, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 76
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp eq i32 %128, 1
+  %130 = load ptr, ptr %20, align 8
+  %131 = load i32, ptr %130, align 8
+  %132 = icmp sgt i32 %131, 1
+  br i1 %129, label %133, label %154
 
-137:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit
-  br i1 %136, label %138, label %145
+133:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit
+  br i1 %132, label %134, label %141
 
-138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %13, i64 16
-  %140 = load double, ptr %139, align 8
-  %141 = fmul double %140, 5.000000e-01
-  %142 = add nsw i32 %135, -1
-  %143 = uitofp nneg i32 %142 to double
-  %144 = fdiv double %141, %143
-  br label %145
+134:                                              ; preds = %133
+  %135 = getelementptr inbounds i8, ptr %13, i64 16
+  %136 = load double, ptr %135, align 8
+  %137 = fmul double %136, 5.000000e-01
+  %138 = add nsw i32 %131, -1
+  %139 = uitofp nneg i32 %138 to double
+  %140 = fdiv double %137, %139
+  br label %141
 
-145:                                              ; preds = %138, %137
-  %.042 = phi double [ %144, %138 ], [ 0.000000e+00, %137 ]
-  %146 = getelementptr inbounds i8, ptr %134, i64 4
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp sgt i32 %147, 1
-  %149 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.042, i64 0
-  br i1 %148, label %150, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
+141:                                              ; preds = %134, %133
+  %.042 = phi double [ %140, %134 ], [ 0.000000e+00, %133 ]
+  %142 = getelementptr inbounds i8, ptr %130, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp sgt i32 %143, 1
+  %145 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.042, i64 0
+  br i1 %144, label %146, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
 
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds i8, ptr %13, i64 24
-  %152 = load double, ptr %151, align 8
-  %153 = fmul double %152, 5.000000e-01
-  %154 = add nsw i32 %147, -1
-  %155 = uitofp nneg i32 %154 to double
-  %156 = fdiv double %153, %155
-  %157 = insertelement <2 x double> %149, double %156, i64 1
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds i8, ptr %13, i64 24
+  %148 = load double, ptr %147, align 8
+  %149 = fmul double %148, 5.000000e-01
+  %150 = add nsw i32 %143, -1
+  %151 = uitofp nneg i32 %150 to double
+  %152 = fdiv double %149, %151
+  %153 = insertelement <2 x double> %145, double %152, i64 1
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
 
-158:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit
-  br i1 %136, label %159, label %166
+154:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit
+  br i1 %132, label %155, label %162
 
-159:                                              ; preds = %158
-  %160 = getelementptr inbounds i8, ptr %13, i64 24
-  %161 = load double, ptr %160, align 8
-  %162 = fmul double %161, 5.000000e-01
-  %163 = add nsw i32 %135, -1
-  %164 = uitofp nneg i32 %163 to double
-  %165 = fdiv double %162, %164
-  br label %166
+155:                                              ; preds = %154
+  %156 = getelementptr inbounds i8, ptr %13, i64 24
+  %157 = load double, ptr %156, align 8
+  %158 = fmul double %157, 5.000000e-01
+  %159 = add nsw i32 %131, -1
+  %160 = uitofp nneg i32 %159 to double
+  %161 = fdiv double %158, %160
+  br label %162
 
-166:                                              ; preds = %159, %158
-  %.044 = phi double [ %165, %159 ], [ 0.000000e+00, %158 ]
-  %167 = getelementptr inbounds i8, ptr %134, i64 4
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp sgt i32 %168, 1
-  %170 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %.044, i64 1
-  br i1 %169, label %171, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
+162:                                              ; preds = %155, %154
+  %.044 = phi double [ %161, %155 ], [ 0.000000e+00, %154 ]
+  %163 = getelementptr inbounds i8, ptr %130, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = icmp sgt i32 %164, 1
+  %166 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %.044, i64 1
+  br i1 %165, label %167, label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
 
-171:                                              ; preds = %166
-  %172 = getelementptr inbounds i8, ptr %13, i64 16
-  %173 = load double, ptr %172, align 8
-  %174 = fmul double %173, 5.000000e-01
-  %175 = add nsw i32 %168, -1
-  %176 = uitofp nneg i32 %175 to double
-  %177 = fdiv double %174, %176
-  %178 = insertelement <2 x double> %170, double %177, i64 0
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds i8, ptr %13, i64 16
+  %169 = load double, ptr %168, align 8
+  %170 = fmul double %169, 5.000000e-01
+  %171 = add nsw i32 %164, -1
+  %172 = uitofp nneg i32 %171 to double
+  %173 = fdiv double %170, %172
+  %174 = insertelement <2 x double> %166, double %173, i64 0
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
 
-_ZNK20QCPAbstractPlottable7keyAxisEv.exit74:      ; preds = %166, %171, %145, %150
-  %179 = phi <2 x double> [ %157, %150 ], [ %149, %145 ], [ %178, %171 ], [ %170, %166 ]
-  %180 = load double, ptr %13, align 8
-  %181 = extractelement <2 x double> %179, i64 0
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit74:      ; preds = %162, %167, %141, %146
+  %175 = phi <2 x double> [ %153, %146 ], [ %145, %141 ], [ %174, %167 ], [ %166, %162 ]
+  %176 = load double, ptr %13, align 8
+  %177 = extractelement <2 x double> %175, i64 0
+  %178 = fsub double %176, %177
+  store double %178, ptr %13, align 8
+  %179 = getelementptr inbounds i8, ptr %13, i64 8
+  %180 = load double, ptr %179, align 8
+  %181 = extractelement <2 x double> %175, i64 1
   %182 = fsub double %180, %181
-  store double %182, ptr %13, align 8
-  %183 = getelementptr inbounds i8, ptr %13, i64 8
-  %184 = load double, ptr %183, align 8
-  %185 = extractelement <2 x double> %179, i64 1
-  %186 = fsub double %184, %185
-  store double %186, ptr %183, align 8
-  %187 = fadd <2 x double> %179, %179
-  %188 = getelementptr inbounds i8, ptr %13, i64 16
-  %189 = load <2 x double>, ptr %188, align 8
-  %190 = fadd <2 x double> %187, %189
-  store <2 x double> %190, ptr %188, align 8
-  %191 = load atomic i32, ptr %127 monotonic, align 4
-  %192 = icmp ne i32 %191, 0
-  call void @llvm.assume(i1 %192)
-  br i1 %133, label %193, label %196
+  store double %182, ptr %179, align 8
+  %183 = fadd <2 x double> %175, %175
+  %184 = getelementptr inbounds i8, ptr %13, i64 16
+  %185 = load <2 x double>, ptr %184, align 8
+  %186 = fadd <2 x double> %183, %185
+  store <2 x double> %186, ptr %184, align 8
+  %187 = load atomic i32, ptr %123 monotonic, align 4
+  %188 = icmp ne i32 %187, 0
+  call void @llvm.assume(i1 %188)
+  br i1 %129, label %189, label %192
 
-193:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
-  %194 = load atomic i32, ptr %127 monotonic, align 4
-  %195 = icmp ne i32 %194, 0
-  call void @llvm.assume(i1 %195)
+189:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
+  %190 = load atomic i32, ptr %123 monotonic, align 4
+  %191 = icmp ne i32 %190, 0
+  call void @llvm.assume(i1 %191)
   %.pr.pre = load ptr, ptr %36, align 8
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75
 
-196:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
-  %197 = load ptr, ptr %36, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread, label %199
+192:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit74
+  %193 = load ptr, ptr %36, align 8
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread, label %195
 
-199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %197, i64 4
-  %201 = load atomic i32, ptr %200 monotonic, align 4
-  %202 = icmp ne i32 %201, 0
-  call void @llvm.assume(i1 %202)
+195:                                              ; preds = %192
+  %196 = getelementptr inbounds i8, ptr %193, i64 4
+  %197 = load atomic i32, ptr %196 monotonic, align 4
+  %198 = icmp ne i32 %197, 0
+  call void @llvm.assume(i1 %198)
   br label %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75
 
-_ZNK20QCPAbstractPlottable7keyAxisEv.exit75:      ; preds = %199, %193
-  %.pr = phi ptr [ %197, %199 ], [ %.pr.pre, %193 ]
-  %.ph.in = phi ptr [ %43, %199 ], [ %33, %193 ]
+_ZNK20QCPAbstractPlottable7keyAxisEv.exit75:      ; preds = %195, %189
+  %.pr = phi ptr [ %193, %195 ], [ %.pr.pre, %189 ]
+  %.ph.in = phi ptr [ %43, %195 ], [ %33, %189 ]
   %.ph = load ptr, ptr %.ph.in, align 8
-  %203 = getelementptr inbounds i8, ptr %.ph, i64 320
-  %204 = load i8, ptr %203, align 8
-  %205 = trunc i8 %204 to i1
-  %206 = getelementptr inbounds i8, ptr %.pr, i64 4
-  %207 = load atomic i32, ptr %206 monotonic, align 4
-  %208 = icmp ne i32 %207, 0
-  call void @llvm.assume(i1 %208)
-  %209 = load ptr, ptr %43, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 76
-  %211 = load i32, ptr %210, align 4
-  %212 = icmp eq i32 %211, 2
-  br i1 %212, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77
+  %199 = getelementptr inbounds i8, ptr %.ph, i64 320
+  %200 = load i8, ptr %199, align 8
+  %201 = trunc i8 %200 to i1
+  %202 = getelementptr inbounds i8, ptr %.pr, i64 4
+  %203 = load atomic i32, ptr %202 monotonic, align 4
+  %204 = icmp ne i32 %203, 0
+  call void @llvm.assume(i1 %204)
+  %205 = load ptr, ptr %43, align 8
+  %206 = getelementptr inbounds i8, ptr %205, i64 76
+  %207 = load i32, ptr %206, align 4
+  %208 = icmp eq i32 %207, 2
+  br i1 %208, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split, label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77
 
-_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread: ; preds = %196
-  %213 = load i8, ptr inttoptr (i64 320 to ptr), align 64
-  %214 = trunc i8 %213 to i1
-  %215 = load i32, ptr inttoptr (i64 76 to ptr), align 4
-  %216 = icmp ne i32 %215, 2
+_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread: ; preds = %192
+  %209 = load i8, ptr inttoptr (i64 320 to ptr), align 64
+  %210 = trunc i8 %209 to i1
+  %211 = load i32, ptr inttoptr (i64 76 to ptr), align 4
+  %212 = icmp ne i32 %211, 2
   br label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split
 
 _ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split: ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread
-  %.sink155 = phi i1 [ %216, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ true, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
-  %.sink.ph = phi ptr [ %127, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %206, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
-  %.ph153 = phi ptr [ %130, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %209, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
-  %.ph154 = phi i1 [ %214, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %205, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
+  %.sink155 = phi i1 [ %212, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ true, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
+  %.sink.ph = phi ptr [ %123, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %202, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
+  %.ph153 = phi ptr [ %126, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %205, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
+  %.ph154 = phi i1 [ %210, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit76.thread ], [ %201, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ]
   call void @llvm.assume(i1 %.sink155)
   br label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77
 
 _ZNK20QCPAbstractPlottable9valueAxisEv.exit77:    ; preds = %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75
-  %.sink = phi ptr [ %127, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.sink.ph, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
-  %217 = phi ptr [ %130, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.ph153, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
-  %218 = phi i1 [ %205, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.ph154, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
-  %219 = load atomic i32, ptr %.sink monotonic, align 4
-  %220 = icmp ne i32 %219, 0
-  call void @llvm.assume(i1 %220)
-  %221 = getelementptr inbounds i8, ptr %217, i64 320
-  %222 = load i8, ptr %221, align 8
-  %223 = trunc i8 %222 to i1
-  %224 = invoke i32 @_ZNK8QPainter11renderHintsEv(ptr noundef nonnull align 8 dereferenceable(8) %.0)
-          to label %225 unwind label %101
+  %.sink = phi ptr [ %123, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.sink.ph, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
+  %213 = phi ptr [ %126, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.ph153, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
+  %214 = phi i1 [ %201, %_ZNK20QCPAbstractPlottable7keyAxisEv.exit75 ], [ %.ph154, %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77.sink.split ]
+  %215 = load atomic i32, ptr %.sink monotonic, align 4
+  %216 = icmp ne i32 %215, 0
+  call void @llvm.assume(i1 %216)
+  %217 = getelementptr inbounds i8, ptr %213, i64 320
+  %218 = load i8, ptr %217, align 8
+  %219 = trunc i8 %218 to i1
+  %220 = invoke i32 @_ZNK8QPainter11renderHintsEv(ptr noundef nonnull align 8 dereferenceable(8) %.0)
+          to label %221 unwind label %97
 
-225:                                              ; preds = %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77
-  %226 = and i32 %224, 4
-  %227 = icmp ne i32 %226, 0
-  %228 = getelementptr inbounds i8, ptr %0, i64 296
-  %229 = load i8, ptr %228, align 8
-  %230 = trunc i8 %229 to i1
-  invoke void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(8) %.0, i32 noundef 4, i1 noundef zeroext %230)
-          to label %231 unwind label %101
+221:                                              ; preds = %_ZNK20QCPAbstractPlottable9valueAxisEv.exit77
+  %222 = and i32 %220, 4
+  %223 = icmp ne i32 %222, 0
+  %224 = getelementptr inbounds i8, ptr %0, i64 296
+  %225 = load i8, ptr %224, align 8
+  %226 = trunc i8 %225 to i1
+  invoke void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(8) %.0, i32 noundef 4, i1 noundef zeroext %226)
+          to label %227 unwind label %97
 
-231:                                              ; preds = %225
+227:                                              ; preds = %221
   invoke void @_ZN7QRegionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %232 unwind label %101
+          to label %228 unwind label %97
 
-232:                                              ; preds = %231
-  %233 = getelementptr inbounds i8, ptr %0, i64 297
-  %234 = load i8, ptr %233, align 1
-  %235 = trunc i8 %234 to i1
-  br i1 %235, label %236, label %261
+228:                                              ; preds = %227
+  %229 = getelementptr inbounds i8, ptr %0, i64 297
+  %230 = load i8, ptr %229, align 1
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %232, label %257
 
-236:                                              ; preds = %232
+232:                                              ; preds = %228
   invoke void @_ZNK8QPainter10clipRegionEv(ptr dead_on_unwind nonnull writable sret(%class.QRegion) align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %.0)
-          to label %237 unwind label %259
+          to label %233 unwind label %255
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %15, align 8
-  %239 = load ptr, ptr %16, align 8
-  store ptr %239, ptr %15, align 8
-  store ptr %238, ptr %16, align 8
+233:                                              ; preds = %232
+  %234 = load ptr, ptr %15, align 8
+  %235 = load ptr, ptr %16, align 8
+  store ptr %235, ptr %15, align 8
+  store ptr %234, ptr %16, align 8
   call void @_ZN7QRegionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #47
-  %240 = load ptr, ptr %20, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
-  %.sroa.0.0.copyload.i79 = load double, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %240, i64 24
-  %.sroa.0.0.copyload.i84 = load double, ptr %242, align 8
-  %243 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.0.0.copyload.i79, double noundef %.sroa.0.0.copyload.i84)
-          to label %244 unwind label %259
+  %236 = load ptr, ptr %20, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %.sroa.0.0.copyload.i79 = load double, ptr %237, align 8
+  %238 = getelementptr inbounds i8, ptr %236, i64 24
+  %.sroa.0.0.copyload.i84 = load double, ptr %238, align 8
+  %239 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.0.0.copyload.i79, double noundef %.sroa.0.0.copyload.i84)
+          to label %240 unwind label %255
 
-244:                                              ; preds = %237
-  %245 = load ptr, ptr %20, align 8
-  %.sroa.2.0..sroa_idx.i90 = getelementptr inbounds i8, ptr %245, i64 16
+240:                                              ; preds = %233
+  %241 = load ptr, ptr %20, align 8
+  %.sroa.2.0..sroa_idx.i90 = getelementptr inbounds i8, ptr %241, i64 16
   %.sroa.2.0.copyload.i91 = load double, ptr %.sroa.2.0..sroa_idx.i90, align 8
-  %.sroa.2.0..sroa_idx.i95 = getelementptr inbounds i8, ptr %245, i64 32
+  %.sroa.2.0..sroa_idx.i95 = getelementptr inbounds i8, ptr %241, i64 32
   %.sroa.2.0.copyload.i96 = load double, ptr %.sroa.2.0..sroa_idx.i95, align 8
-  %246 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.2.0.copyload.i91, double noundef %.sroa.2.0.copyload.i96)
-          to label %247 unwind label %259
+  %242 = invoke { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull align 8 dereferenceable(184) %0, double noundef %.sroa.2.0.copyload.i91, double noundef %.sroa.2.0.copyload.i96)
+          to label %243 unwind label %255
 
-247:                                              ; preds = %244
-  %248 = extractvalue { double, double } %243, 1
-  %249 = extractvalue { double, double } %243, 0
-  %250 = extractvalue { double, double } %246, 0
-  %251 = extractvalue { double, double } %246, 1
-  store double %249, ptr %18, align 8
-  %252 = getelementptr inbounds i8, ptr %18, i64 8
-  store double %248, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %18, i64 16
-  %254 = insertelement <2 x double> poison, double %250, i64 0
-  %255 = insertelement <2 x double> %254, double %251, i64 1
-  %256 = insertelement <2 x double> poison, double %249, i64 0
-  %257 = insertelement <2 x double> %256, double %248, i64 1
-  %258 = fsub <2 x double> %255, %257
-  store <2 x double> %258, ptr %253, align 8
+243:                                              ; preds = %240
+  %244 = extractvalue { double, double } %239, 1
+  %245 = extractvalue { double, double } %239, 0
+  %246 = extractvalue { double, double } %242, 0
+  %247 = extractvalue { double, double } %242, 1
+  store double %245, ptr %18, align 8
+  %248 = getelementptr inbounds i8, ptr %18, i64 8
+  store double %244, ptr %248, align 8
+  %249 = getelementptr inbounds i8, ptr %18, i64 16
+  %250 = insertelement <2 x double> poison, double %246, i64 0
+  %251 = insertelement <2 x double> %250, double %247, i64 1
+  %252 = insertelement <2 x double> poison, double %245, i64 0
+  %253 = insertelement <2 x double> %252, double %244, i64 1
+  %254 = fsub <2 x double> %251, %253
+  store <2 x double> %254, ptr %249, align 8
   call void @_ZNK6QRectF10normalizedEv(ptr dead_on_unwind nonnull writable sret(%class.QRectF) align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #47
   invoke void @_ZN8QPainter11setClipRectERK6QRectFN2Qt13ClipOperationE(ptr noundef nonnull align 8 dereferenceable(8) %.0, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 2)
-          to label %261 unwind label %259
+          to label %257 unwind label %255
 
-259:                                              ; preds = %_ZN10QCPPainterD2Ev.exit, %261, %275, %272, %247, %244, %237, %236
-  %260 = landingpad { ptr, i32 }
+255:                                              ; preds = %_ZN10QCPPainterD2Ev.exit, %257, %271, %268, %243, %240, %233, %232
+  %256 = landingpad { ptr, i32 }
           cleanup
-  br label %296
+  br label %292
 
-261:                                              ; preds = %247, %232
-  %262 = getelementptr inbounds i8, ptr %0, i64 320
-  invoke void @_ZNK6QImage15mirrored_helperEbb(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %262, i1 noundef zeroext %218, i1 noundef zeroext %223)
-          to label %_ZNKR6QImage8mirroredEbb.exit unwind label %259
+257:                                              ; preds = %243, %228
+  %258 = getelementptr inbounds i8, ptr %0, i64 320
+  invoke void @_ZNK6QImage15mirrored_helperEbb(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %258, i1 noundef zeroext %214, i1 noundef zeroext %219)
+          to label %_ZNKR6QImage8mirroredEbb.exit unwind label %255
 
-_ZNKR6QImage8mirroredEbb.exit:                    ; preds = %261
+_ZNKR6QImage8mirroredEbb.exit:                    ; preds = %257
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %263 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %.noexc unwind label %273
+  %259 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %.noexc unwind label %269
 
 .noexc:                                           ; preds = %_ZNKR6QImage8mirroredEbb.exit
-  %264 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %.noexc99 unwind label %273
+  %260 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+          to label %.noexc99 unwind label %269
 
 .noexc99:                                         ; preds = %.noexc
-  %265 = getelementptr inbounds i8, ptr %5, i64 16
-  %266 = sitofp i32 %263 to double
+  %261 = getelementptr inbounds i8, ptr %5, i64 16
+  %262 = sitofp i32 %259 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store double %266, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %5, i64 24
-  %268 = sitofp i32 %264 to double
-  store double %268, ptr %267, align 8
+  store double %262, ptr %261, align 8
+  %263 = getelementptr inbounds i8, ptr %5, i64 24
+  %264 = sitofp i32 %260 to double
+  store double %264, ptr %263, align 8
   invoke void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %.0, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 0)
-          to label %269 unwind label %273
+          to label %265 unwind label %269
 
-269:                                              ; preds = %.noexc99
+265:                                              ; preds = %.noexc99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #47
-  %270 = load i8, ptr %233, align 1
-  %271 = trunc i8 %270 to i1
-  br i1 %271, label %272, label %275
+  %266 = load i8, ptr %229, align 1
+  %267 = trunc i8 %266 to i1
+  br i1 %267, label %268, label %271
 
-272:                                              ; preds = %269
+268:                                              ; preds = %265
   invoke void @_ZN8QPainter13setClipRegionERK7QRegionN2Qt13ClipOperationE(ptr noundef nonnull align 8 dereferenceable(8) %.0, ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 1)
-          to label %275 unwind label %259
+          to label %271 unwind label %255
 
-273:                                              ; preds = %.noexc99, %.noexc, %_ZNKR6QImage8mirroredEbb.exit
-  %274 = landingpad { ptr, i32 }
+269:                                              ; preds = %.noexc99, %.noexc, %_ZNKR6QImage8mirroredEbb.exit
+  %270 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #47
-  br label %296
+  br label %292
 
-275:                                              ; preds = %272, %269
-  invoke void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(8) %.0, i32 noundef 4, i1 noundef zeroext %227)
-          to label %276 unwind label %259
+271:                                              ; preds = %268, %265
+  invoke void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(8) %.0, i32 noundef 4, i1 noundef zeroext %223)
+          to label %272 unwind label %255
 
-276:                                              ; preds = %275
-  br i1 %.not149, label %295, label %277
+272:                                              ; preds = %271
+  br i1 %.not149, label %291, label %273
 
-277:                                              ; preds = %276
-  %278 = getelementptr inbounds i8, ptr %.0, i64 16
-  %279 = load ptr, ptr %278, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %279, null
+273:                                              ; preds = %272
+  %274 = getelementptr inbounds i8, ptr %.0, i64 16
+  %275 = load ptr, ptr %274, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %275, null
   br i1 %.not.i.i.i.i.i, label %_ZN10QCPPainterD2Ev.exit, label %_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i
 
-_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i:   ; preds = %277
-  %280 = atomicrmw sub ptr %279, i32 1 seq_cst, align 4
-  %.not.i.i.i.i = icmp eq i32 %280, 1
-  br i1 %.not.i.i.i.i, label %281, label %_ZN10QCPPainterD2Ev.exit
+_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i:   ; preds = %273
+  %276 = atomicrmw sub ptr %275, i32 1 seq_cst, align 4
+  %.not.i.i.i.i = icmp eq i32 %276, 1
+  br i1 %.not.i.i.i.i, label %277, label %_ZN10QCPPainterD2Ev.exit
 
-281:                                              ; preds = %_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i
-  %282 = load ptr, ptr %278, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %282, i64 noundef 1, i64 noundef 8) #47
+277:                                              ; preds = %_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i
+  %278 = load ptr, ptr %274, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %278, i64 noundef 1, i64 noundef 8) #47
   br label %_ZN10QCPPainterD2Ev.exit
 
-_ZN10QCPPainterD2Ev.exit:                         ; preds = %277, %_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i, %281
+_ZN10QCPPainterD2Ev.exit:                         ; preds = %273, %_ZN17QArrayDataPointerIbE5derefEv.exit.i.i.i.i, %277
   call void @_ZN8QPainterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.0) #47
   call void @_ZdlPv(ptr noundef nonnull %.0) #49
-  %283 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %106)
+  %279 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %102)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %284 = fadd <2 x double> %106, %283
-  %285 = fptosi <2 x double> %284 to <2 x i32>
-  %286 = sitofp <2 x i32> %285 to <2 x double>
-  store <2 x double> %286, ptr %3, align 16
-  %287 = getelementptr inbounds i8, ptr %3, i64 16
-  %288 = fsub <2 x double> %106, %286
-  %289 = fmul <2 x double> %288, <double 5.000000e-01, double 5.000000e-01>
-  %290 = fadd <2 x double> %107, %289
-  %291 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %290)
-  %292 = fadd <2 x double> %290, %291
-  %293 = fptosi <2 x double> %292 to <2 x i32>
-  %294 = sitofp <2 x i32> %293 to <2 x double>
-  store <2 x double> %294, ptr %287, align 16
+  %280 = fadd <2 x double> %102, %279
+  %281 = fptosi <2 x double> %280 to <2 x i32>
+  %282 = sitofp <2 x i32> %281 to <2 x double>
+  store <2 x double> %282, ptr %3, align 16
+  %283 = getelementptr inbounds i8, ptr %3, i64 16
+  %284 = fsub <2 x double> %102, %282
+  %285 = fmul <2 x double> %284, <double 5.000000e-01, double 5.000000e-01>
+  %286 = fadd <2 x double> %103, %285
+  %287 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %286)
+  %288 = fadd <2 x double> %286, %287
+  %289 = fptosi <2 x double> %288 to <2 x i32>
+  %290 = sitofp <2 x i32> %289 to <2 x double>
+  store <2 x double> %290, ptr %283, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   invoke void @_ZN8QPainter10drawPixmapERK6QRectFRK7QPixmapS2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN8QPainter10drawPixmapERK5QRectRK7QPixmap.exit unwind label %259
+          to label %_ZN8QPainter10drawPixmapERK5QRectRK7QPixmap.exit unwind label %255
 
 _ZN8QPainter10drawPixmapERK5QRectRK7QPixmap.exit: ; preds = %_ZN10QCPPainterD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %295
+  br label %291
 
-295:                                              ; preds = %_ZN8QPainter10drawPixmapERK5QRectRK7QPixmap.exit, %276
+291:                                              ; preds = %_ZN8QPainter10drawPixmapERK5QRectRK7QPixmap.exit, %272
   call void @_ZN7QRegionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #47
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #47
   br label %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread
 
-_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %35, %39, %25, %29, %2, %295
+_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %35, %39, %25, %29, %2, %291
   ret void
 
-296:                                              ; preds = %273, %259
-  %.pn = phi { ptr, i32 } [ %260, %259 ], [ %274, %273 ]
+292:                                              ; preds = %269, %255
+  %.pn = phi { ptr, i32 } [ %256, %255 ], [ %270, %269 ]
   call void @_ZN7QRegionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #47
-  br label %297
+  br label %293
 
-297:                                              ; preds = %296, %103, %101
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %296 ], [ %102, %101 ], [ %104, %103 ]
+293:                                              ; preds = %292, %99, %97
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %292 ], [ %98, %97 ], [ %100, %99 ]
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #47
   resume { ptr, i32 } %.pn.pn
 }
@@ -153675,7 +153655,7 @@ define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr n
   %11 = getelementptr inbounds i8, ptr %0, i64 128
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %97
+  br i1 %13, label %14, label %95
 
 14:                                               ; preds = %10, %4
   %15 = getelementptr inbounds i8, ptr %0, i64 136
@@ -153712,114 +153692,103 @@ define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %5, align 16
   %41 = invoke { i64, i64 } @_ZNK12QFontMetrics12boundingRectERK5QRectiRK7QStringiPi(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef 0, ptr noundef null)
-          to label %42 unwind label %95
+          to label %42 unwind label %93
 
 42:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %43 = extractvalue { i64, i64 } %41, 0
-  %.sroa.026.0.extract.trunc = trunc i64 %43 to i32
-  %.sroa.227.0.extract.shift = lshr i64 %43, 32
-  %.sroa.227.0.extract.trunc = trunc nuw i64 %.sroa.227.0.extract.shift to i32
   %44 = extractvalue { i64, i64 } %41, 1
-  %.sroa.3.8.extract.trunc = trunc i64 %44 to i32
-  %.sroa.528.8.extract.shift = lshr i64 %44, 32
-  %.sroa.528.8.extract.trunc = trunc nuw i64 %.sroa.528.8.extract.shift to i32
   %45 = getelementptr inbounds i8, ptr %0, i64 344
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 348
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 352
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 356
-  %52 = load i32, ptr %51, align 4
-  %.neg36 = sub i32 %46, %.sroa.026.0.extract.trunc
-  %.neg = sub i32 %48, %.sroa.227.0.extract.trunc
-  %53 = add i32 %50, %.sroa.3.8.extract.trunc
-  %54 = add i32 %52, %.sroa.528.8.extract.trunc
-  %55 = add i32 %53, 1
-  %56 = add i32 %55, %.neg36
-  %57 = sitofp i32 %56 to double
-  %58 = add i32 %54, 1
-  %59 = add i32 %58, %.neg
-  %60 = sitofp i32 %59 to double
-  %61 = getelementptr inbounds i8, ptr %0, i64 328
-  %.sroa.0.0.copyload = load i32, ptr %61, align 8
-  %62 = insertelement <2 x double> poison, double %21, i64 0
-  %63 = insertelement <2 x double> %62, double %22, i64 1
-  switch i32 %.sroa.0.0.copyload, label %64 [
+  %46 = getelementptr inbounds i8, ptr %0, i64 352
+  %47 = bitcast i64 %43 to <2 x i32>
+  %48 = bitcast i64 %44 to <2 x i32>
+  %49 = load <2 x i32>, ptr %45, align 8
+  %50 = load <2 x i32>, ptr %46, align 8
+  %51 = sub <2 x i32> %49, %47
+  %52 = add <2 x i32> %50, %48
+  %53 = add <2 x i32> %52, <i32 1, i32 1>
+  %54 = add <2 x i32> %53, %51
+  %55 = sitofp <2 x i32> %54 to <2 x double>
+  %56 = getelementptr inbounds i8, ptr %0, i64 328
+  %.sroa.0.0.copyload = load i32, ptr %56, align 8
+  %57 = insertelement <2 x double> poison, double %21, i64 0
+  %58 = insertelement <2 x double> %57, double %22, i64 1
+  switch i32 %.sroa.0.0.copyload, label %59 [
     i32 0, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
     i32 33, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
   ]
 
-64:                                               ; preds = %42
-  %65 = and i32 %.sroa.0.0.copyload, 4
-  %.not.i = icmp eq i32 %65, 0
-  br i1 %.not.i, label %69, label %66
+59:                                               ; preds = %42
+  %60 = and i32 %.sroa.0.0.copyload, 4
+  %.not.i = icmp eq i32 %60, 0
+  br i1 %.not.i, label %65, label %61
 
-66:                                               ; preds = %64
-  %67 = fmul double %57, 5.000000e-01
-  %68 = fsub double %21, %67
-  br label %73
+61:                                               ; preds = %59
+  %62 = extractelement <2 x double> %55, i64 0
+  %63 = fmul double %62, 5.000000e-01
+  %64 = fsub double %21, %63
+  br label %70
 
-69:                                               ; preds = %64
-  %70 = and i32 %.sroa.0.0.copyload, 2
-  %.not18.i = icmp eq i32 %70, 0
-  br i1 %.not18.i, label %73, label %71
+65:                                               ; preds = %59
+  %66 = and i32 %.sroa.0.0.copyload, 2
+  %.not18.i = icmp eq i32 %66, 0
+  br i1 %.not18.i, label %70, label %67
 
-71:                                               ; preds = %69
-  %72 = fsub double %21, %57
-  br label %73
+67:                                               ; preds = %65
+  %68 = extractelement <2 x double> %55, i64 0
+  %69 = fsub double %21, %68
+  br label %70
 
-73:                                               ; preds = %71, %69, %66
-  %.sroa.012.0.i = phi double [ %68, %66 ], [ %72, %71 ], [ %21, %69 ]
-  %74 = and i32 %.sroa.0.0.copyload, 128
-  %.not19.i = icmp eq i32 %74, 0
-  br i1 %.not19.i, label %80, label %75
+70:                                               ; preds = %67, %65, %61
+  %.sroa.012.0.i = phi double [ %64, %61 ], [ %69, %67 ], [ %21, %65 ]
+  %71 = and i32 %.sroa.0.0.copyload, 128
+  %.not19.i = icmp eq i32 %71, 0
+  br i1 %.not19.i, label %78, label %72
 
-75:                                               ; preds = %73
-  %76 = fmul double %60, 5.000000e-01
-  %77 = fsub double %22, %76
-  %78 = insertelement <2 x double> poison, double %.sroa.012.0.i, i64 0
-  %79 = insertelement <2 x double> %78, double %77, i64 1
+72:                                               ; preds = %70
+  %73 = extractelement <2 x double> %55, i64 1
+  %74 = fmul double %73, 5.000000e-01
+  %75 = fsub double %22, %74
+  %76 = insertelement <2 x double> poison, double %.sroa.012.0.i, i64 0
+  %77 = insertelement <2 x double> %76, double %75, i64 1
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
-80:                                               ; preds = %73
-  %81 = and i32 %.sroa.0.0.copyload, 64
-  %.not20.i = icmp eq i32 %81, 0
-  %82 = insertelement <2 x double> %63, double %.sroa.012.0.i, i64 0
-  br i1 %.not20.i, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit, label %83
+78:                                               ; preds = %70
+  %79 = and i32 %.sroa.0.0.copyload, 64
+  %.not20.i = icmp eq i32 %79, 0
+  %80 = insertelement <2 x double> %58, double %.sroa.012.0.i, i64 0
+  br i1 %.not20.i, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit, label %81
 
-83:                                               ; preds = %80
-  %84 = fsub double %22, %60
-  %85 = insertelement <2 x double> %82, double %84, i64 1
+81:                                               ; preds = %78
+  %82 = extractelement <2 x double> %55, i64 1
+  %83 = fsub double %22, %82
+  %84 = insertelement <2 x double> %80, double %83, i64 1
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
-_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit: ; preds = %42, %42, %75, %80, %83
-  %86 = phi <2 x double> [ %79, %75 ], [ %85, %83 ], [ %82, %80 ], [ %63, %42 ], [ %63, %42 ]
-  %87 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %86)
-  %88 = fadd <2 x double> %86, %87
-  %89 = fptosi <2 x double> %88 to <2 x i32>
-  %90 = sitofp <2 x i32> %89 to <2 x double>
-  store <2 x double> %90, ptr %9, align 16
-  %91 = getelementptr inbounds i8, ptr %9, i64 16
-  store double %57, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %9, i64 24
-  store double %60, ptr %92, align 8
-  %93 = invoke noundef double @_ZNK15QCPAbstractItem12rectDistanceERK6QRectFRK7QPointFb(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext true)
-          to label %94 unwind label %95
+_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit: ; preds = %42, %42, %72, %78, %81
+  %85 = phi <2 x double> [ %77, %72 ], [ %84, %81 ], [ %80, %78 ], [ %58, %42 ], [ %58, %42 ]
+  %86 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %85)
+  %87 = fadd <2 x double> %85, %86
+  %88 = fptosi <2 x double> %87 to <2 x i32>
+  %89 = sitofp <2 x i32> %88 to <2 x double>
+  store <2 x double> %89, ptr %9, align 16
+  %90 = getelementptr inbounds i8, ptr %9, i64 16
+  store <2 x double> %55, ptr %90, align 16
+  %91 = invoke noundef double @_ZNK15QCPAbstractItem12rectDistanceERK6QRectFRK7QPointFb(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext true)
+          to label %92 unwind label %93
 
-94:                                               ; preds = %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
+92:                                               ; preds = %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
-  br label %97
+  br label %95
 
-95:                                               ; preds = %14, %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %14, %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
+  %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
-  resume { ptr, i32 } %96
+  resume { ptr, i32 } %94
 
-97:                                               ; preds = %10, %94
-  %.0 = phi double [ %93, %94 ], [ -1.000000e+00, %10 ]
+95:                                               ; preds = %10, %92
+  %.0 = phi double [ %91, %92 ], [ -1.000000e+00, %10 ]
   ret double %.0
 }
 
@@ -154431,7 +154400,7 @@ define { double, double } @_ZNK11QCPItemText19anchorPixelPositionEi(ptr noundef 
   %34 = getelementptr inbounds i8, ptr %0, i64 %.v.i
   call void @_ZN5QFontC1ERKS_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %34)
   invoke void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(12) %6)
-          to label %35 unwind label %96
+          to label %35 unwind label %94
 
 35:                                               ; preds = %30
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #47
@@ -154442,323 +154411,312 @@ define { double, double } @_ZNK11QCPItemText19anchorPixelPositionEi(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %3, align 16
   %40 = invoke { i64, i64 } @_ZNK12QFontMetrics12boundingRectERK5QRectiRK7QStringiPi(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(16) %3, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 noundef 0, ptr noundef null)
-          to label %41 unwind label %98
+          to label %41 unwind label %96
 
 41:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %42 = extractvalue { i64, i64 } %40, 0
-  %.sroa.058.0.extract.trunc = trunc i64 %42 to i32
-  %.sroa.259.0.extract.shift = lshr i64 %42, 32
-  %.sroa.259.0.extract.trunc = trunc nuw i64 %.sroa.259.0.extract.shift to i32
   %43 = extractvalue { i64, i64 } %40, 1
-  %.sroa.360.8.extract.trunc = trunc i64 %43 to i32
-  %.sroa.561.8.extract.shift = lshr i64 %43, 32
-  %.sroa.561.8.extract.trunc = trunc nuw i64 %.sroa.561.8.extract.shift to i32
   %44 = getelementptr inbounds i8, ptr %0, i64 344
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 348
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 352
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 356
-  %51 = load i32, ptr %50, align 4
-  %.neg = sub i32 %45, %.sroa.058.0.extract.trunc
-  %.neg75 = sub i32 %47, %.sroa.259.0.extract.trunc
-  %52 = getelementptr inbounds i8, ptr %7, i64 16
-  %53 = add i32 %.sroa.360.8.extract.trunc, 1
-  %54 = add i32 %.neg, %53
-  %55 = add i32 %54, %49
-  %56 = sitofp i32 %55 to double
-  store double %56, ptr %52, align 16
-  %57 = getelementptr inbounds i8, ptr %7, i64 24
-  %58 = add i32 %.sroa.561.8.extract.trunc, 1
-  %59 = add i32 %.neg75, %58
-  %60 = add i32 %59, %51
-  %61 = sitofp i32 %60 to double
-  store double %61, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 328
-  %.sroa.0.0.copyload = load i32, ptr %62, align 8
-  switch i32 %.sroa.0.0.copyload, label %63 [
+  %45 = getelementptr inbounds i8, ptr %0, i64 352
+  %46 = getelementptr inbounds i8, ptr %7, i64 16
+  %47 = bitcast i64 %42 to <2 x i32>
+  %48 = bitcast i64 %43 to <2 x i32>
+  %49 = load <2 x i32>, ptr %44, align 8
+  %50 = load <2 x i32>, ptr %45, align 8
+  %51 = sub <2 x i32> %49, %47
+  %52 = add <2 x i32> %48, <i32 1, i32 1>
+  %53 = add <2 x i32> %51, %52
+  %54 = add <2 x i32> %53, %50
+  %55 = sitofp <2 x i32> %54 to <2 x double>
+  store <2 x double> %55, ptr %46, align 16
+  %56 = getelementptr inbounds i8, ptr %0, i64 328
+  %.sroa.0.0.copyload = load i32, ptr %56, align 8
+  switch i32 %.sroa.0.0.copyload, label %57 [
     i32 0, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
     i32 33, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
   ]
 
-63:                                               ; preds = %41
-  %64 = and i32 %.sroa.0.0.copyload, 4
-  %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %68, label %65
+57:                                               ; preds = %41
+  %58 = and i32 %.sroa.0.0.copyload, 4
+  %.not.i = icmp eq i32 %58, 0
+  br i1 %.not.i, label %63, label %59
+
+59:                                               ; preds = %57
+  %60 = extractelement <2 x double> %55, i64 0
+  %61 = fmul double %60, 5.000000e-01
+  %62 = fsub double 0.000000e+00, %61
+  br label %68
+
+63:                                               ; preds = %57
+  %64 = and i32 %.sroa.0.0.copyload, 2
+  %.not18.i = icmp eq i32 %64, 0
+  br i1 %.not18.i, label %68, label %65
 
 65:                                               ; preds = %63
-  %66 = fmul double %56, 5.000000e-01
+  %66 = extractelement <2 x double> %55, i64 0
   %67 = fsub double 0.000000e+00, %66
-  br label %72
+  br label %68
 
-68:                                               ; preds = %63
-  %69 = and i32 %.sroa.0.0.copyload, 2
-  %.not18.i = icmp eq i32 %69, 0
-  br i1 %.not18.i, label %72, label %70
+68:                                               ; preds = %65, %63, %59
+  %.sroa.012.0.i = phi double [ %62, %59 ], [ %67, %65 ], [ 0.000000e+00, %63 ]
+  %69 = and i32 %.sroa.0.0.copyload, 128
+  %.not19.i = icmp eq i32 %69, 0
+  br i1 %.not19.i, label %76, label %70
 
 70:                                               ; preds = %68
-  %71 = fsub double 0.000000e+00, %56
-  br label %72
-
-72:                                               ; preds = %70, %68, %65
-  %.sroa.012.0.i = phi double [ %67, %65 ], [ %71, %70 ], [ 0.000000e+00, %68 ]
-  %73 = and i32 %.sroa.0.0.copyload, 128
-  %.not19.i = icmp eq i32 %73, 0
-  br i1 %.not19.i, label %79, label %74
-
-74:                                               ; preds = %72
-  %75 = fmul double %61, 5.000000e-01
-  %76 = fsub double 0.000000e+00, %75
-  %77 = insertelement <2 x double> poison, double %.sroa.012.0.i, i64 0
-  %78 = insertelement <2 x double> %77, double %76, i64 1
+  %71 = extractelement <2 x double> %55, i64 1
+  %72 = fmul double %71, 5.000000e-01
+  %73 = fsub double 0.000000e+00, %72
+  %74 = insertelement <2 x double> poison, double %.sroa.012.0.i, i64 0
+  %75 = insertelement <2 x double> %74, double %73, i64 1
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
-79:                                               ; preds = %72
-  %80 = and i32 %.sroa.0.0.copyload, 64
-  %.not20.i = icmp eq i32 %80, 0
-  %81 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.012.0.i, i64 0
-  br i1 %.not20.i, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit, label %82
+76:                                               ; preds = %68
+  %77 = and i32 %.sroa.0.0.copyload, 64
+  %.not20.i = icmp eq i32 %77, 0
+  %78 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.sroa.012.0.i, i64 0
+  br i1 %.not20.i, label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit, label %79
 
-82:                                               ; preds = %79
-  %83 = fsub double 0.000000e+00, %61
-  %84 = insertelement <2 x double> %81, double %83, i64 1
+79:                                               ; preds = %76
+  %80 = extractelement <2 x double> %55, i64 1
+  %81 = fsub double 0.000000e+00, %80
+  %82 = insertelement <2 x double> %78, double %81, i64 1
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
-_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit: ; preds = %41, %41, %74, %79, %82
-  %85 = phi <2 x double> [ %78, %74 ], [ %84, %82 ], [ %81, %79 ], [ zeroinitializer, %41 ], [ zeroinitializer, %41 ]
-  %86 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %85)
-  %87 = fadd <2 x double> %85, %86
-  %88 = fptosi <2 x double> %87 to <2 x i32>
-  %89 = sitofp <2 x i32> %88 to <2 x double>
-  store <2 x double> %89, ptr %7, align 16
+_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit: ; preds = %41, %41, %70, %76, %79
+  %83 = phi <2 x double> [ %75, %70 ], [ %82, %79 ], [ %78, %76 ], [ zeroinitializer, %41 ], [ zeroinitializer, %41 ]
+  %84 = call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %83)
+  %85 = fadd <2 x double> %83, %84
+  %86 = fptosi <2 x double> %85 to <2 x i32>
+  %87 = sitofp <2 x i32> %86 to <2 x double>
+  store <2 x double> %87, ptr %7, align 16
   invoke void @_ZN9QPolygonFC1ERK6QRectF(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %90 unwind label %98
+          to label %88 unwind label %96
 
-90:                                               ; preds = %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
+88:                                               ; preds = %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
   invoke void @_ZNK10QTransform3mapERK9QPolygonF(ptr dead_on_unwind nonnull writable sret(%class.QPolygonF) align 8 %8, ptr noundef nonnull align 8 dereferenceable(74) %4, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %91 unwind label %100
+          to label %89 unwind label %98
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %92, null
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i, label %_ZN9QPolygonFD2Ev.exit, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i
 
-_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i: ; preds = %91
-  %93 = atomicrmw sub ptr %92, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %93, 1
-  br i1 %.not.i.i.i, label %94, label %_ZN9QPolygonFD2Ev.exit
+_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i: ; preds = %89
+  %91 = atomicrmw sub ptr %90, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %91, 1
+  br i1 %.not.i.i.i, label %92, label %_ZN9QPolygonFD2Ev.exit
 
-94:                                               ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i
-  %95 = load ptr, ptr %9, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %95, i64 noundef 16, i64 noundef 8) #47
+92:                                               ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i
+  %93 = load ptr, ptr %9, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %93, i64 noundef 16, i64 noundef 8) #47
   br label %_ZN9QPolygonFD2Ev.exit
 
-_ZN9QPolygonFD2Ev.exit:                           ; preds = %91, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i, %94
-  switch i32 %1, label %161 [
-    i32 0, label %106
-    i32 1, label %110
-    i32 2, label %120
-    i32 3, label %125
-    i32 4, label %134
-    i32 5, label %139
-    i32 6, label %148
-    i32 7, label %153
+_ZN9QPolygonFD2Ev.exit:                           ; preds = %89, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i, %92
+  switch i32 %1, label %159 [
+    i32 0, label %104
+    i32 1, label %108
+    i32 2, label %118
+    i32 3, label %123
+    i32 4, label %132
+    i32 5, label %137
+    i32 6, label %146
+    i32 7, label %151
   ]
 
-96:                                               ; preds = %30
-  %97 = landingpad { ptr, i32 }
+94:                                               ; preds = %30
+  %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #47
-  br label %192
+  br label %190
 
-98:                                               ; preds = %35, %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
+96:                                               ; preds = %35, %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN9QPolygonFD2Ev.exit15
+
+98:                                               ; preds = %88
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN9QPolygonFD2Ev.exit15
-
-100:                                              ; preds = %90
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  %102 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i12 = icmp eq ptr %102, null
+  %100 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i12 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i12, label %_ZN9QPolygonFD2Ev.exit15, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13
 
-_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13: ; preds = %100
-  %103 = atomicrmw sub ptr %102, i32 1 seq_cst, align 4
-  %.not.i.i.i14 = icmp eq i32 %103, 1
-  br i1 %.not.i.i.i14, label %104, label %_ZN9QPolygonFD2Ev.exit15
+_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13: ; preds = %98
+  %101 = atomicrmw sub ptr %100, i32 1 seq_cst, align 4
+  %.not.i.i.i14 = icmp eq i32 %101, 1
+  br i1 %.not.i.i.i14, label %102, label %_ZN9QPolygonFD2Ev.exit15
 
-104:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13
-  %105 = load ptr, ptr %9, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %105, i64 noundef 16, i64 noundef 8) #47
+102:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13
+  %103 = load ptr, ptr %9, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %103, i64 noundef 16, i64 noundef 8) #47
   br label %_ZN9QPolygonFD2Ev.exit15
 
-106:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %107 = getelementptr inbounds i8, ptr %8, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = load <2 x double>, ptr %108, align 8
-  br label %179
+104:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %105 = getelementptr inbounds i8, ptr %8, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = load <2 x double>, ptr %106, align 8
+  br label %177
 
-110:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %111 = getelementptr inbounds i8, ptr %8, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr i8, ptr %112, i64 16
-  %114 = load <2 x double>, ptr %112, align 8
-  %115 = load <2 x double>, ptr %113, align 8
-  %116 = fadd <2 x double> %114, %115
-  %117 = fmul <2 x double> %116, <double 5.000000e-01, double 5.000000e-01>
-  br label %179
+108:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %109 = getelementptr inbounds i8, ptr %8, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr i8, ptr %110, i64 16
+  %112 = load <2 x double>, ptr %110, align 8
+  %113 = load <2 x double>, ptr %111, align 8
+  %114 = fadd <2 x double> %112, %113
+  %115 = fmul <2 x double> %114, <double 5.000000e-01, double 5.000000e-01>
+  br label %177
 
-118:                                              ; preds = %161
-  %119 = landingpad { ptr, i32 }
+116:                                              ; preds = %159
+  %117 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %185
 
-120:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %121 = getelementptr inbounds i8, ptr %8, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr i8, ptr %122, i64 16
-  %124 = load <2 x double>, ptr %123, align 8
-  br label %179
+118:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %119 = getelementptr inbounds i8, ptr %8, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr i8, ptr %120, i64 16
+  %122 = load <2 x double>, ptr %121, align 8
+  br label %177
 
-125:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %126 = getelementptr inbounds i8, ptr %8, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr i8, ptr %127, i64 16
-  %129 = getelementptr i8, ptr %127, i64 32
-  %130 = load <2 x double>, ptr %128, align 8
-  %131 = load <2 x double>, ptr %129, align 8
-  %132 = fadd <2 x double> %130, %131
-  %133 = fmul <2 x double> %132, <double 5.000000e-01, double 5.000000e-01>
-  br label %179
+123:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %124 = getelementptr inbounds i8, ptr %8, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr i8, ptr %125, i64 16
+  %127 = getelementptr i8, ptr %125, i64 32
+  %128 = load <2 x double>, ptr %126, align 8
+  %129 = load <2 x double>, ptr %127, align 8
+  %130 = fadd <2 x double> %128, %129
+  %131 = fmul <2 x double> %130, <double 5.000000e-01, double 5.000000e-01>
+  br label %177
 
-134:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %135 = getelementptr inbounds i8, ptr %8, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr i8, ptr %136, i64 32
-  %138 = load <2 x double>, ptr %137, align 8
-  br label %179
+132:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %133 = getelementptr inbounds i8, ptr %8, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr i8, ptr %134, i64 32
+  %136 = load <2 x double>, ptr %135, align 8
+  br label %177
 
-139:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %140 = getelementptr inbounds i8, ptr %8, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr i8, ptr %141, i64 32
-  %143 = getelementptr i8, ptr %141, i64 48
-  %144 = load <2 x double>, ptr %142, align 8
-  %145 = load <2 x double>, ptr %143, align 8
-  %146 = fadd <2 x double> %144, %145
-  %147 = fmul <2 x double> %146, <double 5.000000e-01, double 5.000000e-01>
-  br label %179
+137:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %138 = getelementptr inbounds i8, ptr %8, i64 8
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr i8, ptr %139, i64 32
+  %141 = getelementptr i8, ptr %139, i64 48
+  %142 = load <2 x double>, ptr %140, align 8
+  %143 = load <2 x double>, ptr %141, align 8
+  %144 = fadd <2 x double> %142, %143
+  %145 = fmul <2 x double> %144, <double 5.000000e-01, double 5.000000e-01>
+  br label %177
 
-148:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %149 = getelementptr inbounds i8, ptr %8, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr i8, ptr %150, i64 48
-  %152 = load <2 x double>, ptr %151, align 8
-  br label %179
+146:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %147 = getelementptr inbounds i8, ptr %8, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr i8, ptr %148, i64 48
+  %150 = load <2 x double>, ptr %149, align 8
+  br label %177
 
-153:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
-  %154 = getelementptr inbounds i8, ptr %8, i64 8
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr i8, ptr %155, i64 48
-  %157 = load <2 x double>, ptr %156, align 8
-  %158 = load <2 x double>, ptr %155, align 8
-  %159 = fadd <2 x double> %157, %158
-  %160 = fmul <2 x double> %159, <double 5.000000e-01, double 5.000000e-01>
-  br label %179
+151:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+  %152 = getelementptr inbounds i8, ptr %8, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr i8, ptr %153, i64 48
+  %155 = load <2 x double>, ptr %154, align 8
+  %156 = load <2 x double>, ptr %153, align 8
+  %157 = fadd <2 x double> %155, %156
+  %158 = fmul <2 x double> %157, <double 5.000000e-01, double 5.000000e-01>
+  br label %177
 
-161:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
+159:                                              ; preds = %_ZN9QPolygonFD2Ev.exit
   store i32 2, ptr %11, align 8
-  %162 = getelementptr inbounds i8, ptr %11, i64 4
-  %163 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %162, i8 0, i64 20, i1 false)
-  store ptr @.str.229, ptr %163, align 8
+  %160 = getelementptr inbounds i8, ptr %11, i64 4
+  %161 = getelementptr inbounds i8, ptr %11, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %160, i8 0, i64 20, i1 false)
+  store ptr @.str.229, ptr %161, align 8
   invoke void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %164 unwind label %118
+          to label %162 unwind label %116
 
-164:                                              ; preds = %161
-  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK11QCPItemText19anchorPixelPositionEi)
-          to label %166 unwind label %177
+162:                                              ; preds = %159
+  %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK11QCPItemText19anchorPixelPositionEi)
+          to label %164 unwind label %175
+
+164:                                              ; preds = %162
+  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef nonnull @.str.207)
+          to label %166 unwind label %175
 
 166:                                              ; preds = %164
-  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull @.str.207)
-          to label %168 unwind label %177
+  %167 = load ptr, ptr %165, align 8
+  %168 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEi(ptr noundef nonnull align 8 dereferenceable(16) %167, i32 noundef %1)
+          to label %.noexc unwind label %175
 
-168:                                              ; preds = %166
-  %169 = load ptr, ptr %167, align 8
-  %170 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEi(ptr noundef nonnull align 8 dereferenceable(16) %169, i32 noundef %1)
-          to label %.noexc unwind label %177
+.noexc:                                           ; preds = %166
+  %169 = load ptr, ptr %165, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 48
+  %171 = load i8, ptr %170, align 8
+  %172 = trunc i8 %171 to i1
+  br i1 %172, label %173, label %_ZN6QDebuglsEi.exit
 
-.noexc:                                           ; preds = %168
-  %171 = load ptr, ptr %167, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 48
-  %173 = load i8, ptr %172, align 8
-  %174 = trunc i8 %173 to i1
-  br i1 %174, label %175, label %_ZN6QDebuglsEi.exit
+173:                                              ; preds = %.noexc
+  %174 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %169, i8 noundef signext 32)
+          to label %_ZN6QDebuglsEi.exit unwind label %175
 
-175:                                              ; preds = %.noexc
-  %176 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %171, i8 noundef signext 32)
-          to label %_ZN6QDebuglsEi.exit unwind label %177
-
-_ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %175
+_ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %173
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #47
-  br label %179
+  br label %177
 
-177:                                              ; preds = %175, %168, %166, %164
-  %178 = landingpad { ptr, i32 }
+175:                                              ; preds = %173, %166, %164, %162
+  %176 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #47
-  br label %187
+  br label %185
 
-179:                                              ; preds = %_ZN6QDebuglsEi.exit, %153, %148, %139, %134, %125, %120, %110, %106
-  %180 = phi <2 x double> [ zeroinitializer, %_ZN6QDebuglsEi.exit ], [ %160, %153 ], [ %152, %148 ], [ %147, %139 ], [ %138, %134 ], [ %133, %125 ], [ %124, %120 ], [ %117, %110 ], [ %109, %106 ]
-  %181 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %181, null
+177:                                              ; preds = %_ZN6QDebuglsEi.exit, %151, %146, %137, %132, %123, %118, %108, %104
+  %178 = phi <2 x double> [ zeroinitializer, %_ZN6QDebuglsEi.exit ], [ %158, %151 ], [ %150, %146 ], [ %145, %137 ], [ %136, %132 ], [ %131, %123 ], [ %122, %118 ], [ %115, %108 ], [ %107, %104 ]
+  %179 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i33, label %_ZN9QPolygonFD2Ev.exit36, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34
 
-_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34: ; preds = %179
-  %182 = atomicrmw sub ptr %181, i32 1 seq_cst, align 4
-  %.not.i.i.i35 = icmp eq i32 %182, 1
-  br i1 %.not.i.i.i35, label %183, label %_ZN9QPolygonFD2Ev.exit36
+_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34: ; preds = %177
+  %180 = atomicrmw sub ptr %179, i32 1 seq_cst, align 4
+  %.not.i.i.i35 = icmp eq i32 %180, 1
+  br i1 %.not.i.i.i35, label %181, label %_ZN9QPolygonFD2Ev.exit36
 
-183:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34
-  %184 = load ptr, ptr %8, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %184, i64 noundef 16, i64 noundef 8) #47
+181:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34
+  %182 = load ptr, ptr %8, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %182, i64 noundef 16, i64 noundef 8) #47
   br label %_ZN9QPolygonFD2Ev.exit36
 
-_ZN9QPolygonFD2Ev.exit36:                         ; preds = %179, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %183
+_ZN9QPolygonFD2Ev.exit36:                         ; preds = %177, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %181
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #47
-  %185 = extractelement <2 x double> %180, i64 0
-  %.fca.0.insert = insertvalue { double, double } poison, double %185, 0
-  %186 = extractelement <2 x double> %180, i64 1
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %186, 1
+  %183 = extractelement <2 x double> %178, i64 0
+  %.fca.0.insert = insertvalue { double, double } poison, double %183, 0
+  %184 = extractelement <2 x double> %178, i64 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %184, 1
   ret { double, double } %.fca.1.insert
 
-187:                                              ; preds = %177, %118
-  %.pn = phi { ptr, i32 } [ %178, %177 ], [ %119, %118 ]
-  %188 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i37 = icmp eq ptr %188, null
+185:                                              ; preds = %175, %116
+  %.pn = phi { ptr, i32 } [ %176, %175 ], [ %117, %116 ]
+  %186 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i37 = icmp eq ptr %186, null
   br i1 %.not.i.i.i.i37, label %_ZN9QPolygonFD2Ev.exit15, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38
 
-_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38: ; preds = %187
-  %189 = atomicrmw sub ptr %188, i32 1 seq_cst, align 4
-  %.not.i.i.i39 = icmp eq i32 %189, 1
-  br i1 %.not.i.i.i39, label %190, label %_ZN9QPolygonFD2Ev.exit15
+_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38: ; preds = %185
+  %187 = atomicrmw sub ptr %186, i32 1 seq_cst, align 4
+  %.not.i.i.i39 = icmp eq i32 %187, 1
+  br i1 %.not.i.i.i39, label %188, label %_ZN9QPolygonFD2Ev.exit15
 
-190:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38
-  %191 = load ptr, ptr %8, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %191, i64 noundef 16, i64 noundef 8) #47
+188:                                              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38
+  %189 = load ptr, ptr %8, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %189, i64 noundef 16, i64 noundef 8) #47
   br label %_ZN9QPolygonFD2Ev.exit15
 
-_ZN9QPolygonFD2Ev.exit15:                         ; preds = %190, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38, %187, %104, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13, %100, %98
-  %.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ], [ %101, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13 ], [ %101, %104 ], [ %.pn, %187 ], [ %.pn, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38 ], [ %.pn, %190 ]
+_ZN9QPolygonFD2Ev.exit15:                         ; preds = %188, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38, %185, %102, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13, %98, %96
+  %.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %99, %98 ], [ %99, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i13 ], [ %99, %102 ], [ %.pn, %185 ], [ %.pn, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i38 ], [ %.pn, %188 ]
   call void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #47
-  br label %192
+  br label %190
 
-192:                                              ; preds = %_ZN9QPolygonFD2Ev.exit15, %96
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN9QPolygonFD2Ev.exit15 ], [ %97, %96 ]
+190:                                              ; preds = %_ZN9QPolygonFD2Ev.exit15, %94
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN9QPolygonFD2Ev.exit15 ], [ %95, %94 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -156541,13 +156499,13 @@ define { i64, i64 } @_ZNK13QCPItemPixmap12getFinalRectEPbS0_(ptr noundef nonnull
   %37 = add <2 x i32> %26, <i32 -1, i32 -1>
   %38 = extractelement <2 x i32> %26, i64 0
   %39 = extractelement <2 x i32> %26, i64 1
-  br label %110
+  br label %102
 
 40:                                               ; preds = %3
   %41 = getelementptr inbounds i8, ptr %0, i64 248
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %86
+  br i1 %43, label %44, label %80
 
 44:                                               ; preds = %40
   %45 = sub <2 x i32> %31, %26
@@ -156558,106 +156516,97 @@ define { i64, i64 } @_ZNK13QCPItemPixmap12getFinalRectEPbS0_(ptr noundef nonnull
   %48 = getelementptr inbounds i8, ptr %0, i64 200
   %49 = tail call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
   %50 = tail call noundef double @_ZNK7QPixmap16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
-  %51 = lshr i64 %49, 32
-  %52 = insertelement <2 x i64> poison, i64 %49, i64 0
-  %53 = insertelement <2 x i64> %52, i64 %51, i64 1
-  %54 = trunc <2 x i64> %53 to <2 x i32>
-  %55 = sitofp <2 x i32> %54 to <2 x double>
-  %56 = insertelement <2 x double> poison, double %50, i64 0
-  %57 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
-  %58 = fdiv <2 x double> %55, %57
-  %59 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %58)
-  %60 = fadd <2 x double> %58, %59
-  %61 = fptosi <2 x double> %60 to <2 x i32>
-  store <2 x i32> %61, ptr %4, align 8
-  %62 = tail call noundef double @_ZNK7QPixmap16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
-  %63 = sitofp i32 %spec.select71 to double
-  %64 = fmul double %62, %63
-  %65 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %64)
-  %66 = fadd double %64, %65
-  %67 = fptosi double %66 to i32
-  %68 = sitofp i32 %.sroa.5.0 to double
-  %69 = fmul double %62, %68
-  %70 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %69)
-  %71 = fadd double %69, %70
-  %72 = fptosi double %71 to i32
-  %.sroa.2.0.insert.ext.i16 = zext i32 %72 to i64
+  %51 = bitcast i64 %49 to <2 x i32>
+  %52 = sitofp <2 x i32> %51 to <2 x double>
+  %53 = insertelement <2 x double> poison, double %50, i64 0
+  %54 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> zeroinitializer
+  %55 = fdiv <2 x double> %52, %54
+  %56 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %55)
+  %57 = fadd <2 x double> %55, %56
+  %58 = fptosi <2 x double> %57 to <2 x i32>
+  store <2 x i32> %58, ptr %4, align 8
+  %59 = tail call noundef double @_ZNK7QPixmap16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %48)
+  %60 = sitofp i32 %spec.select71 to double
+  %61 = fmul double %59, %60
+  %62 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %61)
+  %63 = fadd double %61, %62
+  %64 = fptosi double %63 to i32
+  %65 = sitofp i32 %.sroa.5.0 to double
+  %66 = fmul double %59, %65
+  %67 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %66)
+  %68 = fadd double %66, %67
+  %69 = fptosi double %68 to i32
+  %.sroa.2.0.insert.ext.i16 = zext i32 %69 to i64
   %.sroa.2.0.insert.shift.i17 = shl nuw i64 %.sroa.2.0.insert.ext.i16, 32
-  %.sroa.0.0.insert.ext.i18 = zext i32 %67 to i64
+  %.sroa.0.0.insert.ext.i18 = zext i32 %64 to i64
   %.sroa.0.0.insert.insert.i19 = or disjoint i64 %.sroa.2.0.insert.shift.i17, %.sroa.0.0.insert.ext.i18
   store i64 %.sroa.0.0.insert.insert.i19, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 252
-  %74 = load i32, ptr %73, align 4
-  %75 = call i64 @_ZNK5QSize6scaledERKS_N2Qt15AspectRatioModeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef %74) #47
-  %76 = lshr i64 %75, 32
-  %77 = icmp slt <2 x i32> %45, zeroinitializer
-  %78 = select <2 x i1> %77, <2 x i32> %31, <2 x i32> %26
-  %79 = insertelement <2 x i64> poison, i64 %75, i64 0
-  %80 = insertelement <2 x i64> %79, i64 %76, i64 1
-  %81 = trunc <2 x i64> %80 to <2 x i32>
-  %82 = add <2 x i32> %78, <i32 -1, i32 -1>
-  %83 = add <2 x i32> %82, %81
+  %70 = getelementptr inbounds i8, ptr %0, i64 252
+  %71 = load i32, ptr %70, align 4
+  %72 = call i64 @_ZNK5QSize6scaledERKS_N2Qt15AspectRatioModeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef %71) #47
+  %73 = icmp slt <2 x i32> %45, zeroinitializer
+  %74 = select <2 x i1> %73, <2 x i32> %31, <2 x i32> %26
+  %75 = bitcast i64 %72 to <2 x i32>
+  %76 = add <2 x i32> %74, <i32 -1, i32 -1>
+  %77 = add <2 x i32> %76, %75
   %.lobit = lshr i32 %46, 31
-  %84 = trunc nuw nsw i32 %.lobit to i8
+  %78 = trunc nuw nsw i32 %.lobit to i8
   %.lobit11 = lshr i32 %47, 31
-  %85 = trunc nuw nsw i32 %.lobit11 to i8
-  br label %102
+  %79 = trunc nuw nsw i32 %.lobit11 to i8
+  br label %94
 
-86:                                               ; preds = %40
-  %87 = getelementptr inbounds i8, ptr %0, i64 200
-  %88 = tail call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %87)
-  %.sroa.2.0.extract.shift = lshr i64 %88, 32
-  %89 = tail call noundef double @_ZNK7QPixmap16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %87)
-  %90 = insertelement <2 x i64> poison, i64 %88, i64 0
-  %91 = insertelement <2 x i64> %90, i64 %.sroa.2.0.extract.shift, i64 1
-  %92 = trunc <2 x i64> %91 to <2 x i32>
-  %93 = sitofp <2 x i32> %92 to <2 x double>
-  %94 = insertelement <2 x double> poison, double %89, i64 0
-  %95 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> zeroinitializer
-  %96 = fdiv <2 x double> %93, %95
-  %97 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %96)
-  %98 = fadd <2 x double> %96, %97
-  %99 = fptosi <2 x double> %98 to <2 x i32>
-  %100 = add <2 x i32> %26, <i32 -1, i32 -1>
-  %101 = add <2 x i32> %100, %99
-  br label %102
+80:                                               ; preds = %40
+  %81 = getelementptr inbounds i8, ptr %0, i64 200
+  %82 = tail call i64 @_ZNK7QPixmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %81)
+  %83 = tail call noundef double @_ZNK7QPixmap16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %81)
+  %84 = bitcast i64 %82 to <2 x i32>
+  %85 = sitofp <2 x i32> %84 to <2 x double>
+  %86 = insertelement <2 x double> poison, double %83, i64 0
+  %87 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> zeroinitializer
+  %88 = fdiv <2 x double> %85, %87
+  %89 = tail call <2 x double> @llvm.copysign.v2f64(<2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %88)
+  %90 = fadd <2 x double> %88, %89
+  %91 = fptosi <2 x double> %90 to <2 x i32>
+  %92 = add <2 x i32> %26, <i32 -1, i32 -1>
+  %93 = add <2 x i32> %92, %91
+  br label %94
 
-102:                                              ; preds = %86, %44
-  %.17 = phi i8 [ %84, %44 ], [ 0, %86 ]
-  %.1 = phi i8 [ %85, %44 ], [ 0, %86 ]
-  %103 = phi <2 x i32> [ %83, %44 ], [ %101, %86 ]
-  %104 = phi <2 x i32> [ %78, %44 ], [ %26, %86 ]
+94:                                               ; preds = %80, %44
+  %.17 = phi i8 [ %78, %44 ], [ 0, %80 ]
+  %.1 = phi i8 [ %79, %44 ], [ 0, %80 ]
+  %95 = phi <2 x i32> [ %77, %44 ], [ %93, %80 ]
+  %96 = phi <2 x i32> [ %74, %44 ], [ %26, %80 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %106, label %105
+  br i1 %.not, label %98, label %97
 
-105:                                              ; preds = %102
+97:                                               ; preds = %94
   store i8 %.17, ptr %1, align 1
-  br label %106
+  br label %98
 
-106:                                              ; preds = %105, %102
+98:                                               ; preds = %97, %94
   %.not10 = icmp eq ptr %2, null
-  %107 = extractelement <2 x i32> %104, i64 0
-  %108 = extractelement <2 x i32> %104, i64 1
-  br i1 %.not10, label %110, label %109
+  %99 = extractelement <2 x i32> %96, i64 0
+  %100 = extractelement <2 x i32> %96, i64 1
+  br i1 %.not10, label %102, label %101
 
-109:                                              ; preds = %106
+101:                                              ; preds = %98
   store i8 %.1, ptr %2, align 1
-  br label %110
+  br label %102
 
-110:                                              ; preds = %106, %109, %36
-  %.sroa.067.0 = phi i32 [ %38, %36 ], [ %107, %109 ], [ %107, %106 ]
-  %.sroa.368.0 = phi i32 [ %39, %36 ], [ %108, %109 ], [ %108, %106 ]
-  %111 = phi <2 x i32> [ %37, %36 ], [ %103, %109 ], [ %103, %106 ]
+102:                                              ; preds = %98, %101, %36
+  %.sroa.067.0 = phi i32 [ %38, %36 ], [ %99, %101 ], [ %99, %98 ]
+  %.sroa.368.0 = phi i32 [ %39, %36 ], [ %100, %101 ], [ %100, %98 ]
+  %103 = phi <2 x i32> [ %37, %36 ], [ %95, %101 ], [ %95, %98 ]
   %.sroa.368.0.insert.ext = zext i32 %.sroa.368.0 to i64
   %.sroa.368.0.insert.shift = shl nuw i64 %.sroa.368.0.insert.ext, 32
   %.sroa.067.0.insert.ext = zext i32 %.sroa.067.0 to i64
   %.sroa.067.0.insert.insert = or disjoint i64 %.sroa.368.0.insert.shift, %.sroa.067.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.067.0.insert.insert, 0
-  %112 = extractelement <2 x i32> %111, i64 1
-  %.sroa.870.8.insert.ext = zext i32 %112 to i64
+  %104 = extractelement <2 x i32> %103, i64 1
+  %.sroa.870.8.insert.ext = zext i32 %104 to i64
   %.sroa.870.8.insert.shift = shl nuw i64 %.sroa.870.8.insert.ext, 32
-  %113 = extractelement <2 x i32> %111, i64 0
-  %.sroa.569.8.insert.ext = zext i32 %113 to i64
+  %105 = extractelement <2 x i32> %103, i64 0
+  %.sroa.569.8.insert.ext = zext i32 %105 to i64
   %.sroa.569.8.insert.insert = or disjoint i64 %.sroa.870.8.insert.shift, %.sroa.569.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.569.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
@@ -158726,7 +158675,7 @@ define void @_ZN13QCPItemTracer4drawEP10QCPPainter(ptr noundef nonnull align 8 d
   %26 = getelementptr inbounds i8, ptr %0, i64 %.v.i
   call void @_ZN4QPenC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %26) #47
   invoke void @_ZN8QPainter6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.noexc unwind label %57
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %22
   %27 = getelementptr inbounds i8, ptr %1, i64 8
@@ -158737,7 +158686,7 @@ define void @_ZN13QCPItemTracer4drawEP10QCPPainter(ptr noundef nonnull align 8 d
 
 30:                                               ; preds = %.noexc
   invoke void @_ZN10QCPPainter15makeNonCosmeticEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %57
+          to label %_ZN10QCPPainter6setPenERK4QPen.exit unwind label %58
 
 _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %30
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
@@ -158747,7 +158696,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %30
   %33 = getelementptr inbounds i8, ptr %0, i64 %.v.i35
   call void @_ZN6QBrushC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %33)
   invoke void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %34 unwind label %59
+          to label %34 unwind label %60
 
 34:                                               ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
@@ -158772,178 +158721,178 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %30
   %52 = extractvalue { i64, i64 } %49, 1
   store i64 %52, ptr %51, align 8
   %53 = load i32, ptr %19, align 8
-  %54 = insertelement <2 x i64> poison, i64 %50, i64 0
-  %55 = insertelement <2 x i64> %54, i64 %52, i64 1
-  %56 = trunc <2 x i64> %55 to <2 x i32>
+  %54 = trunc i64 %50 to i32
+  %55 = insertelement <2 x i32> poison, i32 %54, i64 0
+  %56 = trunc i64 %52 to i32
+  %57 = insertelement <2 x i32> %55, i32 %56, i64 1
   switch i32 %53, label %281 [
     i32 4, label %240
-    i32 1, label %61
-    i32 2, label %128
+    i32 1, label %62
+    i32 2, label %129
     i32 3, label %202
   ]
 
-57:                                               ; preds = %30, %22
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %30, %22
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #47
   br label %282
 
-59:                                               ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZN10QCPPainter6setPenERK4QPen.exit
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #47
   br label %282
 
-61:                                               ; preds = %34
-  %62 = fsub double %41, %45
-  %63 = fsub double %42, %45
-  %64 = fadd double %41, %45
-  %65 = fadd double %42, %45
-  %66 = fsub double %64, %62
+62:                                               ; preds = %34
+  %63 = fsub double %41, %45
+  %64 = fsub double %42, %45
+  %65 = fadd double %41, %45
+  %66 = fadd double %42, %45
   %67 = fsub double %65, %63
-  %68 = call double @llvm.copysign.f64(double 5.000000e-01, double %62)
-  %69 = fadd double %62, %68
-  %70 = fptosi double %69 to i32
-  %71 = call double @llvm.copysign.f64(double 5.000000e-01, double %63)
-  %72 = fadd double %63, %71
-  %73 = fptosi double %72 to i32
-  %74 = sitofp i32 %70 to double
-  %75 = fsub double %62, %74
-  %76 = fmul double %75, 5.000000e-01
-  %77 = fadd double %66, %76
-  %78 = call double @llvm.copysign.f64(double 5.000000e-01, double %77)
-  %79 = fadd double %77, %78
-  %80 = fptosi double %79 to i32
-  %81 = sitofp i32 %73 to double
-  %82 = fsub double %63, %81
-  %83 = fmul double %82, 5.000000e-01
-  %84 = fadd double %67, %83
-  %85 = call double @llvm.copysign.f64(double 5.000000e-01, double %84)
-  %86 = fadd double %84, %85
-  %87 = fptosi double %86 to i32
-  %88 = add i32 %70, -1
-  %89 = add i32 %88, %80
-  %90 = add i32 %73, -1
-  %91 = add i32 %90, %87
-  %.sroa.2.0.insert.ext.i = zext i32 %73 to i64
+  %68 = fsub double %66, %64
+  %69 = call double @llvm.copysign.f64(double 5.000000e-01, double %63)
+  %70 = fadd double %63, %69
+  %71 = fptosi double %70 to i32
+  %72 = call double @llvm.copysign.f64(double 5.000000e-01, double %64)
+  %73 = fadd double %64, %72
+  %74 = fptosi double %73 to i32
+  %75 = sitofp i32 %71 to double
+  %76 = fsub double %63, %75
+  %77 = fmul double %76, 5.000000e-01
+  %78 = fadd double %67, %77
+  %79 = call double @llvm.copysign.f64(double 5.000000e-01, double %78)
+  %80 = fadd double %78, %79
+  %81 = fptosi double %80 to i32
+  %82 = sitofp i32 %74 to double
+  %83 = fsub double %64, %82
+  %84 = fmul double %83, 5.000000e-01
+  %85 = fadd double %68, %84
+  %86 = call double @llvm.copysign.f64(double 5.000000e-01, double %85)
+  %87 = fadd double %85, %86
+  %88 = fptosi double %87 to i32
+  %89 = add i32 %71, -1
+  %90 = add i32 %89, %81
+  %91 = add i32 %74, -1
+  %92 = add i32 %91, %88
+  %.sroa.2.0.insert.ext.i = zext i32 %74 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %70 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %71 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %.sroa.5.8.insert.ext.i = zext i32 %91 to i64
+  %.sroa.5.8.insert.ext.i = zext i32 %92 to i64
   %.sroa.5.8.insert.shift.i = shl nuw i64 %.sroa.5.8.insert.ext.i, 32
-  %.sroa.3.8.insert.ext.i = zext i32 %89 to i64
+  %.sroa.3.8.insert.ext.i = zext i32 %90 to i64
   %.sroa.3.8.insert.insert.i = or disjoint i64 %.sroa.5.8.insert.shift.i, %.sroa.3.8.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %11, align 8
-  %92 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %.sroa.3.8.insert.insert.i, ptr %92, align 8
-  %93 = call noundef zeroext i1 @_ZNK5QRect10intersectsERKS_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11) #47
-  br i1 %93, label %94, label %281
+  %93 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %.sroa.3.8.insert.insert.i, ptr %93, align 8
+  %94 = call noundef zeroext i1 @_ZNK5QRect10intersectsERKS_(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11) #47
+  br i1 %94, label %95, label %281
 
-94:                                               ; preds = %61
-  %95 = fadd double %42, 0.000000e+00
-  store double %62, ptr %12, align 8
+95:                                               ; preds = %62
+  %96 = fadd double %42, 0.000000e+00
+  store double %63, ptr %12, align 8
   %.sroa.2159.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  store double %95, ptr %.sroa.2159.0..sroa_idx, align 8
-  %96 = getelementptr inbounds i8, ptr %12, i64 16
-  store double %64, ptr %96, align 8
+  store double %96, ptr %.sroa.2159.0..sroa_idx, align 8
+  %97 = getelementptr inbounds i8, ptr %12, i64 16
+  store double %65, ptr %97, align 8
   %.sroa.2155.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
-  store double %95, ptr %.sroa.2155.0..sroa_idx, align 8
+  store double %96, ptr %.sroa.2155.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %97 = getelementptr inbounds i8, ptr %1, i64 12
-  %98 = load i8, ptr %97, align 4
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %103, label %100
+  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  %99 = load i8, ptr %98, align 4
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %104, label %101
 
-100:                                              ; preds = %94
-  %101 = load i32, ptr %27, align 4
-  %102 = and i32 %101, 1
-  %.not.i44 = icmp eq i32 %102, 0
-  br i1 %.not.i44, label %104, label %103
+101:                                              ; preds = %95
+  %102 = load i32, ptr %27, align 4
+  %103 = and i32 %102, 1
+  %.not.i44 = icmp eq i32 %103, 0
+  br i1 %.not.i44, label %105, label %104
 
-103:                                              ; preds = %100, %94
+104:                                              ; preds = %101, %95
   call void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit
 
-104:                                              ; preds = %100
-  %105 = call double @llvm.copysign.f64(double 5.000000e-01, double %95)
-  %106 = fadd double %95, %105
-  %107 = fptosi double %106 to i32
-  %.sroa.2.0.insert.ext.i.i.i = zext i32 %107 to i64
+105:                                              ; preds = %101
+  %106 = call double @llvm.copysign.f64(double 5.000000e-01, double %96)
+  %107 = fadd double %96, %106
+  %108 = fptosi double %107 to i32
+  %.sroa.2.0.insert.ext.i.i.i = zext i32 %108 to i64
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i
-  %108 = call double @llvm.copysign.f64(double 5.000000e-01, double %64)
-  %109 = fadd double %64, %108
-  %110 = fptosi double %109 to i32
-  %.sroa.0.0.insert.ext.i3.i.i = zext i32 %110 to i64
+  %109 = call double @llvm.copysign.f64(double 5.000000e-01, double %65)
+  %110 = fadd double %65, %109
+  %111 = fptosi double %110 to i32
+  %.sroa.0.0.insert.ext.i3.i.i = zext i32 %111 to i64
   %.sroa.0.0.insert.insert.i4.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i3.i.i
   store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %7, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.0.0.insert.insert.i4.i.i, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %.sroa.0.0.insert.insert.i4.i.i, ptr %112, align 8
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit
 
-_ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %103, %104
+_ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %104, %105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %112 = fadd double %41, 0.000000e+00
-  store double %112, ptr %13, align 8
+  %113 = fadd double %41, 0.000000e+00
+  store double %113, ptr %13, align 8
   %.sroa.2151.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  store double %63, ptr %.sroa.2151.0..sroa_idx, align 8
-  %113 = getelementptr inbounds i8, ptr %13, i64 16
-  store double %112, ptr %113, align 8
+  store double %64, ptr %.sroa.2151.0..sroa_idx, align 8
+  %114 = getelementptr inbounds i8, ptr %13, i64 16
+  store double %113, ptr %114, align 8
   %.sroa.2147.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  store double %65, ptr %.sroa.2147.0..sroa_idx, align 8
+  store double %66, ptr %.sroa.2147.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %114 = load i8, ptr %97, align 4
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %119, label %116
+  %115 = load i8, ptr %98, align 4
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %120, label %117
 
-116:                                              ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit
-  %117 = load i32, ptr %27, align 4
-  %118 = and i32 %117, 1
-  %.not.i49 = icmp eq i32 %118, 0
-  br i1 %.not.i49, label %120, label %119
+117:                                              ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit
+  %118 = load i32, ptr %27, align 4
+  %119 = and i32 %118, 1
+  %.not.i49 = icmp eq i32 %119, 0
+  br i1 %.not.i49, label %121, label %120
 
-119:                                              ; preds = %116, %_ZN10QCPPainter8drawLineERK6QLineF.exit
+120:                                              ; preds = %117, %_ZN10QCPPainter8drawLineERK6QLineF.exit
   call void @_ZN8QPainter9drawLinesEPK6QLineFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %13, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit58
 
-120:                                              ; preds = %116
-  %121 = call double @llvm.copysign.f64(double 5.000000e-01, double %112)
-  %122 = fadd double %112, %121
-  %123 = fptosi double %122 to i32
-  %.sroa.0.0.insert.ext.i.i.i52 = zext i32 %123 to i64
+121:                                              ; preds = %117
+  %122 = call double @llvm.copysign.f64(double 5.000000e-01, double %113)
+  %123 = fadd double %113, %122
+  %124 = fptosi double %123 to i32
+  %.sroa.0.0.insert.ext.i.i.i52 = zext i32 %124 to i64
   %.sroa.0.0.insert.insert.i.i.i53 = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i.i.i52
-  %124 = call double @llvm.copysign.f64(double 5.000000e-01, double %65)
-  %125 = fadd double %65, %124
-  %126 = fptosi double %125 to i32
-  %.sroa.2.0.insert.ext.i1.i.i54 = zext i32 %126 to i64
+  %125 = call double @llvm.copysign.f64(double 5.000000e-01, double %66)
+  %126 = fadd double %66, %125
+  %127 = fptosi double %126 to i32
+  %.sroa.2.0.insert.ext.i1.i.i54 = zext i32 %127 to i64
   %.sroa.2.0.insert.shift.i2.i.i55 = shl nuw i64 %.sroa.2.0.insert.ext.i1.i.i54, 32
   %.sroa.0.0.insert.insert.i4.i.i57 = or disjoint i64 %.sroa.2.0.insert.shift.i2.i.i55, %.sroa.0.0.insert.ext.i.i.i52
   store i64 %.sroa.0.0.insert.insert.i.i.i53, ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.sroa.0.0.insert.insert.i4.i.i57, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 %.sroa.0.0.insert.insert.i4.i.i57, ptr %128, align 8
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i32 noundef 1)
   br label %_ZN10QCPPainter8drawLineERK6QLineF.exit58
 
-_ZN10QCPPainter8drawLineERK6QLineF.exit58:        ; preds = %119, %120
+_ZN10QCPPainter8drawLineERK6QLineF.exit58:        ; preds = %120, %121
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %281
 
-128:                                              ; preds = %34
-  %129 = lshr i64 %52, 32
-  %130 = trunc nuw i64 %129 to i32
-  %131 = lshr i64 %50, 32
-  %132 = trunc nuw i64 %131 to i32
-  %133 = sitofp i32 %132 to double
-  %134 = fcmp ogt double %42, %133
-  %135 = sitofp i32 %130 to double
-  %136 = fcmp olt double %42, %135
-  %or.cond = select i1 %134, i1 %136, i1 false
-  %137 = extractelement <2 x i32> %56, i64 0
+129:                                              ; preds = %34
+  %130 = lshr i64 %52, 32
+  %131 = trunc nuw i64 %130 to i32
+  %132 = lshr i64 %50, 32
+  %133 = trunc nuw i64 %132 to i32
+  %134 = sitofp i32 %133 to double
+  %135 = fcmp ogt double %42, %134
+  %136 = sitofp i32 %131 to double
+  %137 = fcmp olt double %42, %136
+  %or.cond = select i1 %135, i1 %137, i1 false
   br i1 %or.cond, label %138, label %163
 
-138:                                              ; preds = %128
-  %139 = sitofp <2 x i32> %56 to <2 x double>
+138:                                              ; preds = %129
+  %139 = sitofp <2 x i32> %57 to <2 x double>
   %140 = extractelement <2 x double> %139, i64 0
   store double %140, ptr %14, align 8
   %141 = getelementptr inbounds i8, ptr %14, i64 8
@@ -158991,8 +158940,8 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit68:        ; preds = %151, %152
   %.pre = load i32, ptr %10, align 16
   br label %163
 
-163:                                              ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit68, %128
-  %164 = phi i32 [ %.pre, %_ZN10QCPPainter8drawLineERK6QLineF.exit68 ], [ %137, %128 ]
+163:                                              ; preds = %_ZN10QCPPainter8drawLineERK6QLineF.exit68, %129
+  %164 = phi i32 [ %.pre, %_ZN10QCPPainter8drawLineERK6QLineF.exit68 ], [ %54, %129 ]
   %165 = sitofp i32 %164 to double
   %166 = fcmp ogt double %41, %165
   br i1 %166, label %167, label %281
@@ -159174,11 +159123,11 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit78:        ; preds = %189, %190
   call void @_ZN8QPainter9drawRectsEPK6QRectFi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %18, i32 noundef 1)
   br label %281
 
-281:                                              ; preds = %240, %278, %202, %235, %163, %167, %_ZN10QCPPainter8drawLineERK6QLineF.exit78, %61, %_ZN10QCPPainter8drawLineERK6QLineF.exit58, %2, %34
+281:                                              ; preds = %240, %278, %202, %235, %163, %167, %_ZN10QCPPainter8drawLineERK6QLineF.exit78, %62, %_ZN10QCPPainter8drawLineERK6QLineF.exit58, %2, %34
   ret void
 
-282:                                              ; preds = %59, %57
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
+282:                                              ; preds = %60, %58
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
   resume { ptr, i32 } %.pn
 }
 

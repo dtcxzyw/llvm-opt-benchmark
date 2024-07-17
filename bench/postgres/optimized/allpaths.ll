@@ -4680,60 +4680,59 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapt
 76:                                               ; preds = %.split24
   %77 = and i32 %73, 1
   %.not97 = icmp eq i32 %77, 0
-  %78 = select i1 %4, i16 2, i16 4
-  %79 = select i1 %4, i16 4, i16 2
-  %.083 = select i1 %.not97, i16 %79, i16 %78
+  %78 = xor i1 %.not97, %4
+  %.083 = select i1 %78, i16 2, i16 4
   store i8 1, ptr %5, align 1
-  %80 = load i32, ptr %57, align 4
-  %81 = getelementptr inbounds i8, ptr %57, i64 8
-  %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %57, i64 12
-  %84 = load i32, ptr %83, align 4
-  %85 = call i32 @get_opfamily_member(i32 noundef %80, i32 noundef %82, i32 noundef %84, i16 noundef signext %.083) #9
+  %79 = load i32, ptr %57, align 4
+  %80 = getelementptr inbounds i8, ptr %57, i64 8
+  %81 = load i32, ptr %80, align 4
+  %82 = getelementptr inbounds i8, ptr %57, i64 12
+  %83 = load i32, ptr %82, align 4
+  %84 = call i32 @get_opfamily_member(i32 noundef %79, i32 noundef %81, i32 noundef %83, i16 noundef signext %.083) #9
   %.not102 = icmp eq ptr %3, null
   br i1 %.not102, label %.thread4, label %.thread9
 
 .thread9.sink.split:                              ; preds = %.split24, %68, %.critedge104, %62, %.critedge
   store i8 0, ptr %5, align 1
-  %86 = load i32, ptr %46, align 4
+  %85 = load i32, ptr %46, align 4
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread9.sink.split, %76
-  %.08814 = phi i32 [ %85, %76 ], [ %86, %.thread9.sink.split ]
-  %87 = getelementptr inbounds i8, ptr %3, i64 12
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %3, i64 16
-  %90 = load i8, ptr %89, align 8
-  %91 = trunc i8 %90 to i1
-  %92 = getelementptr inbounds i8, ptr %3, i64 20
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %3, i64 24
-  %95 = load i32, ptr %94, align 8
-  br i1 %4, label %96, label %98
+  %.08814 = phi i32 [ %84, %76 ], [ %85, %.thread9.sink.split ]
+  %86 = getelementptr inbounds i8, ptr %3, i64 12
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds i8, ptr %3, i64 16
+  %89 = load i8, ptr %88, align 8
+  %90 = trunc i8 %89 to i1
+  %91 = getelementptr inbounds i8, ptr %3, i64 20
+  %92 = load i32, ptr %91, align 4
+  %93 = getelementptr inbounds i8, ptr %3, i64 24
+  %94 = load i32, ptr %93, align 8
+  br i1 %4, label %95, label %97
 
-96:                                               ; preds = %.thread9
-  %97 = call ptr @make_opclause(i32 noundef %.08814, i32 noundef %88, i1 noundef zeroext %91, ptr noundef nonnull %.085, ptr noundef %.086, i32 noundef %93, i32 noundef %95) #9
-  br label %100
+95:                                               ; preds = %.thread9
+  %96 = call ptr @make_opclause(i32 noundef %.08814, i32 noundef %87, i1 noundef zeroext %90, ptr noundef nonnull %.085, ptr noundef %.086, i32 noundef %92, i32 noundef %94) #9
+  br label %99
 
-98:                                               ; preds = %.thread9
-  %99 = call ptr @make_opclause(i32 noundef %.08814, i32 noundef %88, i1 noundef zeroext %91, ptr noundef %.086, ptr noundef nonnull %.085, i32 noundef %93, i32 noundef %95) #9
-  br label %100
+97:                                               ; preds = %.thread9
+  %98 = call ptr @make_opclause(i32 noundef %.08814, i32 noundef %87, i1 noundef zeroext %90, ptr noundef %.086, ptr noundef nonnull %.085, i32 noundef %92, i32 noundef %94) #9
+  br label %99
 
-100:                                              ; preds = %98, %96
-  %.0 = phi ptr [ %97, %96 ], [ %99, %98 ]
-  %101 = getelementptr inbounds i8, ptr %34, i64 64
-  %102 = load ptr, ptr %101, align 8
-  %103 = call ptr @lappend(ptr noundef %102, ptr noundef %.0) #9
-  store ptr %103, ptr %101, align 8
-  %104 = load ptr, ptr %6, align 8
-  %105 = sext i16 %1 to i32
-  %106 = add nsw i32 %105, 7
-  %107 = call ptr @bms_add_member(ptr noundef %104, i32 noundef %106) #9
-  store ptr %107, ptr %6, align 8
+99:                                               ; preds = %97, %95
+  %.0 = phi ptr [ %96, %95 ], [ %98, %97 ]
+  %100 = getelementptr inbounds i8, ptr %34, i64 64
+  %101 = load ptr, ptr %100, align 8
+  %102 = call ptr @lappend(ptr noundef %101, ptr noundef %.0) #9
+  store ptr %102, ptr %100, align 8
+  %103 = load ptr, ptr %6, align 8
+  %104 = sext i16 %1 to i32
+  %105 = add nsw i32 %104, 7
+  %106 = call ptr @bms_add_member(ptr noundef %103, i32 noundef %105) #9
+  store ptr %106, ptr %6, align 8
   br label %.thread4
 
-.thread4:                                         ; preds = %9, %54, %45, %.lr.ph, %68, %62, %.critedge104, %.critedge, %76, %25, %40, %20, %16, %14, %100
-  %.084 = phi i1 [ true, %100 ], [ false, %14 ], [ false, %16 ], [ false, %20 ], [ false, %40 ], [ false, %25 ], [ false, %76 ], [ false, %.critedge ], [ false, %.critedge104 ], [ false, %62 ], [ false, %68 ], [ false, %.lr.ph ], [ false, %45 ], [ false, %54 ], [ false, %9 ]
+.thread4:                                         ; preds = %9, %54, %45, %.lr.ph, %68, %62, %.critedge104, %.critedge, %76, %25, %40, %20, %16, %14, %99
+  %.084 = phi i1 [ true, %99 ], [ false, %14 ], [ false, %16 ], [ false, %20 ], [ false, %40 ], [ false, %25 ], [ false, %76 ], [ false, %.critedge ], [ false, %.critedge104 ], [ false, %62 ], [ false, %68 ], [ false, %.lr.ph ], [ false, %45 ], [ false, %54 ], [ false, %9 ]
   ret i1 %.084
 }
 

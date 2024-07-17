@@ -1481,11 +1481,10 @@ if.end15:                                         ; preds = %if.else, %if.then8
   %eq.0 = phi i32 [ %conv, %if.then8 ], [ %call6, %if.else ]
   %cmp16 = icmp eq i32 %op, 2
   %tobool19.not = icmp eq i32 %eq.0, 0
-  %cond = select i1 %tobool19.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  %cond22 = select i1 %tobool19.not, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  %res.0 = select i1 %cmp16, ptr %cond, ptr %cond22
-  %7 = load i32, ptr %res.0, align 8
-  %add.i.i = add i32 %7, 1
+  %7 = xor i1 %cmp16, %tobool19.not
+  %res.0 = select i1 %7, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  %8 = load i32, ptr %res.0, align 8
+  %add.i.i = add i32 %8, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
@@ -1930,11 +1929,10 @@ if.end:                                           ; preds = %lor.lhs.false2
 if.end9:                                          ; preds = %if.end
   %cmp10 = icmp eq i32 %op, 2
   %tobool12.not = icmp eq i32 %call6, 0
-  %cond = select i1 %tobool12.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  %cond14 = select i1 %tobool12.not, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
-  %res.0 = select i1 %cmp10, ptr %cond, ptr %cond14
-  %5 = load i32, ptr %res.0, align 8
-  %add.i.i = add i32 %5, 1
+  %5 = xor i1 %cmp10, %tobool12.not
+  %res.0 = select i1 %5, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
+  %6 = load i32, ptr %res.0, align 8
+  %add.i.i = add i32 %6, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 

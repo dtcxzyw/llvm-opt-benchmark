@@ -1948,22 +1948,13 @@ declare double @sin(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl16pointInboardTestENS_5Size_IiEERNS_6Point_IiEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(45) %0, i64 %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
-  %.sroa.3.0.extract.shift = lshr i64 %1, 32
-  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %4 = load i32, ptr %2, align 4
-  %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
-  %5 = add nsw i32 %.sroa.0.0.extract.trunc, -5
-  %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %.inv = icmp sgt i32 %4, 5
-  %6 = select i1 %.inv, i32 %., i32 5
-  store i32 %6, ptr %2, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
-  %8 = load i32, ptr %7, align 4
-  %9 = add nsw i32 %.sroa.3.0.extract.trunc, -5
-  %.14 = tail call i32 @llvm.smin.i32(i32 %8, i32 %9)
-  %.inv15 = icmp sgt i32 %8, 5
-  %10 = select i1 %.inv15, i32 %.14, i32 5
-  store i32 %10, ptr %7, align 4
+  %4 = bitcast i64 %1 to <2 x i32>
+  %5 = load <2 x i32>, ptr %2, align 4
+  %6 = add nsw <2 x i32> %4, <i32 -5, i32 -5>
+  %7 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %5, <2 x i32> %6)
+  %8 = icmp sgt <2 x i32> %5, <i32 5, i32 5>
+  %9 = select <2 x i1> %8, <2 x i32> %7, <2 x i32> <i32 5, i32 5>
+  store <2 x i32> %9, ptr %2, align 4
   ret void
 }
 
@@ -4948,6 +4939,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #19

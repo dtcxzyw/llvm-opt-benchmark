@@ -228,8 +228,8 @@ define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$
   %13 = trunc i32 %.0.val to i8
   %14 = and i8 %13, 63
   %15 = or disjoint i8 %14, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
-  store i8 %15, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !48
+  %.sroa.0.1..sroa_idx10 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
+  store i8 %15, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !48
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 16:                                               ; preds = %5
@@ -241,53 +241,45 @@ define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$
   %21 = trunc i32 %20 to i8
   %22 = and i8 %21, 63
   %23 = or disjoint i8 %22, -128
-  %.sroa.0.1..sroa_idx10 = getelementptr inbounds i8, ptr %.sroa.0, i64 1
-  store i8 %23, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !48
+  %.sroa.0.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 1
+  store i8 %23, ptr %.sroa.0.1..sroa_idx, align 1, !alias.scope !48
   %24 = trunc i32 %.0.val to i8
   %25 = and i8 %24, 63
   %26 = or disjoint i8 %25, -128
-  %.sroa.0.2..sroa_idx12 = getelementptr inbounds i8, ptr %.sroa.0, i64 2
-  store i8 %26, ptr %.sroa.0.2..sroa_idx12, align 2, !alias.scope !48
+  %.sroa.0.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 2
+  store i8 %26, ptr %.sroa.0.2..sroa_idx, align 2, !alias.scope !48
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 27:                                               ; preds = %5
   %28 = lshr i32 %.0.val, 18
-  %29 = trunc i32 %28 to i8
-  %30 = and i8 %29, 7
-  %31 = or disjoint i8 %30, -16
-  store i8 %31, ptr %.sroa.0, align 4, !alias.scope !48
-  %32 = lshr i32 %.0.val, 12
-  %33 = trunc i32 %32 to i8
-  %34 = and i8 %33, 63
-  %35 = or disjoint i8 %34, -128
-  %.sroa.0.1..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 1
-  store i8 %35, ptr %.sroa.0.1..sroa_idx, align 1, !alias.scope !48
-  %36 = lshr i32 %.0.val, 6
-  %37 = trunc i32 %36 to i8
-  %38 = and i8 %37, 63
-  %39 = or disjoint i8 %38, -128
-  %.sroa.0.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 2
-  store i8 %39, ptr %.sroa.0.2..sroa_idx, align 2, !alias.scope !48
-  %40 = trunc i32 %.0.val to i8
-  %41 = and i8 %40, 63
-  %42 = or disjoint i8 %41, -128
-  %.sroa.0.3..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 3
-  store i8 %42, ptr %.sroa.0.3..sroa_idx, align 1, !alias.scope !48
+  %29 = lshr i32 %.0.val, 12
+  %30 = lshr i32 %.0.val, 6
+  %31 = trunc i32 %.0.val to i8
+  %32 = trunc i32 %28 to i8
+  %33 = insertelement <4 x i8> poison, i8 %32, i64 0
+  %34 = trunc i32 %29 to i8
+  %35 = insertelement <4 x i8> %33, i8 %34, i64 1
+  %36 = trunc i32 %30 to i8
+  %37 = insertelement <4 x i8> %35, i8 %36, i64 2
+  %38 = insertelement <4 x i8> %37, i8 %31, i64 3
+  %39 = and <4 x i8> %38, <i8 7, i8 63, i8 63, i8 63>
+  %40 = or disjoint <4 x i8> %39, <i8 -16, i8 -128, i8 -128, i8 -128>
+  store <4 x i8> %40, ptr %.sroa.0, align 4, !alias.scope !48
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %7, %9, %16, %27
-  %43 = phi i64 [ 4, %27 ], [ 3, %16 ], [ 2, %9 ], [ 1, %7 ]
-  %44 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbdbbba2d07c806cdE"(i64 noundef %43, i1 noundef zeroext false)
-  %45 = extractvalue { i64, ptr } %44, 0
-  %46 = extractvalue { i64, ptr } %44, 1
-  %47 = icmp ne ptr %46, null
-  tail call void @llvm.assume(i1 %47)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %43, i1 false)
-  store i64 %45, ptr %0, align 8
+  %41 = phi i64 [ 4, %27 ], [ 3, %16 ], [ 2, %9 ], [ 1, %7 ]
+  %42 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbdbbba2d07c806cdE"(i64 noundef %41, i1 noundef zeroext false)
+  %43 = extractvalue { i64, ptr } %42, 0
+  %44 = extractvalue { i64, ptr } %42, 1
+  %45 = icmp ne ptr %44, null
+  tail call void @llvm.assume(i1 %45)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %41, i1 false)
+  store i64 %43, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %46, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %44, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %43, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %41, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   ret void
 }

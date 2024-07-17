@@ -117,15 +117,18 @@ define dso_local i64 @brin_minmax_multi_distance_float8(ptr nocapture noundef re
 define dso_local i64 @brin_minmax_multi_distance_int2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = trunc i64 %3 to i16
-  %5 = getelementptr i8, ptr %0, i64 48
-  %6 = load i64, ptr %5, align 8
-  %7 = trunc i64 %6 to i16
-  %8 = sitofp i16 %7 to double
-  %9 = sitofp i16 %4 to double
-  %10 = fsub double %8, %9
-  %11 = bitcast double %10 to i64
-  ret i64 %11
+  %4 = getelementptr i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %6 = trunc i64 %5 to i16
+  %7 = insertelement <2 x i16> poison, i16 %6, i64 0
+  %8 = trunc i64 %3 to i16
+  %9 = insertelement <2 x i16> %7, i16 %8, i64 1
+  %10 = sitofp <2 x i16> %9 to <2 x double>
+  %shift = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %11 = fsub <2 x double> %10, %shift
+  %bc = bitcast <2 x double> %11 to <2 x i64>
+  %12 = extractelement <2 x i64> %bc, i64 0
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

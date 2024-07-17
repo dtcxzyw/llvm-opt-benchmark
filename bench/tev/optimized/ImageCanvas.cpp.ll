@@ -7236,33 +7236,30 @@ _ZN7nanoguimlIfLm3EEENS_5ArrayIT_XmiT0_Li1EEEERKNS_6MatrixIS2_XT0_EEERKS3_.exit:
 define dso_local i64 @_ZN3tev11ImageCanvas22getDisplayWindowCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, ptr noundef %1, i64 %2) local_unnamed_addr #3 align 2 {
 _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %3 = tail call i64 @_ZN3tev11ImageCanvas14getImageCoordsEPKNS_5ImageEN7nanogui5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, i64 %2)
-  %.sroa.218.0.extract.shift = lshr i64 %3, 32
-  %4 = insertelement <2 x i64> poison, i64 %3, i64 0
-  %5 = insertelement <2 x i64> %4, i64 %.sroa.218.0.extract.shift, i64 1
-  %6 = trunc <2 x i64> %5 to <2 x i32>
-  %7 = sitofp <2 x i32> %6 to <2 x float>
+  %4 = bitcast i64 %3 to <2 x i32>
+  %5 = sitofp <2 x i32> %4 to <2 x float>
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
-  %8 = getelementptr inbounds i8, ptr %1, i64 236
-  %9 = getelementptr inbounds i8, ptr %1, i64 252
-  %10 = load <2 x i32>, ptr %8, align 4
-  %11 = load <2 x i32>, ptr %9, align 4
-  %12 = sub nsw <2 x i32> %10, %11
-  %13 = sitofp <2 x i32> %12 to <2 x float>
-  %14 = fadd <2 x float> %7, %13
+  %6 = getelementptr inbounds i8, ptr %1, i64 236
+  %7 = getelementptr inbounds i8, ptr %1, i64 252
+  %8 = load <2 x i32>, ptr %6, align 4
+  %9 = load <2 x i32>, ptr %7, align 4
+  %10 = sub nsw <2 x i32> %8, %9
+  %11 = sitofp <2 x i32> %10 to <2 x float>
+  %12 = fadd <2 x float> %5, %11
   br label %_ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit
 
 _ZN7nanogui5ArrayIfLm2EEpLERKS1_.exit:            ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
-  %15 = phi <2 x float> [ %7, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge ], [ %14, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
-  %16 = extractelement <2 x float> %15, i64 0
+  %13 = phi <2 x float> [ %5, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge ], [ %12, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  %14 = extractelement <2 x float> %13, i64 0
+  %15 = fptosi float %14 to i32
+  %16 = extractelement <2 x float> %13, i64 1
   %17 = fptosi float %16 to i32
-  %18 = extractelement <2 x float> %15, i64 1
-  %19 = fptosi float %18 to i32
-  %.sroa.228.0.insert.ext = zext i32 %19 to i64
+  %.sroa.228.0.insert.ext = zext i32 %17 to i64
   %.sroa.228.0.insert.shift = shl nuw i64 %.sroa.228.0.insert.ext, 32
-  %.sroa.027.0.insert.ext = zext i32 %17 to i64
+  %.sroa.027.0.insert.ext = zext i32 %15 to i64
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.228.0.insert.shift, %.sroa.027.0.insert.ext
   ret i64 %.sroa.027.0.insert.insert
 }

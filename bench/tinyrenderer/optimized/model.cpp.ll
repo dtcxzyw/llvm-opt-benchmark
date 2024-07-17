@@ -2118,45 +2118,44 @@ define dso_local void @_ZNK5Model6normalERK3vecILi2EE(ptr dead_on_unwind noalias
   %14 = fmul double %11, %13
   %15 = fptosi double %14 to i32
   %16 = tail call i40 @_ZNK8TGAImage3getEii(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %10, i32 noundef %15)
-  %.sroa.015.0.extract.trunc = trunc i40 %16 to i8
   %.sroa.216.0.extract.shift = lshr i40 %16, 8
-  %.sroa.216.0.extract.trunc = trunc i40 %.sroa.216.0.extract.shift to i8
   %.sroa.317.0.extract.shift = lshr i40 %16, 16
   %.sroa.317.0.extract.trunc = trunc i40 %.sroa.317.0.extract.shift to i8
   %17 = uitofp i8 %.sroa.317.0.extract.trunc to double
-  %18 = uitofp i8 %.sroa.216.0.extract.trunc to double
-  %19 = uitofp i8 %.sroa.015.0.extract.trunc to double
   store double %17, ptr %4, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store double %18, ptr %.sroa.214.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store double %19, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %20
+  %18 = trunc i40 %.sroa.216.0.extract.shift to i8
+  %19 = insertelement <2 x i8> poison, i8 %18, i64 0
+  %20 = trunc i40 %16 to i8
+  %21 = insertelement <2 x i8> %19, i8 %20, i64 1
+  %22 = uitofp <2 x i8> %21 to <2 x double>
+  store <2 x double> %22, ptr %.sroa.214.0..sroa_idx, align 8
+  br label %23
 
-20:                                               ; preds = %20, %3
-  %.03.i = phi i32 [ 3, %3 ], [ %21, %20 ]
-  %21 = add nsw i32 %.03.i, -1
-  %.not.i.i = icmp eq i32 %21, 0
-  %22 = icmp eq i32 %21, 1
-  %.v.i.i = select i1 %22, i64 8, i64 16
+23:                                               ; preds = %23, %3
+  %.03.i = phi i32 [ 3, %3 ], [ %24, %23 ]
+  %24 = add nsw i32 %.03.i, -1
+  %.not.i.i = icmp eq i32 %24, 0
+  %25 = icmp eq i32 %24, 1
+  %.v.i.i = select i1 %25, i64 8, i64 16
   %.idx.i.i = select i1 %.not.i.i, i64 0, i64 %.v.i.i
-  %23 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
-  %24 = load double, ptr %23, align 8, !alias.scope !35
-  %25 = fmul double %24, 2.000000e+00
-  store double %25, ptr %23, align 8, !alias.scope !35
-  br i1 %.not.i.i, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, label %20, !llvm.loop !38
+  %26 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %27 = load double, ptr %26, align 8, !alias.scope !35
+  %28 = fmul double %27, 2.000000e+00
+  store double %28, ptr %26, align 8, !alias.scope !35
+  br i1 %.not.i.i, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, label %23, !llvm.loop !38
 
-_ZmlILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %20, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit
-  %.03.i3 = phi i32 [ %26, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit ], [ 3, %20 ]
-  %26 = add nsw i32 %.03.i3, -1
-  %.not.i.i4 = icmp eq i32 %26, 0
-  %27 = icmp eq i32 %26, 1
-  %.v.i.i5 = select i1 %27, i64 8, i64 16
+_ZmlILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %23, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit
+  %.03.i3 = phi i32 [ %29, %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit ], [ 3, %23 ]
+  %29 = add nsw i32 %.03.i3, -1
+  %.not.i.i4 = icmp eq i32 %29, 0
+  %30 = icmp eq i32 %29, 1
+  %.v.i.i5 = select i1 %30, i64 8, i64 16
   %.idx.i.i6 = select i1 %.not.i.i4, i64 0, i64 %.v.i.i5
-  %28 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i6
-  %29 = load double, ptr %28, align 8, !alias.scope !39
-  %30 = fdiv double %29, 2.550000e+02
-  store double %30, ptr %28, align 8, !alias.scope !39
+  %31 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i6
+  %32 = load double, ptr %31, align 8, !alias.scope !39
+  %33 = fdiv double %32, 2.550000e+02
+  store double %33, ptr %31, align 8, !alias.scope !39
   br i1 %.not.i.i4, label %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit, label %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit, !llvm.loop !21
 
 _ZdvILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %_ZmlILi3EE3vecIXT_EERKS1_RKd.exit
@@ -2164,16 +2163,16 @@ _ZdvILi3EE3vecIXT_EERKS1_RKd.exit:                ; preds = %_ZmlILi3EE3vecIXT_E
   br label %_ZNK3vecILi3EEixEi.exit.i
 
 _ZNK3vecILi3EEixEi.exit.i:                        ; preds = %_ZNK3vecILi3EEixEi.exit.i, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit
-  %.04.i = phi i32 [ 3, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit ], [ %31, %_ZNK3vecILi3EEixEi.exit.i ]
-  %31 = add nsw i32 %.04.i, -1
-  %.not.i.i7 = icmp eq i32 %31, 0
-  %32 = icmp eq i32 %31, 1
-  %.v.i.i8 = select i1 %32, i64 8, i64 16
+  %.04.i = phi i32 [ 3, %_ZdvILi3EE3vecIXT_EERKS1_RKd.exit ], [ %34, %_ZNK3vecILi3EEixEi.exit.i ]
+  %34 = add nsw i32 %.04.i, -1
+  %.not.i.i7 = icmp eq i32 %34, 0
+  %35 = icmp eq i32 %34, 1
+  %.v.i.i8 = select i1 %35, i64 8, i64 16
   %.idx.i.i9 = select i1 %.not.i.i7, i64 0, i64 %.v.i.i8
-  %33 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i9
-  %34 = load double, ptr %33, align 8, !alias.scope !42
-  %35 = fadd double %34, -1.000000e+00
-  store double %35, ptr %33, align 8, !alias.scope !42
+  %36 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i9
+  %37 = load double, ptr %36, align 8, !alias.scope !42
+  %38 = fadd double %37, -1.000000e+00
+  store double %38, ptr %36, align 8, !alias.scope !42
   br i1 %.not.i.i7, label %_ZmiILi3EE3vecIXT_EERKS1_S3_.exit, label %_ZNK3vecILi3EEixEi.exit.i, !llvm.loop !45
 
 _ZmiILi3EE3vecIXT_EERKS1_S3_.exit:                ; preds = %_ZNK3vecILi3EEixEi.exit.i

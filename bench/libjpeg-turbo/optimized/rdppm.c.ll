@@ -1125,14 +1125,14 @@ define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr nocapture
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %.not126132 = icmp eq i32 %14, 0
-  br i1 %12, label %15, label %57
+  br i1 %12, label %15, label %58
 
 15:                                               ; preds = %2
   br i1 %.not126132, label %.loopexit, label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %15, %45
-  %.0115134 = phi ptr [ %55, %45 ], [ %11, %15 ]
-  %.0116133 = phi i32 [ %56, %45 ], [ %14, %15 ]
+.lr.ph135:                                        ; preds = %15, %46
+  %.0115134 = phi ptr [ %56, %46 ], [ %11, %15 ]
+  %.0116133 = phi i32 [ %57, %46 ], [ %14, %15 ]
   %16 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef 4095)
   %17 = trunc i32 %16 to i16
   %18 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef 4095)
@@ -1140,115 +1140,116 @@ define internal noundef i32 @get_text_rgb_cmyk_row(ptr noundef %0, ptr nocapture
   %20 = sitofp i16 %17 to double
   %21 = fdiv double %20, 4.095000e+03
   %22 = fsub double 1.000000e+00, %21
-  %23 = insertelement <2 x i32> poison, i32 %18, i64 0
-  %24 = insertelement <2 x i32> %23, i32 %19, i64 1
-  %25 = trunc <2 x i32> %24 to <2 x i16>
-  %26 = sitofp <2 x i16> %25 to <2 x double>
-  %27 = fdiv <2 x double> %26, <double 4.095000e+03, double 4.095000e+03>
-  %28 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %27
-  %29 = extractelement <2 x double> %28, i64 0
-  %30 = fcmp olt double %22, %29
-  %31 = select i1 %30, double %22, double %29
-  %32 = extractelement <2 x double> %28, i64 1
-  %33 = fcmp olt double %31, %32
-  %. = select i1 %33, double %31, double %32
-  %34 = fcmp oeq double %., 1.000000e+00
-  br i1 %34, label %45, label %35
+  %23 = trunc i32 %18 to i16
+  %24 = insertelement <2 x i16> poison, i16 %23, i64 0
+  %25 = trunc i32 %19 to i16
+  %26 = insertelement <2 x i16> %24, i16 %25, i64 1
+  %27 = sitofp <2 x i16> %26 to <2 x double>
+  %28 = fdiv <2 x double> %27, <double 4.095000e+03, double 4.095000e+03>
+  %29 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %28
+  %30 = extractelement <2 x double> %29, i64 0
+  %31 = fcmp olt double %22, %30
+  %32 = select i1 %31, double %22, double %30
+  %33 = extractelement <2 x double> %29, i64 1
+  %34 = fcmp olt double %32, %33
+  %. = select i1 %34, double %32, double %33
+  %35 = fcmp oeq double %., 1.000000e+00
+  br i1 %35, label %46, label %36
 
-35:                                               ; preds = %.lr.ph135
-  %36 = fsub double %22, %.
-  %37 = fsub double 1.000000e+00, %.
-  %38 = fdiv double %36, %37
-  %39 = insertelement <2 x double> poison, double %., i64 0
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fsub <2 x double> %28, %40
-  %42 = insertelement <2 x double> poison, double %37, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = fdiv <2 x double> %41, %43
-  br label %45
+36:                                               ; preds = %.lr.ph135
+  %37 = fsub double %22, %.
+  %38 = fsub double 1.000000e+00, %.
+  %39 = fdiv double %37, %38
+  %40 = insertelement <2 x double> poison, double %., i64 0
+  %41 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
+  %42 = fsub <2 x double> %29, %41
+  %43 = insertelement <2 x double> poison, double %38, i64 0
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
+  %45 = fdiv <2 x double> %42, %44
+  br label %46
 
-45:                                               ; preds = %.lr.ph135, %35
-  %.0 = phi double [ %38, %35 ], [ 0.000000e+00, %.lr.ph135 ]
-  %46 = phi <2 x double> [ %44, %35 ], [ zeroinitializer, %.lr.ph135 ]
-  %47 = insertelement <4 x double> poison, double %.0, i64 0
-  %48 = shufflevector <2 x double> %46, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %49 = shufflevector <4 x double> %47, <4 x double> %48, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %50 = insertelement <4 x double> %49, double %., i64 3
-  %51 = fneg <4 x double> %50
-  %52 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %51, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>)
-  %53 = fadd <4 x double> %52, <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
-  %54 = fptosi <4 x double> %53 to <4 x i16>
-  store <4 x i16> %54, ptr %.0115134, align 2
-  %55 = getelementptr inbounds i8, ptr %.0115134, i64 8
-  %56 = add i32 %.0116133, -1
-  %.not126 = icmp eq i32 %56, 0
+46:                                               ; preds = %.lr.ph135, %36
+  %.0 = phi double [ %39, %36 ], [ 0.000000e+00, %.lr.ph135 ]
+  %47 = phi <2 x double> [ %45, %36 ], [ zeroinitializer, %.lr.ph135 ]
+  %48 = insertelement <4 x double> poison, double %.0, i64 0
+  %49 = shufflevector <2 x double> %47, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %50 = shufflevector <4 x double> %48, <4 x double> %49, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %51 = insertelement <4 x double> %50, double %., i64 3
+  %52 = fneg <4 x double> %51
+  %53 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %52, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>)
+  %54 = fadd <4 x double> %53, <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
+  %55 = fptosi <4 x double> %54 to <4 x i16>
+  store <4 x i16> %55, ptr %.0115134, align 2
+  %56 = getelementptr inbounds i8, ptr %.0115134, i64 8
+  %57 = add i32 %.0116133, -1
+  %.not126 = icmp eq i32 %57, 0
   br i1 %.not126, label %.loopexit, label %.lr.ph135, !llvm.loop !19
 
-57:                                               ; preds = %2
+58:                                               ; preds = %2
   br i1 %.not126132, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %57, %94
-  %.1131 = phi ptr [ %104, %94 ], [ %11, %57 ]
-  %.1117130 = phi i32 [ %105, %94 ], [ %14, %57 ]
-  %58 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds i16, ptr %6, i64 %59
-  %61 = load i16, ptr %60, align 2
-  %62 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %6, i64 %63
-  %65 = load i16, ptr %64, align 2
-  %66 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %6, i64 %67
-  %69 = load i16, ptr %68, align 2
-  %70 = sitofp i16 %61 to double
-  %71 = fdiv double %70, 4.095000e+03
-  %72 = fsub double 1.000000e+00, %71
-  %73 = insertelement <2 x i16> poison, i16 %65, i64 0
-  %74 = insertelement <2 x i16> %73, i16 %69, i64 1
-  %75 = sitofp <2 x i16> %74 to <2 x double>
-  %76 = fdiv <2 x double> %75, <double 4.095000e+03, double 4.095000e+03>
-  %77 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %76
-  %78 = extractelement <2 x double> %77, i64 0
-  %79 = fcmp olt double %72, %78
-  %80 = select i1 %79, double %72, double %78
-  %81 = extractelement <2 x double> %77, i64 1
-  %82 = fcmp olt double %80, %81
-  %.127 = select i1 %82, double %80, double %81
-  %83 = fcmp oeq double %.127, 1.000000e+00
-  br i1 %83, label %94, label %84
+.lr.ph:                                           ; preds = %58, %95
+  %.1131 = phi ptr [ %105, %95 ], [ %11, %58 ]
+  %.1117130 = phi i32 [ %106, %95 ], [ %14, %58 ]
+  %59 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds i16, ptr %6, i64 %60
+  %62 = load i16, ptr %61, align 2
+  %63 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds i16, ptr %6, i64 %64
+  %66 = load i16, ptr %65, align 2
+  %67 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds i16, ptr %6, i64 %68
+  %70 = load i16, ptr %69, align 2
+  %71 = sitofp i16 %62 to double
+  %72 = fdiv double %71, 4.095000e+03
+  %73 = fsub double 1.000000e+00, %72
+  %74 = insertelement <2 x i16> poison, i16 %66, i64 0
+  %75 = insertelement <2 x i16> %74, i16 %70, i64 1
+  %76 = sitofp <2 x i16> %75 to <2 x double>
+  %77 = fdiv <2 x double> %76, <double 4.095000e+03, double 4.095000e+03>
+  %78 = fsub <2 x double> <double 1.000000e+00, double 1.000000e+00>, %77
+  %79 = extractelement <2 x double> %78, i64 0
+  %80 = fcmp olt double %73, %79
+  %81 = select i1 %80, double %73, double %79
+  %82 = extractelement <2 x double> %78, i64 1
+  %83 = fcmp olt double %81, %82
+  %.127 = select i1 %83, double %81, double %82
+  %84 = fcmp oeq double %.127, 1.000000e+00
+  br i1 %84, label %95, label %85
 
-84:                                               ; preds = %.lr.ph
-  %85 = fsub double %72, %.127
-  %86 = fsub double 1.000000e+00, %.127
-  %87 = fdiv double %85, %86
-  %88 = insertelement <2 x double> poison, double %.127, i64 0
-  %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> zeroinitializer
-  %90 = fsub <2 x double> %77, %89
-  %91 = insertelement <2 x double> poison, double %86, i64 0
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> zeroinitializer
-  %93 = fdiv <2 x double> %90, %92
-  br label %94
+85:                                               ; preds = %.lr.ph
+  %86 = fsub double %73, %.127
+  %87 = fsub double 1.000000e+00, %.127
+  %88 = fdiv double %86, %87
+  %89 = insertelement <2 x double> poison, double %.127, i64 0
+  %90 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> zeroinitializer
+  %91 = fsub <2 x double> %78, %90
+  %92 = insertelement <2 x double> poison, double %87, i64 0
+  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> zeroinitializer
+  %94 = fdiv <2 x double> %91, %93
+  br label %95
 
-94:                                               ; preds = %.lr.ph, %84
-  %.0112 = phi double [ %87, %84 ], [ 0.000000e+00, %.lr.ph ]
-  %95 = phi <2 x double> [ %93, %84 ], [ zeroinitializer, %.lr.ph ]
-  %96 = insertelement <4 x double> poison, double %.0112, i64 0
-  %97 = shufflevector <2 x double> %95, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %98 = shufflevector <4 x double> %96, <4 x double> %97, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %99 = insertelement <4 x double> %98, double %.127, i64 3
-  %100 = fneg <4 x double> %99
-  %101 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %100, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>)
-  %102 = fadd <4 x double> %101, <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
-  %103 = fptosi <4 x double> %102 to <4 x i16>
-  store <4 x i16> %103, ptr %.1131, align 2
-  %104 = getelementptr inbounds i8, ptr %.1131, i64 8
-  %105 = add i32 %.1117130, -1
-  %.not = icmp eq i32 %105, 0
+95:                                               ; preds = %.lr.ph, %85
+  %.0112 = phi double [ %88, %85 ], [ 0.000000e+00, %.lr.ph ]
+  %96 = phi <2 x double> [ %94, %85 ], [ zeroinitializer, %.lr.ph ]
+  %97 = insertelement <4 x double> poison, double %.0112, i64 0
+  %98 = shufflevector <2 x double> %96, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %99 = shufflevector <4 x double> %97, <4 x double> %98, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %100 = insertelement <4 x double> %99, double %.127, i64 3
+  %101 = fneg <4 x double> %100
+  %102 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %101, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>, <4 x double> <double 4.095000e+03, double 4.095000e+03, double 4.095000e+03, double 4.095000e+03>)
+  %103 = fadd <4 x double> %102, <double 5.000000e-01, double 5.000000e-01, double 5.000000e-01, double 5.000000e-01>
+  %104 = fptosi <4 x double> %103 to <4 x i16>
+  store <4 x i16> %104, ptr %.1131, align 2
+  %105 = getelementptr inbounds i8, ptr %.1131, i64 8
+  %106 = add i32 %.1117130, -1
+  %.not = icmp eq i32 %106, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %94, %45, %57, %15
+.loopexit:                                        ; preds = %95, %46, %58, %15
   ret i32 1
 }
 

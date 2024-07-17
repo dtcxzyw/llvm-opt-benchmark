@@ -7305,33 +7305,34 @@ if.then13:                                        ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end
-  %31 = insertelement <2 x i64> poison, i64 %21, i64 0
-  %32 = insertelement <2 x i64> %31, i64 %6, i64 1
-  %33 = trunc <2 x i64> %32 to <2 x i32>
-  %34 = insertelement <2 x float> poison, float %24, i64 0
-  %35 = insertelement <2 x float> %34, float %9, i64 1
-  %36 = insertelement <2 x float> poison, float %22, i64 0
-  %37 = insertelement <2 x float> %36, float %7, i64 1
-  %38 = fcmp ogt <2 x float> %35, %37
-  %39 = fsub <2 x float> %u.coerce, %37
-  %40 = fsub <2 x float> %35, %37
-  %41 = insertelement <2 x i64> poison, i64 %28, i64 0
-  %42 = insertelement <2 x i64> %41, i64 %13, i64 1
-  %43 = uitofp <2 x i64> %42 to <2 x float>
-  %44 = fdiv <2 x float> %39, %40
-  %45 = select <2 x i1> %38, <2 x float> %44, <2 x float> %39
-  %46 = sitofp <2 x i32> %33 to <2 x float>
-  %47 = fadd <2 x float> %45, %46
-  %48 = fdiv <2 x float> %47, %43
-  %49 = insertelement <2 x float> poison, float %30, i64 0
-  %50 = insertelement <2 x float> %49, float %15, i64 1
-  %51 = fmul <2 x float> %48, %50
-  %52 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %48
-  %53 = insertelement <2 x float> poison, float %29, i64 0
-  %54 = insertelement <2 x float> %53, float %14, i64 1
-  %55 = fmul <2 x float> %54, %52
-  %56 = fadd <2 x float> %51, %55
-  ret <2 x float> %56
+  %31 = trunc i64 %21 to i32
+  %32 = insertelement <2 x i32> poison, i32 %31, i64 0
+  %33 = trunc i64 %6 to i32
+  %34 = insertelement <2 x i32> %32, i32 %33, i64 1
+  %35 = insertelement <2 x float> poison, float %24, i64 0
+  %36 = insertelement <2 x float> %35, float %9, i64 1
+  %37 = insertelement <2 x float> poison, float %22, i64 0
+  %38 = insertelement <2 x float> %37, float %7, i64 1
+  %39 = fcmp ogt <2 x float> %36, %38
+  %40 = fsub <2 x float> %u.coerce, %38
+  %41 = fsub <2 x float> %36, %38
+  %42 = insertelement <2 x i64> poison, i64 %28, i64 0
+  %43 = insertelement <2 x i64> %42, i64 %13, i64 1
+  %44 = uitofp <2 x i64> %43 to <2 x float>
+  %45 = fdiv <2 x float> %40, %41
+  %46 = select <2 x i1> %39, <2 x float> %45, <2 x float> %40
+  %47 = sitofp <2 x i32> %34 to <2 x float>
+  %48 = fadd <2 x float> %46, %47
+  %49 = fdiv <2 x float> %48, %44
+  %50 = insertelement <2 x float> poison, float %30, i64 0
+  %51 = insertelement <2 x float> %50, float %15, i64 1
+  %52 = fmul <2 x float> %49, %51
+  %53 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %49
+  %54 = insertelement <2 x float> poison, float %29, i64 0
+  %55 = insertelement <2 x float> %54, float %14, i64 1
+  %56 = fmul <2 x float> %55, %53
+  %57 = fadd <2 x float> %52, %56
+  ret <2 x float> %57
 }
 
 ; Function Attrs: mustprogress noreturn uwtable

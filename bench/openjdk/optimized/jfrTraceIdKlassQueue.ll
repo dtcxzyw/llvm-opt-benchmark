@@ -234,9 +234,9 @@ define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr nocapture noundef nonn
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i = and i8 %13, 1
-  %.not.i.i.i.i.i = icmp eq i8 %not..i.i.i.i.i.i, 0
-  %.v.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 432, i64 424
-  %14 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.i.i.i
+  %.not.i.i.i.not.i.i = icmp eq i8 %not..i.i.i.i.i.i, 0
+  %.v.i.i.i.pn.i.i.i = select i1 %.not.i.i.i.not.i.i, i64 432, i64 424
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.pn.i.i.i
   store ptr %12, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %14, ptr %15, align 8
@@ -289,12 +289,12 @@ define linkonce_odr hidden void @_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %13, 1
-  %.not.i.i.i.i = icmp eq i8 %not..i.i.i.i.i, 0
+  %.not.i.i.i.not.i = icmp eq i8 %not..i.i.i.i.i, 0
   br i1 %2, label %14, label %23
 
 14:                                               ; preds = %3
-  %.v.i.i.i.i.i = select i1 %.not.i.i.i.i, i64 432, i64 424
-  %15 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.i.i
+  %.v.i.i.i.pn.i.i = select i1 %.not.i.i.i.not.i, i64 432, i64 424
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.pn.i.i
   store ptr %12, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %15, ptr %16, align 8
@@ -318,16 +318,16 @@ define linkonce_odr hidden void @_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7
   br i1 %or.cond10.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEEEEvRT_b.exit, !llvm.loop !7
 
 23:                                               ; preds = %3
-  %.v.i.i.i1.i.i.i7.i = select i1 %.not.i.i.i.i, i64 424, i64 432
-  %24 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i1.i.i.i7.i
+  %.v.i.i.i.pn.i.i.i6.i = select i1 %.not.i.i.i.not.i, i64 424, i64 432
+  %24 = getelementptr inbounds i8, ptr %12, i64 %.v.i.i.i.pn.i.i.i6.i
   %25 = load volatile ptr, ptr %24, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %26
 
 26:                                               ; preds = %27, %23
   %.0.i.i.i.i = phi ptr [ %25, %23 ], [ %28, %27 ]
-  %.not.i.i.i8.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i8.i, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEEEEvRT_b.exit, label %27
+  %.not.i.i.i7.i = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %.not.i.i.i7.i, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEEEEvRT_b.exit, label %27
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %.0.i.i.i.i, align 8
@@ -1128,8 +1128,8 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
   %32 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %32, 1
   %.not.i.i.i.i = icmp eq i8 %not..i.i.i.i.i, 0
-  %.v.i.i.i1.i.i = select i1 %.not.i.i.i.i, i64 424, i64 432
-  %33 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i.i1.i.i
+  %.v.i.i.i.pn.i.i = select i1 %.not.i.i.i.i, i64 424, i64 432
+  %33 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i.i.pn.i.i
   br label %34
 
 34:                                               ; preds = %34, %31
@@ -1567,8 +1567,8 @@ define linkonce_odr hidden noundef ptr @_ZN19JfrEpochStorageHostI9JfrBuffer24Jfr
   %21 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i.i = and i8 %21, 1
   %.not.i.i.i.i9.i.i = icmp eq i8 %not..i.i.i.i.i.i.i, 0
-  %.v.i.i.i1.i.i.i.i = select i1 %.not.i.i.i.i9.i.i, i64 424, i64 432
-  %22 = getelementptr inbounds i8, ptr %4, i64 %.v.i.i.i1.i.i.i.i
+  %.v.i.i.i.pn.i.i.i.i = select i1 %.not.i.i.i.i9.i.i, i64 424, i64 432
+  %22 = getelementptr inbounds i8, ptr %4, i64 %.v.i.i.i.pn.i.i.i.i
   br label %23
 
 23:                                               ; preds = %23, %20
@@ -1647,8 +1647,8 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   %15 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %15, 1
   %.not.i.i.i.i = icmp eq i8 %not..i.i.i.i.i, 0
-  %.v.i.i.i1.i.i = select i1 %.not.i.i.i.i, i64 424, i64 432
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.v.i.i.i1.i.i
+  %.v.i.i.i.pn.i.i = select i1 %.not.i.i.i.i, i64 424, i64 432
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.v.i.i.i.pn.i.i
   br label %17
 
 17:                                               ; preds = %17, %14
