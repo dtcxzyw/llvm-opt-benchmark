@@ -11309,7 +11309,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %493 = shl <4 x i64> %492, <i64 2, i64 2, i64 2, i64 2>
   %494 = extractelement <4 x i64> %493, i64 0
   %495 = getelementptr inbounds float, ptr %34, i64 %494
-  %496 = load <16 x float>, ptr %495, align 16, !tbaa !6, !alias.scope !556, !noalias !561
+  %496 = load <16 x float>, ptr %495, align 64, !tbaa !6, !alias.scope !556, !noalias !561
   %497 = shufflevector <16 x float> %496, <16 x float> poison, <4 x i32> <i32 0, i32 4, i32 8, i32 12>
   %498 = shufflevector <16 x float> %496, <16 x float> poison, <4 x i32> <i32 1, i32 5, i32 9, i32 13>
   %499 = shufflevector <16 x float> %496, <16 x float> poison, <4 x i32> <i32 2, i32 6, i32 10, i32 14>
@@ -11733,7 +11733,7 @@ define internal fastcc void @fast_eigf_surface_blur(ptr noalias nocapture nounde
   %822 = shl <8 x i64> %821, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
   %823 = extractelement <8 x i64> %822, i64 0
   %824 = getelementptr inbounds float, ptr %34, i64 %823
-  %825 = load <16 x float>, ptr %824, align 8, !tbaa !6, !alias.scope !574, !noalias !571
+  %825 = load <16 x float>, ptr %824, align 64, !tbaa !6, !alias.scope !574, !noalias !571
   %826 = shufflevector <16 x float> %825, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
   %827 = fmul reassoc nsz arcp contract afn <16 x float> %825, %825
   %828 = shufflevector <16 x float> %827, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>

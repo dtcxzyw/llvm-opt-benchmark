@@ -9507,7 +9507,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %isneg.i1656 = icmp slt <2 x i64> %3803, zeroinitializer
   %3804 = select <2 x i1> %isneg.i1656, <2 x i8> <i8 1, i8 2>, <2 x i8> zeroinitializer
   %shift = shufflevector <2 x i8> %3804, <2 x i8> poison, <2 x i32> <i32 1, i32 poison>
-  %3805 = or <2 x i8> %3804, %shift
+  %3805 = or disjoint <2 x i8> %3804, %shift
   %3806 = extractelement <2 x i8> %3805, i64 0
   %3807 = zext nneg i8 %3806 to i32
   store i32 %3807, ptr %3802, align 16, !noalias !818

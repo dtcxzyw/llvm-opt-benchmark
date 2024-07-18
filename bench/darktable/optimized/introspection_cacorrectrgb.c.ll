@@ -1853,7 +1853,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1475 = shufflevector <8 x float> %1465, <8 x float> %1467, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1476 = shufflevector <8 x float> %1470, <8 x float> %1472, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %1477 = shufflevector <16 x float> %1475, <16 x float> %1476, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
-  store <32 x float> %1477, ptr %1474, align 16, !tbaa !48, !noalias !127
+  store <32 x float> %1477, ptr %1474, align 64, !tbaa !48, !noalias !127
   %1478 = add nuw i64 %1460, 8
   %1479 = add <8 x i64> %1461, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
   %1480 = icmp eq i64 %1478, %1454
@@ -2035,7 +2035,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1610 = shl <8 x i64> %1609, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
   %1611 = extractelement <8 x i64> %1610, i64 0
   %1612 = getelementptr inbounds float, ptr %1549, i64 %1611
-  %1613 = load <32 x float>, ptr %1612, align 16, !tbaa !48, !noalias !127
+  %1613 = load <32 x float>, ptr %1612, align 64, !tbaa !48, !noalias !127
   %1614 = shufflevector <32 x float> %1613, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %1615 = shufflevector <32 x float> %1613, <32 x float> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %1616 = shufflevector <32 x float> %1613, <32 x float> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>

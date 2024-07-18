@@ -3584,7 +3584,7 @@ define hidden void @_guide_with_chromaticity(ptr noalias noundef %0, ptr noalias
   %1086 = extractelement <8 x i64> %1072, i64 0
   %1087 = getelementptr float, ptr %1014, i64 %1086
   %1088 = shufflevector <8 x float> %1080, <8 x float> %1085, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %1088, ptr %1087, align 8, !tbaa !6
+  store <16 x float> %1088, ptr %1087, align 64, !tbaa !6
   %1089 = add nuw i64 %1016, 8
   %1090 = add <8 x i64> %1017, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
   %1091 = icmp eq i64 %1089, %1011
@@ -4359,7 +4359,7 @@ define hidden void @_guide_with_chromaticity(ptr noalias noundef %0, ptr noalias
   %1684 = fmul reassoc nsz arcp contract afn <8 x float> %1680, %1675
   %1685 = fmul reassoc nsz arcp contract afn <8 x float> %1681, %1676
   %1686 = getelementptr inbounds float, ptr %1621, i64 %1672
-  %1687 = load <16 x float>, ptr %1686, align 8, !tbaa !6
+  %1687 = load <16 x float>, ptr %1686, align 64, !tbaa !6
   %1688 = shufflevector <16 x float> %1687, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %1689 = shufflevector <16 x float> %1687, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
   %1690 = fmul reassoc nsz arcp contract afn <8 x float> %1682, %1675

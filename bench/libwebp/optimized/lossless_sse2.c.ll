@@ -1087,7 +1087,7 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %25 = bitcast <16 x i8> %20 to <8 x i16>
   %26 = sub nsw <8 x i16> %24, %25
   %27 = bitcast <16 x i8> %.0142.in147 to <8 x i16>
-  %28 = add <8 x i16> %23, %27
+  %28 = add nsw <8 x i16> %23, %27
   %29 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %28, <8 x i16> %28)
   %30 = add <16 x i8> %29, %12
   %31 = bitcast <16 x i8> %30 to <4 x i32>
