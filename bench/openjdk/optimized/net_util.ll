@@ -1075,7 +1075,7 @@ define hidden zeroext i16 @in_cksum(ptr nocapture noundef readonly %0, i32 nound
   %16 = ashr i32 %.1, 16
   %17 = and i32 %.1, 65535
   %18 = add nsw i32 %16, %17
-  %19 = ashr i32 %18, 16
+  %19 = lshr i32 %18, 16
   %20 = add nsw i32 %19, %18
   %21 = trunc i32 %20 to i16
   %22 = xor i16 %21, -1

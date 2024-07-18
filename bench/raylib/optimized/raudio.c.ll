@@ -68016,8 +68016,8 @@ codebook_decode_scalar_raw.exit431.i:             ; preds = %.sink.split.i403.i,
   br label %.sink.split.i
 
 745:                                              ; preds = %738
-  %746 = ashr exact i32 %725, 1
-  %747 = add nsw i32 %722, %746
+  %746 = lshr exact i32 %725, 1
+  %747 = add i32 %722, %746
   %748 = trunc i32 %747 to i16
   br label %.sink.split.i
 
@@ -92509,11 +92509,11 @@ define internal fastcc void @workeffect(ptr nocapture noundef %0) unnamed_addr #
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i32
   %86 = mul nsw i32 %85, %78
-  %87 = ashr i32 %86, 7
-  %88 = trunc nsw i32 %87 to i16
+  %87 = lshr i32 %86, 7
+  %88 = trunc i32 %87 to i16
   %89 = getelementptr inbounds i8, ptr %0, i64 50
   %90 = icmp ugt i8 %80, 31
-  %91 = sub nsw i16 0, %88
+  %91 = sub i16 0, %88
   %spec.select = select i1 %90, i16 %91, i16 %88
   store i16 %spec.select, ptr %89, align 2
   %92 = lshr i8 %76, 4

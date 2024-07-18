@@ -3363,8 +3363,8 @@ if.then28:                                        ; preds = %do.body
   %conv26 = zext i16 %7 to i32
   %conv24 = zext i16 %6 to i32
   %sub = sub nsw i32 %conv24, %conv26
-  %shr = ashr i32 %sub, 15
-  %8 = trunc nsw i32 %shr to i8
+  %shr = lshr i32 %sub, 15
+  %8 = trunc i32 %shr to i8
   %conv29 = or i8 %8, 1
   br label %return
 

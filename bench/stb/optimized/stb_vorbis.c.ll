@@ -7829,8 +7829,8 @@ if.then234:                                       ; preds = %if.else231
   br label %for.inc256.sink.split
 
 if.else241:                                       ; preds = %if.else231
-  %shr242 = ashr exact i32 %conv197, 1
-  %add243 = add nsw i32 %cond.i, %shr242
+  %shr242 = lshr exact i32 %conv197, 1
+  %add243 = add i32 %cond.i, %shr242
   %conv244 = trunc i32 %add243 to i16
   br label %for.inc256.sink.split
 

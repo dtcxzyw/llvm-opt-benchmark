@@ -956,7 +956,7 @@ define ptr @Abc_ManReadAig(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %32 = sext i8 %31 to i32
   %33 = shl nsw i32 %32, 22
   %sext.i = add nsw i32 %33, -201326592
-  %34 = ashr i32 %sext.i, 24
+  %34 = lshr i32 %sext.i, 24
   %35 = getelementptr inbounds i8, ptr %.122.i, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i32
@@ -969,7 +969,7 @@ define ptr @Abc_ManReadAig(ptr noundef %0, ptr nocapture noundef readonly %1) lo
   %43 = sext i8 %42 to i32
   %44 = shl nsw i32 %43, 20
   %sext19.i = add nsw i32 %44, -50331648
-  %45 = ashr i32 %sext19.i, 24
+  %45 = lshr i32 %sext19.i, 24
   %46 = getelementptr inbounds i8, ptr %.122.i, i64 3
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32

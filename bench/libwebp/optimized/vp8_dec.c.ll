@@ -983,8 +983,8 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %46 = load i16, ptr %3, align 16
   %47 = sext i16 %46 to i32
   %48 = add nsw i32 %47, 3
-  %49 = ashr i32 %48, 3
-  %50 = trunc nsw i32 %49 to i16
+  %49 = lshr i32 %48, 3
+  %50 = trunc i32 %49 to i16
   br label %51
 
 51:                                               ; preds = %51, %45

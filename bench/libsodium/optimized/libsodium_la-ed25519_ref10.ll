@@ -10487,8 +10487,8 @@ entry:
   %conv945 = trunc i64 %shr944 to i8
   %arrayidx946 = getelementptr i8, ptr %s, i64 30
   store i8 %conv945, ptr %arrayidx946, align 1
-  %shr947 = ashr i64 %add834, 17
-  %conv948 = trunc nsw i64 %shr947 to i8
+  %shr947 = lshr i64 %add834, 17
+  %conv948 = trunc i64 %shr947 to i8
   %arrayidx949 = getelementptr i8, ptr %s, i64 31
   store i8 %conv948, ptr %arrayidx949, align 1
   ret void
@@ -11618,8 +11618,8 @@ entry:
   %conv1001 = trunc i64 %shr1000 to i8
   %arrayidx1002 = getelementptr i8, ptr %s, i64 30
   store i8 %conv1001, ptr %arrayidx1002, align 1
-  %shr1003 = ashr i64 %add890, 17
-  %conv1004 = trunc nsw i64 %shr1003 to i8
+  %shr1003 = lshr i64 %add890, 17
+  %conv1004 = trunc i64 %shr1003 to i8
   %arrayidx1005 = getelementptr i8, ptr %s, i64 31
   store i8 %conv1004, ptr %arrayidx1005, align 1
   ret void
@@ -12473,8 +12473,8 @@ entry:
   %conv568 = trunc i64 %shr567 to i8
   %arrayidx569 = getelementptr i8, ptr %s, i64 30
   store i8 %conv568, ptr %arrayidx569, align 1
-  %shr570 = ashr i64 %add457, 17
-  %conv571 = trunc nsw i64 %shr570 to i8
+  %shr570 = lshr i64 %add457, 17
+  %conv571 = trunc i64 %shr570 to i8
   store i8 %conv571, ptr %add.ptr42, align 1
   ret void
 }

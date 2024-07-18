@@ -618,8 +618,8 @@ define internal range(i32 0, 2) i32 @eyesdn_dump(ptr noundef %0, ptr nocapture n
 36:                                               ; preds = %17, %34, %33, %32, %31, %30, %29, %28
   %.033.shrunk = phi i8 [ %25, %34 ], [ %25, %33 ], [ %25, %32 ], [ %25, %31 ], [ -128, %30 ], [ %25, %29 ], [ %25, %28 ], [ %25, %17 ]
   %.032 = phi i8 [ 16, %34 ], [ 14, %33 ], [ 8, %32 ], [ 4, %31 ], [ 6, %30 ], [ 10, %29 ], [ 2, %28 ], [ 0, %17 ]
-  %37 = ashr i32 %21, 16
-  %38 = trunc nsw i32 %37 to i8
+  %37 = lshr i32 %21, 16
+  %38 = trunc i32 %37 to i8
   store i8 %38, ptr %8, align 1
   %39 = lshr i32 %21, 8
   %40 = trunc i32 %39 to i8
