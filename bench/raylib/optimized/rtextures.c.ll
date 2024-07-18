@@ -43597,7 +43597,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %19 = select <4 x i1> %14, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %20 = add nuw <4 x i32> %17, %19
+  %20 = add nuw nsw <4 x i32> %17, %19
   %21 = bitcast <4 x i32> %18 to <4 x float>
   %22 = fadd <4 x float> %21, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %23 = bitcast <4 x float> %22 to <4 x i32>
@@ -43615,7 +43615,7 @@ define internal void @stbir__decode_half_float_linear(ptr noundef %0, i32 nounde
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %36 = select <4 x i1> %31, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %37 = add nuw <4 x i32> %34, %36
+  %37 = add nuw nsw <4 x i32> %34, %36
   %38 = bitcast <4 x i32> %35 to <4 x float>
   %39 = fadd <4 x float> %38, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %40 = bitcast <4 x float> %39 to <4 x i32>
@@ -44003,7 +44003,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %19 = select <4 x i1> %14, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %20 = add nuw <4 x i32> %17, %19
+  %20 = add nuw nsw <4 x i32> %17, %19
   %21 = bitcast <4 x i32> %18 to <4 x float>
   %22 = fadd <4 x float> %21, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %23 = bitcast <4 x float> %22 to <4 x i32>
@@ -44020,7 +44020,7 @@ define internal void @stbir__decode_half_float_linear_BGRA(ptr noundef %0, i32 n
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %36 = select <4 x i1> %31, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %37 = add nuw <4 x i32> %34, %36
+  %37 = add nuw nsw <4 x i32> %34, %36
   %38 = bitcast <4 x i32> %35 to <4 x float>
   %39 = fadd <4 x float> %38, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %40 = bitcast <4 x float> %39 to <4 x i32>
@@ -44341,7 +44341,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %19 = select <4 x i1> %14, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %20 = add nuw <4 x i32> %17, %19
+  %20 = add nuw nsw <4 x i32> %17, %19
   %21 = bitcast <4 x i32> %18 to <4 x float>
   %22 = fadd <4 x float> %21, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %23 = bitcast <4 x float> %22 to <4 x i32>
@@ -44358,7 +44358,7 @@ define internal void @stbir__decode_half_float_linear_ARGB(ptr noundef %0, i32 n
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %36 = select <4 x i1> %31, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %37 = add nuw <4 x i32> %34, %36
+  %37 = add nuw nsw <4 x i32> %34, %36
   %38 = bitcast <4 x i32> %35 to <4 x float>
   %39 = fadd <4 x float> %38, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %40 = bitcast <4 x float> %39 to <4 x i32>
@@ -44679,7 +44679,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %19 = select <4 x i1> %14, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %20 = add nuw <4 x i32> %17, %19
+  %20 = add nuw nsw <4 x i32> %17, %19
   %21 = bitcast <4 x i32> %18 to <4 x float>
   %22 = fadd <4 x float> %21, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %23 = bitcast <4 x float> %22 to <4 x i32>
@@ -44696,7 +44696,7 @@ define internal void @stbir__decode_half_float_linear_ABGR(ptr noundef %0, i32 n
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %36 = select <4 x i1> %31, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %37 = add nuw <4 x i32> %34, %36
+  %37 = add nuw nsw <4 x i32> %34, %36
   %38 = bitcast <4 x i32> %35 to <4 x float>
   %39 = fadd <4 x float> %38, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %40 = bitcast <4 x float> %39 to <4 x i32>
@@ -45151,7 +45151,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %17 = add nuw nsw <4 x i32> %16, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %18 = add nuw nsw <4 x i32> %16, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %19 = select <4 x i1> %14, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %20 = add nuw <4 x i32> %17, %19
+  %20 = add nuw nsw <4 x i32> %17, %19
   %21 = bitcast <4 x i32> %18 to <4 x float>
   %22 = fadd <4 x float> %21, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %23 = bitcast <4 x float> %22 to <4 x i32>
@@ -45168,7 +45168,7 @@ define internal void @stbir__decode_half_float_linear_AR(ptr noundef %0, i32 nou
   %34 = add nuw nsw <4 x i32> %33, <i32 939524096, i32 939524096, i32 939524096, i32 939524096>
   %35 = add nuw nsw <4 x i32> %33, <i32 947912704, i32 947912704, i32 947912704, i32 947912704>
   %36 = select <4 x i1> %31, <4 x i32> <i32 939524096, i32 939524096, i32 939524096, i32 939524096>, <4 x i32> zeroinitializer
-  %37 = add nuw <4 x i32> %34, %36
+  %37 = add nuw nsw <4 x i32> %34, %36
   %38 = bitcast <4 x i32> %35 to <4 x float>
   %39 = fadd <4 x float> %38, <float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000, float 0xBF10000000000000>
   %40 = bitcast <4 x float> %39 to <4 x i32>
