@@ -550,7 +550,7 @@ define void @Scl_LibertyWipeOutComments(ptr noundef %0, ptr noundef readnone %1)
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %27, %25, %.lr.ph43.preheader, %.preheader35, %.preheader33, %.preheader, %.lr.ph50, %29
-  %.3 = phi ptr [ %.03049, %29 ], [ %.03049, %.lr.ph50 ], [ %.13144, %.preheader ], [ %.03049, %.preheader33 ], [ %.241, %.preheader35 ], [ %.241, %.lr.ph43.preheader ], [ %.13144, %25 ], [ %28, %27 ], [ %scevgep59, %37 ]
+  %.3 = phi ptr [ %.03049, %29 ], [ %.03049, %.lr.ph50 ], [ %.13144, %.preheader ], [ %.03049, %.preheader33 ], [ %.241, %.preheader35 ], [ %.241, %.lr.ph43.preheader ], [ %.13144, %25 ], [ %scevgep62, %27 ], [ %scevgep59, %37 ]
   %39 = getelementptr inbounds i8, ptr %.3, i64 1
   %40 = icmp ult ptr %39, %4
   br i1 %40, label %.lr.ph50, label %._crit_edge, !llvm.loop !11

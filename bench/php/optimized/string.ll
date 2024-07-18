@@ -1393,17 +1393,17 @@ switch.early.test:                                ; preds = %72
 75:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %72
   %76 = getelementptr inbounds i8, ptr %.4327, i64 1
   %.not266 = icmp eq ptr %76, %.ptr345
-  br i1 %.not266, label %switch.early.test._crit_edge.thread, label %.lr.ph329
-
-switch.early.test._crit_edge.thread:              ; preds = %75
-  %.4.lcssa351354 = ptrtoint ptr %.ptr345 to i64
-  br label %.loopexit
+  br i1 %.not266, label %switch.early.test._crit_edge..loopexit_crit_edge, label %.lr.ph329
 
 switch.early.test._crit_edge:                     ; preds = %.lr.ph329, %switch.early.test, %32
   %.4.lcssa = phi ptr [ %.ptr344, %32 ], [ %.4327, %switch.early.test ], [ %.4327, %.lr.ph329 ]
   %.4.lcssa351 = ptrtoint ptr %.4.lcssa to i64
   %.not267335 = icmp eq ptr %.4.lcssa, %.ptr345
-  br i1 %.not267335, label %.loopexit, label %.lr.ph338.preheader
+  br i1 %.not267335, label %switch.early.test._crit_edge..loopexit_crit_edge, label %.lr.ph338.preheader
+
+switch.early.test._crit_edge..loopexit_crit_edge: ; preds = %75, %switch.early.test._crit_edge
+  %.pre353 = ptrtoint ptr %.ptr345 to i64
+  br label %.loopexit
 
 .lr.ph338.preheader:                              ; preds = %switch.early.test._crit_edge
   %77 = sub i64 %.4.lcssa351, %30
@@ -1440,11 +1440,11 @@ switch.early.test279:                             ; preds = %81
   %.pre = load i64, ptr %39, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %51, %84, %.lr.ph338, %switch.early.test279, %switch.early.test._crit_edge.thread, %.loopexit.loopexit347, %switch.early.test._crit_edge
-  %.pre-phi = phi i64 [ %.2.lcssa348, %.loopexit.loopexit347 ], [ %.4.lcssa351, %switch.early.test._crit_edge ], [ %.4.lcssa351354, %switch.early.test._crit_edge.thread ], [ %.4.lcssa351, %switch.early.test279 ], [ %.4.lcssa351, %.lr.ph338 ], [ %.4.lcssa351, %84 ], [ %.0247.lcssa349, %51 ], [ %.0247.lcssa349, %50 ]
-  %85 = phi i64 [ %.pre, %.loopexit.loopexit347 ], [ %34, %switch.early.test._crit_edge ], [ %34, %switch.early.test._crit_edge.thread ], [ %34, %switch.early.test279 ], [ %34, %.lr.ph338 ], [ %34, %84 ], [ %40, %51 ], [ %40, %50 ]
-  %.3252 = phi ptr [ %.1250.lcssa, %.loopexit.loopexit347 ], [ %.ptr345, %switch.early.test._crit_edge ], [ %.ptr345, %switch.early.test._crit_edge.thread ], [ %scevgep352, %84 ], [ %.2251336, %.lr.ph338 ], [ %.2251336, %switch.early.test279 ], [ %scevgep350, %50 ], [ %.0249, %51 ]
-  %.6 = phi ptr [ %.2.lcssa, %.loopexit.loopexit347 ], [ %.4.lcssa, %switch.early.test._crit_edge ], [ %.ptr345, %switch.early.test._crit_edge.thread ], [ %.4.lcssa, %switch.early.test279 ], [ %.4.lcssa, %.lr.ph338 ], [ %.4.lcssa, %84 ], [ %.0247.lcssa, %51 ], [ %.0247.lcssa, %50 ]
+.loopexit:                                        ; preds = %50, %51, %84, %.lr.ph338, %switch.early.test279, %switch.early.test._crit_edge..loopexit_crit_edge, %.loopexit.loopexit347
+  %.pre-phi = phi i64 [ %.pre353, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.2.lcssa348, %.loopexit.loopexit347 ], [ %.4.lcssa351, %switch.early.test279 ], [ %.4.lcssa351, %.lr.ph338 ], [ %.4.lcssa351, %84 ], [ %.0247.lcssa349, %51 ], [ %.0247.lcssa349, %50 ]
+  %85 = phi i64 [ %34, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.pre, %.loopexit.loopexit347 ], [ %34, %switch.early.test279 ], [ %34, %.lr.ph338 ], [ %34, %84 ], [ %40, %51 ], [ %40, %50 ]
+  %.3252 = phi ptr [ %.ptr345, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.1250.lcssa, %.loopexit.loopexit347 ], [ %scevgep352, %84 ], [ %.2251336, %.lr.ph338 ], [ %.2251336, %switch.early.test279 ], [ %scevgep350, %50 ], [ %.0249, %51 ]
+  %.6 = phi ptr [ %.ptr345, %switch.early.test._crit_edge..loopexit_crit_edge ], [ %.2.lcssa, %.loopexit.loopexit347 ], [ %.4.lcssa, %switch.early.test279 ], [ %.4.lcssa, %.lr.ph338 ], [ %.4.lcssa, %84 ], [ %.0247.lcssa, %51 ], [ %.0247.lcssa, %50 ]
   %86 = ptrtoint ptr %.3252 to i64
   %87 = sub i64 %86, %.pre-phi
   %88 = icmp eq i64 %85, %87

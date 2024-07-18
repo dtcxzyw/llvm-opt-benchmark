@@ -1578,7 +1578,7 @@ if.then.i.i.i.i.i253:                             ; preds = %_ZN5boost9container
   br label %.noexc280.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i, i64 16, i1 false), !noalias !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i105, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i, i64 16, i1 false), !noalias !74
   %140 = load i64, ptr %m_size.i.i104, align 8, !noalias !74
   %add.i.i.i118 = add i64 %140, 1
   store i64 %add.i.i.i118, ptr %m_size.i.i104, align 8, !noalias !74
@@ -1856,7 +1856,7 @@ if.then.i.i.i.i.i299:                             ; preds = %_ZN5boost9container
   br label %invoke.cont50.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
-  store i32 %call18.i, ptr %156, align 4, !noalias !97
+  store i32 %call18.i, ptr %add.ptr.i.i312.i, align 4, !noalias !97
   %165 = load i64, ptr %m_size.i.i311.i, align 8, !noalias !97
   %add.i.i = add i64 %165, 1
   store i64 %add.i.i, ptr %m_size.i.i311.i, align 8, !noalias !97
@@ -2149,7 +2149,7 @@ if.then.i.i.i.i.i362:                             ; preds = %_ZN5boost9container
   br label %invoke.cont92.i
 
 if.then4.i.i179:                                  ; preds = %if.then.i383.i
-  store i32 %call89.i, ptr %186, align 4, !noalias !114
+  store i32 %call89.i, ptr %add.ptr.i.i374.i, align 4, !noalias !114
   %195 = load i64, ptr %m_size.i.i373.i, align 8, !noalias !114
   %add.i.i180 = add i64 %195, 1
   store i64 %add.i.i180, ptr %m_size.i.i373.i, align 8, !noalias !114
@@ -3978,8 +3978,8 @@ _ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graph
   br label %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
 if.then4.i.i.i:                                   ; preds = %if.then.thread.i
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %36, align 8, !noalias !219
-  %v.i.i.sroa.11.0..sroa_idx1905 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %add.ptr.i.i182, align 8, !noalias !219
+  %v.i.i.sroa.11.0..sroa_idx1905 = getelementptr inbounds i8, ptr %add.ptr.i.i182, i64 8
   store i64 %v.i.i.sroa.11.0.copyload, ptr %v.i.i.sroa.11.0..sroa_idx1905, align 8, !noalias !219
   %41 = load i64, ptr %m_size.i.i, align 8, !noalias !219
   %add.i.i.i201 = add i64 %41, 1
@@ -5817,7 +5817,7 @@ if.then.i276:                                     ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp.not.i.i278, label %if.then.i.i300, label %if.then7.i.i.i279
 
 if.then.thread.i307:                              ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i263
-  store ptr %224, ptr %agg.tmp14.i259, align 8, !noalias !329
+  store ptr %add.ptr.i.i261, ptr %agg.tmp14.i259, align 8, !noalias !329
   %228 = load i64, ptr %m_capacity.i.i.i277, align 8, !noalias !341
   %cmp.not.i7.i309 = icmp eq i64 %228, %218
   br i1 %cmp.not.i7.i309, label %if.then.i.i300, label %if.then4.i.i.i310
@@ -5827,7 +5827,7 @@ if.then.i.i300:                                   ; preds = %if.then.thread.i307
           to label %.noexc.i336.i unwind label %lpad99.i.i
 
 if.then4.i.i.i310:                                ; preds = %if.then.thread.i307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i335.i, i64 16, i1 false), !noalias !338
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i261, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i335.i, i64 16, i1 false), !noalias !338
   %229 = load i64, ptr %m_size.i.i260, align 8, !noalias !338
   %add.i.i.i312 = add i64 %229, 1
   store i64 %add.i.i.i312, ptr %m_size.i.i260, align 8, !noalias !338
@@ -7210,7 +7210,7 @@ if.then.i.i.i.i.i1441:                            ; preds = %_ZN5boost9container
 
 if.then4.i.i448:                                  ; preds = %if.then.i.i.i242.i.i.i
   %394 = load i32, ptr %agg.tmp.sroa.0.0.i.i.i.i, align 4, !noalias !415
-  store i32 %394, ptr %382, align 4, !noalias !415
+  store i32 %394, ptr %add.ptr.i.i.i4.i.i.i.i, align 4, !noalias !415
   %395 = load i64, ptr %m_size.i.i.i3.i.i.i.i, align 8, !noalias !415
   %add.i.i449 = add i64 %395, 1
   store i64 %add.i.i449, ptr %m_size.i.i.i3.i.i.i.i, align 8, !noalias !415
@@ -8087,8 +8087,8 @@ if.then.i.i.i.i.i1629:                            ; preds = %_ZN5boost9container
   br label %.noexc310.i
 
 if.then4.i.i.i563:                                ; preds = %if.then.thread.i560
-  store ptr %call.i14951522, ptr %466, align 8, !noalias !450
-  %v.i.i69.sroa.11.0..sroa_idx1919 = getelementptr inbounds i8, ptr %466, i64 8
+  store ptr %call.i14951522, ptr %add.ptr.i.i514, align 8, !noalias !450
+  %v.i.i69.sroa.11.0..sroa_idx1919 = getelementptr inbounds i8, ptr %add.ptr.i.i514, i64 8
   store i64 %437, ptr %v.i.i69.sroa.11.0..sroa_idx1919, align 8, !noalias !450
   %471 = load i64, ptr %m_size.i.i513, align 8, !noalias !450
   %add.i.i.i565 = add i64 %471, 1
@@ -8353,7 +8353,7 @@ if.then.i648:                                     ; preds = %if.then.i.i.i140.th
 
 if.then4.i.i646:                                  ; preds = %if.then.i.i.i140
   %501 = load i32, ptr %lit_id.i318.i, align 4, !noalias !467
-  store i32 %501, ptr %497, align 4, !noalias !467
+  store i32 %501, ptr %add.ptr.i.i.i345.i, align 4, !noalias !467
   %502 = load i64, ptr %m_size.i.i.i.i134, align 8, !noalias !467
   %add.i.i647 = add i64 %502, 1
   store i64 %add.i.i647, ptr %m_size.i.i.i.i134, align 8, !noalias !467
@@ -9704,8 +9704,8 @@ if.then.i.i.i.i.i1690:                            ; preds = %_ZN5boost9container
   br label %invoke.cont27.i.i.i.i
 
 if.then4.i.i.i739:                                ; preds = %if.then.thread.i736
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i745, ptr %635, align 8, !noalias !539
-  %e.i.i.i.i.sroa.10.0..sroa_idx1935 = getelementptr inbounds i8, ptr %635, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i745, ptr %add.ptr.i.i695, align 8, !noalias !539
+  %e.i.i.i.i.sroa.10.0..sroa_idx1935 = getelementptr inbounds i8, ptr %add.ptr.i.i695, i64 8
   store i64 %612, ptr %e.i.i.i.i.sroa.10.0..sroa_idx1935, align 8, !noalias !539
   %640 = load i64, ptr %m_size.i.i694, align 8, !noalias !539
   %add.i.i.i741 = add i64 %640, 1
@@ -10092,7 +10092,7 @@ if.then.i.i.i.i.i1753:                            ; preds = %_ZN5boost9container
   br label %.noexc.i.i.i
 
 if.then4.i.i.i853:                                ; preds = %if.then.thread.i850
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %669, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i263, i64 16, i1 false), !noalias !561
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i804, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i.i263, i64 16, i1 false), !noalias !561
   %676 = load i64, ptr %m_size.i8.i.i.i.i.i, align 8, !noalias !561
   %add.i.i.i855 = add i64 %676, 1
   store i64 %add.i.i.i855, ptr %m_size.i8.i.i.i.i.i, align 8, !noalias !561
@@ -10347,7 +10347,7 @@ if.then.i925:                                     ; preds = %if.then.i393.i.i.i.
 
 if.then4.i.i923:                                  ; preds = %if.then.i393.i.i.i
   %703 = load i32, ptr %new_top.i.i.i, align 4, !noalias !579
-  store i32 %703, ptr %698, align 4, !noalias !579
+  store i32 %703, ptr %add.ptr.i.i.i.i383.i.i.i, align 4, !noalias !579
   %704 = load i64, ptr %m_size.i.i.i.i382.i.i.i, align 8, !noalias !579
   %add.i.i924 = add i64 %704, 1
   store i64 %add.i.i924, ptr %m_size.i.i.i.i382.i.i.i, align 8, !noalias !579
@@ -10811,7 +10811,7 @@ if.then.i.i.i.i.i1817:                            ; preds = %_ZN5boost9container
   br label %invoke.cont29.i.i.i
 
 if.then4.i.i969:                                  ; preds = %if.then.i.i152.i.i
-  store i32 %742, ptr %749, align 4, !noalias !609
+  store i32 %742, ptr %add.ptr.i.i328.i.i.i, align 4, !noalias !609
   %758 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !609
   %add.i.i970 = add i64 %758, 1
   store i64 %add.i.i970, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !609
@@ -11360,7 +11360,7 @@ lor.rhs.i448.i.i.i:                               ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i449.i.i.i, label %if.then.i453.i.i.i.thread, label %invoke.cont195.i.i.i
 
 if.then.i453.i.i.i:                               ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i446.i.i.i
-  store ptr %812, ptr %agg.tmp14.i442.i.i.i, align 8, !noalias !633
+  store ptr %add.ptr.i.i444.i.i.i, ptr %agg.tmp14.i442.i.i.i, align 8, !noalias !633
   %815 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i391.i.i.i, align 8, !noalias !634
   %cmp.not.i1024 = icmp eq i64 %815, %806
   br i1 %cmp.not.i1024, label %if.then.i1064, label %if.then4.i.i1062
@@ -11377,7 +11377,7 @@ if.then.i1064:                                    ; preds = %if.then.i453.i.i.i.
 
 if.then4.i.i1062:                                 ; preds = %if.then.i453.i.i.i
   %817 = load i32, ptr %__y.addr.1.i.i.i.i428.sroa.sel534.i.i.i.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !noalias !634
-  store i32 %817, ptr %812, align 4, !noalias !634
+  store i32 %817, ptr %add.ptr.i.i444.i.i.i, align 4, !noalias !634
   %818 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i390.i.i.i, align 8, !noalias !634
   %add.i.i1063 = add i64 %818, 1
   store i64 %add.i.i1063, ptr %m_size.i.i.i.i.i.i.i.i.i390.i.i.i, align 8, !noalias !634

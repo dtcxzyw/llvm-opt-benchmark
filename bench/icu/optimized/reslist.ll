@@ -4152,36 +4152,32 @@ for.end131:                                       ; preds = %for.cond125
   %sub = sub i64 %53, %54
   %conv138 = trunc i64 %sub to i32
   %cmp139 = icmp slt i32 %conv138, 0
-  br i1 %cmp139, label %for.cond84.backedge.loopexit, label %for.cond142.preheader
+  br i1 %cmp139, label %for.cond84.backedge.loopexit, label %for.cond142
 
-for.cond142.preheader:                            ; preds = %for.end131
-  %cmp143203 = icmp ult ptr %add.ptr124, %suffixLimit.0
-  br i1 %cmp143203, label %land.rhs144, label %for.end152
+for.cond142:                                      ; preds = %for.end131, %land.rhs144
+  %k.0 = phi ptr [ %incdec.ptr145, %land.rhs144 ], [ %keyLimit.0, %for.end131 ]
+  %suffixLimit.1 = phi ptr [ %incdec.ptr147, %land.rhs144 ], [ %suffixLimit.0, %for.end131 ]
+  %cmp143 = icmp ult ptr %add.ptr124, %suffixLimit.1
+  br i1 %cmp143, label %land.rhs144, label %for.end152
 
-for.cond142:                                      ; preds = %land.rhs144
-  %cmp143 = icmp ult ptr %add.ptr124, %incdec.ptr147
-  br i1 %cmp143, label %land.rhs144, label %for.end152, !llvm.loop !35
-
-land.rhs144:                                      ; preds = %for.cond142.preheader, %for.cond142
-  %suffixLimit.1205 = phi ptr [ %incdec.ptr147, %for.cond142 ], [ %suffixLimit.0, %for.cond142.preheader ]
-  %k.0204 = phi ptr [ %incdec.ptr145, %for.cond142 ], [ %keyLimit.0, %for.cond142.preheader ]
-  %incdec.ptr145 = getelementptr inbounds i8, ptr %k.0204, i64 -1
+land.rhs144:                                      ; preds = %for.cond142
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %k.0, i64 -1
   %55 = load i8, ptr %incdec.ptr145, align 1
-  %incdec.ptr147 = getelementptr inbounds i8, ptr %suffixLimit.1205, i64 -1
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %suffixLimit.1, i64 -1
   %56 = load i8, ptr %incdec.ptr147, align 1
   %cmp149 = icmp eq i8 %55, %56
   br i1 %cmp149, label %for.cond142, label %for.end152, !llvm.loop !35
 
-for.end152:                                       ; preds = %land.rhs144, %for.cond142, %for.cond142.preheader
-  %57 = phi i8 [ 0, %for.cond142.preheader ], [ %56, %land.rhs144 ], [ %55, %for.cond142 ]
-  %k.1 = phi ptr [ %keyLimit.0, %for.cond142.preheader ], [ %incdec.ptr145, %for.cond142 ], [ %incdec.ptr145, %land.rhs144 ]
-  %suffixLimit.2 = phi ptr [ %suffixLimit.0, %for.cond142.preheader ], [ %incdec.ptr147, %for.cond142 ], [ %incdec.ptr147, %land.rhs144 ]
+for.end152:                                       ; preds = %for.cond142, %land.rhs144
+  %k.1 = phi ptr [ %incdec.ptr145, %land.rhs144 ], [ %k.0, %for.cond142 ]
+  %suffixLimit.2 = phi ptr [ %incdec.ptr147, %land.rhs144 ], [ %suffixLimit.1, %for.cond142 ]
   %cmp153 = icmp eq ptr %add.ptr124, %suffixLimit.2
   br i1 %cmp153, label %land.lhs.true154, label %for.cond84.backedge.loopexit
 
 land.lhs.true154:                                 ; preds = %for.end152
-  %58 = load i8, ptr %k.1, align 1
-  %cmp157 = icmp eq i8 %58, %57
+  %57 = load i8, ptr %k.1, align 1
+  %58 = load i8, ptr %add.ptr124, align 1
+  %cmp157 = icmp eq i8 %57, %58
   br i1 %cmp157, label %if.then158, label %for.cond84.backedge.loopexit
 
 if.then158:                                       ; preds = %land.lhs.true154

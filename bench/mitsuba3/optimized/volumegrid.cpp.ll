@@ -980,8 +980,7 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %18 = getelementptr inbounds float, ptr %17, i64 %11
   store ptr %18, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false)
-  %scevgep = getelementptr i8, ptr %17, i64 %16
-  store ptr %scevgep, ptr %12, align 16
+  store ptr %18, ptr %12, align 16
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
 
 19:                                               ; preds = %15
@@ -4743,7 +4742,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm
   br i1 %.not.i, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEmRKf.exit, label %.lr.ph.i, !llvm.loop !97
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEmRKf.exit: ; preds = %.lr.ph.i, %12
-  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %14, %.lr.ph.i ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %13, %.lr.ph.i ]
   store ptr %.sroa.3.0.lcssa.i, ptr %6, align 8
   br label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit
 
@@ -4806,7 +4805,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds
   %40 = getelementptr inbounds float, ptr %31, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %35, i64 %37, i1 false)
   store ptr %40, ptr %0, align 8
-  store ptr %33, ptr %6, align 8
+  store ptr %32, ptr %6, align 8
   store ptr %34, ptr %4, align 8
   %.not.i14 = icmp eq ptr %35, null
   br i1 %.not.i14, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit, label %41

@@ -764,10 +764,10 @@ land.rhs.i.i.i:                                   ; preds = %if.then.i, %while.b
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i35 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   %cmp.not.i.i.i36 = icmp eq ptr %incdec.ptr.i.i.i35, %add.ptr.i
-  br i1 %cmp.not.i.i.i36, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %land.rhs.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i36, label %return, label %land.rhs.i.i.i, !llvm.loop !9
 
-_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.then.i
-  %retval.sroa.0.1.i = phi ptr [ %16, %if.then.i ], [ %incdec.ptr.i.i.i35, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %if.then.i
+  %retval.sroa.0.1.i = phi ptr [ %16, %if.then.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not51 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
   br i1 %cmp.i.not51, label %return, label %for.body
 
@@ -813,8 +813,8 @@ if.end14:                                         ; preds = %for.body.i.i.i, %fo
   %call15 = tail call noundef ptr @_ZN14simple_factoryIjE14get_some_valueEP4sort(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %s)
   br label %return
 
-return:                                           ; preds = %for.body, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, %if.end14
-  %retval.0 = phi ptr [ %call15, %if.end14 ], [ null, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %spec.select, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %spec.select, %for.body ]
+return:                                           ; preds = %while.body.i.i.i, %for.body, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, %if.end14
+  %retval.0 = phi ptr [ %call15, %if.end14 ], [ null, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %spec.select, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %spec.select, %for.body ], [ null, %while.body.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -915,7 +915,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i3, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, label %land.rhs.i.i.i, !llvm.loop !9
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.then
-  %retval.sroa.0.1.i = phi ptr [ %9, %if.then ], [ %incdec.ptr.i.i.i2, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %9, %if.then ], [ %add.ptr.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %12 = load ptr, ptr %retval.sroa.0.1.i, align 8
   br label %if.end
 
@@ -1090,7 +1090,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i36, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %land.rhs.i.i.i, !llvm.loop !9
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split: ; preds = %while.body.i.i.i, %if.then4
-  %retval.sroa.0.1.i.ph = phi ptr [ %15, %if.then4 ], [ %incdec.ptr.i.i.i35, %while.body.i.i.i ]
+  %retval.sroa.0.1.i.ph = phi ptr [ %15, %if.then4 ], [ %add.ptr.i, %while.body.i.i.i ]
   %.pr = load ptr, ptr %retval.sroa.0.1.i.ph, align 8
   br label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
 
@@ -1144,8 +1144,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split, label %land.rhs.i.i, !llvm.loop !9
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split: ; preds = %while.body.i.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %it.sroa.0.1.ph = phi ptr [ %incdec.ptr.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %.pr75 = load ptr, ptr %it.sroa.0.1.ph, align 8
+  %.pr75 = load ptr, ptr %add.ptr.i, align 8
   br label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit: ; preds = %land.rhs.i.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split
@@ -1367,7 +1366,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.not.i.i.i31, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split, label %land.rhs.i.i.i, !llvm.loop !9
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exitthread-pre-split: ; preds = %while.body.i.i.i, %sw.bb10
-  %retval.sroa.0.1.i.ph = phi ptr [ %19, %sw.bb10 ], [ %incdec.ptr.i.i.i30, %while.body.i.i.i ]
+  %retval.sroa.0.1.i.ph = phi ptr [ %19, %sw.bb10 ], [ %add.ptr.i, %while.body.i.i.i ]
   %.pr = load ptr, ptr %retval.sroa.0.1.i.ph, align 8
   br label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
 
@@ -1500,7 +1499,7 @@ while.body.i.i.i81:                               ; preds = %land.rhs.i.i.i75
   br i1 %cmp.not.i.i.i83, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit84thread-pre-split, label %land.rhs.i.i.i75, !llvm.loop !9
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit84thread-pre-split: ; preds = %while.body.i.i.i81, %sw.default
-  %retval.sroa.0.1.i78.ph = phi ptr [ %38, %sw.default ], [ %incdec.ptr.i.i.i82, %while.body.i.i.i81 ]
+  %retval.sroa.0.1.i78.ph = phi ptr [ %38, %sw.default ], [ %add.ptr.i73, %while.body.i.i.i81 ]
   %.pr143 = load ptr, ptr %retval.sroa.0.1.i78.ph, align 8
   br label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit84
 
@@ -1554,8 +1553,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split, label %land.rhs.i.i, !llvm.loop !9
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split: ; preds = %while.body.i.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit97
-  %it.sroa.0.1.ph = phi ptr [ %incdec.ptr.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit97 ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %.pr162 = load ptr, ptr %it.sroa.0.1.ph, align 8
+  %.pr162 = load ptr, ptr %add.ptr.i73, align 8
   br label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit: ; preds = %land.rhs.i.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exitthread-pre-split

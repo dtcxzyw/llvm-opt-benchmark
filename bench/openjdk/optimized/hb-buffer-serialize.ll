@@ -2095,7 +2095,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   %.1 = phi ptr [ %48, %47 ], [ %.0138298, %.critedge ], [ %1, %5 ], [ %40, %39 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, i8 0, i64 20, i1 false)
   %49 = icmp eq ptr %.1, %36
-  br i1 %49, label %.loopexit, label %.preheader
+  br i1 %49, label %.loopexit.thread, label %.preheader
 
 .preheader:                                       ; preds = %.critedge154
   %50 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2720,16 +2720,19 @@ _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %140, %138, %137, %1
 243:                                              ; preds = %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
   %244 = getelementptr inbounds i8, ptr %.2, i64 1
   %.not153 = icmp eq ptr %244, %36
-  br i1 %.not153, label %.loopexit, label %56
+  br i1 %.not153, label %.loopexit.thread, label %56
 
-.loopexit:                                        ; preds = %243, %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread, %.critedge154
-  %.3 = phi ptr [ %.1, %.critedge154 ], [ %244, %243 ], [ %.2, %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread ]
-  store ptr %.3, ptr %3, align 8
-  %245 = icmp eq ptr %.3, %36
+.loopexit.thread:                                 ; preds = %243, %.critedge154
+  store ptr %36, ptr %3, align 8
+  br label %246
+
+.loopexit:                                        ; preds = %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
+  store ptr %.2, ptr %3, align 8
+  %245 = icmp eq ptr %.2, %36
   br i1 %245, label %246, label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
-246:                                              ; preds = %.loopexit
-  %247 = getelementptr inbounds i8, ptr %.3, i64 -1
+246:                                              ; preds = %.loopexit.thread, %.loopexit
+  %247 = getelementptr inbounds i8, ptr %36, i64 -1
   %248 = load i8, ptr %247, align 1
   %249 = icmp ne i8 %248, 93
   %250 = zext i1 %249 to i32

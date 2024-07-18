@@ -4705,7 +4705,7 @@ define i32 @fstWriterCreateVar(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %4, null
   %or.cond = and i1 %13, %14
-  br i1 %or.cond, label %15, label %175
+  br i1 %or.cond, label %15, label %170
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4902,7 +4902,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
 
 121:                                              ; preds = %97, %118, %103, %_ZL15fstWriterVarintP8_IO_FILEm.exit97
   %.not81 = icmp eq i32 %spec.store.select, 0
-  br i1 %.not81, label %122, label %175
+  br i1 %.not81, label %122, label %170
 
 122:                                              ; preds = %121
   store i32 0, ptr %12, align 4
@@ -4941,7 +4941,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit106:          ; preds = %.lr.ph.i99, %125
   %136 = ashr exact i64 %sext.i105, 32
   %137 = call noundef i64 @fwrite(ptr noundef nonnull %8, i64 noundef %136, i64 noundef 1, ptr noundef %124)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8)
-  br label %148
+  br label %143
 
 138:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7)
@@ -4960,74 +4960,67 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit106:          ; preds = %.lr.ph.i99, %125
   br i1 %exitcond, label %_ZL15fstWriterVarintP8_IO_FILEm.exit114, label %.lr.ph.i107, !llvm.loop !10
 
 _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
-  %.0912.i109.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.0912.i109.idx
   %.ptr = getelementptr inbounds i8, ptr %7, i64 %.0912.i109.add
-  %142 = getelementptr inbounds i8, ptr %.0912.i109.ptr.le, i64 2
   store i8 15, ptr %.ptr, align 1
-  %143 = ptrtoint ptr %142 to i64
-  %144 = ptrtoint ptr %7 to i64
-  %145 = sub i64 %143, %144
-  %sext.i113 = shl i64 %145, 32
-  %146 = ashr exact i64 %sext.i113, 32
-  %147 = call noundef i64 @fwrite(ptr noundef nonnull %7, i64 noundef %146, i64 noundef 1, ptr noundef %124)
+  %142 = call noundef i64 @fwrite(ptr noundef nonnull %7, i64 noundef 5, i64 noundef 1, ptr noundef %124)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7)
-  br label %148
+  br label %143
 
-148:                                              ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit114, %_ZL15fstWriterVarintP8_IO_FILEm.exit106
-  %149 = getelementptr inbounds i8, ptr %0, i64 112
-  %150 = getelementptr inbounds i8, ptr %0, i64 24
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 @fwrite(ptr noundef nonnull %149, i64 noundef 4, i64 noundef 1, ptr noundef %151)
-  %153 = load ptr, ptr %150, align 8
-  %154 = call noundef i64 @fwrite(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef %153)
-  %155 = load ptr, ptr %150, align 8
-  %156 = call noundef i64 @fwrite(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef %155)
-  %157 = load ptr, ptr %150, align 8
-  %158 = call noundef i64 @fwrite(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef %157)
+143:                                              ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit114, %_ZL15fstWriterVarintP8_IO_FILEm.exit106
+  %144 = getelementptr inbounds i8, ptr %0, i64 112
+  %145 = getelementptr inbounds i8, ptr %0, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = call noundef i64 @fwrite(ptr noundef nonnull %144, i64 noundef 4, i64 noundef 1, ptr noundef %146)
+  %148 = load ptr, ptr %145, align 8
+  %149 = call noundef i64 @fwrite(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef %148)
+  %150 = load ptr, ptr %145, align 8
+  %151 = call noundef i64 @fwrite(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef %150)
+  %152 = load ptr, ptr %145, align 8
+  %153 = call noundef i64 @fwrite(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef %152)
   switch i32 %1, label %.preheader [
-    i32 29, label %165
-    i32 20, label %165
-    i32 4, label %165
-    i32 3, label %165
+    i32 29, label %160
+    i32 20, label %160
+    i32 4, label %160
+    i32 3, label %160
   ]
 
-.preheader:                                       ; preds = %148
-  %159 = load i32, ptr %11, align 4
-  %.not126 = icmp eq i32 %159, 0
+.preheader:                                       ; preds = %143
+  %154 = load i32, ptr %11, align 4
+  %.not126 = icmp eq i32 %154, 0
   br i1 %.not126, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %160 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %161
+  %155 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %156
 
-161:                                              ; preds = %.lr.ph, %161
-  %.072125 = phi i32 [ 0, %.lr.ph ], [ %164, %161 ]
-  %162 = load ptr, ptr %160, align 8
-  %163 = call i32 @fputc(i32 noundef 120, ptr noundef %162)
-  %164 = add nuw i32 %.072125, 1
-  %exitcond134.not = icmp eq i32 %164, %159
-  br i1 %exitcond134.not, label %.loopexit, label %161, !llvm.loop !34
+156:                                              ; preds = %.lr.ph, %156
+  %.072125 = phi i32 [ 0, %.lr.ph ], [ %159, %156 ]
+  %157 = load ptr, ptr %155, align 8
+  %158 = call i32 @fputc(i32 noundef 120, ptr noundef %157)
+  %159 = add nuw i32 %.072125, 1
+  %exitcond134.not = icmp eq i32 %159, %154
+  br i1 %exitcond134.not, label %.loopexit, label %156, !llvm.loop !34
 
-165:                                              ; preds = %148, %148, %148, %148
-  %166 = getelementptr inbounds i8, ptr %0, i64 192
-  %167 = getelementptr inbounds i8, ptr %0, i64 32
-  %168 = load ptr, ptr %167, align 8
-  %169 = call noundef i64 @fwrite(ptr noundef nonnull %166, i64 noundef 8, i64 noundef 1, ptr noundef %168)
+160:                                              ; preds = %143, %143, %143, %143
+  %161 = getelementptr inbounds i8, ptr %0, i64 192
+  %162 = getelementptr inbounds i8, ptr %0, i64 32
+  %163 = load ptr, ptr %162, align 8
+  %164 = call noundef i64 @fwrite(ptr noundef nonnull %161, i64 noundef 8, i64 noundef 1, ptr noundef %163)
   %.pre = load i32, ptr %11, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %161, %.preheader, %165
-  %170 = phi i32 [ 0, %.preheader ], [ %.pre, %165 ], [ %159, %161 ]
-  %171 = load i32, ptr %149, align 8
-  %172 = add i32 %171, %170
-  store i32 %172, ptr %149, align 8
-  %173 = load i32, ptr %73, align 8
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %73, align 8
-  br label %175
+.loopexit:                                        ; preds = %156, %.preheader, %160
+  %165 = phi i32 [ 0, %.preheader ], [ %.pre, %160 ], [ %154, %156 ]
+  %166 = load i32, ptr %144, align 8
+  %167 = add i32 %166, %165
+  store i32 %167, ptr %144, align 8
+  %168 = load i32, ptr %73, align 8
+  %169 = add i32 %168, 1
+  store i32 %169, ptr %73, align 8
+  br label %170
 
-175:                                              ; preds = %6, %121, %.loopexit
-  %.071 = phi i32 [ %174, %.loopexit ], [ %5, %121 ], [ 0, %6 ]
+170:                                              ; preds = %6, %121, %.loopexit
+  %.071 = phi i32 [ %169, %.loopexit ], [ %5, %121 ], [ 0, %6 ]
   ret i32 %.071
 }
 

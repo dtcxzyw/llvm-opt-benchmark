@@ -55356,7 +55356,7 @@ default.unreachable:                              ; preds = %17, %74
   br i1 %or.cond1, label %43, label %42
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit90.thread": ; preds = %43, %.preheader138, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92", %.preheader, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96", %33, %69, %._crit_edge, %42
-  %.sroa.0100.3 = phi ptr [ %35, %42 ], [ %.sroa.0100.6.lcssa, %._crit_edge ], [ %53, %69 ], [ %24, %33 ], [ %24, %.preheader ], [ %71, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96" ], [ %24, %.preheader138 ], [ %47, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92" ], [ %24, %43 ]
+  %.sroa.0100.3 = phi ptr [ %35, %42 ], [ %24, %._crit_edge ], [ %53, %69 ], [ %24, %33 ], [ %24, %.preheader ], [ %71, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96" ], [ %24, %.preheader138 ], [ %47, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92" ], [ %24, %43 ]
   %.sroa.044.0 = phi i1 [ true, %42 ], [ false, %._crit_edge ], [ true, %69 ], [ false, %33 ], [ %.not136.not, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96" ], [ %.not136.not, %.preheader ], [ %.not134.not, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92" ], [ %.not134.not, %.preheader138 ], [ false, %43 ]
   %.sroa.9.0 = phi i8 [ %36, %42 ], [ undef, %._crit_edge ], [ %54, %69 ], [ undef, %33 ], [ undef, %.preheader ], [ %72, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96" ], [ undef, %.preheader138 ], [ %48, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92" ], [ undef, %43 ]
   %.sroa.047.1 = phi double [ %.sroa.047.0154, %42 ], [ %.sroa.047.2.lcssa, %._crit_edge ], [ %.sroa.047.2159, %69 ], [ %34, %33 ], [ %.sroa.047.2159, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit96" ], [ %.sroa.047.2159, %.preheader ], [ %.sroa.047.0154, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ce6f96cf50b409eE.exit92" ], [ %.sroa.047.0154, %.preheader138 ], [ %46, %43 ]
@@ -55401,7 +55401,6 @@ default.unreachable:                              ; preds = %17, %74
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader137
-  %.sroa.0100.6.lcssa = phi ptr [ %35, %.preheader137 ], [ %24, %._crit_edge.loopexit ]
   %.sroa.024.0.lcssa = phi double [ 1.000000e+00, %.preheader137 ], [ %50, %._crit_edge.loopexit ]
   %.sroa.047.2.lcssa = phi double [ %.sroa.047.0154, %.preheader137 ], [ %65, %._crit_edge.loopexit ]
   %51 = call i8 @llvm.fptoui.sat.i8.f64(double %.sroa.024.0.lcssa)
@@ -55419,7 +55418,7 @@ default.unreachable:                              ; preds = %17, %74
   br i1 %or.cond2, label %62, label %58
 
 56:                                               ; preds = %._crit_edge
-  %57 = call fastcc noundef i32 @_ZN9byte_unit9byte_unit19get_char_from_bytes17h87d5bed56fd1bbc0E(i8 noundef 46, ptr noundef nonnull %.sroa.0100.6.lcssa, ptr noundef nonnull %24), !range !9211
+  %57 = call fastcc noundef i32 @_ZN9byte_unit9byte_unit19get_char_from_bytes17h87d5bed56fd1bbc0E(i8 noundef 46, ptr noundef nonnull %24, ptr noundef nonnull %24), !range !9211
   store i32 1, ptr %0, align 8
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %57, ptr %.sroa.028.sroa.4.0..sroa_idx, align 4

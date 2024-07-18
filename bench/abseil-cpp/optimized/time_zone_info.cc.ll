@@ -3705,9 +3705,8 @@ if.end35.if.then37_crit_edge:                     ; preds = %if.end35
   br label %if.then37
 
 if.then37:                                        ; preds = %if.end35.if.then37_crit_edge, %land.rhs28.i, %land.rhs20.i, %land.rhs12.i, %land.rhs.i, %entry, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
-  %60 = phi i64 [ %.pre, %if.end35.if.then37_crit_edge ], [ %2, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ %2, %entry ], [ %2, %land.rhs.i ], [ %2, %land.rhs12.i ], [ %2, %land.rhs20.i ], [ %2, %land.rhs28.i ]
-  %tr.1423 = phi ptr [ %tr.1, %if.end35.if.then37_crit_edge ], [ %1, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ %1, %entry ], [ %1, %land.rhs.i ], [ %1, %land.rhs12.i ], [ %1, %land.rhs20.i ], [ %1, %land.rhs28.i ]
-  %prev_civil_sec38 = getelementptr inbounds i8, ptr %tr.1423, i64 32
+  %60 = phi i64 [ %.pre, %if.end35.if.then37_crit_edge ], [ %2, %land.rhs28.i ], [ %2, %land.rhs20.i ], [ %2, %land.rhs12.i ], [ %2, %land.rhs.i ], [ %2, %entry ], [ %2, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ]
+  %prev_civil_sec38 = getelementptr inbounds i8, ptr %1, i64 32
   %61 = load i64, ptr %prev_civil_sec38, align 8
   %cmp.i.i129 = icmp slt i64 %61, %60
   br i1 %cmp.i.i129, label %if.end54, label %lor.rhs.i.i130
@@ -3717,7 +3716,7 @@ lor.rhs.i.i130:                                   ; preds = %if.then37
   br i1 %cmp4.i.i131, label %land.rhs.i.i133, label %if.then40
 
 land.rhs.i.i133:                                  ; preds = %lor.rhs.i.i130
-  %m.i.i.i134 = getelementptr inbounds i8, ptr %tr.1423, i64 40
+  %m.i.i.i134 = getelementptr inbounds i8, ptr %1, i64 40
   %62 = load i8, ptr %m.i.i.i134, align 8
   %m.i21.i.i135 = getelementptr inbounds i8, ptr %cs, i64 8
   %63 = load i8, ptr %m.i21.i.i135, align 8
@@ -3729,7 +3728,7 @@ lor.rhs8.i.i137:                                  ; preds = %land.rhs.i.i133
   br i1 %cmp11.i.i138, label %land.rhs12.i.i139, label %if.then40
 
 land.rhs12.i.i139:                                ; preds = %lor.rhs8.i.i137
-  %d.i.i.i140 = getelementptr inbounds i8, ptr %tr.1423, i64 41
+  %d.i.i.i140 = getelementptr inbounds i8, ptr %1, i64 41
   %64 = load i8, ptr %d.i.i.i140, align 1
   %d.i28.i.i141 = getelementptr inbounds i8, ptr %cs, i64 9
   %65 = load i8, ptr %d.i28.i.i141, align 1
@@ -3741,7 +3740,7 @@ lor.rhs16.i.i143:                                 ; preds = %land.rhs12.i.i139
   br i1 %cmp19.i.i144, label %land.rhs20.i.i145, label %if.then40
 
 land.rhs20.i.i145:                                ; preds = %lor.rhs16.i.i143
-  %hh.i.i.i146 = getelementptr inbounds i8, ptr %tr.1423, i64 42
+  %hh.i.i.i146 = getelementptr inbounds i8, ptr %1, i64 42
   %66 = load i8, ptr %hh.i.i.i146, align 2
   %hh.i35.i.i147 = getelementptr inbounds i8, ptr %cs, i64 10
   %67 = load i8, ptr %hh.i35.i.i147, align 2
@@ -3753,7 +3752,7 @@ lor.rhs24.i.i149:                                 ; preds = %land.rhs20.i.i145
   br i1 %cmp27.i.i150, label %land.rhs28.i.i151, label %if.then40
 
 land.rhs28.i.i151:                                ; preds = %lor.rhs24.i.i149
-  %mm.i.i.i152 = getelementptr inbounds i8, ptr %tr.1423, i64 43
+  %mm.i.i.i152 = getelementptr inbounds i8, ptr %1, i64 43
   %68 = load i8, ptr %mm.i.i.i152, align 1
   %mm.i42.i.i153 = getelementptr inbounds i8, ptr %cs, i64 11
   %69 = load i8, ptr %mm.i42.i.i153, align 1
@@ -3765,7 +3764,7 @@ lor.rhs32.i.i155:                                 ; preds = %land.rhs28.i.i151
   br i1 %cmp35.i.i156, label %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161, label %if.then40
 
 _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161: ; preds = %lor.rhs32.i.i155
-  %ss.i.i.i158 = getelementptr inbounds i8, ptr %tr.1423, i64 44
+  %ss.i.i.i158 = getelementptr inbounds i8, ptr %1, i64 44
   %70 = load i8, ptr %ss.i.i.i158, align 4
   %ss.i49.i.i159 = getelementptr inbounds i8, ptr %cs, i64 12
   %71 = load i8, ptr %ss.i49.i.i159, align 4
@@ -3906,7 +3905,7 @@ if.end46:                                         ; preds = %lor.rhs32.i188, %lo
   br label %return
 
 if.end54:                                         ; preds = %land.rhs28.i.i151, %land.rhs20.i.i145, %land.rhs12.i.i139, %land.rhs.i.i133, %if.then37, %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit161
-  tail call fastcc void @_ZN4absl13time_internal4cctz12_GLOBAL__N_111MakeSkippedERKNS1_10TransitionERKNS1_6detail10civil_timeINS6_10second_tagEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %tr.1423, ptr noundef nonnull align 8 dereferenceable(16) %cs)
+  tail call fastcc void @_ZN4absl13time_internal4cctz12_GLOBAL__N_111MakeSkippedERKNS1_10TransitionERKNS1_6detail10civil_timeINS6_10second_tagEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %cs)
   br label %return
 
 if.end55:                                         ; preds = %if.end35

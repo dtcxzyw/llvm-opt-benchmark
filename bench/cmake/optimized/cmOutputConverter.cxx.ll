@@ -1642,14 +1642,14 @@ define dso_local noundef zeroext i1 @_ZN17cmOutputConverter25Shell_ArgumentNeeds
   br i1 %.not.us, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 11:                                               ; preds = %29
-  %12 = getelementptr inbounds i8, ptr %.01828.i, i64 1
+  %12 = getelementptr inbounds i8, ptr %.01836.i, i64 1
   %.not = icmp eq ptr %12, %5
   br i1 %.not, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge, label %.lr.ph37.i.backedge
 
 13:                                               ; preds = %.critedge2.i
   %14 = getelementptr inbounds i8, ptr %.030.i, i64 1
   %.not.i = icmp eq ptr %14, %5
-  br i1 %.not.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, label %.lr.ph37.i.backedge
+  br i1 %.not.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge, label %.lr.ph37.i.backedge
 
 .lr.ph37.i.backedge:                              ; preds = %13, %11
   %.01836.i.be = phi ptr [ %14, %13 ], [ %12, %11 ]
@@ -1697,17 +1697,16 @@ _ZL28Shell_CharIsMakeVariableNamec.exit.thread.i: ; preds = %_ZL28Shell_CharIsMa
   %27 = icmp eq i8 %23, 41
   br i1 %27, label %13, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
 
-_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit: ; preds = %.lr.ph.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i, %13, %.lr.ph37.i, %16, %19, %.critedge2.i
-  %.01828.i = phi ptr [ %.01836.i, %19 ], [ %.01836.i, %.critedge2.i ], [ %.01836.i, %16 ], [ %14, %13 ], [ %.01836.i, %.lr.ph37.i ], [ %.01836.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %.01836.i, %.lr.ph.i ]
-  %28 = icmp eq ptr %.01828.i, %5
+_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit: ; preds = %.lr.ph.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i, %.lr.ph37.i, %16, %19, %.critedge2.i
+  %28 = icmp eq ptr %.01836.i, %5
   br i1 %28, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge, label %29
 
 29:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
-  %30 = load i8, ptr %.01828.i, align 1
+  %30 = load i8, ptr %.01836.i, align 1
   %31 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %30, i32 noundef %2)
   br i1 %31, label %.loopexit, label %11
 
-_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge: ; preds = %11, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, %9
+_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit._crit_edge: ; preds = %11, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, %13, %9
   %32 = and i32 %2, 256
   %.not33 = icmp ne i32 %32, 0
   %33 = icmp eq i64 %0, 1

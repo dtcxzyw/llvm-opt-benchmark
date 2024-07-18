@@ -1112,7 +1112,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %.not37.i, label %74, label %72
 
 74:                                               ; preds = %72
-  store ptr null, ptr %73, align 8
+  store ptr null, ptr %68, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 75:                                               ; preds = %2
@@ -1457,7 +1457,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %.not37.i, label %141, label %139
 
 141:                                              ; preds = %139
-  store ptr null, ptr %140, align 8
+  store ptr null, ptr %137, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
@@ -2023,7 +2023,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br i1 %.not37.i, label %143, label %141
 
 143:                                              ; preds = %141
-  store ptr null, ptr %142, align 8
+  store ptr null, ptr %139, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
@@ -2592,8 +2592,8 @@ define noalias ptr @_emalloc_8() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4088
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4088
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -2661,8 +2661,8 @@ define noalias ptr @_emalloc_16() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4080
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4080
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -2730,8 +2730,8 @@ define noalias ptr @_emalloc_24() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4056
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4056
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -2799,8 +2799,8 @@ define noalias ptr @_emalloc_32() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4064
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4064
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -2868,8 +2868,8 @@ define noalias ptr @_emalloc_40() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4040
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4040
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -2937,8 +2937,8 @@ define noalias ptr @_emalloc_48() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4032
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4032
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3006,8 +3006,8 @@ define noalias ptr @_emalloc_56() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4032
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4032
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3075,8 +3075,8 @@ define noalias ptr @_emalloc_64() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4032
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4032
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3144,8 +3144,8 @@ define noalias ptr @_emalloc_80() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 4000
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 4000
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3213,8 +3213,8 @@ define noalias ptr @_emalloc_96() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3936
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3936
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3282,8 +3282,8 @@ define noalias ptr @_emalloc_112() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3920
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3920
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3351,8 +3351,8 @@ define noalias ptr @_emalloc_128() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3968
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3968
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3420,8 +3420,8 @@ define noalias ptr @_emalloc_160() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3840
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3840
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3489,8 +3489,8 @@ define noalias ptr @_emalloc_192() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3840
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3840
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3558,8 +3558,8 @@ define noalias ptr @_emalloc_224() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3808
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3808
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3627,8 +3627,8 @@ define noalias ptr @_emalloc_256() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3840
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3840
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3714,8 +3714,8 @@ define noalias ptr @_emalloc_320() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 20160
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 20160
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -3801,8 +3801,8 @@ define noalias ptr @_emalloc_384() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 11904
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 11904
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -3870,8 +3870,8 @@ define noalias ptr @_emalloc_448() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3584
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3584
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -3939,8 +3939,8 @@ define noalias ptr @_emalloc_512() local_unnamed_addr #0 {
   br i1 %.not37.i, label %29, label %28
 
 29:                                               ; preds = %28
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 3584
-  store ptr null, ptr %.ptr.le, align 8
+  %30 = getelementptr inbounds i8, ptr %18, i64 3584
+  store ptr null, ptr %30, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %29, %17, %15, %3
@@ -4026,8 +4026,8 @@ define noalias ptr @_emalloc_640() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 19840
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 19840
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4113,8 +4113,8 @@ define noalias ptr @_emalloc_768() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 11520
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 11520
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4188,8 +4188,8 @@ define noalias ptr @_emalloc_896() local_unnamed_addr #0 {
   br i1 %.not37.i, label %33, label %32
 
 33:                                               ; preds = %32
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 7168
-  store ptr null, ptr %.ptr.le, align 8
+  %34 = getelementptr inbounds i8, ptr %18, i64 7168
+  store ptr null, ptr %34, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %33, %17, %15, %3
@@ -4263,8 +4263,8 @@ define noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
   br i1 %.not37.i, label %33, label %32
 
 33:                                               ; preds = %32
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 7168
-  store ptr null, ptr %.ptr.le, align 8
+  %34 = getelementptr inbounds i8, ptr %18, i64 7168
+  store ptr null, ptr %34, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %33, %17, %15, %3
@@ -4350,8 +4350,8 @@ define noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 19200
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 19200
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4437,8 +4437,8 @@ define noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 10752
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 10752
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4524,8 +4524,8 @@ define noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 26880
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 26880
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4611,8 +4611,8 @@ define noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 14336
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 14336
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4698,8 +4698,8 @@ define noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 17920
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 17920
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -4785,8 +4785,8 @@ define noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
   br i1 %.not37.i, label %38, label %37
 
 38:                                               ; preds = %37
-  %.ptr.le = getelementptr inbounds i8, ptr %18, i64 9216
-  store ptr null, ptr %.ptr.le, align 8
+  %39 = getelementptr inbounds i8, ptr %18, i64 9216
+  store ptr null, ptr %39, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 zend_mm_alloc_small_slow.exit:                    ; preds = %38, %17, %15, %3
@@ -5004,33 +5004,33 @@ zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
   br i1 %.not37.i.i, label %79, label %78
 
 79:                                               ; preds = %78
-  %.ptr.le.i = getelementptr inbounds i8, ptr %69, i64 4056
-  store ptr null, ptr %.ptr.le.i, align 8
+  %80 = getelementptr inbounds i8, ptr %69, i64 4056
+  store ptr null, ptr %80, align 8
   br label %zend_mm_add_huge_block.exit
 
 zend_mm_add_huge_block.exit:                      ; preds = %66, %79
   %.053.i = phi ptr [ %65, %66 ], [ %69, %79 ]
   store ptr %.0, ptr %.053.i, align 8
-  %80 = getelementptr inbounds i8, ptr %.053.i, i64 8
-  store i64 %7, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 304
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.053.i, i64 16
-  store ptr %82, ptr %83, align 8
-  store ptr %.053.i, ptr %81, align 8
-  %84 = load i64, ptr %13, align 8
-  %85 = add i64 %84, %7
-  %86 = getelementptr inbounds i8, ptr %0, i64 280
-  %87 = load i64, ptr %86, align 8
-  %. = tail call i64 @llvm.umax.i64(i64 %87, i64 %85)
-  store i64 %85, ptr %13, align 8
-  store i64 %., ptr %86, align 8
-  %88 = load i64, ptr %58, align 8
-  %89 = add i64 %88, %7
-  %90 = load i64, ptr %61, align 8
-  %91 = tail call i64 @llvm.umax.i64(i64 %90, i64 %89)
-  store i64 %89, ptr %58, align 8
-  store i64 %91, ptr %61, align 8
+  %81 = getelementptr inbounds i8, ptr %.053.i, i64 8
+  store i64 %7, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 304
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %.053.i, i64 16
+  store ptr %83, ptr %84, align 8
+  store ptr %.053.i, ptr %82, align 8
+  %85 = load i64, ptr %13, align 8
+  %86 = add i64 %85, %7
+  %87 = getelementptr inbounds i8, ptr %0, i64 280
+  %88 = load i64, ptr %87, align 8
+  %. = tail call i64 @llvm.umax.i64(i64 %88, i64 %86)
+  store i64 %86, ptr %13, align 8
+  store i64 %., ptr %87, align 8
+  %89 = load i64, ptr %58, align 8
+  %90 = add i64 %89, %7
+  %91 = load i64, ptr %61, align 8
+  %92 = tail call i64 @llvm.umax.i64(i64 %91, i64 %90)
+  store i64 %90, ptr %58, align 8
+  store i64 %92, ptr %61, align 8
   ret ptr %.0
 }
 
@@ -6596,7 +6596,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
   br i1 %.not37.i, label %80, label %78
 
 80:                                               ; preds = %78
-  store ptr null, ptr %79, align 8
+  store ptr null, ptr %74, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 81:                                               ; preds = %8
@@ -8986,7 +8986,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   br i1 %.not37.i, label %76, label %74
 
 76:                                               ; preds = %74
-  store ptr null, ptr %75, align 8
+  store ptr null, ptr %70, align 8
   br label %zend_mm_alloc_small_slow.exit
 
 77:                                               ; preds = %4
@@ -9193,7 +9193,7 @@ define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef
   br i1 %.not37, label %43, label %41
 
 43:                                               ; preds = %41
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %36, align 8
   br label %44
 
 44:                                               ; preds = %2, %43

@@ -537,25 +537,24 @@ Vec_PtrFree.exit:                                 ; preds = %41
   %92 = load ptr, ptr %8, align 8
   store ptr %92, ptr %3, align 8
   tail call void @free(ptr noundef nonnull %5) #22
-  %93 = load i8, ptr %.2, align 1
+  %93 = load i8, ptr %.161, align 1
   switch i8 %93, label %.loopexit [
     i8 59, label %94
     i8 35, label %.preheader
   ]
 
 94:                                               ; preds = %Vec_PtrFree.exit
-  %95 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %.loopexit
 
 .preheader:                                       ; preds = %Vec_PtrFree.exit, %.preheader
-  %.379 = phi ptr [ %96, %.preheader ], [ %.2, %Vec_PtrFree.exit ]
-  %96 = getelementptr inbounds i8, ptr %.379, i64 1
-  %.pr = load i8, ptr %96, align 1
+  %.379 = phi ptr [ %95, %.preheader ], [ %.161, %Vec_PtrFree.exit ]
+  %95 = getelementptr inbounds i8, ptr %.379, i64 1
+  %.pr = load i8, ptr %95, align 1
   %.not72 = icmp eq i8 %.pr, 0
   br i1 %.not72, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %Vec_PtrFree.exit, %94
-  %.4 = phi ptr [ %95, %94 ], [ %.2, %Vec_PtrFree.exit ], [ %96, %.preheader ]
+  %.4 = phi ptr [ %19, %94 ], [ %.161, %Vec_PtrFree.exit ], [ %95, %.preheader ]
   ret ptr %.4
 }
 

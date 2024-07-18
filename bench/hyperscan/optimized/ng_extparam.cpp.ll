@@ -4252,7 +4252,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %for.inc
 
 if.then.i:                                        ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %19, ptr %agg.tmp14.i, align 8, !noalias !269
+  store ptr %add.ptr.i.i14, ptr %agg.tmp14.i, align 8, !noalias !269
   %21 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !278
   %cmp.not.i.i.i.i = icmp eq i64 %21, %14
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i
@@ -4695,7 +4695,7 @@ if.then:                                          ; preds = %if.then.i.i5, %_ZNK
   br i1 %cmp.not.i.i.i, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.thread:                                   ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit
-  store ptr %7, ptr %agg.tmp14, align 8
+  store ptr %add.ptr.i, ptr %agg.tmp14, align 8
   %m_capacity.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %m_capacity.i.i.i.i13, align 8, !noalias !305
   %cmp.not.i.i.i14 = icmp eq i64 %11, %1
@@ -5859,7 +5859,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %for.inc
 
 if.then.i14:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %16, ptr %agg.tmp14.i, align 8, !noalias !393
+  store ptr %add.ptr.i.i13, ptr %agg.tmp14.i, align 8, !noalias !393
   %18 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !401
   %cmp.not.i.i.i.i = icmp eq i64 %18, %11
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i
@@ -6325,7 +6325,7 @@ if.then:                                          ; preds = %if.then.i.i5, %_ZNK
   br i1 %cmp.not.i.i.i, label %if.then.i.i.i, label %if.then6.i.i.i.i
 
 if.then.thread:                                   ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit
-  store ptr %7, ptr %agg.tmp14, align 8
+  store ptr %add.ptr.i, ptr %agg.tmp14, align 8
   %m_capacity.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %m_capacity.i.i.i.i13, align 8, !noalias !432
   %cmp.not.i.i.i14 = icmp eq i64 %11, %1
@@ -6625,7 +6625,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %for.inc
 
 if.then.i14:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %14, ptr %agg.tmp14.i, align 8, !noalias !436
+  store ptr %add.ptr.i.i13, ptr %agg.tmp14.i, align 8, !noalias !436
   %16 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !444
   %cmp.not.i.i.i.i = icmp eq i64 %16, %9
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i
@@ -7319,7 +7319,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %for.inc
 
 if.then.i14:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %14, ptr %agg.tmp14.i, align 8, !noalias !490
+  store ptr %add.ptr.i.i13, ptr %agg.tmp14.i, align 8, !noalias !490
   %16 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !498
   %cmp.not.i.i.i.i = icmp eq i64 %16, %9
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i
@@ -7668,7 +7668,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %for.inc
 
 if.then.i:                                        ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %24, ptr %agg.tmp14.i, align 8, !noalias !512
+  store ptr %add.ptr.i.i14, ptr %agg.tmp14.i, align 8, !noalias !512
   %26 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i, align 8, !noalias !520
   %cmp.not.i.i.i.i = icmp eq i64 %26, %19
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i

@@ -954,10 +954,10 @@ define hidden range(i32 0, 2) i32 @hb_feature_from_string(ptr noundef %0, i32 no
   %20 = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %20, ptr %7, align 8
   %exitcond.not.i.i.i.i = icmp eq ptr %20, %15
-  br i1 %exitcond.not.i.i.i.i, label %_ZL11parse_spacePPKcS0_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i.i, label %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
-_ZL11parse_spacePPKcS0_.exit.i.i.i:               ; preds = %19, %.lr.ph.i.i.i.i, %13
-  %.promoted.i.i6.i.i = phi ptr [ %0, %13 ], [ %20, %19 ], [ %17, %.lr.ph.i.i.i.i ]
+_ZL11parse_spacePPKcS0_.exit.i.i.i:               ; preds = %.lr.ph.i.i.i.i, %13
+  %.promoted.i.i6.i.i = phi ptr [ %0, %13 ], [ %17, %.lr.ph.i.i.i.i ]
   %21 = icmp eq ptr %.promoted.i.i6.i.i, %15
   br i1 %21, label %24, label %22
 
@@ -986,10 +986,10 @@ _ZL11parse_spacePPKcS0_.exit.i.i.i:               ; preds = %19, %.lr.ph.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %29, ptr %7, align 8
   %exitcond.not.i.i11.i.i = icmp eq ptr %29, %15
-  br i1 %exitcond.not.i.i11.i.i, label %_ZL11parse_spacePPKcS0_.exit.i7.i.i, label %.lr.ph.i.i10.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i11.i.i, label %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i, label %.lr.ph.i.i10.i.i, !llvm.loop !21
 
-_ZL11parse_spacePPKcS0_.exit.i7.i.i:              ; preds = %28, %.lr.ph.i.i10.i.i, %24
-  %30 = phi ptr [ %.promoted.i.i6.i.i, %24 ], [ %29, %28 ], [ %26, %.lr.ph.i.i10.i.i ]
+_ZL11parse_spacePPKcS0_.exit.i7.i.i:              ; preds = %.lr.ph.i.i10.i.i, %24
+  %30 = phi ptr [ %.promoted.i.i6.i.i, %24 ], [ %26, %.lr.ph.i.i10.i.i ]
   %31 = icmp eq ptr %30, %15
   br i1 %31, label %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i, label %32
 
@@ -1005,8 +1005,8 @@ _ZL10parse_charPPKcS0_c.exit12.sink.split.i.i:    ; preds = %32, %22
   store ptr %34, ptr %7, align 8
   br label %_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i
 
-_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i: ; preds = %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i, %32, %_ZL11parse_spacePPKcS0_.exit.i7.i.i
-  %.sink.i.i = phi i32 [ 1, %_ZL11parse_spacePPKcS0_.exit.i7.i.i ], [ 1, %32 ], [ %.sink.ph.i.i, %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i ]
+_ZL26parse_feature_value_prefixPPKcS0_P12hb_feature_t.exit.i: ; preds = %19, %28, %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i, %32, %_ZL11parse_spacePPKcS0_.exit.i7.i.i
+  %.sink.i.i = phi i32 [ 1, %_ZL11parse_spacePPKcS0_.exit.i7.i.i ], [ 1, %32 ], [ %.sink.ph.i.i, %_ZL10parse_charPPKcS0_c.exit12.sink.split.i.i ], [ 1, %28 ], [ 1, %19 ]
   %35 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.sink.i.i, ptr %35, align 4
   %36 = call fastcc noundef zeroext i1 @_ZL9parse_tagPPKcS0_Pj(ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %8)
@@ -1317,9 +1317,8 @@ _ZL11parse_spacePPKcS0_.exit.i10.i.i:             ; preds = %115, %.lr.ph.i.i12.
   br i1 %exitcond.not.i.i25.i, label %.critedge.loopexit.i.i.i, label %.lr.ph.i.i24.i, !llvm.loop !22
 
 .critedge.loopexit.i.i.i:                         ; preds = %126, %.lr.ph.i.i24.i
-  %.promoted.i.i28 = phi ptr [ %121, %.lr.ph.i.i24.i ], [ %127, %126 ]
-  %.lcssa.ph.i.i.i = phi ptr [ %121, %.lr.ph.i.i24.i ], [ %scevgep.i.i.i, %126 ]
-  %.pre.i.i.i = ptrtoint ptr %.lcssa.ph.i.i.i to i64
+  %.promoted.i.i28 = phi ptr [ %121, %.lr.ph.i.i24.i ], [ %scevgep.i.i.i, %126 ]
+  %.pre.i.i.i = ptrtoint ptr %.promoted.i.i28 to i64
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge.loopexit.i.i.i, %_ZL11parse_spacePPKcS0_.exit.i10.i.i

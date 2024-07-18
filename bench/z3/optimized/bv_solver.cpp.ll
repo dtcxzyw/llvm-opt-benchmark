@@ -6822,35 +6822,28 @@ land.rhs.i.i.i.i:                                 ; preds = %_ZN3euf13th_euf_sol
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i, !llvm.loop !42
+  br i1 %cmp.not.i.i.i.i, label %for.end.thread, label %land.rhs.i.i.i.i, !llvm.loop !42
 
-invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %_ZN3euf13th_euf_solver10force_pushEv.exit
-  %retval.sroa.0.1.i.i = phi ptr [ %3, %_ZN3euf13th_euf_solver10force_pushEv.exit ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont2:                                     ; preds = %land.rhs.i.i.i.i, %_ZN3euf13th_euf_solver10force_pushEv.exit
+  %retval.sroa.0.1.i.i = phi ptr [ %3, %_ZN3euf13th_euf_solver10force_pushEv.exit ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not45 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.not45, label %for.end.thread, label %invoke.cont8
-
-for.end.thread:                                   ; preds = %invoke.cont2
-  %m_cheap_axioms58 = getelementptr inbounds i8, ptr %this, i64 616
-  %6 = load i8, ptr %m_cheap_axioms58, align 8
-  %frombool.i59 = and i8 %6, 1
-  store i8 1, ptr %m_cheap_axioms58, align 8
-  br label %if.end32.thread
 
 invoke.cont8:                                     ; preds = %invoke.cont2, %_ZN14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
   %__begin1.sroa.0.046 = phi ptr [ %__begin1.sroa.0.2, %_ZN14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %retval.sroa.0.1.i.i, %invoke.cont2 ]
   %kv.sroa.0.0.copyload = load ptr, ptr %__begin1.sroa.0.046, align 8
   %kv.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.046, i64 8
   %kv.sroa.2.0.copyload = load i32, ptr %kv.sroa.2.0..sroa_idx, align 8
-  %7 = load ptr, ptr %delay, align 8
-  %cmp.i18 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %delay, align 8
+  %cmp.i18 = icmp eq ptr %6, null
   br i1 %cmp.i18, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont8
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 -4
-  %8 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %8, %9
+  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -4
+  %7 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %6, i64 -8
+  %8 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %7, %8
   br i1 %cmp5.i, label %if.then.i, label %for.inc
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %invoke.cont8
@@ -6864,17 +6857,17 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %for.inc
 
 for.inc:                                          ; preds = %.noexc, %lor.lhs.false.i
-  %10 = phi i32 [ %.pre1.i, %.noexc ], [ %8, %lor.lhs.false.i ]
-  %11 = phi ptr [ %.pre.i, %.noexc ], [ %7, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %10 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.246", ptr %11, i64 %idx.ext.i
+  %9 = phi i32 [ %.pre1.i, %.noexc ], [ %7, %lor.lhs.false.i ]
+  %10 = phi ptr [ %.pre.i, %.noexc ], [ %6, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %9 to i64
+  %add.ptr.i = getelementptr inbounds %"struct.std::pair.246", ptr %10, i64 %idx.ext.i
   store ptr %kv.sroa.0.0.copyload, ptr %add.ptr.i, align 8
   %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i32 %kv.sroa.2.0.copyload, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
-  %12 = load ptr, ptr %delay, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %12, i64 -4
-  %13 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %13, 1
+  %11 = load ptr, ptr %delay, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %11, i64 -4
+  %12 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %12, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.046, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -6882,8 +6875,8 @@ for.inc:                                          ; preds = %.noexc, %lor.lhs.fa
 
 land.rhs.i.i:                                     ; preds = %for.inc, %while.body.i.i
   %__begin1.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr.i, %for.inc ]
-  %14 = load ptr, ptr %__begin1.sroa.0.1, align 8
-  %switch.i.i = icmp ult ptr %14, inttoptr (i64 2 to ptr)
+  %13 = load ptr, ptr %__begin1.sroa.0.1, align 8
+  %switch.i.i = icmp ult ptr %13, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %while.body.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
@@ -6897,9 +6890,16 @@ _ZN14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entr
   br i1 %cmp.i.not, label %for.end, label %invoke.cont8
 
 lpad:                                             ; preds = %if.then.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
+
+for.end.thread:                                   ; preds = %while.body.i.i.i.i, %invoke.cont2
+  %m_cheap_axioms60 = getelementptr inbounds i8, ptr %this, i64 616
+  %15 = load i8, ptr %m_cheap_axioms60, align 8
+  %frombool.i61 = and i8 %15, 1
+  store i8 1, ptr %m_cheap_axioms60, align 8
+  br label %if.end32.thread
 
 for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
   %.pre = load ptr, ptr %delay, align 8
@@ -6916,11 +6916,11 @@ _ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit: ; pre
   %18 = zext i32 %17 to i64
   %add.ptr.i19 = getelementptr inbounds %"struct.std::pair.246", ptr %.pre, i64 %18
   %cmp.not47 = icmp eq i32 %17, 0
-  br i1 %cmp.not47, label %if.end32.thread100, label %for.body25
+  br i1 %cmp.not47, label %if.end32.thread102, label %for.body25
 
-if.end32.thread100:                               ; preds = %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit
+if.end32.thread102:                               ; preds = %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit
   %19 = load i8, ptr %m_cheap_axioms, align 8
-  %frombool.i21105 = and i8 %19, 1
+  %frombool.i21107 = and i8 %19, 1
   store i8 0, ptr %m_cheap_axioms, align 8
   br label %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28
 
@@ -6948,11 +6948,11 @@ for.end30:                                        ; preds = %invoke.cont27
   br i1 %tobool, label %if.end32, label %cleanup59
 
 if.end32.thread:                                  ; preds = %for.end.thread, %for.end
-  %frombool.i626880.ph = phi i8 [ %frombool.i, %for.end ], [ %frombool.i59, %for.end.thread ]
-  %m_cheap_axioms617077.ph = phi ptr [ %m_cheap_axioms, %for.end ], [ %m_cheap_axioms58, %for.end.thread ]
-  %21 = load i8, ptr %m_cheap_axioms617077.ph, align 1
-  %frombool.i2190 = and i8 %21, 1
-  store i8 0, ptr %m_cheap_axioms617077.ph, align 1
+  %frombool.i647082.ph = phi i8 [ %frombool.i, %for.end ], [ %frombool.i61, %for.end.thread ]
+  %m_cheap_axioms637279.ph = phi ptr [ %m_cheap_axioms, %for.end ], [ %m_cheap_axioms60, %for.end.thread ]
+  %21 = load i8, ptr %m_cheap_axioms637279.ph, align 1
+  %frombool.i2192 = and i8 %21, 1
+  store i8 0, ptr %m_cheap_axioms637279.ph, align 1
   br label %for.end55
 
 if.end32:                                         ; preds = %for.end30
@@ -6962,20 +6962,20 @@ if.end32:                                         ; preds = %for.end30
   %cmp.i.i23 = icmp eq ptr %.pre55.pre, null
   br i1 %cmp.i.i23, label %for.end55, label %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28
 
-_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28: ; preds = %if.end32.thread100, %if.end32
-  %frombool.i21111 = phi i8 [ %frombool.i21105, %if.end32.thread100 ], [ %frombool.i21, %if.end32 ]
-  %.pre5581108 = phi ptr [ %.pre, %if.end32.thread100 ], [ %.pre55.pre, %if.end32 ]
-  %ok.0.lcssa82107 = phi i8 [ 1, %if.end32.thread100 ], [ %spec.select, %if.end32 ]
-  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %.pre5581108, i64 -4
+_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28: ; preds = %if.end32.thread102, %if.end32
+  %frombool.i21113 = phi i8 [ %frombool.i21107, %if.end32.thread102 ], [ %frombool.i21, %if.end32 ]
+  %.pre5583110 = phi ptr [ %.pre, %if.end32.thread102 ], [ %.pre55.pre, %if.end32 ]
+  %ok.0.lcssa84109 = phi i8 [ 1, %if.end32.thread102 ], [ %spec.select, %if.end32 ]
+  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %.pre5583110, i64 -4
   %23 = load i32, ptr %arrayidx.i.i25, align 4
   %24 = zext i32 %23 to i64
-  %add.ptr.i27 = getelementptr inbounds %"struct.std::pair.246", ptr %.pre5581108, i64 %24
+  %add.ptr.i27 = getelementptr inbounds %"struct.std::pair.246", ptr %.pre5583110, i64 %24
   %cmp45.not50 = icmp eq i32 %23, 0
   br i1 %cmp45.not50, label %for.end55, label %for.body46
 
 for.body46:                                       ; preds = %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28, %invoke.cont49
-  %ok.252 = phi i8 [ %spec.select12, %invoke.cont49 ], [ %ok.0.lcssa82107, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ]
-  %__begin137.051 = phi ptr [ %incdec.ptr54, %invoke.cont49 ], [ %.pre5581108, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ]
+  %ok.252 = phi i8 [ %spec.select12, %invoke.cont49 ], [ %ok.0.lcssa84109, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ]
+  %__begin137.051 = phi ptr [ %incdec.ptr54, %invoke.cont49 ], [ %.pre5583110, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ]
   %kv47.sroa.0.0.copyload = load ptr, ptr %__begin137.051, align 8
   %call50 = invoke noundef zeroext i1 @_ZN2bv6solver24check_delay_internalizedEP4expr(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef %kv47.sroa.0.0.copyload)
           to label %invoke.cont49 unwind label %lpad38
@@ -6989,7 +6989,7 @@ invoke.cont49:                                    ; preds = %for.body46
 lpad38:                                           ; preds = %for.body46
   %25 = landingpad { ptr, i32 }
           cleanup
-  store i8 %frombool.i21111, ptr %m_cheap_axioms, align 8
+  store i8 %frombool.i21113, ptr %m_cheap_axioms, align 8
   br label %ehcleanup
 
 for.end55.loopexit:                               ; preds = %invoke.cont49
@@ -6997,23 +6997,23 @@ for.end55.loopexit:                               ; preds = %invoke.cont49
   br label %for.end55
 
 for.end55:                                        ; preds = %if.end32, %if.end32.thread, %for.end55.loopexit, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28
-  %frombool.i2198 = phi i8 [ %frombool.i21111, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %frombool.i21111, %for.end55.loopexit ], [ %frombool.i2190, %if.end32.thread ], [ %frombool.i21, %if.end32 ]
-  %m_cheap_axioms61707796 = phi ptr [ %m_cheap_axioms, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %m_cheap_axioms, %for.end55.loopexit ], [ %m_cheap_axioms617077.ph, %if.end32.thread ], [ %m_cheap_axioms, %if.end32 ]
-  %frombool.i62688094 = phi i8 [ %frombool.i, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %frombool.i, %for.end55.loopexit ], [ %frombool.i626880.ph, %if.end32.thread ], [ %frombool.i, %if.end32 ]
-  %.pre54 = phi ptr [ %.pre5581108, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %.pre54.pre, %for.end55.loopexit ], [ null, %if.end32.thread ], [ null, %if.end32 ]
-  %ok.2.lcssa = phi i8 [ %ok.0.lcssa82107, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %spec.select12, %for.end55.loopexit ], [ 1, %if.end32.thread ], [ %spec.select, %if.end32 ]
+  %frombool.i21100 = phi i8 [ %frombool.i21113, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %frombool.i21113, %for.end55.loopexit ], [ %frombool.i2192, %if.end32.thread ], [ %frombool.i21, %if.end32 ]
+  %m_cheap_axioms63727998 = phi ptr [ %m_cheap_axioms, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %m_cheap_axioms, %for.end55.loopexit ], [ %m_cheap_axioms637279.ph, %if.end32.thread ], [ %m_cheap_axioms, %if.end32 ]
+  %frombool.i64708296 = phi i8 [ %frombool.i, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %frombool.i, %for.end55.loopexit ], [ %frombool.i647082.ph, %if.end32.thread ], [ %frombool.i, %if.end32 ]
+  %.pre54 = phi ptr [ %.pre5583110, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %.pre54.pre, %for.end55.loopexit ], [ null, %if.end32.thread ], [ null, %if.end32 ]
+  %ok.2.lcssa = phi i8 [ %ok.0.lcssa84109, %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE3endEv.exit28 ], [ %spec.select12, %for.end55.loopexit ], [ 1, %if.end32.thread ], [ %spec.select, %if.end32 ]
   %26 = and i8 %ok.2.lcssa, 1
   %27 = xor i8 %26, 1
   %. = zext nneg i8 %27 to i32
-  store i8 %frombool.i2198, ptr %m_cheap_axioms61707796, align 1
+  store i8 %frombool.i21100, ptr %m_cheap_axioms63727998, align 1
   br label %cleanup59
 
 cleanup59:                                        ; preds = %for.end30, %for.end55
-  %frombool.i626879 = phi i8 [ %frombool.i62688094, %for.end55 ], [ %frombool.i, %for.end30 ]
-  %m_cheap_axioms617078 = phi ptr [ %m_cheap_axioms61707796, %for.end55 ], [ %m_cheap_axioms, %for.end30 ]
+  %frombool.i647081 = phi i8 [ %frombool.i64708296, %for.end55 ], [ %frombool.i, %for.end30 ]
+  %m_cheap_axioms637280 = phi ptr [ %m_cheap_axioms63727998, %for.end55 ], [ %m_cheap_axioms, %for.end30 ]
   %28 = phi ptr [ %.pre54, %for.end55 ], [ %.pre55.pre, %for.end30 ]
   %retval.1 = phi i32 [ %., %for.end55 ], [ 1, %for.end30 ]
-  store i8 %frombool.i626879, ptr %m_cheap_axioms617078, align 1
+  store i8 %frombool.i647081, ptr %m_cheap_axioms637280, align 1
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorISt4pairIP4exprN2bv6solver16internalize_modeEEjED2Ev.exit, label %if.then.i.i.i
 
@@ -7038,7 +7038,7 @@ ehcleanup:                                        ; preds = %lpad38, %lpad18
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %ehcleanup, %lpad
-  %.pn10 = phi { ptr, i32 } [ %15, %lpad ], [ %.pn, %ehcleanup ]
+  %.pn10 = phi { ptr, i32 } [ %14, %lpad ], [ %.pn, %ehcleanup ]
   call void @_ZN7svectorISt4pairIP4exprN2bv6solver16internalize_modeEEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delay) #22
   resume { ptr, i32 } %.pn10
 }
