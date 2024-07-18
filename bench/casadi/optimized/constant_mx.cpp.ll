@@ -9217,8 +9217,8 @@ declare double @llvm.ceil.f64(double) #18
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #17
 
-; Function Attrs: nofree nounwind
-declare double @remainder(double noundef, double noundef) local_unnamed_addr #19
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @remainder(double noundef, double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #18
