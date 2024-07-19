@@ -2575,9 +2575,9 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %29 = fmul double %7, %28
   %30 = insertelement <2 x double> %24, double %29, i64 0
   %31 = fmul <2 x double> %24, %30
-  %32 = extractelement <2 x double> %31, i64 1
-  %33 = fadd double %22, %27
-  %34 = fadd double %33, %32
+  %32 = fadd double %22, %27
+  %33 = extractelement <2 x double> %31, i64 1
+  %34 = fadd double %32, %33
   %35 = extractelement <2 x double> %31, i64 0
   %36 = fsub double %34, %35
   %37 = fadd double %36, -1.000000e+00
@@ -2590,7 +2590,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %42 = tail call double @llvm.fmuladd.f64(double %19, double -2.000000e+00, double %21)
   %43 = fadd double %20, %42
   %44 = fadd double %43, 1.000000e+00
-  %45 = fsub double 2.000000e+00, %32
+  %45 = fsub double 2.000000e+00, %33
   %46 = tail call double @llvm.fmuladd.f64(double %40, double %45, double %44)
   %47 = fsub double %46, %41
   %48 = fcmp oeq double %47, 0.000000e+00
@@ -2603,7 +2603,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %53 = fadd double %15, -1.000000e+00
   %54 = fadd double %53, %19
   %55 = fsub double %53, %19
-  %56 = fmul double %32, %55
+  %56 = fmul double %33, %55
   %57 = tail call double @llvm.fmuladd.f64(double %22, double %54, double %56)
   %58 = fadd double %35, %57
   %59 = fneg double %15
@@ -2633,9 +2633,9 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %81 = tail call double @llvm.fmuladd.f64(double %29, double %73, double %80)
   %82 = fadd double %27, 2.000000e+00
   %83 = fneg double %40
-  %84 = fadd double %32, %35
+  %84 = fadd double %33, %35
   %85 = fadd double %22, %35
-  %86 = fadd double %22, %32
+  %86 = fadd double %22, %33
   %87 = fadd double %86, -2.000000e+00
   %88 = tail call double @llvm.fmuladd.f64(double %21, double %87, double %27)
   %89 = tail call double @llvm.fmuladd.f64(double %65, double %85, double %88)
@@ -2645,7 +2645,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %93 = fadd double %20, %40
   %94 = fadd double %93, 1.000000e+00
   %95 = fsub double %94, %19
-  %96 = fmul double %32, %40
+  %96 = fmul double %33, %40
   %97 = tail call double @llvm.fmuladd.f64(double %95, double -2.000000e+00, double %96)
   %98 = fadd double %50, %97
   %99 = fadd double %40, %51
@@ -2659,13 +2659,13 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   br i1 %106, label %.loopexit, label %107
 
 107:                                              ; preds = %64
-  %108 = fmul double %7, %32
+  %108 = fmul double %7, %33
   %109 = fdiv double 1.000000e+00, %62
   %110 = icmp sgt i32 %105, 0
   br i1 %110, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %107
-  %111 = fmul double %28, %32
+  %111 = fmul double %28, %33
   %112 = fmul double %25, %111
   %113 = fsub double 1.000000e+00, %15
   %114 = fsub double %113, %19
@@ -2679,21 +2679,21 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %122 = fmul double %111, %121
   %123 = fsub double %19, %20
   %124 = call double @llvm.fmuladd.f64(double %123, double 2.000000e+00, double %50)
-  %125 = fadd double %32, -2.000000e+00
+  %125 = fadd double %33, -2.000000e+00
   %126 = call double @llvm.fmuladd.f64(double %40, double %125, double %124)
   %127 = fadd double %126, -2.000000e+00
   %128 = fadd double %20, 1.000000e+00
   %129 = fsub double %40, %15
   %130 = fsub double %129, %19
   %131 = call double @llvm.fmuladd.f64(double %130, double 2.000000e+00, double %128)
-  %132 = call double @llvm.fmuladd.f64(double %32, double %51, double %131)
+  %132 = call double @llvm.fmuladd.f64(double %33, double %51, double %131)
   %133 = fadd double %21, %132
   %134 = fmul double %108, %133
   %135 = call double @llvm.fmuladd.f64(double %112, double %127, double %134)
   %136 = call double @llvm.fmuladd.f64(double %15, double -2.000000e+00, double 1.000000e+00)
   %137 = fadd double %136, %20
   %138 = fsub double %21, %40
-  %139 = fmul double %32, %138
+  %139 = fmul double %33, %138
   %140 = call double @llvm.fmuladd.f64(double %27, double %137, double %139)
   %141 = fsub double %140, %50
   %142 = fsub double %20, %21
@@ -2712,7 +2712,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %155 = fsub double %154, %20
   %156 = call double @llvm.fmuladd.f64(double %155, double 2.000000e+00, double %50)
   %157 = fadd double %156, -2.000000e+00
-  %158 = fneg double %32
+  %158 = fneg double %33
   %159 = call double @llvm.fmuladd.f64(double %158, double %19, double %157)
   %160 = call double @llvm.fmuladd.f64(double %153, double %159, double %152)
   %161 = fmul double %112, 2.000000e+00
@@ -2722,7 +2722,7 @@ define hidden noundef i32 @_ZN3p3p17solve_for_lengthsEPA3_dPdS2_(ptr nocapture n
   %165 = fadd double %164, -1.000000e+00
   %166 = fsub double %27, %50
   %167 = call double @llvm.fmuladd.f64(double %142, double 2.000000e+00, double %166)
-  %168 = call double @llvm.fmuladd.f64(double %32, double %19, double %167)
+  %168 = call double @llvm.fmuladd.f64(double %33, double %19, double %167)
   %169 = call double @llvm.fmuladd.f64(double %27, double %52, double %168)
   %170 = fadd double %169, 2.000000e+00
   %171 = call double @llvm.fmuladd.f64(double %130, double 2.000000e+00, double %20)

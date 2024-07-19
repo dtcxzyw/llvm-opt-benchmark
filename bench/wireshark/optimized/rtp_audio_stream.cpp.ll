@@ -1316,7 +1316,7 @@ define void @_ZN14RtpAudioStream11decodeAudioE12QAudioDevice(ptr noundef nonnull
 
 ._crit_edge.thread:                               ; preds = %2
   tail call void @g_free(ptr noundef %20)
-  br label %323
+  br label %324
 
 .lr.ph:                                           ; preds = %2
   %25 = getelementptr inbounds i8, ptr %0, i64 7400
@@ -1352,10 +1352,10 @@ define void @_ZN14RtpAudioStream11decodeAudioE12QAudioDevice(ptr noundef nonnull
   br label %55
 
 55:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
-  %56 = phi i64 [ 0, %.lr.ph ], [ %317, %_ZN7QStringD2Ev.exit ]
+  %56 = phi i64 [ 0, %.lr.ph ], [ %318, %_ZN7QStringD2Ev.exit ]
   %.081223 = phi ptr [ %20, %.lr.ph ], [ %.2, %_ZN7QStringD2Ev.exit ]
   %.087222 = phi i32 [ 0, %.lr.ph ], [ %.289, %_ZN7QStringD2Ev.exit ]
-  %.090221 = phi i32 [ 0, %.lr.ph ], [ %316, %_ZN7QStringD2Ev.exit ]
+  %.090221 = phi i32 [ 0, %.lr.ph ], [ %317, %_ZN7QStringD2Ev.exit ]
   %.091220 = phi ptr [ null, %.lr.ph ], [ %.4, %_ZN7QStringD2Ev.exit ]
   %.094219 = phi i32 [ 0, %.lr.ph ], [ %.498, %_ZN7QStringD2Ev.exit ]
   %.099218 = phi i64 [ 0, %.lr.ph ], [ %.2101, %_ZN7QStringD2Ev.exit ]
@@ -1420,8 +1420,8 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %_ZN14QByteArrayView
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %87
 
-77:                                               ; preds = %290, %256, %251, %209, %202, %176, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i151, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i, %311, %307, %298, %294, %293, %261, %227, %166, %139, %132, %115, %79
-  %.sroa.0.1 = phi ptr [ %89, %132 ], [ %89, %311 ], [ %89, %307 ], [ %89, %298 ], [ %89, %294 ], [ %89, %293 ], [ %89, %290 ], [ %89, %261 ], [ %89, %256 ], [ %89, %251 ], [ %89, %227 ], [ %89, %209 ], [ %89, %202 ], [ %89, %176 ], [ %89, %166 ], [ %89, %139 ], [ %89, %115 ], [ null, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i151 ], [ null, %79 ], [ null, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i ]
+77:                                               ; preds = %291, %257, %252, %210, %203, %177, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i151, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i, %312, %308, %299, %295, %294, %262, %228, %167, %140, %133, %115, %79
+  %.sroa.0.1 = phi ptr [ %117, %133 ], [ %117, %312 ], [ %117, %308 ], [ %117, %299 ], [ %117, %295 ], [ %117, %294 ], [ %117, %291 ], [ %117, %262 ], [ %117, %257 ], [ %117, %252 ], [ %117, %228 ], [ %117, %210 ], [ %117, %203 ], [ %117, %177 ], [ %117, %167 ], [ %117, %140 ], [ %117, %115 ], [ null, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i151 ], [ null, %79 ], [ null, %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i ]
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1455,23 +1455,23 @@ _ZN7QStringaSEPKc.exit157:                        ; preds = %_ZN14QByteArrayView
 87:                                               ; preds = %_ZN7QStringaSEPKc.exit157, %_ZN7QStringaSEPKc.exit
   %.sroa.15.1 = phi i64 [ %86, %_ZN7QStringaSEPKc.exit157 ], [ %76, %_ZN7QStringaSEPKc.exit ]
   %88 = phi <2 x ptr> [ %85, %_ZN7QStringaSEPKc.exit157 ], [ %75, %_ZN7QStringaSEPKc.exit ]
-  %89 = extractelement <2 x ptr> %88, i64 0
-  %90 = icmp eq i64 %.sroa.15.1, 0
-  br i1 %90, label %106, label %91
+  %89 = icmp eq i64 %.sroa.15.1, 0
+  br i1 %89, label %106, label %90
 
-91:                                               ; preds = %87
+90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !7
   store <2 x ptr> %88, ptr %10, align 16, !noalias !7
   store i64 %.sroa.15.1, ptr %31, align 16, !noalias !7
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %89, null
+  %91 = extractelement <2 x ptr> %88, i64 0
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN7QStringC2ERKS_.exit.i.i.i.i, label %92
 
-92:                                               ; preds = %91
-  %93 = atomicrmw add ptr %89, i32 1 seq_cst, align 4, !noalias !7
+92:                                               ; preds = %90
+  %93 = atomicrmw add ptr %91, i32 1 seq_cst, align 4, !noalias !7
   br label %_ZN7QStringC2ERKS_.exit.i.i.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i.i.i:                  ; preds = %92, %91
+_ZN7QStringC2ERKS_.exit.i.i.i.i:                  ; preds = %92, %90
   %94 = invoke { ptr, i64 } @_ZN5QHashI7QString15QHashDummyValueE7emplaceIJRKS1_EEENS2_8iteratorEOS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %95 unwind label %100, !noalias !7
 
@@ -1530,469 +1530,470 @@ _ZN4QSetI7QStringElsERKS0_.exit:                  ; preds = %95, %_ZN17QArrayDat
   %.1103 = phi i64 [ %111, %108 ], [ %.0102217, %106 ]
   %.188 = phi i32 [ %114, %108 ], [ %.087222, %106 ]
   %116 = load ptr, ptr %32, align 8
-  %117 = invoke i64 @decode_rtp_packet(ptr noundef nonnull %65, ptr noundef nonnull %16, ptr noundef %116, ptr noundef nonnull %14, ptr noundef nonnull %15)
-          to label %118 unwind label %77
+  %117 = extractelement <2 x ptr> %88, i64 0
+  %118 = invoke i64 @decode_rtp_packet(ptr noundef nonnull %65, ptr noundef nonnull %16, ptr noundef %116, ptr noundef nonnull %14, ptr noundef nonnull %15)
+          to label %119 unwind label %77
 
-118:                                              ; preds = %115
-  %119 = load i32, ptr %15, align 4
-  %120 = load ptr, ptr %70, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp eq i32 %122, 9
-  %spec.store.select = select i1 %123, i32 8000, i32 %119
-  %124 = icmp eq i64 %117, 0
-  %125 = icmp eq i32 %119, 0
-  %or.cond = select i1 %124, i1 true, i1 %125
-  br i1 %or.cond, label %132, label %126
+119:                                              ; preds = %115
+  %120 = load i32, ptr %15, align 4
+  %121 = load ptr, ptr %70, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 9
+  %spec.store.select = select i1 %124, i32 8000, i32 %120
+  %125 = icmp eq i64 %118, 0
+  %126 = icmp eq i32 %120, 0
+  %or.cond = select i1 %125, i1 true, i1 %126
+  br i1 %or.cond, label %133, label %127
 
-126:                                              ; preds = %118
-  %127 = icmp eq i32 %122, 0
-  br i1 %127, label %131, label %128
+127:                                              ; preds = %119
+  %128 = icmp eq i32 %123, 0
+  br i1 %128, label %132, label %129
 
-128:                                              ; preds = %126
-  %129 = icmp eq i32 %122, 8
-  %130 = icmp eq i64 %117, 2
-  %or.cond3 = select i1 %129, i1 %130, i1 false
-  br i1 %or.cond3, label %132, label %136
+129:                                              ; preds = %127
+  %130 = icmp eq i32 %123, 8
+  %131 = icmp eq i64 %118, 2
+  %or.cond3 = select i1 %130, i1 %131, i1 false
+  br i1 %or.cond3, label %133, label %137
 
-131:                                              ; preds = %126
-  %.old2 = icmp eq i64 %117, 2
-  br i1 %.old2, label %132, label %136
+132:                                              ; preds = %127
+  %.old2 = icmp eq i64 %118, 2
+  br i1 %.old2, label %133, label %137
 
-132:                                              ; preds = %128, %131, %118
-  %133 = getelementptr inbounds i8, ptr %120, i64 24
-  %134 = load i32, ptr %133, align 8
-  %135 = load ptr, ptr %16, align 8
-  invoke void @g_free(ptr noundef %135)
-          to label %313 unwind label %77
+133:                                              ; preds = %129, %132, %119
+  %134 = getelementptr inbounds i8, ptr %121, i64 24
+  %135 = load i32, ptr %134, align 8
+  %136 = load ptr, ptr %16, align 8
+  invoke void @g_free(ptr noundef %136)
+          to label %314 unwind label %77
 
-136:                                              ; preds = %131, %128
-  %137 = load i32, ptr %33, align 8
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %171
+137:                                              ; preds = %132, %129
+  %138 = load i32, ptr %33, align 8
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %172
 
-139:                                              ; preds = %136
-  store i32 %119, ptr %34, align 4
+140:                                              ; preds = %137
+  store i32 %120, ptr %34, align 4
   invoke void @_ZN12QAudioDeviceC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %140 unwind label %77
+          to label %141 unwind label %77
 
-140:                                              ; preds = %139
-  %141 = load i32, ptr %15, align 4
-  %142 = load i32, ptr %35, align 4
+141:                                              ; preds = %140
+  %142 = load i32, ptr %15, align 4
+  %143 = load i32, ptr %35, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %36, align 8
-  store i32 %141, ptr %37, align 8
+  store i32 %142, ptr %37, align 8
   store i16 2, ptr %8, align 8
-  %143 = load i8, ptr %38, align 8
-  %144 = trunc i8 %143 to i1
-  %spec.select12.i = select i1 %144, i16 2, i16 1
+  %144 = load i8, ptr %38, align 8
+  %145 = trunc i8 %144 to i1
+  %spec.select12.i = select i1 %145, i16 2, i16 1
   store i32 0, ptr %39, align 4
   store i16 %spec.select12.i, ptr %40, align 2
-  %145 = invoke noundef zeroext i1 @_ZNK12QAudioDevice6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.noexc158 unwind label %169
+  %146 = invoke noundef zeroext i1 @_ZNK12QAudioDevice6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %.noexc158 unwind label %170
 
-.noexc158:                                        ; preds = %140
-  br i1 %145, label %151, label %146
+.noexc158:                                        ; preds = %141
+  br i1 %146, label %152, label %147
 
-146:                                              ; preds = %.noexc158
-  %147 = invoke noundef zeroext i1 @_ZNK12QAudioDevice17isFormatSupportedERK12QAudioFormat(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc159 unwind label %169
+147:                                              ; preds = %.noexc158
+  %148 = invoke noundef zeroext i1 @_ZNK12QAudioDevice17isFormatSupportedERK12QAudioFormat(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %.noexc159 unwind label %170
 
-.noexc159:                                        ; preds = %146
-  %148 = icmp ne i32 %142, 0
-  %or.cond.not.i = or i1 %148, %147
-  br i1 %or.cond.not.i, label %151, label %149
+.noexc159:                                        ; preds = %147
+  %149 = icmp ne i32 %143, 0
+  %or.cond.not.i = or i1 %149, %148
+  br i1 %or.cond.not.i, label %152, label %150
 
-149:                                              ; preds = %.noexc159
+150:                                              ; preds = %.noexc159
   invoke void @_ZNK12QAudioDevice15preferredFormatEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioFormat) align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.noexc160 unwind label %169
+          to label %.noexc160 unwind label %170
 
-.noexc160:                                        ; preds = %149
-  %150 = load i32, ptr %41, align 8
-  br label %152
+.noexc160:                                        ; preds = %150
+  %151 = load i32, ptr %41, align 8
+  br label %153
 
-151:                                              ; preds = %.noexc159, %.noexc158
-  %.not.i = icmp eq i32 %142, 0
-  %spec.select.i = select i1 %.not.i, i32 %141, i32 %142
-  br label %152
+152:                                              ; preds = %.noexc159, %.noexc158
+  %.not.i = icmp eq i32 %143, 0
+  %spec.select.i = select i1 %.not.i, i32 %142, i32 %143
+  br label %153
 
-152:                                              ; preds = %151, %.noexc160
-  %.0.i = phi i32 [ %150, %.noexc160 ], [ %spec.select.i, %151 ]
+153:                                              ; preds = %152, %.noexc160
+  %.0.i = phi i32 [ %151, %.noexc160 ], [ %spec.select.i, %152 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   store i32 %.0.i, ptr %33, align 8
   call void @_ZN12QAudioDeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #25
-  %153 = load double, ptr %26, align 8
-  %154 = load double, ptr %42, align 8
-  %155 = fsub double %153, %154
-  %156 = load i32, ptr %15, align 4
-  %157 = uitofp i32 %156 to double
-  %158 = fmul double %155, %157
-  %159 = fptosi double %158 to i64
-  %160 = load i32, ptr %33, align 8
-  %161 = zext i32 %160 to i64
-  %162 = mul i64 %159, %161
-  %163 = zext i32 %156 to i64
-  %164 = sdiv i64 %162, %163
-  store i64 %164, ptr %43, align 8
-  %165 = icmp slt i64 %164, 1
-  %.not134 = icmp eq i32 %160, 0
-  %or.cond145 = or i1 %.not134, %165
-  br i1 %or.cond145, label %171, label %166
+  %154 = load double, ptr %26, align 8
+  %155 = load double, ptr %42, align 8
+  %156 = fsub double %154, %155
+  %157 = load i32, ptr %15, align 4
+  %158 = uitofp i32 %157 to double
+  %159 = fmul double %156, %158
+  %160 = fptosi double %159 to i64
+  %161 = load i32, ptr %33, align 8
+  %162 = zext i32 %161 to i64
+  %163 = mul i64 %160, %162
+  %164 = zext i32 %157 to i64
+  %165 = sdiv i64 %163, %164
+  store i64 %165, ptr %43, align 8
+  %166 = icmp slt i64 %165, 1
+  %.not134 = icmp eq i32 %161, 0
+  %or.cond145 = or i1 %.not134, %166
+  br i1 %or.cond145, label %172, label %167
 
-166:                                              ; preds = %152
-  %167 = load ptr, ptr %44, align 8
-  %168 = load i32, ptr %65, align 8
-  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %167, i32 noundef %168, i64 noundef %164)
-          to label %171 unwind label %77
+167:                                              ; preds = %153
+  %168 = load ptr, ptr %44, align 8
+  %169 = load i32, ptr %65, align 8
+  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %168, i32 noundef %169, i64 noundef %165)
+          to label %172 unwind label %77
 
-169:                                              ; preds = %149, %146, %140
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %150, %147, %141
+  %171 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12QAudioDeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #25
   br label %.body
 
-171:                                              ; preds = %152, %166, %136
-  %172 = load ptr, ptr %70, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 24
-  %174 = load i32, ptr %173, align 8
-  %175 = add i32 %.188, 1
-  %.not135 = icmp eq i32 %174, %175
-  br i1 %.not135, label %179, label %176
+172:                                              ; preds = %153, %167, %137
+  %173 = load ptr, ptr %70, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 24
+  %175 = load i32, ptr %174, align 8
+  %176 = add i32 %.188, 1
+  %.not135 = icmp eq i32 %175, %176
+  br i1 %.not135, label %180, label %177
 
-176:                                              ; preds = %171
-  %177 = load double, ptr %27, align 8
+177:                                              ; preds = %172
+  %178 = load double, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double %177, ptr %7, align 8
-  %178 = load i64, ptr %46, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %178, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  store double %178, ptr %7, align 8
+  %179 = load i64, ptr %46, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %45, i64 noundef %179, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %_ZN5QListIdE6appendEd.exit unwind label %77
 
-_ZN5QListIdE6appendEd.exit:                       ; preds = %176
+_ZN5QListIdE6appendEd.exit:                       ; preds = %177
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.pre = load ptr, ptr %70, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre228 = load i32, ptr %.phi.trans.insert, align 8
-  br label %179
+  br label %180
 
-179:                                              ; preds = %_ZN5QListIdE6appendEd.exit, %171
-  %180 = phi i32 [ %.pre228, %_ZN5QListIdE6appendEd.exit ], [ %174, %171 ]
-  %181 = phi ptr [ %.pre, %_ZN5QListIdE6appendEd.exit ], [ %172, %171 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 32
-  %183 = load i64, ptr %182, align 8
-  %184 = sub i64 %183, %.1103
-  %185 = uitofp i64 %184 to double
-  %186 = uitofp i32 %spec.store.select to double
-  %187 = fdiv double %185, %186
-  %188 = load i32, ptr %47, align 4
-  %189 = icmp eq i32 %188, 1
-  br i1 %189, label %193, label %190
+180:                                              ; preds = %_ZN5QListIdE6appendEd.exit, %172
+  %181 = phi i32 [ %.pre228, %_ZN5QListIdE6appendEd.exit ], [ %175, %172 ]
+  %182 = phi ptr [ %.pre, %_ZN5QListIdE6appendEd.exit ], [ %173, %172 ]
+  %183 = getelementptr inbounds i8, ptr %182, i64 32
+  %184 = load i64, ptr %183, align 8
+  %185 = sub i64 %184, %.1103
+  %186 = uitofp i64 %185 to double
+  %187 = uitofp i32 %spec.store.select to double
+  %188 = fdiv double %186, %187
+  %189 = load i32, ptr %47, align 4
+  %190 = icmp eq i32 %189, 1
+  br i1 %190, label %194, label %191
 
-190:                                              ; preds = %179
-  %191 = load double, ptr %67, align 8
-  %192 = fsub double %191, %.0110216
-  br label %193
+191:                                              ; preds = %180
+  %192 = load double, ptr %67, align 8
+  %193 = fsub double %192, %.0110216
+  br label %194
 
-193:                                              ; preds = %179, %190
-  %.082 = phi double [ %192, %190 ], [ %187, %179 ]
-  %194 = fsub double %.082, %187
-  %195 = fcmp ult double %194, 0.000000e+00
-  %196 = fneg double %194
-  %197 = select i1 %195, double %196, double %194
-  %198 = fmul double %197, 1.000000e+03
-  %199 = load i32, ptr %48, align 8
-  %200 = sitofp i32 %199 to double
-  %201 = fcmp ule double %198, %200
-  %.not136 = icmp eq i32 %188, 2
-  %or.cond146 = or i1 %.not136, %201
-  br i1 %or.cond146, label %235, label %202
+194:                                              ; preds = %180, %191
+  %.082 = phi double [ %193, %191 ], [ %188, %180 ]
+  %195 = fsub double %.082, %188
+  %196 = fcmp ult double %195, 0.000000e+00
+  %197 = fneg double %195
+  %198 = select i1 %196, double %197, double %195
+  %199 = fmul double %198, 1.000000e+03
+  %200 = load i32, ptr %48, align 8
+  %201 = sitofp i32 %200 to double
+  %202 = fcmp ule double %199, %201
+  %.not136 = icmp eq i32 %189, 2
+  %or.cond146 = or i1 %.not136, %202
+  br i1 %or.cond146, label %236, label %203
 
-202:                                              ; preds = %193
-  %203 = load double, ptr %27, align 8
+203:                                              ; preds = %194
+  %204 = load double, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double %203, ptr %6, align 8
-  %204 = load i64, ptr %50, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %204, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %205 unwind label %77
+  store double %204, ptr %6, align 8
+  %205 = load i64, ptr %50, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %49, i64 noundef %205, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %206 unwind label %77
 
-205:                                              ; preds = %202
+206:                                              ; preds = %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %206 = fsub double %187, %.1120
-  %207 = fmul double %.0113215, 2.000000e+00
-  %208 = fcmp ogt double %206, %207
+  %207 = fsub double %188, %.1120
+  %208 = fmul double %.0113215, 2.000000e+00
+  %209 = fcmp ogt double %207, %208
   %.pre230 = load i32, ptr %15, align 4
-  br i1 %208, label %209, label %269
+  br i1 %209, label %210, label %270
 
-209:                                              ; preds = %205
-  %210 = fsub double %.082, %.0116214
-  %211 = uitofp i32 %.pre230 to double
-  %212 = lshr i64 %.099218, 1
-  %213 = uitofp nneg i64 %212 to double
-  %214 = fneg double %213
-  %215 = call double @llvm.fmuladd.f64(double %210, double %211, double %214)
-  %216 = fptosi double %215 to i64
-  %217 = load i32, ptr %33, align 8
-  %218 = zext i32 %217 to i64
-  %219 = mul i64 %216, %218
-  %220 = zext i32 %.pre230 to i64
-  %221 = sdiv i64 %219, %220
-  %222 = load double, ptr %27, align 8
+210:                                              ; preds = %206
+  %211 = fsub double %.082, %.0116214
+  %212 = uitofp i32 %.pre230 to double
+  %213 = lshr i64 %.099218, 1
+  %214 = uitofp nneg i64 %213 to double
+  %215 = fneg double %214
+  %216 = call double @llvm.fmuladd.f64(double %211, double %212, double %215)
+  %217 = fptosi double %216 to i64
+  %218 = load i32, ptr %33, align 8
+  %219 = zext i32 %218 to i64
+  %220 = mul i64 %217, %219
+  %221 = zext i32 %.pre230 to i64
+  %222 = sdiv i64 %220, %221
+  %223 = load double, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store double %222, ptr %5, align 8
-  %223 = load i64, ptr %52, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %223, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %224 unwind label %77
+  store double %223, ptr %5, align 8
+  %224 = load i64, ptr %52, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %224, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %225 unwind label %77
 
-224:                                              ; preds = %209
+225:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %225 = icmp slt i64 %221, 1
-  %226 = load i32, ptr %33, align 8
-  %.not139 = icmp eq i32 %226, 0
-  %or.cond147 = select i1 %225, i1 true, i1 %.not139
-  br i1 %or.cond147, label %230, label %227
+  %226 = icmp slt i64 %222, 1
+  %227 = load i32, ptr %33, align 8
+  %.not139 = icmp eq i32 %227, 0
+  %or.cond147 = select i1 %226, i1 true, i1 %.not139
+  br i1 %or.cond147, label %231, label %228
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %44, align 8
-  %229 = load i32, ptr %65, align 8
-  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %228, i32 noundef %229, i64 noundef %221)
-          to label %230 unwind label %77
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %44, align 8
+  %230 = load i32, ptr %65, align 8
+  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %229, i32 noundef %230, i64 noundef %222)
+          to label %231 unwind label %77
 
-230:                                              ; preds = %227, %224
-  %231 = load ptr, ptr %70, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 32
-  %233 = load i64, ptr %232, align 8
-  %234 = load double, ptr %67, align 8
+231:                                              ; preds = %228, %225
+  %232 = load ptr, ptr %70, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 32
+  %234 = load i64, ptr %233, align 8
+  %235 = load double, ptr %67, align 8
   %.pre229 = load i32, ptr %15, align 4
-  br label %269
+  br label %270
 
-235:                                              ; preds = %193
-  br i1 %.not136, label %.thread196, label %236
+236:                                              ; preds = %194
+  br i1 %.not136, label %.thread196, label %237
 
-236:                                              ; preds = %235
-  %237 = fsub double %187, %.1120
-  %238 = load i32, ptr %15, align 4
-  %239 = uitofp i32 %238 to double
-  %240 = lshr i64 %.099218, 1
-  %241 = uitofp nneg i64 %240 to double
-  %242 = fneg double %241
-  %243 = call double @llvm.fmuladd.f64(double %237, double %239, double %242)
-  %244 = fptosi double %243 to i32
-  %245 = sext i32 %244 to i64
-  %246 = load i32, ptr %33, align 8
-  %247 = zext i32 %246 to i64
-  %248 = mul nsw i64 %245, %247
-  %249 = zext i32 %238 to i64
-  %250 = sdiv i64 %248, %249
-  %.not137 = icmp eq i64 %250, 0
-  br i1 %.not137, label %.thread196, label %251
+237:                                              ; preds = %236
+  %238 = fsub double %188, %.1120
+  %239 = load i32, ptr %15, align 4
+  %240 = uitofp i32 %239 to double
+  %241 = lshr i64 %.099218, 1
+  %242 = uitofp nneg i64 %241 to double
+  %243 = fneg double %242
+  %244 = call double @llvm.fmuladd.f64(double %238, double %240, double %243)
+  %245 = fptosi double %244 to i32
+  %246 = sext i32 %245 to i64
+  %247 = load i32, ptr %33, align 8
+  %248 = zext i32 %247 to i64
+  %249 = mul nsw i64 %246, %248
+  %250 = zext i32 %239 to i64
+  %251 = sdiv i64 %249, %250
+  %.not137 = icmp eq i64 %251, 0
+  br i1 %.not137, label %.thread196, label %252
 
-251:                                              ; preds = %236
-  %252 = load double, ptr %27, align 8
+252:                                              ; preds = %237
+  %253 = load double, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store double %252, ptr %4, align 8
-  %253 = load i64, ptr %54, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %253, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %254 unwind label %77
+  store double %253, ptr %4, align 8
+  %254 = load i64, ptr %54, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %254, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %255 unwind label %77
 
-254:                                              ; preds = %251
+255:                                              ; preds = %252
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %255 = icmp sgt i64 %250, 0
-  br i1 %255, label %256, label %.thread196
+  %256 = icmp sgt i64 %251, 0
+  br i1 %256, label %257, label %.thread196
 
-256:                                              ; preds = %254
-  %257 = load double, ptr %27, align 8
+257:                                              ; preds = %255
+  %258 = load double, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store double %257, ptr %3, align 8
-  %258 = load i64, ptr %52, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %258, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %259 unwind label %77
+  store double %258, ptr %3, align 8
+  %259 = load i64, ptr %52, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %259, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %260 unwind label %77
 
-259:                                              ; preds = %256
+260:                                              ; preds = %257
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %260 = load i32, ptr %33, align 8
-  %.not138 = icmp eq i32 %260, 0
-  br i1 %.not138, label %.thread196, label %261
+  %261 = load i32, ptr %33, align 8
+  %.not138 = icmp eq i32 %261, 0
+  br i1 %.not138, label %.thread196, label %262
 
-261:                                              ; preds = %259
-  %262 = load ptr, ptr %44, align 8
-  %263 = load i32, ptr %65, align 8
-  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %262, i32 noundef %263, i64 noundef %250)
+262:                                              ; preds = %260
+  %263 = load ptr, ptr %44, align 8
+  %264 = load i32, ptr %65, align 8
+  invoke void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr noundef nonnull align 8 dereferenceable(96) %263, i32 noundef %264, i64 noundef %251)
           to label %.thread196 unwind label %77
 
-.thread196:                                       ; preds = %235, %236, %259, %261, %254
-  %264 = uitofp i64 %117 to double
-  %265 = fmul double %264, 5.000000e-01
-  %266 = load i32, ptr %15, align 4
-  %267 = uitofp i32 %266 to double
-  %268 = fdiv double %265, %267
-  br label %269
+.thread196:                                       ; preds = %236, %237, %260, %262, %255
+  %265 = uitofp i64 %118 to double
+  %266 = fmul double %265, 5.000000e-01
+  %267 = load i32, ptr %15, align 4
+  %268 = uitofp i32 %267 to double
+  %269 = fdiv double %266, %268
+  br label %270
 
-269:                                              ; preds = %205, %230, %.thread196
-  %270 = phi i32 [ %.pre229, %230 ], [ %.pre230, %205 ], [ %266, %.thread196 ]
-  %.2121 = phi double [ 0.000000e+00, %230 ], [ %.1120, %205 ], [ %187, %.thread196 ]
-  %.1117 = phi double [ %.0116214, %230 ], [ %.0116214, %205 ], [ %.082, %.thread196 ]
-  %.1114 = phi double [ %.0113215, %230 ], [ %.0113215, %205 ], [ %268, %.thread196 ]
-  %.1111 = phi double [ %234, %230 ], [ %.0110216, %205 ], [ %.0110216, %.thread196 ]
-  %.2104 = phi i64 [ %233, %230 ], [ %.1103, %205 ], [ %.1103, %.thread196 ]
-  %.1100 = phi i64 [ 0, %230 ], [ %.099218, %205 ], [ %117, %.thread196 ]
-  %271 = load ptr, ptr %16, align 8
-  %272 = load i32, ptr %33, align 8
-  %.not140 = icmp eq i32 %272, %270
-  br i1 %.not140, label %305, label %273
+270:                                              ; preds = %206, %231, %.thread196
+  %271 = phi i32 [ %.pre229, %231 ], [ %.pre230, %206 ], [ %267, %.thread196 ]
+  %.2121 = phi double [ 0.000000e+00, %231 ], [ %.1120, %206 ], [ %188, %.thread196 ]
+  %.1117 = phi double [ %.0116214, %231 ], [ %.0116214, %206 ], [ %.082, %.thread196 ]
+  %.1114 = phi double [ %.0113215, %231 ], [ %.0113215, %206 ], [ %269, %.thread196 ]
+  %.1111 = phi double [ %235, %231 ], [ %.0110216, %206 ], [ %.0110216, %.thread196 ]
+  %.2104 = phi i64 [ %234, %231 ], [ %.1103, %206 ], [ %.1103, %.thread196 ]
+  %.1100 = phi i64 [ 0, %231 ], [ %.099218, %206 ], [ %118, %.thread196 ]
+  %272 = load ptr, ptr %16, align 8
+  %273 = load i32, ptr %33, align 8
+  %.not140 = icmp eq i32 %273, %271
+  br i1 %.not140, label %306, label %274
 
-273:                                              ; preds = %269
-  %274 = lshr i64 %117, 1
-  %275 = trunc i64 %274 to i32
-  store i32 %275, ptr %18, align 4
-  %276 = and i64 %274, 4294967295
-  %277 = zext i32 %272 to i64
-  %278 = mul nuw i64 %276, %277
-  %279 = zext i32 %270 to i64
-  %280 = udiv i64 %278, %279
-  %281 = trunc i64 %280 to i32
-  store i32 %281, ptr %19, align 4
-  %282 = shl i64 %280, 1
-  %283 = and i64 %282, 8589934590
-  %284 = sext i32 %.0189211 to i64
-  %285 = icmp sgt i64 %283, %284
-  br i1 %285, label %.lr.ph.i, label %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
+274:                                              ; preds = %270
+  %275 = lshr i64 %118, 1
+  %276 = trunc i64 %275 to i32
+  store i32 %276, ptr %18, align 4
+  %277 = and i64 %275, 4294967295
+  %278 = zext i32 %273 to i64
+  %279 = mul nuw i64 %277, %278
+  %280 = zext i32 %271 to i64
+  %281 = udiv i64 %279, %280
+  %282 = trunc i64 %281 to i32
+  store i32 %282, ptr %19, align 4
+  %283 = shl i64 %281, 1
+  %284 = and i64 %283, 8589934590
+  %285 = sext i32 %.0189211 to i64
+  %286 = icmp sgt i64 %284, %285
+  br i1 %286, label %.lr.ph.i, label %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
 
-.lr.ph.i:                                         ; preds = %273, %.lr.ph.i
-  %286 = phi i32 [ %287, %.lr.ph.i ], [ %.0189211, %273 ]
-  %287 = shl i32 %286, 1
-  %288 = sext i32 %287 to i64
-  %289 = icmp sgt i64 %283, %288
-  br i1 %289, label %.lr.ph.i, label %290, !llvm.loop !10
+.lr.ph.i:                                         ; preds = %274, %.lr.ph.i
+  %287 = phi i32 [ %288, %.lr.ph.i ], [ %.0189211, %274 ]
+  %288 = shl i32 %287, 1
+  %289 = sext i32 %288 to i64
+  %290 = icmp sgt i64 %284, %289
+  br i1 %290, label %.lr.ph.i, label %291, !llvm.loop !10
 
-290:                                              ; preds = %.lr.ph.i
-  %291 = invoke ptr @g_realloc(ptr noundef %.081223, i64 noundef %288)
+291:                                              ; preds = %.lr.ph.i
+  %292 = invoke ptr @g_realloc(ptr noundef %.081223, i64 noundef %289)
           to label %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge unwind label %77
 
-._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge: ; preds = %290
+._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge: ; preds = %291
   %.pre233.pre = load i32, ptr %15, align 4
   br label %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
 
-_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge, %273
-  %.pre233 = phi i32 [ %270, %273 ], [ %.pre233.pre, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
-  %.1190 = phi i32 [ %.0189211, %273 ], [ %287, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
-  %.0.i170 = phi ptr [ %.081223, %273 ], [ %291, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
+_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge, %274
+  %.pre233 = phi i32 [ %271, %274 ], [ %.pre233.pre, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
+  %.1190 = phi i32 [ %.0189211, %274 ], [ %288, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
+  %.0.i170 = phi ptr [ %.081223, %274 ], [ %292, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
   %.not141 = icmp eq ptr %.091220, null
-  br i1 %.not141, label %294, label %292
+  br i1 %.not141, label %295, label %293
 
-292:                                              ; preds = %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
+293:                                              ; preds = %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
   %.not142 = icmp eq i32 %.pre233, %.094219
-  br i1 %.not142, label %298, label %293
+  br i1 %.not142, label %299, label %294
 
-293:                                              ; preds = %292
+294:                                              ; preds = %293
   invoke void @speex_resampler_destroy(ptr noundef nonnull %.091220)
           to label %._crit_edge231 unwind label %77
 
-._crit_edge231:                                   ; preds = %293
+._crit_edge231:                                   ; preds = %294
   %.pre232 = load i32, ptr %15, align 4
-  br label %294
+  br label %295
 
-294:                                              ; preds = %._crit_edge231, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
-  %295 = phi i32 [ %.pre232, %._crit_edge231 ], [ %.pre233, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ]
-  %296 = load i32, ptr %33, align 8
-  %297 = invoke ptr @speex_resampler_init(i32 noundef 1, i32 noundef %295, i32 noundef %296, i32 noundef 10, ptr noundef null)
-          to label %298 unwind label %77
+295:                                              ; preds = %._crit_edge231, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
+  %296 = phi i32 [ %.pre232, %._crit_edge231 ], [ %.pre233, %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit ]
+  %297 = load i32, ptr %33, align 8
+  %298 = invoke ptr @speex_resampler_init(i32 noundef 1, i32 noundef %296, i32 noundef %297, i32 noundef 10, ptr noundef null)
+          to label %299 unwind label %77
 
-298:                                              ; preds = %292, %294
-  %.296 = phi i32 [ %295, %294 ], [ %.094219, %292 ]
-  %.293 = phi ptr [ %297, %294 ], [ %.091220, %292 ]
-  %299 = load ptr, ptr %16, align 8
-  %300 = invoke i32 @speex_resampler_process_int(ptr noundef %.293, i32 noundef 0, ptr noundef %299, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
-          to label %301 unwind label %77
+299:                                              ; preds = %293, %295
+  %.296 = phi i32 [ %296, %295 ], [ %.094219, %293 ]
+  %.293 = phi ptr [ %298, %295 ], [ %.091220, %293 ]
+  %300 = load ptr, ptr %16, align 8
+  %301 = invoke i32 @speex_resampler_process_int(ptr noundef %.293, i32 noundef 0, ptr noundef %300, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
+          to label %302 unwind label %77
 
-301:                                              ; preds = %298
-  %302 = load i32, ptr %19, align 4
-  %303 = zext i32 %302 to i64
-  %304 = shl nuw nsw i64 %303, 1
-  br label %305
+302:                                              ; preds = %299
+  %303 = load i32, ptr %19, align 4
+  %304 = zext i32 %303 to i64
+  %305 = shl nuw nsw i64 %304, 1
+  br label %306
 
-305:                                              ; preds = %301, %269
-  %.2191 = phi i32 [ %.0189211, %269 ], [ %.1190, %301 ]
-  %.397 = phi i32 [ %.094219, %269 ], [ %.296, %301 ]
-  %.3 = phi ptr [ %.091220, %269 ], [ %.293, %301 ]
-  %.084 = phi i64 [ %117, %269 ], [ %304, %301 ]
-  %.083 = phi ptr [ %271, %269 ], [ %.0.i170, %301 ]
-  %.1 = phi ptr [ %.081223, %269 ], [ %.0.i170, %301 ]
-  %306 = icmp ult i32 %.0123212, %180
-  br i1 %306, label %307, label %311
+306:                                              ; preds = %302, %270
+  %.2191 = phi i32 [ %.0189211, %270 ], [ %.1190, %302 ]
+  %.397 = phi i32 [ %.094219, %270 ], [ %.296, %302 ]
+  %.3 = phi ptr [ %.091220, %270 ], [ %.293, %302 ]
+  %.084 = phi i64 [ %118, %270 ], [ %305, %302 ]
+  %.083 = phi ptr [ %272, %270 ], [ %.0.i170, %302 ]
+  %.1 = phi ptr [ %.081223, %270 ], [ %.0.i170, %302 ]
+  %307 = icmp ult i32 %.0123212, %181
+  br i1 %307, label %308, label %312
 
-307:                                              ; preds = %305
-  %308 = load ptr, ptr %44, align 8
-  %309 = load i32, ptr %65, align 8
-  %310 = invoke noundef i64 @_ZN12RtpAudioFile17frameWriteSamplesEjPKcx(ptr noundef nonnull align 8 dereferenceable(96) %308, i32 noundef %309, ptr noundef %.083, i64 noundef %.084)
-          to label %311 unwind label %77
+308:                                              ; preds = %306
+  %309 = load ptr, ptr %44, align 8
+  %310 = load i32, ptr %65, align 8
+  %311 = invoke noundef i64 @_ZN12RtpAudioFile17frameWriteSamplesEjPKcx(ptr noundef nonnull align 8 dereferenceable(96) %309, i32 noundef %310, ptr noundef %.083, i64 noundef %.084)
+          to label %312 unwind label %77
 
-311:                                              ; preds = %307, %305
-  %.1124 = phi i32 [ %.0123212, %305 ], [ %180, %307 ]
-  %312 = load ptr, ptr %16, align 8
-  invoke void @g_free(ptr noundef %312)
-          to label %313 unwind label %77
+312:                                              ; preds = %308, %306
+  %.1124 = phi i32 [ %.0123212, %306 ], [ %181, %308 ]
+  %313 = load ptr, ptr %16, align 8
+  invoke void @g_free(ptr noundef %313)
+          to label %314 unwind label %77
 
-313:                                              ; preds = %311, %132
-  %.3192 = phi i32 [ %.0189211, %132 ], [ %.2191, %311 ]
-  %.2125 = phi i32 [ %.0123212, %132 ], [ %.1124, %311 ]
-  %.3122 = phi double [ %.1120, %132 ], [ %.2121, %311 ]
-  %.2118 = phi double [ %.0116214, %132 ], [ %.1117, %311 ]
-  %.2115 = phi double [ %.0113215, %132 ], [ %.1114, %311 ]
-  %.2112 = phi double [ %.0110216, %132 ], [ %.1111, %311 ]
-  %.3105 = phi i64 [ %.1103, %132 ], [ %.2104, %311 ]
-  %.2101 = phi i64 [ %.099218, %132 ], [ %.1100, %311 ]
-  %.498 = phi i32 [ %.094219, %132 ], [ %.397, %311 ]
-  %.4 = phi ptr [ %.091220, %132 ], [ %.3, %311 ]
-  %.289 = phi i32 [ %134, %132 ], [ %180, %311 ]
-  %.2 = phi ptr [ %.081223, %132 ], [ %.1, %311 ]
-  %.not.i.i.i172 = icmp eq ptr %89, null
+314:                                              ; preds = %312, %133
+  %.3192 = phi i32 [ %.0189211, %133 ], [ %.2191, %312 ]
+  %.2125 = phi i32 [ %.0123212, %133 ], [ %.1124, %312 ]
+  %.3122 = phi double [ %.1120, %133 ], [ %.2121, %312 ]
+  %.2118 = phi double [ %.0116214, %133 ], [ %.1117, %312 ]
+  %.2115 = phi double [ %.0113215, %133 ], [ %.1114, %312 ]
+  %.2112 = phi double [ %.0110216, %133 ], [ %.1111, %312 ]
+  %.3105 = phi i64 [ %.1103, %133 ], [ %.2104, %312 ]
+  %.2101 = phi i64 [ %.099218, %133 ], [ %.1100, %312 ]
+  %.498 = phi i32 [ %.094219, %133 ], [ %.397, %312 ]
+  %.4 = phi ptr [ %.091220, %133 ], [ %.3, %312 ]
+  %.289 = phi i32 [ %135, %133 ], [ %181, %312 ]
+  %.2 = phi ptr [ %.081223, %133 ], [ %.1, %312 ]
+  %.not.i.i.i172 = icmp eq ptr %117, null
   br i1 %.not.i.i.i172, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %313
-  %314 = atomicrmw sub ptr %89, i32 1 seq_cst, align 4
-  %.not.i.i173 = icmp eq i32 %314, 1
-  br i1 %.not.i.i173, label %315, label %_ZN7QStringD2Ev.exit
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %314
+  %315 = atomicrmw sub ptr %117, i32 1 seq_cst, align 4
+  %.not.i.i173 = icmp eq i32 %315, 1
+  br i1 %.not.i.i173, label %316, label %_ZN7QStringD2Ev.exit
 
-315:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %89, i64 noundef 2, i64 noundef 8) #25
+316:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %117, i64 noundef 2, i64 noundef 8) #25
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %313, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %315
-  %316 = add i32 %.090221, 1
-  %317 = sext i32 %316 to i64
-  %318 = load i64, ptr %22, align 8
-  %319 = icmp sgt i64 %318, %317
-  br i1 %319, label %55, label %._crit_edge, !llvm.loop !11
+_ZN7QStringD2Ev.exit:                             ; preds = %314, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %316
+  %317 = add i32 %.090221, 1
+  %318 = sext i32 %317 to i64
+  %319 = load i64, ptr %22, align 8
+  %320 = icmp sgt i64 %319, %318
+  br i1 %320, label %55, label %._crit_edge, !llvm.loop !11
 
-.body:                                            ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i, %104, %77, %169
-  %.sroa.0.4 = phi ptr [ %89, %169 ], [ %.sroa.0.1, %77 ], [ %89, %104 ], [ %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %89, %100 ]
-  %.pn = phi { ptr, i32 } [ %170, %169 ], [ %78, %77 ], [ %101, %104 ], [ %101, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %101, %100 ]
+.body:                                            ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i, %104, %77, %170
+  %.sroa.0.4 = phi ptr [ %117, %170 ], [ %.sroa.0.1, %77 ], [ %91, %104 ], [ %91, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %91, %100 ]
+  %.pn = phi { ptr, i32 } [ %171, %170 ], [ %78, %77 ], [ %101, %104 ], [ %101, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i.i.i.i ], [ %101, %100 ]
   %.not.i.i.i174 = icmp eq ptr %.sroa.0.4, null
   br i1 %.not.i.i.i174, label %_ZN7QStringD2Ev.exit177, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175:   ; preds = %.body
-  %320 = atomicrmw sub ptr %.sroa.0.4, i32 1 seq_cst, align 4
-  %.not.i.i176 = icmp eq i32 %320, 1
-  br i1 %.not.i.i176, label %321, label %_ZN7QStringD2Ev.exit177
+  %321 = atomicrmw sub ptr %.sroa.0.4, i32 1 seq_cst, align 4
+  %.not.i.i176 = icmp eq i32 %321, 1
+  br i1 %.not.i.i176, label %322, label %_ZN7QStringD2Ev.exit177
 
-321:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
+322:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.sroa.0.4, i64 noundef 2, i64 noundef 8) #25
   br label %_ZN7QStringD2Ev.exit177
 
-_ZN7QStringD2Ev.exit177:                          ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175, %321
+_ZN7QStringD2Ev.exit177:                          ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175, %322
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit
   call void @g_free(ptr noundef %.2)
   %.not = icmp eq ptr %.4, null
-  br i1 %.not, label %323, label %322
+  br i1 %.not, label %324, label %323
 
-322:                                              ; preds = %._crit_edge
+323:                                              ; preds = %._crit_edge
   call void @speex_resampler_destroy(ptr noundef nonnull %.4)
-  br label %323
+  br label %324
 
-323:                                              ; preds = %._crit_edge.thread, %322, %._crit_edge
+324:                                              ; preds = %._crit_edge.thread, %323, %._crit_edge
   ret void
 }
 

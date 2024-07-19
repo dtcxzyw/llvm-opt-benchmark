@@ -50270,9 +50270,9 @@ if.else.i:                                        ; preds = %if.then.i20
 invoke.cont42:                                    ; preds = %if.end41, %if.then3.i, %if.else.i
   %228 = load <2 x ptr>, ptr %oldErrors, align 16
   %229 = load <2 x ptr>, ptr %errors_.i, align 8
-  %230 = extractelement <2 x ptr> %229, i64 1
   store <2 x ptr> %229, ptr %oldErrors, align 16
   store <2 x ptr> %228, ptr %errors_.i, align 8
+  %230 = extractelement <2 x ptr> %229, i64 1
   %cmp.not.i.i.i23 = icmp eq ptr %230, null
   br i1 %cmp.not.i.i.i23, label %_ZNSt10shared_ptrIN8facebook5velox10FlatVectorIS_IvEEEED2Ev.exit, label %if.then.i.i.i24
 

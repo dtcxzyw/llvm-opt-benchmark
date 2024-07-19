@@ -7667,8 +7667,8 @@ define hidden void @_ZN2cv3dls7HessianEPKd(ptr dead_on_unwind noalias nonnull wr
   %89 = getelementptr inbounds i8, ptr %22, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   %90 = load <2 x double>, ptr %80, align 8
-  %91 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   store <2 x double> %90, ptr %82, align 16
+  %91 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %92 = extractelement <2 x double> %90, i64 1
   %93 = fmul double %92, %92
   store double %93, ptr %84, align 8

@@ -1431,152 +1431,152 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
 
 7:                                                ; preds = %5
   %8 = load <2 x double>, ptr %0, align 8
-  %9 = extractelement <2 x double> %8, i64 1
-  %10 = extractelement <2 x double> %8, i64 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %0
-  br i1 %15, label %16, label %18
+  %13 = icmp eq ptr %12, %0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %10, align 8
+  br label %18
 
 16:                                               ; preds = %7
-  %17 = load ptr, ptr %12, align 8
-  br label %20
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %18
 
-18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %20
+18:                                               ; preds = %16, %14
+  %19 = phi ptr [ %15, %14 ], [ %17, %16 ]
+  %20 = load <2 x double>, ptr %19, align 8
+  %21 = load <2 x double>, ptr %1, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, %1
+  br i1 %26, label %27, label %29
 
-20:                                               ; preds = %18, %16
-  %21 = phi ptr [ %17, %16 ], [ %19, %18 ]
-  %22 = load <2 x double>, ptr %21, align 8
-  %23 = extractelement <2 x double> %22, i64 0
-  %24 = load <2 x double>, ptr %1, align 8
-  %25 = extractelement <2 x double> %24, i64 1
-  %26 = extractelement <2 x double> %24, i64 0
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %1
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %23, align 8
+  br label %31
 
-32:                                               ; preds = %20
-  %33 = load ptr, ptr %28, align 8
-  br label %36
+29:                                               ; preds = %18
+  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %31
 
-34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %36
-
-36:                                               ; preds = %34, %32
-  %37 = phi ptr [ %33, %32 ], [ %35, %34 ]
-  %38 = load <2 x double>, ptr %37, align 8
-  %39 = extractelement <2 x double> %38, i64 1
-  %40 = extractelement <2 x double> %38, i64 0
+31:                                               ; preds = %29, %27
+  %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
+  %33 = load <2 x double>, ptr %32, align 8
   switch i32 %4, label %online.exit204.thread [
-    i32 3, label %41
-    i32 2, label %87
-    i32 1, label %199
+    i32 3, label %34
+    i32 2, label %85
+    i32 1, label %207
   ]
 
-41:                                               ; preds = %36
-  %42 = fcmp oeq double %10, %23
-  br i1 %42, label %43, label %51
+34:                                               ; preds = %31
+  %35 = extractelement <2 x double> %8, i64 0
+  %36 = extractelement <2 x double> %20, i64 0
+  %37 = fcmp oeq double %35, %36
+  br i1 %37, label %38, label %47
 
-43:                                               ; preds = %41
-  store double %10, ptr %2, align 8
-  %44 = fsub <2 x double> %24, %38
-  %45 = extractelement <2 x double> %44, i64 0
-  %46 = extractelement <2 x double> %44, i64 1
-  %47 = fdiv double %46, %45
-  %48 = fsub <2 x double> %8, %38
-  %49 = extractelement <2 x double> %48, i64 0
-  %50 = tail call double @llvm.fmuladd.f64(double %47, double %49, double %39)
+38:                                               ; preds = %34
+  store double %35, ptr %2, align 8
+  %39 = fsub <2 x double> %21, %33
+  %40 = extractelement <2 x double> %39, i64 0
+  %41 = extractelement <2 x double> %39, i64 1
+  %42 = fdiv double %41, %40
+  %43 = fsub <2 x double> %8, %33
+  %44 = extractelement <2 x double> %43, i64 0
+  %45 = extractelement <2 x double> %33, i64 1
+  %46 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %45)
   br label %online.exit204.thread.sink.split
 
-51:                                               ; preds = %41
-  %52 = fcmp oeq double %26, %40
-  br i1 %52, label %53, label %62
+47:                                               ; preds = %34
+  %48 = extractelement <2 x double> %21, i64 0
+  %49 = extractelement <2 x double> %33, i64 0
+  %50 = fcmp oeq double %48, %49
+  br i1 %50, label %51, label %60
 
-53:                                               ; preds = %51
-  store double %26, ptr %2, align 8
-  %54 = fsub <2 x double> %8, %22
-  %55 = extractelement <2 x double> %54, i64 0
-  %56 = extractelement <2 x double> %54, i64 1
-  %57 = fdiv double %56, %55
-  %58 = fsub <2 x double> %24, %22
-  %59 = extractelement <2 x double> %58, i64 0
-  %60 = extractelement <2 x double> %22, i64 1
-  %61 = tail call double @llvm.fmuladd.f64(double %57, double %59, double %60)
+51:                                               ; preds = %47
+  store double %48, ptr %2, align 8
+  %52 = fsub <2 x double> %8, %20
+  %53 = extractelement <2 x double> %52, i64 0
+  %54 = extractelement <2 x double> %52, i64 1
+  %55 = fdiv double %54, %53
+  %56 = fsub <2 x double> %21, %20
+  %57 = extractelement <2 x double> %56, i64 0
+  %58 = extractelement <2 x double> %20, i64 1
+  %59 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %58)
   br label %online.exit204.thread.sink.split
 
-62:                                               ; preds = %51
-  %63 = shufflevector <2 x double> %8, <2 x double> %24, <2 x i32> <i32 3, i32 1>
-  %64 = shufflevector <2 x double> %22, <2 x double> %38, <2 x i32> <i32 3, i32 1>
-  %65 = fsub <2 x double> %63, %64
-  %66 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %67 = shufflevector <2 x double> %24, <2 x double> %66, <2 x i32> <i32 0, i32 3>
-  %68 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %69 = shufflevector <2 x double> %38, <2 x double> %68, <2 x i32> <i32 0, i32 3>
-  %70 = fsub <2 x double> %67, %69
-  %71 = fdiv <2 x double> %65, %70
-  %72 = fneg <2 x double> %71
-  %73 = shufflevector <2 x double> %24, <2 x double> %8, <2 x i32> <i32 0, i32 2>
-  %74 = shufflevector <2 x double> %24, <2 x double> %8, <2 x i32> <i32 1, i32 3>
-  %75 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %72, <2 x double> %73, <2 x double> %74)
-  %76 = extractelement <2 x double> %75, i64 0
-  %77 = extractelement <2 x double> %75, i64 1
-  %78 = fsub double %77, %76
-  %79 = extractelement <2 x double> %71, i64 0
-  %80 = extractelement <2 x double> %71, i64 1
-  %81 = fsub double %79, %80
-  %82 = fdiv double %78, %81
-  store double %82, ptr %2, align 8
-  %83 = fneg double %76
-  %84 = fmul double %80, %83
-  %85 = tail call double @llvm.fmuladd.f64(double %79, double %77, double %84)
-  %86 = fdiv double %85, %81
+60:                                               ; preds = %47
+  %61 = shufflevector <2 x double> %8, <2 x double> %21, <2 x i32> <i32 3, i32 1>
+  %62 = shufflevector <2 x double> %20, <2 x double> %33, <2 x i32> <i32 3, i32 1>
+  %63 = fsub <2 x double> %61, %62
+  %64 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %65 = shufflevector <2 x double> %21, <2 x double> %64, <2 x i32> <i32 0, i32 3>
+  %66 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %67 = shufflevector <2 x double> %33, <2 x double> %66, <2 x i32> <i32 0, i32 3>
+  %68 = fsub <2 x double> %65, %67
+  %69 = fdiv <2 x double> %63, %68
+  %70 = fneg <2 x double> %69
+  %71 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 0, i32 2>
+  %72 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 1, i32 3>
+  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %70, <2 x double> %71, <2 x double> %72)
+  %74 = extractelement <2 x double> %73, i64 0
+  %75 = extractelement <2 x double> %73, i64 1
+  %76 = fsub double %75, %74
+  %77 = extractelement <2 x double> %69, i64 0
+  %78 = extractelement <2 x double> %69, i64 1
+  %79 = fsub double %77, %78
+  %80 = fdiv double %76, %79
+  store double %80, ptr %2, align 8
+  %81 = fneg double %74
+  %82 = fmul double %78, %81
+  %83 = tail call double @llvm.fmuladd.f64(double %77, double %75, double %82)
+  %84 = fdiv double %83, %79
   br label %online.exit204.thread.sink.split
 
-87:                                               ; preds = %36
-  br i1 %15, label %88, label %90
+85:                                               ; preds = %31
+  br i1 %13, label %86, label %88
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr %12, align 8
-  br label %92
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %10, align 8
+  br label %90
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %92
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %90
 
-92:                                               ; preds = %90, %88
-  %93 = phi ptr [ %89, %88 ], [ %91, %90 ]
-  %.sroa.05.0.copyload.i = load double, ptr %93, align 8
-  %94 = fcmp oeq double %10, %.sroa.05.0.copyload.i
-  br i1 %94, label %online.exit.thread, label %95
+90:                                               ; preds = %88, %86
+  %91 = phi ptr [ %87, %86 ], [ %89, %88 ]
+  %.sroa.05.0.copyload.i = load double, ptr %91, align 8
+  %92 = extractelement <2 x double> %8, i64 0
+  %93 = fcmp oeq double %92, %.sroa.05.0.copyload.i
+  br i1 %93, label %online.exit.thread, label %94
 
-95:                                               ; preds = %92
-  %96 = fcmp olt double %10, %26
-  %or.cond = fcmp ogt double %26, %.sroa.05.0.copyload.i
+94:                                               ; preds = %90
+  %95 = extractelement <2 x double> %21, i64 0
+  %96 = fcmp olt double %92, %95
+  %or.cond = fcmp ogt double %95, %.sroa.05.0.copyload.i
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %95
+97:                                               ; preds = %94
   br i1 %or.cond, label %102, label %online.exit.thread
 
-98:                                               ; preds = %95
-  %99 = fcmp ule double %10, %26
-  %100 = fcmp uge double %26, %.sroa.05.0.copyload.i
+98:                                               ; preds = %94
+  %99 = fcmp ule double %92, %95
+  %100 = fcmp uge double %95, %.sroa.05.0.copyload.i
   %101 = or i1 %99, %100
   %or.cond226.not = or i1 %101, %or.cond
   br i1 %or.cond226.not, label %online.exit.thread, label %102
 
 102:                                              ; preds = %98, %97
-  br i1 %31, label %103, label %105
+  br i1 %26, label %103, label %105
 
 103:                                              ; preds = %102
-  %104 = load ptr, ptr %28, align 8
+  %104 = load ptr, ptr %23, align 8
   br label %107
 
 105:                                              ; preds = %102
@@ -1586,10 +1586,10 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
 107:                                              ; preds = %105, %103
   %108 = phi ptr [ %104, %103 ], [ %106, %105 ]
   %.sroa.05.0.copyload.i124 = load double, ptr %108, align 8
-  br i1 %15, label %109, label %111
+  br i1 %13, label %109, label %111
 
 109:                                              ; preds = %107
-  %110 = load ptr, ptr %12, align 8
+  %110 = load ptr, ptr %10, align 8
   br label %113
 
 111:                                              ; preds = %107
@@ -1599,11 +1599,11 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
 113:                                              ; preds = %111, %109
   %.pn.i = phi ptr [ %110, %109 ], [ %112, %111 ]
   %.sroa.0.0.i127 = load double, ptr %.pn.i, align 8
-  %114 = fcmp oeq double %26, %.sroa.05.0.copyload.i124
+  %114 = fcmp oeq double %95, %.sroa.05.0.copyload.i124
   br i1 %114, label %online.exit136.thread, label %115
 
 115:                                              ; preds = %113
-  %116 = fcmp olt double %26, %.sroa.0.0.i127
+  %116 = fcmp olt double %95, %.sroa.0.0.i127
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %115
@@ -1611,16 +1611,16 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
   br i1 %or.cond227, label %121, label %online.exit136.thread
 
 118:                                              ; preds = %115
-  %119 = fcmp ule double %26, %.sroa.0.0.i127
+  %119 = fcmp ule double %95, %.sroa.0.0.i127
   %120 = fcmp uge double %.sroa.0.0.i127, %.sroa.05.0.copyload.i124
   %or.cond228.not = select i1 %119, i1 true, i1 %120
   br i1 %or.cond228.not, label %online.exit136.thread, label %121
 
 121:                                              ; preds = %118, %117
-  br i1 %31, label %122, label %124
+  br i1 %26, label %122, label %124
 
 122:                                              ; preds = %121
-  %123 = load ptr, ptr %28, align 8
+  %123 = load ptr, ptr %23, align 8
   br label %126
 
 124:                                              ; preds = %121
@@ -1630,12 +1630,12 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
 126:                                              ; preds = %124, %122
   %127 = phi ptr [ %123, %122 ], [ %125, %124 ]
   %.sroa.05.0.copyload.i140 = load double, ptr %127, align 8
-  %128 = fcmp oeq double %26, %.sroa.05.0.copyload.i140
+  %128 = fcmp oeq double %95, %.sroa.05.0.copyload.i140
   br i1 %128, label %online.exit136.thread, label %129
 
 129:                                              ; preds = %126
-  %130 = fcmp olt double %26, %10
-  %131 = fcmp olt double %10, %.sroa.05.0.copyload.i140
+  %130 = fcmp olt double %95, %92
+  %131 = fcmp olt double %92, %.sroa.05.0.copyload.i140
   %.fr = freeze i1 %131
   br i1 %130, label %132, label %online.exit153
 
@@ -1643,182 +1643,188 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
   br i1 %.fr, label %online.exit136.thread, label %133
 
 133:                                              ; preds = %132
-  %134 = fcmp ogt double %10, %.sroa.05.0.copyload.i140
+  %134 = fcmp ogt double %92, %.sroa.05.0.copyload.i140
   %cond.fr222 = freeze i1 %134
-  br i1 %cond.fr222, label %135, label %137
+  br i1 %cond.fr222, label %135, label %139
 
 online.exit153:                                   ; preds = %129
   %spec.select = and i1 %.fr, %96
-  br i1 %spec.select, label %135, label %137
+  br i1 %spec.select, label %135, label %139
 
 135:                                              ; preds = %133, %online.exit153
   %136 = phi i1 [ %cond.fr222, %133 ], [ %spec.select, %online.exit153 ]
-  br i1 %136, label %139, label %online.exit136.thread
+  %137 = extractelement <2 x double> %20, i64 0
+  %138 = shufflevector <2 x double> %20, <2 x double> %8, <2 x i32> <i32 0, i32 3>
+  br i1 %136, label %141, label %online.exit136.thread
 
-137:                                              ; preds = %133, %online.exit153
-  %138 = phi i1 [ %spec.select, %online.exit153 ], [ %cond.fr222, %133 ]
-  br i1 %138, label %139, label %online.exit136.thread
+139:                                              ; preds = %133, %online.exit153
+  %140 = phi i1 [ %spec.select, %online.exit153 ], [ %cond.fr222, %133 ]
+  br i1 %140, label %141, label %online.exit136.thread
 
-139:                                              ; preds = %135, %137
-  %140 = phi double [ %23, %135 ], [ %10, %137 ]
-  %141 = extractelement <2 x double> %22, i64 1
+141:                                              ; preds = %135, %139
+  %142 = phi double [ %137, %135 ], [ %92, %139 ]
+  %143 = insertelement <2 x double> %20, double %142, i64 0
   br label %online.exit136.thread
 
-online.exit.thread:                               ; preds = %92, %98, %97
-  br i1 %15, label %142, label %144
-
-142:                                              ; preds = %online.exit.thread
-  %143 = load ptr, ptr %12, align 8
-  br label %146
+online.exit.thread:                               ; preds = %90, %98, %97
+  br i1 %13, label %144, label %146
 
 144:                                              ; preds = %online.exit.thread
-  %145 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %146
+  %145 = load ptr, ptr %10, align 8
+  br label %148
 
-146:                                              ; preds = %144, %142
-  %147 = phi ptr [ %143, %142 ], [ %145, %144 ]
-  %.sroa.05.0.copyload.i157 = load double, ptr %147, align 8
-  br i1 %31, label %148, label %150
+146:                                              ; preds = %online.exit.thread
+  %147 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %148
 
-148:                                              ; preds = %146
-  %149 = load ptr, ptr %28, align 8
-  br label %152
+148:                                              ; preds = %146, %144
+  %149 = phi ptr [ %145, %144 ], [ %147, %146 ]
+  %.sroa.05.0.copyload.i157 = load double, ptr %149, align 8
+  br i1 %26, label %150, label %152
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %152
+150:                                              ; preds = %148
+  %151 = load ptr, ptr %23, align 8
+  br label %154
 
-152:                                              ; preds = %150, %148
-  %.pn.i160 = phi ptr [ %149, %148 ], [ %151, %150 ]
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %154
+
+154:                                              ; preds = %152, %150
+  %.pn.i160 = phi ptr [ %151, %150 ], [ %153, %152 ]
   %.sroa.0.0.i161 = load double, ptr %.pn.i160, align 8
-  %153 = fcmp oeq double %10, %.sroa.05.0.copyload.i157
-  br i1 %153, label %online.exit170.thread, label %154
-
-154:                                              ; preds = %152
-  %155 = fcmp olt double %10, %.sroa.0.0.i161
-  br i1 %155, label %156, label %157
+  %155 = fcmp oeq double %92, %.sroa.05.0.copyload.i157
+  br i1 %155, label %online.exit170.thread, label %156
 
 156:                                              ; preds = %154
+  %157 = fcmp olt double %92, %.sroa.0.0.i161
+  br i1 %157, label %158, label %159
+
+158:                                              ; preds = %156
   %or.cond229 = fcmp ogt double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
-  br i1 %or.cond229, label %160, label %online.exit170.thread
+  br i1 %or.cond229, label %162, label %online.exit170.thread
 
-157:                                              ; preds = %154
-  %158 = fcmp ule double %10, %.sroa.0.0.i161
-  %159 = fcmp uge double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
-  %or.cond230.not = select i1 %158, i1 true, i1 %159
-  br i1 %or.cond230.not, label %online.exit170.thread, label %160
+159:                                              ; preds = %156
+  %160 = fcmp ule double %92, %.sroa.0.0.i161
+  %161 = fcmp uge double %.sroa.0.0.i161, %.sroa.05.0.copyload.i157
+  %or.cond230.not = select i1 %160, i1 true, i1 %161
+  br i1 %or.cond230.not, label %online.exit170.thread, label %162
 
-160:                                              ; preds = %157, %156
-  br i1 %15, label %161, label %163
+162:                                              ; preds = %159, %158
+  br i1 %13, label %163, label %165
 
-161:                                              ; preds = %160
-  %162 = load ptr, ptr %12, align 8
-  br label %165
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %10, align 8
+  br label %167
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %165
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %167
 
-165:                                              ; preds = %163, %161
-  %166 = phi ptr [ %162, %161 ], [ %164, %163 ]
-  %.sroa.05.0.copyload.i174 = load double, ptr %166, align 8
-  %167 = fcmp oeq double %10, %.sroa.05.0.copyload.i174
-  br i1 %167, label %online.exit136.thread, label %168
+167:                                              ; preds = %165, %163
+  %168 = phi ptr [ %164, %163 ], [ %166, %165 ]
+  %.sroa.05.0.copyload.i174 = load double, ptr %168, align 8
+  %169 = fcmp oeq double %92, %.sroa.05.0.copyload.i174
+  br i1 %169, label %online.exit136.thread, label %170
 
-168:                                              ; preds = %165
-  %169 = fcmp olt double %10, %26
-  %or.cond231 = fcmp ogt double %26, %.sroa.05.0.copyload.i174
-  br i1 %169, label %170, label %171
+170:                                              ; preds = %167
+  %171 = extractelement <2 x double> %21, i64 0
+  %172 = fcmp olt double %92, %171
+  %or.cond231 = fcmp ogt double %171, %.sroa.05.0.copyload.i174
+  br i1 %172, label %173, label %174
 
-170:                                              ; preds = %168
-  br i1 %or.cond231, label %175, label %online.exit136.thread
+173:                                              ; preds = %170
+  br i1 %or.cond231, label %178, label %online.exit136.thread
 
-171:                                              ; preds = %168
-  %172 = fcmp ule double %10, %26
-  %173 = fcmp uge double %26, %.sroa.05.0.copyload.i174
-  %174 = or i1 %172, %173
-  %or.cond232.not = or i1 %174, %or.cond231
-  br i1 %or.cond232.not, label %online.exit136.thread, label %175
+174:                                              ; preds = %170
+  %175 = fcmp ule double %92, %171
+  %176 = fcmp uge double %171, %.sroa.05.0.copyload.i174
+  %177 = or i1 %175, %176
+  %or.cond232.not = or i1 %177, %or.cond231
+  br i1 %or.cond232.not, label %online.exit136.thread, label %178
 
-175:                                              ; preds = %171, %170
-  %176 = tail call fastcc i32 @online(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 0)
-  %177 = icmp eq i32 %176, -1
-  %.sroa.057.0.copyload..sroa.065.0.copyload119 = select i1 %177, double %23, double %10
-  %178 = extractelement <2 x double> %22, i64 1
-  %.sroa.9.0.copyload..sroa.11.0.copyload120 = select i1 %177, double %178, double %9
+178:                                              ; preds = %174, %173
+  %179 = tail call fastcc i32 @online(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 0)
+  %180 = icmp eq i32 %179, -1
+  %181 = insertelement <2 x i1> poison, i1 %180, i64 0
+  %182 = shufflevector <2 x i1> %181, <2 x i1> poison, <2 x i32> zeroinitializer
+  %183 = select <2 x i1> %182, <2 x double> %20, <2 x double> %8
   br label %online.exit136.thread
 
-online.exit170.thread:                            ; preds = %152, %157, %156
-  br i1 %31, label %179, label %181
+online.exit170.thread:                            ; preds = %154, %159, %158
+  br i1 %26, label %184, label %186
 
-179:                                              ; preds = %online.exit170.thread
-  %180 = load ptr, ptr %28, align 8
-  br label %183
+184:                                              ; preds = %online.exit170.thread
+  %185 = load ptr, ptr %23, align 8
+  br label %188
 
-181:                                              ; preds = %online.exit170.thread
-  %182 = getelementptr inbounds i8, ptr %1, i64 32
-  br label %183
+186:                                              ; preds = %online.exit170.thread
+  %187 = getelementptr inbounds i8, ptr %1, i64 32
+  br label %188
 
-183:                                              ; preds = %181, %179
-  %184 = phi ptr [ %180, %179 ], [ %182, %181 ]
-  %.sroa.05.0.copyload.i191 = load double, ptr %184, align 8
-  %185 = fcmp oeq double %26, %.sroa.05.0.copyload.i191
-  br i1 %185, label %online.exit204.thread, label %186
+188:                                              ; preds = %186, %184
+  %189 = phi ptr [ %185, %184 ], [ %187, %186 ]
+  %.sroa.05.0.copyload.i191 = load double, ptr %189, align 8
+  %190 = extractelement <2 x double> %21, i64 0
+  %191 = fcmp oeq double %190, %.sroa.05.0.copyload.i191
+  br i1 %191, label %online.exit204.thread, label %192
 
-186:                                              ; preds = %183
-  %187 = fcmp olt double %26, %10
-  %or.cond233 = fcmp ogt double %10, %.sroa.05.0.copyload.i191
-  br i1 %187, label %188, label %190
+192:                                              ; preds = %188
+  %193 = fcmp olt double %190, %92
+  %or.cond233 = fcmp ogt double %92, %.sroa.05.0.copyload.i191
+  br i1 %193, label %194, label %195
 
-188:                                              ; preds = %186
-  %189 = extractelement <2 x double> %22, i64 1
+194:                                              ; preds = %192
   br i1 %or.cond233, label %online.exit136.thread, label %online.exit204.thread
 
-190:                                              ; preds = %186
-  %191 = fcmp ule double %26, %10
-  %192 = fcmp uge double %10, %.sroa.05.0.copyload.i191
-  %193 = or i1 %191, %192
-  %or.cond234.not = or i1 %193, %or.cond233
-  %194 = extractelement <2 x double> %22, i64 1
+195:                                              ; preds = %192
+  %196 = fcmp ule double %190, %92
+  %197 = fcmp uge double %92, %.sroa.05.0.copyload.i191
+  %198 = or i1 %196, %197
+  %or.cond234.not = or i1 %198, %or.cond233
   br i1 %or.cond234.not, label %online.exit204.thread, label %online.exit136.thread
 
-online.exit136.thread:                            ; preds = %190, %188, %132, %126, %139, %137, %135, %165, %113, %171, %170, %118, %117, %175
-  %.sroa.0.0 = phi double [ %.sroa.057.0.copyload..sroa.065.0.copyload119, %175 ], [ %40, %117 ], [ %40, %118 ], [ %26, %170 ], [ %26, %171 ], [ %40, %113 ], [ %26, %165 ], [ %140, %139 ], [ %10, %137 ], [ %23, %135 ], [ %10, %126 ], [ %10, %132 ], [ %23, %188 ], [ %23, %190 ]
-  %.sroa.8.0 = phi double [ %.sroa.9.0.copyload..sroa.11.0.copyload120, %175 ], [ %39, %117 ], [ %39, %118 ], [ %25, %170 ], [ %25, %171 ], [ %39, %113 ], [ %25, %165 ], [ %141, %139 ], [ %9, %137 ], [ %9, %135 ], [ %9, %126 ], [ %9, %132 ], [ %189, %188 ], [ %194, %190 ]
-  %.sroa.030.0 = phi double [ %40, %175 ], [ %26, %117 ], [ %26, %118 ], [ %40, %170 ], [ %40, %171 ], [ %26, %113 ], [ %40, %165 ], [ %26, %139 ], [ %26, %137 ], [ %26, %135 ], [ %26, %126 ], [ %26, %132 ], [ %10, %188 ], [ %10, %190 ]
-  %.sroa.4.0 = phi double [ %39, %175 ], [ %25, %117 ], [ %25, %118 ], [ %39, %170 ], [ %39, %171 ], [ %25, %113 ], [ %39, %165 ], [ %25, %139 ], [ %25, %137 ], [ %25, %135 ], [ %25, %126 ], [ %25, %132 ], [ %9, %188 ], [ %9, %190 ]
-  %195 = fadd double %.sroa.0.0, %.sroa.030.0
-  %196 = fmul double %195, 5.000000e-01
-  store double %196, ptr %2, align 8
-  %197 = fadd double %.sroa.8.0, %.sroa.4.0
-  %198 = fmul double %197, 5.000000e-01
+online.exit136.thread:                            ; preds = %195, %194, %132, %126, %141, %139, %135, %167, %113, %174, %173, %118, %117, %178
+  %199 = phi <2 x double> [ %33, %178 ], [ %21, %117 ], [ %21, %118 ], [ %33, %173 ], [ %33, %174 ], [ %21, %113 ], [ %33, %167 ], [ %21, %141 ], [ %21, %139 ], [ %21, %135 ], [ %21, %126 ], [ %21, %132 ], [ %8, %194 ], [ %8, %195 ]
+  %200 = phi <2 x double> [ %183, %178 ], [ %33, %117 ], [ %33, %118 ], [ %21, %173 ], [ %21, %174 ], [ %33, %113 ], [ %21, %167 ], [ %143, %141 ], [ %8, %139 ], [ %138, %135 ], [ %8, %126 ], [ %8, %132 ], [ %20, %194 ], [ %20, %195 ]
+  %201 = fadd <2 x double> %200, %199
+  %202 = extractelement <2 x double> %201, i64 0
+  %203 = fmul double %202, 5.000000e-01
+  store double %203, ptr %2, align 8
+  %204 = fadd <2 x double> %200, %199
+  %205 = extractelement <2 x double> %204, i64 1
+  %206 = fmul double %205, 5.000000e-01
   br label %online.exit204.thread.sink.split
 
-199:                                              ; preds = %36
-  %200 = fsub <2 x double> %8, %22
-  %201 = fsub <2 x double> %24, %8
-  %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %203 = fmul <2 x double> %200, %202
-  %204 = extractelement <2 x double> %203, i64 0
-  %205 = extractelement <2 x double> %203, i64 1
-  %206 = fcmp oeq double %204, %205
-  br i1 %206, label %207, label %208
+207:                                              ; preds = %31
+  %208 = fsub <2 x double> %8, %20
+  %209 = fsub <2 x double> %21, %8
+  %210 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %211 = fmul <2 x double> %208, %210
+  %212 = extractelement <2 x double> %211, i64 0
+  %213 = extractelement <2 x double> %211, i64 1
+  %214 = fcmp oeq double %212, %213
+  br i1 %214, label %215, label %218
 
-207:                                              ; preds = %199
-  store double %26, ptr %2, align 8
+215:                                              ; preds = %207
+  %216 = extractelement <2 x double> %21, i64 0
+  store double %216, ptr %2, align 8
+  %217 = extractelement <2 x double> %21, i64 1
   br label %online.exit204.thread.sink.split
 
-208:                                              ; preds = %199
-  store double %40, ptr %2, align 8
+218:                                              ; preds = %207
+  %219 = extractelement <2 x double> %33, i64 0
+  store double %219, ptr %2, align 8
+  %220 = extractelement <2 x double> %33, i64 1
   br label %online.exit204.thread.sink.split
 
-online.exit204.thread.sink.split:                 ; preds = %207, %208, %43, %62, %53, %online.exit136.thread
-  %.sink = phi double [ %198, %online.exit136.thread ], [ %61, %53 ], [ %86, %62 ], [ %50, %43 ], [ %39, %208 ], [ %25, %207 ]
+online.exit204.thread.sink.split:                 ; preds = %215, %218, %38, %60, %51, %online.exit136.thread
+  %.sink = phi double [ %206, %online.exit136.thread ], [ %59, %51 ], [ %84, %60 ], [ %46, %38 ], [ %220, %218 ], [ %217, %215 ]
   store double %.sink, ptr %3, align 8
   br label %online.exit204.thread
 
-online.exit204.thread:                            ; preds = %online.exit204.thread.sink.split, %183, %190, %188, %36, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %36 ], [ 0, %188 ], [ 0, %190 ], [ 0, %183 ], [ 1, %online.exit204.thread.sink.split ]
+online.exit204.thread:                            ; preds = %online.exit204.thread.sink.split, %188, %195, %194, %31, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %31 ], [ 0, %194 ], [ 0, %195 ], [ 0, %188 ], [ 1, %online.exit204.thread.sink.split ]
   ret i32 %.0
 }
 

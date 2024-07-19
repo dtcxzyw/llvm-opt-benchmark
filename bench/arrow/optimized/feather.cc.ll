@@ -5278,15 +5278,15 @@ invoke.cont10:                                    ; preds = %invoke.cont
 .noexc:                                           ; preds = %invoke.cont10
   %codec = getelementptr inbounds i8, ptr %ipc_options, i64 24
   %131 = load <2 x ptr>, ptr %codec, align 8
-  %132 = extractelement <2 x ptr> %131, i64 1
-  %133 = load <2 x ptr>, ptr %ref.tmp.i.i25, align 16
-  store <2 x ptr> %133, ptr %codec, align 8
+  %132 = load <2 x ptr>, ptr %ref.tmp.i.i25, align 16
+  store <2 x ptr> %132, ptr %codec, align 8
   store <2 x ptr> %131, ptr %ref.tmp.i.i25, align 16
-  %cmp.not.i.i.i.i27 = icmp eq ptr %132, null
+  %133 = extractelement <2 x ptr> %131, i64 1
+  %cmp.not.i.i.i.i27 = icmp eq ptr %133, null
   br i1 %cmp.not.i.i.i.i27, label %invoke.cont12, label %if.then.i.i.i.i28
 
 if.then.i.i.i.i28:                                ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %132, i64 8
+  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %133, i64 8
   %134 = load atomic i64, ptr %_M_use_count.i.i.i.i.i29 acquire, align 8
   %cmp.i.i.i.i.i30 = icmp eq i64 %134, 4294967297
   %135 = trunc i64 %134 to i32
@@ -5294,12 +5294,12 @@ if.then.i.i.i.i28:                                ; preds = %.noexc
 
 if.then.i.i.i.i.i52:                              ; preds = %if.then.i.i.i.i28
   store i32 0, ptr %_M_use_count.i.i.i.i.i29, align 8
-  %_M_weak_count.i.i.i.i.i53 = getelementptr inbounds i8, ptr %132, i64 12
+  %_M_weak_count.i.i.i.i.i53 = getelementptr inbounds i8, ptr %133, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i53, align 4
-  %vtable.i.i.i.i.i54 = load ptr, ptr %132, align 8
+  %vtable.i.i.i.i.i54 = load ptr, ptr %133, align 8
   %vfn.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i54, i64 16
   %136 = load ptr, ptr %vfn.i.i.i.i.i55, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %132) #22
+  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %133) #22
   br label %if.end8.sink.split.i.i.i.i.i47
 
 if.end.i.i.i.i.i31:                               ; preds = %if.then.i.i.i.i28
@@ -5322,11 +5322,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35: ; preds = %if.e
   br i1 %cmp6.i.i.i.i.i37, label %if.then7.i.i.i.i.i38, label %invoke.cont12
 
 if.then7.i.i.i.i.i38:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35
-  %vtable.i.i.i.i.i.i.i39 = load ptr, ptr %132, align 8
+  %vtable.i.i.i.i.i.i.i39 = load ptr, ptr %133, align 8
   %vfn.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i39, i64 16
   %139 = load ptr, ptr %vfn.i.i.i.i.i.i.i40, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(16) %132) #22
-  %_M_weak_count.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %132, i64 12
+  call void %139(ptr noundef nonnull align 8 dereferenceable(16) %133) #22
+  %_M_weak_count.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %133, i64 12
   %140 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i42 = icmp eq i8 %140, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i42, label %if.else.i.i.i.i.i.i.i.i50, label %if.then.i.i.i.i.i.i.i.i
@@ -5347,10 +5347,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i44: ; preds = %
   br i1 %cmp.i.i.i.i.i.i.i46, label %if.end8.sink.split.i.i.i.i.i47, label %invoke.cont12
 
 if.end8.sink.split.i.i.i.i.i47:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i44, %if.then.i.i.i.i.i52
-  %vtable2.i.i.i.i.i.i.i48 = load ptr, ptr %132, align 8
+  %vtable2.i.i.i.i.i.i.i48 = load ptr, ptr %133, align 8
   %vfn3.i.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i48, i64 24
   %143 = load ptr, ptr %vfn3.i.i.i.i.i.i.i49, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %132) #22
+  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %133) #22
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.end8.sink.split.i.i.i.i.i47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i35, %.noexc

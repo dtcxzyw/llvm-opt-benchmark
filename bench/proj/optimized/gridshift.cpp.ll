@@ -1965,9 +1965,9 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
   %.0 = phi ptr [ %.1, %162 ], [ %7, %.preheader ]
   %88 = phi <2 x double> [ %159, %162 ], [ %83, %.preheader ]
   %89 = phi <2 x double> [ %160, %162 ], [ %80, %.preheader ]
-  %90 = extractelement <2 x double> %88, i64 1
-  %91 = extractelement <2 x double> %88, i64 0
-  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %91, double %90, ptr noundef nonnull %.0, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %90 = extractelement <2 x double> %88, i64 0
+  %91 = extractelement <2 x double> %88, i64 1
+  call fastcc void @_ZN12_GLOBAL__N_113gridshiftData16grid_interpolateEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE5PJ_XYPKN5osgeo4proj16GenericShiftGridERb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, double %90, double %91, ptr noundef nonnull %.0, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %92 = load ptr, ptr %.0, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
@@ -2000,7 +2000,7 @@ _ZN12_GLOBAL__N_110normalizeXEPKN5osgeo4proj16GenericShiftGridE6PJ_XYZRPKNS1_12E
 .lr.ph.i:                                         ; preds = %106, %109
   %.sroa.01.07.i = phi ptr [ %110, %109 ], [ %.val, %106 ]
   %107 = load ptr, ptr %.sroa.01.07.i, align 8
-  %108 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %107, ptr noundef nonnull align 8 dereferenceable(32) %3, double noundef %91, double noundef %90)
+  %108 = tail call noundef ptr @_ZNK5osgeo4proj19GenericShiftGridSet6gridAtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %107, ptr noundef nonnull align 8 dereferenceable(32) %3, double noundef %90, double noundef %91)
   %.not.i = icmp eq ptr %108, null
   br i1 %.not.i, label %109, label %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit
 

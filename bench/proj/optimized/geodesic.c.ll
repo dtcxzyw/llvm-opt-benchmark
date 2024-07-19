@@ -2999,19 +2999,19 @@ Astroid.exit.i:                                   ; preds = %470, %430
   %567 = phi <2 x double> [ %524, %547 ], [ %798, %797 ]
   %568 = phi <2 x double> [ %563, %547 ], [ %739, %797 ]
   %569 = phi <2 x double> [ %564, %547 ], [ %740, %797 ]
-  %570 = extractelement <2 x double> %567, i64 1
-  %571 = extractelement <2 x double> %567, i64 0
   %.b253 = load i1, ptr @maxit1, align 4
-  %572 = icmp ult i32 %.0220, 20
-  %573 = select i1 %.b253, i1 %572, i1 false
+  %570 = icmp ult i32 %.0220, 20
+  %571 = select i1 %.b253, i1 %570, i1 false
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store double 0.000000e+00, ptr %15, align 8
-  %574 = fcmp oeq double %570, 0.000000e+00
-  %or.cond.i279 = and i1 %549, %574
-  %575 = fneg double %566
-  %.0.i280 = select i1 %or.cond.i279, double %575, double %570
-  %576 = fmul double %139, %571
-  %577 = fmul double %136, %571
+  %572 = extractelement <2 x double> %567, i64 1
+  %573 = fcmp oeq double %572, 0.000000e+00
+  %or.cond.i279 = and i1 %549, %573
+  %574 = fneg double %566
+  %.0.i280 = select i1 %or.cond.i279, double %574, double %572
+  %575 = extractelement <2 x double> %567, i64 0
+  %576 = fmul double %139, %575
+  %577 = fmul double %136, %575
   %578 = call double @hypot(double noundef %.0.i280, double noundef %577) #15
   %579 = fmul double %136, %576
   %580 = fmul double %139, %.0.i280
@@ -3188,7 +3188,7 @@ A3f.exit.i286:                                    ; preds = %.lr.ph.i.i115.i
   %688 = fmul double %576, %687
   %689 = fadd double %603, %685
   %690 = fmul double %689, %688
-  br i1 %573, label %691, label %Lambda12.exit
+  br i1 %571, label %691, label %Lambda12.exit
 
 691:                                              ; preds = %A3f.exit.i286
   %692 = fcmp oeq double %590, 0.000000e+00
@@ -3273,7 +3273,7 @@ Lambda12.exit:                                    ; preds = %A3f.exit.i286, %693
 738:                                              ; preds = %715, %718, %725, %730, %737
   %739 = phi <2 x double> [ %568, %737 ], [ %568, %730 ], [ %568, %725 ], [ %567, %718 ], [ %567, %715 ]
   %740 = phi <2 x double> [ %567, %737 ], [ %569, %730 ], [ %569, %725 ], [ %569, %718 ], [ %569, %715 ]
-  %741 = select i1 %.b.pre.pre, i1 %572, i1 false
+  %741 = select i1 %.b.pre.pre, i1 %570, i1 false
   %742 = fcmp ogt double %.0437, 0.000000e+00
   %or.cond7 = select i1 %741, i1 %742, i1 false
   br i1 %or.cond7, label %743, label %769
@@ -3289,15 +3289,15 @@ Lambda12.exit:                                    ; preds = %A3f.exit.i286, %693
 749:                                              ; preds = %743
   %750 = call double @sin(double noundef %745) #15
   %751 = call double @cos(double noundef %745) #15
-  %752 = fmul double %570, %750
-  %753 = call double @llvm.fmuladd.f64(double %571, double %751, double %752)
+  %752 = fmul double %572, %750
+  %753 = call double @llvm.fmuladd.f64(double %575, double %751, double %752)
   %754 = fcmp ogt double %753, 0.000000e+00
   br i1 %754, label %755, label %769
 
 755:                                              ; preds = %749
-  %756 = fneg double %571
+  %756 = fneg double %575
   %757 = fmul double %750, %756
-  %758 = call double @llvm.fmuladd.f64(double %570, double %751, double %757)
+  %758 = call double @llvm.fmuladd.f64(double %572, double %751, double %757)
   %759 = call double @hypot(double noundef %753, double noundef %758) #15
   %760 = insertelement <2 x double> poison, double %753, i64 0
   %761 = insertelement <2 x double> %760, double %758, i64 1
@@ -3354,7 +3354,7 @@ Lambda12.exit:                                    ; preds = %A3f.exit.i286, %693
 
 800:                                              ; preds = %Lambda12.exit, %704
   %801 = fdiv double %576, %.0467
-  %802 = select i1 %550, double %801, double %571
+  %802 = select i1 %550, double %801, double %575
   %.8 = select i1 %38, ptr %27, ptr null
   %803 = select i1 %38, ptr %28, ptr null
   call fastcc void @Lengths(ptr noundef %0, double noundef %624, double noundef %603, double noundef %582, double noundef %583, double noundef %180, double noundef %594, double noundef %595, double noundef %184, double noundef %139, double noundef %.0467, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef null, ptr noundef %.8, ptr noundef %803, ptr noundef nonnull %32)

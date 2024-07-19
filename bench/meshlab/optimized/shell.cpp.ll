@@ -1591,17 +1591,17 @@ _ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE8allocateEllj.exit: ;
   %146 = fmul double %145, %145
   %147 = fadd double %146, 1.000000e+00
   %sqrt.i = tail call double @llvm.sqrt.f64(double %147)
-  %148 = insertelement <2 x double> <double 1.000000e+00, double poison>, double %145, i64 1
+  %148 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %145, i64 0
   %149 = insertelement <2 x double> poison, double %sqrt.i, i64 0
   %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
   %151 = fdiv <2 x double> %148, %150
   br label %152
 
 152:                                              ; preds = %143, %._crit_edge228
-  %153 = phi <2 x double> [ %151, %143 ], [ <double 0.000000e+00, double 1.000000e+00>, %._crit_edge228 ]
-  %154 = extractelement <2 x double> %153, i64 1
+  %153 = phi <2 x double> [ %151, %143 ], [ <double 1.000000e+00, double 0.000000e+00>, %._crit_edge228 ]
+  %154 = extractelement <2 x double> %153, i64 0
   %155 = fcmp oeq double %154, 1.000000e+00
-  %156 = extractelement <2 x double> %153, i64 0
+  %156 = extractelement <2 x double> %153, i64 1
   %157 = fcmp oeq double %156, 0.000000e+00
   %or.cond.i.i.i = and i1 %157, %155
   br i1 %or.cond.i.i.i, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit.i, label %158

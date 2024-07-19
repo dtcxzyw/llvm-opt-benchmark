@@ -1702,11 +1702,11 @@ sw.bb:                                            ; preds = %if.end82
   %18 = fmul <2 x float> %17, <float 1.000000e+02, float 1.000000e+02>
   %19 = fptosi <2 x float> %18 to <2 x i32>
   %20 = srem <2 x i32> %19, <i32 360, i32 360>
-  %21 = extractelement <2 x i32> %20, i64 1
-  %22 = extractelement <2 x i32> %20, i64 0
-  %mul102 = mul nsw i32 %22, %rem
+  %21 = extractelement <2 x i32> %20, i64 0
+  %mul102 = mul nsw i32 %21, %rem
   %cmp103.not = icmp eq i32 %mul102, 0
-  %mul106 = mul nsw i32 %21, %22
+  %22 = extractelement <2 x i32> %20, i64 1
+  %mul106 = mul nsw i32 %22, %21
   %cmp107.not = icmp eq i32 %mul106, 0
   %or.cond = select i1 %cmp103.not, i1 true, i1 %cmp107.not
   br i1 %or.cond, label %if.end112, label %if.then108
@@ -1729,36 +1729,36 @@ if.else6.i:                                       ; preds = %if.else3.i
 
 _Z20FindSuitableMultipleRi.exit:                  ; preds = %if.else6.i, %if.then108, %if.else.i, %if.else3.i
   %angles.sroa.0.0 = phi i32 [ 3, %if.then108 ], [ 10, %if.else.i ], [ 20, %if.else3.i ], [ %spec.select, %if.else6.i ]
-  %cmp.i122 = icmp slt i32 %22, 3
+  %cmp.i122 = icmp slt i32 %21, 3
   br i1 %cmp.i122, label %_Z20FindSuitableMultipleRi.exit131, label %if.else.i123
 
 if.else.i123:                                     ; preds = %_Z20FindSuitableMultipleRi.exit
-  %cmp1.i124 = icmp ult i32 %22, 10
+  %cmp1.i124 = icmp ult i32 %21, 10
   br i1 %cmp1.i124, label %_Z20FindSuitableMultipleRi.exit131, label %if.else3.i125
 
 if.else3.i125:                                    ; preds = %if.else.i123
-  %cmp4.i126 = icmp ult i32 %22, 20
+  %cmp4.i126 = icmp ult i32 %21, 20
   br i1 %cmp4.i126, label %_Z20FindSuitableMultipleRi.exit131, label %if.else6.i127
 
 if.else6.i127:                                    ; preds = %if.else3.i125
-  %spec.select552 = tail call i32 @llvm.umax.i32(i32 %22, i32 30)
+  %spec.select552 = tail call i32 @llvm.umax.i32(i32 %21, i32 30)
   br label %_Z20FindSuitableMultipleRi.exit131
 
 _Z20FindSuitableMultipleRi.exit131:               ; preds = %if.else6.i127, %_Z20FindSuitableMultipleRi.exit, %if.else.i123, %if.else3.i125
   %angles.sroa.8.0 = phi i32 [ 3, %_Z20FindSuitableMultipleRi.exit ], [ 10, %if.else.i123 ], [ 20, %if.else3.i125 ], [ %spec.select552, %if.else6.i127 ]
-  %cmp.i132 = icmp slt i32 %21, 3
+  %cmp.i132 = icmp slt i32 %22, 3
   br i1 %cmp.i132, label %if.then115, label %if.else.i133
 
 if.else.i133:                                     ; preds = %_Z20FindSuitableMultipleRi.exit131
-  %cmp1.i134 = icmp ult i32 %21, 10
+  %cmp1.i134 = icmp ult i32 %22, 10
   br i1 %cmp1.i134, label %if.then115, label %if.else3.i135
 
 if.else3.i135:                                    ; preds = %if.else.i133
-  %cmp4.i136 = icmp ult i32 %21, 20
+  %cmp4.i136 = icmp ult i32 %22, 20
   br i1 %cmp4.i136, label %if.then115, label %if.else6.i137
 
 if.else6.i137:                                    ; preds = %if.else3.i135
-  %spec.select553 = tail call i32 @llvm.umax.i32(i32 %21, i32 30)
+  %spec.select553 = tail call i32 @llvm.umax.i32(i32 %22, i32 30)
   br label %if.then115
 
 if.end112:                                        ; preds = %sw.bb
@@ -1766,8 +1766,8 @@ if.end112:                                        ; preds = %sw.bb
   br i1 %tobool114.not, label %if.end118.thread, label %if.then115
 
 if.then115:                                       ; preds = %if.else6.i137, %if.else3.i135, %if.else.i133, %_Z20FindSuitableMultipleRi.exit131, %if.end112
-  %angles.sroa.15.1540 = phi i32 [ %21, %if.end112 ], [ 20, %if.else3.i135 ], [ 10, %if.else.i133 ], [ 3, %_Z20FindSuitableMultipleRi.exit131 ], [ %spec.select553, %if.else6.i137 ]
-  %angles.sroa.8.1537 = phi i32 [ %22, %if.end112 ], [ %angles.sroa.8.0, %if.else3.i135 ], [ %angles.sroa.8.0, %if.else.i133 ], [ %angles.sroa.8.0, %_Z20FindSuitableMultipleRi.exit131 ], [ %angles.sroa.8.0, %if.else6.i137 ]
+  %angles.sroa.15.1540 = phi i32 [ %22, %if.end112 ], [ 20, %if.else3.i135 ], [ 10, %if.else.i133 ], [ 3, %_Z20FindSuitableMultipleRi.exit131 ], [ %spec.select553, %if.else6.i137 ]
+  %angles.sroa.8.1537 = phi i32 [ %21, %if.end112 ], [ %angles.sroa.8.0, %if.else3.i135 ], [ %angles.sroa.8.0, %if.else.i133 ], [ %angles.sroa.8.0, %_Z20FindSuitableMultipleRi.exit131 ], [ %angles.sroa.8.0, %if.else6.i137 ]
   %angles.sroa.0.1535 = phi i32 [ %rem, %if.end112 ], [ %angles.sroa.0.0, %if.else3.i135 ], [ %angles.sroa.0.0, %if.else.i133 ], [ %angles.sroa.0.0, %_Z20FindSuitableMultipleRi.exit131 ], [ %angles.sroa.0.0, %if.else6.i137 ]
   br label %if.end.i.i
 
@@ -1791,7 +1791,7 @@ if.end118:                                        ; preds = %if.end3.i.i, %if.en
   br i1 %tobool120.not, label %if.end124, label %if.then121
 
 if.end118.thread:                                 ; preds = %if.end112
-  %tobool120.not600 = icmp eq i32 %22, 0
+  %tobool120.not600 = icmp eq i32 %21, 0
   br i1 %tobool120.not600, label %if.end124.thread, label %if.end.i.i143.preheader
 
 if.then121:                                       ; preds = %if.end118
@@ -1800,8 +1800,8 @@ if.then121:                                       ; preds = %if.end118
 
 if.end.i.i143.preheader:                          ; preds = %if.end118.thread, %if.then121
   %tobool114.not544601628 = phi i1 [ false, %if.then121 ], [ true, %if.end118.thread ]
-  %angles.sroa.15.1541603626 = phi i32 [ %angles.sroa.15.1540, %if.then121 ], [ %21, %if.end118.thread ]
-  %angles.sroa.8.1538605624 = phi i32 [ %angles.sroa.8.1537, %if.then121 ], [ %22, %if.end118.thread ]
+  %angles.sroa.15.1541603626 = phi i32 [ %angles.sroa.15.1540, %if.then121 ], [ %22, %if.end118.thread ]
+  %angles.sroa.8.1538605624 = phi i32 [ %angles.sroa.8.1537, %if.then121 ], [ %21, %if.end118.thread ]
   %angles.sroa.0.1536606622 = phi i32 [ %angles.sroa.0.1535, %if.then121 ], [ 0, %if.end118.thread ]
   %lcm.0608620 = phi i32 [ %mul.i, %if.then121 ], [ 360, %if.end118.thread ]
   br label %if.end.i.i143
@@ -1840,7 +1840,7 @@ if.end124:                                        ; preds = %_ZN6Assimp4Math3lcm
   br i1 %tobool126.not, label %if.end130, label %if.then127
 
 if.end124.thread:                                 ; preds = %if.end118.thread
-  %tobool126.not636 = icmp eq i32 %21, 0
+  %tobool126.not636 = icmp eq i32 %22, 0
   br i1 %tobool126.not636, label %if.then469, label %if.end.i.i160.preheader
 
 if.then127:                                       ; preds = %if.end124
@@ -1850,7 +1850,7 @@ if.then127:                                       ; preds = %if.end124
 if.end.i.i160.preheader:                          ; preds = %if.end124.thread, %if.then127
   %tobool120.not610637669 = phi i1 [ %tobool120.not610, %if.then127 ], [ true, %if.end124.thread ]
   %angles.sroa.0.1536607639667 = phi i32 [ %angles.sroa.0.1536607, %if.then127 ], [ 0, %if.end124.thread ]
-  %angles.sroa.15.1541604641665 = phi i32 [ %angles.sroa.15.1541604, %if.then127 ], [ %21, %if.end124.thread ]
+  %angles.sroa.15.1541604641665 = phi i32 [ %angles.sroa.15.1541604, %if.then127 ], [ %22, %if.end124.thread ]
   %tobool114.not544602642663 = phi i1 [ %tobool114.not544602, %if.then127 ], [ true, %if.end124.thread ]
   %angles.sroa.8.1539644661 = phi i32 [ %angles.sroa.8.1539, %if.then127 ], [ 0, %if.end124.thread ]
   %lcm.1646659 = phi i32 [ %lcm.1, %if.then127 ], [ 360, %if.end124.thread ]

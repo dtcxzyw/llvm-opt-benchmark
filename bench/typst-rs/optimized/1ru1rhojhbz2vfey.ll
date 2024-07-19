@@ -121188,11 +121188,11 @@ define { double, double } @_ZN5typst9visualize4path4Path9bbox_size17h1fb3e169f6b
 default.unreachable184:                           ; preds = %38
   unreachable
 
-._crit_edge:                                      ; preds = %142, %1
-  %.045.lcssa = phi double [ 0xFFF0000000000000, %1 ], [ %.146, %142 ]
-  %.043.lcssa = phi double [ 0x7FF0000000000000, %1 ], [ %.144, %142 ]
-  %.041.lcssa = phi double [ 0xFFF0000000000000, %1 ], [ %.142, %142 ]
-  %.0.lcssa = phi double [ 0x7FF0000000000000, %1 ], [ %.1, %142 ]
+._crit_edge:                                      ; preds = %144, %1
+  %.045.lcssa = phi double [ 0xFFF0000000000000, %1 ], [ %.146, %144 ]
+  %.043.lcssa = phi double [ 0x7FF0000000000000, %1 ], [ %.144, %144 ]
+  %.041.lcssa = phi double [ 0xFFF0000000000000, %1 ], [ %.142, %144 ]
+  %.0.lcssa = phi double [ 0x7FF0000000000000, %1 ], [ %.1, %144 ]
   %16 = fneg double %.043.lcssa
   %17 = bitcast double %16 to i64
   %18 = and i64 %17, 9218868437227405312
@@ -121229,43 +121229,43 @@ default.unreachable184:                           ; preds = %38
   %37 = insertvalue { double, double } %36, double %.0.i.i.i3.i52, 1
   ret { double, double } %37
 
-38:                                               ; preds = %.lr.ph, %142
-  %.0180 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.1, %142 ]
-  %.041179 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.142, %142 ]
-  %.043178 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.144, %142 ]
-  %.045177 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.146, %142 ]
-  %.sroa.0.0174 = phi ptr [ %5, %.lr.ph ], [ %42, %142 ]
-  %39 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %143, %142 ]
-  %40 = extractelement <2 x double> %39, i64 1
-  %41 = extractelement <2 x double> %39, i64 0
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 56
-  %43 = load i64, ptr %.sroa.0.0174, align 8, !range !426, !noundef !5
-  switch i64 %43, label %default.unreachable184 [
-    i64 0, label %44
+38:                                               ; preds = %.lr.ph, %144
+  %.0180 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.1, %144 ]
+  %.041179 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.142, %144 ]
+  %.043178 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.144, %144 ]
+  %.045177 = phi double [ 0xFFF0000000000000, %.lr.ph ], [ %.146, %144 ]
+  %.sroa.0.0174 = phi ptr [ %5, %.lr.ph ], [ %40, %144 ]
+  %39 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %145, %144 ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 56
+  %41 = load i64, ptr %.sroa.0.0174, align 8, !range !426, !noundef !5
+  switch i64 %41, label %default.unreachable184 [
+    i64 0, label %42
     i64 1, label %63
-    i64 2, label %82
-    i64 3, label %142
+    i64 2, label %84
+    i64 3, label %144
   ]
 
-44:                                               ; preds = %38
-  %45 = fcmp ugt double %.043178, %41
-  br i1 %45, label %46, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit
+42:                                               ; preds = %38
+  %43 = extractelement <2 x double> %39, i64 0
+  %44 = fcmp ugt double %.043178, %43
+  br i1 %44, label %45, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit
 
-46:                                               ; preds = %44
-  %47 = fcmp ult double %.043178, %41
-  br i1 %47, label %48, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit
+45:                                               ; preds = %42
+  %46 = fcmp ult double %.043178, %43
+  br i1 %46, label %47, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit
 
-48:                                               ; preds = %46
+47:                                               ; preds = %45
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23881
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit: ; preds = %44, %46
-  %.0.sroa.speculated.i.i = phi double [ %41, %46 ], [ %.043178, %44 ]
-  %49 = fcmp ugt double %.0180, %40
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit: ; preds = %42, %45
+  %.0.sroa.speculated.i.i = phi double [ %43, %45 ], [ %.043178, %42 ]
+  %48 = extractelement <2 x double> %39, i64 1
+  %49 = fcmp ugt double %.0180, %48
   br i1 %49, label %50, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54
 
 50:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit
-  %51 = fcmp ult double %.0180, %40
+  %51 = fcmp ult double %.0180, %48
   br i1 %51, label %52, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54
 
 52:                                               ; preds = %50
@@ -121273,12 +121273,12 @@ _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit: ; preds = %44, %46
   unreachable
 
 _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit, %50
-  %.0.sroa.speculated.i.i53 = phi double [ %40, %50 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit ]
-  %53 = fcmp ugt double %.045177, %41
+  %.0.sroa.speculated.i.i53 = phi double [ %48, %50 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit ]
+  %53 = fcmp ugt double %.045177, %43
   br i1 %53, label %54, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit
 
 54:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54
-  %55 = fcmp ult double %.045177, %41
+  %55 = fcmp ult double %.045177, %43
   br i1 %55, label %56, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit
 
 56:                                               ; preds = %54
@@ -121286,12 +121286,12 @@ _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54: ; preds = %_ZN5typst6la
   unreachable
 
 _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54, %54
-  %.0.sroa.speculated.i.i55 = phi double [ %.045177, %54 ], [ %41, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54 ]
-  %57 = fcmp ugt double %.041179, %40
+  %.0.sroa.speculated.i.i55 = phi double [ %.045177, %54 ], [ %43, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit54 ]
+  %57 = fcmp ugt double %.041179, %48
   br i1 %57, label %58, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57
 
 58:                                               ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit
-  %59 = fcmp ult double %.041179, %40
+  %59 = fcmp ult double %.041179, %48
   br i1 %59, label %60, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57
 
 60:                                               ; preds = %58
@@ -121299,231 +121299,233 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit: ; preds = %_ZN5typst6layo
   unreachable
 
 _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit, %58
-  %.0.sroa.speculated.i.i56 = phi double [ %.041179, %58 ], [ %40, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit ]
+  %.0.sroa.speculated.i.i56 = phi double [ %.041179, %58 ], [ %48, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
   %62 = load <2 x double>, ptr %61, align 8
-  br label %142
+  br label %144
 
 63:                                               ; preds = %38
-  %64 = fcmp ugt double %.043178, %41
-  br i1 %64, label %65, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
+  %64 = extractelement <2 x double> %39, i64 0
+  %65 = fcmp ugt double %.043178, %64
+  br i1 %65, label %66, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
 
-65:                                               ; preds = %63
-  %66 = fcmp ult double %.043178, %41
-  br i1 %66, label %67, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
+66:                                               ; preds = %63
+  %67 = fcmp ult double %.043178, %64
+  br i1 %67, label %68, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23909
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59: ; preds = %63, %65
-  %.0.sroa.speculated.i.i58 = phi double [ %41, %65 ], [ %.043178, %63 ]
-  %68 = fcmp ugt double %.0180, %40
-  br i1 %68, label %69, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61
-
-69:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
-  %70 = fcmp ult double %.0180, %40
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59: ; preds = %63, %66
+  %.0.sroa.speculated.i.i58 = phi double [ %64, %66 ], [ %.043178, %63 ]
+  %69 = extractelement <2 x double> %39, i64 1
+  %70 = fcmp ugt double %.0180, %69
   br i1 %70, label %71, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61
 
-71:                                               ; preds = %69
+71:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59
+  %72 = fcmp ult double %.0180, %69
+  br i1 %72, label %73, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61
+
+73:                                               ; preds = %71
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23916
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59, %69
-  %.0.sroa.speculated.i.i60 = phi double [ %40, %69 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59 ]
-  %72 = fcmp ugt double %.045177, %41
-  br i1 %72, label %73, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63
-
-73:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61
-  %74 = fcmp ult double %.045177, %41
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59, %71
+  %.0.sroa.speculated.i.i60 = phi double [ %69, %71 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit59 ]
+  %74 = fcmp ugt double %.045177, %64
   br i1 %74, label %75, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63
 
-75:                                               ; preds = %73
+75:                                               ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61
+  %76 = fcmp ult double %.045177, %64
+  br i1 %76, label %77, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63
+
+77:                                               ; preds = %75
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23923
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61, %73
-  %.0.sroa.speculated.i.i62 = phi double [ %.045177, %73 ], [ %41, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61 ]
-  %76 = fcmp ugt double %.041179, %40
-  br i1 %76, label %77, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65
-
-77:                                               ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63
-  %78 = fcmp ult double %.041179, %40
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61, %75
+  %.0.sroa.speculated.i.i62 = phi double [ %.045177, %75 ], [ %64, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit61 ]
+  %78 = fcmp ugt double %.041179, %69
   br i1 %78, label %79, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65
 
-79:                                               ; preds = %77
+79:                                               ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63
+  %80 = fcmp ult double %.041179, %69
+  br i1 %80, label %81, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65
+
+81:                                               ; preds = %79
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23930
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63, %77
-  %.0.sroa.speculated.i.i64 = phi double [ %.041179, %77 ], [ %40, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63 ]
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
-  %81 = load <2 x double>, ptr %80, align 8
-  br label %142
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63, %79
+  %.0.sroa.speculated.i.i64 = phi double [ %.041179, %79 ], [ %69, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit63 ]
+  %82 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
+  %83 = load <2 x double>, ptr %82, align 8
+  br label %144
 
-82:                                               ; preds = %38
+84:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %83 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 24
-  %85 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 40
-  %86 = load <2 x double>, ptr %83, align 8
-  store <2 x double> %39, ptr %3, align 16, !alias.scope !23937
-  %87 = load <2 x double>, ptr %84, align 8
-  store <2 x double> %86, ptr %10, align 16, !alias.scope !23937
+  %85 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
+  %86 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 24
+  %87 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 40
   %88 = load <2 x double>, ptr %85, align 8
-  store <2 x double> %87, ptr %11, align 16, !alias.scope !23937
-  store <2 x double> %88, ptr %12, align 16, !alias.scope !23937
+  store <2 x double> %39, ptr %3, align 16, !alias.scope !23937
+  %89 = load <2 x double>, ptr %86, align 8
+  store <2 x double> %88, ptr %10, align 16, !alias.scope !23937
+  %90 = load <2 x double>, ptr %87, align 8
+  store <2 x double> %89, ptr %11, align 16, !alias.scope !23937
+  store <2 x double> %90, ptr %12, align 16, !alias.scope !23937
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZN5kurbo11param_curve17ParamCurveExtrema12bounding_box17h82a2d73014b2b0a8E(ptr noalias nocapture noundef nonnull sret({ double, double, double, double }) align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %89 = load double, ptr %2, align 8, !noundef !5
-  %90 = bitcast double %89 to i64
-  %91 = and i64 %90, 9218868437227405312
-  %92 = icmp eq i64 %91, 9218868437227405312
-  %.mask.i.i.i.i = and i64 %90, 4503599627370495
-  %93 = icmp ne i64 %.mask.i.i.i.i, 0
-  %.0.i.i.i.i66 = and i1 %92, %93
-  %.0.i1.i.i = select i1 %.0.i.i.i.i66, double 0.000000e+00, double %89
-  %94 = fcmp ugt double %.043178, %.0.i1.i.i
-  br i1 %94, label %95, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68
-
-95:                                               ; preds = %82
-  %96 = fcmp ult double %.043178, %.0.i1.i.i
+  %91 = load double, ptr %2, align 8, !noundef !5
+  %92 = bitcast double %91 to i64
+  %93 = and i64 %92, 9218868437227405312
+  %94 = icmp eq i64 %93, 9218868437227405312
+  %.mask.i.i.i.i = and i64 %92, 4503599627370495
+  %95 = icmp ne i64 %.mask.i.i.i.i, 0
+  %.0.i.i.i.i66 = and i1 %94, %95
+  %.0.i1.i.i = select i1 %.0.i.i.i.i66, double 0.000000e+00, double %91
+  %96 = fcmp ugt double %.043178, %.0.i1.i.i
   br i1 %96, label %97, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68
 
-97:                                               ; preds = %95
+97:                                               ; preds = %84
+  %98 = fcmp ult double %.043178, %.0.i1.i.i
+  br i1 %98, label %99, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68
+
+99:                                               ; preds = %97
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23940
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68: ; preds = %82, %95
-  %.0.sroa.speculated.i.i67 = phi double [ %.0.i1.i.i, %95 ], [ %.043178, %82 ]
-  %98 = load double, ptr %13, align 8, !noundef !5
-  %99 = bitcast double %98 to i64
-  %100 = and i64 %99, 9218868437227405312
-  %101 = icmp eq i64 %100, 9218868437227405312
-  %.mask.i.i.i.i69 = and i64 %99, 4503599627370495
-  %102 = icmp ne i64 %.mask.i.i.i.i69, 0
-  %.0.i.i.i.i70 = and i1 %101, %102
-  %.0.i1.i.i71 = select i1 %.0.i.i.i.i70, double 0.000000e+00, double %98
-  %103 = fcmp ugt double %.0.sroa.speculated.i.i67, %.0.i1.i.i71
-  br i1 %103, label %104, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73
-
-104:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68
-  %105 = fcmp ult double %.0.sroa.speculated.i.i67, %.0.i1.i.i71
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68: ; preds = %84, %97
+  %.0.sroa.speculated.i.i67 = phi double [ %.0.i1.i.i, %97 ], [ %.043178, %84 ]
+  %100 = load double, ptr %13, align 8, !noundef !5
+  %101 = bitcast double %100 to i64
+  %102 = and i64 %101, 9218868437227405312
+  %103 = icmp eq i64 %102, 9218868437227405312
+  %.mask.i.i.i.i69 = and i64 %101, 4503599627370495
+  %104 = icmp ne i64 %.mask.i.i.i.i69, 0
+  %.0.i.i.i.i70 = and i1 %103, %104
+  %.0.i1.i.i71 = select i1 %.0.i.i.i.i70, double 0.000000e+00, double %100
+  %105 = fcmp ugt double %.0.sroa.speculated.i.i67, %.0.i1.i.i71
   br i1 %105, label %106, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73
 
-106:                                              ; preds = %104
+106:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68
+  %107 = fcmp ult double %.0.sroa.speculated.i.i67, %.0.i1.i.i71
+  br i1 %107, label %108, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73
+
+108:                                              ; preds = %106
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23947
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68, %104
-  %.0.sroa.speculated.i.i72 = phi double [ %.0.i1.i.i71, %104 ], [ %.0.sroa.speculated.i.i67, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68 ]
-  %107 = load double, ptr %14, align 8, !noundef !5
-  %108 = bitcast double %107 to i64
-  %109 = and i64 %108, 9218868437227405312
-  %110 = icmp eq i64 %109, 9218868437227405312
-  %.mask.i.i.i.i74 = and i64 %108, 4503599627370495
-  %111 = icmp ne i64 %.mask.i.i.i.i74, 0
-  %.0.i.i.i.i75 = and i1 %110, %111
-  %.0.i1.i.i76 = select i1 %.0.i.i.i.i75, double 0.000000e+00, double %107
-  %112 = fcmp ugt double %.0180, %.0.i1.i.i76
-  br i1 %112, label %113, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78
-
-113:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73
-  %114 = fcmp ult double %.0180, %.0.i1.i.i76
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68, %106
+  %.0.sroa.speculated.i.i72 = phi double [ %.0.i1.i.i71, %106 ], [ %.0.sroa.speculated.i.i67, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit68 ]
+  %109 = load double, ptr %14, align 8, !noundef !5
+  %110 = bitcast double %109 to i64
+  %111 = and i64 %110, 9218868437227405312
+  %112 = icmp eq i64 %111, 9218868437227405312
+  %.mask.i.i.i.i74 = and i64 %110, 4503599627370495
+  %113 = icmp ne i64 %.mask.i.i.i.i74, 0
+  %.0.i.i.i.i75 = and i1 %112, %113
+  %.0.i1.i.i76 = select i1 %.0.i.i.i.i75, double 0.000000e+00, double %109
+  %114 = fcmp ugt double %.0180, %.0.i1.i.i76
   br i1 %114, label %115, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78
 
-115:                                              ; preds = %113
+115:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73
+  %116 = fcmp ult double %.0180, %.0.i1.i.i76
+  br i1 %116, label %117, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78
+
+117:                                              ; preds = %115
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23954
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73, %113
-  %.0.sroa.speculated.i.i77 = phi double [ %.0.i1.i.i76, %113 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73 ]
-  %116 = load double, ptr %15, align 8, !noundef !5
-  %117 = bitcast double %116 to i64
-  %118 = and i64 %117, 9218868437227405312
-  %119 = icmp eq i64 %118, 9218868437227405312
-  %.mask.i.i.i.i79 = and i64 %117, 4503599627370495
-  %120 = icmp ne i64 %.mask.i.i.i.i79, 0
-  %.0.i.i.i.i80 = and i1 %119, %120
-  %.0.i1.i.i81 = select i1 %.0.i.i.i.i80, double 0.000000e+00, double %116
-  %121 = fcmp ugt double %.0.sroa.speculated.i.i77, %.0.i1.i.i81
-  br i1 %121, label %122, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83
-
-122:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78
-  %123 = fcmp ult double %.0.sroa.speculated.i.i77, %.0.i1.i.i81
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73, %115
+  %.0.sroa.speculated.i.i77 = phi double [ %.0.i1.i.i76, %115 ], [ %.0180, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73 ]
+  %118 = load double, ptr %15, align 8, !noundef !5
+  %119 = bitcast double %118 to i64
+  %120 = and i64 %119, 9218868437227405312
+  %121 = icmp eq i64 %120, 9218868437227405312
+  %.mask.i.i.i.i79 = and i64 %119, 4503599627370495
+  %122 = icmp ne i64 %.mask.i.i.i.i79, 0
+  %.0.i.i.i.i80 = and i1 %121, %122
+  %.0.i1.i.i81 = select i1 %.0.i.i.i.i80, double 0.000000e+00, double %118
+  %123 = fcmp ugt double %.0.sroa.speculated.i.i77, %.0.i1.i.i81
   br i1 %123, label %124, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83
 
-124:                                              ; preds = %122
+124:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78
+  %125 = fcmp ult double %.0.sroa.speculated.i.i77, %.0.i1.i.i81
+  br i1 %125, label %126, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83
+
+126:                                              ; preds = %124
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23961
   unreachable
 
-_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78, %122
-  %.0.sroa.speculated.i.i82 = phi double [ %.0.i1.i.i81, %122 ], [ %.0.sroa.speculated.i.i77, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78 ]
-  %125 = fcmp ugt double %.045177, %.0.i1.i.i
-  br i1 %125, label %126, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88
-
-126:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83
-  %127 = fcmp ult double %.045177, %.0.i1.i.i
+_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78, %124
+  %.0.sroa.speculated.i.i82 = phi double [ %.0.i1.i.i81, %124 ], [ %.0.sroa.speculated.i.i77, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit78 ]
+  %127 = fcmp ugt double %.045177, %.0.i1.i.i
   br i1 %127, label %128, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88
 
-128:                                              ; preds = %126
+128:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83
+  %129 = fcmp ult double %.045177, %.0.i1.i.i
+  br i1 %129, label %130, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88
+
+130:                                              ; preds = %128
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23968
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83, %126
-  %.0.sroa.speculated.i.i87 = phi double [ %.045177, %126 ], [ %.0.i1.i.i, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83 ]
-  %129 = fcmp ugt double %.0.sroa.speculated.i.i87, %.0.i1.i.i71
-  br i1 %129, label %130, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93
-
-130:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88
-  %131 = fcmp ult double %.0.sroa.speculated.i.i87, %.0.i1.i.i71
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88: ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83, %128
+  %.0.sroa.speculated.i.i87 = phi double [ %.045177, %128 ], [ %.0.i1.i.i, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit83 ]
+  %131 = fcmp ugt double %.0.sroa.speculated.i.i87, %.0.i1.i.i71
   br i1 %131, label %132, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93
 
-132:                                              ; preds = %130
+132:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88
+  %133 = fcmp ult double %.0.sroa.speculated.i.i87, %.0.i1.i.i71
+  br i1 %133, label %134, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93
+
+134:                                              ; preds = %132
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23975
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88, %130
-  %.0.sroa.speculated.i.i92 = phi double [ %.0.sroa.speculated.i.i87, %130 ], [ %.0.i1.i.i71, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88 ]
-  %133 = fcmp ugt double %.041179, %.0.i1.i.i76
-  br i1 %133, label %134, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98
-
-134:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93
-  %135 = fcmp ult double %.041179, %.0.i1.i.i76
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88, %132
+  %.0.sroa.speculated.i.i92 = phi double [ %.0.sroa.speculated.i.i87, %132 ], [ %.0.i1.i.i71, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit88 ]
+  %135 = fcmp ugt double %.041179, %.0.i1.i.i76
   br i1 %135, label %136, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98
 
-136:                                              ; preds = %134
+136:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93
+  %137 = fcmp ult double %.041179, %.0.i1.i.i76
+  br i1 %137, label %138, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98
+
+138:                                              ; preds = %136
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23982
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93, %134
-  %.0.sroa.speculated.i.i97 = phi double [ %.041179, %134 ], [ %.0.i1.i.i76, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93 ]
-  %137 = fcmp ugt double %.0.sroa.speculated.i.i97, %.0.i1.i.i81
-  br i1 %137, label %138, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103
-
-138:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98
-  %139 = fcmp ult double %.0.sroa.speculated.i.i97, %.0.i1.i.i81
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93, %136
+  %.0.sroa.speculated.i.i97 = phi double [ %.041179, %136 ], [ %.0.i1.i.i76, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit93 ]
+  %139 = fcmp ugt double %.0.sroa.speculated.i.i97, %.0.i1.i.i81
   br i1 %139, label %140, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103
 
-140:                                              ; preds = %138
+140:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98
+  %141 = fcmp ult double %.0.sroa.speculated.i.i97, %.0.i1.i.i81
+  br i1 %141, label %142, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103
+
+142:                                              ; preds = %140
   call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #64, !noalias !23989
   unreachable
 
-_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98, %138
-  %.0.sroa.speculated.i.i102 = phi double [ %.0.sroa.speculated.i.i97, %138 ], [ %.0.i1.i.i81, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98 ]
-  %141 = load <2 x double>, ptr %85, align 8
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98, %140
+  %.0.sroa.speculated.i.i102 = phi double [ %.0.sroa.speculated.i.i97, %140 ], [ %.0.i1.i.i81, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit98 ]
+  %143 = load <2 x double>, ptr %87, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %142
+  br label %144
 
-142:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57, %38
+144:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57, %38
   %.146 = phi double [ %.045177, %38 ], [ %.0.sroa.speculated.i.i92, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %.0.sroa.speculated.i.i62, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %.0.sroa.speculated.i.i55, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
   %.144 = phi double [ %.043178, %38 ], [ %.0.sroa.speculated.i.i72, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %.0.sroa.speculated.i.i58, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %.0.sroa.speculated.i.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
   %.142 = phi double [ %.041179, %38 ], [ %.0.sroa.speculated.i.i102, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %.0.sroa.speculated.i.i64, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %.0.sroa.speculated.i.i56, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
   %.1 = phi double [ %.0180, %38 ], [ %.0.sroa.speculated.i.i82, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %.0.sroa.speculated.i.i60, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %.0.sroa.speculated.i.i53, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
-  %143 = phi <2 x double> [ %39, %38 ], [ %141, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %81, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %62, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
-  %144 = icmp eq ptr %42, %8
-  br i1 %144, label %._crit_edge, label %38
+  %145 = phi <2 x double> [ %39, %38 ], [ %143, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit103 ], [ %83, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit65 ], [ %62, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit57 ]
+  %146 = icmp eq ptr %40, %8
+  br i1 %146, label %._crit_edge, label %38
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

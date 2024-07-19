@@ -1320,18 +1320,18 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %98 = insertelement <2 x float> poison, float %54, i64 0
   %99 = insertelement <2 x float> %98, float %61, i64 1
   %100 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %99
-  %101 = extractelement <2 x float> %100, i64 1
-  %102 = extractelement <2 x float> %100, i64 0
-  store float %102, ptr %53, align 4
-  store float %101, ptr %60, align 4
+  %101 = extractelement <2 x float> %100, i64 0
+  store float %101, ptr %53, align 4
+  %102 = extractelement <2 x float> %100, i64 1
+  store float %102, ptr %60, align 4
   %103 = insertelement <2 x float> poison, float %82, i64 0
   %104 = insertelement <2 x float> %103, float %97, i64 1
   %105 = fmul <2 x float> %100, %104
   %106 = extractelement <2 x float> %105, i64 0
   store float %106, ptr %55, align 4
-  %107 = fmul float %101, %86
+  %107 = fmul float %102, %86
   store float %107, ptr %84, align 4
-  %108 = fmul float %101, %95
+  %108 = fmul float %102, %95
   %109 = load float, ptr %62, align 4
   %110 = fmul float %65, %109
   %111 = call float @llvm.fmuladd.f32(float %107, float %95, float %110)
@@ -1341,9 +1341,9 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %115 = call float @llvm.fmuladd.f32(float %107, float %97, float %114)
   %116 = extractelement <2 x float> %105, i64 1
   %117 = fmul float %106, %116
-  %118 = call float @llvm.fmuladd.f32(float %108, float %102, float %117)
+  %118 = call float @llvm.fmuladd.f32(float %108, float %101, float %117)
   %119 = fmul float %106, %115
-  %120 = call float @llvm.fmuladd.f32(float %111, float %102, float %119)
+  %120 = call float @llvm.fmuladd.f32(float %111, float %101, float %119)
   %121 = fneg float %118
   store float %121, ptr %59, align 4
   %122 = fneg float %116
@@ -1445,7 +1445,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %207 = fmul <2 x float> %206, %205
   %208 = fmul <2 x float> %105, %207
   %209 = extractelement <2 x float> %208, i64 0
-  %210 = call float @llvm.fmuladd.f32(float %162, float %102, float %209)
+  %210 = call float @llvm.fmuladd.f32(float %162, float %101, float %209)
   %211 = extractelement <2 x float> %207, i64 1
   %212 = fmul float %123, %211
   %213 = insertelement <2 x float> poison, float %58, i64 0
@@ -1458,7 +1458,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %220 = insertelement <2 x float> poison, float %126, i64 0
   %221 = insertelement <2 x float> %220, float %124, i64 1
   %222 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %219, <2 x float> %221, <2 x float> %217)
-  %223 = call float @llvm.fmuladd.f32(float %211, float %101, float %201)
+  %223 = call float @llvm.fmuladd.f32(float %211, float %102, float %201)
   %224 = shufflevector <2 x float> %222, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %225 = fneg <2 x float> %224
   store <2 x float> %225, ptr %66, align 4
@@ -1475,7 +1475,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %234 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %233, <2 x float> %205, <2 x float> %232)
   %235 = fmul <2 x float> %105, %234
   %236 = extractelement <2 x float> %235, i64 0
-  %237 = call float @llvm.fmuladd.f32(float %170, float %102, float %236)
+  %237 = call float @llvm.fmuladd.f32(float %170, float %101, float %236)
   %238 = extractelement <2 x float> %234, i64 1
   %239 = fmul float %123, %238
   %240 = insertelement <2 x float> poison, float %239, i64 0
@@ -1484,7 +1484,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %243 = insertelement <2 x float> poison, float %176, i64 0
   %244 = shufflevector <2 x float> %243, <2 x float> poison, <2 x i32> zeroinitializer
   %245 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %244, <2 x float> %221, <2 x float> %242)
-  %246 = call float @llvm.fmuladd.f32(float %238, float %101, float %202)
+  %246 = call float @llvm.fmuladd.f32(float %238, float %102, float %202)
   %247 = shufflevector <2 x float> %245, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %248 = fneg <2 x float> %247
   store <2 x float> %248, ptr %69, align 4
@@ -1504,7 +1504,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %260 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %259, <2 x float> %252, <2 x float> %258)
   %261 = fmul <2 x float> %105, %260
   %262 = extractelement <2 x float> %261, i64 0
-  %263 = call float @llvm.fmuladd.f32(float %180, float %102, float %262)
+  %263 = call float @llvm.fmuladd.f32(float %180, float %101, float %262)
   %264 = extractelement <2 x float> %260, i64 1
   %265 = fmul float %123, %264
   %266 = insertelement <2 x float> poison, float %265, i64 0
@@ -1513,7 +1513,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %269 = insertelement <2 x float> poison, float %187, i64 0
   %270 = shufflevector <2 x float> %269, <2 x float> poison, <2 x i32> zeroinitializer
   %271 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %270, <2 x float> %221, <2 x float> %268)
-  %272 = call float @llvm.fmuladd.f32(float %264, float %101, float %203)
+  %272 = call float @llvm.fmuladd.f32(float %264, float %102, float %203)
   %273 = shufflevector <2 x float> %271, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %274 = fneg <2 x float> %273
   store <2 x float> %274, ptr %73, align 4
@@ -1537,7 +1537,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %290 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %289, <2 x float> %278, <2 x float> %287)
   %291 = fmul <2 x float> %105, %290
   %292 = extractelement <2 x float> %291, i64 0
-  %293 = call float @llvm.fmuladd.f32(float %192, float %102, float %292)
+  %293 = call float @llvm.fmuladd.f32(float %192, float %101, float %292)
   %294 = extractelement <2 x float> %290, i64 1
   %295 = fmul float %123, %294
   %296 = insertelement <2 x float> poison, float %295, i64 0
@@ -1546,7 +1546,7 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %48
   %299 = insertelement <2 x float> poison, float %200, i64 0
   %300 = shufflevector <2 x float> %299, <2 x float> poison, <2 x i32> zeroinitializer
   %301 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %300, <2 x float> %221, <2 x float> %298)
-  %302 = call float @llvm.fmuladd.f32(float %294, float %101, float %204)
+  %302 = call float @llvm.fmuladd.f32(float %294, float %102, float %204)
   %303 = shufflevector <2 x float> %301, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %304 = fneg <2 x float> %303
   store <2 x float> %304, ptr %76, align 4
@@ -3469,48 +3469,48 @@ define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPf
   %81 = tail call float @llvm.fmuladd.f32(float %80, float %80, float %79)
   %82 = fadd float %.0189196.us, %81
   %83 = fmul <2 x float> %52, %75
-  %84 = extractelement <2 x float> %83, i64 0
-  %85 = extractelement <2 x float> %76, i64 0
-  %86 = fneg float %85
-  %87 = insertelement <2 x float> poison, float %86, i64 0
-  %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x float> %52, %88
-  %90 = fmul <2 x float> %75, %89
-  %91 = extractelement <2 x float> %76, i64 1
-  %92 = fneg float %91
-  %93 = insertelement <2 x float> poison, float %92, i64 0
-  %94 = shufflevector <2 x float> %93, <2 x float> poison, <2 x i32> zeroinitializer
-  %95 = fmul <2 x float> %52, %94
-  %96 = fmul <2 x float> %75, %95
-  br i1 %12, label %97, label %113
+  %84 = extractelement <2 x float> %76, i64 0
+  %85 = fneg float %84
+  %86 = insertelement <2 x float> poison, float %85, i64 0
+  %87 = shufflevector <2 x float> %86, <2 x float> poison, <2 x i32> zeroinitializer
+  %88 = fmul <2 x float> %52, %87
+  %89 = fmul <2 x float> %75, %88
+  %90 = extractelement <2 x float> %76, i64 1
+  %91 = fneg float %90
+  %92 = insertelement <2 x float> poison, float %91, i64 0
+  %93 = shufflevector <2 x float> %92, <2 x float> poison, <2 x i32> zeroinitializer
+  %94 = fmul <2 x float> %52, %93
+  %95 = fmul <2 x float> %75, %94
+  br i1 %12, label %96, label %112
 
-97:                                               ; preds = %39
-  %98 = shufflevector <2 x float> %77, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %99 = load <4 x float>, ptr %6, align 4
-  %100 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 0>
-  %101 = insertelement <4 x float> %100, float %61, i64 2
-  %102 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %98, <4 x float> %101, <4 x float> %99)
-  store <4 x float> %102, ptr %6, align 4
-  %103 = load <2 x float>, ptr %22, align 4
-  %104 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %105 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %106 = insertelement <2 x float> %105, float %61, i64 1
-  %107 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %104, <2 x float> %106, <2 x float> %103)
-  store <2 x float> %107, ptr %22, align 4
-  %108 = fmul <2 x float> %104, %96
-  %109 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
-  %110 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %109, <2 x float> %90, <2 x float> %108)
-  %111 = load <2 x float>, ptr %23, align 4
-  %112 = fadd <2 x float> %110, %111
-  store <2 x float> %112, ptr %23, align 4
-  br label %113
+96:                                               ; preds = %39
+  %97 = shufflevector <2 x float> %77, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %98 = load <4 x float>, ptr %6, align 4
+  %99 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 0>
+  %100 = insertelement <4 x float> %99, float %61, i64 2
+  %101 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %97, <4 x float> %100, <4 x float> %98)
+  store <4 x float> %101, ptr %6, align 4
+  %102 = load <2 x float>, ptr %22, align 4
+  %103 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %104 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %105 = insertelement <2 x float> %104, float %61, i64 1
+  %106 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %103, <2 x float> %105, <2 x float> %102)
+  store <2 x float> %106, ptr %22, align 4
+  %107 = fmul <2 x float> %103, %95
+  %108 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
+  %109 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %108, <2 x float> %89, <2 x float> %107)
+  %110 = load <2 x float>, ptr %23, align 4
+  %111 = fadd <2 x float> %109, %110
+  store <2 x float> %111, ptr %23, align 4
+  br label %112
 
-113:                                              ; preds = %97, %39
-  br i1 %9, label %114, label %158
+112:                                              ; preds = %96, %39
+  br i1 %9, label %113, label %158
 
-114:                                              ; preds = %113
-  %115 = load float, ptr %5, align 4
-  %116 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %115)
+113:                                              ; preds = %112
+  %114 = load float, ptr %5, align 4
+  %115 = extractelement <2 x float> %83, i64 0
+  %116 = tail call float @llvm.fmuladd.f32(float %115, float %115, float %114)
   store float %116, ptr %5, align 4
   %117 = load <2 x float>, ptr %24, align 4
   %118 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -3523,7 +3523,7 @@ define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPf
   %123 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %122)
   store float %123, ptr %26, align 4
   %124 = load float, ptr %27, align 4
-  %125 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %124)
+  %125 = tail call float @llvm.fmuladd.f32(float %115, float %115, float %124)
   store float %125, ptr %27, align 4
   %126 = load <2 x float>, ptr %28, align 4
   %127 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %118, <2 x float> %83, <2 x float> %126)
@@ -3534,42 +3534,42 @@ define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPf
   %130 = load float, ptr %30, align 4
   %131 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %130)
   store float %131, ptr %30, align 4
-  %132 = extractelement <2 x float> %90, i64 0
+  %132 = extractelement <2 x float> %89, i64 0
   %133 = load <4 x float>, ptr %31, align 4
   %134 = shufflevector <2 x float> %83, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 0>
   %135 = insertelement <4 x float> %134, float %61, i64 2
-  %136 = shufflevector <2 x float> %90, <2 x float> %96, <4 x i32> <i32 0, i32 0, i32 0, i32 2>
+  %136 = shufflevector <2 x float> %89, <2 x float> %95, <4 x i32> <i32 0, i32 0, i32 0, i32 2>
   %137 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %135, <4 x float> %136, <4 x float> %133)
   store <4 x float> %137, ptr %31, align 4
   %138 = load <2 x float>, ptr %32, align 4
   %139 = insertelement <2 x float> %118, float %61, i64 1
-  %140 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
+  %140 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
   %141 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %139, <2 x float> %140, <2 x float> %138)
   store <2 x float> %141, ptr %32, align 4
-  %142 = fmul <2 x float> %96, %96
+  %142 = fmul <2 x float> %95, %95
   %143 = extractelement <2 x float> %142, i64 0
   %144 = tail call float @llvm.fmuladd.f32(float %132, float %132, float %143)
   %145 = load float, ptr %33, align 4
   %146 = fadd float %144, %145
   store float %146, ptr %33, align 4
   %147 = load <4 x float>, ptr %34, align 4
-  %148 = shufflevector <2 x float> %90, <2 x float> %96, <4 x i32> <i32 1, i32 1, i32 1, i32 3>
+  %148 = shufflevector <2 x float> %89, <2 x float> %95, <4 x i32> <i32 1, i32 1, i32 1, i32 3>
   %149 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %135, <4 x float> %148, <4 x float> %147)
   store <4 x float> %149, ptr %34, align 4
   %150 = load <2 x float>, ptr %35, align 4
-  %151 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %151 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %152 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %139, <2 x float> %151, <2 x float> %150)
   store <2 x float> %152, ptr %35, align 4
-  %153 = fmul <2 x float> %151, %96
-  %154 = shufflevector <2 x float> %90, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %155 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %154, <2 x float> %90, <2 x float> %153)
+  %153 = fmul <2 x float> %151, %95
+  %154 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %155 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %154, <2 x float> %89, <2 x float> %153)
   %156 = load <2 x float>, ptr %36, align 4
   %157 = fadd <2 x float> %155, %156
   store <2 x float> %157, ptr %36, align 4
   br label %158
 
-158:                                              ; preds = %114, %113, %.lr.ph.split.us
-  %.1.us = phi float [ %82, %114 ], [ %82, %113 ], [ %.0189196.us, %.lr.ph.split.us ]
+158:                                              ; preds = %113, %112, %.lr.ph.split.us
+  %.1.us = phi float [ %82, %113 ], [ %82, %112 ], [ %.0189196.us, %.lr.ph.split.us ]
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
   br i1 %exitcond205.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13

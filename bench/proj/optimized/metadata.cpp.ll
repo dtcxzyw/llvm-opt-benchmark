@@ -1093,96 +1093,95 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj8metadata21GeographicBoundingBo
   %3 = alloca %"struct.osgeo::proj::metadata::GeographicBoundingBox::Private", align 8
   %4 = alloca %"struct.osgeo::proj::metadata::GeographicBoundingBox::Private", align 8
   %.pre = load double, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
-  %.pre73 = load double, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert74 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre75 = load double, ptr %.phi.trans.insert74, align 8
   %.phi.trans.insert76 = getelementptr inbounds i8, ptr %0, i64 8
-  %.pre77 = load double, ptr %.phi.trans.insert76, align 8
+  %5 = load <2 x double>, ptr %.phi.trans.insert76, align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %46, %2
-  %5 = phi double [ %.pre77, %2 ], [ %15, %46 ]
-  %6 = phi double [ %.pre75, %2 ], [ %11, %46 ]
-  %7 = phi double [ %.pre73, %2 ], [ %14, %46 ]
-  %8 = phi double [ %.pre, %2 ], [ %9, %46 ]
-  %.tr = phi ptr [ %0, %2 ], [ %.tr48, %46 ]
-  %.tr48 = phi ptr [ %1, %2 ], [ %.tr, %46 ]
+tailrecurse:                                      ; preds = %48, %2
+  %6 = phi double [ %.pre75, %2 ], [ %11, %48 ]
+  %7 = phi double [ %.pre, %2 ], [ %9, %48 ]
+  %.tr = phi ptr [ %0, %2 ], [ %.tr48, %48 ]
+  %.tr48 = phi ptr [ %1, %2 ], [ %.tr, %48 ]
+  %8 = phi <2 x double> [ %5, %2 ], [ %13, %48 ]
   %9 = load double, ptr %.tr48, align 8
   %10 = getelementptr inbounds i8, ptr %.tr48, i64 24
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %.tr48, i64 8
   %13 = load <2 x double>, ptr %12, align 8
-  %14 = extractelement <2 x double> %13, i64 1
-  %15 = extractelement <2 x double> %13, i64 0
-  %16 = fcmp uge double %6, %15
-  %17 = fcmp ule double %5, %11
-  %or.cond24.not = select i1 %16, i1 %17, i1 false
+  %14 = extractelement <2 x double> %13, i64 0
+  %15 = fcmp uge double %6, %14
+  %16 = extractelement <2 x double> %8, i64 0
+  %17 = fcmp ule double %16, %11
+  %or.cond24.not = select i1 %15, i1 %17, i1 false
   br i1 %or.cond24.not, label %18, label %.loopexit
 
 18:                                               ; preds = %tailrecurse
-  %19 = fcmp oeq double %8, -1.800000e+02
-  %20 = fcmp oeq double %7, 1.800000e+02
-  %or.cond = select i1 %19, i1 %20, i1 false
-  %21 = fcmp ogt double %9, %14
-  %or.cond26 = select i1 %or.cond, i1 %21, i1 false
-  br i1 %or.cond26, label %.loopexit, label %22
+  %19 = fcmp oeq double %7, -1.800000e+02
+  %20 = extractelement <2 x double> %8, i64 1
+  %21 = fcmp oeq double %20, 1.800000e+02
+  %or.cond = select i1 %19, i1 %21, i1 false
+  %22 = extractelement <2 x double> %13, i64 1
+  %23 = fcmp ogt double %9, %22
+  %or.cond26 = select i1 %or.cond, i1 %23, i1 false
+  br i1 %or.cond26, label %.loopexit, label %24
 
-22:                                               ; preds = %18
-  %23 = fcmp oeq double %9, -1.800000e+02
-  %24 = fcmp oeq double %14, 1.800000e+02
-  %or.cond3 = select i1 %23, i1 %24, i1 false
-  %25 = fcmp ogt double %8, %7
-  %or.cond47 = select i1 %or.cond3, i1 %25, i1 false
-  br i1 %or.cond47, label %.loopexit, label %26
+24:                                               ; preds = %18
+  %25 = fcmp oeq double %9, -1.800000e+02
+  %26 = fcmp oeq double %22, 1.800000e+02
+  %or.cond3 = select i1 %25, i1 %26, i1 false
+  %27 = fcmp ogt double %7, %20
+  %or.cond47 = select i1 %or.cond3, i1 %27, i1 false
+  br i1 %or.cond47, label %.loopexit, label %28
 
-26:                                               ; preds = %22
-  %27 = fcmp ugt double %8, %7
-  %28 = fcmp ugt double %9, %14
-  br i1 %27, label %46, label %29
+28:                                               ; preds = %24
+  %29 = fcmp ugt double %7, %20
+  %30 = fcmp ugt double %9, %22
+  br i1 %29, label %48, label %31
 
-29:                                               ; preds = %26
-  br i1 %28, label %34, label %30
+31:                                               ; preds = %28
+  br i1 %30, label %36, label %32
 
-30:                                               ; preds = %29
-  %31 = fcmp olt double %8, %9
-  %.sroa.speculated37 = select i1 %31, double %9, double %8
-  %32 = fcmp olt double %14, %7
-  %.sroa.speculated = select i1 %32, double %14, double %7
-  %33 = fcmp olt double %.sroa.speculated37, %.sroa.speculated
+32:                                               ; preds = %31
+  %33 = fcmp olt double %7, %9
+  %.sroa.speculated37 = select i1 %33, double %9, double %7
+  %34 = fcmp olt double %22, %20
+  %.sroa.speculated = select i1 %34, double %22, double %20
+  %35 = fcmp olt double %.sroa.speculated37, %.sroa.speculated
   br label %.loopexit
 
-34:                                               ; preds = %29
-  %35 = fcmp ogt double %9, 1.800000e+02
-  %36 = fcmp olt double %14, -1.800000e+02
-  %or.cond5 = or i1 %35, %36
-  br i1 %or.cond5, label %.loopexit, label %37
+36:                                               ; preds = %31
+  %37 = fcmp ogt double %9, 1.800000e+02
+  %38 = fcmp olt double %22, -1.800000e+02
+  %or.cond5 = or i1 %37, %38
+  br i1 %or.cond5, label %.loopexit, label %39
 
-37:                                               ; preds = %34
+39:                                               ; preds = %36
   store double %9, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
-  store double %15, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
-  store double 1.800000e+02, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  store double %11, ptr %40, align 8
-  %41 = call noundef zeroext i1 @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private10intersectsERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %.tr, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  br i1 %41, label %.loopexit, label %42
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  store double %14, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  store double 1.800000e+02, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %3, i64 24
+  store double %11, ptr %42, align 8
+  %43 = call noundef zeroext i1 @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private10intersectsERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %.tr, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %43, label %.loopexit, label %44
 
-42:                                               ; preds = %37
+44:                                               ; preds = %39
   store double -1.800000e+02, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  store <2 x double> %13, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
-  store double %11, ptr %44, align 8
-  %45 = call noundef zeroext i1 @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private10intersectsERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %.tr, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store <2 x double> %13, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  store double %11, ptr %46, align 8
+  %47 = call noundef zeroext i1 @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private10intersectsERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %.tr, ptr noundef nonnull align 8 dereferenceable(32) %4)
   br label %.loopexit
 
-46:                                               ; preds = %26
-  br i1 %28, label %.loopexit, label %tailrecurse
+48:                                               ; preds = %28
+  br i1 %30, label %.loopexit, label %tailrecurse
 
-.loopexit:                                        ; preds = %22, %46, %18, %tailrecurse, %37, %42, %34, %30
-  %.0 = phi i1 [ %33, %30 ], [ false, %34 ], [ true, %37 ], [ %45, %42 ], [ %or.cond24.not, %tailrecurse ], [ %or.cond24.not, %18 ], [ %or.cond24.not, %46 ], [ %or.cond24.not, %22 ]
+.loopexit:                                        ; preds = %24, %48, %18, %tailrecurse, %39, %44, %36, %32
+  %.0 = phi i1 [ %35, %32 ], [ false, %36 ], [ true, %39 ], [ %47, %44 ], [ %or.cond24.not, %tailrecurse ], [ %or.cond24.not, %18 ], [ %or.cond24.not, %48 ], [ %or.cond24.not, %24 ]
   ret i1 %.0
 }
 
@@ -1425,104 +1424,104 @@ define hidden void @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private12int
   %9 = load <2 x double>, ptr %1, align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %94, %3
-  %.tr120 = phi ptr [ %1, %3 ], [ %.tr121, %94 ]
-  %.tr121 = phi ptr [ %2, %3 ], [ %.tr120, %94 ]
-  %10 = phi <2 x double> [ %9, %3 ], [ %20, %94 ]
-  %11 = phi <2 x double> [ %8, %3 ], [ %17, %94 ]
-  %12 = extractelement <2 x double> %11, i64 1
-  %13 = extractelement <2 x double> %11, i64 0
-  %14 = extractelement <2 x double> %10, i64 1
-  %15 = extractelement <2 x double> %10, i64 0
-  %16 = getelementptr inbounds i8, ptr %.tr121, i64 16
-  %17 = load <2 x double>, ptr %16, align 8
-  %18 = extractelement <2 x double> %17, i64 1
-  %19 = extractelement <2 x double> %17, i64 0
-  %20 = load <2 x double>, ptr %.tr121, align 8
-  %21 = extractelement <2 x double> %20, i64 1
-  %22 = extractelement <2 x double> %20, i64 0
-  %23 = fcmp olt double %12, %21
-  %24 = fcmp ogt double %14, %18
-  %or.cond116 = select i1 %23, i1 true, i1 %24
-  br i1 %or.cond116, label %25, label %26
+tailrecurse:                                      ; preds = %95, %3
+  %.tr120 = phi ptr [ %1, %3 ], [ %.tr121, %95 ]
+  %.tr121 = phi ptr [ %2, %3 ], [ %.tr120, %95 ]
+  %10 = phi <2 x double> [ %9, %3 ], [ %14, %95 ]
+  %11 = phi <2 x double> [ %8, %3 ], [ %13, %95 ]
+  %12 = getelementptr inbounds i8, ptr %.tr121, i64 16
+  %13 = load <2 x double>, ptr %12, align 8
+  %14 = load <2 x double>, ptr %.tr121, align 8
+  %15 = extractelement <2 x double> %14, i64 1
+  %16 = extractelement <2 x double> %11, i64 1
+  %17 = fcmp olt double %16, %15
+  %18 = extractelement <2 x double> %10, i64 1
+  %19 = extractelement <2 x double> %13, i64 1
+  %20 = fcmp ogt double %18, %19
+  %or.cond116 = select i1 %17, i1 true, i1 %20
+  br i1 %or.cond116, label %21, label %22
 
-25:                                               ; preds = %tailrecurse
+21:                                               ; preds = %tailrecurse
   store ptr null, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-26:                                               ; preds = %tailrecurse
-  %27 = fcmp oeq double %15, -1.800000e+02
-  %28 = fcmp oeq double %13, 1.800000e+02
-  %or.cond = select i1 %27, i1 %28, i1 false
-  %29 = fcmp ogt double %22, %19
+22:                                               ; preds = %tailrecurse
+  %23 = extractelement <2 x double> %10, i64 0
+  %24 = fcmp oeq double %23, -1.800000e+02
+  %25 = extractelement <2 x double> %11, i64 0
+  %26 = fcmp oeq double %25, 1.800000e+02
+  %or.cond = select i1 %24, i1 %26, i1 false
+  %27 = extractelement <2 x double> %14, i64 0
+  %28 = extractelement <2 x double> %13, i64 0
+  %29 = fcmp ogt double %27, %28
   %or.cond117 = select i1 %or.cond, i1 %29, i1 false
   br i1 %or.cond117, label %30, label %37
 
-30:                                               ; preds = %26
-  %31 = fcmp olt double %14, %21
-  %32 = fcmp olt double %18, %12
+30:                                               ; preds = %22
+  %31 = fcmp olt double %18, %15
+  %32 = fcmp olt double %19, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !31
-  %.sroa.speculated46 = select i1 %31, double %21, double %14
-  %.sroa.speculated64 = select i1 %32, double %18, double %12
-  store double %22, ptr %33, align 8, !noalias !31
+  %.sroa.speculated46 = select i1 %31, double %15, double %18
+  %.sroa.speculated64 = select i1 %32, double %19, double %16
+  store double %27, ptr %33, align 8, !noalias !31
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store double %.sroa.speculated46, ptr %34, align 8, !noalias !31
   %35 = getelementptr inbounds i8, ptr %33, i64 16
-  store double %19, ptr %35, align 8, !noalias !31
+  store double %28, ptr %35, align 8, !noalias !31
   %36 = getelementptr inbounds i8, ptr %33, i64 24
   store double %.sroa.speculated64, ptr %36, align 8, !noalias !31
   store ptr %33, ptr %0, align 8, !alias.scope !31
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-37:                                               ; preds = %26
-  %38 = fcmp oeq double %22, -1.800000e+02
-  %39 = fcmp oeq double %19, 1.800000e+02
+37:                                               ; preds = %22
+  %38 = fcmp oeq double %27, -1.800000e+02
+  %39 = fcmp oeq double %28, 1.800000e+02
   %or.cond3 = select i1 %38, i1 %39, i1 false
-  %40 = fcmp ogt double %15, %13
+  %40 = fcmp ogt double %23, %25
   %or.cond118 = select i1 %or.cond3, i1 %40, i1 false
   br i1 %or.cond118, label %41, label %48
 
 41:                                               ; preds = %37
-  %42 = fcmp olt double %14, %21
-  %43 = fcmp olt double %18, %12
+  %42 = fcmp olt double %18, %15
+  %43 = fcmp olt double %19, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %44 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !34
-  %.sroa.speculated43 = select i1 %42, double %21, double %14
-  %.sroa.speculated61 = select i1 %43, double %18, double %12
-  store double %15, ptr %44, align 8, !noalias !34
+  %.sroa.speculated43 = select i1 %42, double %15, double %18
+  %.sroa.speculated61 = select i1 %43, double %19, double %16
+  store double %23, ptr %44, align 8, !noalias !34
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   store double %.sroa.speculated43, ptr %45, align 8, !noalias !34
   %46 = getelementptr inbounds i8, ptr %44, i64 16
-  store double %13, ptr %46, align 8, !noalias !34
+  store double %25, ptr %46, align 8, !noalias !34
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   store double %.sroa.speculated61, ptr %47, align 8, !noalias !34
   store ptr %44, ptr %0, align 8, !alias.scope !34
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
 48:                                               ; preds = %37
-  %49 = fcmp ugt double %15, %13
-  %50 = fcmp ugt double %22, %19
-  br i1 %49, label %94, label %51
+  %49 = fcmp ugt double %23, %25
+  %50 = fcmp ugt double %27, %28
+  br i1 %49, label %95, label %51
 
 51:                                               ; preds = %48
   br i1 %50, label %64, label %52
 
 52:                                               ; preds = %51
-  %53 = fcmp olt double %15, %22
-  %.sroa.speculated91 = select i1 %53, double %22, double %15
-  %54 = fcmp olt double %19, %13
-  %.sroa.speculated78 = select i1 %54, double %19, double %13
+  %53 = fcmp olt double %23, %27
+  %.sroa.speculated91 = select i1 %53, double %27, double %23
+  %54 = fcmp olt double %28, %25
+  %.sroa.speculated78 = select i1 %54, double %28, double %25
   %55 = fcmp olt double %.sroa.speculated91, %.sroa.speculated78
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %52
-  %57 = fcmp olt double %14, %21
-  %58 = fcmp olt double %18, %12
+  %57 = fcmp olt double %18, %15
+  %58 = fcmp olt double %19, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %59 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !37
-  %.sroa.speculated40 = select i1 %57, double %21, double %14
-  %.sroa.speculated58 = select i1 %58, double %18, double %12
+  %.sroa.speculated40 = select i1 %57, double %15, double %18
+  %.sroa.speculated58 = select i1 %58, double %19, double %16
   store double %.sroa.speculated91, ptr %59, align 8, !noalias !37
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   store double %.sroa.speculated40, ptr %60, align 8, !noalias !37
@@ -1538,8 +1537,8 @@ tailrecurse:                                      ; preds = %94, %3
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
 64:                                               ; preds = %51
-  %65 = fcmp ogt double %22, 1.800000e+02
-  %66 = fcmp olt double %19, -1.800000e+02
+  %65 = fcmp ogt double %27, 1.800000e+02
+  %66 = fcmp olt double %28, -1.800000e+02
   %or.cond5 = or i1 %65, %66
   br i1 %or.cond5, label %67, label %68
 
@@ -1548,94 +1547,95 @@ tailrecurse:                                      ; preds = %94, %3
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
 68:                                               ; preds = %64
-  store <2 x double> %20, ptr %5, align 16
+  store <2 x double> %14, ptr %5, align 16
   %69 = getelementptr inbounds i8, ptr %5, i64 16
   store double 1.800000e+02, ptr %69, align 16
   %70 = getelementptr inbounds i8, ptr %5, i64 24
-  store double %18, ptr %70, align 8
+  store double %19, ptr %70, align 8
   call void @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private12intersectionERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.tr120, ptr noundef nonnull align 8 dereferenceable(32) %5)
   store double -1.800000e+02, ptr %7, align 8
   %71 = getelementptr inbounds i8, ptr %7, i64 8
-  store double %21, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 16
-  store <2 x double> %17, ptr %72, align 8
+  %72 = shufflevector <2 x double> %14, <2 x double> %13, <2 x i32> <i32 1, i32 2>
+  store <2 x double> %72, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %7, i64 24
+  store double %19, ptr %73, align 8
   invoke void @_ZNK5osgeo4proj8metadata21GeographicBoundingBox7Private12intersectionERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %.tr120, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %73 unwind label %78
+          to label %74 unwind label %79
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %74, null
-  %75 = ptrtoint ptr %74 to i64
-  br i1 %.not, label %76, label %81
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %75, null
+  %76 = ptrtoint ptr %75 to i64
+  br i1 %.not, label %77, label %82
 
-76:                                               ; preds = %73
-  %77 = load i64, ptr %6, align 8
-  store i64 %77, ptr %0, align 8
+77:                                               ; preds = %74
+  %78 = load i64, ptr %6, align 8
+  store i64 %78, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-78:                                               ; preds = %68
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %68
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %80, null
+  %81 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i
 
-_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i: ; preds = %78
-  tail call void @_ZdlPv(ptr noundef nonnull %80) #29
+_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i: ; preds = %79
+  tail call void @_ZdlPv(ptr noundef nonnull %81) #29
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit: ; preds = %78, %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i
-  resume { ptr, i32 } %79
+_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit: ; preds = %79, %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i
+  resume { ptr, i32 } %80
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %6, align 8
-  %.not119 = icmp eq ptr %82, null
-  %83 = ptrtoint ptr %82 to i64
-  br i1 %.not119, label %.thread, label %84
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %6, align 8
+  %.not119 = icmp eq ptr %83, null
+  %84 = ptrtoint ptr %83 to i64
+  br i1 %.not119, label %.thread, label %85
 
-.thread:                                          ; preds = %81
-  store i64 %75, ptr %0, align 8
+.thread:                                          ; preds = %82
+  store i64 %76, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %74, i64 16
-  %86 = load double, ptr %85, align 8
-  %87 = load double, ptr %74, align 8
-  %88 = fsub double %86, %87
-  %89 = getelementptr inbounds i8, ptr %82, i64 16
-  %90 = load double, ptr %89, align 8
-  %91 = load double, ptr %82, align 8
-  %92 = fsub double %90, %91
-  %93 = fcmp ogt double %88, %92
-  br i1 %93, label %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21, label %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %75, i64 16
+  %87 = load double, ptr %86, align 8
+  %88 = load double, ptr %75, align 8
+  %89 = fsub double %87, %88
+  %90 = getelementptr inbounds i8, ptr %83, i64 16
+  %91 = load double, ptr %90, align 8
+  %92 = load double, ptr %83, align 8
+  %93 = fsub double %91, %92
+  %94 = fcmp ogt double %89, %93
+  br i1 %94, label %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21, label %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24
 
-_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21: ; preds = %84
-  store i64 %75, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %82) #29
+_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21: ; preds = %85
+  store i64 %76, ptr %0, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %83) #29
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24: ; preds = %84
-  store i64 %83, ptr %0, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %74) #29
+_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24: ; preds = %85
+  store i64 %84, ptr %0, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %75) #29
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-94:                                               ; preds = %48
-  br i1 %50, label %95, label %tailrecurse
+95:                                               ; preds = %48
+  br i1 %50, label %96, label %tailrecurse
 
-95:                                               ; preds = %94
-  %96 = fcmp olt <2 x double> %10, %20
-  %97 = fcmp olt <2 x double> %17, %11
+96:                                               ; preds = %95
+  %97 = fcmp olt <2 x double> %10, %14
+  %98 = fcmp olt <2 x double> %13, %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %98 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !40
-  %99 = select <2 x i1> %96, <2 x double> %20, <2 x double> %10
-  store <2 x double> %99, ptr %98, align 8, !noalias !40
-  %100 = getelementptr inbounds i8, ptr %98, i64 16
-  %101 = select <2 x i1> %97, <2 x double> %17, <2 x double> %11
-  store <2 x double> %101, ptr %100, align 8, !noalias !40
-  store ptr %98, ptr %0, align 8, !alias.scope !40
+  %99 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27, !noalias !40
+  %100 = select <2 x i1> %97, <2 x double> %14, <2 x double> %10
+  store <2 x double> %100, ptr %99, align 8, !noalias !40
+  %101 = getelementptr inbounds i8, ptr %99, i64 16
+  %102 = select <2 x i1> %98, <2 x double> %13, <2 x double> %11
+  store <2 x double> %102, ptr %101, align 8, !noalias !40
+  store ptr %99, ptr %0, align 8, !alias.scope !40
   br label %_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25
 
-_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24, %76, %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21, %.thread, %95, %67, %63, %56, %41, %30, %25
+_ZNSt10unique_ptrIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateESt14default_deleteIS4_EED2Ev.exit25: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i24, %77, %_ZNKSt14default_deleteIN5osgeo4proj8metadata21GeographicBoundingBox7PrivateEEclEPS4_.exit.i21, %.thread, %96, %67, %63, %56, %41, %30, %21
   ret void
 }
 

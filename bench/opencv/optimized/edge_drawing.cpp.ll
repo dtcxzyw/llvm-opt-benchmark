@@ -7308,11 +7308,11 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18SplitSegment2LinesEPdS2_ii
   br label %17
 
 17:                                               ; preds = %.lr.ph168, %.loopexit
-  %18 = phi i32 [ %11, %.lr.ph168 ], [ %244, %.loopexit ]
-  %.0167 = phi ptr [ %1, %.lr.ph168 ], [ %247, %.loopexit ]
-  %.070166 = phi ptr [ %2, %.lr.ph168 ], [ %248, %.loopexit ]
-  %.078165 = phi i32 [ %3, %.lr.ph168 ], [ %245, %.loopexit ]
-  %.086164 = phi i32 [ 0, %.lr.ph168 ], [ %249, %.loopexit ]
+  %18 = phi i32 [ %11, %.lr.ph168 ], [ %242, %.loopexit ]
+  %.0167 = phi ptr [ %1, %.lr.ph168 ], [ %245, %.loopexit ]
+  %.070166 = phi ptr [ %2, %.lr.ph168 ], [ %246, %.loopexit ]
+  %.078165 = phi i32 [ %3, %.lr.ph168 ], [ %243, %.loopexit ]
+  %.086164 = phi i32 [ 0, %.lr.ph168 ], [ %247, %.loopexit ]
   store double 0.000000e+00, ptr %6, align 8
   store double 0.000000e+00, ptr %7, align 8
   store double 0.000000e+00, ptr %8, align 8
@@ -7348,33 +7348,33 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18SplitSegment2LinesEPdS2_ii
   %31 = icmp eq i32 %30, 0
   %32 = load double, ptr %12, align 8
   %33 = sext i32 %.179154 to i64
-  %34 = insertelement <2 x double> poison, double %.promoted162, i64 0
-  %35 = insertelement <2 x double> %34, double %.promoted, i64 1
+  %34 = insertelement <2 x double> poison, double %.promoted, i64 0
+  %35 = insertelement <2 x double> %34, double %.promoted162, i64 1
   br label %36
 
-36:                                               ; preds = %123, %28
-  %.082 = phi i32 [ %29, %28 ], [ %125, %123 ]
-  %.080 = phi i32 [ %29, %28 ], [ %82, %123 ]
-  %37 = phi <2 x double> [ %35, %28 ], [ %124, %123 ]
-  %38 = extractelement <2 x double> %37, i64 1
-  %39 = icmp slt i32 %.082, %.179154
-  br i1 %39, label %40, label %.loopexit
+36:                                               ; preds = %122, %28
+  %.082 = phi i32 [ %29, %28 ], [ %124, %122 ]
+  %.080 = phi i32 [ %29, %28 ], [ %82, %122 ]
+  %37 = phi <2 x double> [ %35, %28 ], [ %123, %122 ]
+  %38 = icmp slt i32 %.082, %.179154
+  br i1 %38, label %39, label %.loopexit
 
-40:                                               ; preds = %36
-  %41 = add nsw i32 %.082, -1
-  %42 = extractelement <2 x double> %37, i64 0
-  %43 = fcmp oeq double %42, 0.000000e+00
-  %44 = fdiv double -1.000000e+00, %42
-  %45 = fneg double %44
-  %46 = fsub double %44, %42
-  %47 = sext i32 %.082 to i64
+39:                                               ; preds = %36
+  %40 = add nsw i32 %.082, -1
+  %41 = extractelement <2 x double> %37, i64 1
+  %42 = fcmp oeq double %41, 0.000000e+00
+  %43 = fdiv double -1.000000e+00, %41
+  %44 = fneg double %43
+  %45 = fsub double %43, %41
+  %46 = sext i32 %.082 to i64
+  %47 = extractelement <2 x double> %37, i64 0
   br label %48
 
-48:                                               ; preds = %40, %76
-  %indvars.iv = phi i64 [ %47, %40 ], [ %indvars.iv.next, %76 ]
-  %.072161 = phi i32 [ 0, %40 ], [ %.173, %76 ]
-  %.074160 = phi i32 [ 0, %40 ], [ %.175, %76 ]
-  %.076159 = phi i32 [ %41, %40 ], [ %.177, %76 ]
+48:                                               ; preds = %39, %76
+  %indvars.iv = phi i64 [ %46, %39 ], [ %indvars.iv.next, %76 ]
+  %.072161 = phi i32 [ 0, %39 ], [ %.173, %76 ]
+  %.074160 = phi i32 [ 0, %39 ], [ %.175, %76 ]
+  %.076159 = phi i32 [ %40, %39 ], [ %.177, %76 ]
   %49 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv
   %50 = load double, ptr %49, align 8
   %51 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv
@@ -7382,28 +7382,28 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18SplitSegment2LinesEPdS2_ii
   br i1 %31, label %53, label %59
 
 53:                                               ; preds = %48
-  br i1 %43, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit, label %54
+  br i1 %42, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit, label %54
 
 54:                                               ; preds = %53
-  %55 = tail call double @llvm.fmuladd.f64(double %45, double %50, double %52)
-  %56 = fsub double %38, %55
-  %57 = fdiv double %56, %46
-  %58 = tail call double @llvm.fmuladd.f64(double %42, double %57, double %38)
+  %55 = tail call double @llvm.fmuladd.f64(double %44, double %50, double %52)
+  %56 = fsub double %47, %55
+  %57 = fdiv double %56, %45
+  %58 = tail call double @llvm.fmuladd.f64(double %41, double %57, double %47)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit
 
 59:                                               ; preds = %48
-  br i1 %43, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit, label %60
+  br i1 %42, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = tail call double @llvm.fmuladd.f64(double %45, double %52, double %50)
-  %62 = fsub double %38, %61
-  %63 = fdiv double %62, %46
-  %64 = tail call double @llvm.fmuladd.f64(double %42, double %63, double %38)
+  %61 = tail call double @llvm.fmuladd.f64(double %44, double %52, double %50)
+  %62 = fsub double %47, %61
+  %63 = fdiv double %62, %45
+  %64 = tail call double @llvm.fmuladd.f64(double %41, double %63, double %47)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit
 
 _ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit: ; preds = %53, %54, %59, %60
-  %.036.i = phi double [ %58, %54 ], [ %63, %60 ], [ %38, %53 ], [ %52, %59 ]
-  %.0.i = phi double [ %57, %54 ], [ %64, %60 ], [ %50, %53 ], [ %38, %59 ]
+  %.036.i = phi double [ %58, %54 ], [ %63, %60 ], [ %47, %53 ], [ %52, %59 ]
+  %.0.i = phi double [ %57, %54 ], [ %64, %60 ], [ %50, %53 ], [ %47, %59 ]
   %65 = fsub double %50, %.0.i
   %66 = fsub double %52, %.036.i
   %67 = fmul double %66, %66
@@ -7441,7 +7441,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit: ; preds = %53, 
   %81 = add i32 %reass.sub, 1
   %82 = add i32 %81, %.076.lcssa
   %83 = icmp slt i32 %82, 2
-  br i1 %83, label %123, label %84
+  br i1 %83, label %122, label %84
 
 84:                                               ; preds = %80
   %wide.trip.count.i = zext nneg i32 %82 to i64
@@ -7477,331 +7477,327 @@ _ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit: ; preds = %53, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv66.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next67.i, %.lr.ph.i ]
-  %95 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i ], [ %104, %.lr.ph.i ]
+  %95 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i ], [ %103, %.lr.ph.i ]
   %96 = getelementptr inbounds double, ptr %.0.i92, i64 %indvars.iv66.i
   %97 = load double, ptr %96, align 8
   %98 = getelementptr inbounds double, ptr %.047.i, i64 %indvars.iv66.i
   %99 = load double, ptr %98, align 8
   %100 = insertelement <2 x double> poison, double %97, i64 0
   %101 = shufflevector <2 x double> %100, <2 x double> poison, <2 x i32> zeroinitializer
-  %102 = insertelement <2 x double> poison, double %99, i64 0
-  %103 = insertelement <2 x double> %102, double %97, i64 1
-  %104 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %101, <2 x double> %103, <2 x double> %95)
+  %102 = insertelement <2 x double> %100, double %99, i64 1
+  %103 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %101, <2 x double> %102, <2 x double> %95)
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i
   br i1 %exitcond70.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !106
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %105 = insertelement <2 x double> poison, double %91, i64 0
-  %106 = insertelement <2 x double> %105, double %.1.i, i64 1
-  %107 = fneg <2 x double> %106
-  %108 = extractelement <2 x double> %107, i64 1
-  %109 = fmul double %.1.i, %108
-  %110 = extractelement <2 x double> %104, i64 1
-  %111 = tail call double @llvm.fmuladd.f64(double %93, double %110, double %109)
-  %112 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %113 = insertelement <2 x double> %112, double %88, i64 0
-  %114 = fmul <2 x double> %113, %107
-  %115 = insertelement <2 x double> poison, double %93, i64 0
-  %116 = insertelement <2 x double> %115, double %.153.i, i64 1
-  %117 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %104, <2 x double> %116, <2 x double> %114)
-  %118 = insertelement <2 x double> poison, double %111, i64 0
-  %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
-  %120 = fdiv <2 x double> %117, %119
-  %121 = extractelement <2 x double> %120, i64 1
-  store double %121, ptr %6, align 8
-  %122 = extractelement <2 x double> %120, i64 0
-  store double %122, ptr %7, align 8
-  br label %123
+  %104 = insertelement <2 x double> poison, double %.1.i, i64 0
+  %105 = insertelement <2 x double> %104, double %91, i64 1
+  %106 = fneg <2 x double> %105
+  %107 = extractelement <2 x double> %106, i64 0
+  %108 = fmul double %.1.i, %107
+  %109 = extractelement <2 x double> %103, i64 0
+  %110 = tail call double @llvm.fmuladd.f64(double %93, double %109, double %108)
+  %111 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %112 = insertelement <2 x double> %111, double %88, i64 1
+  %113 = fmul <2 x double> %112, %106
+  %114 = insertelement <2 x double> poison, double %.153.i, i64 0
+  %115 = insertelement <2 x double> %114, double %93, i64 1
+  %116 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %103, <2 x double> %115, <2 x double> %113)
+  %117 = insertelement <2 x double> poison, double %110, i64 0
+  %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> zeroinitializer
+  %119 = fdiv <2 x double> %116, %118
+  %120 = extractelement <2 x double> %119, i64 0
+  store double %120, ptr %6, align 8
+  %121 = extractelement <2 x double> %119, i64 1
+  store double %121, ptr %7, align 8
+  br label %122
 
-123:                                              ; preds = %._crit_edge.i, %80
-  %124 = phi <2 x double> [ %37, %80 ], [ %120, %._crit_edge.i ]
-  %125 = add nsw i32 %.076.lcssa, 1
-  %.not91 = icmp slt i32 %125, %.179154
+122:                                              ; preds = %._crit_edge.i, %80
+  %123 = phi <2 x double> [ %37, %80 ], [ %119, %._crit_edge.i ]
+  %124 = add nsw i32 %.076.lcssa, 1
+  %.not91 = icmp slt i32 %124, %.179154
   %or.cond = select i1 %79, i1 %.not91, i1 false
   br i1 %or.cond, label %36, label %.preheader, !llvm.loop !107
 
-.preheader:                                       ; preds = %78, %123
-  %.181196 = phi i32 [ %82, %123 ], [ %.080, %78 ]
-  %126 = phi <2 x double> [ %124, %123 ], [ %37, %78 ]
-  %127 = extractelement <2 x double> %126, i64 1
-  %128 = extractelement <2 x double> %126, i64 0
-  %129 = fcmp oeq double %128, 0.000000e+00
-  %130 = fdiv double -1.000000e+00, %128
-  %131 = fneg double %130
-  %132 = fsub double %130, %128
-  br label %133
+.preheader:                                       ; preds = %78, %122
+  %.181196 = phi i32 [ %82, %122 ], [ %.080, %78 ]
+  %125 = phi <2 x double> [ %123, %122 ], [ %37, %78 ]
+  %126 = extractelement <2 x double> %125, i64 1
+  %127 = fcmp oeq double %126, 0.000000e+00
+  %128 = fdiv double -1.000000e+00, %126
+  %129 = fneg double %128
+  %130 = fsub double %128, %126
+  %131 = extractelement <2 x double> %125, i64 0
+  br label %132
 
-133:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, %.preheader
+132:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, %.preheader
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96 ], [ 0, %.preheader ]
-  %134 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv186
-  %135 = load double, ptr %134, align 8
-  %136 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv186
-  %137 = load double, ptr %136, align 8
-  br i1 %31, label %138, label %144
+  %133 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv186
+  %134 = load double, ptr %133, align 8
+  %135 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv186
+  %136 = load double, ptr %135, align 8
+  br i1 %31, label %137, label %143
 
-138:                                              ; preds = %133
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, label %139
+137:                                              ; preds = %132
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, label %138
 
-139:                                              ; preds = %138
-  %140 = tail call double @llvm.fmuladd.f64(double %131, double %135, double %137)
-  %141 = fsub double %127, %140
-  %142 = fdiv double %141, %132
-  %143 = tail call double @llvm.fmuladd.f64(double %128, double %142, double %127)
+138:                                              ; preds = %137
+  %139 = tail call double @llvm.fmuladd.f64(double %129, double %134, double %136)
+  %140 = fsub double %131, %139
+  %141 = fdiv double %140, %130
+  %142 = tail call double @llvm.fmuladd.f64(double %126, double %141, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96
 
-144:                                              ; preds = %133
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, label %145
+143:                                              ; preds = %132
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96, label %144
 
-145:                                              ; preds = %144
-  %146 = tail call double @llvm.fmuladd.f64(double %131, double %137, double %135)
-  %147 = fsub double %127, %146
-  %148 = fdiv double %147, %132
-  %149 = tail call double @llvm.fmuladd.f64(double %128, double %148, double %127)
+144:                                              ; preds = %143
+  %145 = tail call double @llvm.fmuladd.f64(double %129, double %136, double %134)
+  %146 = fsub double %131, %145
+  %147 = fdiv double %146, %130
+  %148 = tail call double @llvm.fmuladd.f64(double %126, double %147, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96
 
-_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96: ; preds = %138, %139, %144, %145
-  %.036.i93 = phi double [ %143, %139 ], [ %148, %145 ], [ %127, %138 ], [ %137, %144 ]
-  %.0.i94 = phi double [ %142, %139 ], [ %149, %145 ], [ %135, %138 ], [ %127, %144 ]
-  %150 = fsub double %135, %.0.i94
-  %151 = fsub double %137, %.036.i93
-  %152 = fmul double %151, %151
-  %153 = tail call double @llvm.fmuladd.f64(double %150, double %150, double %152)
-  %sqrt.i95 = tail call noundef double @llvm.sqrt.f64(double %153)
-  %154 = fcmp ogt double %sqrt.i95, %32
+_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96: ; preds = %137, %138, %143, %144
+  %.036.i93 = phi double [ %142, %138 ], [ %147, %144 ], [ %131, %137 ], [ %136, %143 ]
+  %.0.i94 = phi double [ %141, %138 ], [ %148, %144 ], [ %134, %137 ], [ %131, %143 ]
+  %149 = fsub double %134, %.0.i94
+  %150 = fsub double %136, %.036.i93
+  %151 = fmul double %150, %150
+  %152 = tail call double @llvm.fmuladd.f64(double %149, double %149, double %151)
+  %sqrt.i95 = tail call noundef double @llvm.sqrt.f64(double %152)
+  %153 = fcmp ogt double %sqrt.i95, %32
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  br i1 %154, label %133, label %155, !llvm.loop !108
+  br i1 %153, label %132, label %154, !llvm.loop !108
 
-155:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96
-  %156 = trunc nuw nsw i64 %indvars.iv186 to i32
-  br i1 %31, label %157, label %163
+154:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit96
+  %155 = trunc nuw nsw i64 %indvars.iv186 to i32
+  br i1 %31, label %156, label %162
 
-157:                                              ; preds = %155
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit, label %158
+156:                                              ; preds = %154
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit, label %157
 
-158:                                              ; preds = %157
-  %159 = tail call double @llvm.fmuladd.f64(double %131, double %135, double %137)
-  %160 = fsub double %127, %159
-  %161 = fdiv double %160, %132
-  %162 = tail call double @llvm.fmuladd.f64(double %128, double %161, double %127)
+157:                                              ; preds = %156
+  %158 = tail call double @llvm.fmuladd.f64(double %129, double %134, double %136)
+  %159 = fsub double %131, %158
+  %160 = fdiv double %159, %130
+  %161 = tail call double @llvm.fmuladd.f64(double %126, double %160, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit
 
-163:                                              ; preds = %155
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit, label %164
+162:                                              ; preds = %154
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit, label %163
 
-164:                                              ; preds = %163
-  %165 = tail call double @llvm.fmuladd.f64(double %131, double %137, double %135)
-  %166 = fsub double %127, %165
-  %167 = fdiv double %166, %132
-  %168 = tail call double @llvm.fmuladd.f64(double %128, double %167, double %127)
+163:                                              ; preds = %162
+  %164 = tail call double @llvm.fmuladd.f64(double %129, double %136, double %134)
+  %165 = fsub double %131, %164
+  %166 = fdiv double %165, %130
+  %167 = tail call double @llvm.fmuladd.f64(double %126, double %166, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit
 
-_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit: ; preds = %157, %158, %163, %164
-  %.032.i = phi double [ %162, %158 ], [ %167, %164 ], [ %127, %157 ], [ %137, %163 ]
-  %.0.i97 = phi double [ %161, %158 ], [ %168, %164 ], [ %135, %157 ], [ %127, %163 ]
-  %169 = sext i32 %.076.lcssa to i64
-  br label %170
+_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit: ; preds = %156, %157, %162, %163
+  %.032.i = phi double [ %161, %157 ], [ %166, %163 ], [ %131, %156 ], [ %136, %162 ]
+  %.0.i97 = phi double [ %160, %157 ], [ %167, %163 ], [ %134, %156 ], [ %131, %162 ]
+  %168 = sext i32 %.076.lcssa to i64
+  br label %169
 
-170:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101 ], [ %169, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit ]
-  %171 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv189
-  %172 = load double, ptr %171, align 8
-  %173 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv189
-  %174 = load double, ptr %173, align 8
-  br i1 %31, label %175, label %181
+169:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit
+  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101 ], [ %168, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit ]
+  %170 = getelementptr inbounds double, ptr %.1156, i64 %indvars.iv189
+  %171 = load double, ptr %170, align 8
+  %172 = getelementptr inbounds double, ptr %.171155, i64 %indvars.iv189
+  %173 = load double, ptr %172, align 8
+  br i1 %31, label %174, label %180
 
-175:                                              ; preds = %170
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, label %176
+174:                                              ; preds = %169
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, label %175
 
-176:                                              ; preds = %175
-  %177 = tail call double @llvm.fmuladd.f64(double %131, double %172, double %174)
-  %178 = fsub double %127, %177
-  %179 = fdiv double %178, %132
-  %180 = tail call double @llvm.fmuladd.f64(double %128, double %179, double %127)
+175:                                              ; preds = %174
+  %176 = tail call double @llvm.fmuladd.f64(double %129, double %171, double %173)
+  %177 = fsub double %131, %176
+  %178 = fdiv double %177, %130
+  %179 = tail call double @llvm.fmuladd.f64(double %126, double %178, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101
 
-181:                                              ; preds = %170
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, label %182
+180:                                              ; preds = %169
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101, label %181
 
-182:                                              ; preds = %181
-  %183 = tail call double @llvm.fmuladd.f64(double %131, double %174, double %172)
-  %184 = fsub double %127, %183
-  %185 = fdiv double %184, %132
-  %186 = tail call double @llvm.fmuladd.f64(double %128, double %185, double %127)
+181:                                              ; preds = %180
+  %182 = tail call double @llvm.fmuladd.f64(double %129, double %173, double %171)
+  %183 = fsub double %131, %182
+  %184 = fdiv double %183, %130
+  %185 = tail call double @llvm.fmuladd.f64(double %126, double %184, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101
 
-_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101: ; preds = %175, %176, %181, %182
-  %.036.i98 = phi double [ %180, %176 ], [ %185, %182 ], [ %127, %175 ], [ %174, %181 ]
-  %.0.i99 = phi double [ %179, %176 ], [ %186, %182 ], [ %172, %175 ], [ %127, %181 ]
-  %187 = fsub double %172, %.0.i99
-  %188 = fsub double %174, %.036.i98
-  %189 = fmul double %188, %188
-  %190 = tail call double @llvm.fmuladd.f64(double %187, double %187, double %189)
-  %sqrt.i100 = tail call noundef double @llvm.sqrt.f64(double %190)
-  %191 = fcmp ogt double %sqrt.i100, %32
+_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101: ; preds = %174, %175, %180, %181
+  %.036.i98 = phi double [ %179, %175 ], [ %184, %181 ], [ %131, %174 ], [ %173, %180 ]
+  %.0.i99 = phi double [ %178, %175 ], [ %185, %181 ], [ %171, %174 ], [ %131, %180 ]
+  %186 = fsub double %171, %.0.i99
+  %187 = fsub double %173, %.036.i98
+  %188 = fmul double %187, %187
+  %189 = tail call double @llvm.fmuladd.f64(double %186, double %186, double %188)
+  %sqrt.i100 = tail call noundef double @llvm.sqrt.f64(double %189)
+  %190 = fcmp ogt double %sqrt.i100, %32
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, -1
-  br i1 %191, label %170, label %192, !llvm.loop !109
+  br i1 %190, label %169, label %191, !llvm.loop !109
 
-192:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101
-  %193 = trunc nsw i64 %indvars.iv189 to i32
-  br i1 %31, label %194, label %200
+191:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl18ComputeMinDistanceEddddi.exit101
+  %192 = trunc nsw i64 %indvars.iv189 to i32
+  br i1 %31, label %193, label %199
 
-194:                                              ; preds = %192
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, label %195
+193:                                              ; preds = %191
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, label %194
 
-195:                                              ; preds = %194
-  %196 = tail call double @llvm.fmuladd.f64(double %131, double %172, double %174)
-  %197 = fsub double %127, %196
-  %198 = fdiv double %197, %132
-  %199 = tail call double @llvm.fmuladd.f64(double %128, double %198, double %127)
+194:                                              ; preds = %193
+  %195 = tail call double @llvm.fmuladd.f64(double %129, double %171, double %173)
+  %196 = fsub double %131, %195
+  %197 = fdiv double %196, %130
+  %198 = tail call double @llvm.fmuladd.f64(double %126, double %197, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104
 
-200:                                              ; preds = %192
-  br i1 %129, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, label %201
+199:                                              ; preds = %191
+  br i1 %127, label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, label %200
 
-201:                                              ; preds = %200
-  %202 = tail call double @llvm.fmuladd.f64(double %131, double %174, double %172)
-  %203 = fsub double %127, %202
-  %204 = fdiv double %203, %132
-  %205 = tail call double @llvm.fmuladd.f64(double %128, double %204, double %127)
+200:                                              ; preds = %199
+  %201 = tail call double @llvm.fmuladd.f64(double %129, double %173, double %171)
+  %202 = fsub double %131, %201
+  %203 = fdiv double %202, %130
+  %204 = tail call double @llvm.fmuladd.f64(double %126, double %203, double %131)
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104
 
-_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104: ; preds = %194, %195, %200, %201
-  %.032.i102 = phi double [ %199, %195 ], [ %204, %201 ], [ %127, %194 ], [ %174, %200 ]
-  %.0.i103 = phi double [ %198, %195 ], [ %205, %201 ], [ %172, %194 ], [ %127, %200 ]
-  %206 = fcmp oeq double %.0.i97, %.0.i103
-  %207 = fcmp oeq double %.032.i, %.032.i102
-  %208 = and i1 %207, %206
-  br i1 %208, label %.loopexit, label %209
+_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104: ; preds = %193, %194, %199, %200
+  %.032.i102 = phi double [ %198, %194 ], [ %203, %200 ], [ %131, %193 ], [ %173, %199 ]
+  %.0.i103 = phi double [ %197, %194 ], [ %204, %200 ], [ %171, %193 ], [ %131, %199 ]
+  %205 = fcmp oeq double %.0.i97, %.0.i103
+  %206 = fcmp oeq double %.032.i, %.032.i102
+  %207 = and i1 %206, %205
+  br i1 %207, label %.loopexit, label %208
 
-209:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104
-  %210 = add nsw i32 %.187153, %156
-  %211 = sub nsw i32 %193, %156
-  %212 = add nsw i32 %211, 1
-  %213 = load ptr, ptr %14, align 8
-  %214 = load ptr, ptr %15, align 8
-  %.not.i.i = icmp eq ptr %213, %214
-  br i1 %.not.i.i, label %218, label %215
+208:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104
+  %209 = add nsw i32 %.187153, %155
+  %210 = sub nsw i32 %192, %155
+  %211 = add nsw i32 %210, 1
+  %212 = load ptr, ptr %14, align 8
+  %213 = load ptr, ptr %15, align 8
+  %.not.i.i = icmp eq ptr %212, %213
+  br i1 %.not.i.i, label %217, label %214
 
-215:                                              ; preds = %209
-  store double %127, ptr %213, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 8
-  store double %128, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 16
+214:                                              ; preds = %208
+  store <2 x double> %125, ptr %212, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 16
   store i32 %30, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5112.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 24
+  %.sroa.5112.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 24
   store double %.0.i97, ptr %.sroa.5112.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 32
   store double %.032.i, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 40
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 40
   store double %.0.i103, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 48
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 48
   store double %.032.i102, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 56
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 56
   store i32 %4, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 60
-  store i32 %210, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %213, i64 64
-  store i32 %212, ptr %.sroa.11.0..sroa_idx, align 8
-  %216 = load ptr, ptr %14, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 72
-  store ptr %217, ptr %14, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 60
+  store i32 %209, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 64
+  store i32 %211, ptr %.sroa.11.0..sroa_idx, align 8
+  %215 = load ptr, ptr %14, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 72
+  store ptr %216, ptr %14, align 8
   br label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit
 
-218:                                              ; preds = %209
-  %219 = load ptr, ptr %13, align 8
-  %220 = ptrtoint ptr %213 to i64
-  %221 = ptrtoint ptr %219 to i64
-  %222 = sub i64 %220, %221
-  %223 = icmp eq i64 %222, 9223372036854775800
-  br i1 %223, label %224, label %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+217:                                              ; preds = %208
+  %218 = load ptr, ptr %13, align 8
+  %219 = ptrtoint ptr %212 to i64
+  %220 = ptrtoint ptr %218 to i64
+  %221 = sub i64 %219, %220
+  %222 = icmp eq i64 %221, 9223372036854775800
+  br i1 %222, label %223, label %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
 
-224:                                              ; preds = %218
+223:                                              ; preds = %217
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.20) #39
   unreachable
 
-_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %218
-  %225 = sdiv exact i64 %222, 72
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %225, i64 1)
-  %226 = add nsw i64 %.sroa.speculated.i.i.i.i, %225
-  %227 = icmp ult i64 %226, %225
-  %228 = tail call i64 @llvm.umin.i64(i64 %226, i64 128102389400760775)
-  %229 = select i1 %227, i64 128102389400760775, i64 %228
-  %.not.i.i.i.i = icmp eq i64 %229, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i, label %230
+_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %217
+  %224 = sdiv exact i64 %221, 72
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %224, i64 1)
+  %225 = add nsw i64 %.sroa.speculated.i.i.i.i, %224
+  %226 = icmp ult i64 %225, %224
+  %227 = tail call i64 @llvm.umin.i64(i64 %225, i64 128102389400760775)
+  %228 = select i1 %226, i64 128102389400760775, i64 %227
+  %.not.i.i.i.i = icmp eq i64 %228, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i, label %229
 
-230:                                              ; preds = %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
-  %231 = mul nuw nsw i64 %229, 72
-  %232 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %231) #36
+229:                                              ; preds = %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+  %230 = mul nuw nsw i64 %228, 72
+  %231 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %230) #36
   br label %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %230, %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
-  %233 = phi ptr [ %232, %230 ], [ null, %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %234 = getelementptr inbounds %struct.EDLineSegment, ptr %233, i64 %225
-  %235 = shufflevector <2 x double> %126, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %235, ptr %234, align 8
-  %.sroa.4.0..sroa_idx108 = getelementptr inbounds i8, ptr %234, i64 16
+_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %229, %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+  %232 = phi ptr [ %231, %229 ], [ null, %_ZNKSt6vectorI13EDLineSegmentSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %233 = getelementptr inbounds %struct.EDLineSegment, ptr %232, i64 %224
+  store <2 x double> %125, ptr %233, align 8
+  %.sroa.4.0..sroa_idx108 = getelementptr inbounds i8, ptr %233, i64 16
   store i32 %30, ptr %.sroa.4.0..sroa_idx108, align 8
-  %.sroa.5112.0..sroa_idx113 = getelementptr inbounds i8, ptr %234, i64 24
+  %.sroa.5112.0..sroa_idx113 = getelementptr inbounds i8, ptr %233, i64 24
   store double %.0.i97, ptr %.sroa.5112.0..sroa_idx113, align 8
-  %.sroa.6.0..sroa_idx115 = getelementptr inbounds i8, ptr %234, i64 32
+  %.sroa.6.0..sroa_idx115 = getelementptr inbounds i8, ptr %233, i64 32
   store double %.032.i, ptr %.sroa.6.0..sroa_idx115, align 8
-  %.sroa.7.0..sroa_idx117 = getelementptr inbounds i8, ptr %234, i64 40
+  %.sroa.7.0..sroa_idx117 = getelementptr inbounds i8, ptr %233, i64 40
   store double %.0.i103, ptr %.sroa.7.0..sroa_idx117, align 8
-  %.sroa.8.0..sroa_idx119 = getelementptr inbounds i8, ptr %234, i64 48
+  %.sroa.8.0..sroa_idx119 = getelementptr inbounds i8, ptr %233, i64 48
   store double %.032.i102, ptr %.sroa.8.0..sroa_idx119, align 8
-  %.sroa.9.0..sroa_idx121 = getelementptr inbounds i8, ptr %234, i64 56
+  %.sroa.9.0..sroa_idx121 = getelementptr inbounds i8, ptr %233, i64 56
   store i32 %4, ptr %.sroa.9.0..sroa_idx121, align 8
-  %.sroa.10.0..sroa_idx123 = getelementptr inbounds i8, ptr %234, i64 60
-  store i32 %210, ptr %.sroa.10.0..sroa_idx123, align 4
-  %.sroa.11.0..sroa_idx125 = getelementptr inbounds i8, ptr %234, i64 64
-  store i32 %212, ptr %.sroa.11.0..sroa_idx125, align 8
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %219, %213
+  %.sroa.10.0..sroa_idx123 = getelementptr inbounds i8, ptr %233, i64 60
+  store i32 %209, ptr %.sroa.10.0..sroa_idx123, align 4
+  %.sroa.11.0..sroa_idx125 = getelementptr inbounds i8, ptr %233, i64 64
+  store i32 %211, ptr %.sroa.11.0..sroa_idx125, align 8
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %218, %212
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %237, %.lr.ph.i.i.i.i.i.i.i ], [ %233, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %236, %.lr.ph.i.i.i.i.i.i.i ], [ %219, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %235, %.lr.ph.i.i.i.i.i.i.i ], [ %232, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %234, %.lr.ph.i.i.i.i.i.i.i ], [ %218, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i.i.i.i.i, i64 72, i1 false), !alias.scope !110
-  %236 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 72
-  %237 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 72
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %236, %213
+  %234 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i, i64 72
+  %235 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i, i64 72
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %234, %212
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !114
 
 _ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %233, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %237, %.lr.ph.i.i.i.i.i.i.i ]
-  %238 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 72
-  %.not.i23.i.i.i = icmp eq ptr %219, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %239
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %232, %_ZNSt12_Vector_baseI13EDLineSegmentSaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %235, %.lr.ph.i.i.i.i.i.i.i ]
+  %236 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 72
+  %.not.i23.i.i.i = icmp eq ptr %218, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %237
 
-239:                                              ; preds = %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %219) #38
+237:                                              ; preds = %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %218) #38
   br label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
-_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %239, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
-  store ptr %233, ptr %13, align 8
-  store ptr %238, ptr %14, align 8
-  %240 = getelementptr inbounds %struct.EDLineSegment, ptr %233, i64 %229
-  store ptr %240, ptr %15, align 8
+_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %237, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
+  store ptr %232, ptr %13, align 8
+  store ptr %236, ptr %14, align 8
+  %238 = getelementptr inbounds %struct.EDLineSegment, ptr %232, i64 %228
+  store ptr %238, ptr %15, align 8
   br label %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit
 
-_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit: ; preds = %215, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
-  %241 = load i32, ptr %16, align 8
-  %242 = add nsw i32 %241, 1
-  store i32 %242, ptr %16, align 8
-  %243 = add nsw i32 %193, 1
+_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit: ; preds = %214, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
+  %239 = load i32, ptr %16, align 8
+  %240 = add nsw i32 %239, 1
+  store i32 %240, ptr %16, align 8
+  %241 = add nsw i32 %192, 1
   %.pre = load i32, ptr %10, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit
-  %244 = phi i32 [ %29, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %.pre, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %29, %36 ]
-  %.2 = phi i32 [ %.181196, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %243, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %.080, %36 ]
-  %245 = sub nsw i32 %.179154, %.2
-  %246 = sext i32 %.2 to i64
-  %247 = getelementptr inbounds double, ptr %.1156, i64 %246
-  %248 = getelementptr inbounds double, ptr %.171155, i64 %246
-  %249 = add nsw i32 %.2, %.187153
-  %.not = icmp slt i32 %245, %244
+  %242 = phi i32 [ %29, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %.pre, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %29, %36 ]
+  %.2 = phi i32 [ %.181196, %_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_.exit104 ], [ %241, %_ZNSt6vectorI13EDLineSegmentSaIS0_EE9push_backEOS0_.exit ], [ %.080, %36 ]
+  %243 = sub nsw i32 %.179154, %.2
+  %244 = sext i32 %.2 to i64
+  %245 = getelementptr inbounds double, ptr %.1156, i64 %244
+  %246 = getelementptr inbounds double, ptr %.171155, i64 %244
+  %247 = add nsw i32 %.2, %.187153
+  %.not = icmp slt i32 %243, %242
   br i1 %.not, label %.critedge, label %17, !llvm.loop !115
 
 .critedge:                                        ; preds = %.loopexit, %17, %22, %5
@@ -11514,7 +11510,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS
   %.0112124 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %37, %.lr.ph ]
   %.0113123 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %.0114122 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %40, %.lr.ph ]
-  %21 = phi <4 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %21 = phi <4 x double> [ zeroinitializer, %.lr.ph.preheader ], [ %34, %.lr.ph ]
   %22 = getelementptr inbounds double, ptr %0, i64 %indvars.iv151
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds double, ptr %1, i64 %indvars.iv151
@@ -11523,33 +11519,33 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS
   %27 = insertelement <2 x double> %26, double %25, i64 1
   %28 = fsub <2 x double> %27, %20
   %29 = shufflevector <2 x double> %28, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %30 = extractelement <2 x double> %28, i64 1
-  %31 = extractelement <2 x double> %28, i64 0
-  %32 = fmul double %31, %31
-  %33 = shufflevector <2 x double> %28, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 1>
-  %34 = insertelement <4 x double> %33, double %32, i64 2
-  %35 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %34, <4 x double> %29, <4 x double> %21)
-  %36 = fmul double %31, %30
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %30, double %.0112124)
-  %38 = fmul double %30, %30
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double %30, double %.0113123)
-  %40 = tail call double @llvm.fmuladd.f64(double %36, double %31, double %.0114122)
+  %30 = extractelement <2 x double> %28, i64 0
+  %31 = fmul double %30, %30
+  %32 = shufflevector <2 x double> %28, <2 x double> poison, <4 x i32> <i32 0, i32 0, i32 poison, i32 1>
+  %33 = insertelement <4 x double> %32, double %31, i64 2
+  %34 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %33, <4 x double> %29, <4 x double> %21)
+  %35 = extractelement <2 x double> %28, i64 1
+  %36 = fmul double %30, %35
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %35, double %.0112124)
+  %38 = fmul double %35, %35
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double %35, double %.0113123)
+  %40 = tail call double @llvm.fmuladd.f64(double %36, double %30, double %.0114122)
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %41 = extractelement <4 x double> %35, i64 1
+  %41 = extractelement <4 x double> %34, i64 1
   %42 = fneg double %41
   %43 = fmul double %41, %42
-  %44 = extractelement <4 x double> %35, i64 0
-  %45 = extractelement <4 x double> %35, i64 3
+  %44 = extractelement <4 x double> %34, i64 0
+  %45 = extractelement <4 x double> %34, i64 3
   %46 = tail call double @llvm.fmuladd.f64(double %44, double %45, double %43)
   %47 = fcmp oeq double %46, 0.000000e+00
   br i1 %47, label %83, label %.lr.ph138
 
 .lr.ph138:                                        ; preds = %._crit_edge
-  %48 = extractelement <4 x double> %35, i64 2
+  %48 = extractelement <4 x double> %34, i64 2
   %49 = fadd double %37, %48
   %50 = fmul double %49, 5.000000e-01
   %51 = fadd double %40, %39
@@ -12943,10 +12939,10 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl10DetectArcsEv(ptr nocapture
   br i1 %22, label %.split, label %.split787.us
 
 .split:                                           ; preds = %1, %._crit_edge781
-  %23 = phi i32 [ %1443, %._crit_edge781 ], [ %21, %1 ]
-  %24 = phi i32 [ %1444, %._crit_edge781 ], [ %21, %1 ]
+  %23 = phi i32 [ %1449, %._crit_edge781 ], [ %21, %1 ]
+  %24 = phi i32 [ %1450, %._crit_edge781 ], [ %21, %1 ]
   %.0785 = phi double [ %.1, %._crit_edge781 ], [ 0x3FF0C152382D7365, %1 ]
-  %.0304784 = phi i32 [ %1445, %._crit_edge781 ], [ 1, %1 ]
+  %.0304784 = phi i32 [ %1451, %._crit_edge781 ], [ 1, %1 ]
   %25 = icmp eq i32 %.0304784, 2
   %.1 = select i1 %25, double 0x3FFA749CC47DA8BB, double %.0785
   %26 = icmp sgt i32 %24, 0
@@ -12957,7 +12953,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl10DetectArcsEv(ptr nocapture
   br label %28
 
 28:                                               ; preds = %.lr.ph780, %.loopexit617
-  %29 = phi i32 [ %23, %.lr.ph780 ], [ %1440, %.loopexit617 ]
+  %29 = phi i32 [ %23, %.lr.ph780 ], [ %1446, %.loopexit617 ]
   %indvars.iv894 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next895, %.loopexit617 ]
   %30 = load ptr, ptr %9, align 8
   %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv894
@@ -12994,8 +12990,8 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl10DetectArcsEv(ptr nocapture
   %50 = add nsw i32 %.0307774, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.lr.ph691, %.lr.ph694, %1029, %1436, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, %59, %112, %.preheader611, %563, %1016, %49, %57, %328, %1026, %114
-  %.0307.be = phi i32 [ %50, %49 ], [ %.0309.lcssa, %114 ], [ %.0309.lcssa, %328 ], [ %.0309.lcssa, %1026 ], [ %58, %57 ], [ %.0309.lcssa, %1016 ], [ %.0309.lcssa, %563 ], [ %.0309.lcssa, %.preheader611 ], [ %.0309.lcssa, %112 ], [ %64, %59 ], [ %.0309.lcssa, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ], [ %.0309.lcssa, %1436 ], [ %.0309.lcssa, %1029 ], [ %.0309.lcssa, %.lr.ph694 ], [ %.0309.lcssa, %.lr.ph691 ]
+.backedge:                                        ; preds = %.lr.ph691, %.lr.ph694, %1035, %1442, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, %59, %112, %.preheader611, %565, %1022, %49, %57, %326, %1032, %114
+  %.0307.be = phi i32 [ %50, %49 ], [ %.0309.lcssa, %114 ], [ %.0309.lcssa, %326 ], [ %.0309.lcssa, %1032 ], [ %58, %57 ], [ %.0309.lcssa, %1022 ], [ %.0309.lcssa, %565 ], [ %.0309.lcssa, %.preheader611 ], [ %.0309.lcssa, %112 ], [ %64, %59 ], [ %.0309.lcssa, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ], [ %.0309.lcssa, %1442 ], [ %.0309.lcssa, %1035 ], [ %.0309.lcssa, %.lr.ph694 ], [ %.0309.lcssa, %.lr.ph691 ]
   %51 = icmp slt i32 %.0307.be, %37
   br i1 %51, label %43, label %.loopexit617.loopexit, !llvm.loop !175
 
@@ -13376,16 +13372,16 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl10DetectArcsEv(ptr nocapture
   %264 = insertelement <2 x double> poison, double %261, i64 0
   %265 = insertelement <2 x double> %264, double %263, i64 1
   %266 = fsub <2 x double> %265, %255
-  %267 = extractelement <2 x double> %266, i64 1
-  %268 = extractelement <2 x double> %266, i64 0
-  %269 = tail call double @llvm.fmuladd.f64(double %268, double %267, double %.0109127.i)
+  %267 = extractelement <2 x double> %266, i64 0
+  %268 = extractelement <2 x double> %266, i64 1
+  %269 = tail call double @llvm.fmuladd.f64(double %267, double %268, double %.0109127.i)
   %270 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %266, <2 x double> %266, <2 x double> %259)
   %271 = shufflevector <2 x double> %270, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %272 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> zeroinitializer
   %273 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %274 = fmul <2 x double> %272, %273
   %275 = shufflevector <2 x double> %274, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %276 = fmul double %267, %267
+  %276 = fmul double %268, %268
   %277 = insertelement <2 x double> %274, double %276, i64 1
   %278 = shufflevector <2 x double> %266, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %279 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %277, <2 x double> %278, <2 x double> %258)
@@ -13454,110 +13450,110 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit: ; preds = %.
   %.0558 = phi double [ 1.000000e+20, %.loopexit614 ], [ 1.000000e+20, %._crit_edge.i ], [ %320, %._crit_edge139.i ]
   %.0557 = phi double [ -1.000000e+00, %.loopexit614 ], [ -1.000000e+00, %._crit_edge.i ], [ %304, %._crit_edge139.i ]
   %321 = phi <2 x double> [ <double -1.000000e+00, double -1.000000e+00>, %.loopexit614 ], [ <double -1.000000e+00, double -1.000000e+00>, %._crit_edge.i ], [ %305, %._crit_edge139.i ]
-  %322 = extractelement <2 x double> %321, i64 1
-  %323 = extractelement <2 x double> %321, i64 0
-  %324 = sitofp i32 %.5 to double
-  %325 = fmul double %.0557, 0x401921FB54442D18
-  %326 = fdiv double %324, %325
-  %327 = fcmp olt double %326, 6.250000e-02
-  %or.cond3 = select i1 %.2312568, i1 %327, i1 false
-  br i1 %or.cond3, label %328, label %331
+  %322 = sitofp i32 %.5 to double
+  %323 = fmul double %.0557, 0x401921FB54442D18
+  %324 = fdiv double %322, %323
+  %325 = fcmp olt double %324, 6.250000e-02
+  %or.cond3 = select i1 %.2312568, i1 %325, i1 false
+  br i1 %or.cond3, label %326, label %329
 
-328:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit
-  %329 = load ptr, ptr %10, align 8
-  %330 = getelementptr inbounds %struct.Info, ptr %329, i64 %45, i32 2
-  store i8 1, ptr %330, align 8
+326:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit
+  %327 = load ptr, ptr %10, align 8
+  %328 = getelementptr inbounds %struct.Info, ptr %327, i64 %45, i32 2
+  store i8 1, ptr %328, align 8
   br label %.backedge
 
-331:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit
-  %332 = icmp sgt i32 %91, 2
-  %spec.store.select = select i1 %332, double 1.500000e+00, double 1.000000e+00
-  %333 = fcmp ugt double %.0558, %spec.store.select
-  br i1 %333, label %567, label %334
+329:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit
+  %330 = icmp sgt i32 %91, 2
+  %spec.store.select = select i1 %330, double 1.500000e+00, double 1.000000e+00
+  %331 = fcmp ugt double %.0558, %spec.store.select
+  br i1 %331, label %569, label %332
 
-334:                                              ; preds = %331
-  br i1 %166, label %335, label %343
+332:                                              ; preds = %329
+  br i1 %166, label %333, label %341
 
-335:                                              ; preds = %334
-  %336 = load ptr, ptr %11, align 8
-  %337 = getelementptr inbounds %struct.EDLineSegment, ptr %336, i64 %39, i32 10
-  %338 = load i32, ptr %337, align 8
-  %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds double, ptr %168, i64 %339
-  %341 = getelementptr inbounds double, ptr %167, i64 %339
-  %342 = sub nsw i32 %.5, %338
-  br label %353
+333:                                              ; preds = %332
+  %334 = load ptr, ptr %11, align 8
+  %335 = getelementptr inbounds %struct.EDLineSegment, ptr %334, i64 %39, i32 10
+  %336 = load i32, ptr %335, align 8
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds double, ptr %168, i64 %337
+  %339 = getelementptr inbounds double, ptr %167, i64 %337
+  %340 = sub nsw i32 %.5, %336
+  br label %351
 
-343:                                              ; preds = %334
-  br i1 %201, label %344, label %353
+341:                                              ; preds = %332
+  br i1 %201, label %342, label %351
 
-344:                                              ; preds = %343
-  %345 = load ptr, ptr %9, align 8
-  %346 = getelementptr inbounds i32, ptr %345, i64 %indvars.iv894
-  %347 = load i32, ptr %346, align 4
-  %348 = sext i32 %347 to i64
-  %349 = load ptr, ptr %11, align 8
-  %350 = getelementptr inbounds %struct.EDLineSegment, ptr %349, i64 %348, i32 10
-  %351 = load i32, ptr %350, align 8
-  %352 = sub nsw i32 %.5, %351
-  br label %353
+342:                                              ; preds = %341
+  %343 = load ptr, ptr %9, align 8
+  %344 = getelementptr inbounds i32, ptr %343, i64 %indvars.iv894
+  %345 = load i32, ptr %344, align 4
+  %346 = sext i32 %345 to i64
+  %347 = load ptr, ptr %11, align 8
+  %348 = getelementptr inbounds %struct.EDLineSegment, ptr %347, i64 %346, i32 10
+  %349 = load i32, ptr %348, align 8
+  %350 = sub nsw i32 %.5, %349
+  br label %351
 
-353:                                              ; preds = %343, %344, %335
-  %.6 = phi i32 [ %342, %335 ], [ %352, %344 ], [ %.5, %343 ]
-  %.0325 = phi ptr [ %340, %335 ], [ %168, %344 ], [ %168, %343 ]
-  %.0322 = phi ptr [ %341, %335 ], [ %167, %344 ], [ %167, %343 ]
-  %354 = fcmp oge double %326, 6.700000e-01
-  %355 = fcmp ole double %.0558, 1.500000e+00
-  %or.cond5 = select i1 %354, i1 %355, i1 false
-  br i1 %or.cond5, label %356, label %390
+351:                                              ; preds = %341, %342, %333
+  %.6 = phi i32 [ %340, %333 ], [ %350, %342 ], [ %.5, %341 ]
+  %.0325 = phi ptr [ %338, %333 ], [ %168, %342 ], [ %168, %341 ]
+  %.0322 = phi ptr [ %339, %333 ], [ %167, %342 ], [ %167, %341 ]
+  %352 = fcmp oge double %324, 6.700000e-01
+  %353 = fcmp ole double %.0558, 1.500000e+00
+  %or.cond5 = select i1 %352, i1 %353, i1 false
+  br i1 %or.cond5, label %354, label %390
 
-356:                                              ; preds = %353
-  %357 = load ptr, ptr %15, align 8
-  %358 = load i32, ptr %16, align 8
-  %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds %struct.Circle, ptr %357, i64 %359
-  store double %323, ptr %360, align 8
-  %361 = load i32, ptr %16, align 8
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds %struct.Circle, ptr %357, i64 %362, i32 1
-  store double %322, ptr %363, align 8
+354:                                              ; preds = %351
+  %355 = load ptr, ptr %15, align 8
+  %356 = load i32, ptr %16, align 8
+  %357 = sext i32 %356 to i64
+  %358 = getelementptr inbounds %struct.Circle, ptr %355, i64 %357
+  %359 = extractelement <2 x double> %321, i64 0
+  store double %359, ptr %358, align 8
+  %360 = load i32, ptr %16, align 8
+  %361 = sext i32 %360 to i64
+  %362 = getelementptr inbounds %struct.Circle, ptr %355, i64 %361, i32 1
+  %363 = extractelement <2 x double> %321, i64 1
+  store double %363, ptr %362, align 8
   %364 = load i32, ptr %16, align 8
   %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds %struct.Circle, ptr %357, i64 %365, i32 2
+  %366 = getelementptr inbounds %struct.Circle, ptr %355, i64 %365, i32 2
   store double %.0557, ptr %366, align 8
   %367 = load i32, ptr %16, align 8
   %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds %struct.Circle, ptr %357, i64 %368, i32 3
+  %369 = getelementptr inbounds %struct.Circle, ptr %355, i64 %368, i32 3
   store double %.0558, ptr %369, align 8
   %370 = sitofp i32 %.6 to double
   %371 = fdiv double %370, 0x401921FB54442D18
   %372 = fmul double %.0557, %371
   %373 = load i32, ptr %16, align 8
   %374 = sext i32 %373 to i64
-  %375 = getelementptr inbounds %struct.Circle, ptr %357, i64 %374, i32 4
+  %375 = getelementptr inbounds %struct.Circle, ptr %355, i64 %374, i32 4
   store double %372, ptr %375, align 8
   %376 = load i32, ptr %16, align 8
   %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds %struct.Circle, ptr %357, i64 %377, i32 5
+  %378 = getelementptr inbounds %struct.Circle, ptr %355, i64 %377, i32 5
   store ptr %.0325, ptr %378, align 8
   %379 = load i32, ptr %16, align 8
   %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds %struct.Circle, ptr %357, i64 %380, i32 6
+  %381 = getelementptr inbounds %struct.Circle, ptr %355, i64 %380, i32 6
   store ptr %.0322, ptr %381, align 8
   %382 = load i32, ptr %16, align 8
   %383 = sext i32 %382 to i64
-  %384 = getelementptr inbounds %struct.Circle, ptr %357, i64 %383, i32 7
+  %384 = getelementptr inbounds %struct.Circle, ptr %355, i64 %383, i32 7
   store i32 %.6, ptr %384, align 8
   %385 = load i32, ptr %16, align 8
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds %struct.Circle, ptr %357, i64 %386, i32 10
+  %387 = getelementptr inbounds %struct.Circle, ptr %355, i64 %386, i32 10
   store i8 0, ptr %387, align 8
   %388 = load i32, ptr %16, align 8
   %389 = add nsw i32 %388, 1
   store i32 %389, ptr %16, align 8
-  br label %563
+  br label %565
 
-390:                                              ; preds = %353
+390:                                              ; preds = %351
   %391 = load double, ptr %.0325, align 8
   %392 = load double, ptr %.0322, align 8
   %393 = add nsw i32 %.6, -1
@@ -13572,1079 +13568,1085 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit: ; preds = %.
   %402 = load double, ptr %401, align 8
   %403 = getelementptr inbounds double, ptr %.0322, i64 %400
   %404 = load double, ptr %403, align 8
-  %405 = fsub double %391, %323
-  %406 = fdiv double %405, %.0557
-  %407 = fcmp ogt double %406, 1.000000e+00
-  br i1 %407, label %411, label %408
+  %405 = extractelement <2 x double> %321, i64 0
+  %406 = fsub double %391, %405
+  %407 = fdiv double %406, %.0557
+  %408 = fcmp ogt double %407, 1.000000e+00
+  br i1 %408, label %412, label %409
 
-408:                                              ; preds = %390
-  %409 = fcmp olt double %406, -1.000000e+00
-  br i1 %409, label %410, label %411
+409:                                              ; preds = %390
+  %410 = fcmp olt double %407, -1.000000e+00
+  br i1 %410, label %411, label %412
 
-410:                                              ; preds = %408
-  br label %411
+411:                                              ; preds = %409
+  br label %412
 
-411:                                              ; preds = %410, %408, %390
-  %.0.i362 = phi double [ -1.000000e+00, %410 ], [ %406, %408 ], [ 1.000000e+00, %390 ]
-  %412 = tail call double @acos(double noundef %.0.i362) #37
-  %413 = fcmp ult double %391, %323
-  %414 = fcmp ult double %392, %322
-  br i1 %413, label %418, label %415
+412:                                              ; preds = %411, %409, %390
+  %.0.i362 = phi double [ -1.000000e+00, %411 ], [ %407, %409 ], [ 1.000000e+00, %390 ]
+  %413 = tail call double @acos(double noundef %.0.i362) #37
+  %414 = fcmp ult double %391, %405
+  %415 = extractelement <2 x double> %321, i64 1
+  %416 = fcmp ult double %392, %415
+  br i1 %414, label %420, label %417
 
-415:                                              ; preds = %411
-  br i1 %414, label %416, label %421
+417:                                              ; preds = %412
+  br i1 %416, label %418, label %423
 
-416:                                              ; preds = %415
-  %417 = fsub double 0x401921FB54442D18, %412
-  br label %421
+418:                                              ; preds = %417
+  %419 = fsub double 0x401921FB54442D18, %413
+  br label %423
 
-418:                                              ; preds = %411
-  br i1 %414, label %419, label %421
+420:                                              ; preds = %412
+  br i1 %416, label %421, label %423
 
-419:                                              ; preds = %418
-  %420 = fsub double 0x401921FB54442D18, %412
-  br label %421
+421:                                              ; preds = %420
+  %422 = fsub double 0x401921FB54442D18, %413
+  br label %423
 
-421:                                              ; preds = %419, %418, %416, %415
-  %.0100.i = phi double [ %417, %416 ], [ %420, %419 ], [ %412, %415 ], [ %412, %418 ]
-  %422 = fsub double %396, %323
-  %423 = fdiv double %422, %.0557
-  %424 = fcmp ogt double %423, 1.000000e+00
-  br i1 %424, label %428, label %425
+423:                                              ; preds = %421, %420, %418, %417
+  %.0100.i = phi double [ %419, %418 ], [ %422, %421 ], [ %413, %417 ], [ %413, %420 ]
+  %424 = fsub double %396, %405
+  %425 = fdiv double %424, %.0557
+  %426 = fcmp ogt double %425, 1.000000e+00
+  br i1 %426, label %430, label %427
 
-425:                                              ; preds = %421
-  %426 = fcmp olt double %423, -1.000000e+00
-  br i1 %426, label %427, label %428
+427:                                              ; preds = %423
+  %428 = fcmp olt double %425, -1.000000e+00
+  br i1 %428, label %429, label %430
 
-427:                                              ; preds = %425
-  br label %428
+429:                                              ; preds = %427
+  br label %430
 
-428:                                              ; preds = %427, %425, %421
-  %.1.i = phi double [ -1.000000e+00, %427 ], [ %423, %425 ], [ 1.000000e+00, %421 ]
-  %429 = tail call double @acos(double noundef %.1.i) #37
-  %430 = fcmp ult double %396, %323
-  %431 = fcmp ult double %398, %322
-  br i1 %430, label %435, label %432
+430:                                              ; preds = %429, %427, %423
+  %.1.i = phi double [ -1.000000e+00, %429 ], [ %425, %427 ], [ 1.000000e+00, %423 ]
+  %431 = tail call double @acos(double noundef %.1.i) #37
+  %432 = fcmp ult double %396, %405
+  %433 = fcmp ult double %398, %415
+  br i1 %432, label %437, label %434
 
-432:                                              ; preds = %428
-  br i1 %431, label %433, label %438
+434:                                              ; preds = %430
+  br i1 %433, label %435, label %440
 
-433:                                              ; preds = %432
-  %434 = fsub double 0x401921FB54442D18, %429
-  br label %438
+435:                                              ; preds = %434
+  %436 = fsub double 0x401921FB54442D18, %431
+  br label %440
 
-435:                                              ; preds = %428
-  br i1 %431, label %436, label %438
+437:                                              ; preds = %430
+  br i1 %433, label %438, label %440
 
-436:                                              ; preds = %435
-  %437 = fsub double 0x401921FB54442D18, %429
-  br label %438
+438:                                              ; preds = %437
+  %439 = fsub double 0x401921FB54442D18, %431
+  br label %440
 
-438:                                              ; preds = %436, %435, %433, %432
-  %.0102.i = phi double [ %434, %433 ], [ %437, %436 ], [ %429, %432 ], [ %429, %435 ]
-  %439 = sitofp i32 %.6 to double
-  %440 = fdiv double %439, %325
-  %441 = fcmp ole double %440, 2.500000e-01
-  %442 = fcmp oge double %440, 7.500000e-01
-  %or.cond.i = or i1 %441, %442
-  br i1 %or.cond.i, label %443, label %477
+440:                                              ; preds = %438, %437, %435, %434
+  %.0102.i = phi double [ %436, %435 ], [ %439, %438 ], [ %431, %434 ], [ %431, %437 ]
+  %441 = sitofp i32 %.6 to double
+  %442 = fdiv double %441, %323
+  %443 = fcmp ole double %442, 2.500000e-01
+  %444 = fcmp oge double %442, 7.500000e-01
+  %or.cond.i = or i1 %443, %444
+  br i1 %or.cond.i, label %445, label %479
 
-443:                                              ; preds = %438
-  %444 = fcmp ogt double %.0102.i, %.0100.i
-  br i1 %444, label %445, label %454
+445:                                              ; preds = %440
+  %446 = fcmp ogt double %.0102.i, %.0100.i
+  br i1 %446, label %447, label %456
 
-445:                                              ; preds = %443
-  %446 = fsub double 0x401921FB54442D18, %.0102.i
-  %447 = insertelement <2 x double> poison, double %.0102.i, i64 0
-  %448 = insertelement <2 x double> %447, double %446, i64 1
-  %449 = insertelement <2 x double> poison, double %.0100.i, i64 0
-  %450 = shufflevector <2 x double> %449, <2 x double> poison, <2 x i32> zeroinitializer
-  %451 = fsub <2 x double> %448, %450
-  %452 = fadd <2 x double> %448, %450
-  %453 = shufflevector <2 x double> %451, <2 x double> %452, <2 x i32> <i32 0, i32 3>
-  br label %463
+447:                                              ; preds = %445
+  %448 = fsub double 0x401921FB54442D18, %.0102.i
+  %449 = insertelement <2 x double> poison, double %.0102.i, i64 0
+  %450 = insertelement <2 x double> %449, double %448, i64 1
+  %451 = insertelement <2 x double> poison, double %.0100.i, i64 0
+  %452 = shufflevector <2 x double> %451, <2 x double> poison, <2 x i32> zeroinitializer
+  %453 = fsub <2 x double> %450, %452
+  %454 = fadd <2 x double> %450, %452
+  %455 = shufflevector <2 x double> %453, <2 x double> %454, <2 x i32> <i32 0, i32 3>
+  br label %465
 
-454:                                              ; preds = %443
-  %455 = fsub double 0x401921FB54442D18, %.0100.i
-  %456 = insertelement <2 x double> poison, double %.0100.i, i64 0
-  %457 = insertelement <2 x double> %456, double %455, i64 1
-  %458 = insertelement <2 x double> poison, double %.0102.i, i64 0
-  %459 = shufflevector <2 x double> %458, <2 x double> poison, <2 x i32> zeroinitializer
-  %460 = fsub <2 x double> %457, %459
-  %461 = fadd <2 x double> %457, %459
-  %462 = shufflevector <2 x double> %460, <2 x double> %461, <2 x i32> <i32 0, i32 3>
-  br label %463
+456:                                              ; preds = %445
+  %457 = fsub double 0x401921FB54442D18, %.0100.i
+  %458 = insertelement <2 x double> poison, double %.0100.i, i64 0
+  %459 = insertelement <2 x double> %458, double %457, i64 1
+  %460 = insertelement <2 x double> poison, double %.0102.i, i64 0
+  %461 = shufflevector <2 x double> %460, <2 x double> poison, <2 x i32> zeroinitializer
+  %462 = fsub <2 x double> %459, %461
+  %463 = fadd <2 x double> %459, %461
+  %464 = shufflevector <2 x double> %462, <2 x double> %463, <2 x i32> <i32 0, i32 3>
+  br label %465
 
-463:                                              ; preds = %454, %445
-  %464 = phi <2 x double> [ %453, %445 ], [ %462, %454 ]
-  %465 = fdiv <2 x double> %464, <double 0x401921FB54442D18, double 0x401921FB54442D18>
-  %466 = insertelement <2 x double> poison, double %440, i64 0
-  %467 = shufflevector <2 x double> %466, <2 x double> poison, <2 x i32> zeroinitializer
-  %468 = fsub <2 x double> %467, %465
-  %469 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %468)
-  %470 = extractelement <2 x double> %469, i64 0
-  %471 = extractelement <2 x double> %469, i64 1
-  %472 = fcmp olt double %470, %471
-  br i1 %472, label %473, label %475
+465:                                              ; preds = %456, %447
+  %466 = phi <2 x double> [ %455, %447 ], [ %464, %456 ]
+  %467 = fdiv <2 x double> %466, <double 0x401921FB54442D18, double 0x401921FB54442D18>
+  %468 = insertelement <2 x double> poison, double %442, i64 0
+  %469 = shufflevector <2 x double> %468, <2 x double> poison, <2 x i32> zeroinitializer
+  %470 = fsub <2 x double> %469, %467
+  %471 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %470)
+  %472 = extractelement <2 x double> %471, i64 0
+  %473 = extractelement <2 x double> %471, i64 1
+  %474 = fcmp olt double %472, %473
+  br i1 %474, label %475, label %477
 
-473:                                              ; preds = %463
-  br i1 %444, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit, label %474
-
-474:                                              ; preds = %473
-  br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
-
-475:                                              ; preds = %463
-  br i1 %444, label %476, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
+475:                                              ; preds = %465
+  br i1 %446, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit, label %476
 
 476:                                              ; preds = %475
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
 
-477:                                              ; preds = %438
-  %478 = fsub double %402, %391
-  %479 = fsub double %404, %392
-  %480 = fsub double %396, %402
-  %481 = fsub double %398, %404
-  %482 = fneg double %479
-  %483 = fmul double %480, %482
-  %484 = tail call double @llvm.fmuladd.f64(double %478, double %481, double %483)
-  %485 = fcmp olt double %484, 0.000000e+00
-  br i1 %485, label %486, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
+477:                                              ; preds = %465
+  br i1 %446, label %478, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
 
-486:                                              ; preds = %477
+478:                                              ; preds = %477
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
 
-_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit: ; preds = %473, %474, %475, %476, %477, %486
-  %.1103.i = phi double [ %.0102.i, %473 ], [ %.0100.i, %474 ], [ %.0100.i, %476 ], [ %.0102.i, %475 ], [ %.0100.i, %486 ], [ %.0102.i, %477 ]
-  %.1101.i = phi double [ %.0100.i, %473 ], [ %.0102.i, %474 ], [ %.0102.i, %476 ], [ %.0100.i, %475 ], [ %.0102.i, %486 ], [ %.0100.i, %477 ]
-  %487 = fsub double %.1101.i, %.1103.i
-  %488 = tail call double @llvm.fabs.f64(double %487)
-  %489 = fcmp olt double %488, 0x3FAACEE9F37BEBD5
-  %.2104.i = select i1 %489, double 6.260000e+00, double %.1103.i
-  %.2.i = select i1 %489, double 0.000000e+00, double %.1101.i
-  %490 = fcmp ult double %.2.i, 6.260000e+00
-  %.3.i = select i1 %490, double %.2.i, double 0.000000e+00
-  %491 = fcmp olt double %.2104.i, 0x3FC45F306DC9C883
-  %.3105.i = select i1 %491, double 6.280000e+00, double %.2104.i
-  %492 = load ptr, ptr %14, align 8
-  %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %492, i64 8
-  %495 = load ptr, ptr %10, align 8
-  %496 = getelementptr inbounds %struct.Info, ptr %495, i64 %45
-  %497 = load i32, ptr %496, align 8
-  %498 = load double, ptr %.0325, align 8
-  %499 = fptosi double %498 to i32
-  %500 = load double, ptr %.0322, align 8
+479:                                              ; preds = %440
+  %480 = fsub double %402, %391
+  %481 = fsub double %404, %392
+  %482 = fsub double %396, %402
+  %483 = fsub double %398, %404
+  %484 = fneg double %481
+  %485 = fmul double %482, %484
+  %486 = tail call double @llvm.fmuladd.f64(double %480, double %483, double %485)
+  %487 = fcmp olt double %486, 0.000000e+00
+  br i1 %487, label %488, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
+
+488:                                              ; preds = %479
+  br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit
+
+_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit: ; preds = %475, %476, %477, %478, %479, %488
+  %.1103.i = phi double [ %.0102.i, %475 ], [ %.0100.i, %476 ], [ %.0100.i, %478 ], [ %.0102.i, %477 ], [ %.0100.i, %488 ], [ %.0102.i, %479 ]
+  %.1101.i = phi double [ %.0100.i, %475 ], [ %.0102.i, %476 ], [ %.0102.i, %478 ], [ %.0100.i, %477 ], [ %.0102.i, %488 ], [ %.0100.i, %479 ]
+  %489 = fsub double %.1101.i, %.1103.i
+  %490 = tail call double @llvm.fabs.f64(double %489)
+  %491 = fcmp olt double %490, 0x3FAACEE9F37BEBD5
+  %.2104.i = select i1 %491, double 6.260000e+00, double %.1103.i
+  %.2.i = select i1 %491, double 0.000000e+00, double %.1101.i
+  %492 = fcmp ult double %.2.i, 6.260000e+00
+  %.3.i = select i1 %492, double %.2.i, double 0.000000e+00
+  %493 = fcmp olt double %.2104.i, 0x3FC45F306DC9C883
+  %.3105.i = select i1 %493, double 6.280000e+00, double %.2104.i
+  %494 = load ptr, ptr %14, align 8
+  %495 = load ptr, ptr %494, align 8
+  %496 = getelementptr inbounds i8, ptr %494, i64 8
+  %497 = load ptr, ptr %10, align 8
+  %498 = getelementptr inbounds %struct.Info, ptr %497, i64 %45
+  %499 = load i32, ptr %498, align 8
+  %500 = load double, ptr %.0325, align 8
   %501 = fptosi double %500 to i32
-  %502 = load double, ptr %395, align 8
+  %502 = load double, ptr %.0322, align 8
   %503 = fptosi double %502 to i32
-  %504 = load double, ptr %397, align 8
+  %504 = load double, ptr %395, align 8
   %505 = fptosi double %504 to i32
-  %506 = load i32, ptr %494, align 4
-  %507 = sext i32 %506 to i64
-  %508 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %507
-  store double %323, ptr %508, align 8
-  %509 = load i32, ptr %494, align 4
-  %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %510, i32 1
-  store double %322, ptr %511, align 8
-  %512 = load i32, ptr %494, align 4
-  %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %513, i32 2
-  store double %.0557, ptr %514, align 8
-  %515 = load i32, ptr %494, align 4
-  %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %516, i32 3
-  store double %.0558, ptr %517, align 8
-  %518 = load i32, ptr %494, align 4
-  %519 = sext i32 %518 to i64
-  %520 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %519, i32 4
-  store double %.3.i, ptr %520, align 8
-  %521 = load i32, ptr %494, align 4
-  %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %522, i32 5
-  store double %.3105.i, ptr %523, align 8
-  %524 = fcmp ogt double %.3105.i, %.3.i
-  %525 = fsub double 0x401921FB54442D18, %.3.i
-  %526 = fneg double %.3.i
-  %.0.p.i.i = select i1 %524, double %526, double %525
+  %506 = load double, ptr %397, align 8
+  %507 = fptosi double %506 to i32
+  %508 = load i32, ptr %496, align 4
+  %509 = sext i32 %508 to i64
+  %510 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %509
+  store double %405, ptr %510, align 8
+  %511 = load i32, ptr %496, align 4
+  %512 = sext i32 %511 to i64
+  %513 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %512, i32 1
+  store double %415, ptr %513, align 8
+  %514 = load i32, ptr %496, align 4
+  %515 = sext i32 %514 to i64
+  %516 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %515, i32 2
+  store double %.0557, ptr %516, align 8
+  %517 = load i32, ptr %496, align 4
+  %518 = sext i32 %517 to i64
+  %519 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %518, i32 3
+  store double %.0558, ptr %519, align 8
+  %520 = load i32, ptr %496, align 4
+  %521 = sext i32 %520 to i64
+  %522 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %521, i32 4
+  store double %.3.i, ptr %522, align 8
+  %523 = load i32, ptr %496, align 4
+  %524 = sext i32 %523 to i64
+  %525 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %524, i32 5
+  store double %.3105.i, ptr %525, align 8
+  %526 = fcmp ogt double %.3105.i, %.3.i
+  %527 = fsub double 0x401921FB54442D18, %.3.i
+  %528 = fneg double %.3.i
+  %.0.p.i.i = select i1 %526, double %528, double %527
   %.0.i.i = fadd double %.3105.i, %.0.p.i.i
-  %527 = fdiv double %.0.i.i, 0x401921FB54442D18
-  %528 = load i32, ptr %494, align 4
-  %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %529, i32 6
-  store double %527, ptr %530, align 8
-  %531 = load i32, ptr %494, align 4
-  %532 = sext i32 %531 to i64
-  %533 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %532, i32 7
-  store i32 %497, ptr %533, align 8
-  %534 = load i32, ptr %494, align 4
-  %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %535, i32 8
-  store i32 %40, ptr %536, align 4
-  %537 = load i32, ptr %494, align 4
-  %538 = sext i32 %537 to i64
-  %539 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %538, i32 16
-  store i8 0, ptr %539, align 4
-  %540 = load i32, ptr %494, align 4
-  %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %541, i32 9
-  store i32 %499, ptr %542, align 8
-  %543 = load i32, ptr %494, align 4
-  %544 = sext i32 %543 to i64
-  %545 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %544, i32 10
-  store i32 %501, ptr %545, align 4
-  %546 = load i32, ptr %494, align 4
-  %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %547, i32 11
-  store i32 %503, ptr %548, align 8
-  %549 = load i32, ptr %494, align 4
-  %550 = sext i32 %549 to i64
-  %551 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %550, i32 12
-  store i32 %505, ptr %551, align 4
-  %552 = load i32, ptr %494, align 4
-  %553 = sext i32 %552 to i64
-  %554 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %553, i32 13
-  store ptr %.0325, ptr %554, align 8
-  %555 = load i32, ptr %494, align 4
-  %556 = sext i32 %555 to i64
-  %557 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %556, i32 14
-  store ptr %.0322, ptr %557, align 8
-  %558 = load i32, ptr %494, align 4
-  %559 = sext i32 %558 to i64
-  %560 = getelementptr inbounds %struct.MyArc, ptr %493, i64 %559, i32 15
-  store i32 %.6, ptr %560, align 8
-  %561 = load i32, ptr %494, align 4
-  %562 = add nsw i32 %561, 1
-  store i32 %562, ptr %494, align 4
-  tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %493, ptr noundef nonnull align 4 dereferenceable(4) %494)
-  br label %563
+  %529 = fdiv double %.0.i.i, 0x401921FB54442D18
+  %530 = load i32, ptr %496, align 4
+  %531 = sext i32 %530 to i64
+  %532 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %531, i32 6
+  store double %529, ptr %532, align 8
+  %533 = load i32, ptr %496, align 4
+  %534 = sext i32 %533 to i64
+  %535 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %534, i32 7
+  store i32 %499, ptr %535, align 8
+  %536 = load i32, ptr %496, align 4
+  %537 = sext i32 %536 to i64
+  %538 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %537, i32 8
+  store i32 %40, ptr %538, align 4
+  %539 = load i32, ptr %496, align 4
+  %540 = sext i32 %539 to i64
+  %541 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %540, i32 16
+  store i8 0, ptr %541, align 4
+  %542 = load i32, ptr %496, align 4
+  %543 = sext i32 %542 to i64
+  %544 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %543, i32 9
+  store i32 %501, ptr %544, align 8
+  %545 = load i32, ptr %496, align 4
+  %546 = sext i32 %545 to i64
+  %547 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %546, i32 10
+  store i32 %503, ptr %547, align 4
+  %548 = load i32, ptr %496, align 4
+  %549 = sext i32 %548 to i64
+  %550 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %549, i32 11
+  store i32 %505, ptr %550, align 8
+  %551 = load i32, ptr %496, align 4
+  %552 = sext i32 %551 to i64
+  %553 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %552, i32 12
+  store i32 %507, ptr %553, align 4
+  %554 = load i32, ptr %496, align 4
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %555, i32 13
+  store ptr %.0325, ptr %556, align 8
+  %557 = load i32, ptr %496, align 4
+  %558 = sext i32 %557 to i64
+  %559 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %558, i32 14
+  store ptr %.0322, ptr %559, align 8
+  %560 = load i32, ptr %496, align 4
+  %561 = sext i32 %560 to i64
+  %562 = getelementptr inbounds %struct.MyArc, ptr %495, i64 %561, i32 15
+  store i32 %.6, ptr %562, align 8
+  %563 = load i32, ptr %496, align 4
+  %564 = add nsw i32 %563, 1
+  store i32 %564, ptr %496, align 4
+  tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %495, ptr noundef nonnull align 4 dereferenceable(4) %496)
+  br label %565
 
-563:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit, %356
-  %564 = icmp slt i32 %.0307774, %.0309.lcssa
-  br i1 %564, label %.lr.ph691.preheader, label %.backedge, !llvm.loop !175
+565:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit, %354
+  %566 = icmp slt i32 %.0307774, %.0309.lcssa
+  br i1 %566, label %.lr.ph691.preheader, label %.backedge, !llvm.loop !175
 
-.lr.ph691.preheader:                              ; preds = %563
+.lr.ph691.preheader:                              ; preds = %565
   %wide.trip.count = sext i32 %.0309.lcssa to i64
   br label %.lr.ph691
 
 .lr.ph691:                                        ; preds = %.lr.ph691.preheader, %.lr.ph691
   %indvars.iv862 = phi i64 [ %45, %.lr.ph691.preheader ], [ %indvars.iv.next863, %.lr.ph691 ]
-  %565 = load ptr, ptr %10, align 8
-  %566 = getelementptr inbounds %struct.Info, ptr %565, i64 %indvars.iv862, i32 2
-  store i8 1, ptr %566, align 8
+  %567 = load ptr, ptr %10, align 8
+  %568 = getelementptr inbounds %struct.Info, ptr %567, i64 %indvars.iv862, i32 2
+  store i8 1, ptr %568, align 8
   %indvars.iv.next863 = add nsw i64 %indvars.iv862, 1
   %exitcond865.not = icmp eq i64 %indvars.iv.next863, %wide.trip.count
   br i1 %exitcond865.not, label %.backedge, label %.lr.ph691, !llvm.loop !181
 
-567:                                              ; preds = %331
-  %568 = load double, ptr %168, align 8
-  %569 = add nsw i32 %.5, -1
-  %570 = sext i32 %569 to i64
-  %571 = getelementptr inbounds double, ptr %168, i64 %570
-  %572 = load double, ptr %571, align 8
-  %573 = fsub double %568, %572
-  %574 = load double, ptr %167, align 8
-  %575 = getelementptr inbounds double, ptr %167, i64 %570
-  %576 = load double, ptr %575, align 8
-  %577 = fsub double %574, %576
-  %578 = fmul double %577, %577
-  %579 = tail call double @llvm.fmuladd.f64(double %573, double %573, double %578)
-  %sqrt = tail call double @llvm.sqrt.f64(double %579)
-  %580 = fmul double %.0557, 1.720000e+00
-  %581 = fcmp ole double %sqrt, %580
-  %582 = fcmp oge double %326, 6.700000e-01
-  %.not348.not790 = select i1 %581, i1 %582, i1 false
-  %583 = fcmp oge double %326, 2.500000e-01
-  %or.cond7 = select i1 %27, i1 %583, i1 false
+569:                                              ; preds = %329
+  %570 = load double, ptr %168, align 8
+  %571 = add nsw i32 %.5, -1
+  %572 = sext i32 %571 to i64
+  %573 = getelementptr inbounds double, ptr %168, i64 %572
+  %574 = load double, ptr %573, align 8
+  %575 = fsub double %570, %574
+  %576 = load double, ptr %167, align 8
+  %577 = getelementptr inbounds double, ptr %167, i64 %572
+  %578 = load double, ptr %577, align 8
+  %579 = fsub double %576, %578
+  %580 = fmul double %579, %579
+  %581 = tail call double @llvm.fmuladd.f64(double %575, double %575, double %580)
+  %sqrt = tail call double @llvm.sqrt.f64(double %581)
+  %582 = fmul double %.0557, 1.720000e+00
+  %583 = fcmp ole double %sqrt, %582
+  %584 = fcmp oge double %324, 6.700000e-01
+  %.not348.not790 = select i1 %583, i1 %584, i1 false
+  %585 = fcmp oge double %324, 2.500000e-01
+  %or.cond7 = select i1 %27, i1 %585, i1 false
   %or.cond = select i1 %.not348.not790, i1 true, i1 %or.cond7
-  br i1 %or.cond, label %584, label %.thread569
+  br i1 %or.cond, label %586, label %.thread569
 
-584:                                              ; preds = %567
+586:                                              ; preds = %569
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
-  %585 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl10EllipseFitEPdS2_iP15EllipseEquationi(ptr noundef nonnull %168, ptr noundef nonnull %167, i32 noundef %.5, ptr noundef nonnull %2, i32 noundef 1)
-  br i1 %585, label %586, label %.thread569
+  %587 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl10EllipseFitEPdS2_iP15EllipseEquationi(ptr noundef nonnull %168, ptr noundef nonnull %167, i32 noundef %.5, ptr noundef nonnull %2, i32 noundef 1)
+  br i1 %587, label %588, label %.thread569
 
-586:                                              ; preds = %584
-  %587 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeEllipseErrorEP15EllipseEquationPdS4_i(ptr noundef nonnull %2, ptr noundef nonnull %168, ptr noundef nonnull %167, i32 noundef %.5)
+588:                                              ; preds = %586
+  %589 = call noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeEllipseErrorEP15EllipseEquationPdS4_i(ptr noundef nonnull %2, ptr noundef nonnull %168, ptr noundef nonnull %167, i32 noundef %.5)
   %spec.store.select8 = select i1 %.not348.not790, double 1.500000e+00, double 7.500000e-01
-  %588 = fcmp ugt double %587, %spec.store.select8
-  br i1 %588, label %.thread569, label %589
+  %590 = fcmp ugt double %589, %spec.store.select8
+  br i1 %590, label %.thread569, label %591
 
-589:                                              ; preds = %586
-  br i1 %166, label %590, label %598
+591:                                              ; preds = %588
+  br i1 %166, label %592, label %600
 
-590:                                              ; preds = %589
-  %591 = load ptr, ptr %11, align 8
-  %592 = getelementptr inbounds %struct.EDLineSegment, ptr %591, i64 %39, i32 10
-  %593 = load i32, ptr %592, align 8
-  %594 = sext i32 %593 to i64
-  %595 = getelementptr inbounds double, ptr %168, i64 %594
-  %596 = getelementptr inbounds double, ptr %167, i64 %594
-  %597 = sub nsw i32 %.5, %593
-  br label %608
+592:                                              ; preds = %591
+  %593 = load ptr, ptr %11, align 8
+  %594 = getelementptr inbounds %struct.EDLineSegment, ptr %593, i64 %39, i32 10
+  %595 = load i32, ptr %594, align 8
+  %596 = sext i32 %595 to i64
+  %597 = getelementptr inbounds double, ptr %168, i64 %596
+  %598 = getelementptr inbounds double, ptr %167, i64 %596
+  %599 = sub nsw i32 %.5, %595
+  br label %610
 
-598:                                              ; preds = %589
-  br i1 %201, label %599, label %608
+600:                                              ; preds = %591
+  br i1 %201, label %601, label %610
 
-599:                                              ; preds = %598
-  %600 = load ptr, ptr %9, align 8
-  %601 = getelementptr inbounds i32, ptr %600, i64 %indvars.iv894
-  %602 = load i32, ptr %601, align 4
-  %603 = sext i32 %602 to i64
-  %604 = load ptr, ptr %11, align 8
-  %605 = getelementptr inbounds %struct.EDLineSegment, ptr %604, i64 %603, i32 10
-  %606 = load i32, ptr %605, align 8
-  %607 = sub nsw i32 %.5, %606
-  br label %608
+601:                                              ; preds = %600
+  %602 = load ptr, ptr %9, align 8
+  %603 = getelementptr inbounds i32, ptr %602, i64 %indvars.iv894
+  %604 = load i32, ptr %603, align 4
+  %605 = sext i32 %604 to i64
+  %606 = load ptr, ptr %11, align 8
+  %607 = getelementptr inbounds %struct.EDLineSegment, ptr %606, i64 %605, i32 10
+  %608 = load i32, ptr %607, align 8
+  %609 = sub nsw i32 %.5, %608
+  br label %610
 
-608:                                              ; preds = %598, %599, %590
-  %.7 = phi i32 [ %597, %590 ], [ %607, %599 ], [ %.5, %598 ]
-  %.1326 = phi ptr [ %595, %590 ], [ %168, %599 ], [ %168, %598 ]
-  %.1323 = phi ptr [ %596, %590 ], [ %167, %599 ], [ %167, %598 ]
-  br i1 %.not348.not790, label %609, label %742
+610:                                              ; preds = %600, %601, %592
+  %.7 = phi i32 [ %599, %592 ], [ %609, %601 ], [ %.5, %600 ]
+  %.1326 = phi ptr [ %597, %592 ], [ %168, %601 ], [ %168, %600 ]
+  %.1323 = phi ptr [ %598, %592 ], [ %167, %601 ], [ %167, %600 ]
+  br i1 %.not348.not790, label %611, label %746
 
-609:                                              ; preds = %608
-  %610 = load ptr, ptr %15, align 8
-  %611 = load i32, ptr %16, align 8
-  %612 = sext i32 %611 to i64
-  %613 = getelementptr inbounds %struct.Circle, ptr %610, i64 %612
-  store double %323, ptr %613, align 8
-  %614 = load i32, ptr %16, align 8
-  %615 = sext i32 %614 to i64
-  %616 = getelementptr inbounds %struct.Circle, ptr %610, i64 %615, i32 1
-  store double %322, ptr %616, align 8
+611:                                              ; preds = %610
+  %612 = load ptr, ptr %15, align 8
+  %613 = load i32, ptr %16, align 8
+  %614 = sext i32 %613 to i64
+  %615 = getelementptr inbounds %struct.Circle, ptr %612, i64 %614
+  %616 = extractelement <2 x double> %321, i64 0
+  store double %616, ptr %615, align 8
   %617 = load i32, ptr %16, align 8
   %618 = sext i32 %617 to i64
-  %619 = getelementptr inbounds %struct.Circle, ptr %610, i64 %618, i32 2
-  store double %.0557, ptr %619, align 8
-  %620 = load i32, ptr %16, align 8
-  %621 = sext i32 %620 to i64
-  %622 = getelementptr inbounds %struct.Circle, ptr %610, i64 %621, i32 3
-  store double %.0558, ptr %622, align 8
-  %623 = sitofp i32 %.7 to double
-  %624 = load <2 x double>, ptr %17, align 8
-  %625 = load <2 x double>, ptr %18, align 8
-  %626 = load <2 x double>, ptr %19, align 8
-  %627 = load double, ptr %20, align 8
-  %628 = extractelement <2 x double> %624, i64 0
-  %629 = extractelement <2 x double> %624, i64 1
-  %630 = fdiv double %629, %628
-  %631 = shufflevector <2 x double> %624, <2 x double> poison, <2 x i32> zeroinitializer
-  %632 = fdiv <2 x double> %626, %631
-  %633 = fdiv double %627, %628
-  %634 = shufflevector <2 x double> %625, <2 x double> %624, <2 x i32> <i32 0, i32 2>
-  %635 = shufflevector <2 x double> %624, <2 x double> poison, <2 x i32> zeroinitializer
-  %636 = fdiv <2 x double> %634, %635
-  %637 = fcmp une double %630, 0.000000e+00
-  br i1 %637, label %638, label %685
+  %619 = getelementptr inbounds %struct.Circle, ptr %612, i64 %618, i32 1
+  %620 = extractelement <2 x double> %321, i64 1
+  store double %620, ptr %619, align 8
+  %621 = load i32, ptr %16, align 8
+  %622 = sext i32 %621 to i64
+  %623 = getelementptr inbounds %struct.Circle, ptr %612, i64 %622, i32 2
+  store double %.0557, ptr %623, align 8
+  %624 = load i32, ptr %16, align 8
+  %625 = sext i32 %624 to i64
+  %626 = getelementptr inbounds %struct.Circle, ptr %612, i64 %625, i32 3
+  store double %.0558, ptr %626, align 8
+  %627 = sitofp i32 %.7 to double
+  %628 = load <2 x double>, ptr %17, align 8
+  %629 = load <2 x double>, ptr %18, align 8
+  %630 = load <2 x double>, ptr %19, align 8
+  %631 = load double, ptr %20, align 8
+  %632 = extractelement <2 x double> %628, i64 0
+  %633 = extractelement <2 x double> %628, i64 1
+  %634 = fdiv double %633, %632
+  %635 = shufflevector <2 x double> %628, <2 x double> poison, <2 x i32> zeroinitializer
+  %636 = fdiv <2 x double> %630, %635
+  %637 = fdiv double %631, %632
+  %638 = shufflevector <2 x double> %629, <2 x double> %628, <2 x i32> <i32 0, i32 2>
+  %639 = shufflevector <2 x double> %628, <2 x double> poison, <2 x i32> zeroinitializer
+  %640 = fdiv <2 x double> %638, %639
+  %641 = fcmp une double %634, 0.000000e+00
+  br i1 %641, label %642, label %689
 
-638:                                              ; preds = %609
-  %shift = shufflevector <2 x double> %636, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %639 = fsub <2 x double> %shift, %636
-  %640 = extractelement <2 x double> %639, i64 0
-  %641 = fdiv double %630, %640
-  %642 = tail call double @atan(double noundef %641) #37
-  %643 = fmul double %642, 5.000000e-01
-  %644 = fmul double %643, 2.000000e+00
-  %645 = tail call double @cos(double noundef %644) #37
-  %646 = tail call double @sin(double noundef %644) #37
-  %647 = tail call double @cos(double noundef %644) #37
-  %648 = fsub double 1.000000e+00, %647
-  %649 = tail call double @cos(double noundef %644) #37
-  %650 = insertelement <2 x double> poison, double %649, i64 0
-  %651 = insertelement <2 x double> %650, double %645, i64 1
-  %652 = fsub <2 x double> <double 1.000000e+00, double poison>, %651
-  %653 = fadd <2 x double> %651, <double poison, double 1.000000e+00>
-  %654 = shufflevector <2 x double> %652, <2 x double> %653, <2 x i32> <i32 0, i32 3>
-  %655 = tail call double @sin(double noundef %644) #37
-  %656 = fneg double %630
-  %657 = tail call double @cos(double noundef %644) #37
-  %658 = fadd double %657, 1.000000e+00
-  %659 = insertelement <2 x double> poison, double %656, i64 0
-  %660 = insertelement <2 x double> %659, double %630, i64 1
-  %661 = insertelement <2 x double> poison, double %655, i64 0
-  %662 = insertelement <2 x double> %661, double %646, i64 1
-  %663 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %660, <2 x double> %662, <2 x double> %654)
-  %664 = shufflevector <2 x double> %636, <2 x double> poison, <2 x i32> zeroinitializer
-  %665 = insertelement <2 x double> poison, double %658, i64 0
-  %666 = insertelement <2 x double> %665, double %648, i64 1
-  %667 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %664, <2 x double> %666, <2 x double> %663)
-  %668 = shufflevector <2 x double> %636, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %669 = fmul <2 x double> %668, %667
-  %670 = fmul <2 x double> %669, <double 5.000000e-01, double 5.000000e-01>
-  %671 = tail call double @cos(double noundef %643) #37
-  %672 = tail call double @sin(double noundef %643) #37
-  %673 = extractelement <2 x double> %632, i64 0
-  %674 = fneg double %673
-  %675 = tail call double @sin(double noundef %643) #37
-  %676 = tail call double @cos(double noundef %643) #37
-  %677 = shufflevector <2 x double> %632, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %678 = insertelement <2 x double> poison, double %672, i64 0
-  %679 = insertelement <2 x double> %678, double %676, i64 1
-  %680 = fmul <2 x double> %677, %679
-  %681 = insertelement <2 x double> %632, double %674, i64 1
-  %682 = insertelement <2 x double> poison, double %671, i64 0
-  %683 = insertelement <2 x double> %682, double %675, i64 1
-  %684 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %681, <2 x double> %683, <2 x double> %680)
-  br label %685
+642:                                              ; preds = %611
+  %shift = shufflevector <2 x double> %640, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %643 = fsub <2 x double> %shift, %640
+  %644 = extractelement <2 x double> %643, i64 0
+  %645 = fdiv double %634, %644
+  %646 = tail call double @atan(double noundef %645) #37
+  %647 = fmul double %646, 5.000000e-01
+  %648 = fmul double %647, 2.000000e+00
+  %649 = tail call double @cos(double noundef %648) #37
+  %650 = tail call double @sin(double noundef %648) #37
+  %651 = tail call double @cos(double noundef %648) #37
+  %652 = fsub double 1.000000e+00, %651
+  %653 = tail call double @cos(double noundef %648) #37
+  %654 = insertelement <2 x double> poison, double %653, i64 0
+  %655 = insertelement <2 x double> %654, double %649, i64 1
+  %656 = fsub <2 x double> <double 1.000000e+00, double poison>, %655
+  %657 = fadd <2 x double> %655, <double poison, double 1.000000e+00>
+  %658 = shufflevector <2 x double> %656, <2 x double> %657, <2 x i32> <i32 0, i32 3>
+  %659 = tail call double @sin(double noundef %648) #37
+  %660 = fneg double %634
+  %661 = tail call double @cos(double noundef %648) #37
+  %662 = fadd double %661, 1.000000e+00
+  %663 = insertelement <2 x double> poison, double %660, i64 0
+  %664 = insertelement <2 x double> %663, double %634, i64 1
+  %665 = insertelement <2 x double> poison, double %659, i64 0
+  %666 = insertelement <2 x double> %665, double %650, i64 1
+  %667 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %664, <2 x double> %666, <2 x double> %658)
+  %668 = shufflevector <2 x double> %640, <2 x double> poison, <2 x i32> zeroinitializer
+  %669 = insertelement <2 x double> poison, double %662, i64 0
+  %670 = insertelement <2 x double> %669, double %652, i64 1
+  %671 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %668, <2 x double> %670, <2 x double> %667)
+  %672 = shufflevector <2 x double> %640, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %673 = fmul <2 x double> %672, %671
+  %674 = fmul <2 x double> %673, <double 5.000000e-01, double 5.000000e-01>
+  %675 = tail call double @cos(double noundef %647) #37
+  %676 = tail call double @sin(double noundef %647) #37
+  %677 = extractelement <2 x double> %636, i64 0
+  %678 = fneg double %677
+  %679 = tail call double @sin(double noundef %647) #37
+  %680 = tail call double @cos(double noundef %647) #37
+  %681 = shufflevector <2 x double> %636, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %682 = insertelement <2 x double> poison, double %676, i64 0
+  %683 = insertelement <2 x double> %682, double %680, i64 1
+  %684 = fmul <2 x double> %681, %683
+  %685 = insertelement <2 x double> %636, double %678, i64 1
+  %686 = insertelement <2 x double> poison, double %675, i64 0
+  %687 = insertelement <2 x double> %686, double %679, i64 1
+  %688 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %685, <2 x double> %687, <2 x double> %684)
+  br label %689
 
-685:                                              ; preds = %638, %609
-  %.092.i = phi double [ %643, %638 ], [ 0.000000e+00, %609 ]
-  %686 = phi <2 x double> [ %670, %638 ], [ %636, %609 ]
-  %687 = phi <2 x double> [ %684, %638 ], [ %632, %609 ]
-  %688 = extractelement <2 x double> %686, i64 1
-  %689 = extractelement <2 x double> %687, i64 0
-  %690 = fdiv double %689, %688
-  %691 = extractelement <2 x double> %686, i64 0
-  %692 = extractelement <2 x double> %687, i64 1
-  %693 = fdiv double %692, %691
-  %694 = fmul double %690, -5.000000e-01
-  %695 = fmul double %693, -5.000000e-01
-  %square.i = fmul double %694, %694
-  %square96.i = fmul double %695, %695
-  %696 = fmul double %691, %square96.i
-  %697 = tail call double @llvm.fmuladd.f64(double %688, double %square.i, double %696)
-  %698 = fsub double %697, %633
-  %699 = fdiv double %698, %688
-  %700 = tail call double @sqrt(double noundef %699) #37
-  %701 = fdiv double %698, %691
-  %702 = tail call double @sqrt(double noundef %701) #37
-  %703 = tail call double @llvm.fabs.f64(double %.092.i)
-  %704 = fcmp oeq double %703, 0x7FF0000000000000
-  %or.cond.i457 = and i1 %637, %704
+689:                                              ; preds = %642, %611
+  %.092.i = phi double [ %647, %642 ], [ 0.000000e+00, %611 ]
+  %690 = phi <2 x double> [ %674, %642 ], [ %640, %611 ]
+  %691 = phi <2 x double> [ %688, %642 ], [ %636, %611 ]
+  %692 = extractelement <2 x double> %690, i64 1
+  %693 = extractelement <2 x double> %691, i64 0
+  %694 = fdiv double %693, %692
+  %695 = extractelement <2 x double> %690, i64 0
+  %696 = extractelement <2 x double> %691, i64 1
+  %697 = fdiv double %696, %695
+  %698 = fmul double %694, -5.000000e-01
+  %699 = fmul double %697, -5.000000e-01
+  %square.i = fmul double %698, %698
+  %square96.i = fmul double %699, %699
+  %700 = fmul double %695, %square96.i
+  %701 = tail call double @llvm.fmuladd.f64(double %692, double %square.i, double %700)
+  %702 = fsub double %701, %637
+  %703 = fdiv double %702, %692
+  %704 = tail call double @sqrt(double noundef %703) #37
+  %705 = fdiv double %702, %695
+  %706 = tail call double @sqrt(double noundef %705) #37
+  %707 = tail call double @llvm.fabs.f64(double %.092.i)
+  %708 = fcmp oeq double %707, 0x7FF0000000000000
+  %or.cond.i457 = and i1 %641, %708
   br i1 %or.cond.i457, label %cdce.call600, label %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit, !prof !182
 
-cdce.call600:                                     ; preds = %685
-  %705 = tail call double @cos(double noundef %.092.i) #37
-  %706 = tail call double @sin(double noundef %.092.i) #37
-  %707 = tail call double @sin(double noundef %.092.i) #37
-  %708 = tail call double @cos(double noundef %.092.i) #37
+cdce.call600:                                     ; preds = %689
+  %709 = tail call double @cos(double noundef %.092.i) #37
+  %710 = tail call double @sin(double noundef %.092.i) #37
+  %711 = tail call double @sin(double noundef %.092.i) #37
+  %712 = tail call double @cos(double noundef %.092.i) #37
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit
 
-_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit: ; preds = %cdce.call600, %685
-  %709 = fsub double %700, %702
-  %square97.i = fmul double %709, %709
-  %710 = fadd double %700, %702
-  %square98.i = fmul double %710, %710
-  %711 = fdiv double %square97.i, %square98.i
-  %712 = fmul double %710, 0x400921FB54442D18
-  %713 = fmul double %711, 3.000000e+00
-  %714 = tail call double @llvm.fmuladd.f64(double %711, double -3.000000e+00, double 4.000000e+00)
-  %715 = tail call double @sqrt(double noundef %714) #37
-  %716 = fadd double %715, 1.000000e+01
-  %717 = fdiv double %713, %716
-  %718 = fadd double %717, 1.000000e+00
-  %719 = fmul double %712, %718
-  %720 = fdiv double %623, %719
-  %721 = load i32, ptr %16, align 8
-  %722 = sext i32 %721 to i64
-  %723 = getelementptr inbounds %struct.Circle, ptr %610, i64 %722, i32 4
-  store double %720, ptr %723, align 8
-  %724 = load i32, ptr %16, align 8
-  %725 = sext i32 %724 to i64
-  %726 = getelementptr inbounds %struct.Circle, ptr %610, i64 %725, i32 5
-  store ptr %.1326, ptr %726, align 8
-  %727 = load i32, ptr %16, align 8
-  %728 = sext i32 %727 to i64
-  %729 = getelementptr inbounds %struct.Circle, ptr %610, i64 %728, i32 6
-  store ptr %.1323, ptr %729, align 8
-  %730 = load i32, ptr %16, align 8
-  %731 = sext i32 %730 to i64
-  %732 = getelementptr inbounds %struct.Circle, ptr %610, i64 %731, i32 7
-  store i32 %.7, ptr %732, align 8
-  %733 = load i32, ptr %16, align 8
-  %734 = sext i32 %733 to i64
-  %735 = getelementptr inbounds %struct.Circle, ptr %610, i64 %734, i32 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %735, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 56, i1 false)
-  %736 = load i32, ptr %16, align 8
-  %737 = sext i32 %736 to i64
-  %738 = getelementptr inbounds %struct.Circle, ptr %610, i64 %737, i32 9
-  store double %587, ptr %738, align 8
-  %739 = load i32, ptr %16, align 8
-  %740 = sext i32 %739 to i64
-  %741 = getelementptr inbounds %struct.Circle, ptr %610, i64 %740, i32 10
-  store i8 1, ptr %741, align 8
-  br label %1016
+_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit: ; preds = %cdce.call600, %689
+  %713 = fsub double %704, %706
+  %square97.i = fmul double %713, %713
+  %714 = fadd double %704, %706
+  %square98.i = fmul double %714, %714
+  %715 = fdiv double %square97.i, %square98.i
+  %716 = fmul double %714, 0x400921FB54442D18
+  %717 = fmul double %715, 3.000000e+00
+  %718 = tail call double @llvm.fmuladd.f64(double %715, double -3.000000e+00, double 4.000000e+00)
+  %719 = tail call double @sqrt(double noundef %718) #37
+  %720 = fadd double %719, 1.000000e+01
+  %721 = fdiv double %717, %720
+  %722 = fadd double %721, 1.000000e+00
+  %723 = fmul double %716, %722
+  %724 = fdiv double %627, %723
+  %725 = load i32, ptr %16, align 8
+  %726 = sext i32 %725 to i64
+  %727 = getelementptr inbounds %struct.Circle, ptr %612, i64 %726, i32 4
+  store double %724, ptr %727, align 8
+  %728 = load i32, ptr %16, align 8
+  %729 = sext i32 %728 to i64
+  %730 = getelementptr inbounds %struct.Circle, ptr %612, i64 %729, i32 5
+  store ptr %.1326, ptr %730, align 8
+  %731 = load i32, ptr %16, align 8
+  %732 = sext i32 %731 to i64
+  %733 = getelementptr inbounds %struct.Circle, ptr %612, i64 %732, i32 6
+  store ptr %.1323, ptr %733, align 8
+  %734 = load i32, ptr %16, align 8
+  %735 = sext i32 %734 to i64
+  %736 = getelementptr inbounds %struct.Circle, ptr %612, i64 %735, i32 7
+  store i32 %.7, ptr %736, align 8
+  %737 = load i32, ptr %16, align 8
+  %738 = sext i32 %737 to i64
+  %739 = getelementptr inbounds %struct.Circle, ptr %612, i64 %738, i32 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %739, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 56, i1 false)
+  %740 = load i32, ptr %16, align 8
+  %741 = sext i32 %740 to i64
+  %742 = getelementptr inbounds %struct.Circle, ptr %612, i64 %741, i32 9
+  store double %589, ptr %742, align 8
+  %743 = load i32, ptr %16, align 8
+  %744 = sext i32 %743 to i64
+  %745 = getelementptr inbounds %struct.Circle, ptr %612, i64 %744, i32 10
+  store i8 1, ptr %745, align 8
+  br label %1022
 
-742:                                              ; preds = %608
-  %743 = load double, ptr %.1326, align 8
-  %744 = load double, ptr %.1323, align 8
-  %745 = add nsw i32 %.7, -1
-  %746 = sext i32 %745 to i64
-  %747 = getelementptr inbounds double, ptr %.1326, i64 %746
-  %748 = load double, ptr %747, align 8
-  %749 = getelementptr inbounds double, ptr %.1323, i64 %746
-  %750 = load double, ptr %749, align 8
-  %751 = sdiv i32 %.7, 2
-  %752 = sext i32 %751 to i64
-  %753 = getelementptr inbounds double, ptr %.1326, i64 %752
+746:                                              ; preds = %610
+  %747 = load double, ptr %.1326, align 8
+  %748 = load double, ptr %.1323, align 8
+  %749 = add nsw i32 %.7, -1
+  %750 = sext i32 %749 to i64
+  %751 = getelementptr inbounds double, ptr %.1326, i64 %750
+  %752 = load double, ptr %751, align 8
+  %753 = getelementptr inbounds double, ptr %.1323, i64 %750
   %754 = load double, ptr %753, align 8
-  %755 = getelementptr inbounds double, ptr %.1323, i64 %752
-  %756 = load double, ptr %755, align 8
-  %757 = fsub double %743, %323
-  %758 = fdiv double %757, %.0557
-  %759 = fcmp ogt double %758, 1.000000e+00
-  br i1 %759, label %763, label %760
+  %755 = sdiv i32 %.7, 2
+  %756 = sext i32 %755 to i64
+  %757 = getelementptr inbounds double, ptr %.1326, i64 %756
+  %758 = load double, ptr %757, align 8
+  %759 = getelementptr inbounds double, ptr %.1323, i64 %756
+  %760 = load double, ptr %759, align 8
+  %761 = extractelement <2 x double> %321, i64 0
+  %762 = fsub double %747, %761
+  %763 = fdiv double %762, %.0557
+  %764 = fcmp ogt double %763, 1.000000e+00
+  br i1 %764, label %768, label %765
 
-760:                                              ; preds = %742
-  %761 = fcmp olt double %758, -1.000000e+00
-  br i1 %761, label %762, label %763
+765:                                              ; preds = %746
+  %766 = fcmp olt double %763, -1.000000e+00
+  br i1 %766, label %767, label %768
 
-762:                                              ; preds = %760
-  br label %763
+767:                                              ; preds = %765
+  br label %768
 
-763:                                              ; preds = %762, %760, %742
-  %.0.i363 = phi double [ -1.000000e+00, %762 ], [ %758, %760 ], [ 1.000000e+00, %742 ]
-  %764 = tail call double @acos(double noundef %.0.i363) #37
-  %765 = fcmp ult double %743, %323
-  %766 = fcmp ult double %744, %322
-  br i1 %765, label %770, label %767
+768:                                              ; preds = %767, %765, %746
+  %.0.i363 = phi double [ -1.000000e+00, %767 ], [ %763, %765 ], [ 1.000000e+00, %746 ]
+  %769 = tail call double @acos(double noundef %.0.i363) #37
+  %770 = fcmp ult double %747, %761
+  %771 = extractelement <2 x double> %321, i64 1
+  %772 = fcmp ult double %748, %771
+  br i1 %770, label %776, label %773
 
-767:                                              ; preds = %763
-  br i1 %766, label %768, label %773
+773:                                              ; preds = %768
+  br i1 %772, label %774, label %779
 
-768:                                              ; preds = %767
-  %769 = fsub double 0x401921FB54442D18, %764
-  br label %773
+774:                                              ; preds = %773
+  %775 = fsub double 0x401921FB54442D18, %769
+  br label %779
 
-770:                                              ; preds = %763
-  br i1 %766, label %771, label %773
+776:                                              ; preds = %768
+  br i1 %772, label %777, label %779
 
-771:                                              ; preds = %770
-  %772 = fsub double 0x401921FB54442D18, %764
-  br label %773
+777:                                              ; preds = %776
+  %778 = fsub double 0x401921FB54442D18, %769
+  br label %779
 
-773:                                              ; preds = %771, %770, %768, %767
-  %.0100.i364 = phi double [ %769, %768 ], [ %772, %771 ], [ %764, %767 ], [ %764, %770 ]
-  %774 = fsub double %748, %323
-  %775 = fdiv double %774, %.0557
-  %776 = fcmp ogt double %775, 1.000000e+00
-  br i1 %776, label %780, label %777
+779:                                              ; preds = %777, %776, %774, %773
+  %.0100.i364 = phi double [ %775, %774 ], [ %778, %777 ], [ %769, %773 ], [ %769, %776 ]
+  %780 = fsub double %752, %761
+  %781 = fdiv double %780, %.0557
+  %782 = fcmp ogt double %781, 1.000000e+00
+  br i1 %782, label %786, label %783
 
-777:                                              ; preds = %773
-  %778 = fcmp olt double %775, -1.000000e+00
-  br i1 %778, label %779, label %780
+783:                                              ; preds = %779
+  %784 = fcmp olt double %781, -1.000000e+00
+  br i1 %784, label %785, label %786
 
-779:                                              ; preds = %777
-  br label %780
+785:                                              ; preds = %783
+  br label %786
 
-780:                                              ; preds = %779, %777, %773
-  %.1.i365 = phi double [ -1.000000e+00, %779 ], [ %775, %777 ], [ 1.000000e+00, %773 ]
-  %781 = tail call double @acos(double noundef %.1.i365) #37
-  %782 = insertelement <2 x double> poison, double %748, i64 0
-  %783 = insertelement <2 x double> %782, double %750, i64 1
-  %784 = fcmp ult <2 x double> %783, %321
-  %785 = extractelement <2 x i1> %784, i64 0
-  br i1 %785, label %790, label %786
+786:                                              ; preds = %785, %783, %779
+  %.1.i365 = phi double [ -1.000000e+00, %785 ], [ %781, %783 ], [ 1.000000e+00, %779 ]
+  %787 = tail call double @acos(double noundef %.1.i365) #37
+  %788 = insertelement <2 x double> poison, double %752, i64 0
+  %789 = insertelement <2 x double> %788, double %754, i64 1
+  %790 = fcmp ult <2 x double> %789, %321
+  %791 = extractelement <2 x i1> %790, i64 0
+  br i1 %791, label %796, label %792
 
-786:                                              ; preds = %780
-  %787 = extractelement <2 x i1> %784, i64 1
-  br i1 %787, label %788, label %794
+792:                                              ; preds = %786
+  %793 = extractelement <2 x i1> %790, i64 1
+  br i1 %793, label %794, label %800
 
-788:                                              ; preds = %786
-  %789 = fsub double 0x401921FB54442D18, %781
-  br label %794
+794:                                              ; preds = %792
+  %795 = fsub double 0x401921FB54442D18, %787
+  br label %800
 
-790:                                              ; preds = %780
-  %791 = extractelement <2 x i1> %784, i64 1
-  br i1 %791, label %792, label %794
+796:                                              ; preds = %786
+  %797 = extractelement <2 x i1> %790, i64 1
+  br i1 %797, label %798, label %800
 
-792:                                              ; preds = %790
-  %793 = fsub double 0x401921FB54442D18, %781
-  br label %794
+798:                                              ; preds = %796
+  %799 = fsub double 0x401921FB54442D18, %787
+  br label %800
 
-794:                                              ; preds = %792, %790, %788, %786
-  %.0102.i366 = phi double [ %789, %788 ], [ %793, %792 ], [ %781, %786 ], [ %781, %790 ]
-  %795 = sitofp i32 %.7 to double
-  %796 = fdiv double %795, %325
-  %797 = fcmp ole double %796, 2.500000e-01
-  %798 = fcmp oge double %796, 7.500000e-01
-  %or.cond.i367 = or i1 %797, %798
-  br i1 %or.cond.i367, label %799, label %833
+800:                                              ; preds = %798, %796, %794, %792
+  %.0102.i366 = phi double [ %795, %794 ], [ %799, %798 ], [ %787, %792 ], [ %787, %796 ]
+  %801 = sitofp i32 %.7 to double
+  %802 = fdiv double %801, %323
+  %803 = fcmp ole double %802, 2.500000e-01
+  %804 = fcmp oge double %802, 7.500000e-01
+  %or.cond.i367 = or i1 %803, %804
+  br i1 %or.cond.i367, label %805, label %839
 
-799:                                              ; preds = %794
-  %800 = fcmp ogt double %.0102.i366, %.0100.i364
-  br i1 %800, label %801, label %810
+805:                                              ; preds = %800
+  %806 = fcmp ogt double %.0102.i366, %.0100.i364
+  br i1 %806, label %807, label %816
 
-801:                                              ; preds = %799
-  %802 = fsub double 0x401921FB54442D18, %.0102.i366
-  %803 = insertelement <2 x double> poison, double %.0102.i366, i64 0
-  %804 = insertelement <2 x double> %803, double %802, i64 1
-  %805 = insertelement <2 x double> poison, double %.0100.i364, i64 0
-  %806 = shufflevector <2 x double> %805, <2 x double> poison, <2 x i32> zeroinitializer
-  %807 = fsub <2 x double> %804, %806
-  %808 = fadd <2 x double> %804, %806
-  %809 = shufflevector <2 x double> %807, <2 x double> %808, <2 x i32> <i32 0, i32 3>
-  br label %819
+807:                                              ; preds = %805
+  %808 = fsub double 0x401921FB54442D18, %.0102.i366
+  %809 = insertelement <2 x double> poison, double %.0102.i366, i64 0
+  %810 = insertelement <2 x double> %809, double %808, i64 1
+  %811 = insertelement <2 x double> poison, double %.0100.i364, i64 0
+  %812 = shufflevector <2 x double> %811, <2 x double> poison, <2 x i32> zeroinitializer
+  %813 = fsub <2 x double> %810, %812
+  %814 = fadd <2 x double> %810, %812
+  %815 = shufflevector <2 x double> %813, <2 x double> %814, <2 x i32> <i32 0, i32 3>
+  br label %825
 
-810:                                              ; preds = %799
-  %811 = fsub double 0x401921FB54442D18, %.0100.i364
-  %812 = insertelement <2 x double> poison, double %.0100.i364, i64 0
-  %813 = insertelement <2 x double> %812, double %811, i64 1
-  %814 = insertelement <2 x double> poison, double %.0102.i366, i64 0
-  %815 = shufflevector <2 x double> %814, <2 x double> poison, <2 x i32> zeroinitializer
-  %816 = fsub <2 x double> %813, %815
-  %817 = fadd <2 x double> %813, %815
-  %818 = shufflevector <2 x double> %816, <2 x double> %817, <2 x i32> <i32 0, i32 3>
-  br label %819
+816:                                              ; preds = %805
+  %817 = fsub double 0x401921FB54442D18, %.0100.i364
+  %818 = insertelement <2 x double> poison, double %.0100.i364, i64 0
+  %819 = insertelement <2 x double> %818, double %817, i64 1
+  %820 = insertelement <2 x double> poison, double %.0102.i366, i64 0
+  %821 = shufflevector <2 x double> %820, <2 x double> poison, <2 x i32> zeroinitializer
+  %822 = fsub <2 x double> %819, %821
+  %823 = fadd <2 x double> %819, %821
+  %824 = shufflevector <2 x double> %822, <2 x double> %823, <2 x i32> <i32 0, i32 3>
+  br label %825
 
-819:                                              ; preds = %810, %801
-  %820 = phi <2 x double> [ %809, %801 ], [ %818, %810 ]
-  %821 = fdiv <2 x double> %820, <double 0x401921FB54442D18, double 0x401921FB54442D18>
-  %822 = insertelement <2 x double> poison, double %796, i64 0
-  %823 = shufflevector <2 x double> %822, <2 x double> poison, <2 x i32> zeroinitializer
-  %824 = fsub <2 x double> %823, %821
-  %825 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %824)
-  %826 = extractelement <2 x double> %825, i64 0
-  %827 = extractelement <2 x double> %825, i64 1
-  %828 = fcmp olt double %826, %827
-  br i1 %828, label %829, label %831
+825:                                              ; preds = %816, %807
+  %826 = phi <2 x double> [ %815, %807 ], [ %824, %816 ]
+  %827 = fdiv <2 x double> %826, <double 0x401921FB54442D18, double 0x401921FB54442D18>
+  %828 = insertelement <2 x double> poison, double %802, i64 0
+  %829 = shufflevector <2 x double> %828, <2 x double> poison, <2 x i32> zeroinitializer
+  %830 = fsub <2 x double> %829, %827
+  %831 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %830)
+  %832 = extractelement <2 x double> %831, i64 0
+  %833 = extractelement <2 x double> %831, i64 1
+  %834 = fcmp olt double %832, %833
+  br i1 %834, label %835, label %837
 
-829:                                              ; preds = %819
-  br i1 %800, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376, label %830
+835:                                              ; preds = %825
+  br i1 %806, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376, label %836
 
-830:                                              ; preds = %829
+836:                                              ; preds = %835
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
 
-831:                                              ; preds = %819
-  br i1 %800, label %832, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
+837:                                              ; preds = %825
+  br i1 %806, label %838, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
 
-832:                                              ; preds = %831
+838:                                              ; preds = %837
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
 
-833:                                              ; preds = %794
-  %834 = fsub double %754, %743
-  %835 = fsub double %756, %744
-  %836 = fsub double %748, %754
-  %837 = fsub double %750, %756
-  %838 = fneg double %835
-  %839 = fmul double %836, %838
-  %840 = tail call double @llvm.fmuladd.f64(double %834, double %837, double %839)
-  %841 = fcmp olt double %840, 0.000000e+00
-  br i1 %841, label %842, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
+839:                                              ; preds = %800
+  %840 = fsub double %758, %747
+  %841 = fsub double %760, %748
+  %842 = fsub double %752, %758
+  %843 = fsub double %754, %760
+  %844 = fneg double %841
+  %845 = fmul double %842, %844
+  %846 = tail call double @llvm.fmuladd.f64(double %840, double %843, double %845)
+  %847 = fcmp olt double %846, 0.000000e+00
+  br i1 %847, label %848, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
 
-842:                                              ; preds = %833
+848:                                              ; preds = %839
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
 
-_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376: ; preds = %829, %830, %831, %832, %833, %842
-  %.1103.i368 = phi double [ %.0102.i366, %829 ], [ %.0100.i364, %830 ], [ %.0100.i364, %832 ], [ %.0102.i366, %831 ], [ %.0100.i364, %842 ], [ %.0102.i366, %833 ]
-  %.1101.i369 = phi double [ %.0100.i364, %829 ], [ %.0102.i366, %830 ], [ %.0102.i366, %832 ], [ %.0100.i364, %831 ], [ %.0102.i366, %842 ], [ %.0100.i364, %833 ]
-  %843 = fsub double %.1101.i369, %.1103.i368
-  %844 = tail call double @llvm.fabs.f64(double %843)
-  %845 = fcmp olt double %844, 0x3FAACEE9F37BEBD5
-  %.2104.i370 = select i1 %845, double 6.260000e+00, double %.1103.i368
-  %.2.i371 = select i1 %845, double 0.000000e+00, double %.1101.i369
-  %846 = fcmp ult double %.2.i371, 6.260000e+00
-  %.3.i372 = select i1 %846, double %.2.i371, double 0.000000e+00
-  %847 = fcmp olt double %.2104.i370, 0x3FC45F306DC9C883
-  %.3105.i373 = select i1 %847, double 6.280000e+00, double %.2104.i370
-  %848 = load ptr, ptr %14, align 8
-  %849 = load ptr, ptr %848, align 8
-  %850 = getelementptr inbounds i8, ptr %848, i64 8
-  %851 = load ptr, ptr %10, align 8
-  %852 = getelementptr inbounds %struct.Info, ptr %851, i64 %45
-  %853 = load i32, ptr %852, align 8
-  %854 = load double, ptr %.1326, align 8
-  %855 = fptosi double %854 to i32
-  %856 = load double, ptr %.1323, align 8
-  %857 = fptosi double %856 to i32
-  %858 = load double, ptr %747, align 8
-  %859 = fptosi double %858 to i32
-  %860 = load double, ptr %749, align 8
+_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376: ; preds = %835, %836, %837, %838, %839, %848
+  %.1103.i368 = phi double [ %.0102.i366, %835 ], [ %.0100.i364, %836 ], [ %.0100.i364, %838 ], [ %.0102.i366, %837 ], [ %.0100.i364, %848 ], [ %.0102.i366, %839 ]
+  %.1101.i369 = phi double [ %.0100.i364, %835 ], [ %.0102.i366, %836 ], [ %.0102.i366, %838 ], [ %.0100.i364, %837 ], [ %.0102.i366, %848 ], [ %.0100.i364, %839 ]
+  %849 = fsub double %.1101.i369, %.1103.i368
+  %850 = tail call double @llvm.fabs.f64(double %849)
+  %851 = fcmp olt double %850, 0x3FAACEE9F37BEBD5
+  %.2104.i370 = select i1 %851, double 6.260000e+00, double %.1103.i368
+  %.2.i371 = select i1 %851, double 0.000000e+00, double %.1101.i369
+  %852 = fcmp ult double %.2.i371, 6.260000e+00
+  %.3.i372 = select i1 %852, double %.2.i371, double 0.000000e+00
+  %853 = fcmp olt double %.2104.i370, 0x3FC45F306DC9C883
+  %.3105.i373 = select i1 %853, double 6.280000e+00, double %.2104.i370
+  %854 = load ptr, ptr %14, align 8
+  %855 = load ptr, ptr %854, align 8
+  %856 = getelementptr inbounds i8, ptr %854, i64 8
+  %857 = load ptr, ptr %10, align 8
+  %858 = getelementptr inbounds %struct.Info, ptr %857, i64 %45
+  %859 = load i32, ptr %858, align 8
+  %860 = load double, ptr %.1326, align 8
   %861 = fptosi double %860 to i32
-  %862 = load i32, ptr %850, align 4
-  %863 = sext i32 %862 to i64
-  %864 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %863
-  store double %323, ptr %864, align 8
-  %865 = load i32, ptr %850, align 4
-  %866 = sext i32 %865 to i64
-  %867 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %866, i32 1
-  store double %322, ptr %867, align 8
-  %868 = load i32, ptr %850, align 4
+  %862 = load double, ptr %.1323, align 8
+  %863 = fptosi double %862 to i32
+  %864 = load double, ptr %751, align 8
+  %865 = fptosi double %864 to i32
+  %866 = load double, ptr %753, align 8
+  %867 = fptosi double %866 to i32
+  %868 = load i32, ptr %856, align 4
   %869 = sext i32 %868 to i64
-  %870 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %869, i32 2
-  store double %.0557, ptr %870, align 8
-  %871 = load i32, ptr %850, align 4
+  %870 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %869
+  store double %761, ptr %870, align 8
+  %871 = load i32, ptr %856, align 4
   %872 = sext i32 %871 to i64
-  %873 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %872, i32 3
-  store double %.0558, ptr %873, align 8
-  %874 = load i32, ptr %850, align 4
+  %873 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %872, i32 1
+  store double %771, ptr %873, align 8
+  %874 = load i32, ptr %856, align 4
   %875 = sext i32 %874 to i64
-  %876 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %875, i32 4
-  store double %.3.i372, ptr %876, align 8
-  %877 = load i32, ptr %850, align 4
+  %876 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %875, i32 2
+  store double %.0557, ptr %876, align 8
+  %877 = load i32, ptr %856, align 4
   %878 = sext i32 %877 to i64
-  %879 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %878, i32 5
-  store double %.3105.i373, ptr %879, align 8
-  %880 = load <2 x double>, ptr %17, align 8
-  %881 = load <2 x double>, ptr %18, align 8
-  %882 = load <2 x double>, ptr %19, align 8
-  %883 = load double, ptr %20, align 8
-  %884 = extractelement <2 x double> %880, i64 0
-  %885 = extractelement <2 x double> %880, i64 1
-  %886 = fdiv double %885, %884
-  %887 = shufflevector <2 x double> %880, <2 x double> poison, <2 x i32> zeroinitializer
-  %888 = fdiv <2 x double> %882, %887
-  %889 = fdiv double %883, %884
-  %890 = shufflevector <2 x double> %881, <2 x double> %880, <2 x i32> <i32 0, i32 2>
-  %891 = shufflevector <2 x double> %880, <2 x double> poison, <2 x i32> zeroinitializer
-  %892 = fdiv <2 x double> %890, %891
-  %893 = fcmp une double %886, 0.000000e+00
-  br i1 %893, label %894, label %941
+  %879 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %878, i32 3
+  store double %.0558, ptr %879, align 8
+  %880 = load i32, ptr %856, align 4
+  %881 = sext i32 %880 to i64
+  %882 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %881, i32 4
+  store double %.3.i372, ptr %882, align 8
+  %883 = load i32, ptr %856, align 4
+  %884 = sext i32 %883 to i64
+  %885 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %884, i32 5
+  store double %.3105.i373, ptr %885, align 8
+  %886 = load <2 x double>, ptr %17, align 8
+  %887 = load <2 x double>, ptr %18, align 8
+  %888 = load <2 x double>, ptr %19, align 8
+  %889 = load double, ptr %20, align 8
+  %890 = extractelement <2 x double> %886, i64 0
+  %891 = extractelement <2 x double> %886, i64 1
+  %892 = fdiv double %891, %890
+  %893 = shufflevector <2 x double> %886, <2 x double> poison, <2 x i32> zeroinitializer
+  %894 = fdiv <2 x double> %888, %893
+  %895 = fdiv double %889, %890
+  %896 = shufflevector <2 x double> %887, <2 x double> %886, <2 x i32> <i32 0, i32 2>
+  %897 = shufflevector <2 x double> %886, <2 x double> poison, <2 x i32> zeroinitializer
+  %898 = fdiv <2 x double> %896, %897
+  %899 = fcmp une double %892, 0.000000e+00
+  br i1 %899, label %900, label %947
 
-894:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
-  %shift1070 = shufflevector <2 x double> %892, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %895 = fsub <2 x double> %shift1070, %892
-  %896 = extractelement <2 x double> %895, i64 0
-  %897 = fdiv double %886, %896
-  %898 = tail call double @atan(double noundef %897) #37
-  %899 = fmul double %898, 5.000000e-01
-  %900 = fmul double %899, 2.000000e+00
-  %901 = tail call double @cos(double noundef %900) #37
-  %902 = tail call double @sin(double noundef %900) #37
-  %903 = tail call double @cos(double noundef %900) #37
-  %904 = fsub double 1.000000e+00, %903
-  %905 = tail call double @cos(double noundef %900) #37
-  %906 = insertelement <2 x double> poison, double %905, i64 0
-  %907 = insertelement <2 x double> %906, double %901, i64 1
-  %908 = fsub <2 x double> <double 1.000000e+00, double poison>, %907
-  %909 = fadd <2 x double> %907, <double poison, double 1.000000e+00>
-  %910 = shufflevector <2 x double> %908, <2 x double> %909, <2 x i32> <i32 0, i32 3>
-  %911 = tail call double @sin(double noundef %900) #37
-  %912 = fneg double %886
-  %913 = tail call double @cos(double noundef %900) #37
-  %914 = fadd double %913, 1.000000e+00
-  %915 = insertelement <2 x double> poison, double %912, i64 0
-  %916 = insertelement <2 x double> %915, double %886, i64 1
-  %917 = insertelement <2 x double> poison, double %911, i64 0
-  %918 = insertelement <2 x double> %917, double %902, i64 1
-  %919 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %916, <2 x double> %918, <2 x double> %910)
-  %920 = shufflevector <2 x double> %892, <2 x double> poison, <2 x i32> zeroinitializer
-  %921 = insertelement <2 x double> poison, double %914, i64 0
-  %922 = insertelement <2 x double> %921, double %904, i64 1
-  %923 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %920, <2 x double> %922, <2 x double> %919)
-  %924 = shufflevector <2 x double> %892, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %925 = fmul <2 x double> %924, %923
-  %926 = fmul <2 x double> %925, <double 5.000000e-01, double 5.000000e-01>
-  %927 = tail call double @cos(double noundef %899) #37
-  %928 = tail call double @sin(double noundef %899) #37
-  %929 = extractelement <2 x double> %888, i64 0
-  %930 = fneg double %929
-  %931 = tail call double @sin(double noundef %899) #37
-  %932 = tail call double @cos(double noundef %899) #37
-  %933 = shufflevector <2 x double> %888, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %934 = insertelement <2 x double> poison, double %928, i64 0
-  %935 = insertelement <2 x double> %934, double %932, i64 1
-  %936 = fmul <2 x double> %933, %935
-  %937 = insertelement <2 x double> %888, double %930, i64 1
-  %938 = insertelement <2 x double> poison, double %927, i64 0
-  %939 = insertelement <2 x double> %938, double %931, i64 1
-  %940 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %937, <2 x double> %939, <2 x double> %936)
-  br label %941
+900:                                              ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
+  %shift1070 = shufflevector <2 x double> %898, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %901 = fsub <2 x double> %shift1070, %898
+  %902 = extractelement <2 x double> %901, i64 0
+  %903 = fdiv double %892, %902
+  %904 = tail call double @atan(double noundef %903) #37
+  %905 = fmul double %904, 5.000000e-01
+  %906 = fmul double %905, 2.000000e+00
+  %907 = tail call double @cos(double noundef %906) #37
+  %908 = tail call double @sin(double noundef %906) #37
+  %909 = tail call double @cos(double noundef %906) #37
+  %910 = fsub double 1.000000e+00, %909
+  %911 = tail call double @cos(double noundef %906) #37
+  %912 = insertelement <2 x double> poison, double %911, i64 0
+  %913 = insertelement <2 x double> %912, double %907, i64 1
+  %914 = fsub <2 x double> <double 1.000000e+00, double poison>, %913
+  %915 = fadd <2 x double> %913, <double poison, double 1.000000e+00>
+  %916 = shufflevector <2 x double> %914, <2 x double> %915, <2 x i32> <i32 0, i32 3>
+  %917 = tail call double @sin(double noundef %906) #37
+  %918 = fneg double %892
+  %919 = tail call double @cos(double noundef %906) #37
+  %920 = fadd double %919, 1.000000e+00
+  %921 = insertelement <2 x double> poison, double %918, i64 0
+  %922 = insertelement <2 x double> %921, double %892, i64 1
+  %923 = insertelement <2 x double> poison, double %917, i64 0
+  %924 = insertelement <2 x double> %923, double %908, i64 1
+  %925 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %922, <2 x double> %924, <2 x double> %916)
+  %926 = shufflevector <2 x double> %898, <2 x double> poison, <2 x i32> zeroinitializer
+  %927 = insertelement <2 x double> poison, double %920, i64 0
+  %928 = insertelement <2 x double> %927, double %910, i64 1
+  %929 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %926, <2 x double> %928, <2 x double> %925)
+  %930 = shufflevector <2 x double> %898, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %931 = fmul <2 x double> %930, %929
+  %932 = fmul <2 x double> %931, <double 5.000000e-01, double 5.000000e-01>
+  %933 = tail call double @cos(double noundef %905) #37
+  %934 = tail call double @sin(double noundef %905) #37
+  %935 = extractelement <2 x double> %894, i64 0
+  %936 = fneg double %935
+  %937 = tail call double @sin(double noundef %905) #37
+  %938 = tail call double @cos(double noundef %905) #37
+  %939 = shufflevector <2 x double> %894, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %940 = insertelement <2 x double> poison, double %934, i64 0
+  %941 = insertelement <2 x double> %940, double %938, i64 1
+  %942 = fmul <2 x double> %939, %941
+  %943 = insertelement <2 x double> %894, double %936, i64 1
+  %944 = insertelement <2 x double> poison, double %933, i64 0
+  %945 = insertelement <2 x double> %944, double %937, i64 1
+  %946 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %943, <2 x double> %945, <2 x double> %942)
+  br label %947
 
-941:                                              ; preds = %894, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
-  %.092.i459 = phi double [ %899, %894 ], [ 0.000000e+00, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
-  %942 = phi <2 x double> [ %926, %894 ], [ %892, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
-  %943 = phi <2 x double> [ %940, %894 ], [ %888, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
-  %944 = extractelement <2 x double> %942, i64 1
-  %945 = extractelement <2 x double> %943, i64 0
-  %946 = fdiv double %945, %944
-  %947 = extractelement <2 x double> %942, i64 0
-  %948 = extractelement <2 x double> %943, i64 1
-  %949 = fdiv double %948, %947
-  %950 = fmul double %946, -5.000000e-01
-  %951 = fmul double %949, -5.000000e-01
-  %square.i463 = fmul double %950, %950
-  %square96.i464 = fmul double %951, %951
-  %952 = fmul double %947, %square96.i464
-  %953 = tail call double @llvm.fmuladd.f64(double %944, double %square.i463, double %952)
-  %954 = fsub double %953, %889
-  %955 = fdiv double %954, %944
-  %956 = tail call double @sqrt(double noundef %955) #37
-  %957 = fdiv double %954, %947
-  %958 = tail call double @sqrt(double noundef %957) #37
-  %959 = tail call double @llvm.fabs.f64(double %.092.i459)
-  %960 = fcmp oeq double %959, 0x7FF0000000000000
-  %or.cond.i465 = and i1 %893, %960
+947:                                              ; preds = %900, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376
+  %.092.i459 = phi double [ %905, %900 ], [ 0.000000e+00, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
+  %948 = phi <2 x double> [ %932, %900 ], [ %898, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
+  %949 = phi <2 x double> [ %946, %900 ], [ %894, %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit376 ]
+  %950 = extractelement <2 x double> %948, i64 1
+  %951 = extractelement <2 x double> %949, i64 0
+  %952 = fdiv double %951, %950
+  %953 = extractelement <2 x double> %948, i64 0
+  %954 = extractelement <2 x double> %949, i64 1
+  %955 = fdiv double %954, %953
+  %956 = fmul double %952, -5.000000e-01
+  %957 = fmul double %955, -5.000000e-01
+  %square.i463 = fmul double %956, %956
+  %square96.i464 = fmul double %957, %957
+  %958 = fmul double %953, %square96.i464
+  %959 = tail call double @llvm.fmuladd.f64(double %950, double %square.i463, double %958)
+  %960 = fsub double %959, %895
+  %961 = fdiv double %960, %950
+  %962 = tail call double @sqrt(double noundef %961) #37
+  %963 = fdiv double %960, %953
+  %964 = tail call double @sqrt(double noundef %963) #37
+  %965 = tail call double @llvm.fabs.f64(double %.092.i459)
+  %966 = fcmp oeq double %965, 0x7FF0000000000000
+  %or.cond.i465 = and i1 %899, %966
   br i1 %or.cond.i465, label %cdce.call608, label %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469, !prof !182
 
-cdce.call608:                                     ; preds = %941
-  %961 = tail call double @cos(double noundef %.092.i459) #37
-  %962 = tail call double @sin(double noundef %.092.i459) #37
-  %963 = tail call double @sin(double noundef %.092.i459) #37
-  %964 = tail call double @cos(double noundef %.092.i459) #37
+cdce.call608:                                     ; preds = %947
+  %967 = tail call double @cos(double noundef %.092.i459) #37
+  %968 = tail call double @sin(double noundef %.092.i459) #37
+  %969 = tail call double @sin(double noundef %.092.i459) #37
+  %970 = tail call double @cos(double noundef %.092.i459) #37
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469
 
-_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469: ; preds = %cdce.call608, %941
-  %965 = fsub double %956, %958
-  %square97.i466 = fmul double %965, %965
-  %966 = fadd double %956, %958
-  %square98.i467 = fmul double %966, %966
-  %967 = fdiv double %square97.i466, %square98.i467
-  %968 = fmul double %966, 0x400921FB54442D18
-  %969 = fmul double %967, 3.000000e+00
-  %970 = tail call double @llvm.fmuladd.f64(double %967, double -3.000000e+00, double 4.000000e+00)
-  %971 = tail call double @sqrt(double noundef %970) #37
-  %972 = fadd double %971, 1.000000e+01
-  %973 = fdiv double %969, %972
-  %974 = fadd double %973, 1.000000e+00
-  %975 = fmul double %968, %974
-  %976 = fdiv double %795, %975
-  %977 = load i32, ptr %850, align 4
-  %978 = sext i32 %977 to i64
-  %979 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %978, i32 6
-  store double %976, ptr %979, align 8
-  %980 = load i32, ptr %850, align 4
-  %981 = sext i32 %980 to i64
-  %982 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %981, i32 7
-  store i32 %853, ptr %982, align 8
-  %983 = load i32, ptr %850, align 4
+_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469: ; preds = %cdce.call608, %947
+  %971 = fsub double %962, %964
+  %square97.i466 = fmul double %971, %971
+  %972 = fadd double %962, %964
+  %square98.i467 = fmul double %972, %972
+  %973 = fdiv double %square97.i466, %square98.i467
+  %974 = fmul double %972, 0x400921FB54442D18
+  %975 = fmul double %973, 3.000000e+00
+  %976 = tail call double @llvm.fmuladd.f64(double %973, double -3.000000e+00, double 4.000000e+00)
+  %977 = tail call double @sqrt(double noundef %976) #37
+  %978 = fadd double %977, 1.000000e+01
+  %979 = fdiv double %975, %978
+  %980 = fadd double %979, 1.000000e+00
+  %981 = fmul double %974, %980
+  %982 = fdiv double %801, %981
+  %983 = load i32, ptr %856, align 4
   %984 = sext i32 %983 to i64
-  %985 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %984, i32 8
-  store i32 %41, ptr %985, align 4
-  %986 = load i32, ptr %850, align 4
+  %985 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %984, i32 6
+  store double %982, ptr %985, align 8
+  %986 = load i32, ptr %856, align 4
   %987 = sext i32 %986 to i64
-  %988 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %987, i32 16
-  store i8 1, ptr %988, align 4
-  %989 = load i32, ptr %850, align 4
+  %988 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %987, i32 7
+  store i32 %859, ptr %988, align 8
+  %989 = load i32, ptr %856, align 4
   %990 = sext i32 %989 to i64
-  %991 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %990, i32 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %991, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 56, i1 false)
-  %992 = load i32, ptr %850, align 4
+  %991 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %990, i32 8
+  store i32 %41, ptr %991, align 4
+  %992 = load i32, ptr %856, align 4
   %993 = sext i32 %992 to i64
-  %994 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %993, i32 18
-  store double %587, ptr %994, align 8
-  %995 = load i32, ptr %850, align 4
+  %994 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %993, i32 16
+  store i8 1, ptr %994, align 4
+  %995 = load i32, ptr %856, align 4
   %996 = sext i32 %995 to i64
-  %997 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %996, i32 9
-  store i32 %855, ptr %997, align 8
-  %998 = load i32, ptr %850, align 4
+  %997 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %996, i32 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %997, ptr noundef nonnull readonly align 8 dereferenceable(56) %2, i64 56, i1 false)
+  %998 = load i32, ptr %856, align 4
   %999 = sext i32 %998 to i64
-  %1000 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %999, i32 10
-  store i32 %857, ptr %1000, align 4
-  %1001 = load i32, ptr %850, align 4
+  %1000 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %999, i32 18
+  store double %589, ptr %1000, align 8
+  %1001 = load i32, ptr %856, align 4
   %1002 = sext i32 %1001 to i64
-  %1003 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %1002, i32 11
-  store i32 %859, ptr %1003, align 8
-  %1004 = load i32, ptr %850, align 4
+  %1003 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1002, i32 9
+  store i32 %861, ptr %1003, align 8
+  %1004 = load i32, ptr %856, align 4
   %1005 = sext i32 %1004 to i64
-  %1006 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %1005, i32 12
-  store i32 %861, ptr %1006, align 4
-  %1007 = load i32, ptr %850, align 4
+  %1006 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1005, i32 10
+  store i32 %863, ptr %1006, align 4
+  %1007 = load i32, ptr %856, align 4
   %1008 = sext i32 %1007 to i64
-  %1009 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %1008, i32 13
-  store ptr %.1326, ptr %1009, align 8
-  %1010 = load i32, ptr %850, align 4
+  %1009 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1008, i32 11
+  store i32 %865, ptr %1009, align 8
+  %1010 = load i32, ptr %856, align 4
   %1011 = sext i32 %1010 to i64
-  %1012 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %1011, i32 14
-  store ptr %.1323, ptr %1012, align 8
-  %1013 = load i32, ptr %850, align 4
+  %1012 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1011, i32 12
+  store i32 %867, ptr %1012, align 4
+  %1013 = load i32, ptr %856, align 4
   %1014 = sext i32 %1013 to i64
-  %1015 = getelementptr inbounds %struct.MyArc, ptr %849, i64 %1014, i32 15
-  store i32 %.7, ptr %1015, align 8
-  br label %1016
+  %1015 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1014, i32 13
+  store ptr %.1326, ptr %1015, align 8
+  %1016 = load i32, ptr %856, align 4
+  %1017 = sext i32 %1016 to i64
+  %1018 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1017, i32 14
+  store ptr %.1323, ptr %1018, align 8
+  %1019 = load i32, ptr %856, align 4
+  %1020 = sext i32 %1019 to i64
+  %1021 = getelementptr inbounds %struct.MyArc, ptr %855, i64 %1020, i32 15
+  store i32 %.7, ptr %1021, align 8
+  br label %1022
 
-1016:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit
-  %.sink = phi ptr [ %850, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469 ], [ %16, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit ]
-  %1017 = load i32, ptr %.sink, align 4
-  %1018 = add nsw i32 %1017, 1
-  store i32 %1018, ptr %.sink, align 4
-  %1019 = icmp slt i32 %.0307774, %.0309.lcssa
-  br i1 %1019, label %.lr.ph694.preheader, label %.backedge, !llvm.loop !175
+1022:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit
+  %.sink = phi ptr [ %856, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit469 ], [ %16, %_ZN2cv8ximgproc15EdgeDrawingImpl23computeEllipsePerimeterEP15EllipseEquation.exit ]
+  %1023 = load i32, ptr %.sink, align 4
+  %1024 = add nsw i32 %1023, 1
+  store i32 %1024, ptr %.sink, align 4
+  %1025 = icmp slt i32 %.0307774, %.0309.lcssa
+  br i1 %1025, label %.lr.ph694.preheader, label %.backedge, !llvm.loop !175
 
-.lr.ph694.preheader:                              ; preds = %1016
+.lr.ph694.preheader:                              ; preds = %1022
   %wide.trip.count869 = sext i32 %.0309.lcssa to i64
   br label %.lr.ph694
 
 .lr.ph694:                                        ; preds = %.lr.ph694.preheader, %.lr.ph694
   %indvars.iv866 = phi i64 [ %45, %.lr.ph694.preheader ], [ %indvars.iv.next867, %.lr.ph694 ]
-  %1020 = load ptr, ptr %10, align 8
-  %1021 = getelementptr inbounds %struct.Info, ptr %1020, i64 %indvars.iv866, i32 2
-  store i8 1, ptr %1021, align 8
+  %1026 = load ptr, ptr %10, align 8
+  %1027 = getelementptr inbounds %struct.Info, ptr %1026, i64 %indvars.iv866, i32 2
+  store i8 1, ptr %1027, align 8
   %indvars.iv.next867 = add nsw i64 %indvars.iv866, 1
   %exitcond870.not = icmp eq i64 %indvars.iv.next867, %wide.trip.count869
   br i1 %exitcond870.not, label %.backedge, label %.lr.ph694, !llvm.loop !183
 
-.thread569:                                       ; preds = %567, %584, %586
-  br i1 %.2312568, label %1026, label %.preheader611
+.thread569:                                       ; preds = %569, %586, %588
+  br i1 %.2312568, label %1032, label %.preheader611
 
 .preheader611:                                    ; preds = %.thread569
-  %1022 = add nsw i32 %.0309.lcssa, -2
-  %.not349762 = icmp sgt i32 %.0307774, %1022
+  %1028 = add nsw i32 %.0309.lcssa, -2
+  %.not349762 = icmp sgt i32 %.0307774, %1028
   br i1 %.not349762, label %.backedge, label %.lr.ph769
 
 .lr.ph769:                                        ; preds = %.preheader611
-  %1023 = fcmp ole double %.0558, 1.500000e+00
-  %1024 = add i32 %.0309.lcssa, 1
-  %1025 = sext i32 %.0309.lcssa to i64
-  br label %1029
+  %1029 = fcmp ole double %.0558, 1.500000e+00
+  %1030 = add i32 %.0309.lcssa, 1
+  %1031 = sext i32 %.0309.lcssa to i64
+  br label %1035
 
-1026:                                             ; preds = %.thread569
-  %1027 = load ptr, ptr %10, align 8
-  %1028 = getelementptr inbounds %struct.Info, ptr %1027, i64 %45, i32 2
-  store i8 1, ptr %1028, align 8
+1032:                                             ; preds = %.thread569
+  %1033 = load ptr, ptr %10, align 8
+  %1034 = getelementptr inbounds %struct.Info, ptr %1033, i64 %45, i32 2
+  store i8 1, ptr %1034, align 8
   br label %.backedge
 
-1029:                                             ; preds = %.lr.ph769, %1436
-  %.1308768 = phi i32 [ %.0307774, %.lr.ph769 ], [ %.1302.lcssa, %1436 ]
-  %.2324767 = phi ptr [ %167, %.lr.ph769 ], [ %1439, %1436 ]
-  %.2327766 = phi ptr [ %168, %.lr.ph769 ], [ %1438, %1436 ]
-  %1030 = add nsw i32 %.1308768, 2
-  %.not350.not701 = icmp sgt i32 %1030, %.0309.lcssa
+1035:                                             ; preds = %.lr.ph769, %1442
+  %.1308768 = phi i32 [ %.0307774, %.lr.ph769 ], [ %.1302.lcssa, %1442 ]
+  %.2324767 = phi ptr [ %167, %.lr.ph769 ], [ %1445, %1442 ]
+  %.2327766 = phi ptr [ %168, %.lr.ph769 ], [ %1444, %1442 ]
+  %1036 = add nsw i32 %.1308768, 2
+  %.not350.not701 = icmp sgt i32 %1036, %.0309.lcssa
   br i1 %.not350.not701, label %.backedge, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %1029
-  %1031 = sext i32 %.1308768 to i64
-  %1032 = add i32 %.1308768, 3
+.preheader.preheader:                             ; preds = %1035
+  %1037 = sext i32 %.1308768 to i64
+  %1038 = add i32 %.1308768, 3
   br label %.lr.ph698
 
 .lr.ph698:                                        ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, %.preheader.preheader
-  %indvars.iv876 = phi i32 [ %1032, %.preheader.preheader ], [ %indvars.iv.next877, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
-  %indvars.iv871 = phi i64 [ %1031, %.preheader.preheader ], [ %indvars.iv.next872, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
-  %.0301708 = phi i32 [ %1030, %.preheader.preheader ], [ %1123, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
-  %.3706 = phi ptr [ %.2324767, %.preheader.preheader ], [ %1122, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
-  %.3328705 = phi ptr [ %.2327766, %.preheader.preheader ], [ %1121, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
-  %1033 = load ptr, ptr %11, align 8
-  br label %1034
+  %indvars.iv876 = phi i32 [ %1038, %.preheader.preheader ], [ %indvars.iv.next877, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
+  %indvars.iv871 = phi i64 [ %1037, %.preheader.preheader ], [ %indvars.iv.next872, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
+  %.0301708 = phi i32 [ %1036, %.preheader.preheader ], [ %1129, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
+  %.3706 = phi ptr [ %.2324767, %.preheader.preheader ], [ %1128, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
+  %.3328705 = phi ptr [ %.2327766, %.preheader.preheader ], [ %1127, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread ]
+  %1039 = load ptr, ptr %11, align 8
+  br label %1040
 
-1034:                                             ; preds = %.lr.ph698, %1034
-  %indvars.iv873 = phi i64 [ %indvars.iv871, %.lr.ph698 ], [ %indvars.iv.next874, %1034 ]
-  %.9696 = phi i32 [ 0, %.lr.ph698 ], [ %1037, %1034 ]
-  %1035 = getelementptr inbounds %struct.EDLineSegment, ptr %1033, i64 %indvars.iv873, i32 10
-  %1036 = load i32, ptr %1035, align 8
-  %1037 = add nsw i32 %1036, %.9696
+1040:                                             ; preds = %.lr.ph698, %1040
+  %indvars.iv873 = phi i64 [ %indvars.iv871, %.lr.ph698 ], [ %indvars.iv.next874, %1040 ]
+  %.9696 = phi i32 [ 0, %.lr.ph698 ], [ %1043, %1040 ]
+  %1041 = getelementptr inbounds %struct.EDLineSegment, ptr %1039, i64 %indvars.iv873, i32 10
+  %1042 = load i32, ptr %1041, align 8
+  %1043 = add nsw i32 %1042, %.9696
   %indvars.iv.next874 = add nsw i64 %indvars.iv873, 1
   %lftr.wideiv878 = trunc i64 %indvars.iv.next874 to i32
   %exitcond879.not = icmp eq i32 %indvars.iv876, %lftr.wideiv878
-  br i1 %exitcond879.not, label %._crit_edge699, label %1034, !llvm.loop !184
+  br i1 %exitcond879.not, label %._crit_edge699, label %1040, !llvm.loop !184
 
-._crit_edge699:                                   ; preds = %1034
-  %1038 = icmp slt i32 %1037, 3
-  br i1 %1038, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.preheader.preheader.i377
+._crit_edge699:                                   ; preds = %1040
+  %1044 = icmp slt i32 %1043, 3
+  br i1 %1044, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.preheader.preheader.i377
 
 .preheader.preheader.i377:                        ; preds = %._crit_edge699
-  %wide.trip.count.i378 = zext nneg i32 %1037 to i64
+  %wide.trip.count.i378 = zext nneg i32 %1043 to i64
   br label %.preheader.i379
 
 .preheader.i379:                                  ; preds = %.preheader.i379, %.preheader.preheader.i377
   %indvars.iv.i380 = phi i64 [ 0, %.preheader.preheader.i377 ], [ %indvars.iv.next.i383, %.preheader.i379 ]
-  %1039 = phi <2 x double> [ zeroinitializer, %.preheader.preheader.i377 ], [ %1046, %.preheader.i379 ]
-  %1040 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv.i380
-  %1041 = load double, ptr %1040, align 8
-  %1042 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv.i380
-  %1043 = load double, ptr %1042, align 8
-  %1044 = insertelement <2 x double> poison, double %1041, i64 0
-  %1045 = insertelement <2 x double> %1044, double %1043, i64 1
-  %1046 = fadd <2 x double> %1039, %1045
+  %1045 = phi <2 x double> [ zeroinitializer, %.preheader.preheader.i377 ], [ %1052, %.preheader.i379 ]
+  %1046 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv.i380
+  %1047 = load double, ptr %1046, align 8
+  %1048 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv.i380
+  %1049 = load double, ptr %1048, align 8
+  %1050 = insertelement <2 x double> poison, double %1047, i64 0
+  %1051 = insertelement <2 x double> %1050, double %1049, i64 1
+  %1052 = fadd <2 x double> %1045, %1051
   %indvars.iv.next.i383 = add nuw nsw i64 %indvars.iv.i380, 1
   %exitcond.not.i384 = icmp eq i64 %indvars.iv.next.i383, %wide.trip.count.i378
   br i1 %exitcond.not.i384, label %.lr.ph.preheader.i385, label %.preheader.i379, !llvm.loop !151
 
 .lr.ph.preheader.i385:                            ; preds = %.preheader.i379
-  %1047 = uitofp nneg i32 %1037 to double
-  %1048 = insertelement <2 x double> poison, double %1047, i64 0
-  %1049 = shufflevector <2 x double> %1048, <2 x double> poison, <2 x i32> zeroinitializer
-  %1050 = fdiv <2 x double> %1046, %1049
+  %1053 = uitofp nneg i32 %1043 to double
+  %1054 = insertelement <2 x double> poison, double %1053, i64 0
+  %1055 = shufflevector <2 x double> %1054, <2 x double> poison, <2 x i32> zeroinitializer
+  %1056 = fdiv <2 x double> %1052, %1055
   br label %.lr.ph.i386
 
 .lr.ph.i386:                                      ; preds = %.lr.ph.i386, %.lr.ph.preheader.i385
   %indvars.iv151.i387 = phi i64 [ 0, %.lr.ph.preheader.i385 ], [ %indvars.iv.next152.i395, %.lr.ph.i386 ]
-  %.0109127.i389 = phi double [ 0.000000e+00, %.lr.ph.preheader.i385 ], [ %1064, %.lr.ph.i386 ]
-  %1051 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1066, %.lr.ph.i386 ]
-  %1052 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1075, %.lr.ph.i386 ]
-  %1053 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1074, %.lr.ph.i386 ]
-  %1054 = shufflevector <2 x double> %1051, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1055 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv151.i387
-  %1056 = load double, ptr %1055, align 8
-  %1057 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv151.i387
-  %1058 = load double, ptr %1057, align 8
-  %1059 = insertelement <2 x double> poison, double %1056, i64 0
-  %1060 = insertelement <2 x double> %1059, double %1058, i64 1
-  %1061 = fsub <2 x double> %1060, %1050
-  %1062 = extractelement <2 x double> %1061, i64 1
-  %1063 = extractelement <2 x double> %1061, i64 0
-  %1064 = tail call double @llvm.fmuladd.f64(double %1063, double %1062, double %.0109127.i389)
-  %1065 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1061, <2 x double> %1061, <2 x double> %1054)
-  %1066 = shufflevector <2 x double> %1065, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1067 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> zeroinitializer
-  %1068 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1069 = fmul <2 x double> %1067, %1068
-  %1070 = shufflevector <2 x double> %1069, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1071 = fmul double %1062, %1062
-  %1072 = insertelement <2 x double> %1069, double %1071, i64 1
-  %1073 = shufflevector <2 x double> %1061, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1074 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1072, <2 x double> %1073, <2 x double> %1053)
-  %1075 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1070, <2 x double> %1067, <2 x double> %1052)
+  %.0109127.i389 = phi double [ 0.000000e+00, %.lr.ph.preheader.i385 ], [ %1070, %.lr.ph.i386 ]
+  %1057 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1072, %.lr.ph.i386 ]
+  %1058 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1081, %.lr.ph.i386 ]
+  %1059 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i385 ], [ %1080, %.lr.ph.i386 ]
+  %1060 = shufflevector <2 x double> %1057, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1061 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv151.i387
+  %1062 = load double, ptr %1061, align 8
+  %1063 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv151.i387
+  %1064 = load double, ptr %1063, align 8
+  %1065 = insertelement <2 x double> poison, double %1062, i64 0
+  %1066 = insertelement <2 x double> %1065, double %1064, i64 1
+  %1067 = fsub <2 x double> %1066, %1056
+  %1068 = extractelement <2 x double> %1067, i64 0
+  %1069 = extractelement <2 x double> %1067, i64 1
+  %1070 = tail call double @llvm.fmuladd.f64(double %1068, double %1069, double %.0109127.i389)
+  %1071 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1067, <2 x double> %1067, <2 x double> %1060)
+  %1072 = shufflevector <2 x double> %1071, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1073 = shufflevector <2 x double> %1067, <2 x double> poison, <2 x i32> zeroinitializer
+  %1074 = shufflevector <2 x double> %1067, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1075 = fmul <2 x double> %1073, %1074
+  %1076 = shufflevector <2 x double> %1075, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1077 = fmul double %1069, %1069
+  %1078 = insertelement <2 x double> %1075, double %1077, i64 1
+  %1079 = shufflevector <2 x double> %1067, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1080 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1078, <2 x double> %1079, <2 x double> %1059)
+  %1081 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1076, <2 x double> %1073, <2 x double> %1058)
   %indvars.iv.next152.i395 = add nuw nsw i64 %indvars.iv151.i387, 1
   %exitcond155.not.i396 = icmp eq i64 %indvars.iv.next152.i395, %wide.trip.count.i378
   br i1 %exitcond155.not.i396, label %._crit_edge.i397, label %.lr.ph.i386, !llvm.loop !152
 
 ._crit_edge.i397:                                 ; preds = %.lr.ph.i386
-  %1076 = fneg double %1064
-  %1077 = fmul double %1064, %1076
-  %1078 = extractelement <2 x double> %1065, i64 0
-  %1079 = extractelement <2 x double> %1065, i64 1
-  %1080 = tail call double @llvm.fmuladd.f64(double %1078, double %1079, double %1077)
-  %1081 = fcmp oeq double %1080, 0.000000e+00
-  br i1 %1081, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.lr.ph138.i398
+  %1082 = fneg double %1070
+  %1083 = fmul double %1070, %1082
+  %1084 = extractelement <2 x double> %1071, i64 0
+  %1085 = extractelement <2 x double> %1071, i64 1
+  %1086 = tail call double @llvm.fmuladd.f64(double %1084, double %1085, double %1083)
+  %1087 = fcmp oeq double %1086, 0.000000e+00
+  br i1 %1087, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.lr.ph138.i398
 
 .lr.ph138.i398:                                   ; preds = %._crit_edge.i397
-  %1082 = fadd <2 x double> %1075, %1074
-  %1083 = fmul <2 x double> %1082, <double 5.000000e-01, double 5.000000e-01>
-  %1084 = insertelement <2 x double> poison, double %1076, i64 0
-  %1085 = shufflevector <2 x double> %1084, <2 x double> poison, <2 x i32> zeroinitializer
-  %1086 = fmul <2 x double> %1083, %1085
-  %1087 = shufflevector <2 x double> %1086, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1088 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1066, <2 x double> %1083, <2 x double> %1087)
-  %1089 = insertelement <2 x double> poison, double %1080, i64 0
-  %1090 = shufflevector <2 x double> %1089, <2 x double> poison, <2 x i32> zeroinitializer
-  %1091 = fdiv <2 x double> %1088, %1090
-  %1092 = fmul <2 x double> %1091, %1091
-  %1093 = extractelement <2 x double> %1092, i64 1
-  %1094 = extractelement <2 x double> %1091, i64 0
-  %1095 = tail call double @llvm.fmuladd.f64(double %1094, double %1094, double %1093)
-  %1096 = fadd double %1078, %1079
-  %1097 = fdiv double %1096, %1047
-  %1098 = fadd double %1097, %1095
-  %1099 = tail call double @sqrt(double noundef %1098) #37
-  %1100 = fadd <2 x double> %1050, %1091
-  %1101 = extractelement <2 x double> %1100, i64 0
-  %1102 = extractelement <2 x double> %1100, i64 1
-  br label %1103
+  %1088 = fadd <2 x double> %1081, %1080
+  %1089 = fmul <2 x double> %1088, <double 5.000000e-01, double 5.000000e-01>
+  %1090 = insertelement <2 x double> poison, double %1082, i64 0
+  %1091 = shufflevector <2 x double> %1090, <2 x double> poison, <2 x i32> zeroinitializer
+  %1092 = fmul <2 x double> %1089, %1091
+  %1093 = shufflevector <2 x double> %1092, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1094 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1072, <2 x double> %1089, <2 x double> %1093)
+  %1095 = insertelement <2 x double> poison, double %1086, i64 0
+  %1096 = shufflevector <2 x double> %1095, <2 x double> poison, <2 x i32> zeroinitializer
+  %1097 = fdiv <2 x double> %1094, %1096
+  %1098 = fmul <2 x double> %1097, %1097
+  %1099 = extractelement <2 x double> %1098, i64 1
+  %1100 = extractelement <2 x double> %1097, i64 0
+  %1101 = tail call double @llvm.fmuladd.f64(double %1100, double %1100, double %1099)
+  %1102 = fadd double %1084, %1085
+  %1103 = fdiv double %1102, %1053
+  %1104 = fadd double %1103, %1101
+  %1105 = tail call double @sqrt(double noundef %1104) #37
+  %1106 = fadd <2 x double> %1056, %1097
+  %1107 = extractelement <2 x double> %1106, i64 0
+  %1108 = extractelement <2 x double> %1106, i64 1
+  br label %1109
 
-1103:                                             ; preds = %1103, %.lr.ph138.i398
-  %indvars.iv156.i401 = phi i64 [ 0, %.lr.ph138.i398 ], [ %indvars.iv.next157.i404, %1103 ]
-  %.0106135.i402 = phi double [ 0.000000e+00, %.lr.ph138.i398 ], [ %1113, %1103 ]
-  %1104 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv156.i401
-  %1105 = load double, ptr %1104, align 8
-  %1106 = fsub double %1105, %1101
-  %1107 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv156.i401
-  %1108 = load double, ptr %1107, align 8
-  %1109 = fsub double %1108, %1102
-  %1110 = fmul double %1109, %1109
-  %1111 = tail call double @llvm.fmuladd.f64(double %1106, double %1106, double %1110)
-  %sqrt.i403 = tail call double @llvm.sqrt.f64(double %1111)
-  %1112 = fsub double %sqrt.i403, %1099
-  %1113 = tail call double @llvm.fmuladd.f64(double %1112, double %1112, double %.0106135.i402)
+1109:                                             ; preds = %1109, %.lr.ph138.i398
+  %indvars.iv156.i401 = phi i64 [ 0, %.lr.ph138.i398 ], [ %indvars.iv.next157.i404, %1109 ]
+  %.0106135.i402 = phi double [ 0.000000e+00, %.lr.ph138.i398 ], [ %1119, %1109 ]
+  %1110 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv156.i401
+  %1111 = load double, ptr %1110, align 8
+  %1112 = fsub double %1111, %1107
+  %1113 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv156.i401
+  %1114 = load double, ptr %1113, align 8
+  %1115 = fsub double %1114, %1108
+  %1116 = fmul double %1115, %1115
+  %1117 = tail call double @llvm.fmuladd.f64(double %1112, double %1112, double %1116)
+  %sqrt.i403 = tail call double @llvm.sqrt.f64(double %1117)
+  %1118 = fsub double %sqrt.i403, %1105
+  %1119 = tail call double @llvm.fmuladd.f64(double %1118, double %1118, double %.0106135.i402)
   %indvars.iv.next157.i404 = add nuw nsw i64 %indvars.iv156.i401, 1
   %exitcond160.not.i405 = icmp eq i64 %indvars.iv.next157.i404, %wide.trip.count.i378
-  br i1 %exitcond160.not.i405, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408, label %1103, !llvm.loop !153
+  br i1 %exitcond160.not.i405, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408, label %1109, !llvm.loop !153
 
-_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408: ; preds = %1103
-  %1114 = fdiv double %1113, %1047
-  %1115 = tail call double @sqrt(double noundef %1114) #37
-  %1116 = fcmp ugt double %1115, 1.000000e+00
-  br i1 %1116, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.preheader
+_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408: ; preds = %1109
+  %1120 = fdiv double %1119, %1053
+  %1121 = tail call double @sqrt(double noundef %1120) #37
+  %1122 = fcmp ugt double %1121, 1.000000e+00
+  br i1 %1122, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread, label %.preheader
 
 _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread: ; preds = %._crit_edge.i397, %._crit_edge699, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408
-  %1117 = load ptr, ptr %11, align 8
-  %1118 = getelementptr inbounds %struct.EDLineSegment, ptr %1117, i64 %indvars.iv871, i32 10
-  %1119 = load i32, ptr %1118, align 8
-  %1120 = sext i32 %1119 to i64
-  %1121 = getelementptr inbounds double, ptr %.3328705, i64 %1120
-  %1122 = getelementptr inbounds double, ptr %.3706, i64 %1120
+  %1123 = load ptr, ptr %11, align 8
+  %1124 = getelementptr inbounds %struct.EDLineSegment, ptr %1123, i64 %indvars.iv871, i32 10
+  %1125 = load i32, ptr %1124, align 8
+  %1126 = sext i32 %1125 to i64
+  %1127 = getelementptr inbounds double, ptr %.3328705, i64 %1126
+  %1128 = getelementptr inbounds double, ptr %.3706, i64 %1126
   %indvars.iv.next872 = add nsw i64 %indvars.iv871, 1
-  %1123 = add i32 %.0301708, 1
+  %1129 = add i32 %.0301708, 1
   %indvars.iv.next877 = add i32 %indvars.iv876, 1
   %exitcond881.not = icmp eq i32 %.0301708, %.0309.lcssa
   br i1 %exitcond881.not, label %.backedge, label %.lr.ph698, !llvm.loop !185
@@ -14655,517 +14657,517 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408.thread: ; 
   br i1 %.not353.not714, label %.lr.ph724.preheader, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
 
 .lr.ph724.preheader:                              ; preds = %.preheader610
-  %1124 = sext i32 %indvars.iv876 to i64
+  %1130 = sext i32 %indvars.iv876 to i64
   br label %.lr.ph724
 
 .preheader:                                       ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408, %.preheader
   %indvars.iv883 = phi i64 [ %indvars.iv.next884, %.preheader ], [ %indvars.iv871, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit408 ]
-  %1125 = load ptr, ptr %10, align 8
-  %1126 = getelementptr inbounds %struct.Info, ptr %1125, i64 %indvars.iv883, i32 2
-  store i8 1, ptr %1126, align 8
+  %1131 = load ptr, ptr %10, align 8
+  %1132 = getelementptr inbounds %struct.Info, ptr %1131, i64 %indvars.iv883, i32 2
+  store i8 1, ptr %1132, align 8
   %indvars.iv.next884 = add nsw i64 %indvars.iv883, 1
   %lftr.wideiv887 = trunc i64 %indvars.iv.next884 to i32
   %exitcond888.not = icmp eq i32 %indvars.iv876, %lftr.wideiv887
   br i1 %exitcond888.not, label %.preheader610, label %.preheader, !llvm.loop !186
 
-.lr.ph724:                                        ; preds = %.lr.ph724.preheader, %1211
-  %indvars.iv891 = phi i64 [ %1124, %.lr.ph724.preheader ], [ %indvars.iv.next892, %1211 ]
-  %.11722 = phi i32 [ %1037, %.lr.ph724.preheader ], [ %1131, %1211 ]
-  %.3544718 = phi double [ %1115, %.lr.ph724.preheader ], [ %1209, %1211 ]
-  %.3548717 = phi double [ %1099, %.lr.ph724.preheader ], [ %1193, %1211 ]
-  %1127 = phi <2 x double> [ %1100, %.lr.ph724.preheader ], [ %1194, %1211 ]
-  %1128 = load ptr, ptr %11, align 8
-  %1129 = getelementptr inbounds %struct.EDLineSegment, ptr %1128, i64 %indvars.iv891, i32 10
-  %1130 = load i32, ptr %1129, align 8
-  %1131 = add nsw i32 %1130, %.11722
-  %1132 = icmp slt i32 %1131, 3
-  br i1 %1132, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962, label %.preheader.preheader.i409
+.lr.ph724:                                        ; preds = %.lr.ph724.preheader, %1217
+  %indvars.iv891 = phi i64 [ %1130, %.lr.ph724.preheader ], [ %indvars.iv.next892, %1217 ]
+  %.11722 = phi i32 [ %1043, %.lr.ph724.preheader ], [ %1137, %1217 ]
+  %.3544718 = phi double [ %1121, %.lr.ph724.preheader ], [ %1215, %1217 ]
+  %.3548717 = phi double [ %1105, %.lr.ph724.preheader ], [ %1199, %1217 ]
+  %1133 = phi <2 x double> [ %1106, %.lr.ph724.preheader ], [ %1200, %1217 ]
+  %1134 = load ptr, ptr %11, align 8
+  %1135 = getelementptr inbounds %struct.EDLineSegment, ptr %1134, i64 %indvars.iv891, i32 10
+  %1136 = load i32, ptr %1135, align 8
+  %1137 = add nsw i32 %1136, %.11722
+  %1138 = icmp slt i32 %1137, 3
+  br i1 %1138, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962, label %.preheader.preheader.i409
 
 .preheader.preheader.i409:                        ; preds = %.lr.ph724
-  %wide.trip.count.i410 = zext nneg i32 %1131 to i64
+  %wide.trip.count.i410 = zext nneg i32 %1137 to i64
   br label %.preheader.i411
 
 .preheader.i411:                                  ; preds = %.preheader.i411, %.preheader.preheader.i409
   %indvars.iv.i412 = phi i64 [ 0, %.preheader.preheader.i409 ], [ %indvars.iv.next.i415, %.preheader.i411 ]
-  %1133 = phi <2 x double> [ zeroinitializer, %.preheader.preheader.i409 ], [ %1140, %.preheader.i411 ]
-  %1134 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv.i412
-  %1135 = load double, ptr %1134, align 8
-  %1136 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv.i412
-  %1137 = load double, ptr %1136, align 8
-  %1138 = insertelement <2 x double> poison, double %1135, i64 0
-  %1139 = insertelement <2 x double> %1138, double %1137, i64 1
-  %1140 = fadd <2 x double> %1133, %1139
+  %1139 = phi <2 x double> [ zeroinitializer, %.preheader.preheader.i409 ], [ %1146, %.preheader.i411 ]
+  %1140 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv.i412
+  %1141 = load double, ptr %1140, align 8
+  %1142 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv.i412
+  %1143 = load double, ptr %1142, align 8
+  %1144 = insertelement <2 x double> poison, double %1141, i64 0
+  %1145 = insertelement <2 x double> %1144, double %1143, i64 1
+  %1146 = fadd <2 x double> %1139, %1145
   %indvars.iv.next.i415 = add nuw nsw i64 %indvars.iv.i412, 1
   %exitcond.not.i416 = icmp eq i64 %indvars.iv.next.i415, %wide.trip.count.i410
   br i1 %exitcond.not.i416, label %.lr.ph.preheader.i417, label %.preheader.i411, !llvm.loop !151
 
 .lr.ph.preheader.i417:                            ; preds = %.preheader.i411
-  %1141 = uitofp nneg i32 %1131 to double
-  %1142 = insertelement <2 x double> poison, double %1141, i64 0
-  %1143 = shufflevector <2 x double> %1142, <2 x double> poison, <2 x i32> zeroinitializer
-  %1144 = fdiv <2 x double> %1140, %1143
+  %1147 = uitofp nneg i32 %1137 to double
+  %1148 = insertelement <2 x double> poison, double %1147, i64 0
+  %1149 = shufflevector <2 x double> %1148, <2 x double> poison, <2 x i32> zeroinitializer
+  %1150 = fdiv <2 x double> %1146, %1149
   br label %.lr.ph.i418
 
 .lr.ph.i418:                                      ; preds = %.lr.ph.i418, %.lr.ph.preheader.i417
   %indvars.iv151.i419 = phi i64 [ 0, %.lr.ph.preheader.i417 ], [ %indvars.iv.next152.i427, %.lr.ph.i418 ]
-  %.0109127.i421 = phi double [ 0.000000e+00, %.lr.ph.preheader.i417 ], [ %1158, %.lr.ph.i418 ]
-  %1145 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1160, %.lr.ph.i418 ]
-  %1146 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1169, %.lr.ph.i418 ]
-  %1147 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1168, %.lr.ph.i418 ]
-  %1148 = shufflevector <2 x double> %1145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1149 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv151.i419
-  %1150 = load double, ptr %1149, align 8
-  %1151 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv151.i419
-  %1152 = load double, ptr %1151, align 8
-  %1153 = insertelement <2 x double> poison, double %1150, i64 0
-  %1154 = insertelement <2 x double> %1153, double %1152, i64 1
-  %1155 = fsub <2 x double> %1154, %1144
-  %1156 = extractelement <2 x double> %1155, i64 1
-  %1157 = extractelement <2 x double> %1155, i64 0
-  %1158 = tail call double @llvm.fmuladd.f64(double %1157, double %1156, double %.0109127.i421)
-  %1159 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1155, <2 x double> %1155, <2 x double> %1148)
-  %1160 = shufflevector <2 x double> %1159, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1161 = shufflevector <2 x double> %1155, <2 x double> poison, <2 x i32> zeroinitializer
-  %1162 = shufflevector <2 x double> %1155, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1163 = fmul <2 x double> %1161, %1162
-  %1164 = shufflevector <2 x double> %1163, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1165 = fmul double %1156, %1156
-  %1166 = insertelement <2 x double> %1163, double %1165, i64 1
-  %1167 = shufflevector <2 x double> %1155, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %1168 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1166, <2 x double> %1167, <2 x double> %1147)
-  %1169 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1164, <2 x double> %1161, <2 x double> %1146)
+  %.0109127.i421 = phi double [ 0.000000e+00, %.lr.ph.preheader.i417 ], [ %1164, %.lr.ph.i418 ]
+  %1151 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1166, %.lr.ph.i418 ]
+  %1152 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1175, %.lr.ph.i418 ]
+  %1153 = phi <2 x double> [ zeroinitializer, %.lr.ph.preheader.i417 ], [ %1174, %.lr.ph.i418 ]
+  %1154 = shufflevector <2 x double> %1151, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1155 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv151.i419
+  %1156 = load double, ptr %1155, align 8
+  %1157 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv151.i419
+  %1158 = load double, ptr %1157, align 8
+  %1159 = insertelement <2 x double> poison, double %1156, i64 0
+  %1160 = insertelement <2 x double> %1159, double %1158, i64 1
+  %1161 = fsub <2 x double> %1160, %1150
+  %1162 = extractelement <2 x double> %1161, i64 0
+  %1163 = extractelement <2 x double> %1161, i64 1
+  %1164 = tail call double @llvm.fmuladd.f64(double %1162, double %1163, double %.0109127.i421)
+  %1165 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1161, <2 x double> %1161, <2 x double> %1154)
+  %1166 = shufflevector <2 x double> %1165, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1167 = shufflevector <2 x double> %1161, <2 x double> poison, <2 x i32> zeroinitializer
+  %1168 = shufflevector <2 x double> %1161, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1169 = fmul <2 x double> %1167, %1168
+  %1170 = shufflevector <2 x double> %1169, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1171 = fmul double %1163, %1163
+  %1172 = insertelement <2 x double> %1169, double %1171, i64 1
+  %1173 = shufflevector <2 x double> %1161, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %1174 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1172, <2 x double> %1173, <2 x double> %1153)
+  %1175 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1170, <2 x double> %1167, <2 x double> %1152)
   %indvars.iv.next152.i427 = add nuw nsw i64 %indvars.iv151.i419, 1
   %exitcond155.not.i428 = icmp eq i64 %indvars.iv.next152.i427, %wide.trip.count.i410
   br i1 %exitcond155.not.i428, label %._crit_edge.i429, label %.lr.ph.i418, !llvm.loop !152
 
 ._crit_edge.i429:                                 ; preds = %.lr.ph.i418
-  %1170 = fneg double %1158
-  %1171 = fmul double %1158, %1170
-  %1172 = extractelement <2 x double> %1159, i64 0
-  %1173 = extractelement <2 x double> %1159, i64 1
-  %1174 = tail call double @llvm.fmuladd.f64(double %1172, double %1173, double %1171)
-  %1175 = fcmp oeq double %1174, 0.000000e+00
-  br i1 %1175, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit, label %.lr.ph138.i430
+  %1176 = fneg double %1164
+  %1177 = fmul double %1164, %1176
+  %1178 = extractelement <2 x double> %1165, i64 0
+  %1179 = extractelement <2 x double> %1165, i64 1
+  %1180 = tail call double @llvm.fmuladd.f64(double %1178, double %1179, double %1177)
+  %1181 = fcmp oeq double %1180, 0.000000e+00
+  br i1 %1181, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit, label %.lr.ph138.i430
 
 .lr.ph138.i430:                                   ; preds = %._crit_edge.i429
-  %1176 = fadd <2 x double> %1169, %1168
-  %1177 = fmul <2 x double> %1176, <double 5.000000e-01, double 5.000000e-01>
-  %1178 = insertelement <2 x double> poison, double %1170, i64 0
-  %1179 = shufflevector <2 x double> %1178, <2 x double> poison, <2 x i32> zeroinitializer
-  %1180 = fmul <2 x double> %1177, %1179
-  %1181 = shufflevector <2 x double> %1180, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %1182 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1160, <2 x double> %1177, <2 x double> %1181)
-  %1183 = insertelement <2 x double> poison, double %1174, i64 0
-  %1184 = shufflevector <2 x double> %1183, <2 x double> poison, <2 x i32> zeroinitializer
-  %1185 = fdiv <2 x double> %1182, %1184
-  %1186 = fmul <2 x double> %1185, %1185
-  %1187 = extractelement <2 x double> %1186, i64 1
-  %1188 = extractelement <2 x double> %1185, i64 0
-  %1189 = tail call double @llvm.fmuladd.f64(double %1188, double %1188, double %1187)
-  %1190 = fadd double %1172, %1173
-  %1191 = fdiv double %1190, %1141
-  %1192 = fadd double %1191, %1189
-  %1193 = tail call double @sqrt(double noundef %1192) #37
-  %1194 = fadd <2 x double> %1144, %1185
-  %1195 = extractelement <2 x double> %1194, i64 0
-  %1196 = extractelement <2 x double> %1194, i64 1
-  br label %1197
+  %1182 = fadd <2 x double> %1175, %1174
+  %1183 = fmul <2 x double> %1182, <double 5.000000e-01, double 5.000000e-01>
+  %1184 = insertelement <2 x double> poison, double %1176, i64 0
+  %1185 = shufflevector <2 x double> %1184, <2 x double> poison, <2 x i32> zeroinitializer
+  %1186 = fmul <2 x double> %1183, %1185
+  %1187 = shufflevector <2 x double> %1186, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %1188 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %1166, <2 x double> %1183, <2 x double> %1187)
+  %1189 = insertelement <2 x double> poison, double %1180, i64 0
+  %1190 = shufflevector <2 x double> %1189, <2 x double> poison, <2 x i32> zeroinitializer
+  %1191 = fdiv <2 x double> %1188, %1190
+  %1192 = fmul <2 x double> %1191, %1191
+  %1193 = extractelement <2 x double> %1192, i64 1
+  %1194 = extractelement <2 x double> %1191, i64 0
+  %1195 = tail call double @llvm.fmuladd.f64(double %1194, double %1194, double %1193)
+  %1196 = fadd double %1178, %1179
+  %1197 = fdiv double %1196, %1147
+  %1198 = fadd double %1197, %1195
+  %1199 = tail call double @sqrt(double noundef %1198) #37
+  %1200 = fadd <2 x double> %1150, %1191
+  %1201 = extractelement <2 x double> %1200, i64 0
+  %1202 = extractelement <2 x double> %1200, i64 1
+  br label %1203
 
-1197:                                             ; preds = %1197, %.lr.ph138.i430
-  %indvars.iv156.i433 = phi i64 [ 0, %.lr.ph138.i430 ], [ %indvars.iv.next157.i436, %1197 ]
-  %.0106135.i434 = phi double [ 0.000000e+00, %.lr.ph138.i430 ], [ %1207, %1197 ]
-  %1198 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv156.i433
-  %1199 = load double, ptr %1198, align 8
-  %1200 = fsub double %1199, %1195
-  %1201 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv156.i433
-  %1202 = load double, ptr %1201, align 8
-  %1203 = fsub double %1202, %1196
-  %1204 = fmul double %1203, %1203
-  %1205 = tail call double @llvm.fmuladd.f64(double %1200, double %1200, double %1204)
-  %sqrt.i435 = tail call double @llvm.sqrt.f64(double %1205)
-  %1206 = fsub double %sqrt.i435, %1193
-  %1207 = tail call double @llvm.fmuladd.f64(double %1206, double %1206, double %.0106135.i434)
+1203:                                             ; preds = %1203, %.lr.ph138.i430
+  %indvars.iv156.i433 = phi i64 [ 0, %.lr.ph138.i430 ], [ %indvars.iv.next157.i436, %1203 ]
+  %.0106135.i434 = phi double [ 0.000000e+00, %.lr.ph138.i430 ], [ %1213, %1203 ]
+  %1204 = getelementptr inbounds double, ptr %.3328705, i64 %indvars.iv156.i433
+  %1205 = load double, ptr %1204, align 8
+  %1206 = fsub double %1205, %1201
+  %1207 = getelementptr inbounds double, ptr %.3706, i64 %indvars.iv156.i433
+  %1208 = load double, ptr %1207, align 8
+  %1209 = fsub double %1208, %1202
+  %1210 = fmul double %1209, %1209
+  %1211 = tail call double @llvm.fmuladd.f64(double %1206, double %1206, double %1210)
+  %sqrt.i435 = tail call double @llvm.sqrt.f64(double %1211)
+  %1212 = fsub double %sqrt.i435, %1199
+  %1213 = tail call double @llvm.fmuladd.f64(double %1212, double %1212, double %.0106135.i434)
   %indvars.iv.next157.i436 = add nuw nsw i64 %indvars.iv156.i433, 1
   %exitcond160.not.i437 = icmp eq i64 %indvars.iv.next157.i436, %wide.trip.count.i410
-  br i1 %exitcond160.not.i437, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440, label %1197, !llvm.loop !153
+  br i1 %exitcond160.not.i437, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440, label %1203, !llvm.loop !153
 
-_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440: ; preds = %1197
-  %1208 = fdiv double %1207, %1141
-  %1209 = tail call double @sqrt(double noundef %1208) #37
-  %1210 = fcmp ogt double %1209, 1.500000e+00
-  br i1 %1210, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969, label %1211
+_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440: ; preds = %1203
+  %1214 = fdiv double %1213, %1147
+  %1215 = tail call double @sqrt(double noundef %1214) #37
+  %1216 = fcmp ogt double %1215, 1.500000e+00
+  br i1 %1216, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969, label %1217
 
-1211:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440
-  %1212 = load ptr, ptr %10, align 8
-  %1213 = getelementptr inbounds %struct.Info, ptr %1212, i64 %indvars.iv891, i32 2
-  store i8 1, ptr %1213, align 8
+1217:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440
+  %1218 = load ptr, ptr %10, align 8
+  %1219 = getelementptr inbounds %struct.Info, ptr %1218, i64 %indvars.iv891, i32 2
+  store i8 1, ptr %1219, align 8
   %indvars.iv.next892 = add nsw i64 %indvars.iv891, 1
-  %.not353.not = icmp slt i64 %indvars.iv891, %1025
+  %.not353.not = icmp slt i64 %indvars.iv891, %1031
   br i1 %.not353.not, label %.lr.ph724, label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread, !llvm.loop !187
 
 _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit: ; preds = %._crit_edge.i429
-  %1214 = trunc nsw i64 %indvars.iv891 to i32
+  %1220 = trunc nsw i64 %indvars.iv891 to i32
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
 
 _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962: ; preds = %.lr.ph724
-  %1215 = trunc nsw i64 %indvars.iv891 to i32
+  %1221 = trunc nsw i64 %indvars.iv891 to i32
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
 
 _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969: ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440
-  %1216 = trunc nsw i64 %indvars.iv891 to i32
+  %1222 = trunc nsw i64 %indvars.iv891 to i32
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
 
-_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread: ; preds = %1211, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969, %.preheader610
-  %.3548.lcssa = phi double [ %1099, %.preheader610 ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1193, %1211 ]
-  %.3544.lcssa = phi double [ %1115, %.preheader610 ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1209, %1211 ]
-  %.11.lcssa = phi i32 [ %1037, %.preheader610 ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1131, %1211 ]
-  %.1302.lcssa = phi i32 [ %.1302713, %.preheader610 ], [ %1214, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %1215, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %1216, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1024, %1211 ]
-  %1217 = phi <2 x double> [ %1100, %.preheader610 ], [ %1127, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %1127, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %1127, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1194, %1211 ]
-  %1218 = sitofp i32 %.11.lcssa to double
-  %1219 = fdiv double %1218, %325
-  %1220 = fcmp oge double %1219, 6.700000e-01
-  %or.cond10 = select i1 %1220, i1 %1023, i1 false
-  br i1 %or.cond10, label %1221, label %1256
+_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread: ; preds = %1217, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969, %.preheader610
+  %.3548.lcssa = phi double [ %1105, %.preheader610 ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.3548717, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1199, %1217 ]
+  %.3544.lcssa = phi double [ %1121, %.preheader610 ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.3544718, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1215, %1217 ]
+  %.11.lcssa = phi i32 [ %1043, %.preheader610 ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %.11722, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1137, %1217 ]
+  %.1302.lcssa = phi i32 [ %.1302713, %.preheader610 ], [ %1220, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %1221, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %1222, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1030, %1217 ]
+  %1223 = phi <2 x double> [ %1106, %.preheader610 ], [ %1133, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit ], [ %1133, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit962 ], [ %1133, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread.loopexit.split.loop.exit969 ], [ %1200, %1217 ]
+  %1224 = sitofp i32 %.11.lcssa to double
+  %1225 = fdiv double %1224, %323
+  %1226 = fcmp oge double %1225, 6.700000e-01
+  %or.cond10 = select i1 %1226, i1 %1029, i1 false
+  br i1 %or.cond10, label %1227, label %1262
 
-1221:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
-  %1222 = load ptr, ptr %15, align 8
-  %1223 = load i32, ptr %16, align 8
-  %1224 = sext i32 %1223 to i64
-  %1225 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1224
-  %1226 = extractelement <2 x double> %1217, i64 0
-  store double %1226, ptr %1225, align 8
-  %1227 = load i32, ptr %16, align 8
-  %1228 = sext i32 %1227 to i64
-  %1229 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1228, i32 1
-  %1230 = extractelement <2 x double> %1217, i64 1
-  store double %1230, ptr %1229, align 8
-  %1231 = load i32, ptr %16, align 8
-  %1232 = sext i32 %1231 to i64
-  %1233 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1232, i32 2
-  store double %.3548.lcssa, ptr %1233, align 8
-  %1234 = load i32, ptr %16, align 8
-  %1235 = sext i32 %1234 to i64
-  %1236 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1235, i32 3
-  store double %.3544.lcssa, ptr %1236, align 8
-  %1237 = fdiv double %1218, 0x401921FB54442D18
-  %1238 = fmul double %.3548.lcssa, %1237
-  %1239 = load i32, ptr %16, align 8
-  %1240 = sext i32 %1239 to i64
-  %1241 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1240, i32 4
-  store double %1238, ptr %1241, align 8
-  %1242 = load i32, ptr %16, align 8
-  %1243 = sext i32 %1242 to i64
-  %1244 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1243, i32 5
-  store ptr %.3328705, ptr %1244, align 8
+1227:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
+  %1228 = load ptr, ptr %15, align 8
+  %1229 = load i32, ptr %16, align 8
+  %1230 = sext i32 %1229 to i64
+  %1231 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1230
+  %1232 = extractelement <2 x double> %1223, i64 0
+  store double %1232, ptr %1231, align 8
+  %1233 = load i32, ptr %16, align 8
+  %1234 = sext i32 %1233 to i64
+  %1235 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1234, i32 1
+  %1236 = extractelement <2 x double> %1223, i64 1
+  store double %1236, ptr %1235, align 8
+  %1237 = load i32, ptr %16, align 8
+  %1238 = sext i32 %1237 to i64
+  %1239 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1238, i32 2
+  store double %.3548.lcssa, ptr %1239, align 8
+  %1240 = load i32, ptr %16, align 8
+  %1241 = sext i32 %1240 to i64
+  %1242 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1241, i32 3
+  store double %.3544.lcssa, ptr %1242, align 8
+  %1243 = fdiv double %1224, 0x401921FB54442D18
+  %1244 = fmul double %.3548.lcssa, %1243
   %1245 = load i32, ptr %16, align 8
   %1246 = sext i32 %1245 to i64
-  %1247 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1246, i32 6
-  store ptr %.3706, ptr %1247, align 8
+  %1247 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1246, i32 4
+  store double %1244, ptr %1247, align 8
   %1248 = load i32, ptr %16, align 8
   %1249 = sext i32 %1248 to i64
-  %1250 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1249, i32 7
-  store i32 %.11.lcssa, ptr %1250, align 8
+  %1250 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1249, i32 5
+  store ptr %.3328705, ptr %1250, align 8
   %1251 = load i32, ptr %16, align 8
   %1252 = sext i32 %1251 to i64
-  %1253 = getelementptr inbounds %struct.Circle, ptr %1222, i64 %1252, i32 10
-  store i8 0, ptr %1253, align 8
+  %1253 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1252, i32 6
+  store ptr %.3706, ptr %1253, align 8
   %1254 = load i32, ptr %16, align 8
-  %1255 = add nsw i32 %1254, 1
-  store i32 %1255, ptr %16, align 8
-  br label %1436
+  %1255 = sext i32 %1254 to i64
+  %1256 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1255, i32 7
+  store i32 %.11.lcssa, ptr %1256, align 8
+  %1257 = load i32, ptr %16, align 8
+  %1258 = sext i32 %1257 to i64
+  %1259 = getelementptr inbounds %struct.Circle, ptr %1228, i64 %1258, i32 10
+  store i8 0, ptr %1259, align 8
+  %1260 = load i32, ptr %16, align 8
+  %1261 = add nsw i32 %1260, 1
+  store i32 %1261, ptr %16, align 8
+  br label %1442
 
-1256:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
-  %1257 = load double, ptr %.3328705, align 8
-  %1258 = load double, ptr %.3706, align 8
-  %1259 = add nsw i32 %.11.lcssa, -1
-  %1260 = sext i32 %1259 to i64
-  %1261 = getelementptr inbounds double, ptr %.3328705, i64 %1260
-  %1262 = load double, ptr %1261, align 8
-  %1263 = getelementptr inbounds double, ptr %.3706, i64 %1260
-  %1264 = load double, ptr %1263, align 8
-  %1265 = sdiv i32 %.11.lcssa, 2
+1262:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit440.thread
+  %1263 = load double, ptr %.3328705, align 8
+  %1264 = load double, ptr %.3706, align 8
+  %1265 = add nsw i32 %.11.lcssa, -1
   %1266 = sext i32 %1265 to i64
   %1267 = getelementptr inbounds double, ptr %.3328705, i64 %1266
   %1268 = load double, ptr %1267, align 8
   %1269 = getelementptr inbounds double, ptr %.3706, i64 %1266
   %1270 = load double, ptr %1269, align 8
-  %1271 = extractelement <2 x double> %1217, i64 0
-  %1272 = fsub double %1257, %1271
-  %1273 = fdiv double %1272, %.3548.lcssa
-  %1274 = fcmp ogt double %1273, 1.000000e+00
-  br i1 %1274, label %1278, label %1275
+  %1271 = sdiv i32 %.11.lcssa, 2
+  %1272 = sext i32 %1271 to i64
+  %1273 = getelementptr inbounds double, ptr %.3328705, i64 %1272
+  %1274 = load double, ptr %1273, align 8
+  %1275 = getelementptr inbounds double, ptr %.3706, i64 %1272
+  %1276 = load double, ptr %1275, align 8
+  %1277 = extractelement <2 x double> %1223, i64 0
+  %1278 = fsub double %1263, %1277
+  %1279 = fdiv double %1278, %.3548.lcssa
+  %1280 = fcmp ogt double %1279, 1.000000e+00
+  br i1 %1280, label %1284, label %1281
 
-1275:                                             ; preds = %1256
-  %1276 = fcmp olt double %1273, -1.000000e+00
-  br i1 %1276, label %1277, label %1278
+1281:                                             ; preds = %1262
+  %1282 = fcmp olt double %1279, -1.000000e+00
+  br i1 %1282, label %1283, label %1284
 
-1277:                                             ; preds = %1275
-  br label %1278
+1283:                                             ; preds = %1281
+  br label %1284
 
-1278:                                             ; preds = %1277, %1275, %1256
-  %.0.i441 = phi double [ -1.000000e+00, %1277 ], [ %1273, %1275 ], [ 1.000000e+00, %1256 ]
-  %1279 = tail call double @acos(double noundef %.0.i441) #37
-  %1280 = fcmp ult double %1257, %1271
-  %1281 = extractelement <2 x double> %1217, i64 1
-  %1282 = fcmp ult double %1258, %1281
-  br i1 %1280, label %1286, label %1283
+1284:                                             ; preds = %1283, %1281, %1262
+  %.0.i441 = phi double [ -1.000000e+00, %1283 ], [ %1279, %1281 ], [ 1.000000e+00, %1262 ]
+  %1285 = tail call double @acos(double noundef %.0.i441) #37
+  %1286 = fcmp ult double %1263, %1277
+  %1287 = extractelement <2 x double> %1223, i64 1
+  %1288 = fcmp ult double %1264, %1287
+  br i1 %1286, label %1292, label %1289
 
-1283:                                             ; preds = %1278
-  br i1 %1282, label %1284, label %1289
+1289:                                             ; preds = %1284
+  br i1 %1288, label %1290, label %1295
 
-1284:                                             ; preds = %1283
-  %1285 = fsub double 0x401921FB54442D18, %1279
-  br label %1289
+1290:                                             ; preds = %1289
+  %1291 = fsub double 0x401921FB54442D18, %1285
+  br label %1295
 
-1286:                                             ; preds = %1278
-  br i1 %1282, label %1287, label %1289
+1292:                                             ; preds = %1284
+  br i1 %1288, label %1293, label %1295
 
-1287:                                             ; preds = %1286
-  %1288 = fsub double 0x401921FB54442D18, %1279
-  br label %1289
+1293:                                             ; preds = %1292
+  %1294 = fsub double 0x401921FB54442D18, %1285
+  br label %1295
 
-1289:                                             ; preds = %1287, %1286, %1284, %1283
-  %.0100.i442 = phi double [ %1285, %1284 ], [ %1288, %1287 ], [ %1279, %1283 ], [ %1279, %1286 ]
-  %1290 = fsub double %1262, %1271
-  %1291 = fdiv double %1290, %.3548.lcssa
-  %1292 = fcmp ogt double %1291, 1.000000e+00
-  br i1 %1292, label %1296, label %1293
+1295:                                             ; preds = %1293, %1292, %1290, %1289
+  %.0100.i442 = phi double [ %1291, %1290 ], [ %1294, %1293 ], [ %1285, %1289 ], [ %1285, %1292 ]
+  %1296 = fsub double %1268, %1277
+  %1297 = fdiv double %1296, %.3548.lcssa
+  %1298 = fcmp ogt double %1297, 1.000000e+00
+  br i1 %1298, label %1302, label %1299
 
-1293:                                             ; preds = %1289
-  %1294 = fcmp olt double %1291, -1.000000e+00
-  br i1 %1294, label %1295, label %1296
+1299:                                             ; preds = %1295
+  %1300 = fcmp olt double %1297, -1.000000e+00
+  br i1 %1300, label %1301, label %1302
 
-1295:                                             ; preds = %1293
-  br label %1296
+1301:                                             ; preds = %1299
+  br label %1302
 
-1296:                                             ; preds = %1295, %1293, %1289
-  %.1.i443 = phi double [ -1.000000e+00, %1295 ], [ %1291, %1293 ], [ 1.000000e+00, %1289 ]
-  %1297 = tail call double @acos(double noundef %.1.i443) #37
-  %1298 = insertelement <2 x double> poison, double %1262, i64 0
-  %1299 = insertelement <2 x double> %1298, double %1264, i64 1
-  %1300 = fcmp ult <2 x double> %1299, %1217
-  %1301 = extractelement <2 x i1> %1300, i64 0
-  br i1 %1301, label %1306, label %1302
+1302:                                             ; preds = %1301, %1299, %1295
+  %.1.i443 = phi double [ -1.000000e+00, %1301 ], [ %1297, %1299 ], [ 1.000000e+00, %1295 ]
+  %1303 = tail call double @acos(double noundef %.1.i443) #37
+  %1304 = insertelement <2 x double> poison, double %1268, i64 0
+  %1305 = insertelement <2 x double> %1304, double %1270, i64 1
+  %1306 = fcmp ult <2 x double> %1305, %1223
+  %1307 = extractelement <2 x i1> %1306, i64 0
+  br i1 %1307, label %1312, label %1308
 
-1302:                                             ; preds = %1296
-  %1303 = extractelement <2 x i1> %1300, i64 1
-  br i1 %1303, label %1304, label %1310
+1308:                                             ; preds = %1302
+  %1309 = extractelement <2 x i1> %1306, i64 1
+  br i1 %1309, label %1310, label %1316
 
-1304:                                             ; preds = %1302
-  %1305 = fsub double 0x401921FB54442D18, %1297
-  br label %1310
+1310:                                             ; preds = %1308
+  %1311 = fsub double 0x401921FB54442D18, %1303
+  br label %1316
 
-1306:                                             ; preds = %1296
-  %1307 = extractelement <2 x i1> %1300, i64 1
-  br i1 %1307, label %1308, label %1310
+1312:                                             ; preds = %1302
+  %1313 = extractelement <2 x i1> %1306, i64 1
+  br i1 %1313, label %1314, label %1316
 
-1308:                                             ; preds = %1306
-  %1309 = fsub double 0x401921FB54442D18, %1297
-  br label %1310
+1314:                                             ; preds = %1312
+  %1315 = fsub double 0x401921FB54442D18, %1303
+  br label %1316
 
-1310:                                             ; preds = %1308, %1306, %1304, %1302
-  %.0102.i444 = phi double [ %1305, %1304 ], [ %1309, %1308 ], [ %1297, %1302 ], [ %1297, %1306 ]
-  %1311 = fmul double %.3548.lcssa, 0x401921FB54442D18
-  %1312 = fdiv double %1218, %1311
-  %1313 = fcmp ole double %1312, 2.500000e-01
-  %1314 = fcmp oge double %1312, 7.500000e-01
-  %or.cond.i445 = or i1 %1313, %1314
-  br i1 %or.cond.i445, label %1315, label %1349
+1316:                                             ; preds = %1314, %1312, %1310, %1308
+  %.0102.i444 = phi double [ %1311, %1310 ], [ %1315, %1314 ], [ %1303, %1308 ], [ %1303, %1312 ]
+  %1317 = fmul double %.3548.lcssa, 0x401921FB54442D18
+  %1318 = fdiv double %1224, %1317
+  %1319 = fcmp ole double %1318, 2.500000e-01
+  %1320 = fcmp oge double %1318, 7.500000e-01
+  %or.cond.i445 = or i1 %1319, %1320
+  br i1 %or.cond.i445, label %1321, label %1355
 
-1315:                                             ; preds = %1310
-  %1316 = fcmp ogt double %.0102.i444, %.0100.i442
-  br i1 %1316, label %1317, label %1326
+1321:                                             ; preds = %1316
+  %1322 = fcmp ogt double %.0102.i444, %.0100.i442
+  br i1 %1322, label %1323, label %1332
 
-1317:                                             ; preds = %1315
-  %1318 = fsub double 0x401921FB54442D18, %.0102.i444
-  %1319 = insertelement <2 x double> poison, double %.0102.i444, i64 0
-  %1320 = insertelement <2 x double> %1319, double %1318, i64 1
-  %1321 = insertelement <2 x double> poison, double %.0100.i442, i64 0
-  %1322 = shufflevector <2 x double> %1321, <2 x double> poison, <2 x i32> zeroinitializer
-  %1323 = fsub <2 x double> %1320, %1322
-  %1324 = fadd <2 x double> %1320, %1322
-  %1325 = shufflevector <2 x double> %1323, <2 x double> %1324, <2 x i32> <i32 0, i32 3>
-  br label %1335
+1323:                                             ; preds = %1321
+  %1324 = fsub double 0x401921FB54442D18, %.0102.i444
+  %1325 = insertelement <2 x double> poison, double %.0102.i444, i64 0
+  %1326 = insertelement <2 x double> %1325, double %1324, i64 1
+  %1327 = insertelement <2 x double> poison, double %.0100.i442, i64 0
+  %1328 = shufflevector <2 x double> %1327, <2 x double> poison, <2 x i32> zeroinitializer
+  %1329 = fsub <2 x double> %1326, %1328
+  %1330 = fadd <2 x double> %1326, %1328
+  %1331 = shufflevector <2 x double> %1329, <2 x double> %1330, <2 x i32> <i32 0, i32 3>
+  br label %1341
 
-1326:                                             ; preds = %1315
-  %1327 = fsub double 0x401921FB54442D18, %.0100.i442
-  %1328 = insertelement <2 x double> poison, double %.0100.i442, i64 0
-  %1329 = insertelement <2 x double> %1328, double %1327, i64 1
-  %1330 = insertelement <2 x double> poison, double %.0102.i444, i64 0
-  %1331 = shufflevector <2 x double> %1330, <2 x double> poison, <2 x i32> zeroinitializer
-  %1332 = fsub <2 x double> %1329, %1331
-  %1333 = fadd <2 x double> %1329, %1331
-  %1334 = shufflevector <2 x double> %1332, <2 x double> %1333, <2 x i32> <i32 0, i32 3>
-  br label %1335
+1332:                                             ; preds = %1321
+  %1333 = fsub double 0x401921FB54442D18, %.0100.i442
+  %1334 = insertelement <2 x double> poison, double %.0100.i442, i64 0
+  %1335 = insertelement <2 x double> %1334, double %1333, i64 1
+  %1336 = insertelement <2 x double> poison, double %.0102.i444, i64 0
+  %1337 = shufflevector <2 x double> %1336, <2 x double> poison, <2 x i32> zeroinitializer
+  %1338 = fsub <2 x double> %1335, %1337
+  %1339 = fadd <2 x double> %1335, %1337
+  %1340 = shufflevector <2 x double> %1338, <2 x double> %1339, <2 x i32> <i32 0, i32 3>
+  br label %1341
 
-1335:                                             ; preds = %1326, %1317
-  %1336 = phi <2 x double> [ %1325, %1317 ], [ %1334, %1326 ]
-  %1337 = fdiv <2 x double> %1336, <double 0x401921FB54442D18, double 0x401921FB54442D18>
-  %1338 = insertelement <2 x double> poison, double %1312, i64 0
-  %1339 = shufflevector <2 x double> %1338, <2 x double> poison, <2 x i32> zeroinitializer
-  %1340 = fsub <2 x double> %1339, %1337
-  %1341 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %1340)
-  %1342 = extractelement <2 x double> %1341, i64 0
-  %1343 = extractelement <2 x double> %1341, i64 1
-  %1344 = fcmp olt double %1342, %1343
-  br i1 %1344, label %1345, label %1347
+1341:                                             ; preds = %1332, %1323
+  %1342 = phi <2 x double> [ %1331, %1323 ], [ %1340, %1332 ]
+  %1343 = fdiv <2 x double> %1342, <double 0x401921FB54442D18, double 0x401921FB54442D18>
+  %1344 = insertelement <2 x double> poison, double %1318, i64 0
+  %1345 = shufflevector <2 x double> %1344, <2 x double> poison, <2 x i32> zeroinitializer
+  %1346 = fsub <2 x double> %1345, %1343
+  %1347 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %1346)
+  %1348 = extractelement <2 x double> %1347, i64 0
+  %1349 = extractelement <2 x double> %1347, i64 1
+  %1350 = fcmp olt double %1348, %1349
+  br i1 %1350, label %1351, label %1353
 
-1345:                                             ; preds = %1335
-  br i1 %1316, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454, label %1346
+1351:                                             ; preds = %1341
+  br i1 %1322, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454, label %1352
 
-1346:                                             ; preds = %1345
+1352:                                             ; preds = %1351
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
 
-1347:                                             ; preds = %1335
-  br i1 %1316, label %1348, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
+1353:                                             ; preds = %1341
+  br i1 %1322, label %1354, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
 
-1348:                                             ; preds = %1347
+1354:                                             ; preds = %1353
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
 
-1349:                                             ; preds = %1310
-  %1350 = fsub double %1268, %1257
-  %1351 = fsub double %1270, %1258
-  %1352 = fsub double %1262, %1268
-  %1353 = fsub double %1264, %1270
-  %1354 = fneg double %1351
-  %1355 = fmul double %1352, %1354
-  %1356 = tail call double @llvm.fmuladd.f64(double %1350, double %1353, double %1355)
-  %1357 = fcmp olt double %1356, 0.000000e+00
-  br i1 %1357, label %1358, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
+1355:                                             ; preds = %1316
+  %1356 = fsub double %1274, %1263
+  %1357 = fsub double %1276, %1264
+  %1358 = fsub double %1268, %1274
+  %1359 = fsub double %1270, %1276
+  %1360 = fneg double %1357
+  %1361 = fmul double %1358, %1360
+  %1362 = tail call double @llvm.fmuladd.f64(double %1356, double %1359, double %1361)
+  %1363 = fcmp olt double %1362, 0.000000e+00
+  br i1 %1363, label %1364, label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
 
-1358:                                             ; preds = %1349
+1364:                                             ; preds = %1355
   br label %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454
 
-_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454: ; preds = %1345, %1346, %1347, %1348, %1349, %1358
-  %.1103.i446 = phi double [ %.0102.i444, %1345 ], [ %.0100.i442, %1346 ], [ %.0100.i442, %1348 ], [ %.0102.i444, %1347 ], [ %.0100.i442, %1358 ], [ %.0102.i444, %1349 ]
-  %.1101.i447 = phi double [ %.0100.i442, %1345 ], [ %.0102.i444, %1346 ], [ %.0102.i444, %1348 ], [ %.0100.i442, %1347 ], [ %.0102.i444, %1358 ], [ %.0100.i442, %1349 ]
-  %1359 = fsub double %.1101.i447, %.1103.i446
-  %1360 = tail call double @llvm.fabs.f64(double %1359)
-  %1361 = fcmp olt double %1360, 0x3FAACEE9F37BEBD5
-  %.2104.i448 = select i1 %1361, double 6.260000e+00, double %.1103.i446
-  %.2.i449 = select i1 %1361, double 0.000000e+00, double %.1101.i447
-  %1362 = fcmp ult double %.2.i449, 6.260000e+00
-  %.3.i450 = select i1 %1362, double %.2.i449, double 0.000000e+00
-  %1363 = fcmp olt double %.2104.i448, 0x3FC45F306DC9C883
-  %.3105.i451 = select i1 %1363, double 6.280000e+00, double %.2104.i448
-  %1364 = load ptr, ptr %14, align 8
-  %1365 = load ptr, ptr %1364, align 8
-  %1366 = getelementptr inbounds i8, ptr %1364, i64 8
-  %1367 = load ptr, ptr %10, align 8
+_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454: ; preds = %1351, %1352, %1353, %1354, %1355, %1364
+  %.1103.i446 = phi double [ %.0102.i444, %1351 ], [ %.0100.i442, %1352 ], [ %.0100.i442, %1354 ], [ %.0102.i444, %1353 ], [ %.0100.i442, %1364 ], [ %.0102.i444, %1355 ]
+  %.1101.i447 = phi double [ %.0100.i442, %1351 ], [ %.0102.i444, %1352 ], [ %.0102.i444, %1354 ], [ %.0100.i442, %1353 ], [ %.0102.i444, %1364 ], [ %.0100.i442, %1355 ]
+  %1365 = fsub double %.1101.i447, %.1103.i446
+  %1366 = tail call double @llvm.fabs.f64(double %1365)
+  %1367 = fcmp olt double %1366, 0x3FAACEE9F37BEBD5
+  %.2104.i448 = select i1 %1367, double 6.260000e+00, double %.1103.i446
+  %.2.i449 = select i1 %1367, double 0.000000e+00, double %.1101.i447
+  %1368 = fcmp ult double %.2.i449, 6.260000e+00
+  %.3.i450 = select i1 %1368, double %.2.i449, double 0.000000e+00
+  %1369 = fcmp olt double %.2104.i448, 0x3FC45F306DC9C883
+  %.3105.i451 = select i1 %1369, double 6.280000e+00, double %.2104.i448
+  %1370 = load ptr, ptr %14, align 8
+  %1371 = load ptr, ptr %1370, align 8
+  %1372 = getelementptr inbounds i8, ptr %1370, i64 8
+  %1373 = load ptr, ptr %10, align 8
   %sext = shl i64 %indvars.iv871, 32
-  %1368 = ashr exact i64 %sext, 32
-  %1369 = getelementptr inbounds %struct.Info, ptr %1367, i64 %1368
-  %1370 = load i32, ptr %1369, align 8
-  %1371 = load double, ptr %.3328705, align 8
-  %1372 = fptosi double %1371 to i32
-  %1373 = load double, ptr %.3706, align 8
-  %1374 = fptosi double %1373 to i32
-  %1375 = load double, ptr %1261, align 8
-  %1376 = fptosi double %1375 to i32
-  %1377 = load double, ptr %1263, align 8
+  %1374 = ashr exact i64 %sext, 32
+  %1375 = getelementptr inbounds %struct.Info, ptr %1373, i64 %1374
+  %1376 = load i32, ptr %1375, align 8
+  %1377 = load double, ptr %.3328705, align 8
   %1378 = fptosi double %1377 to i32
-  %1379 = load i32, ptr %1366, align 4
-  %1380 = sext i32 %1379 to i64
-  %1381 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1380
-  store double %1271, ptr %1381, align 8
-  %1382 = load i32, ptr %1366, align 4
-  %1383 = sext i32 %1382 to i64
-  %1384 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1383, i32 1
-  store double %1281, ptr %1384, align 8
-  %1385 = load i32, ptr %1366, align 4
+  %1379 = load double, ptr %.3706, align 8
+  %1380 = fptosi double %1379 to i32
+  %1381 = load double, ptr %1267, align 8
+  %1382 = fptosi double %1381 to i32
+  %1383 = load double, ptr %1269, align 8
+  %1384 = fptosi double %1383 to i32
+  %1385 = load i32, ptr %1372, align 4
   %1386 = sext i32 %1385 to i64
-  %1387 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1386, i32 2
-  store double %.3548.lcssa, ptr %1387, align 8
-  %1388 = load i32, ptr %1366, align 4
+  %1387 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1386
+  store double %1277, ptr %1387, align 8
+  %1388 = load i32, ptr %1372, align 4
   %1389 = sext i32 %1388 to i64
-  %1390 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1389, i32 3
-  store double %.3544.lcssa, ptr %1390, align 8
-  %1391 = load i32, ptr %1366, align 4
+  %1390 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1389, i32 1
+  store double %1287, ptr %1390, align 8
+  %1391 = load i32, ptr %1372, align 4
   %1392 = sext i32 %1391 to i64
-  %1393 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1392, i32 4
-  store double %.3.i450, ptr %1393, align 8
-  %1394 = load i32, ptr %1366, align 4
+  %1393 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1392, i32 2
+  store double %.3548.lcssa, ptr %1393, align 8
+  %1394 = load i32, ptr %1372, align 4
   %1395 = sext i32 %1394 to i64
-  %1396 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1395, i32 5
-  store double %.3105.i451, ptr %1396, align 8
-  %1397 = fcmp ogt double %.3105.i451, %.3.i450
-  %1398 = fsub double 0x401921FB54442D18, %.3.i450
-  %1399 = fneg double %.3.i450
-  %.0.p.i.i455 = select i1 %1397, double %1399, double %1398
+  %1396 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1395, i32 3
+  store double %.3544.lcssa, ptr %1396, align 8
+  %1397 = load i32, ptr %1372, align 4
+  %1398 = sext i32 %1397 to i64
+  %1399 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1398, i32 4
+  store double %.3.i450, ptr %1399, align 8
+  %1400 = load i32, ptr %1372, align 4
+  %1401 = sext i32 %1400 to i64
+  %1402 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1401, i32 5
+  store double %.3105.i451, ptr %1402, align 8
+  %1403 = fcmp ogt double %.3105.i451, %.3.i450
+  %1404 = fsub double 0x401921FB54442D18, %.3.i450
+  %1405 = fneg double %.3.i450
+  %.0.p.i.i455 = select i1 %1403, double %1405, double %1404
   %.0.i.i456 = fadd double %.3105.i451, %.0.p.i.i455
-  %1400 = fdiv double %.0.i.i456, 0x401921FB54442D18
-  %1401 = load i32, ptr %1366, align 4
-  %1402 = sext i32 %1401 to i64
-  %1403 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1402, i32 6
-  store double %1400, ptr %1403, align 8
-  %1404 = load i32, ptr %1366, align 4
-  %1405 = sext i32 %1404 to i64
-  %1406 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1405, i32 7
-  store i32 %1370, ptr %1406, align 8
-  %1407 = load i32, ptr %1366, align 4
+  %1406 = fdiv double %.0.i.i456, 0x401921FB54442D18
+  %1407 = load i32, ptr %1372, align 4
   %1408 = sext i32 %1407 to i64
-  %1409 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1408, i32 8
-  store i32 %42, ptr %1409, align 4
-  %1410 = load i32, ptr %1366, align 4
+  %1409 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1408, i32 6
+  store double %1406, ptr %1409, align 8
+  %1410 = load i32, ptr %1372, align 4
   %1411 = sext i32 %1410 to i64
-  %1412 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1411, i32 16
-  store i8 0, ptr %1412, align 4
-  %1413 = load i32, ptr %1366, align 4
+  %1412 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1411, i32 7
+  store i32 %1376, ptr %1412, align 8
+  %1413 = load i32, ptr %1372, align 4
   %1414 = sext i32 %1413 to i64
-  %1415 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1414, i32 9
-  store i32 %1372, ptr %1415, align 8
-  %1416 = load i32, ptr %1366, align 4
+  %1415 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1414, i32 8
+  store i32 %42, ptr %1415, align 4
+  %1416 = load i32, ptr %1372, align 4
   %1417 = sext i32 %1416 to i64
-  %1418 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1417, i32 10
-  store i32 %1374, ptr %1418, align 4
-  %1419 = load i32, ptr %1366, align 4
+  %1418 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1417, i32 16
+  store i8 0, ptr %1418, align 4
+  %1419 = load i32, ptr %1372, align 4
   %1420 = sext i32 %1419 to i64
-  %1421 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1420, i32 11
-  store i32 %1376, ptr %1421, align 8
-  %1422 = load i32, ptr %1366, align 4
+  %1421 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1420, i32 9
+  store i32 %1378, ptr %1421, align 8
+  %1422 = load i32, ptr %1372, align 4
   %1423 = sext i32 %1422 to i64
-  %1424 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1423, i32 12
-  store i32 %1378, ptr %1424, align 4
-  %1425 = load i32, ptr %1366, align 4
+  %1424 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1423, i32 10
+  store i32 %1380, ptr %1424, align 4
+  %1425 = load i32, ptr %1372, align 4
   %1426 = sext i32 %1425 to i64
-  %1427 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1426, i32 13
-  store ptr %.3328705, ptr %1427, align 8
-  %1428 = load i32, ptr %1366, align 4
+  %1427 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1426, i32 11
+  store i32 %1382, ptr %1427, align 8
+  %1428 = load i32, ptr %1372, align 4
   %1429 = sext i32 %1428 to i64
-  %1430 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1429, i32 14
-  store ptr %.3706, ptr %1430, align 8
-  %1431 = load i32, ptr %1366, align 4
+  %1430 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1429, i32 12
+  store i32 %1384, ptr %1430, align 4
+  %1431 = load i32, ptr %1372, align 4
   %1432 = sext i32 %1431 to i64
-  %1433 = getelementptr inbounds %struct.MyArc, ptr %1365, i64 %1432, i32 15
-  store i32 %.11.lcssa, ptr %1433, align 8
-  %1434 = load i32, ptr %1366, align 4
-  %1435 = add nsw i32 %1434, 1
-  store i32 %1435, ptr %1366, align 4
-  tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %1365, ptr noundef nonnull align 4 dereferenceable(4) %1366)
-  br label %1436
+  %1433 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1432, i32 13
+  store ptr %.3328705, ptr %1433, align 8
+  %1434 = load i32, ptr %1372, align 4
+  %1435 = sext i32 %1434 to i64
+  %1436 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1435, i32 14
+  store ptr %.3706, ptr %1436, align 8
+  %1437 = load i32, ptr %1372, align 4
+  %1438 = sext i32 %1437 to i64
+  %1439 = getelementptr inbounds %struct.MyArc, ptr %1371, i64 %1438, i32 15
+  store i32 %.11.lcssa, ptr %1439, align 8
+  %1440 = load i32, ptr %1372, align 4
+  %1441 = add nsw i32 %1440, 1
+  store i32 %1441, ptr %1372, align 4
+  tail call void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(ptr noundef %1371, ptr noundef nonnull align 4 dereferenceable(4) %1372)
+  br label %1442
 
-1436:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454, %1221
-  %1437 = sext i32 %.11.lcssa to i64
-  %1438 = getelementptr inbounds double, ptr %.3328705, i64 %1437
-  %1439 = getelementptr inbounds double, ptr %.3706, i64 %1437
-  %.not349 = icmp sgt i32 %.1302.lcssa, %1022
-  br i1 %.not349, label %.backedge, label %1029, !llvm.loop !188
+1442:                                             ; preds = %_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_.exit454, %1227
+  %1443 = sext i32 %.11.lcssa to i64
+  %1444 = getelementptr inbounds double, ptr %.3328705, i64 %1443
+  %1445 = getelementptr inbounds double, ptr %.3706, i64 %1443
+  %.not349 = icmp sgt i32 %.1302.lcssa, %1028
+  br i1 %.not349, label %.backedge, label %1035, !llvm.loop !188
 
 .loopexit617.loopexit:                            ; preds = %.backedge
   %.pre = load i32, ptr %8, align 8
   br label %.loopexit617
 
 .loopexit617:                                     ; preds = %.loopexit617.loopexit, %.preheader616, %28
-  %1440 = phi i32 [ %29, %28 ], [ %29, %.preheader616 ], [ %.pre, %.loopexit617.loopexit ]
-  %1441 = sext i32 %1440 to i64
-  %1442 = icmp slt i64 %indvars.iv.next895, %1441
-  br i1 %1442, label %28, label %._crit_edge781, !llvm.loop !189
+  %1446 = phi i32 [ %29, %28 ], [ %29, %.preheader616 ], [ %.pre, %.loopexit617.loopexit ]
+  %1447 = sext i32 %1446 to i64
+  %1448 = icmp slt i64 %indvars.iv.next895, %1447
+  br i1 %1448, label %28, label %._crit_edge781, !llvm.loop !189
 
 ._crit_edge781:                                   ; preds = %.loopexit617, %.split
-  %1443 = phi i32 [ %23, %.split ], [ %1440, %.loopexit617 ]
-  %1444 = phi i32 [ %24, %.split ], [ %1440, %.loopexit617 ]
-  %1445 = add nuw nsw i32 %.0304784, 1
-  %exitcond897.not = icmp eq i32 %1445, 3
+  %1449 = phi i32 [ %23, %.split ], [ %1446, %.loopexit617 ]
+  %1450 = phi i32 [ %24, %.split ], [ %1446, %.loopexit617 ]
+  %1451 = add nuw nsw i32 %.0304784, 1
+  %exitcond897.not = icmp eq i32 %1451, 3
   br i1 %exitcond897.not, label %.split787.us, label %.split, !llvm.loop !190
 
 .split787.us:                                     ; preds = %._crit_edge781, %1
@@ -15782,16 +15784,16 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %144, %.outer.i.i, %
   %320 = insertelement <2 x double> poison, double %317, i64 0
   %321 = insertelement <2 x double> %320, double %319, i64 1
   %322 = fsub <2 x double> %321, %311
-  %323 = extractelement <2 x double> %322, i64 1
-  %324 = extractelement <2 x double> %322, i64 0
-  %325 = tail call double @llvm.fmuladd.f64(double %324, double %323, double %.0109127.i)
+  %323 = extractelement <2 x double> %322, i64 0
+  %324 = extractelement <2 x double> %322, i64 1
+  %325 = tail call double @llvm.fmuladd.f64(double %323, double %324, double %.0109127.i)
   %326 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %322, <2 x double> %322, <2 x double> %315)
   %327 = shufflevector <2 x double> %326, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %328 = shufflevector <2 x double> %322, <2 x double> poison, <2 x i32> zeroinitializer
   %329 = shufflevector <2 x double> %322, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %330 = fmul <2 x double> %328, %329
   %331 = shufflevector <2 x double> %330, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %332 = fmul double %323, %323
+  %332 = fmul double %324, %324
   %333 = insertelement <2 x double> %330, double %332, i64 1
   %334 = shufflevector <2 x double> %322, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %335 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %333, <2 x double> %334, <2 x double> %314)
@@ -19480,37 +19482,37 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %105 = insertelement <2 x double> %104, double %101, i64 1
   %106 = fadd <2 x double> %105, <double 5.000000e-01, double 5.000000e-01>
   %107 = fptosi <2 x double> %106 to <2 x i32>
-  %108 = extractelement <2 x i32> %107, i64 1
-  %109 = extractelement <2 x i32> %107, i64 0
-  %110 = icmp eq <2 x i32> %99, %107
-  %111 = extractelement <2 x i1> %110, i64 0
-  %112 = extractelement <2 x i1> %110, i64 1
-  %or.cond249 = select i1 %112, i1 %111, i1 false
-  br i1 %or.cond249, label %389, label %113
+  %108 = icmp eq <2 x i32> %99, %107
+  %109 = extractelement <2 x i1> %108, i64 0
+  %110 = extractelement <2 x i1> %108, i64 1
+  %or.cond249 = select i1 %110, i1 %109, i1 false
+  br i1 %or.cond249, label %389, label %111
 
-113:                                              ; preds = %98
-  %114 = add nsw i32 %.0215284, 1
-  %115 = icmp slt i32 %108, 1
-  br i1 %115, label %389, label %116
+111:                                              ; preds = %98
+  %112 = add nsw i32 %.0215284, 1
+  %113 = extractelement <2 x i32> %107, i64 1
+  %114 = icmp slt i32 %113, 1
+  br i1 %114, label %389, label %115
 
-116:                                              ; preds = %113
-  %117 = load i32, ptr %7, align 4
-  %118 = add nsw i32 %117, -1
-  %119 = icmp sle i32 %118, %108
-  %120 = icmp slt i32 %109, 1
-  %or.cond = select i1 %119, i1 true, i1 %120
+115:                                              ; preds = %111
+  %116 = load i32, ptr %7, align 4
+  %117 = add nsw i32 %116, -1
+  %118 = icmp sle i32 %117, %113
+  %119 = extractelement <2 x i32> %107, i64 0
+  %120 = icmp slt i32 %119, 1
+  %or.cond = select i1 %118, i1 true, i1 %120
   br i1 %or.cond, label %389, label %121
 
-121:                                              ; preds = %116
+121:                                              ; preds = %115
   %122 = load i32, ptr %5, align 8
   %123 = add nsw i32 %122, -1
-  %.not = icmp sgt i32 %123, %109
+  %.not = icmp sgt i32 %123, %119
   br i1 %.not, label %124, label %389
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %37, align 8
-  %126 = mul nsw i32 %122, %108
-  %127 = add nsw i32 %126, %109
+  %126 = mul nsw i32 %122, %113
+  %127 = add nsw i32 %126, %119
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i8, ptr %125, i64 %128
   %130 = load i8, ptr %129, align 1
@@ -19518,9 +19520,9 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %.not246, label %299, label %131
 
 131:                                              ; preds = %124
-  %132 = uitofp nneg i32 %108 to double
+  %132 = uitofp nneg i32 %113 to double
   %133 = fsub double %132, %57
-  %134 = uitofp nneg i32 %109 to double
+  %134 = uitofp nneg i32 %119 to double
   %135 = fsub double %133, %134
   %136 = fadd double %58, %135
   %137 = fptosi double %136 to i32
@@ -19535,11 +19537,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %142, label %144, label %181
 
 144:                                              ; preds = %143
-  %145 = icmp ugt i32 %109, 1
+  %145 = icmp ugt i32 %119, 1
   br i1 %145, label %146, label %153
 
 146:                                              ; preds = %144
-  %147 = add nsw i32 %109, -1
+  %147 = add nsw i32 %119, -1
   %148 = add nsw i32 %126, %147
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %125, i64 %149
@@ -19548,7 +19550,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %152, label %299, label %153
 
 153:                                              ; preds = %146, %144
-  %154 = add nuw nsw i32 %109, 1
+  %154 = add nuw nsw i32 %119, 1
   %155 = icmp ult i32 %154, %123
   br i1 %155, label %156, label %162
 
@@ -19561,11 +19563,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %161, label %299, label %162
 
 162:                                              ; preds = %156, %153
-  %163 = icmp ugt i32 %109, 3
+  %163 = icmp ugt i32 %119, 3
   br i1 %163, label %164, label %171
 
 164:                                              ; preds = %162
-  %165 = add nsw i32 %109, -2
+  %165 = add nsw i32 %119, -2
   %166 = add nsw i32 %126, %165
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i8, ptr %125, i64 %167
@@ -19574,7 +19576,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %170, label %299, label %171
 
 171:                                              ; preds = %164, %162
-  %172 = add nuw nsw i32 %109, 2
+  %172 = add nuw nsw i32 %119, 2
   %173 = add nsw i32 %122, -2
   %174 = icmp ult i32 %172, %173
   br i1 %174, label %175, label %389
@@ -19588,13 +19590,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %180, label %299, label %389
 
 181:                                              ; preds = %143
-  %.not248 = icmp eq i32 %108, 1
+  %.not248 = icmp eq i32 %113, 1
   br i1 %.not248, label %190, label %182
 
 182:                                              ; preds = %181
-  %183 = add nsw i32 %108, -1
+  %183 = add nsw i32 %113, -1
   %184 = mul nsw i32 %122, %183
-  %185 = add nsw i32 %184, %109
+  %185 = add nsw i32 %184, %119
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds i8, ptr %125, i64 %186
   %188 = load i8, ptr %187, align 1
@@ -19602,13 +19604,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %189, label %299, label %190
 
 190:                                              ; preds = %182, %181
-  %191 = add nuw nsw i32 %108, 1
-  %192 = icmp ult i32 %191, %118
+  %191 = add nuw nsw i32 %113, 1
+  %192 = icmp ult i32 %191, %117
   br i1 %192, label %193, label %200
 
 193:                                              ; preds = %190
   %194 = mul nsw i32 %122, %191
-  %195 = add nsw i32 %194, %109
+  %195 = add nsw i32 %194, %119
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds i8, ptr %125, i64 %196
   %198 = load i8, ptr %197, align 1
@@ -19616,13 +19618,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %199, label %299, label %200
 
 200:                                              ; preds = %193, %190
-  %201 = icmp ugt i32 %108, 3
+  %201 = icmp ugt i32 %113, 3
   br i1 %201, label %202, label %210
 
 202:                                              ; preds = %200
-  %203 = add nsw i32 %108, -2
+  %203 = add nsw i32 %113, -2
   %204 = mul nsw i32 %122, %203
-  %205 = add nsw i32 %204, %109
+  %205 = add nsw i32 %204, %119
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds i8, ptr %125, i64 %206
   %208 = load i8, ptr %207, align 1
@@ -19630,14 +19632,14 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %209, label %299, label %210
 
 210:                                              ; preds = %202, %200
-  %211 = add nuw nsw i32 %108, 2
-  %212 = add nsw i32 %117, -2
+  %211 = add nuw nsw i32 %113, 2
+  %212 = add nsw i32 %116, -2
   %213 = icmp ult i32 %211, %212
   br i1 %213, label %214, label %389
 
 214:                                              ; preds = %210
   %215 = mul nsw i32 %122, %211
-  %216 = add nsw i32 %215, %109
+  %216 = add nsw i32 %215, %119
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds i8, ptr %125, i64 %217
   %219 = load i8, ptr %218, align 1
@@ -19648,13 +19650,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %142, label %222, label %262
 
 222:                                              ; preds = %221
-  %.not247 = icmp eq i32 %108, 1
+  %.not247 = icmp eq i32 %113, 1
   br i1 %.not247, label %231, label %223
 
 223:                                              ; preds = %222
-  %224 = add nsw i32 %108, -1
+  %224 = add nsw i32 %113, -1
   %225 = mul nsw i32 %122, %224
-  %226 = add nsw i32 %225, %109
+  %226 = add nsw i32 %225, %119
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i8, ptr %125, i64 %227
   %229 = load i8, ptr %228, align 1
@@ -19662,13 +19664,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %230, label %299, label %231
 
 231:                                              ; preds = %223, %222
-  %232 = add nuw nsw i32 %108, 1
-  %233 = icmp ult i32 %232, %118
+  %232 = add nuw nsw i32 %113, 1
+  %233 = icmp ult i32 %232, %117
   br i1 %233, label %234, label %241
 
 234:                                              ; preds = %231
   %235 = mul nsw i32 %122, %232
-  %236 = add nsw i32 %235, %109
+  %236 = add nsw i32 %235, %119
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i8, ptr %125, i64 %237
   %239 = load i8, ptr %238, align 1
@@ -19676,13 +19678,13 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %240, label %299, label %241
 
 241:                                              ; preds = %234, %231
-  %242 = icmp ugt i32 %108, 3
+  %242 = icmp ugt i32 %113, 3
   br i1 %242, label %243, label %251
 
 243:                                              ; preds = %241
-  %244 = add nsw i32 %108, -2
+  %244 = add nsw i32 %113, -2
   %245 = mul nsw i32 %122, %244
-  %246 = add nsw i32 %245, %109
+  %246 = add nsw i32 %245, %119
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i8, ptr %125, i64 %247
   %249 = load i8, ptr %248, align 1
@@ -19690,14 +19692,14 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %250, label %299, label %251
 
 251:                                              ; preds = %243, %241
-  %252 = add nuw nsw i32 %108, 2
-  %253 = add nsw i32 %117, -2
+  %252 = add nuw nsw i32 %113, 2
+  %253 = add nsw i32 %116, -2
   %254 = icmp ult i32 %252, %253
   br i1 %254, label %255, label %389
 
 255:                                              ; preds = %251
   %256 = mul nsw i32 %122, %252
-  %257 = add nsw i32 %256, %109
+  %257 = add nsw i32 %256, %119
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds i8, ptr %125, i64 %258
   %260 = load i8, ptr %259, align 1
@@ -19705,11 +19707,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %261, label %299, label %389
 
 262:                                              ; preds = %221
-  %263 = icmp ugt i32 %109, 1
+  %263 = icmp ugt i32 %119, 1
   br i1 %263, label %264, label %271
 
 264:                                              ; preds = %262
-  %265 = add nsw i32 %109, -1
+  %265 = add nsw i32 %119, -1
   %266 = add nsw i32 %126, %265
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds i8, ptr %125, i64 %267
@@ -19718,7 +19720,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %270, label %299, label %271
 
 271:                                              ; preds = %264, %262
-  %272 = add nuw nsw i32 %109, 1
+  %272 = add nuw nsw i32 %119, 1
   %273 = icmp ult i32 %272, %123
   br i1 %273, label %274, label %280
 
@@ -19731,11 +19733,11 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %279, label %299, label %280
 
 280:                                              ; preds = %274, %271
-  %281 = icmp ugt i32 %109, 3
+  %281 = icmp ugt i32 %119, 3
   br i1 %281, label %282, label %289
 
 282:                                              ; preds = %280
-  %283 = add nsw i32 %109, -2
+  %283 = add nsw i32 %119, -2
   %284 = add nsw i32 %126, %283
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds i8, ptr %125, i64 %285
@@ -19744,7 +19746,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %288, label %299, label %289
 
 289:                                              ; preds = %282, %280
-  %290 = add nuw nsw i32 %109, 2
+  %290 = add nuw nsw i32 %119, 2
   %291 = add nsw i32 %122, -2
   %292 = icmp ult i32 %290, %291
   br i1 %292, label %293, label %389
@@ -19759,8 +19761,8 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 299:                                              ; preds = %124, %293, %282, %274, %264, %255, %243, %234, %223, %214, %202, %193, %182, %175, %164, %156, %146
   %.pre-phi316 = phi i64 [ %128, %124 ], [ %295, %293 ], [ %285, %282 ], [ %276, %274 ], [ %267, %264 ], [ %258, %255 ], [ %247, %243 ], [ %237, %234 ], [ %227, %223 ], [ %217, %214 ], [ %206, %202 ], [ %196, %193 ], [ %186, %182 ], [ %177, %175 ], [ %167, %164 ], [ %158, %156 ], [ %149, %146 ]
-  %.0221 = phi i32 [ %109, %124 ], [ %290, %293 ], [ %283, %282 ], [ %272, %274 ], [ %265, %264 ], [ %109, %255 ], [ %109, %243 ], [ %109, %234 ], [ %109, %223 ], [ %109, %214 ], [ %109, %202 ], [ %109, %193 ], [ %109, %182 ], [ %172, %175 ], [ %165, %164 ], [ %154, %156 ], [ %147, %146 ]
-  %.0220 = phi i32 [ %108, %124 ], [ %108, %293 ], [ %108, %282 ], [ %108, %274 ], [ %108, %264 ], [ %252, %255 ], [ %244, %243 ], [ %232, %234 ], [ %224, %223 ], [ %211, %214 ], [ %203, %202 ], [ %191, %193 ], [ %183, %182 ], [ %108, %175 ], [ %108, %164 ], [ %108, %156 ], [ %108, %146 ]
+  %.0221 = phi i32 [ %119, %124 ], [ %290, %293 ], [ %283, %282 ], [ %272, %274 ], [ %265, %264 ], [ %119, %255 ], [ %119, %243 ], [ %119, %234 ], [ %119, %223 ], [ %119, %214 ], [ %119, %202 ], [ %119, %193 ], [ %119, %182 ], [ %172, %175 ], [ %165, %164 ], [ %154, %156 ], [ %147, %146 ]
+  %.0220 = phi i32 [ %113, %124 ], [ %113, %293 ], [ %113, %282 ], [ %113, %274 ], [ %113, %264 ], [ %252, %255 ], [ %244, %243 ], [ %232, %234 ], [ %224, %223 ], [ %211, %214 ], [ %203, %202 ], [ %191, %193 ], [ %183, %182 ], [ %113, %175 ], [ %113, %164 ], [ %113, %156 ], [ %113, %146 ]
   %300 = load ptr, ptr %38, align 8
   %301 = add nuw nsw i32 %.0220, 1
   %302 = mul nsw i32 %301, %122
@@ -19865,10 +19867,10 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   %spec.select254 = add nsw i32 %.0217283, %388
   br label %389
 
-389:                                              ; preds = %372, %210, %214, %171, %175, %289, %293, %251, %255, %98, %121, %113, %116
-  %.1218 = phi i32 [ %.0217283, %113 ], [ %.0217283, %116 ], [ %.0217283, %121 ], [ %.0217283, %98 ], [ %.0217283, %255 ], [ %.0217283, %251 ], [ %.0217283, %293 ], [ %.0217283, %289 ], [ %.0217283, %175 ], [ %.0217283, %171 ], [ %.0217283, %214 ], [ %.0217283, %210 ], [ %spec.select254, %372 ]
-  %.1216 = phi i32 [ %114, %113 ], [ %114, %116 ], [ %114, %121 ], [ %.0215284, %98 ], [ %114, %255 ], [ %114, %251 ], [ %114, %293 ], [ %114, %289 ], [ %114, %175 ], [ %114, %171 ], [ %114, %214 ], [ %114, %210 ], [ %114, %372 ]
-  %390 = phi <2 x i32> [ %99, %113 ], [ %99, %116 ], [ %99, %121 ], [ %99, %98 ], [ %107, %255 ], [ %107, %251 ], [ %107, %293 ], [ %107, %289 ], [ %107, %175 ], [ %107, %171 ], [ %107, %214 ], [ %107, %210 ], [ %107, %372 ]
+389:                                              ; preds = %372, %210, %214, %171, %175, %289, %293, %251, %255, %98, %121, %111, %115
+  %.1218 = phi i32 [ %.0217283, %111 ], [ %.0217283, %115 ], [ %.0217283, %121 ], [ %.0217283, %98 ], [ %.0217283, %255 ], [ %.0217283, %251 ], [ %.0217283, %293 ], [ %.0217283, %289 ], [ %.0217283, %175 ], [ %.0217283, %171 ], [ %.0217283, %214 ], [ %.0217283, %210 ], [ %spec.select254, %372 ]
+  %.1216 = phi i32 [ %112, %111 ], [ %112, %115 ], [ %112, %121 ], [ %.0215284, %98 ], [ %112, %255 ], [ %112, %251 ], [ %112, %293 ], [ %112, %289 ], [ %112, %175 ], [ %112, %171 ], [ %112, %214 ], [ %112, %210 ], [ %112, %372 ]
+  %390 = phi <2 x i32> [ %99, %111 ], [ %99, %115 ], [ %99, %121 ], [ %99, %98 ], [ %107, %255 ], [ %107, %251 ], [ %107, %293 ], [ %107, %289 ], [ %107, %175 ], [ %107, %171 ], [ %107, %214 ], [ %107, %210 ], [ %107, %372 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge291, label %98, !llvm.loop !212

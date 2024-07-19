@@ -316,10 +316,11 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_affineP8PJconsts(ptr
   %176 = getelementptr inbounds i8, ptr %99, i64 160
   store <2 x double> %175, ptr %176, align 8
   %177 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %143, i64 0
-  %178 = insertelement <2 x double> %161, double %150, i64 1
-  %179 = fdiv <2 x double> %177, %178
-  %180 = getelementptr inbounds i8, ptr %99, i64 176
-  store <2 x double> %179, ptr %180, align 8
+  %178 = insertelement <2 x double> poison, double %146, i64 0
+  %179 = insertelement <2 x double> %178, double %150, i64 1
+  %180 = fdiv <2 x double> %177, %179
+  %181 = getelementptr inbounds i8, ptr %99, i64 176
+  store <2 x double> %180, ptr %181, align 8
   br label %_ZL24computeReverseParametersP8PJconsts.exit
 
 _ZL24computeReverseParametersP8PJconsts.exit:     ; preds = %158, %157, %4

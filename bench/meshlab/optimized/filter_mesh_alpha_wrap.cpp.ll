@@ -15504,14 +15504,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predi
   %24 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %15)
   %25 = fcmp olt <2 x double> %23, %24
   %26 = select <2 x i1> %25, <2 x double> %24, <2 x double> %23
-  %27 = extractelement <2 x double> %26, i64 1
-  %28 = extractelement <2 x double> %26, i64 0
-  %29 = fcmp olt double %28, %27
+  %27 = extractelement <2 x double> %26, i64 0
+  %28 = extractelement <2 x double> %26, i64 1
+  %29 = fcmp olt double %27, %28
   %30 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   br i1 %29, label %35, label %31
 
 31:                                               ; preds = %4
-  %32 = fcmp ogt double %28, %27
+  %32 = fcmp ogt double %27, %28
   %33 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   br i1 %32, label %34, label %35
 
@@ -15528,7 +15528,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predi
   br i1 %or.cond, label %41, label %46
 
 41:                                               ; preds = %35
-  %42 = fmul double %28, %27
+  %42 = fmul double %27, %28
   %43 = fmul double %42, 0x3CD0028010000004
   %44 = tail call noundef double @llvm.fabs.f64(double %22)
   %45 = fcmp ogt double %44, %43
@@ -15544,26 +15544,26 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predi
   %53 = tail call noundef double @llvm.fabs.f64(double %48)
   %54 = fcmp olt double %52, %53
   %.062 = select i1 %54, double %53, double %52
-  %55 = fcmp olt double %.062, %28
+  %55 = fcmp olt double %.062, %27
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %46
-  %57 = fcmp ogt double %.062, %28
+  %57 = fcmp ogt double %.062, %27
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %56
   br label %59
 
 59:                                               ; preds = %46, %56, %58
-  %.166 = phi double [ %28, %58 ], [ %28, %56 ], [ %.062, %46 ]
-  %.1 = phi double [ %.062, %58 ], [ %28, %56 ], [ %28, %46 ]
+  %.166 = phi double [ %27, %58 ], [ %27, %56 ], [ %.062, %46 ]
+  %.1 = phi double [ %.062, %58 ], [ %27, %56 ], [ %27, %46 ]
   %60 = fcmp oge double %.166, 0x218FFD803AF9FCA2
   %61 = fcmp ole double %.1, 0x5FBFFFFFFFFFFFFD
   %or.cond3 = and i1 %60, %61
   br i1 %or.cond3, label %62, label %67
 
 62:                                               ; preds = %59
-  %63 = fmul double %28, %.062
+  %63 = fmul double %27, %.062
   %64 = fmul double %63, 0x3CD0028010000004
   %65 = tail call noundef double @llvm.fabs.f64(double %51)
   %66 = fcmp ogt double %65, %64
@@ -15572,26 +15572,26 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL8internal25Static_filters_predi
 67:                                               ; preds = %62, %59
   %68 = fmul double %21, %49
   %69 = tail call double @llvm.fmuladd.f64(double %16, double %48, double %68)
-  %70 = fcmp olt double %.062, %27
+  %70 = fcmp olt double %.062, %28
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %67
-  %72 = fcmp ogt double %.062, %27
+  %72 = fcmp ogt double %.062, %28
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
   br label %74
 
 74:                                               ; preds = %67, %71, %73
-  %.267 = phi double [ %27, %73 ], [ %27, %71 ], [ %.062, %67 ]
-  %.2 = phi double [ %.062, %73 ], [ %27, %71 ], [ %27, %67 ]
+  %.267 = phi double [ %28, %73 ], [ %28, %71 ], [ %.062, %67 ]
+  %.2 = phi double [ %.062, %73 ], [ %28, %71 ], [ %28, %67 ]
   %75 = fcmp oge double %.267, 0x218FFD803AF9FCA2
   %76 = fcmp ole double %.2, 0x5FBFFFFFFFFFFFFD
   %or.cond5 = and i1 %75, %76
   br i1 %or.cond5, label %77, label %82
 
 77:                                               ; preds = %74
-  %78 = fmul double %27, %.062
+  %78 = fmul double %28, %.062
   %79 = fmul double %78, 0x3CD0028010000004
   %80 = tail call noundef double @llvm.fabs.f64(double %69)
   %81 = fcmp ogt double %80, %79
@@ -74408,12 +74408,12 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %22 = load <2 x double>, ptr %1, align 8
   %23 = load <2 x double>, ptr %3, align 8
   %24 = fsub <2 x double> %22, %23
-  %25 = extractelement <2 x double> %24, i64 1
-  %26 = extractelement <2 x double> %24, i64 0
-  %27 = fmul <2 x double> %24, %24
-  %28 = extractelement <2 x double> %27, i64 0
-  %29 = fmul double %25, %25
-  %30 = fadd double %28, %29
+  %25 = extractelement <2 x double> %24, i64 0
+  %26 = fmul <2 x double> %24, %24
+  %27 = extractelement <2 x double> %26, i64 0
+  %28 = extractelement <2 x double> %24, i64 1
+  %29 = fmul double %28, %28
+  %30 = fadd double %27, %29
   %31 = fadd double %30, %17
   %32 = extractelement <2 x double> %23, i64 0
   %33 = fsub double %8, %32
@@ -74424,18 +74424,18 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %38 = fadd double %36, %37
   %39 = fadd double %38, %19
   %40 = fmul double %35, %20
-  %41 = tail call double @llvm.fmuladd.f64(double %25, double %18, double %40)
-  %42 = fneg double %26
+  %41 = tail call double @llvm.fmuladd.f64(double %28, double %18, double %40)
+  %42 = fneg double %25
   %43 = fmul double %18, %42
   %44 = tail call double @llvm.fmuladd.f64(double %16, double %33, double %43)
-  %45 = fneg double %25
+  %45 = fneg double %28
   %46 = fmul double %33, %45
-  %47 = tail call double @llvm.fmuladd.f64(double %26, double %35, double %46)
+  %47 = tail call double @llvm.fmuladd.f64(double %25, double %35, double %46)
   %48 = fneg double %44
   %49 = fmul double %18, %48
   %50 = tail call noundef double @llvm.fmuladd.f64(double %35, double %47, double %49)
   %51 = fmul double %16, %48
-  %52 = tail call noundef double @llvm.fmuladd.f64(double %25, double %47, double %51)
+  %52 = tail call noundef double @llvm.fmuladd.f64(double %28, double %47, double %51)
   %53 = fneg double %39
   %54 = fmul double %52, %53
   %55 = tail call double @llvm.fmuladd.f64(double %31, double %50, double %54)
@@ -74443,18 +74443,18 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %57 = fmul double %18, %56
   %58 = tail call noundef double @llvm.fmuladd.f64(double %33, double %47, double %57)
   %59 = fmul double %16, %56
-  %60 = tail call noundef double @llvm.fmuladd.f64(double %26, double %47, double %59)
+  %60 = tail call noundef double @llvm.fmuladd.f64(double %25, double %47, double %59)
   %61 = fmul double %60, %53
   %62 = tail call double @llvm.fmuladd.f64(double %31, double %58, double %61)
   %63 = fmul double %35, %56
   %64 = tail call noundef double @llvm.fmuladd.f64(double %33, double %44, double %63)
-  %65 = fmul double %25, %56
-  %66 = tail call noundef double @llvm.fmuladd.f64(double %26, double %44, double %65)
+  %65 = fmul double %28, %56
+  %66 = tail call noundef double @llvm.fmuladd.f64(double %25, double %44, double %65)
   %67 = fmul double %66, %53
   %68 = tail call double @llvm.fmuladd.f64(double %31, double %64, double %67)
   %69 = fneg double %33
-  %70 = fmul double %25, %69
-  %71 = tail call double @llvm.fmuladd.f64(double %26, double %35, double %70)
+  %70 = fmul double %28, %69
+  %71 = tail call double @llvm.fmuladd.f64(double %25, double %35, double %70)
   %72 = fneg double %66
   %73 = fmul double %18, %72
   %74 = tail call double @llvm.fmuladd.f64(double %71, double %47, double %73)
@@ -79844,13 +79844,13 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %34 = load <2 x double>, ptr %8, align 8
   %35 = load <2 x double>, ptr %10, align 8
   %36 = fsub <2 x double> %35, %34
-  %37 = extractelement <2 x double> %36, i64 1
-  %38 = extractelement <2 x double> %36, i64 0
-  %39 = fmul <2 x double> %36, %36
-  %40 = extractelement <2 x double> %39, i64 0
-  %41 = fadd double %23, %40
-  %42 = fmul double %37, %37
-  %43 = fadd double %41, %42
+  %37 = extractelement <2 x double> %36, i64 0
+  %38 = fmul <2 x double> %36, %36
+  %39 = extractelement <2 x double> %38, i64 0
+  %40 = fadd double %23, %39
+  %41 = extractelement <2 x double> %36, i64 1
+  %42 = fmul double %41, %41
+  %43 = fadd double %40, %42
   %44 = extractelement <2 x double> %34, i64 0
   %45 = fsub double %13, %44
   %46 = extractelement <2 x double> %34, i64 1
@@ -79866,20 +79866,20 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %56 = fmul double %53, %53
   %57 = fadd double %55, %56
   %58 = fneg double %45
-  %59 = fmul double %37, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %38, double %47, double %59)
+  %59 = fmul double %41, %58
+  %60 = tail call double @llvm.fmuladd.f64(double %37, double %47, double %59)
   %61 = fneg double %52
-  %62 = fmul double %37, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %38, double %53, double %62)
+  %62 = fmul double %41, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %37, double %53, double %62)
   %64 = fmul double %47, %61
   %65 = tail call double @llvm.fmuladd.f64(double %45, double %53, double %64)
   %66 = fneg double %63
   %67 = fmul double %51, %66
   %68 = tail call double @llvm.fmuladd.f64(double %60, double %57, double %67)
   %69 = tail call noundef double @llvm.fmuladd.f64(double %65, double %43, double %68)
-  %70 = fmul double %37, %28
+  %70 = fmul double %41, %28
   %71 = tail call double @llvm.fmuladd.f64(double %22, double %47, double %70)
-  %72 = fmul double %37, %29
+  %72 = fmul double %41, %29
   %73 = tail call double @llvm.fmuladd.f64(double %22, double %53, double %72)
   %74 = fmul double %47, %29
   %75 = tail call double @llvm.fmuladd.f64(double %24, double %53, double %74)
@@ -79887,9 +79887,9 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %77 = fmul double %51, %76
   %78 = tail call double @llvm.fmuladd.f64(double %71, double %57, double %77)
   %79 = tail call noundef double @llvm.fmuladd.f64(double %75, double %43, double %78)
-  %80 = fmul double %38, %28
+  %80 = fmul double %37, %28
   %81 = tail call double @llvm.fmuladd.f64(double %22, double %45, double %80)
-  %82 = fmul double %38, %29
+  %82 = fmul double %37, %29
   %83 = tail call double @llvm.fmuladd.f64(double %22, double %52, double %82)
   %84 = fmul double %45, %29
   %85 = tail call double @llvm.fmuladd.f64(double %24, double %52, double %84)
@@ -79899,7 +79899,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %89 = tail call noundef double @llvm.fmuladd.f64(double %85, double %43, double %88)
   %90 = fmul double %47, %86
   %91 = tail call double @llvm.fmuladd.f64(double %81, double %53, double %90)
-  %92 = tail call noundef double @llvm.fmuladd.f64(double %85, double %37, double %91)
+  %92 = tail call noundef double @llvm.fmuladd.f64(double %85, double %41, double %91)
   %93 = fmul double %69, %69
   %94 = fmul double %79, %79
   %95 = fadd double %93, %94
@@ -93363,107 +93363,107 @@ define linkonce_odr void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_po
   %12 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = getelementptr inbounds i8, ptr %2, i64 64
   %14 = load <2 x double>, ptr %2, align 8, !noalias !38
-  %15 = load <2 x double>, ptr %10, align 8, !noalias !38
-  %16 = extractelement <2 x double> %15, i64 1
-  %17 = extractelement <2 x double> %15, i64 0
-  %18 = extractelement <2 x double> %14, i64 0
-  %19 = fsub <2 x double> %14, %15
-  %20 = extractelement <2 x double> %19, i64 0
-  %21 = load double, ptr %11, align 8, !noalias !38
-  %22 = load double, ptr %13, align 8, !noalias !38
-  %23 = load <2 x double>, ptr %9, align 8, !noalias !38
-  %24 = extractelement <2 x double> %23, i64 1
-  %25 = extractelement <2 x double> %23, i64 0
-  %26 = fsub double %24, %16
-  %27 = load double, ptr %12, align 8, !noalias !38
-  %28 = shufflevector <2 x double> %23, <2 x double> %14, <2 x i32> <i32 0, i32 3>
-  %29 = fsub <2 x double> %28, %15
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %31 = insertelement <2 x double> poison, double %27, i64 0
-  %32 = insertelement <2 x double> %31, double %21, i64 1
-  %33 = insertelement <2 x double> poison, double %22, i64 0
-  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
-  %35 = fsub <2 x double> %32, %34
-  %36 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %37 = insertelement <2 x double> %36, double %26, i64 0
-  %38 = fneg <2 x double> %37
-  %39 = shufflevector <2 x double> %36, <2 x double> %19, <2 x i32> <i32 0, i32 2>
-  %40 = fmul <2 x double> %39, %38
-  %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %35, <2 x double> %30, <2 x double> %40)
-  %42 = extractelement <2 x double> %29, i64 0
-  %43 = fneg double %42
-  %44 = extractelement <2 x double> %29, i64 1
-  %45 = fmul double %44, %43
-  %46 = tail call double @llvm.fmuladd.f64(double %20, double %26, double %45)
-  %47 = extractelement <2 x double> %41, i64 0
-  %48 = fcmp oeq double %47, 0.000000e+00
-  %49 = extractelement <2 x double> %41, i64 1
-  %50 = fcmp oeq double %49, 0.000000e+00
-  %or.cond.i = select i1 %48, i1 %50, i1 false
-  %51 = fcmp oeq double %46, 0.000000e+00
-  %or.cond = select i1 %or.cond.i, i1 %51, i1 false
-  br i1 %or.cond, label %52, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
+  %15 = extractelement <2 x double> %14, i64 0
+  %16 = load <2 x double>, ptr %10, align 8, !noalias !38
+  %17 = extractelement <2 x double> %16, i64 0
+  %18 = fsub <2 x double> %14, %16
+  %19 = extractelement <2 x double> %18, i64 0
+  %20 = load double, ptr %11, align 8, !noalias !38
+  %21 = load double, ptr %13, align 8, !noalias !38
+  %22 = load <2 x double>, ptr %9, align 8, !noalias !38
+  %23 = extractelement <2 x double> %22, i64 1
+  %24 = extractelement <2 x double> %16, i64 1
+  %25 = fsub double %23, %24
+  %26 = load double, ptr %12, align 8, !noalias !38
+  %27 = shufflevector <2 x double> %22, <2 x double> %14, <2 x i32> <i32 0, i32 3>
+  %28 = fsub <2 x double> %27, %16
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %30 = insertelement <2 x double> poison, double %26, i64 0
+  %31 = insertelement <2 x double> %30, double %20, i64 1
+  %32 = insertelement <2 x double> poison, double %21, i64 0
+  %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
+  %34 = fsub <2 x double> %31, %33
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %36 = insertelement <2 x double> %35, double %25, i64 0
+  %37 = fneg <2 x double> %36
+  %38 = shufflevector <2 x double> %35, <2 x double> %18, <2 x i32> <i32 0, i32 2>
+  %39 = fmul <2 x double> %38, %37
+  %40 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %34, <2 x double> %29, <2 x double> %39)
+  %41 = extractelement <2 x double> %28, i64 0
+  %42 = fneg double %41
+  %43 = extractelement <2 x double> %28, i64 1
+  %44 = fmul double %43, %42
+  %45 = tail call double @llvm.fmuladd.f64(double %19, double %25, double %44)
+  %46 = extractelement <2 x double> %40, i64 0
+  %47 = fcmp oeq double %46, 0.000000e+00
+  %48 = extractelement <2 x double> %40, i64 1
+  %49 = fcmp oeq double %48, 0.000000e+00
+  %or.cond.i = select i1 %47, i1 %49, i1 false
+  %50 = fcmp oeq double %45, 0.000000e+00
+  %or.cond = select i1 %or.cond.i, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
 
-52:                                               ; preds = %5
-  %53 = fsub <2 x double> %23, %14
-  %54 = insertelement <2 x double> %31, double %22, i64 1
-  %55 = insertelement <2 x double> poison, double %21, i64 0
-  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
-  %57 = fsub <2 x double> %54, %56
-  %58 = fsub <2 x double> %15, %14
-  %59 = fsub <2 x double> %15, %23
-  %60 = extractelement <2 x double> %59, i64 1
-  %61 = extractelement <2 x double> %59, i64 0
-  %62 = fsub double %22, %27
-  %63 = shufflevector <2 x double> %53, <2 x double> %58, <2 x i32> <i32 0, i32 2>
-  %64 = shufflevector <2 x double> %53, <2 x double> %58, <2 x i32> <i32 1, i32 3>
-  %65 = fcmp olt <2 x double> %63, %64
-  %66 = select <2 x i1> %65, <2 x double> %64, <2 x double> %63
-  %67 = fcmp olt <2 x double> %66, %57
-  %68 = select <2 x i1> %67, <2 x double> %57, <2 x double> %66
-  %69 = fcmp olt double %61, %60
-  %.sroa.speculated135 = select i1 %69, double %60, double %61
-  %70 = fcmp olt double %.sroa.speculated135, %62
-  %.sroa.speculated = select i1 %70, double %62, double %.sroa.speculated135
-  %71 = extractelement <2 x double> %68, i64 0
-  %72 = extractelement <2 x double> %68, i64 1
-  %73 = fcmp ogt double %71, %72
-  br i1 %73, label %74, label %152
+51:                                               ; preds = %5
+  %52 = fsub <2 x double> %22, %14
+  %53 = insertelement <2 x double> %30, double %21, i64 1
+  %54 = insertelement <2 x double> poison, double %20, i64 0
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
+  %56 = fsub <2 x double> %53, %55
+  %57 = fsub <2 x double> %16, %14
+  %58 = fsub <2 x double> %16, %22
+  %59 = fsub double %21, %26
+  %60 = shufflevector <2 x double> %52, <2 x double> %57, <2 x i32> <i32 0, i32 2>
+  %61 = shufflevector <2 x double> %52, <2 x double> %57, <2 x i32> <i32 1, i32 3>
+  %62 = fcmp olt <2 x double> %60, %61
+  %63 = select <2 x i1> %62, <2 x double> %61, <2 x double> %60
+  %64 = fcmp olt <2 x double> %63, %56
+  %65 = select <2 x i1> %64, <2 x double> %56, <2 x double> %63
+  %66 = extractelement <2 x double> %58, i64 0
+  %67 = extractelement <2 x double> %58, i64 1
+  %68 = fcmp olt double %66, %67
+  %.sroa.speculated135 = select i1 %68, double %67, double %66
+  %69 = fcmp olt double %.sroa.speculated135, %59
+  %.sroa.speculated = select i1 %69, double %59, double %.sroa.speculated135
+  %70 = extractelement <2 x double> %65, i64 0
+  %71 = extractelement <2 x double> %65, i64 1
+  %72 = fcmp ogt double %70, %71
+  br i1 %72, label %73, label %153
 
-74:                                               ; preds = %52
-  %75 = fcmp ogt double %71, %.sroa.speculated
-  br i1 %75, label %76, label %116
+73:                                               ; preds = %51
+  %74 = fcmp ogt double %70, %.sroa.speculated
+  br i1 %74, label %75, label %116
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1821)
-  %77 = fcmp oeq double %18, %25
+  %76 = extractelement <2 x double> %22, i64 0
+  %77 = fcmp oeq double %15, %76
   %78 = extractelement <2 x double> %14, i64 1
-  %79 = fcmp oeq double %78, %24
+  %79 = fcmp oeq double %78, %23
   %or.cond.i.i.i = select i1 %77, i1 %79, i1 false
-  %80 = fcmp oeq double %21, %27
+  %80 = fcmp oeq double %20, %26
   %or.cond.i56 = select i1 %or.cond.i.i.i, i1 %80, i1 false
   br i1 %or.cond.i56, label %81, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i
 
-81:                                               ; preds = %76
+81:                                               ; preds = %75
   store <2 x double> %14, ptr %0, align 8
   %.sroa.5126.0..sroa_idx128 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %21, ptr %.sroa.5126.0..sroa_idx128, align 8
+  store double %20, ptr %.sroa.5126.0..sroa_idx128, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i: ; preds = %76
+_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i: ; preds = %75
   %82 = load double, ptr %3, align 8, !noalias !1821
-  %83 = fsub double %82, %18
+  %83 = fsub double %82, %15
   %84 = getelementptr inbounds i8, ptr %3, i64 8
   %85 = load double, ptr %84, align 8, !noalias !1821
   %86 = fsub double %85, %78
   %87 = getelementptr inbounds i8, ptr %3, i64 16
   %88 = load double, ptr %87, align 8, !noalias !1821
-  %89 = fsub double %88, %21
-  %90 = extractelement <2 x double> %53, i64 1
+  %89 = fsub double %88, %20
+  %90 = extractelement <2 x double> %52, i64 1
   %91 = fmul double %90, %86
-  %92 = extractelement <2 x double> %53, i64 0
+  %92 = extractelement <2 x double> %52, i64 0
   %93 = tail call double @llvm.fmuladd.f64(double %92, double %83, double %91)
-  %94 = extractelement <2 x double> %57, i64 0
+  %94 = extractelement <2 x double> %56, i64 0
   %95 = tail call noundef double @llvm.fmuladd.f64(double %94, double %89, double %93)
   %96 = fcmp ugt double %95, 0.000000e+00
   br i1 %96, label %98, label %97
@@ -93471,13 +93471,13 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
 97:                                               ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i
   store <2 x double> %14, ptr %0, align 8
   %.sroa.5126.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %21, ptr %.sroa.5126.0..sroa_idx, align 8
+  store double %20, ptr %.sroa.5126.0..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
 98:                                               ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i
-  %99 = fsub double %82, %25
-  %100 = fsub double %85, %24
-  %101 = fsub double %88, %27
+  %99 = fsub double %82, %76
+  %100 = fsub double %85, %23
+  %101 = fsub double %88, %26
   %102 = fmul double %90, %100
   %103 = tail call double @llvm.fmuladd.f64(double %92, double %99, double %102)
   %104 = tail call noundef double @llvm.fmuladd.f64(double %94, double %101, double %103)
@@ -93485,9 +93485,9 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   br i1 %105, label %107, label %106
 
 106:                                              ; preds = %98
-  store <2 x double> %23, ptr %0, align 8
+  store <2 x double> %22, ptr %0, align 8
   %.sroa.9132.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %27, ptr %.sroa.9132.24..sroa_idx, align 8
+  store double %26, ptr %.sroa.9132.24..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
 107:                                              ; preds = %98
@@ -93495,271 +93495,273 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %109 = tail call double @llvm.fmuladd.f64(double %92, double %92, double %108)
   %110 = tail call double @llvm.fmuladd.f64(double %94, double %94, double %109)
   %111 = fdiv double %95, %110
-  %112 = tail call double @llvm.fmuladd.f64(double %111, double %94, double %21)
+  %112 = tail call double @llvm.fmuladd.f64(double %111, double %94, double %20)
   %113 = insertelement <2 x double> poison, double %111, i64 0
   %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> zeroinitializer
-  %115 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %114, <2 x double> %53, <2 x double> %14)
+  %115 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %114, <2 x double> %52, <2 x double> %14)
   store <2 x double> %115, ptr %0, align 8, !alias.scope !1824
   %.sroa.3.0..sroa_idx.i.i24.i = getelementptr inbounds i8, ptr %0, i64 16
   store double %112, ptr %.sroa.3.0..sroa_idx.i.i24.i, align 8, !alias.scope !1824
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-116:                                              ; preds = %74
+116:                                              ; preds = %73
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1827)
-  %117 = fcmp oeq double %25, %17
-  %118 = fcmp oeq double %24, %16
-  %or.cond.i.i.i59 = and i1 %117, %118
-  %119 = fcmp oeq double %27, %22
-  %or.cond.i60 = and i1 %or.cond.i.i.i59, %119
-  br i1 %or.cond.i60, label %120, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61
+  %117 = extractelement <2 x double> %22, i64 0
+  %118 = fcmp oeq double %117, %17
+  %119 = fcmp oeq double %23, %24
+  %or.cond.i.i.i59 = and i1 %118, %119
+  %120 = fcmp oeq double %26, %21
+  %or.cond.i60 = and i1 %or.cond.i.i.i59, %120
+  br i1 %or.cond.i60, label %121, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61
 
-120:                                              ; preds = %116
-  store <2 x double> %23, ptr %0, align 8
+121:                                              ; preds = %116
+  store <2 x double> %22, ptr %0, align 8
   %.sroa.5112.0..sroa_idx114 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %27, ptr %.sroa.5112.0..sroa_idx114, align 8
+  store double %26, ptr %.sroa.5112.0..sroa_idx114, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
 _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61: ; preds = %116
-  %121 = load double, ptr %3, align 8, !noalias !1827
-  %122 = fsub double %121, %25
-  %123 = getelementptr inbounds i8, ptr %3, i64 8
-  %124 = load double, ptr %123, align 8, !noalias !1827
-  %125 = fsub double %124, %24
-  %126 = getelementptr inbounds i8, ptr %3, i64 16
-  %127 = load double, ptr %126, align 8, !noalias !1827
-  %128 = fsub double %127, %27
-  %129 = fmul double %60, %125
-  %130 = tail call double @llvm.fmuladd.f64(double %61, double %122, double %129)
-  %131 = tail call noundef double @llvm.fmuladd.f64(double %62, double %128, double %130)
-  %132 = fcmp ugt double %131, 0.000000e+00
-  br i1 %132, label %134, label %133
-
-133:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61
-  store <2 x double> %23, ptr %0, align 8
-  %.sroa.5112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %27, ptr %.sroa.5112.0..sroa_idx, align 8
-  br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
+  %122 = load double, ptr %3, align 8, !noalias !1827
+  %123 = fsub double %122, %117
+  %124 = getelementptr inbounds i8, ptr %3, i64 8
+  %125 = load double, ptr %124, align 8, !noalias !1827
+  %126 = fsub double %125, %23
+  %127 = getelementptr inbounds i8, ptr %3, i64 16
+  %128 = load double, ptr %127, align 8, !noalias !1827
+  %129 = fsub double %128, %26
+  %130 = fmul double %67, %126
+  %131 = tail call double @llvm.fmuladd.f64(double %66, double %123, double %130)
+  %132 = tail call noundef double @llvm.fmuladd.f64(double %59, double %129, double %131)
+  %133 = fcmp ugt double %132, 0.000000e+00
+  br i1 %133, label %135, label %134
 
 134:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61
-  %135 = fsub double %121, %17
-  %136 = fsub double %124, %16
-  %137 = fsub double %127, %22
-  %138 = fmul double %60, %136
-  %139 = tail call double @llvm.fmuladd.f64(double %61, double %135, double %138)
-  %140 = tail call noundef double @llvm.fmuladd.f64(double %62, double %137, double %139)
-  %141 = fcmp ult double %140, 0.000000e+00
-  br i1 %141, label %143, label %142
+  store <2 x double> %22, ptr %0, align 8
+  %.sroa.5112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store double %26, ptr %.sroa.5112.0..sroa_idx, align 8
+  br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-142:                                              ; preds = %134
-  store <2 x double> %15, ptr %0, align 8
+135:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i61
+  %136 = fsub double %122, %17
+  %137 = fsub double %125, %24
+  %138 = fsub double %128, %21
+  %139 = fmul double %67, %137
+  %140 = tail call double @llvm.fmuladd.f64(double %66, double %136, double %139)
+  %141 = tail call noundef double @llvm.fmuladd.f64(double %59, double %138, double %140)
+  %142 = fcmp ult double %141, 0.000000e+00
+  br i1 %142, label %144, label %143
+
+143:                                              ; preds = %135
+  store <2 x double> %16, ptr %0, align 8
   %.sroa.9118.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %22, ptr %.sroa.9118.24..sroa_idx, align 8
+  store double %21, ptr %.sroa.9118.24..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-143:                                              ; preds = %134
-  %144 = fmul double %60, %60
-  %145 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %144)
-  %146 = tail call double @llvm.fmuladd.f64(double %62, double %62, double %145)
-  %147 = fdiv double %131, %146
-  %148 = tail call double @llvm.fmuladd.f64(double %147, double %62, double %27)
-  %149 = insertelement <2 x double> poison, double %147, i64 0
-  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
-  %151 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %150, <2 x double> %59, <2 x double> %23)
-  store <2 x double> %151, ptr %0, align 8, !alias.scope !1830
+144:                                              ; preds = %135
+  %145 = fmul double %67, %67
+  %146 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %145)
+  %147 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %146)
+  %148 = fdiv double %132, %147
+  %149 = tail call double @llvm.fmuladd.f64(double %148, double %59, double %26)
+  %150 = insertelement <2 x double> poison, double %148, i64 0
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> zeroinitializer
+  %152 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %151, <2 x double> %58, <2 x double> %22)
+  store <2 x double> %152, ptr %0, align 8, !alias.scope !1830
   %.sroa.3.0..sroa_idx.i.i24.i63 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %148, ptr %.sroa.3.0..sroa_idx.i.i24.i63, align 8, !alias.scope !1830
+  store double %149, ptr %.sroa.3.0..sroa_idx.i.i24.i63, align 8, !alias.scope !1830
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-152:                                              ; preds = %52
-  %153 = fcmp ogt double %72, %.sroa.speculated
-  br i1 %153, label %154, label %194
+153:                                              ; preds = %51
+  %154 = fcmp ogt double %71, %.sroa.speculated
+  br i1 %154, label %155, label %195
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1833)
-  %155 = fcmp oeq double %18, %17
-  %156 = extractelement <2 x double> %14, i64 1
-  %157 = fcmp oeq double %156, %16
-  %or.cond.i.i.i67 = select i1 %155, i1 %157, i1 false
-  %158 = fcmp oeq double %21, %22
-  %or.cond.i68 = select i1 %or.cond.i.i.i67, i1 %158, i1 false
-  br i1 %or.cond.i68, label %159, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69
+  %156 = fcmp oeq double %15, %17
+  %157 = extractelement <2 x double> %14, i64 1
+  %158 = fcmp oeq double %157, %24
+  %or.cond.i.i.i67 = select i1 %156, i1 %158, i1 false
+  %159 = fcmp oeq double %20, %21
+  %or.cond.i68 = select i1 %or.cond.i.i.i67, i1 %159, i1 false
+  br i1 %or.cond.i68, label %160, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69
 
-159:                                              ; preds = %154
+160:                                              ; preds = %155
   store <2 x double> %14, ptr %0, align 8
   %.sroa.598.0..sroa_idx100 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %21, ptr %.sroa.598.0..sroa_idx100, align 8
+  store double %20, ptr %.sroa.598.0..sroa_idx100, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69: ; preds = %154
-  %160 = load double, ptr %3, align 8, !noalias !1833
-  %161 = fsub double %160, %18
-  %162 = getelementptr inbounds i8, ptr %3, i64 8
-  %163 = load double, ptr %162, align 8, !noalias !1833
-  %164 = fsub double %163, %156
-  %165 = getelementptr inbounds i8, ptr %3, i64 16
-  %166 = load double, ptr %165, align 8, !noalias !1833
-  %167 = fsub double %166, %21
-  %168 = extractelement <2 x double> %58, i64 1
-  %169 = fmul double %168, %164
-  %170 = extractelement <2 x double> %58, i64 0
-  %171 = tail call double @llvm.fmuladd.f64(double %170, double %161, double %169)
-  %172 = extractelement <2 x double> %57, i64 1
-  %173 = tail call noundef double @llvm.fmuladd.f64(double %172, double %167, double %171)
-  %174 = fcmp ugt double %173, 0.000000e+00
-  br i1 %174, label %176, label %175
-
-175:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69
-  store <2 x double> %14, ptr %0, align 8
-  %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %21, ptr %.sroa.598.0..sroa_idx, align 8
-  br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
+_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69: ; preds = %155
+  %161 = load double, ptr %3, align 8, !noalias !1833
+  %162 = fsub double %161, %15
+  %163 = getelementptr inbounds i8, ptr %3, i64 8
+  %164 = load double, ptr %163, align 8, !noalias !1833
+  %165 = fsub double %164, %157
+  %166 = getelementptr inbounds i8, ptr %3, i64 16
+  %167 = load double, ptr %166, align 8, !noalias !1833
+  %168 = fsub double %167, %20
+  %169 = extractelement <2 x double> %57, i64 1
+  %170 = fmul double %169, %165
+  %171 = extractelement <2 x double> %57, i64 0
+  %172 = tail call double @llvm.fmuladd.f64(double %171, double %162, double %170)
+  %173 = extractelement <2 x double> %56, i64 1
+  %174 = tail call noundef double @llvm.fmuladd.f64(double %173, double %168, double %172)
+  %175 = fcmp ugt double %174, 0.000000e+00
+  br i1 %175, label %177, label %176
 
 176:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69
-  %177 = fsub double %160, %17
-  %178 = fsub double %163, %16
-  %179 = fsub double %166, %22
-  %180 = fmul double %168, %178
-  %181 = tail call double @llvm.fmuladd.f64(double %170, double %177, double %180)
-  %182 = tail call noundef double @llvm.fmuladd.f64(double %172, double %179, double %181)
-  %183 = fcmp ult double %182, 0.000000e+00
-  br i1 %183, label %185, label %184
+  store <2 x double> %14, ptr %0, align 8
+  %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store double %20, ptr %.sroa.598.0..sroa_idx, align 8
+  br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-184:                                              ; preds = %176
-  store <2 x double> %15, ptr %0, align 8
+177:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i69
+  %178 = fsub double %161, %17
+  %179 = fsub double %164, %24
+  %180 = fsub double %167, %21
+  %181 = fmul double %169, %179
+  %182 = tail call double @llvm.fmuladd.f64(double %171, double %178, double %181)
+  %183 = tail call noundef double @llvm.fmuladd.f64(double %173, double %180, double %182)
+  %184 = fcmp ult double %183, 0.000000e+00
+  br i1 %184, label %186, label %185
+
+185:                                              ; preds = %177
+  store <2 x double> %16, ptr %0, align 8
   %.sroa.9104.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %22, ptr %.sroa.9104.24..sroa_idx, align 8
+  store double %21, ptr %.sroa.9104.24..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-185:                                              ; preds = %176
-  %186 = fmul double %168, %168
-  %187 = tail call double @llvm.fmuladd.f64(double %170, double %170, double %186)
-  %188 = tail call double @llvm.fmuladd.f64(double %172, double %172, double %187)
-  %189 = fdiv double %173, %188
-  %190 = tail call double @llvm.fmuladd.f64(double %189, double %172, double %21)
-  %191 = insertelement <2 x double> poison, double %189, i64 0
-  %192 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> zeroinitializer
-  %193 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %192, <2 x double> %58, <2 x double> %14)
-  store <2 x double> %193, ptr %0, align 8, !alias.scope !1836
+186:                                              ; preds = %177
+  %187 = fmul double %169, %169
+  %188 = tail call double @llvm.fmuladd.f64(double %171, double %171, double %187)
+  %189 = tail call double @llvm.fmuladd.f64(double %173, double %173, double %188)
+  %190 = fdiv double %174, %189
+  %191 = tail call double @llvm.fmuladd.f64(double %190, double %173, double %20)
+  %192 = insertelement <2 x double> poison, double %190, i64 0
+  %193 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> zeroinitializer
+  %194 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> %57, <2 x double> %14)
+  store <2 x double> %194, ptr %0, align 8, !alias.scope !1836
   %.sroa.3.0..sroa_idx.i.i24.i71 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %190, ptr %.sroa.3.0..sroa_idx.i.i24.i71, align 8, !alias.scope !1836
+  store double %191, ptr %.sroa.3.0..sroa_idx.i.i24.i71, align 8, !alias.scope !1836
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-194:                                              ; preds = %152
+195:                                              ; preds = %153
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1839)
-  %195 = fcmp oeq double %25, %17
-  %196 = fcmp oeq double %24, %16
-  %or.cond.i.i.i75 = and i1 %195, %196
-  %197 = fcmp oeq double %27, %22
-  %or.cond.i76 = and i1 %or.cond.i.i.i75, %197
-  br i1 %or.cond.i76, label %198, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
+  %196 = extractelement <2 x double> %22, i64 0
+  %197 = fcmp oeq double %196, %17
+  %198 = fcmp oeq double %23, %24
+  %or.cond.i.i.i75 = and i1 %197, %198
+  %199 = fcmp oeq double %26, %21
+  %or.cond.i76 = and i1 %or.cond.i.i.i75, %199
+  br i1 %or.cond.i76, label %200, label %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
 
-198:                                              ; preds = %194
-  store <2 x double> %23, ptr %0, align 8
+200:                                              ; preds = %195
+  store <2 x double> %22, ptr %0, align 8
   %.sroa.5.0..sroa_idx89 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %27, ptr %.sroa.5.0..sroa_idx89, align 8
+  store double %26, ptr %.sroa.5.0..sroa_idx89, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77: ; preds = %194
-  %199 = load double, ptr %3, align 8, !noalias !1839
-  %200 = fsub double %199, %25
-  %201 = getelementptr inbounds i8, ptr %3, i64 8
-  %202 = load double, ptr %201, align 8, !noalias !1839
-  %203 = fsub double %202, %24
-  %204 = getelementptr inbounds i8, ptr %3, i64 16
-  %205 = load double, ptr %204, align 8, !noalias !1839
-  %206 = fsub double %205, %27
-  %207 = fmul double %60, %203
-  %208 = tail call double @llvm.fmuladd.f64(double %61, double %200, double %207)
-  %209 = tail call noundef double @llvm.fmuladd.f64(double %62, double %206, double %208)
-  %210 = fcmp ugt double %209, 0.000000e+00
-  br i1 %210, label %212, label %211
+_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77: ; preds = %195
+  %201 = load double, ptr %3, align 8, !noalias !1839
+  %202 = fsub double %201, %196
+  %203 = getelementptr inbounds i8, ptr %3, i64 8
+  %204 = load double, ptr %203, align 8, !noalias !1839
+  %205 = fsub double %204, %23
+  %206 = getelementptr inbounds i8, ptr %3, i64 16
+  %207 = load double, ptr %206, align 8, !noalias !1839
+  %208 = fsub double %207, %26
+  %209 = fmul double %67, %205
+  %210 = tail call double @llvm.fmuladd.f64(double %66, double %202, double %209)
+  %211 = tail call noundef double @llvm.fmuladd.f64(double %59, double %208, double %210)
+  %212 = fcmp ugt double %211, 0.000000e+00
+  br i1 %212, label %214, label %213
 
-211:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
-  store <2 x double> %23, ptr %0, align 8
+213:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
+  store <2 x double> %22, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %27, ptr %.sroa.5.0..sroa_idx, align 8
+  store double %26, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-212:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
-  %213 = fsub double %199, %17
-  %214 = fsub double %202, %16
-  %215 = fsub double %205, %22
-  %216 = fmul double %60, %214
-  %217 = tail call double @llvm.fmuladd.f64(double %61, double %213, double %216)
-  %218 = tail call noundef double @llvm.fmuladd.f64(double %62, double %215, double %217)
-  %219 = fcmp ult double %218, 0.000000e+00
-  br i1 %219, label %221, label %220
+214:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_9Segment_3IS6_EE.exit.thread.i77
+  %215 = fsub double %201, %17
+  %216 = fsub double %204, %24
+  %217 = fsub double %207, %21
+  %218 = fmul double %67, %216
+  %219 = tail call double @llvm.fmuladd.f64(double %66, double %215, double %218)
+  %220 = tail call noundef double @llvm.fmuladd.f64(double %59, double %217, double %219)
+  %221 = fcmp ult double %220, 0.000000e+00
+  br i1 %221, label %223, label %222
 
-220:                                              ; preds = %212
-  store <2 x double> %15, ptr %0, align 8
+222:                                              ; preds = %214
+  store <2 x double> %16, ptr %0, align 8
   %.sroa.9.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store double %22, ptr %.sroa.9.24..sroa_idx, align 8
+  store double %21, ptr %.sroa.9.24..sroa_idx, align 8
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-221:                                              ; preds = %212
-  %222 = fmul double %60, %60
-  %223 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %222)
-  %224 = tail call double @llvm.fmuladd.f64(double %62, double %62, double %223)
-  %225 = fdiv double %209, %224
-  %226 = tail call double @llvm.fmuladd.f64(double %225, double %62, double %27)
-  %227 = insertelement <2 x double> poison, double %225, i64 0
-  %228 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> zeroinitializer
-  %229 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %228, <2 x double> %59, <2 x double> %23)
-  store <2 x double> %229, ptr %0, align 8, !alias.scope !1842
+223:                                              ; preds = %214
+  %224 = fmul double %67, %67
+  %225 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %224)
+  %226 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %225)
+  %227 = fdiv double %211, %226
+  %228 = tail call double @llvm.fmuladd.f64(double %227, double %59, double %26)
+  %229 = insertelement <2 x double> poison, double %227, i64 0
+  %230 = shufflevector <2 x double> %229, <2 x double> poison, <2 x i32> zeroinitializer
+  %231 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %230, <2 x double> %58, <2 x double> %22)
+  store <2 x double> %231, ptr %0, align 8, !alias.scope !1842
   %.sroa.3.0..sroa_idx.i.i24.i79 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %226, ptr %.sroa.3.0..sroa_idx.i.i24.i79, align 8, !alias.scope !1842
+  store double %228, ptr %.sroa.3.0..sroa_idx.i.i24.i79, align 8, !alias.scope !1842
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
 _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread: ; preds = %5
-  %230 = fneg double %46
-  %231 = fneg double %49
+  %232 = fneg double %45
+  %233 = fneg double %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1848)
-  %232 = getelementptr inbounds i8, ptr %3, i64 16
-  %233 = load double, ptr %232, align 8, !noalias !1851
-  %234 = fmul double %49, %49
-  %235 = tail call double @llvm.fmuladd.f64(double %47, double %47, double %234)
-  %236 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %235)
-  %237 = load <2 x double>, ptr %3, align 8, !noalias !1851
-  %238 = shufflevector <2 x double> %15, <2 x double> %41, <2 x i32> <i32 1, i32 3>
-  %239 = insertelement <2 x double> %237, double %231, i64 0
-  %240 = fmul <2 x double> %238, %239
-  %241 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %242 = fneg <2 x double> %41
-  %243 = shufflevector <2 x double> %242, <2 x double> %241, <2 x i32> <i32 0, i32 3>
-  %244 = shufflevector <2 x double> %15, <2 x double> %237, <2 x i32> <i32 0, i32 2>
-  %245 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %243, <2 x double> %244, <2 x double> %240)
-  %246 = insertelement <2 x double> poison, double %230, i64 0
-  %247 = insertelement <2 x double> %246, double %46, i64 1
-  %248 = insertelement <2 x double> %33, double %233, i64 1
-  %249 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %247, <2 x double> %248, <2 x double> %245)
-  %shift = shufflevector <2 x double> %249, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %250 = fadd <2 x double> %249, %shift
-  %251 = extractelement <2 x double> %250, i64 0
-  %252 = fneg double %251
-  %253 = fdiv double %252, %236
-  %254 = insertelement <2 x double> poison, double %253, i64 0
-  %255 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> zeroinitializer
-  %256 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %255, <2 x double> %41, <2 x double> %237)
-  %257 = tail call double @llvm.fmuladd.f64(double %253, double %46, double %233)
-  store <2 x double> %256, ptr %6, align 16, !alias.scope !1854
+  %234 = getelementptr inbounds i8, ptr %3, i64 16
+  %235 = load double, ptr %234, align 8, !noalias !1851
+  %236 = fmul double %48, %48
+  %237 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %236)
+  %238 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %237)
+  %239 = load <2 x double>, ptr %3, align 8, !noalias !1851
+  %240 = shufflevector <2 x double> %16, <2 x double> %40, <2 x i32> <i32 1, i32 3>
+  %241 = insertelement <2 x double> %239, double %233, i64 0
+  %242 = fmul <2 x double> %240, %241
+  %243 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %244 = fneg <2 x double> %40
+  %245 = shufflevector <2 x double> %244, <2 x double> %243, <2 x i32> <i32 0, i32 3>
+  %246 = shufflevector <2 x double> %16, <2 x double> %239, <2 x i32> <i32 0, i32 2>
+  %247 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %245, <2 x double> %246, <2 x double> %242)
+  %248 = insertelement <2 x double> poison, double %232, i64 0
+  %249 = insertelement <2 x double> %248, double %45, i64 1
+  %250 = insertelement <2 x double> %32, double %235, i64 1
+  %251 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %249, <2 x double> %250, <2 x double> %247)
+  %shift = shufflevector <2 x double> %251, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %252 = fadd <2 x double> %251, %shift
+  %253 = extractelement <2 x double> %252, i64 0
+  %254 = fneg double %253
+  %255 = fdiv double %254, %238
+  %256 = insertelement <2 x double> poison, double %255, i64 0
+  %257 = shufflevector <2 x double> %256, <2 x double> poison, <2 x i32> zeroinitializer
+  %258 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %257, <2 x double> %40, <2 x double> %239)
+  %259 = tail call double @llvm.fmuladd.f64(double %255, double %45, double %235)
+  store <2 x double> %258, ptr %6, align 16, !alias.scope !1854
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  store double %257, ptr %.sroa.3.0..sroa_idx.i.i, align 16, !alias.scope !1854
-  store <2 x double> %41, ptr %8, align 16, !alias.scope !1855
+  store double %259, ptr %.sroa.3.0..sroa_idx.i.i, align 16, !alias.scope !1854
+  store <2 x double> %40, ptr %8, align 16, !alias.scope !1855
   %.sroa.3.0..sroa_idx.i.i82 = getelementptr inbounds i8, ptr %8, i64 16
-  store double %46, ptr %.sroa.3.0..sroa_idx.i.i82, align 16, !alias.scope !1855
-  %258 = call noundef zeroext i1 @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEE20is_inside_triangle_3ERKNS_7Point_3IS2_EERKNS_10Triangle_3IS2_EERKNS_8Vector_3IS2_EERS5_RKS2_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br i1 %258, label %259, label %260
+  store double %45, ptr %.sroa.3.0..sroa_idx.i.i82, align 16, !alias.scope !1855
+  %260 = call noundef zeroext i1 @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEE20is_inside_triangle_3ERKNS_7Point_3IS2_EERKNS_10Triangle_3IS2_EERKNS_8Vector_3IS2_EERS5_RKS2_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  br i1 %260, label %261, label %262
 
-259:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
+261:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-260:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
+262:                                              ; preds = %_ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEENS0_14Static_filtersIS9_EEEclERKNS_7Plane_3IS6_EE.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit
 
-_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit: ; preds = %221, %220, %211, %198, %185, %184, %175, %159, %143, %142, %133, %120, %107, %106, %97, %81, %260, %259
+_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEEclERKNS_9Segment_3IS2_EERKNS_7Point_3IS2_EERKS2_.exit: ; preds = %223, %222, %213, %200, %186, %185, %176, %160, %144, %143, %134, %121, %107, %106, %97, %81, %262, %261
   ret void
 }
 
@@ -142416,28 +142418,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25
   %82 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %81)
   %83 = fcmp olt <2 x double> %79, %82
   %84 = select <2 x i1> %83, <2 x double> %82, <2 x double> %79
-  %85 = extractelement <2 x double> %84, i64 1
-  %86 = extractelement <2 x double> %84, i64 0
-  %87 = fcmp olt double %86, %85
+  %85 = extractelement <2 x double> %84, i64 0
+  %86 = extractelement <2 x double> %84, i64 1
+  %87 = fcmp olt double %85, %86
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %64
-  %89 = fcmp ogt double %86, %85
+  %89 = fcmp ogt double %85, %86
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %88
   br label %91
 
 91:                                               ; preds = %90, %88, %64
-  %.018.i.i20 = phi double [ %85, %90 ], [ %85, %88 ], [ %86, %64 ]
-  %.0.i.i21 = phi double [ %86, %90 ], [ %85, %88 ], [ %85, %64 ]
+  %.018.i.i20 = phi double [ %86, %90 ], [ %86, %88 ], [ %85, %64 ]
+  %.0.i.i21 = phi double [ %85, %90 ], [ %86, %88 ], [ %86, %64 ]
   %92 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %93 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %92, %93
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %94
 
 94:                                               ; preds = %91
-  %95 = fmul double %86, %85
+  %95 = fmul double %85, %86
   %96 = fmul double %95, 0x3CD0028010000004
   %97 = fcmp ogt double %76, %96
   br i1 %97, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %98
@@ -142479,26 +142481,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25
   %121 = extractelement <2 x double> %119, i64 1
   %122 = fcmp olt double %120, %121
   %.019.i.i.i.i = select i1 %122, double %121, double %120
-  %123 = fcmp olt double %.019.i.i.i.i, %85
+  %123 = fcmp olt double %.019.i.i.i.i, %86
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %109
-  %125 = fcmp ogt double %.019.i.i.i.i, %85
+  %125 = fcmp ogt double %.019.i.i.i.i, %86
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %124
   br label %127
 
 127:                                              ; preds = %126, %124, %109
-  %.018.i.i.i.i = phi double [ %85, %126 ], [ %85, %124 ], [ %.019.i.i.i.i, %109 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %126 ], [ %85, %124 ], [ %85, %109 ]
+  %.018.i.i.i.i = phi double [ %86, %126 ], [ %86, %124 ], [ %.019.i.i.i.i, %109 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %126 ], [ %86, %124 ], [ %86, %109 ]
   %128 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %129 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %128, %129
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %130
 
 130:                                              ; preds = %127
-  %131 = fmul double %85, %.019.i.i.i.i
+  %131 = fmul double %86, %.019.i.i.i.i
   %132 = fmul double %131, 0x3CD0028010000004
   %133 = fcmp ogt double %118, %132
   br i1 %133, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %134
@@ -142646,28 +142648,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25
   %82 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %81)
   %83 = fcmp olt <2 x double> %79, %82
   %84 = select <2 x i1> %83, <2 x double> %82, <2 x double> %79
-  %85 = extractelement <2 x double> %84, i64 1
-  %86 = extractelement <2 x double> %84, i64 0
-  %87 = fcmp olt double %86, %85
+  %85 = extractelement <2 x double> %84, i64 0
+  %86 = extractelement <2 x double> %84, i64 1
+  %87 = fcmp olt double %85, %86
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %64
-  %89 = fcmp ogt double %86, %85
+  %89 = fcmp ogt double %85, %86
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %88
   br label %91
 
 91:                                               ; preds = %90, %88, %64
-  %.018.i.i20 = phi double [ %85, %90 ], [ %85, %88 ], [ %86, %64 ]
-  %.0.i.i21 = phi double [ %86, %90 ], [ %85, %88 ], [ %85, %64 ]
+  %.018.i.i20 = phi double [ %86, %90 ], [ %86, %88 ], [ %85, %64 ]
+  %.0.i.i21 = phi double [ %85, %90 ], [ %86, %88 ], [ %86, %64 ]
   %92 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %93 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %92, %93
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %94
 
 94:                                               ; preds = %91
-  %95 = fmul double %86, %85
+  %95 = fmul double %85, %86
   %96 = fmul double %95, 0x3CD0028010000004
   %97 = fcmp ogt double %76, %96
   br i1 %97, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %98
@@ -142709,26 +142711,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25
   %121 = extractelement <2 x double> %119, i64 1
   %122 = fcmp olt double %120, %121
   %.019.i.i.i.i = select i1 %122, double %121, double %120
-  %123 = fcmp olt double %.019.i.i.i.i, %85
+  %123 = fcmp olt double %.019.i.i.i.i, %86
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %109
-  %125 = fcmp ogt double %.019.i.i.i.i, %85
+  %125 = fcmp ogt double %.019.i.i.i.i, %86
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %124
   br label %127
 
 127:                                              ; preds = %126, %124, %109
-  %.018.i.i.i.i = phi double [ %85, %126 ], [ %85, %124 ], [ %.019.i.i.i.i, %109 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %126 ], [ %85, %124 ], [ %85, %109 ]
+  %.018.i.i.i.i = phi double [ %86, %126 ], [ %86, %124 ], [ %.019.i.i.i.i, %109 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %126 ], [ %86, %124 ], [ %86, %109 ]
   %128 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %129 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %128, %129
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %130
 
 130:                                              ; preds = %127
-  %131 = fmul double %85, %.019.i.i.i.i
+  %131 = fmul double %86, %.019.i.i.i.i
   %132 = fmul double %131, 0x3CD0028010000004
   %133 = fcmp ogt double %118, %132
   br i1 %133, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %134
@@ -142877,28 +142879,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25
   %83 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %82)
   %84 = fcmp olt <2 x double> %80, %83
   %85 = select <2 x i1> %84, <2 x double> %83, <2 x double> %80
-  %86 = extractelement <2 x double> %85, i64 1
-  %87 = extractelement <2 x double> %85, i64 0
-  %88 = fcmp olt double %87, %86
+  %86 = extractelement <2 x double> %85, i64 0
+  %87 = extractelement <2 x double> %85, i64 1
+  %88 = fcmp olt double %86, %87
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %65
-  %90 = fcmp ogt double %87, %86
+  %90 = fcmp ogt double %86, %87
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %89
   br label %92
 
 92:                                               ; preds = %91, %89, %65
-  %.018.i.i20 = phi double [ %86, %91 ], [ %86, %89 ], [ %87, %65 ]
-  %.0.i.i21 = phi double [ %87, %91 ], [ %86, %89 ], [ %86, %65 ]
+  %.018.i.i20 = phi double [ %87, %91 ], [ %87, %89 ], [ %86, %65 ]
+  %.0.i.i21 = phi double [ %86, %91 ], [ %87, %89 ], [ %87, %65 ]
   %93 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %94 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %93, %94
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %95
 
 95:                                               ; preds = %92
-  %96 = fmul double %87, %86
+  %96 = fmul double %86, %87
   %97 = fmul double %96, 0x3CD0028010000004
   %98 = fcmp ogt double %77, %97
   br i1 %98, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %99
@@ -142940,26 +142942,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25
   %122 = extractelement <2 x double> %120, i64 1
   %123 = fcmp olt double %121, %122
   %.019.i.i.i.i = select i1 %123, double %122, double %121
-  %124 = fcmp olt double %.019.i.i.i.i, %86
+  %124 = fcmp olt double %.019.i.i.i.i, %87
   br i1 %124, label %128, label %125
 
 125:                                              ; preds = %110
-  %126 = fcmp ogt double %.019.i.i.i.i, %86
+  %126 = fcmp ogt double %.019.i.i.i.i, %87
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %125
   br label %128
 
 128:                                              ; preds = %127, %125, %110
-  %.018.i.i.i.i = phi double [ %86, %127 ], [ %86, %125 ], [ %.019.i.i.i.i, %110 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %127 ], [ %86, %125 ], [ %86, %110 ]
+  %.018.i.i.i.i = phi double [ %87, %127 ], [ %87, %125 ], [ %.019.i.i.i.i, %110 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %127 ], [ %87, %125 ], [ %87, %110 ]
   %129 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %130 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %129, %130
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A0IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %131
 
 131:                                              ; preds = %128
-  %132 = fmul double %86, %.019.i.i.i.i
+  %132 = fmul double %87, %.019.i.i.i.i
   %133 = fmul double %132, 0x3CD0028010000004
   %134 = fcmp ogt double %119, %133
   br i1 %134, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi0ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE_clEv.exit.i, label %135
@@ -143105,28 +143107,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25
   %76 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %75)
   %77 = fcmp olt <2 x double> %73, %76
   %78 = select <2 x i1> %77, <2 x double> %76, <2 x double> %73
-  %79 = extractelement <2 x double> %78, i64 1
-  %80 = extractelement <2 x double> %78, i64 0
-  %81 = fcmp olt double %80, %79
+  %79 = extractelement <2 x double> %78, i64 0
+  %80 = extractelement <2 x double> %78, i64 1
+  %81 = fcmp olt double %79, %80
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %59
-  %83 = fcmp ogt double %80, %79
+  %83 = fcmp ogt double %79, %80
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82
   br label %85
 
 85:                                               ; preds = %84, %82, %59
-  %.018.i.i20 = phi double [ %79, %84 ], [ %79, %82 ], [ %80, %59 ]
-  %.0.i.i21 = phi double [ %80, %84 ], [ %79, %82 ], [ %79, %59 ]
+  %.018.i.i20 = phi double [ %80, %84 ], [ %80, %82 ], [ %79, %59 ]
+  %.0.i.i21 = phi double [ %79, %84 ], [ %80, %82 ], [ %80, %59 ]
   %86 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %87 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %86, %87
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %88
 
 88:                                               ; preds = %85
-  %89 = fmul double %80, %79
+  %89 = fmul double %79, %80
   %90 = fmul double %89, 0x3CD0028010000004
   %91 = fcmp ogt double %70, %90
   br i1 %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %92
@@ -143165,26 +143167,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25
   %112 = call noundef double @llvm.fabs.f64(double %105)
   %113 = fcmp olt double %111, %112
   %.019.i.i.i.i = select i1 %113, double %112, double %111
-  %114 = fcmp olt double %.019.i.i.i.i, %79
+  %114 = fcmp olt double %.019.i.i.i.i, %80
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %103
-  %116 = fcmp ogt double %.019.i.i.i.i, %79
+  %116 = fcmp ogt double %.019.i.i.i.i, %80
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %115
   br label %118
 
 118:                                              ; preds = %117, %115, %103
-  %.018.i.i.i.i = phi double [ %79, %117 ], [ %79, %115 ], [ %.019.i.i.i.i, %103 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %117 ], [ %79, %115 ], [ %79, %103 ]
+  %.018.i.i.i.i = phi double [ %80, %117 ], [ %80, %115 ], [ %.019.i.i.i.i, %103 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %117 ], [ %80, %115 ], [ %80, %103 ]
   %119 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %120 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %119, %120
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %121
 
 121:                                              ; preds = %118
-  %122 = fmul double %79, %.019.i.i.i.i
+  %122 = fmul double %80, %.019.i.i.i.i
   %123 = fmul double %122, 0x3CD0028010000004
   %124 = fcmp ogt double %110, %123
   br i1 %124, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %125
@@ -143331,28 +143333,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25
   %77 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %76)
   %78 = fcmp olt <2 x double> %74, %77
   %79 = select <2 x i1> %78, <2 x double> %77, <2 x double> %74
-  %80 = extractelement <2 x double> %79, i64 1
-  %81 = extractelement <2 x double> %79, i64 0
-  %82 = fcmp olt double %81, %80
+  %80 = extractelement <2 x double> %79, i64 0
+  %81 = extractelement <2 x double> %79, i64 1
+  %82 = fcmp olt double %80, %81
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %60
-  %84 = fcmp ogt double %81, %80
+  %84 = fcmp ogt double %80, %81
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br label %86
 
 86:                                               ; preds = %85, %83, %60
-  %.018.i.i20 = phi double [ %80, %85 ], [ %80, %83 ], [ %81, %60 ]
-  %.0.i.i21 = phi double [ %81, %85 ], [ %80, %83 ], [ %80, %60 ]
+  %.018.i.i20 = phi double [ %81, %85 ], [ %81, %83 ], [ %80, %60 ]
+  %.0.i.i21 = phi double [ %80, %85 ], [ %81, %83 ], [ %81, %60 ]
   %87 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %88 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %87, %88
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %89
 
 89:                                               ; preds = %86
-  %90 = fmul double %81, %80
+  %90 = fmul double %80, %81
   %91 = fmul double %90, 0x3CD0028010000004
   %92 = fcmp ogt double %71, %91
   br i1 %92, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %93
@@ -143391,26 +143393,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25
   %113 = call noundef double @llvm.fabs.f64(double %106)
   %114 = fcmp olt double %112, %113
   %.019.i.i.i.i = select i1 %114, double %113, double %112
-  %115 = fcmp olt double %.019.i.i.i.i, %80
+  %115 = fcmp olt double %.019.i.i.i.i, %81
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %104
-  %117 = fcmp ogt double %.019.i.i.i.i, %80
+  %117 = fcmp ogt double %.019.i.i.i.i, %81
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %116
   br label %119
 
 119:                                              ; preds = %118, %116, %104
-  %.018.i.i.i.i = phi double [ %80, %118 ], [ %80, %116 ], [ %.019.i.i.i.i, %104 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %118 ], [ %80, %116 ], [ %80, %104 ]
+  %.018.i.i.i.i = phi double [ %81, %118 ], [ %81, %116 ], [ %.019.i.i.i.i, %104 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %118 ], [ %81, %116 ], [ %81, %104 ]
   %120 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %121 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %120, %121
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %122
 
 122:                                              ; preds = %119
-  %123 = fmul double %80, %.019.i.i.i.i
+  %123 = fmul double %81, %.019.i.i.i.i
   %124 = fmul double %123, 0x3CD0028010000004
   %125 = fcmp ogt double %111, %124
   br i1 %125, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %126
@@ -143558,28 +143560,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25
   %78 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %77)
   %79 = fcmp olt <2 x double> %75, %78
   %80 = select <2 x i1> %79, <2 x double> %78, <2 x double> %75
-  %81 = extractelement <2 x double> %80, i64 1
-  %82 = extractelement <2 x double> %80, i64 0
-  %83 = fcmp olt double %82, %81
+  %81 = extractelement <2 x double> %80, i64 0
+  %82 = extractelement <2 x double> %80, i64 1
+  %83 = fcmp olt double %81, %82
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %61
-  %85 = fcmp ogt double %82, %81
+  %85 = fcmp ogt double %81, %82
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %84
   br label %87
 
 87:                                               ; preds = %86, %84, %61
-  %.018.i.i20 = phi double [ %81, %86 ], [ %81, %84 ], [ %82, %61 ]
-  %.0.i.i21 = phi double [ %82, %86 ], [ %81, %84 ], [ %81, %61 ]
+  %.018.i.i20 = phi double [ %82, %86 ], [ %82, %84 ], [ %81, %61 ]
+  %.0.i.i21 = phi double [ %81, %86 ], [ %82, %84 ], [ %82, %61 ]
   %88 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %89 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %88, %89
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %90
 
 90:                                               ; preds = %87
-  %91 = fmul double %82, %81
+  %91 = fmul double %81, %82
   %92 = fmul double %91, 0x3CD0028010000004
   %93 = fcmp ogt double %72, %92
   br i1 %93, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %94
@@ -143618,26 +143620,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25
   %114 = call noundef double @llvm.fabs.f64(double %107)
   %115 = fcmp olt double %113, %114
   %.019.i.i.i.i = select i1 %115, double %114, double %113
-  %116 = fcmp olt double %.019.i.i.i.i, %81
+  %116 = fcmp olt double %.019.i.i.i.i, %82
   br i1 %116, label %120, label %117
 
 117:                                              ; preds = %105
-  %118 = fcmp ogt double %.019.i.i.i.i, %81
+  %118 = fcmp ogt double %.019.i.i.i.i, %82
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
   br label %120
 
 120:                                              ; preds = %119, %117, %105
-  %.018.i.i.i.i = phi double [ %81, %119 ], [ %81, %117 ], [ %.019.i.i.i.i, %105 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %119 ], [ %81, %117 ], [ %81, %105 ]
+  %.018.i.i.i.i = phi double [ %82, %119 ], [ %82, %117 ], [ %.019.i.i.i.i, %105 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %119 ], [ %82, %117 ], [ %82, %105 ]
   %121 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %122 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %121, %122
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A1IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %123
 
 123:                                              ; preds = %120
-  %124 = fmul double %81, %.019.i.i.i.i
+  %124 = fmul double %82, %.019.i.i.i.i
   %125 = fmul double %124, 0x3CD0028010000004
   %126 = fcmp ogt double %112, %125
   br i1 %126, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi1ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE0_clEv.exit.i, label %127
@@ -143782,28 +143784,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25
   %76 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %75)
   %77 = fcmp olt <2 x double> %73, %76
   %78 = select <2 x i1> %77, <2 x double> %76, <2 x double> %73
-  %79 = extractelement <2 x double> %78, i64 1
-  %80 = extractelement <2 x double> %78, i64 0
-  %81 = fcmp olt double %80, %79
+  %79 = extractelement <2 x double> %78, i64 0
+  %80 = extractelement <2 x double> %78, i64 1
+  %81 = fcmp olt double %79, %80
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %59
-  %83 = fcmp ogt double %80, %79
+  %83 = fcmp ogt double %79, %80
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82
   br label %85
 
 85:                                               ; preds = %84, %82, %59
-  %.018.i.i20 = phi double [ %79, %84 ], [ %79, %82 ], [ %80, %59 ]
-  %.0.i.i21 = phi double [ %80, %84 ], [ %79, %82 ], [ %79, %59 ]
+  %.018.i.i20 = phi double [ %80, %84 ], [ %80, %82 ], [ %79, %59 ]
+  %.0.i.i21 = phi double [ %79, %84 ], [ %80, %82 ], [ %80, %59 ]
   %86 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %87 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %86, %87
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %88
 
 88:                                               ; preds = %85
-  %89 = fmul double %80, %79
+  %89 = fmul double %79, %80
   %90 = fmul double %89, 0x3CD0028010000004
   %91 = fcmp ogt double %70, %90
   br i1 %91, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %92
@@ -143846,26 +143848,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25
   %114 = extractelement <2 x double> %112, i64 1
   %115 = fcmp olt double %113, %114
   %.019.i.i.i.i = select i1 %115, double %114, double %113
-  %116 = fcmp olt double %.019.i.i.i.i, %79
+  %116 = fcmp olt double %.019.i.i.i.i, %80
   br i1 %116, label %120, label %117
 
 117:                                              ; preds = %103
-  %118 = fcmp ogt double %.019.i.i.i.i, %79
+  %118 = fcmp ogt double %.019.i.i.i.i, %80
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
   br label %120
 
 120:                                              ; preds = %119, %117, %103
-  %.018.i.i.i.i = phi double [ %79, %119 ], [ %79, %117 ], [ %.019.i.i.i.i, %103 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %119 ], [ %79, %117 ], [ %79, %103 ]
+  %.018.i.i.i.i = phi double [ %80, %119 ], [ %80, %117 ], [ %.019.i.i.i.i, %103 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %119 ], [ %80, %117 ], [ %80, %103 ]
   %121 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %122 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %121, %122
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %123
 
 123:                                              ; preds = %120
-  %124 = fmul double %79, %.019.i.i.i.i
+  %124 = fmul double %80, %.019.i.i.i.i
   %125 = fmul double %124, 0x3CD0028010000004
   %126 = fcmp ogt double %111, %125
   br i1 %126, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi0EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %127
@@ -144011,28 +144013,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25
   %77 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %76)
   %78 = fcmp olt <2 x double> %74, %77
   %79 = select <2 x i1> %78, <2 x double> %77, <2 x double> %74
-  %80 = extractelement <2 x double> %79, i64 1
-  %81 = extractelement <2 x double> %79, i64 0
-  %82 = fcmp olt double %81, %80
+  %80 = extractelement <2 x double> %79, i64 0
+  %81 = extractelement <2 x double> %79, i64 1
+  %82 = fcmp olt double %80, %81
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %60
-  %84 = fcmp ogt double %81, %80
+  %84 = fcmp ogt double %80, %81
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br label %86
 
 86:                                               ; preds = %85, %83, %60
-  %.018.i.i20 = phi double [ %80, %85 ], [ %80, %83 ], [ %81, %60 ]
-  %.0.i.i21 = phi double [ %81, %85 ], [ %80, %83 ], [ %80, %60 ]
+  %.018.i.i20 = phi double [ %81, %85 ], [ %81, %83 ], [ %80, %60 ]
+  %.0.i.i21 = phi double [ %80, %85 ], [ %81, %83 ], [ %81, %60 ]
   %87 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %88 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %87, %88
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %89
 
 89:                                               ; preds = %86
-  %90 = fmul double %81, %80
+  %90 = fmul double %80, %81
   %91 = fmul double %90, 0x3CD0028010000004
   %92 = fcmp ogt double %71, %91
   br i1 %92, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %93
@@ -144075,26 +144077,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25
   %115 = extractelement <2 x double> %113, i64 1
   %116 = fcmp olt double %114, %115
   %.019.i.i.i.i = select i1 %116, double %115, double %114
-  %117 = fcmp olt double %.019.i.i.i.i, %80
+  %117 = fcmp olt double %.019.i.i.i.i, %81
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %104
-  %119 = fcmp ogt double %.019.i.i.i.i, %80
+  %119 = fcmp ogt double %.019.i.i.i.i, %81
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %118
   br label %121
 
 121:                                              ; preds = %120, %118, %104
-  %.018.i.i.i.i = phi double [ %80, %120 ], [ %80, %118 ], [ %.019.i.i.i.i, %104 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %120 ], [ %80, %118 ], [ %80, %104 ]
+  %.018.i.i.i.i = phi double [ %81, %120 ], [ %81, %118 ], [ %.019.i.i.i.i, %104 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %120 ], [ %81, %118 ], [ %81, %104 ]
   %122 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %123 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %122, %123
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %124
 
 124:                                              ; preds = %121
-  %125 = fmul double %80, %.019.i.i.i.i
+  %125 = fmul double %81, %.019.i.i.i.i
   %126 = fmul double %125, 0x3CD0028010000004
   %127 = fcmp ogt double %112, %126
   br i1 %127, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi1EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %128
@@ -144241,28 +144243,28 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25
   %78 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %77)
   %79 = fcmp olt <2 x double> %75, %78
   %80 = select <2 x i1> %79, <2 x double> %78, <2 x double> %75
-  %81 = extractelement <2 x double> %80, i64 1
-  %82 = extractelement <2 x double> %80, i64 0
-  %83 = fcmp olt double %82, %81
+  %81 = extractelement <2 x double> %80, i64 0
+  %82 = extractelement <2 x double> %80, i64 1
+  %83 = fcmp olt double %81, %82
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %61
-  %85 = fcmp ogt double %82, %81
+  %85 = fcmp ogt double %81, %82
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %84
   br label %87
 
 87:                                               ; preds = %86, %84, %61
-  %.018.i.i20 = phi double [ %81, %86 ], [ %81, %84 ], [ %82, %61 ]
-  %.0.i.i21 = phi double [ %82, %86 ], [ %81, %84 ], [ %81, %61 ]
+  %.018.i.i20 = phi double [ %82, %86 ], [ %82, %84 ], [ %81, %61 ]
+  %.0.i.i21 = phi double [ %81, %86 ], [ %82, %84 ], [ %82, %61 ]
   %88 = fcmp olt double %.018.i.i20, 0x218FFD803AF9FCA4
   %89 = fcmp ogt double %.0.i.i21, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i22 = or i1 %88, %89
   br i1 %or.cond.i.i22, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %90
 
 90:                                               ; preds = %87
-  %91 = fmul double %82, %81
+  %91 = fmul double %81, %82
   %92 = fmul double %91, 0x3CD0028010000004
   %93 = fcmp ogt double %72, %92
   br i1 %93, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit26.thread, label %94
@@ -144305,26 +144307,26 @@ _ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25
   %116 = extractelement <2 x double> %114, i64 1
   %117 = fcmp olt double %115, %116
   %.019.i.i.i.i = select i1 %117, double %116, double %115
-  %118 = fcmp olt double %.019.i.i.i.i, %81
+  %118 = fcmp olt double %.019.i.i.i.i, %82
   br i1 %118, label %122, label %119
 
 119:                                              ; preds = %105
-  %120 = fcmp ogt double %.019.i.i.i.i, %81
+  %120 = fcmp ogt double %.019.i.i.i.i, %82
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %119
   br label %122
 
 122:                                              ; preds = %121, %119, %105
-  %.018.i.i.i.i = phi double [ %81, %121 ], [ %81, %119 ], [ %.019.i.i.i.i, %105 ]
-  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %121 ], [ %81, %119 ], [ %81, %105 ]
+  %.018.i.i.i.i = phi double [ %82, %121 ], [ %82, %119 ], [ %.019.i.i.i.i, %105 ]
+  %.0.i.i.i.i = phi double [ %.019.i.i.i.i, %121 ], [ %82, %119 ], [ %82, %105 ]
   %123 = fcmp olt double %.018.i.i.i.i, 0x218FFD803AF9FCA4
   %124 = fcmp ogt double %.0.i.i.i.i, 0x5FBFFFFFFFFFFFFC
   %or.cond.i.i.i.i = or i1 %123, %124
   br i1 %or.cond.i.i.i.i, label %_ZN4CGAL13Intersections8internal24do_axis_intersect_aux_A2IdLi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES9_EEEENS3_14Static_filtersISC_EEEclERKNS_10Triangle_3IS9_EERKNS_6Bbox_3EEUlddddE_EENS_9UncertainINS_4SignEEERKT_ST_RKSt5arrayISU_ISR_Lm3EELm3EET1_.exit.thread.i.i, label %125
 
 125:                                              ; preds = %122
-  %126 = fmul double %81, %.019.i.i.i.i
+  %126 = fmul double %82, %.019.i.i.i.i
   %127 = fmul double %126, 0x3CD0028010000004
   %128 = fcmp ogt double %113, %127
   br i1 %128, label %_ZZN4CGAL13Intersections8internal17do_axis_intersectIdNS_6Bbox_3ELi2ELi2EZNKS_8internal25Static_filters_predicates14Do_intersect_3INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEESA_EEEENS4_14Static_filtersISD_EEEclERKNS_10Triangle_3ISA_EERKS3_EUlddddE_EENS_9UncertainIbEERKSt5arrayISQ_IT_Lm3EELm3EESV_RKT0_T3_ENKUlvE1_clEv.exit.i, label %129
@@ -170484,31 +170486,31 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   %20 = alloca %"class.CGAL::Point_3", align 16
   %21 = alloca %"class.CGAL::Point_2", align 8
   %22 = alloca %"class.CGAL::Point_3", align 16
-  %23 = load double, ptr %1, align 8
-  %24 = load double, ptr %2, align 8
-  %25 = fsub double %23, %24
-  %26 = tail call noundef double @llvm.fabs.f64(double %25)
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = load double, ptr %27, align 8
-  %29 = fcmp olt double %26, %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = load double, ptr %32, align 8
-  br i1 %29, label %34, label %56
+  %23 = load double, ptr %2, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = load double, ptr %24, align 8
+  %26 = load <2 x double>, ptr %1, align 8
+  %27 = extractelement <2 x double> %26, i64 0
+  %28 = fsub double %27, %23
+  %29 = tail call noundef double @llvm.fabs.f64(double %28)
+  %30 = fcmp olt double %29, %25
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load double, ptr %31, align 8
+  br i1 %30, label %33, label %56
 
-34:                                               ; preds = %4
-  %35 = fsub double %31, %33
+33:                                               ; preds = %4
+  %34 = extractelement <2 x double> %26, i64 1
+  %35 = fsub double %34, %32
   %36 = tail call noundef double @llvm.fabs.f64(double %35)
-  %37 = fcmp olt double %36, %28
-  br i1 %37, label %38, label %415
+  %37 = fcmp olt double %36, %25
+  br i1 %37, label %38, label %422
 
-38:                                               ; preds = %34
+38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %0, i64 48
-  %40 = fcmp olt double %23, 0.000000e+00
+  %40 = fcmp olt double %27, 0.000000e+00
   %41 = load double, ptr %39, align 8
-  %42 = fcmp olt double %41, %23
-  %.sroa.speculate.load.false = select i1 %42, double %41, double %23
+  %42 = fcmp olt double %41, %27
+  %.sroa.speculate.load.false = select i1 %42, double %41, double %27
   %.sroa.speculated262 = select i1 %40, double 0.000000e+00, double %.sroa.speculate.load.false
   %43 = getelementptr inbounds i8, ptr %0, i64 56
   %44 = getelementptr inbounds i8, ptr %0, i64 72
@@ -170526,7 +170528,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   store <2 x double> %55, ptr %3, align 8
   %.sroa.3260.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store double %49, ptr %.sroa.3260.0..sroa_idx, align 8
-  br label %415
+  br label %422
 
 56:                                               ; preds = %4
   %57 = getelementptr inbounds i8, ptr %2, i64 8
@@ -170534,9 +170536,9 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   %59 = getelementptr inbounds i8, ptr %0, i64 104
   %60 = load double, ptr %59, align 8
   %61 = fneg double %60
-  %62 = insertelement <2 x double> poison, double %31, i64 0
+  %62 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %63 = insertelement <2 x double> %62, double %58, i64 1
-  %64 = insertelement <2 x double> poison, double %33, i64 0
+  %64 = insertelement <2 x double> poison, double %32, i64 0
   %65 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
   %66 = fcmp ogt <2 x double> %63, %65
   %67 = insertelement <2 x double> poison, double %61, i64 0
@@ -170544,109 +170546,109 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   %69 = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %70 = select <2 x i1> %66, <2 x double> %68, <2 x double> %69
   %71 = fneg <2 x double> %70
-  %72 = insertelement <2 x double> poison, double %23, i64 0
-  %73 = insertelement <2 x double> %72, double %24, i64 1
-  %74 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> %73, <2 x double> %63)
-  %75 = fsub <2 x double> %65, %74
-  %76 = fdiv <2 x double> %75, %70
-  %77 = extractelement <2 x double> %76, i64 1
-  %78 = extractelement <2 x double> %76, i64 0
-  %79 = extractelement <2 x i1> %66, i64 0
-  %80 = extractelement <2 x i1> %66, i64 1
-  %81 = xor i1 %79, %80
-  br i1 %81, label %285, label %82
+  %72 = insertelement <2 x double> %26, double %23, i64 1
+  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> %72, <2 x double> %63)
+  %74 = fsub <2 x double> %65, %73
+  %75 = fdiv <2 x double> %74, %70
+  %76 = extractelement <2 x i1> %66, i64 0
+  %77 = extractelement <2 x i1> %66, i64 1
+  %78 = xor i1 %76, %77
+  br i1 %78, label %285, label %79
 
-82:                                               ; preds = %56
-  %83 = extractelement <2 x double> %74, i64 0
-  %84 = extractelement <2 x double> %70, i64 0
-  %85 = shufflevector <2 x double> %74, <2 x double> %70, <2 x i32> <i32 1, i32 2>
-  %86 = shufflevector <2 x double> %74, <2 x double> %70, <2 x i32> <i32 0, i32 3>
-  %87 = fsub <2 x double> %85, %86
-  %88 = extractelement <2 x double> %87, i64 0
-  %89 = extractelement <2 x double> %87, i64 1
-  %90 = fdiv double %88, %89
-  %91 = tail call double @llvm.fmuladd.f64(double %84, double %90, double %83)
-  %92 = fcmp ule double %91, %33
-  %93 = fcmp uge double %91, %33
-  %or.cond274 = select i1 %79, i1 %92, i1 %93
-  br i1 %or.cond274, label %138, label %94
+79:                                               ; preds = %56
+  %80 = extractelement <2 x double> %73, i64 0
+  %81 = extractelement <2 x double> %70, i64 0
+  %82 = shufflevector <2 x double> %73, <2 x double> %70, <2 x i32> <i32 1, i32 2>
+  %83 = shufflevector <2 x double> %73, <2 x double> %70, <2 x i32> <i32 0, i32 3>
+  %84 = fsub <2 x double> %82, %83
+  %85 = extractelement <2 x double> %84, i64 0
+  %86 = extractelement <2 x double> %84, i64 1
+  %87 = fdiv double %85, %86
+  %88 = tail call double @llvm.fmuladd.f64(double %81, double %87, double %80)
+  %89 = fcmp ule double %88, %32
+  %90 = fcmp uge double %88, %32
+  %or.cond274 = select i1 %76, i1 %89, i1 %90
+  br i1 %or.cond274, label %136, label %91
 
-94:                                               ; preds = %82
-  %95 = fsub double %31, %33
-  %96 = tail call noundef double @llvm.fabs.f64(double %95)
-  %97 = fcmp olt double %96, %28
-  br i1 %97, label %98, label %116
+91:                                               ; preds = %79
+  %92 = extractelement <2 x double> %26, i64 1
+  %93 = fsub double %92, %32
+  %94 = tail call noundef double @llvm.fabs.f64(double %93)
+  %95 = fcmp olt double %94, %25
+  br i1 %95, label %96, label %114
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %0, i64 48
-  %100 = fcmp olt double %23, 0.000000e+00
-  %101 = load double, ptr %99, align 8
-  %102 = fcmp olt double %101, %23
-  %.sroa.speculate.load.false232 = select i1 %102, double %101, double %23
-  %.sroa.speculated233 = select i1 %100, double 0.000000e+00, double %.sroa.speculate.load.false232
-  %103 = getelementptr inbounds i8, ptr %0, i64 56
-  %104 = getelementptr inbounds i8, ptr %0, i64 72
-  %105 = load double, ptr %104, align 8, !noalias !2954
-  %106 = fmul double %.sroa.speculated233, %105
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
-  %108 = load double, ptr %107, align 8, !noalias !2959
-  %109 = fadd double %106, %108
-  %110 = load <2 x double>, ptr %103, align 8, !noalias !2954
-  %111 = insertelement <2 x double> poison, double %.sroa.speculated233, i64 0
-  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
-  %113 = fmul <2 x double> %110, %112
-  %114 = load <2 x double>, ptr %0, align 8, !noalias !2959
-  %115 = fadd <2 x double> %113, %114
-  store <2 x double> %115, ptr %3, align 8
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds i8, ptr %0, i64 48
+  %98 = fcmp olt double %27, 0.000000e+00
+  %99 = load double, ptr %97, align 8
+  %100 = fcmp olt double %99, %27
+  %.sroa.speculate.load.false232 = select i1 %100, double %99, double %27
+  %.sroa.speculated233 = select i1 %98, double 0.000000e+00, double %.sroa.speculate.load.false232
+  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %102 = getelementptr inbounds i8, ptr %0, i64 72
+  %103 = load double, ptr %102, align 8, !noalias !2954
+  %104 = fmul double %.sroa.speculated233, %103
+  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = load double, ptr %105, align 8, !noalias !2959
+  %107 = fadd double %104, %106
+  %108 = load <2 x double>, ptr %101, align 8, !noalias !2954
+  %109 = insertelement <2 x double> poison, double %.sroa.speculated233, i64 0
+  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> zeroinitializer
+  %111 = fmul <2 x double> %108, %110
+  %112 = load <2 x double>, ptr %0, align 8, !noalias !2959
+  %113 = fadd <2 x double> %111, %112
+  store <2 x double> %113, ptr %3, align 8
   %.sroa.3230.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store double %109, ptr %.sroa.3230.0..sroa_idx, align 8
-  br label %415
+  store double %107, ptr %.sroa.3230.0..sroa_idx, align 8
+  br label %422
 
-116:                                              ; preds = %94
-  %117 = fsub double %58, %33
-  %118 = tail call noundef double @llvm.fabs.f64(double %117)
-  %119 = fcmp olt double %118, %28
-  br i1 %119, label %120, label %415
+114:                                              ; preds = %91
+  %115 = fsub double %58, %32
+  %116 = tail call noundef double @llvm.fabs.f64(double %115)
+  %117 = fcmp olt double %116, %25
+  br i1 %117, label %118, label %422
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %0, i64 48
-  %122 = fcmp olt double %24, 0.000000e+00
-  %123 = load double, ptr %121, align 8
-  %124 = fcmp olt double %123, %24
-  %.sroa.speculate.load.false220 = select i1 %124, double %123, double %24
-  %.sroa.speculated221 = select i1 %122, double 0.000000e+00, double %.sroa.speculate.load.false220
-  %125 = getelementptr inbounds i8, ptr %0, i64 56
-  %126 = getelementptr inbounds i8, ptr %0, i64 72
-  %127 = load double, ptr %126, align 8, !noalias !2964
-  %128 = fmul double %.sroa.speculated221, %127
-  %129 = getelementptr inbounds i8, ptr %0, i64 16
-  %130 = load double, ptr %129, align 8, !noalias !2969
-  %131 = fadd double %128, %130
-  %132 = load <2 x double>, ptr %125, align 8, !noalias !2964
-  %133 = insertelement <2 x double> poison, double %.sroa.speculated221, i64 0
-  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> zeroinitializer
-  %135 = fmul <2 x double> %132, %134
-  %136 = load <2 x double>, ptr %0, align 8, !noalias !2969
-  %137 = fadd <2 x double> %135, %136
-  store <2 x double> %137, ptr %3, align 8
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds i8, ptr %0, i64 48
+  %120 = fcmp olt double %23, 0.000000e+00
+  %121 = load double, ptr %119, align 8
+  %122 = fcmp olt double %121, %23
+  %.sroa.speculate.load.false220 = select i1 %122, double %121, double %23
+  %.sroa.speculated221 = select i1 %120, double 0.000000e+00, double %.sroa.speculate.load.false220
+  %123 = getelementptr inbounds i8, ptr %0, i64 56
+  %124 = getelementptr inbounds i8, ptr %0, i64 72
+  %125 = load double, ptr %124, align 8, !noalias !2964
+  %126 = fmul double %.sroa.speculated221, %125
+  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = load double, ptr %127, align 8, !noalias !2969
+  %129 = fadd double %126, %128
+  %130 = load <2 x double>, ptr %123, align 8, !noalias !2964
+  %131 = insertelement <2 x double> poison, double %.sroa.speculated221, i64 0
+  %132 = shufflevector <2 x double> %131, <2 x double> poison, <2 x i32> zeroinitializer
+  %133 = fmul <2 x double> %130, %132
+  %134 = load <2 x double>, ptr %0, align 8, !noalias !2969
+  %135 = fadd <2 x double> %133, %134
+  store <2 x double> %135, ptr %3, align 8
   %.sroa.3218.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store double %131, ptr %.sroa.3218.0..sroa_idx, align 8
-  br label %415
+  store double %129, ptr %.sroa.3218.0..sroa_idx, align 8
+  br label %422
 
-138:                                              ; preds = %82
-  %139 = getelementptr inbounds i8, ptr %0, i64 48
-  %140 = fcmp olt double %78, 0.000000e+00
-  %141 = load double, ptr %139, align 8
-  %142 = fcmp olt double %141, %78
-  %.sroa.speculate.load.false210.sroa.speculated = select i1 %142, double %141, double %78
-  %.sroa.speculated211 = select i1 %140, double 0.000000e+00, double %.sroa.speculate.load.false210.sroa.speculated
-  %143 = fcmp olt double %90, 0.000000e+00
-  %144 = fcmp olt double %141, %90
-  %.sroa.speculate.load.false206.sroa.speculated = select i1 %144, double %141, double %90
-  %.sroa.speculated207 = select i1 %143, double 0.000000e+00, double %.sroa.speculate.load.false206.sroa.speculated
-  %145 = fcmp olt double %77, 0.000000e+00
-  %146 = fcmp olt double %141, %77
-  %.sroa.speculate.load.false202.sroa.speculated = select i1 %146, double %141, double %77
+136:                                              ; preds = %79
+  %137 = getelementptr inbounds i8, ptr %0, i64 48
+  %138 = extractelement <2 x double> %75, i64 0
+  %139 = fcmp olt double %138, 0.000000e+00
+  %140 = load double, ptr %137, align 8
+  %141 = fcmp olt double %140, %138
+  %.sroa.speculate.load.false210.sroa.speculated = select i1 %141, double %140, double %138
+  %.sroa.speculated211 = select i1 %139, double 0.000000e+00, double %.sroa.speculate.load.false210.sroa.speculated
+  %142 = fcmp olt double %87, 0.000000e+00
+  %143 = fcmp olt double %140, %87
+  %.sroa.speculate.load.false206.sroa.speculated = select i1 %143, double %140, double %87
+  %.sroa.speculated207 = select i1 %142, double 0.000000e+00, double %.sroa.speculate.load.false206.sroa.speculated
+  %144 = extractelement <2 x double> %75, i64 1
+  %145 = fcmp olt double %144, 0.000000e+00
+  %146 = fcmp olt double %140, %144
+  %.sroa.speculate.load.false202.sroa.speculated = select i1 %146, double %140, double %144
   %.sroa.speculated203 = select i1 %145, double 0.000000e+00, double %.sroa.speculate.load.false202.sroa.speculated
   %147 = getelementptr inbounds i8, ptr %0, i64 80
   %148 = getelementptr inbounds i8, ptr %0, i64 56
@@ -170766,16 +170768,16 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   store double %.sroa.speculated203, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds i8, ptr %15, i64 8
   store double %sqrt.i84, ptr %.sroa.2.0..sroa_idx.i85, align 8
-  %226 = load double, ptr %32, align 8
+  %226 = load double, ptr %31, align 8
   %227 = fsub double %sqrt.i, %226
   %228 = call noundef double @llvm.fabs.f64(double %227)
-  %229 = load double, ptr %27, align 8
+  %229 = load double, ptr %24, align 8
   %230 = fcmp olt double %228, %229
   br i1 %230, label %231, label %245
 
-231:                                              ; preds = %138
+231:                                              ; preds = %136
   %232 = fcmp olt double %.sroa.speculated211, 0.000000e+00
-  %233 = load double, ptr %139, align 8
+  %233 = load double, ptr %137, align 8
   %234 = fcmp olt double %233, %.sroa.speculated211
   %.sroa.speculate.load.false184 = select i1 %234, double %233, double %.sroa.speculated211
   %.sroa.speculated185 = select i1 %232, double 0.000000e+00, double %.sroa.speculate.load.false184
@@ -170792,9 +170794,9 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   store <2 x double> %244, ptr %3, align 8
   %.sroa.3182.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store double %238, ptr %.sroa.3182.0..sroa_idx, align 8
-  br label %415
+  br label %422
 
-245:                                              ; preds = %138
+245:                                              ; preds = %136
   %246 = fsub double %sqrt.i78, %226
   %247 = call noundef double @llvm.fabs.f64(double %246)
   %248 = fcmp olt double %247, %229
@@ -170802,7 +170804,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
 
 249:                                              ; preds = %245
   %250 = fcmp olt double %.sroa.speculated207, 0.000000e+00
-  %251 = load double, ptr %139, align 8
+  %251 = load double, ptr %137, align 8
   %252 = fcmp olt double %251, %.sroa.speculated207
   %.sroa.speculate.load.false172 = select i1 %252, double %251, double %.sroa.speculated207
   %.sroa.speculated173 = select i1 %250, double 0.000000e+00, double %.sroa.speculate.load.false172
@@ -170819,7 +170821,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   store <2 x double> %262, ptr %3, align 8
   %.sroa.3170.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store double %256, ptr %.sroa.3170.0..sroa_idx, align 8
-  br label %415
+  br label %422
 
 263:                                              ; preds = %245
   %264 = fsub double %sqrt.i84, %226
@@ -170829,7 +170831,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
 
 267:                                              ; preds = %263
   %268 = fcmp olt double %.sroa.speculated203, 0.000000e+00
-  %269 = load double, ptr %139, align 8
+  %269 = load double, ptr %137, align 8
   %270 = fcmp olt double %269, %.sroa.speculated203
   %.sroa.speculate.load.false160 = select i1 %270, double %269, double %.sroa.speculated203
   %.sroa.speculated161 = select i1 %268, double 0.000000e+00, double %.sroa.speculate.load.false160
@@ -170846,213 +170848,220 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset
   store <2 x double> %280, ptr %3, align 8
   %.sroa.3158.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   store double %274, ptr %.sroa.3158.0..sroa_idx, align 8
-  br label %415
+  br label %422
 
 281:                                              ; preds = %263
   %282 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br i1 %282, label %415, label %283
+  br i1 %282, label %422, label %283
 
 283:                                              ; preds = %281
   %284 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %415
+  br label %422
 
 285:                                              ; preds = %56
-  %286 = fsub double %77, %78
-  %287 = tail call noundef double @llvm.fabs.f64(double %286)
-  %288 = fcmp ugt double %287, %28
-  br i1 %288, label %321, label %289
+  %286 = extractelement <2 x double> %75, i64 0
+  %287 = extractelement <2 x double> %75, i64 1
+  %288 = fsub double %287, %286
+  %289 = tail call noundef double @llvm.fabs.f64(double %288)
+  %290 = fcmp ugt double %289, %25
+  br i1 %290, label %328, label %291
 
-289:                                              ; preds = %285
-  %290 = fsub double %58, %31
-  %291 = fsub double %24, %23
-  %292 = fdiv double %290, %291
-  %293 = fcmp oeq double %292, 0.000000e+00
-  br i1 %293, label %294, label %298
+291:                                              ; preds = %285
+  %292 = insertelement <2 x double> poison, double %23, i64 0
+  %293 = insertelement <2 x double> %292, double %58, i64 1
+  %294 = fsub <2 x double> %293, %26
+  %295 = extractelement <2 x double> %294, i64 0
+  %296 = extractelement <2 x double> %294, i64 1
+  %297 = fdiv double %296, %295
+  %298 = fcmp oeq double %297, 0.000000e+00
+  br i1 %298, label %299, label %304
 
-294:                                              ; preds = %289
-  %295 = fsub double %31, %33
-  %296 = tail call noundef double @llvm.fabs.f64(double %295)
-  %297 = fcmp olt double %296, %28
-  br i1 %297, label %303, label %415
+299:                                              ; preds = %291
+  %300 = extractelement <2 x double> %26, i64 1
+  %301 = fsub double %300, %32
+  %302 = tail call noundef double @llvm.fabs.f64(double %301)
+  %303 = fcmp olt double %302, %25
+  br i1 %303, label %310, label %422
 
-298:                                              ; preds = %289
-  %299 = fneg double %292
-  %300 = tail call double @llvm.fmuladd.f64(double %299, double %23, double %31)
-  %301 = fsub double %33, %300
-  %302 = fdiv double %301, %292
-  br label %303
+304:                                              ; preds = %291
+  %305 = fneg double %297
+  %306 = extractelement <2 x double> %26, i64 1
+  %307 = tail call double @llvm.fmuladd.f64(double %305, double %27, double %306)
+  %308 = fsub double %32, %307
+  %309 = fdiv double %308, %297
+  br label %310
 
-303:                                              ; preds = %294, %298
-  %storemerge = phi double [ %302, %298 ], [ %23, %294 ]
-  %304 = getelementptr inbounds i8, ptr %0, i64 48
-  %305 = fcmp olt double %storemerge, 0.000000e+00
-  %306 = load double, ptr %304, align 8
-  %307 = fcmp olt double %306, %storemerge
-  %.sroa.speculate.load.false146.sroa.speculated = select i1 %307, double %306, double %storemerge
-  %.sroa.speculated147 = select i1 %305, double 0.000000e+00, double %.sroa.speculate.load.false146.sroa.speculated
-  %308 = getelementptr inbounds i8, ptr %0, i64 56
-  %309 = getelementptr inbounds i8, ptr %0, i64 72
-  %310 = load double, ptr %309, align 8, !noalias !3070
-  %311 = fmul double %.sroa.speculated147, %310
-  %312 = getelementptr inbounds i8, ptr %0, i64 16
-  %313 = load double, ptr %312, align 8, !noalias !3075
-  %314 = fadd double %311, %313
-  %315 = load <2 x double>, ptr %308, align 8, !noalias !3070
-  %316 = insertelement <2 x double> poison, double %.sroa.speculated147, i64 0
-  %317 = shufflevector <2 x double> %316, <2 x double> poison, <2 x i32> zeroinitializer
-  %318 = fmul <2 x double> %315, %317
-  %319 = load <2 x double>, ptr %0, align 8, !noalias !3075
-  %320 = fadd <2 x double> %319, %318
-  store <2 x double> %320, ptr %3, align 8
+310:                                              ; preds = %299, %304
+  %storemerge = phi double [ %309, %304 ], [ %27, %299 ]
+  %311 = getelementptr inbounds i8, ptr %0, i64 48
+  %312 = fcmp olt double %storemerge, 0.000000e+00
+  %313 = load double, ptr %311, align 8
+  %314 = fcmp olt double %313, %storemerge
+  %.sroa.speculate.load.false146.sroa.speculated = select i1 %314, double %313, double %storemerge
+  %.sroa.speculated147 = select i1 %312, double 0.000000e+00, double %.sroa.speculate.load.false146.sroa.speculated
+  %315 = getelementptr inbounds i8, ptr %0, i64 56
+  %316 = getelementptr inbounds i8, ptr %0, i64 72
+  %317 = load double, ptr %316, align 8, !noalias !3070
+  %318 = fmul double %.sroa.speculated147, %317
+  %319 = getelementptr inbounds i8, ptr %0, i64 16
+  %320 = load double, ptr %319, align 8, !noalias !3075
+  %321 = fadd double %318, %320
+  %322 = load <2 x double>, ptr %315, align 8, !noalias !3070
+  %323 = insertelement <2 x double> poison, double %.sroa.speculated147, i64 0
+  %324 = shufflevector <2 x double> %323, <2 x double> poison, <2 x i32> zeroinitializer
+  %325 = fmul <2 x double> %322, %324
+  %326 = load <2 x double>, ptr %0, align 8, !noalias !3075
+  %327 = fadd <2 x double> %326, %325
+  store <2 x double> %327, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store double %314, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %415
+  store double %321, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %422
 
-321:                                              ; preds = %285
-  %322 = fadd double %78, %77
-  %323 = fmul double %322, 5.000000e-01
-  %324 = getelementptr inbounds i8, ptr %0, i64 48
-  %325 = fcmp olt <2 x double> %76, zeroinitializer
-  %326 = load double, ptr %324, align 8
-  %327 = fcmp olt double %326, %78
-  %.sroa.speculate.load.false134.sroa.speculated = select i1 %327, double %326, double %78
-  %328 = extractelement <2 x i1> %325, i64 0
-  %.sroa.speculated135 = select i1 %328, double 0.000000e+00, double %.sroa.speculate.load.false134.sroa.speculated
-  %329 = fcmp olt double %323, 0.000000e+00
-  %330 = fcmp olt double %326, %323
-  %.sroa.speculate.load.false130.sroa.speculated = select i1 %330, double %326, double %323
-  %.sroa.speculated131 = select i1 %329, double 0.000000e+00, double %.sroa.speculate.load.false130.sroa.speculated
-  %331 = fcmp olt double %326, %77
-  %.sroa.speculate.load.false.sroa.speculated = select i1 %331, double %326, double %77
-  %332 = extractelement <2 x i1> %325, i64 1
-  %.sroa.speculated = select i1 %332, double 0.000000e+00, double %.sroa.speculate.load.false.sroa.speculated
-  %333 = getelementptr inbounds i8, ptr %0, i64 80
-  %334 = getelementptr inbounds i8, ptr %0, i64 56
-  %335 = getelementptr inbounds i8, ptr %0, i64 72
-  %336 = load double, ptr %335, align 8, !noalias !3080
-  %337 = fmul double %.sroa.speculated135, %336
+328:                                              ; preds = %285
+  %329 = fadd double %286, %287
+  %330 = fmul double %329, 5.000000e-01
+  %331 = getelementptr inbounds i8, ptr %0, i64 48
+  %332 = fcmp olt <2 x double> %75, zeroinitializer
+  %333 = load double, ptr %331, align 8
+  %334 = fcmp olt double %333, %286
+  %.sroa.speculate.load.false134.sroa.speculated = select i1 %334, double %333, double %286
+  %335 = extractelement <2 x i1> %332, i64 0
+  %.sroa.speculated135 = select i1 %335, double 0.000000e+00, double %.sroa.speculate.load.false134.sroa.speculated
+  %336 = fcmp olt double %330, 0.000000e+00
+  %337 = fcmp olt double %333, %330
+  %.sroa.speculate.load.false130.sroa.speculated = select i1 %337, double %333, double %330
+  %.sroa.speculated131 = select i1 %336, double 0.000000e+00, double %.sroa.speculate.load.false130.sroa.speculated
+  %338 = fcmp olt double %333, %287
+  %.sroa.speculate.load.false.sroa.speculated = select i1 %338, double %333, double %287
+  %339 = extractelement <2 x i1> %332, i64 1
+  %.sroa.speculated = select i1 %339, double 0.000000e+00, double %.sroa.speculate.load.false.sroa.speculated
+  %340 = getelementptr inbounds i8, ptr %0, i64 80
+  %341 = getelementptr inbounds i8, ptr %0, i64 56
+  %342 = getelementptr inbounds i8, ptr %0, i64 72
+  %343 = load double, ptr %342, align 8, !noalias !3080
+  %344 = fmul double %.sroa.speculated135, %343
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3085)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3088)
-  %338 = getelementptr inbounds i8, ptr %0, i64 16
-  %339 = load double, ptr %338, align 8, !noalias !3091
-  %340 = fadd double %337, %339
+  %345 = getelementptr inbounds i8, ptr %0, i64 16
+  %346 = load double, ptr %345, align 8, !noalias !3091
+  %347 = fadd double %344, %346
   %.sroa.2.0..sroa_idx.i.i.i.i104 = getelementptr inbounds i8, ptr %18, i64 8
-  %341 = load <2 x double>, ptr %334, align 8, !noalias !3080
-  %342 = insertelement <2 x double> poison, double %.sroa.speculated135, i64 0
-  %343 = shufflevector <2 x double> %342, <2 x double> poison, <2 x i32> zeroinitializer
-  %344 = fmul <2 x double> %341, %343
-  %345 = load <2 x double>, ptr %0, align 8, !noalias !3091
-  %346 = fadd <2 x double> %344, %345
-  store <2 x double> %346, ptr %18, align 16, !alias.scope !3092
+  %348 = load <2 x double>, ptr %341, align 8, !noalias !3080
+  %349 = insertelement <2 x double> poison, double %.sroa.speculated135, i64 0
+  %350 = shufflevector <2 x double> %349, <2 x double> poison, <2 x i32> zeroinitializer
+  %351 = fmul <2 x double> %348, %350
+  %352 = load <2 x double>, ptr %0, align 8, !noalias !3091
+  %353 = fadd <2 x double> %351, %352
+  store <2 x double> %353, ptr %18, align 16, !alias.scope !3092
   %.sroa.3.0..sroa_idx.i.i.i.i105 = getelementptr inbounds i8, ptr %18, i64 16
-  store double %340, ptr %.sroa.3.0..sroa_idx.i.i.i.i105, align 16, !alias.scope !3092
-  %347 = load ptr, ptr %333, align 8
+  store double %347, ptr %.sroa.3.0..sroa_idx.i.i.i.i105, align 16, !alias.scope !3092
+  %354 = load ptr, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(187) %347)
-  %348 = load double, ptr %7, align 8, !noalias !3095
-  %349 = load double, ptr %18, align 16, !noalias !3095
-  %350 = fsub double %348, %349
-  %351 = getelementptr inbounds i8, ptr %7, i64 8
-  %352 = load double, ptr %351, align 8, !noalias !3095
-  %353 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i104, align 8, !noalias !3095
-  %354 = fsub double %352, %353
-  %355 = getelementptr inbounds i8, ptr %7, i64 16
-  %356 = load double, ptr %355, align 8, !noalias !3095
-  %357 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i105, align 16, !noalias !3095
-  %358 = fsub double %356, %357
-  %359 = fmul double %354, %354
-  %360 = call double @llvm.fmuladd.f64(double %350, double %350, double %359)
-  %361 = call noundef double @llvm.fmuladd.f64(double %358, double %358, double %360)
+  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(187) %354)
+  %355 = load double, ptr %7, align 8, !noalias !3095
+  %356 = load double, ptr %18, align 16, !noalias !3095
+  %357 = fsub double %355, %356
+  %358 = getelementptr inbounds i8, ptr %7, i64 8
+  %359 = load double, ptr %358, align 8, !noalias !3095
+  %360 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i104, align 8, !noalias !3095
+  %361 = fsub double %359, %360
+  %362 = getelementptr inbounds i8, ptr %7, i64 16
+  %363 = load double, ptr %362, align 8, !noalias !3095
+  %364 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i105, align 16, !noalias !3095
+  %365 = fsub double %363, %364
+  %366 = fmul double %361, %361
+  %367 = call double @llvm.fmuladd.f64(double %357, double %357, double %366)
+  %368 = call noundef double @llvm.fmuladd.f64(double %365, double %365, double %367)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %sqrt.i106 = call noundef double @llvm.sqrt.f64(double %361)
+  %sqrt.i106 = call noundef double @llvm.sqrt.f64(double %368)
   store double %.sroa.speculated135, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i107 = getelementptr inbounds i8, ptr %17, i64 8
   store double %sqrt.i106, ptr %.sroa.2.0..sroa_idx.i107, align 8
-  %362 = load double, ptr %335, align 8, !noalias !3102
-  %363 = fmul double %.sroa.speculated131, %362
+  %369 = load double, ptr %342, align 8, !noalias !3102
+  %370 = fmul double %.sroa.speculated131, %369
   call void @llvm.experimental.noalias.scope.decl(metadata !3107)
   call void @llvm.experimental.noalias.scope.decl(metadata !3110)
-  %364 = load double, ptr %338, align 8, !noalias !3113
-  %365 = fadd double %363, %364
+  %371 = load double, ptr %345, align 8, !noalias !3113
+  %372 = fadd double %370, %371
   %.sroa.2.0..sroa_idx.i.i.i.i110 = getelementptr inbounds i8, ptr %20, i64 8
-  %366 = load <2 x double>, ptr %334, align 8, !noalias !3102
-  %367 = insertelement <2 x double> poison, double %.sroa.speculated131, i64 0
-  %368 = shufflevector <2 x double> %367, <2 x double> poison, <2 x i32> zeroinitializer
-  %369 = fmul <2 x double> %368, %366
-  %370 = load <2 x double>, ptr %0, align 8, !noalias !3113
-  %371 = fadd <2 x double> %369, %370
-  store <2 x double> %371, ptr %20, align 16, !alias.scope !3114
+  %373 = load <2 x double>, ptr %341, align 8, !noalias !3102
+  %374 = insertelement <2 x double> poison, double %.sroa.speculated131, i64 0
+  %375 = shufflevector <2 x double> %374, <2 x double> poison, <2 x i32> zeroinitializer
+  %376 = fmul <2 x double> %375, %373
+  %377 = load <2 x double>, ptr %0, align 8, !noalias !3113
+  %378 = fadd <2 x double> %376, %377
+  store <2 x double> %378, ptr %20, align 16, !alias.scope !3114
   %.sroa.3.0..sroa_idx.i.i.i.i111 = getelementptr inbounds i8, ptr %20, i64 16
-  store double %365, ptr %.sroa.3.0..sroa_idx.i.i.i.i111, align 16, !alias.scope !3114
-  %372 = load ptr, ptr %333, align 8
+  store double %372, ptr %.sroa.3.0..sroa_idx.i.i.i.i111, align 16, !alias.scope !3114
+  %379 = load ptr, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(187) %372)
-  %373 = load double, ptr %6, align 8, !noalias !3117
-  %374 = load double, ptr %20, align 16, !noalias !3117
-  %375 = fsub double %373, %374
-  %376 = getelementptr inbounds i8, ptr %6, i64 8
-  %377 = load double, ptr %376, align 8, !noalias !3117
-  %378 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i110, align 8, !noalias !3117
-  %379 = fsub double %377, %378
-  %380 = getelementptr inbounds i8, ptr %6, i64 16
-  %381 = load double, ptr %380, align 8, !noalias !3117
-  %382 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i111, align 16, !noalias !3117
-  %383 = fsub double %381, %382
-  %384 = fmul double %379, %379
-  %385 = call double @llvm.fmuladd.f64(double %375, double %375, double %384)
-  %386 = call noundef double @llvm.fmuladd.f64(double %383, double %383, double %385)
+  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(187) %379)
+  %380 = load double, ptr %6, align 8, !noalias !3117
+  %381 = load double, ptr %20, align 16, !noalias !3117
+  %382 = fsub double %380, %381
+  %383 = getelementptr inbounds i8, ptr %6, i64 8
+  %384 = load double, ptr %383, align 8, !noalias !3117
+  %385 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i110, align 8, !noalias !3117
+  %386 = fsub double %384, %385
+  %387 = getelementptr inbounds i8, ptr %6, i64 16
+  %388 = load double, ptr %387, align 8, !noalias !3117
+  %389 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i111, align 16, !noalias !3117
+  %390 = fsub double %388, %389
+  %391 = fmul double %386, %386
+  %392 = call double @llvm.fmuladd.f64(double %382, double %382, double %391)
+  %393 = call noundef double @llvm.fmuladd.f64(double %390, double %390, double %392)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %sqrt.i112 = call noundef double @llvm.sqrt.f64(double %386)
+  %sqrt.i112 = call noundef double @llvm.sqrt.f64(double %393)
   store double %.sroa.speculated131, ptr %19, align 8
   %.sroa.2.0..sroa_idx.i113 = getelementptr inbounds i8, ptr %19, i64 8
   store double %sqrt.i112, ptr %.sroa.2.0..sroa_idx.i113, align 8
-  %387 = load double, ptr %335, align 8, !noalias !3124
-  %388 = fmul double %.sroa.speculated, %387
+  %394 = load double, ptr %342, align 8, !noalias !3124
+  %395 = fmul double %.sroa.speculated, %394
   call void @llvm.experimental.noalias.scope.decl(metadata !3129)
   call void @llvm.experimental.noalias.scope.decl(metadata !3132)
-  %389 = load double, ptr %338, align 8, !noalias !3135
-  %390 = fadd double %388, %389
+  %396 = load double, ptr %345, align 8, !noalias !3135
+  %397 = fadd double %395, %396
   %.sroa.2.0..sroa_idx.i.i.i.i116 = getelementptr inbounds i8, ptr %22, i64 8
-  %391 = load <2 x double>, ptr %334, align 8, !noalias !3124
-  %392 = insertelement <2 x double> poison, double %.sroa.speculated, i64 0
-  %393 = shufflevector <2 x double> %392, <2 x double> poison, <2 x i32> zeroinitializer
-  %394 = fmul <2 x double> %393, %391
-  %395 = load <2 x double>, ptr %0, align 8, !noalias !3135
-  %396 = fadd <2 x double> %394, %395
-  store <2 x double> %396, ptr %22, align 16, !alias.scope !3136
+  %398 = load <2 x double>, ptr %341, align 8, !noalias !3124
+  %399 = insertelement <2 x double> poison, double %.sroa.speculated, i64 0
+  %400 = shufflevector <2 x double> %399, <2 x double> poison, <2 x i32> zeroinitializer
+  %401 = fmul <2 x double> %400, %398
+  %402 = load <2 x double>, ptr %0, align 8, !noalias !3135
+  %403 = fadd <2 x double> %401, %402
+  store <2 x double> %403, ptr %22, align 16, !alias.scope !3136
   %.sroa.3.0..sroa_idx.i.i.i.i117 = getelementptr inbounds i8, ptr %22, i64 16
-  store double %390, ptr %.sroa.3.0..sroa_idx.i.i.i.i117, align 16, !alias.scope !3136
-  %397 = load ptr, ptr %333, align 8
+  store double %397, ptr %.sroa.3.0..sroa_idx.i.i.i.i117, align 16, !alias.scope !3136
+  %404 = load ptr, ptr %340, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(187) %397)
-  %398 = load double, ptr %5, align 8, !noalias !3139
-  %399 = load double, ptr %22, align 16, !noalias !3139
-  %400 = fsub double %398, %399
-  %401 = getelementptr inbounds i8, ptr %5, i64 8
-  %402 = load double, ptr %401, align 8, !noalias !3139
-  %403 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i116, align 8, !noalias !3139
-  %404 = fsub double %402, %403
-  %405 = getelementptr inbounds i8, ptr %5, i64 16
-  %406 = load double, ptr %405, align 8, !noalias !3139
-  %407 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i117, align 16, !noalias !3139
-  %408 = fsub double %406, %407
-  %409 = fmul double %404, %404
-  %410 = call double @llvm.fmuladd.f64(double %400, double %400, double %409)
-  %411 = call noundef double @llvm.fmuladd.f64(double %408, double %408, double %410)
+  call void @_ZN4CGAL13Alpha_wraps_38internal23AABB_tree_oracle_helperINS_9AABB_treeINS_11AABB_traitsINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS6_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEE13closest_pointERKSO_RKSZ_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(187) %404)
+  %405 = load double, ptr %5, align 8, !noalias !3139
+  %406 = load double, ptr %22, align 16, !noalias !3139
+  %407 = fsub double %405, %406
+  %408 = getelementptr inbounds i8, ptr %5, i64 8
+  %409 = load double, ptr %408, align 8, !noalias !3139
+  %410 = load double, ptr %.sroa.2.0..sroa_idx.i.i.i.i116, align 8, !noalias !3139
+  %411 = fsub double %409, %410
+  %412 = getelementptr inbounds i8, ptr %5, i64 16
+  %413 = load double, ptr %412, align 8, !noalias !3139
+  %414 = load double, ptr %.sroa.3.0..sroa_idx.i.i.i.i117, align 16, !noalias !3139
+  %415 = fsub double %413, %414
+  %416 = fmul double %411, %411
+  %417 = call double @llvm.fmuladd.f64(double %407, double %407, double %416)
+  %418 = call noundef double @llvm.fmuladd.f64(double %415, double %415, double %417)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %sqrt.i118 = call noundef double @llvm.sqrt.f64(double %411)
+  %sqrt.i118 = call noundef double @llvm.sqrt.f64(double %418)
   store double %.sroa.speculated, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i119 = getelementptr inbounds i8, ptr %21, i64 8
   store double %sqrt.i118, ptr %.sroa.2.0..sroa_idx.i119, align 8
-  %412 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br i1 %412, label %415, label %413
+  %419 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br i1 %419, label %422, label %420
 
-413:                                              ; preds = %321
-  %414 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %415
+420:                                              ; preds = %328
+  %421 = call noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal19Offset_intersectionINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS1_20AABB_distance_oracleINS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS4_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS4_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEEEENS1_25Splitter_traversal_traitsISZ_EEEEE27recursive_dichotomic_searchISP_EEbRKNS_7Point_2IS4_EES19_RT_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %422
 
-415:                                              ; preds = %321, %413, %294, %281, %283, %116, %34, %303, %267, %249, %231, %120, %98, %38
-  %.0 = phi i1 [ true, %38 ], [ true, %98 ], [ true, %120 ], [ true, %231 ], [ true, %249 ], [ true, %267 ], [ true, %303 ], [ false, %34 ], [ false, %116 ], [ true, %281 ], [ %284, %283 ], [ false, %294 ], [ true, %321 ], [ %414, %413 ]
+422:                                              ; preds = %328, %420, %299, %281, %283, %114, %33, %310, %267, %249, %231, %118, %96, %38
+  %.0 = phi i1 [ true, %38 ], [ true, %96 ], [ true, %118 ], [ true, %231 ], [ true, %249 ], [ true, %267 ], [ true, %310 ], [ false, %33 ], [ false, %114 ], [ true, %281 ], [ %284, %283 ], [ false, %299 ], [ true, %328 ], [ %421, %420 ]
   ret i1 %.0
 }
 

@@ -2342,15 +2342,18 @@ sw.bb20:                                          ; preds = %entry
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb4, %sw.bb8, %sw.bb12, %sw.bb16, %sw.bb20
-  %1 = phi <2 x i32> [ <i32 1, i32 0>, %sw.bb20 ], [ <i32 0, i32 1>, %sw.bb16 ], [ <i32 2, i32 0>, %sw.bb12 ], [ <i32 0, i32 2>, %sw.bb8 ], [ <i32 2, i32 1>, %sw.bb4 ], [ <i32 1, i32 2>, %sw.bb ]
+  %.sink24 = phi i32 [ 1, %sw.bb20 ], [ 0, %sw.bb16 ], [ 2, %sw.bb12 ], [ 0, %sw.bb8 ], [ 2, %sw.bb4 ], [ 1, %sw.bb ]
+  %.sink = phi i32 [ 0, %sw.bb20 ], [ 1, %sw.bb16 ], [ 0, %sw.bb12 ], [ 2, %sw.bb8 ], [ 1, %sw.bb4 ], [ 2, %sw.bb ]
   %arrayidx22 = getelementptr inbounds i8, ptr %cIdx, i64 4
-  store <2 x i32> %1, ptr %arrayidx22, align 4
+  store i32 %.sink24, ptr %arrayidx22, align 4
+  %arrayidx23 = getelementptr inbounds i8, ptr %cIdx, i64 8
+  store i32 %.sink, ptr %arrayidx23, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
   %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 992
   %m_calculatedAxis.i = getelementptr inbounds i8, ptr %this, i64 1404
-  %2 = getelementptr inbounds i8, ptr %axis, i64 8
+  %1 = getelementptr inbounds i8, ptr %axis, i64 8
   %m_flags = getelementptr inbounds i8, ptr %this, i64 1480
   %cfm = getelementptr inbounds i8, ptr %info, i64 56
   %erp = getelementptr inbounds i8, ptr %info, i64 4
@@ -2360,24 +2363,24 @@ for.body:                                         ; preds = %sw.epilog, %for.inc
   %indvars.iv = phi i64 [ 0, %sw.epilog ], [ %indvars.iv.next, %for.inc ]
   %row.022 = phi i32 [ %row_offset, %sw.epilog ], [ %row.1, %for.inc ]
   %arrayidx24 = getelementptr inbounds [3 x i32], ptr %cIdx, i64 0, i64 %indvars.iv
-  %3 = load i32, ptr %arrayidx24, align 4
-  %idxprom25 = sext i32 %3 to i64
+  %2 = load i32, ptr %arrayidx24, align 4
+  %idxprom25 = sext i32 %2 to i64
   %arrayidx26 = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %idxprom25
   %m_currentLimit = getelementptr inbounds i8, ptr %arrayidx26, i64 84
-  %4 = load i32, ptr %m_currentLimit, align 4
-  %tobool.not = icmp eq i32 %4, 0
+  %3 = load i32, ptr %m_currentLimit, align 4
+  %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.body
   %m_enableMotor = getelementptr inbounds i8, ptr %arrayidx26, i64 28
-  %5 = load i8, ptr %m_enableMotor, align 4
-  %tobool30 = trunc i8 %5 to i1
+  %4 = load i8, ptr %m_enableMotor, align 4
+  %tobool30 = trunc i8 %4 to i1
   br i1 %tobool30, label %if.then, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false
   %m_enableSpring = getelementptr inbounds i8, ptr %arrayidx26, i64 48
-  %6 = load i8, ptr %m_enableSpring, align 8
-  %tobool35 = trunc i8 %6 to i1
+  %5 = load i8, ptr %m_enableSpring, align 8
+  %tobool35 = trunc i8 %5 to i1
   br i1 %tobool35, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %lor.lhs.false31, %lor.lhs.false, %for.body
@@ -2386,20 +2389,20 @@ if.then:                                          ; preds = %lor.lhs.false31, %l
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 4
   store <2 x float> %retval.sroa.0.0.copyload.i, ptr %axis, align 8
-  store <2 x float> %retval.sroa.2.0.copyload.i, ptr %2, align 8
-  %7 = load i32, ptr %m_flags, align 8
-  %add = shl i32 %3, 2
+  store <2 x float> %retval.sroa.2.0.copyload.i, ptr %1, align 8
+  %6 = load i32, ptr %m_flags, align 8
+  %add = shl i32 %2, 2
   %mul = add i32 %add, 12
-  %shr = ashr i32 %7, %mul
+  %shr = ashr i32 %6, %mul
   %and = and i32 %shr, 1
   %tobool36.not = icmp eq i32 %and, 0
   br i1 %tobool36.not, label %if.then37, label %if.end
 
 if.then37:                                        ; preds = %if.then
-  %8 = load ptr, ptr %cfm, align 8
-  %9 = load float, ptr %8, align 4
+  %7 = load ptr, ptr %cfm, align 8
+  %8 = load float, ptr %7, align 4
   %m_stopCFM = getelementptr inbounds i8, ptr %arrayidx26, i64 16
-  store float %9, ptr %m_stopCFM, align 8
+  store float %8, ptr %m_stopCFM, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then37, %if.then
@@ -2408,9 +2411,9 @@ if.end:                                           ; preds = %if.then37, %if.then
   br i1 %tobool43.not, label %if.then44, label %if.end48
 
 if.then44:                                        ; preds = %if.end
-  %10 = load float, ptr %erp, align 4
+  %9 = load float, ptr %erp, align 4
   %m_stopERP = getelementptr inbounds i8, ptr %arrayidx26, i64 12
-  store float %10, ptr %m_stopERP, align 4
+  store float %9, ptr %m_stopERP, align 4
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then44, %if.end
@@ -2419,10 +2422,10 @@ if.end48:                                         ; preds = %if.then44, %if.end
   br i1 %tobool50.not, label %if.then51, label %if.end57
 
 if.then51:                                        ; preds = %if.end48
-  %11 = load ptr, ptr %cfm, align 8
-  %12 = load float, ptr %11, align 4
+  %10 = load ptr, ptr %cfm, align 8
+  %11 = load float, ptr %10, align 4
   %m_motorCFM = getelementptr inbounds i8, ptr %arrayidx26, i64 24
-  store float %12, ptr %m_motorCFM, align 8
+  store float %11, ptr %m_motorCFM, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then51, %if.end48
@@ -2431,9 +2434,9 @@ if.end57:                                         ; preds = %if.then51, %if.end4
   br i1 %tobool59.not, label %if.then60, label %if.end65
 
 if.then60:                                        ; preds = %if.end57
-  %13 = load float, ptr %erp, align 4
+  %12 = load float, ptr %erp, align 4
   %m_motorERP = getelementptr inbounds i8, ptr %arrayidx26, i64 20
-  store float %13, ptr %m_motorERP, align 4
+  store float %12, ptr %m_motorERP, align 4
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then60, %if.end57

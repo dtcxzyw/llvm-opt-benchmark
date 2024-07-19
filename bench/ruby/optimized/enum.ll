@@ -4553,33 +4553,33 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 .lr.ph43.i:                                       ; preds = %tailrecurse._crit_edge, %.loopexit.i
   %.040.i = phi ptr [ %.0.i, %.loopexit.i ], [ %.038.i, %tailrecurse._crit_edge ]
   %16 = load <2 x i64>, ptr %.040.i, align 8
-  %17 = extractelement <2 x i64> %16, i64 0
-  %18 = load i64, ptr %0, align 8
-  %19 = and i64 %17, 1
+  %17 = load i64, ptr %0, align 8
+  %18 = extractelement <2 x i64> %16, i64 0
+  %19 = and i64 %18, 1
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %rb_uniform_is_less.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph43.i
-  %21 = and i64 %18, 1
+  %21 = and i64 %17, 1
   %.not9.i.i = icmp eq i64 %21, 0
   br i1 %.not9.i.i, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp slt i64 %17, %18
+  %23 = icmp slt i64 %18, %17
   br i1 %23, label %.preheader.i, label %.preheader30.split.i.preheader
 
 .preheader30.split.i.preheader:                   ; preds = %24, %22
   br label %.preheader30.split.i
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %17) #14
+  %25 = tail call i32 @rb_float_cmp(i64 noundef %17, i64 noundef %18) #14
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.preheader.i, label %.preheader30.split.i.preheader
 
 .preheader30.split.us.i:                          ; preds = %rb_uniform_is_less.exit.i
   %27 = getelementptr i8, ptr %.040.i, i64 -16
   %28 = load i64, ptr %27, align 8
-  %29 = tail call i32 @rb_float_cmp(i64 noundef %17, i64 noundef %28) #14
+  %29 = tail call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %28) #14
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i
 
@@ -4589,12 +4589,12 @@ rb_uniform_is_less.exit29.us.i:                   ; preds = %.preheader30.split.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.us34.i, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   %32 = getelementptr i8, ptr %31, i64 -16
   %33 = load i64, ptr %32, align 8
-  %34 = tail call i32 @rb_float_cmp(i64 noundef %17, i64 noundef %33) #14
+  %34 = tail call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %33) #14
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %rb_uniform_is_less.exit29.us.i, label %.loopexit.i, !llvm.loop !22
 
 rb_uniform_is_less.exit.i:                        ; preds = %.lr.ph43.i
-  %36 = tail call i32 @rb_float_cmp(i64 noundef %17, i64 noundef %18) #14
+  %36 = tail call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %17) #14
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.preheader.i, label %.preheader30.split.us.i
 
@@ -4618,11 +4618,11 @@ rb_uniform_is_less.exit.i:                        ; preds = %.lr.ph43.i
   br i1 %.not9.i26.i, label %46, label %44
 
 44:                                               ; preds = %.preheader30.split.i
-  %45 = icmp slt i64 %17, %42
+  %45 = icmp slt i64 %18, %42
   br i1 %45, label %49, label %.loopexit.i
 
 46:                                               ; preds = %.preheader30.split.i
-  %47 = tail call i32 @rb_float_cmp(i64 noundef %42, i64 noundef %17) #14
+  %47 = tail call i32 @rb_float_cmp(i64 noundef %42, i64 noundef %18) #14
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %.loopexit.i
 

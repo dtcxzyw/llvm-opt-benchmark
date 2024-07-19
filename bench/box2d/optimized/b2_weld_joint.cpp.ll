@@ -742,16 +742,16 @@ entry:
   %z = getelementptr inbounds i8, ptr %K, i64 8
   %44 = load <2 x float>, ptr %m_invIA, align 8
   %45 = shufflevector <2 x float> %44, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %46 = extractelement <2 x float> %44, i64 1
-  %47 = extractelement <2 x float> %44, i64 0
-  %48 = tail call float @llvm.fmuladd.f32(float %mul, float %47, float %add)
-  %49 = tail call float @llvm.fmuladd.f32(float %mul23, float %46, float %48)
+  %46 = extractelement <2 x float> %44, i64 0
+  %47 = tail call float @llvm.fmuladd.f32(float %mul, float %46, float %add)
+  %48 = extractelement <2 x float> %44, i64 1
+  %49 = tail call float @llvm.fmuladd.f32(float %mul23, float %48, float %47)
   store float %49, ptr %K, align 4
   %50 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %51 = shufflevector <2 x float> %38, <2 x float> %40, <2 x i32> <i32 0, i32 2>
   %52 = fmul <2 x float> %50, %51
-  %53 = tail call float @llvm.fmuladd.f32(float %mul48, float %47, float %add)
-  %mul59 = fmul float %46, %39
+  %53 = tail call float @llvm.fmuladd.f32(float %mul48, float %46, float %add)
+  %mul59 = fmul float %48, %39
   %54 = shufflevector <2 x float> %38, <2 x float> %33, <4 x i32> <i32 1, i32 poison, i32 poison, i32 3>
   %55 = shufflevector <2 x float> %43, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
   %56 = shufflevector <4 x float> %54, <4 x float> %55, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
@@ -764,7 +764,7 @@ entry:
   %62 = shufflevector <4 x float> %60, <4 x float> poison, <2 x i32> <i32 0, i32 3>
   store <2 x float> %62, ptr %ez, align 4
   store <4 x float> %60, ptr %z, align 4
-  %add69 = fadd float %47, %46
+  %add69 = fadd float %46, %48
   %z71 = getelementptr inbounds i8, ptr %K, i64 32
   store float %add69, ptr %z71, align 4
   %m_stiffness = getelementptr inbounds i8, ptr %this, i64 128
@@ -790,7 +790,7 @@ if.then:                                          ; preds = %entry
   %73 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %74 = fmul <2 x float> %73, %call79
   %75 = fadd <2 x float> %2, %74
-  %neg85 = fneg float %47
+  %neg85 = fneg float %46
   %76 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %77 = fmul <2 x float> %76, %call79
   %78 = fsub <2 x float> %5, %77
@@ -799,7 +799,7 @@ if.then:                                          ; preds = %entry
   %81 = insertelement <2 x float> poison, float %fneg2.i, i64 0
   %82 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
   %83 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %33, <2 x float> %82, <2 x float> %80)
-  %84 = insertelement <2 x float> poison, float %46, i64 0
+  %84 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %85 = insertelement <2 x float> %84, float %neg85, i64 1
   %86 = insertelement <2 x float> poison, float %6, i64 0
   %87 = insertelement <2 x float> %86, float %3, i64 1
@@ -845,7 +845,7 @@ if.end:                                           ; preds = %if.else110, %if.the
   %96 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %97 = fmul <2 x float> %96, %95
   %98 = fsub <2 x float> %2, %97
-  %neg125 = fneg float %47
+  %neg125 = fneg float %46
   %99 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %100 = fmul <2 x float> %99, %95
   %101 = fadd <2 x float> %5, %100
@@ -856,7 +856,7 @@ if.end:                                           ; preds = %if.else110, %if.the
   %106 = insertelement <2 x float> poison, float %impulse.sroa.5.0, i64 0
   %107 = shufflevector <2 x float> %106, <2 x float> poison, <2 x i32> zeroinitializer
   %108 = fadd <2 x float> %107, %105
-  %109 = insertelement <2 x float> poison, float %46, i64 0
+  %109 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %110 = insertelement <2 x float> %109, float %neg125, i64 1
   %111 = insertelement <2 x float> poison, float %6, i64 0
   %112 = insertelement <2 x float> %111, float %3, i64 1

@@ -2531,20 +2531,20 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   store i64 %13, ptr %12, align 8
   %14 = load <2 x i32>, ptr %3, align 4
   %15 = load <2 x i32>, ptr %2, align 4
-  %16 = extractelement <2 x i32> %15, i64 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
-  %18 = shufflevector <2 x i32> %14, <2 x i32> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i32> %18, ptr %17, align 8
-  %19 = extractelement <2 x i32> %14, i64 0
-  %20 = trunc i64 %13 to i32
+  %17 = shufflevector <2 x i32> %14, <2 x i32> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x i32> %17, ptr %16, align 8
+  %18 = extractelement <2 x i32> %14, i64 0
+  %19 = trunc i64 %13 to i32
+  %20 = extractelement <2 x i32> %15, i64 0
   %21 = shufflevector <2 x i32> %14, <2 x i32> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %.fr = freeze <4 x i32> %21
   %22 = icmp slt <4 x i32> %.fr, zeroinitializer
-  %23 = add nuw nsw i32 %16, %19
-  %.not = icmp sgt i32 %23, %20
+  %23 = add nuw nsw i32 %20, %18
+  %.not = icmp sgt i32 %23, %19
   %24 = bitcast <4 x i1> %22 to i4
   %25 = icmp ne i4 %24, 0
   %op.rdx = select i1 %25, i1 true, i1 %.not
@@ -2645,7 +2645,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
   %.sroa.speculated256 = call i32 @llvm.smax.i32(i32 %70, i32 %77)
   %78 = getelementptr inbounds i8, ptr %0, i64 36
   %79 = load i32, ptr %78, align 4
-  %80 = icmp slt i32 %79, %16
+  %80 = icmp slt i32 %79, %20
   br i1 %80, label %._crit_edge311, label %81
 
 ._crit_edge311:                                   ; preds = %40
@@ -2711,7 +2711,7 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline19FilterEngine__startERNS_12Filte
 
 _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge, %105, %103, %101
   %.pre-phi332 = phi i32 [ %.pre331, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %45, %105 ], [ %45, %103 ], [ %45, %101 ]
-  %106 = phi i32 [ %.pre315, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %16, %105 ], [ %16, %103 ], [ %16, %101 ]
+  %106 = phi i32 [ %.pre315, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %20, %105 ], [ %20, %103 ], [ %20, %101 ]
   %107 = phi i32 [ %.pre314, %._ZNSt6vectorIPhSaIS0_EE6resizeEm.exit_crit_edge ], [ %79, %105 ], [ %79, %103 ], [ %79, %101 ]
   %108 = call i32 @llvm.smax.i32(i32 %107, i32 %106)
   store i32 %108, ptr %78, align 4
@@ -2889,14 +2889,14 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaI
 
 ._crit_edge318:                                   ; preds = %183
   %.pre319 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.pre320 = load i32, ptr %17, align 8
+  %.pre320 = load i32, ptr %16, align 8
   %.pre321 = load i32, ptr %12, align 8
   br label %205
 
 205:                                              ; preds = %._crit_edge318, %81
-  %206 = phi i32 [ %.pre321, %._crit_edge318 ], [ %20, %81 ]
-  %.val264 = phi i32 [ %.pre320, %._crit_edge318 ], [ %19, %81 ]
-  %207 = phi i32 [ %.pre319, %._crit_edge318 ], [ %16, %81 ]
+  %206 = phi i32 [ %.pre321, %._crit_edge318 ], [ %19, %81 ]
+  %.val264 = phi i32 [ %.pre320, %._crit_edge318 ], [ %18, %81 ]
+  %207 = phi i32 [ %.pre319, %._crit_edge318 ], [ %20, %81 ]
   %208 = getelementptr inbounds i8, ptr %0, i64 256
   %209 = load ptr, ptr %208, align 8
   %.not.i215 = icmp eq ptr %209, null

@@ -59484,18 +59484,18 @@ cond.false16.i.i:                                 ; preds = %if.end
 
 _ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %if.end
   %cond27.i.i = phi float [ %57, %if.end ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
-  %58 = fcmp ogt <2 x float> %56, %47
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
-  %59 = extractelement <2 x float> %47, i64 0
-  %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %59
-  %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i, float %59
-  %60 = extractelement <2 x i1> %58, i64 0
+  %58 = extractelement <2 x float> %47, i64 0
+  %cmp5.i.i = fcmp olt float %mx.sroa.0.0.vec.extract.i.i, %58
+  %mx.sroa.0.0.vec.extract..i.i = select i1 %cmp5.i.i, float %mx.sroa.0.0.vec.extract.i.i, float %58
+  %59 = fcmp ogt <2 x float> %56, %47
+  %60 = extractelement <2 x i1> %59, i64 0
   %61 = extractelement <2 x float> %56, i64 0
   %cond11.i.i = select i1 %60, float %61, float %mx.sroa.0.0.vec.extract..i.i
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %cond11.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %cond27.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %thumb_r, align 8
-  %62 = extractelement <2 x i1> %58, i64 1
+  %62 = extractelement <2 x i1> %59, i64 1
   br i1 %62, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
 cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i

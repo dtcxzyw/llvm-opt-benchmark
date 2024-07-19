@@ -9103,31 +9103,29 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
 
 103:                                              ; preds = %.sink.split83.i, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit
   %104 = phi <2 x double> [ %100, %.sink.split83.i ], [ %102, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit ]
-  %105 = extractelement <2 x double> %104, i64 1
-  %106 = extractelement <2 x double> %104, i64 0
-  %107 = getelementptr inbounds i8, ptr %52, i64 856
-  %108 = load double, ptr %107, align 8
-  %109 = fcmp ogt double %108, %5
-  br i1 %109, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %110
+  %105 = getelementptr inbounds i8, ptr %52, i64 856
+  %106 = load double, ptr %105, align 8
+  %107 = fcmp ogt double %106, %5
+  br i1 %107, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %108
 
-110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %52, i64 896
-  %112 = load double, ptr %111, align 8
-  %113 = fcmp olt double %112, %5
-  br i1 %113, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %114
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds i8, ptr %52, i64 896
+  %110 = load double, ptr %109, align 8
+  %111 = fcmp olt double %110, %5
+  br i1 %111, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread, label %112
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %0, i64 40
-  %.val254 = load ptr, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 48
-  %.val = load ptr, ptr %116, align 8
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds i8, ptr %0, i64 40
+  %.val254 = load ptr, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 48
+  %.val = load ptr, ptr %114, align 8
   %.not494 = icmp eq ptr %.val254, %.val
   br i1 %.not494, label %._crit_edge, label %.lr.ph504
 
-.lr.ph504:                                        ; preds = %114
-  %117 = fneg double %51
-  %118 = getelementptr inbounds i8, ptr %0, i64 32
-  %119 = getelementptr inbounds i8, ptr %47, i64 8
+.lr.ph504:                                        ; preds = %112
+  %115 = fneg double %51
+  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %117 = getelementptr inbounds i8, ptr %47, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 16
   %.sroa.6334.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 24
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 32
@@ -9136,8 +9134,10 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 56
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 60
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 64
-  %120 = insertelement <2 x double> poison, double %117, i64 0
-  %121 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> zeroinitializer
+  %118 = insertelement <2 x double> poison, double %115, i64 0
+  %119 = shufflevector <2 x double> %118, <2 x double> poison, <2 x i32> zeroinitializer
+  %120 = extractelement <2 x double> %104, i64 0
+  %121 = extractelement <2 x double> %104, i64 1
   br label %122
 
 122:                                              ; preds = %.lr.ph504, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
@@ -9172,17 +9172,17 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
   %.in.i294 = getelementptr inbounds i8, ptr %130, i64 %.in.v.i293
   %136 = load double, ptr %.in.i294, align 8
   %137 = fsub double %133, %51
-  %138 = fcmp olt double %106, %137
+  %138 = fcmp olt double %120, %137
   %139 = fadd double %51, %134
-  %140 = fcmp ogt double %106, %139
+  %140 = fcmp ogt double %120, %139
   %or.cond.i295 = or i1 %138, %140
   br i1 %or.cond.i295, label %146, label %141
 
 141:                                              ; preds = %129
   %142 = fsub double %135, %51
-  %143 = fcmp olt double %105, %142
+  %143 = fcmp olt double %121, %142
   %144 = fadd double %51, %136
-  %145 = fcmp ogt double %105, %144
+  %145 = fcmp ogt double %121, %144
   %or.cond71.not82.i296.not462 = or i1 %143, %145
   %brmerge.i298.not = and i1 %or.cond71.not82.i296.not462, %6
   br i1 %brmerge.i298.not, label %147, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312
@@ -9198,14 +9198,14 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit: ; preds = %69
 147:                                              ; preds = %._crit_edge521, %141
   %.pre-phi528 = phi double [ %.pre527, %._crit_edge521 ], [ %144, %141 ]
   %.pre-phi526 = phi double [ %.pre525, %._crit_edge521 ], [ %142, %141 ]
-  %148 = fcmp ult double %105, %.pre-phi526
-  %149 = fcmp ugt double %105, %.pre-phi528
+  %148 = fcmp ult double %121, %.pre-phi526
+  %149 = fcmp ugt double %121, %.pre-phi528
   %or.cond77.i301 = or i1 %148, %149
   br i1 %or.cond77.i301, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread, label %.sink.split83.i306
 
 .sink.split83.i306:                               ; preds = %147
-  %150 = fcmp ole double %106, %139
-  %151 = fcmp oge double %106, %137
+  %150 = fcmp ole double %120, %139
+  %151 = fcmp oge double %120, %137
   %or.cond73.i299.not = and i1 %151, %150
   br i1 %or.cond73.i299.not, label %152, label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
@@ -9540,7 +9540,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   %295 = fsub <2 x double> %160, %294
   %296 = load <2 x double>, ptr %292, align 8
   %297 = fdiv <2 x double> %295, %296
-  %298 = fcmp olt <2 x double> %297, %121
+  %298 = fcmp olt <2 x double> %297, %119
   %299 = extractelement <2 x i1> %298, i64 0
   %300 = extractelement <2 x i1> %298, i64 1
   %or.cond = select i1 %299, i1 true, i1 %300
@@ -9620,7 +9620,7 @@ _ZN12_GLOBAL__N_17GridSet6gridAtEdd.exit:         ; preds = %_ZNSt3mapIPKN5osgeo
   br label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread
 
 351:                                              ; preds = %313
-  %352 = load i8, ptr %118, align 8
+  %352 = load i8, ptr %116, align 8
   %353 = trunc i8 %352 to i1
   %354 = icmp eq i32 %331, 1
   br i1 %353, label %355, label %414
@@ -9867,7 +9867,7 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   %.val256 = load ptr, ptr %.sroa.0402.0495, align 8
   %499 = getelementptr inbounds i8, ptr %.val256, i64 24
   store ptr %.val12.i, ptr %47, align 8
-  store ptr %.val12.i, ptr %119, align 8
+  store ptr %.val12.i, ptr %117, align 8
   store i8 %489, ptr %.sroa.5.0..sroa_idx, align 8
   store double %491, ptr %.sroa.6334.0..sroa_idx, align 8
   store double %494, ptr %.sroa.7.0..sroa_idx, align 8
@@ -9894,8 +9894,8 @@ _ZNSt3mapIPKN12_GLOBAL__N_14GridEN16DeformationModel6GridExIS1_EESt4lessIS3_ESaI
   br i1 %511, label %515, label %512
 
 512:                                              ; preds = %501
-  %513 = call double @sin(double noundef %105) #30
-  %514 = call double @cos(double noundef %105) #30
+  %513 = call double @sin(double noundef %121) #30
+  %514 = call double @cos(double noundef %121) #30
   br label %515
 
 515:                                              ; preds = %512, %501
@@ -9975,13 +9975,13 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread: ; preds = %147, %2
   %562 = trunc nuw i8 %.2235 to i1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %114
-  %.0240.lcssa = phi double [ 0.000000e+00, %114 ], [ %.2242, %._crit_edge.loopexit ]
-  %.0236.lcssa = phi double [ 0.000000e+00, %114 ], [ %.2238, %._crit_edge.loopexit ]
-  %.0233.lcssa = phi i1 [ false, %114 ], [ %562, %._crit_edge.loopexit ]
-  %.0231.lcssa = phi double [ 0.000000e+00, %114 ], [ %.3, %._crit_edge.loopexit ]
-  %563 = phi <2 x double> [ zeroinitializer, %114 ], [ %559, %._crit_edge.loopexit ]
-  %564 = phi <2 x double> [ zeroinitializer, %114 ], [ %560, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %112
+  %.0240.lcssa = phi double [ 0.000000e+00, %112 ], [ %.2242, %._crit_edge.loopexit ]
+  %.0236.lcssa = phi double [ 0.000000e+00, %112 ], [ %.2238, %._crit_edge.loopexit ]
+  %.0233.lcssa = phi i1 [ false, %112 ], [ %562, %._crit_edge.loopexit ]
+  %.0231.lcssa = phi double [ 0.000000e+00, %112 ], [ %.3, %._crit_edge.loopexit ]
+  %563 = phi <2 x double> [ zeroinitializer, %112 ], [ %559, %._crit_edge.loopexit ]
+  %564 = phi <2 x double> [ zeroinitializer, %112 ], [ %560, %._crit_edge.loopexit ]
   %565 = getelementptr inbounds i8, ptr %0, i64 32
   %566 = load i8, ptr %565, align 8
   %567 = trunc i8 %566 to i1
@@ -9996,13 +9996,13 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread: ; preds = %147, %2
   %573 = extractelement <2 x double> %563, i64 0
   %574 = fadd double %573, %572
   store double %574, ptr %8, align 8
-  br label %652
+  br label %656
 
 575:                                              ; preds = %._crit_edge
   %576 = getelementptr inbounds i8, ptr %0, i64 33
   %577 = load i8, ptr %576, align 1
   %578 = trunc i8 %577 to i1
-  br i1 %578, label %579, label %618
+  br i1 %578, label %579, label %619
 
 579:                                              ; preds = %575
   %580 = load i8, ptr %48, align 2
@@ -10018,118 +10018,122 @@ _ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit312.thread: ; preds = %147, %2
   %587 = extractelement <2 x double> %564, i64 0
   %588 = fadd double %587, %586
   store double %588, ptr %8, align 8
-  br label %652
+  br label %656
 
 589:                                              ; preds = %579
-  br i1 %.0233.lcssa, label %592, label %590
+  br i1 %.0233.lcssa, label %593, label %590
 
 590:                                              ; preds = %589
-  %591 = call double @cos(double noundef %105) #30
-  br label %592
+  %591 = extractelement <2 x double> %104, i64 1
+  %592 = call double @cos(double noundef %591) #30
+  br label %593
 
-592:                                              ; preds = %590, %589
-  %.3243 = phi double [ %.0240.lcssa, %589 ], [ %591, %590 ]
-  %593 = getelementptr inbounds i8, ptr %0, i64 8
-  %594 = load double, ptr %593, align 8
-  %595 = getelementptr inbounds i8, ptr %0, i64 16
-  %596 = load double, ptr %595, align 8
-  %597 = getelementptr inbounds i8, ptr %0, i64 24
-  %598 = load double, ptr %597, align 8
-  %599 = fneg double %.3243
-  %600 = call double @llvm.fmuladd.f64(double %599, double %.3243, double 1.000000e+00)
-  %601 = fmul double %600, %598
-  %602 = fsub double 1.000000e+00, %601
-  %603 = call double @sqrt(double noundef %602) #30
-  %604 = extractelement <2 x double> %564, i64 1
-  %605 = fmul double %604, %603
-  %606 = fmul double %.3243, %594
-  %607 = fdiv double %605, %606
-  %608 = extractelement <2 x double> %564, i64 0
-  %609 = fmul double %608, %594
-  %610 = fmul double %609, %603
-  %611 = fmul double %602, %610
-  %612 = fmul double %596, %596
-  %613 = fdiv double %611, %612
-  %614 = load double, ptr %7, align 8
-  %615 = fadd double %614, %607
-  store double %615, ptr %7, align 8
-  %616 = load double, ptr %8, align 8
-  %617 = fadd double %616, %613
-  store double %617, ptr %8, align 8
-  br label %652
+593:                                              ; preds = %590, %589
+  %.3243 = phi double [ %.0240.lcssa, %589 ], [ %592, %590 ]
+  %594 = getelementptr inbounds i8, ptr %0, i64 8
+  %595 = load double, ptr %594, align 8
+  %596 = getelementptr inbounds i8, ptr %0, i64 16
+  %597 = load double, ptr %596, align 8
+  %598 = getelementptr inbounds i8, ptr %0, i64 24
+  %599 = load double, ptr %598, align 8
+  %600 = fneg double %.3243
+  %601 = call double @llvm.fmuladd.f64(double %600, double %.3243, double 1.000000e+00)
+  %602 = fmul double %601, %599
+  %603 = fsub double 1.000000e+00, %602
+  %604 = call double @sqrt(double noundef %603) #30
+  %605 = extractelement <2 x double> %564, i64 1
+  %606 = fmul double %605, %604
+  %607 = fmul double %.3243, %595
+  %608 = fdiv double %606, %607
+  %609 = extractelement <2 x double> %564, i64 0
+  %610 = fmul double %609, %595
+  %611 = fmul double %610, %604
+  %612 = fmul double %603, %611
+  %613 = fmul double %597, %597
+  %614 = fdiv double %612, %613
+  %615 = load double, ptr %7, align 8
+  %616 = fadd double %615, %608
+  store double %616, ptr %7, align 8
+  %617 = load double, ptr %8, align 8
+  %618 = fadd double %617, %614
+  store double %618, ptr %8, align 8
+  br label %656
 
-618:                                              ; preds = %575
-  br i1 %.0233.lcssa, label %622, label %619
+619:                                              ; preds = %575
+  br i1 %.0233.lcssa, label %624, label %620
 
-619:                                              ; preds = %618
-  %620 = call double @sin(double noundef %105) #30
-  %621 = call double @cos(double noundef %105) #30
-  br label %622
+620:                                              ; preds = %619
+  %621 = extractelement <2 x double> %104, i64 1
+  %622 = call double @sin(double noundef %621) #30
+  %623 = call double @cos(double noundef %621) #30
+  br label %624
 
-622:                                              ; preds = %619, %618
-  %.4 = phi double [ %.0240.lcssa, %618 ], [ %621, %619 ]
-  %.3239 = phi double [ %.0236.lcssa, %618 ], [ %620, %619 ]
-  %623 = call double @sin(double noundef %106) #30
-  %624 = call double @cos(double noundef %106) #30
-  %625 = extractelement <2 x double> %564, i64 1
-  %626 = fneg double %625
-  %627 = extractelement <2 x double> %564, i64 0
-  %628 = fneg double %627
-  %629 = fmul double %.3239, %628
-  %630 = fmul double %627, %.4
-  %631 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val280 = load ptr, ptr %631, align 8
+624:                                              ; preds = %620, %619
+  %.4 = phi double [ %.0240.lcssa, %619 ], [ %623, %620 ]
+  %.3239 = phi double [ %.0236.lcssa, %619 ], [ %622, %620 ]
+  %625 = extractelement <2 x double> %104, i64 0
+  %626 = call double @sin(double noundef %625) #30
+  %627 = call double @cos(double noundef %625) #30
+  %628 = extractelement <2 x double> %564, i64 1
+  %629 = fneg double %628
+  %630 = extractelement <2 x double> %564, i64 0
+  %631 = fneg double %630
+  %632 = fmul double %.3239, %631
+  %633 = fmul double %630, %.4
+  %634 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val280 = load ptr, ptr %634, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  %632 = getelementptr inbounds i8, ptr %.val280, i64 120
-  %633 = load ptr, ptr %632, align 8
-  store double %106, ptr %14, align 8
+  %635 = getelementptr inbounds i8, ptr %.val280, i64 120
+  %636 = load ptr, ptr %635, align 8
+  store double %625, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
-  store double %105, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %637 = extractelement <2 x double> %104, i64 1
+  store double %637, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
   store double 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
-  call void %633(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %13, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %14, ptr noundef %.val280)
-  %634 = getelementptr inbounds i8, ptr %13, i64 16
-  %635 = load double, ptr %634, align 16
-  %636 = fadd double %630, %635
-  %637 = insertelement <2 x double> poison, double %629, i64 0
-  %638 = shufflevector <2 x double> %637, <2 x double> poison, <2 x i32> zeroinitializer
-  %639 = insertelement <2 x double> poison, double %624, i64 0
-  %640 = insertelement <2 x double> %639, double %623, i64 1
-  %641 = fmul <2 x double> %638, %640
-  %642 = insertelement <2 x double> %564, double %626, i64 0
-  %643 = shufflevector <2 x double> %640, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %644 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %642, <2 x double> %643, <2 x double> %641)
-  %645 = load <2 x double>, ptr %13, align 16
+  call void %636(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %13, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %14, ptr noundef %.val280)
+  %638 = getelementptr inbounds i8, ptr %13, i64 16
+  %639 = load double, ptr %638, align 16
+  %640 = fadd double %633, %639
+  %641 = insertelement <2 x double> poison, double %632, i64 0
+  %642 = shufflevector <2 x double> %641, <2 x double> poison, <2 x i32> zeroinitializer
+  %643 = insertelement <2 x double> poison, double %627, i64 0
+  %644 = insertelement <2 x double> %643, double %626, i64 1
+  %645 = fmul <2 x double> %642, %644
+  %646 = insertelement <2 x double> %564, double %629, i64 0
+  %647 = shufflevector <2 x double> %644, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %648 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %646, <2 x double> %647, <2 x double> %645)
+  %649 = load <2 x double>, ptr %13, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %646 = fadd <2 x double> %644, %645
-  %.val281 = load ptr, ptr %631, align 8
+  %650 = fadd <2 x double> %648, %649
+  %.val281 = load ptr, ptr %634, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  %647 = getelementptr inbounds i8, ptr %.val281, i64 128
-  %648 = load ptr, ptr %647, align 8
-  store <2 x double> %646, ptr %12, align 16
+  %651 = getelementptr inbounds i8, ptr %.val281, i64 128
+  %652 = load ptr, ptr %651, align 8
+  store <2 x double> %650, ptr %12, align 16
   %.sroa.3.0..sroa_idx.i328 = getelementptr inbounds i8, ptr %12, i64 16
-  store double %636, ptr %.sroa.3.0..sroa_idx.i328, align 16
-  call void %648(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %11, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %12, ptr noundef %.val281)
-  %649 = load double, ptr %11, align 8
-  store double %649, ptr %7, align 8
-  %650 = getelementptr inbounds i8, ptr %11, i64 8
-  %651 = load double, ptr %650, align 8
-  store double %651, ptr %8, align 8
+  store double %640, ptr %.sroa.3.0..sroa_idx.i328, align 16
+  call void %652(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %11, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %12, ptr noundef %.val281)
+  %653 = load double, ptr %11, align 8
+  store double %653, ptr %7, align 8
+  %654 = getelementptr inbounds i8, ptr %11, i64 8
+  %655 = load double, ptr %654, align 8
+  store double %655, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %652
+  br label %656
 
-652:                                              ; preds = %582, %622, %592, %568
-  %653 = load double, ptr %9, align 8
-  %654 = fadd double %.0231.lcssa, %653
-  store double %654, ptr %9, align 8
+656:                                              ; preds = %582, %624, %593, %568
+  %657 = load double, ptr %9, align 8
+  %658 = fadd double %.0231.lcssa, %657
+  store double %658, ptr %9, align 8
   br label %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread
 
-_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread: ; preds = %423, %425, %427, %429, %415, %417, %419, %421, %364, %366, %368, %370, %356, %358, %360, %362, %333, %335, %337, %339, %283, %287, %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit, %95, %74, %.sink.split83.i, %103, %110, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit, %652
-  %.0 = phi i1 [ true, %652 ], [ false, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit ], [ false, %110 ], [ false, %103 ], [ false, %.sink.split83.i ], [ false, %74 ], [ false, %95 ], [ false, %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit ], [ false, %287 ], [ false, %283 ], [ false, %339 ], [ false, %337 ], [ false, %335 ], [ false, %333 ], [ false, %362 ], [ false, %360 ], [ false, %358 ], [ false, %356 ], [ false, %370 ], [ false, %368 ], [ false, %366 ], [ false, %364 ], [ false, %421 ], [ false, %419 ], [ false, %417 ], [ false, %415 ], [ false, %429 ], [ false, %427 ], [ false, %425 ], [ false, %423 ]
+_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit.thread: ; preds = %423, %425, %427, %429, %415, %417, %419, %421, %364, %366, %368, %370, %356, %358, %360, %362, %333, %335, %337, %339, %283, %287, %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit, %95, %74, %.sink.split83.i, %103, %108, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit, %656
+  %.0 = phi i1 [ true, %656 ], [ false, %_ZN16DeformationModelL9bboxCheckERdS0_bdddddd.exit ], [ false, %108 ], [ false, %103 ], [ false, %.sink.split83.i ], [ false, %74 ], [ false, %95 ], [ false, %_ZNSt10unique_ptrIN12_GLOBAL__N_17GridSetESt14default_deleteIS1_EED2Ev.exit ], [ false, %287 ], [ false, %283 ], [ false, %339 ], [ false, %337 ], [ false, %335 ], [ false, %333 ], [ false, %362 ], [ false, %360 ], [ false, %358 ], [ false, %356 ], [ false, %370 ], [ false, %368 ], [ false, %366 ], [ false, %364 ], [ false, %421 ], [ false, %419 ], [ false, %417 ], [ false, %415 ], [ false, %429 ], [ false, %427 ], [ false, %425 ], [ false, %423 ]
   ret i1 %.0
 }
 

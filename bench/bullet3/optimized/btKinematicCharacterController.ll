@@ -3577,39 +3577,39 @@ entry:
   %20 = extractelement <2 x float> %18, i64 0
   store float %20, ptr %arrayidx10.i.i.i.i5, align 4
   %21 = load <2 x float>, ptr %arrayidx5.i.i.i.i, align 4
-  %22 = extractelement <2 x float> %21, i64 0
-  %23 = extractelement <2 x float> %21, i64 1
-  %24 = fneg float %23
-  %25 = load float, ptr %v0, align 4
-  %26 = fneg float %22
-  %mul8.i.i = fmul float %22, %mul4.i.i.i9
-  %27 = tail call float @llvm.fmuladd.f32(float %25, float %19, float %mul8.i.i)
-  %28 = tail call noundef float @llvm.fmuladd.f32(float %23, float %20, float %27)
+  %22 = extractelement <2 x float> %21, i64 1
+  %23 = fneg float %22
+  %24 = load float, ptr %v0, align 4
+  %25 = extractelement <2 x float> %21, i64 0
+  %26 = fneg float %25
+  %mul8.i.i = fmul float %25, %mul4.i.i.i9
+  %27 = tail call float @llvm.fmuladd.f32(float %24, float %19, float %mul8.i.i)
+  %28 = tail call noundef float @llvm.fmuladd.f32(float %22, float %20, float %27)
   %cmp.i = fcmp olt float %28, 0xBFEFFFFFC0000000
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %29 = tail call noundef float @llvm.fabs.f32(float %23)
+  %29 = tail call noundef float @llvm.fabs.f32(float %22)
   %cmp.i.i = fcmp ogt float %29, 0x3FE6A09E60000000
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %mul10.i.i = fmul float %23, %23
-  %30 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %mul10.i.i)
+  %mul10.i.i = fmul float %22, %22
+  %30 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %mul10.i.i)
   %sqrt.i.i11 = tail call float @llvm.sqrt.f32(float %30)
   %div.i.i12 = fdiv float 1.000000e+00, %sqrt.i.i11
-  %mul.i.i = fmul float %div.i.i12, %24
-  %mul20.i.i = fmul float %22, %div.i.i12
+  %mul.i.i = fmul float %div.i.i12, %23
+  %mul20.i.i = fmul float %25, %div.i.i12
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %31 = fmul <2 x float> %21, %21
   %mul51.i.i = extractelement <2 x float> %31, i64 0
-  %32 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %mul51.i.i)
+  %32 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %mul51.i.i)
   %sqrt38.i.i = tail call float @llvm.sqrt.f32(float %32)
   %div54.i.i = fdiv float 1.000000e+00, %sqrt38.i.i
   %mul58.i.i = fmul float %div54.i.i, %26
-  %mul63.i.i = fmul float %25, %div54.i.i
+  %mul63.i.i = fmul float %24, %div54.i.i
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i
 
 _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i: ; preds = %if.else.i.i, %if.then.i.i
@@ -3623,15 +3623,15 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit.i: ; preds = %if.else.i.i, %if.th
 
 if.end.i:                                         ; preds = %entry
   %neg30.i.i = fmul float %19, %26
-  %33 = tail call float @llvm.fmuladd.f32(float %25, float %mul4.i.i.i9, float %neg30.i.i)
-  %34 = fneg float %25
+  %33 = tail call float @llvm.fmuladd.f32(float %24, float %mul4.i.i.i9, float %neg30.i.i)
+  %34 = fneg float %24
   %add.i = fadd float %28, 1.000000e+00
   %mul.i = fmul float %add.i, 2.000000e+00
   %call.i.i = tail call noundef float @sqrtf(float noundef %mul.i) #26
   %div.i = fdiv float 1.000000e+00, %call.i.i
   %35 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %36 = insertelement <2 x float> %35, float %mul4.i.i.i9, i64 0
-  %37 = insertelement <2 x float> poison, float %24, i64 0
+  %37 = insertelement <2 x float> poison, float %23, i64 0
   %38 = insertelement <2 x float> %37, float %34, i64 1
   %39 = fmul <2 x float> %36, %38
   %40 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %18, <2 x float> %39)

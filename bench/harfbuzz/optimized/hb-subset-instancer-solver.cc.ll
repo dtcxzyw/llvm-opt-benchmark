@@ -19,24 +19,24 @@ entry:
   %0 = load float, ptr %triple, align 4
   %middle = getelementptr inbounds i8, ptr %triple, i64 4
   %1 = load <2 x float>, ptr %middle, align 4
-  %2 = extractelement <2 x float> %1, i64 0
   br i1 %extrapolate, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = extractelement <2 x float> %1, i64 1
-  %cmp.i = fcmp oge float %3, %v
-  %.sroa.speculated29 = select i1 %cmp.i, float %v, float %3
+  %2 = extractelement <2 x float> %1, i64 1
+  %cmp.i = fcmp oge float %2, %v
+  %.sroa.speculated29 = select i1 %cmp.i, float %v, float %2
   %cmp.i22 = fcmp oge float %.sroa.speculated29, %0
   %.sroa.speculated = select i1 %cmp.i22, float %.sroa.speculated29, float %0
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %v.addr.0 = phi float [ %v, %entry ], [ %.sroa.speculated, %if.then ]
-  %cmp = fcmp oeq float %v.addr.0, %2
+  %3 = extractelement <2 x float> %1, i64 0
+  %cmp = fcmp oeq float %v.addr.0, %3
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = fcmp olt float %2, 0.000000e+00
+  %cmp4 = fcmp olt float %3, 0.000000e+00
   br i1 %cmp4, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %if.end3
@@ -55,11 +55,11 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end12:                                         ; preds = %if.end3
-  %cmp13 = fcmp ogt float %v.addr.0, %2
+  %cmp13 = fcmp ogt float %v.addr.0, %3
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end12
-  %sub = fsub float %v.addr.0, %2
+  %sub = fsub float %v.addr.0, %3
   %shift = shufflevector <2 x float> %1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %8 = fsub <2 x float> %shift, %1
   %sub15 = extractelement <2 x float> %8, i64 0
@@ -71,8 +71,8 @@ if.end16:                                         ; preds = %if.end12
   br i1 %cmp17, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %sub19 = fsub float %v.addr.0, %2
-  %sub20 = fsub float %2, %0
+  %sub19 = fsub float %v.addr.0, %3
+  %sub20 = fsub float %3, %0
   %div21 = fdiv float %sub19, %sub20
   br label %return
 
@@ -81,13 +81,13 @@ if.end22:                                         ; preds = %if.end16
   %fneg23 = fneg float %0
   %positive = getelementptr inbounds i8, ptr %triple_distances, i64 4
   %10 = load float, ptr %positive, align 4
-  %mul24 = fmul float %2, %10
+  %mul24 = fmul float %3, %10
   %11 = tail call float @llvm.fmuladd.f32(float %9, float %fneg23, float %mul24)
   %cmp25 = fcmp ult float %v.addr.0, 0.000000e+00
   br i1 %cmp25, label %if.else, label %if.then26
 
 if.then26:                                        ; preds = %if.end22
-  %sub27 = fsub float %2, %v.addr.0
+  %sub27 = fsub float %3, %v.addr.0
   %mul = fmul float %sub27, %10
   br label %if.end34
 

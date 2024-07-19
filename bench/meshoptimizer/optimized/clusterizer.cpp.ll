@@ -1750,22 +1750,22 @@ if.end76:                                         ; preds = %for.end
   %36 = load float, ptr %arrayidx86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %nsphere, i8 0, i64 16, i1 false)
   call fastcc void @_ZN7meshoptL21computeBoundingSphereEPfPA3_Kfm(ptr noundef nonnull %nsphere, ptr noundef nonnull %normals, i64 noundef %triangles.1)
+  %37 = load <2 x float>, ptr %nsphere, align 16
   %arrayidx94 = getelementptr inbounds i8, ptr %nsphere, i64 8
-  %37 = load float, ptr %arrayidx94, align 8
-  %38 = load <2 x float>, ptr %nsphere, align 16
-  %39 = fmul <2 x float> %38, %38
+  %38 = load float, ptr %arrayidx94, align 8
+  %39 = fmul <2 x float> %37, %37
   %mul100 = extractelement <2 x float> %39, i64 1
-  %40 = extractelement <2 x float> %38, i64 0
+  %40 = extractelement <2 x float> %37, i64 0
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %mul100)
-  %42 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %41)
+  %42 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %41)
   %sqrt118 = tail call float @llvm.sqrt.f32(float %42)
   %cmp105 = fcmp oeq float %sqrt118, 0.000000e+00
   %div106 = fdiv float 1.000000e+00, %sqrt118
   %cond = select i1 %cmp105, float 0.000000e+00, float %div106
   %43 = insertelement <2 x float> poison, float %cond, i64 0
   %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = fmul <2 x float> %38, %44
-  %mul112 = fmul float %37, %cond
+  %45 = fmul <2 x float> %37, %44
+  %mul112 = fmul float %38, %cond
   %46 = extractelement <2 x float> %45, i64 0
   %47 = extractelement <2 x float> %45, i64 1
   br label %for.body116
@@ -1853,8 +1853,8 @@ for.body153:                                      ; preds = %for.body153.prehead
   br i1 %exitcond126.not, label %for.end198, label %for.body153, !llvm.loop !30
 
 for.end198:                                       ; preds = %for.body153
-  %78 = fneg <2 x float> %45
   %cone_apex = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %78 = fneg <2 x float> %45
   %79 = insertelement <2 x float> poison, float %cond195, i64 0
   %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
   %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %78, <2 x float> %80, <2 x float> %35)

@@ -17,21 +17,21 @@ define void @slas2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %15 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
   %16 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %17 = select <2 x i1> %14, <2 x float> %15, <2 x float> %16
-  %18 = extractelement <2 x float> %17, i64 1
-  %19 = extractelement <2 x float> %17, i64 0
-  %20 = fcmp olt float %19, 0x3810000000000000
-  br i1 %20, label %21, label %35
+  %18 = extractelement <2 x float> %17, i64 0
+  %19 = fcmp olt float %18, 0x3810000000000000
+  br i1 %19, label %20, label %35
 
-21:                                               ; preds = %5
+20:                                               ; preds = %5
   store float 0.000000e+00, ptr %3, align 4
-  %22 = fcmp olt float %18, 0x3810000000000000
-  br i1 %22, label %89, label %23
+  %21 = extractelement <2 x float> %17, i64 1
+  %22 = fcmp olt float %21, 0x3810000000000000
+  br i1 %22, label %90, label %23
 
-23:                                               ; preds = %21
-  %24 = fcmp ogt float %18, %8
-  %25 = select i1 %24, float %18, float %8
-  %26 = fcmp olt float %18, %8
-  %27 = select i1 %26, float %18, float %8
+23:                                               ; preds = %20
+  %24 = fcmp ogt float %21, %8
+  %25 = select i1 %24, float %21, float %8
+  %26 = fcmp olt float %21, %8
+  %27 = select i1 %26, float %21, float %8
   %28 = fdiv float %27, %25
   %29 = fmul float %28, %28
   %30 = fpext float %25 to double
@@ -40,79 +40,80 @@ define void @slas2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %sqrt = tail call double @llvm.sqrt.f64(double %32)
   %33 = fmul double %sqrt, %30
   %34 = fptrunc double %33 to float
-  br label %89
+  br label %90
 
 35:                                               ; preds = %5
-  %36 = fcmp olt float %8, %18
-  br i1 %36, label %37, label %57
+  %36 = extractelement <2 x float> %17, i64 1
+  %37 = fcmp olt float %8, %36
+  br i1 %37, label %38, label %58
 
-37:                                               ; preds = %35
-  %38 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %39 = fdiv <2 x float> %17, %38
-  %40 = fsub <2 x float> %17, %38
-  %41 = shufflevector <2 x float> %39, <2 x float> %40, <2 x i32> <i32 0, i32 3>
-  %42 = fdiv float %8, %18
-  %43 = fmul float %42, %42
-  %44 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
-  %45 = fadd <2 x float> %41, %44
-  %46 = fdiv <2 x float> %41, %44
-  %47 = shufflevector <2 x float> %45, <2 x float> %46, <2 x i32> <i32 0, i32 3>
-  %48 = insertelement <2 x float> poison, float %43, i64 0
-  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
-  %50 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %47, <2 x float> %47, <2 x float> %49)
-  %51 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %50)
-  %shift = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %52 = fadd <2 x float> %51, %shift
-  %53 = extractelement <2 x float> %52, i64 0
-  %54 = fdiv float 2.000000e+00, %53
-  %55 = fmul float %19, %54
-  store float %55, ptr %3, align 4
-  %56 = fdiv float %18, %54
-  br label %89
+38:                                               ; preds = %35
+  %39 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %40 = fdiv <2 x float> %17, %39
+  %41 = fsub <2 x float> %17, %39
+  %42 = shufflevector <2 x float> %40, <2 x float> %41, <2 x i32> <i32 0, i32 3>
+  %43 = fdiv float %8, %36
+  %44 = fmul float %43, %43
+  %45 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
+  %46 = fadd <2 x float> %42, %45
+  %47 = fdiv <2 x float> %42, %45
+  %48 = shufflevector <2 x float> %46, <2 x float> %47, <2 x i32> <i32 0, i32 3>
+  %49 = insertelement <2 x float> poison, float %44, i64 0
+  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> zeroinitializer
+  %51 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %48, <2 x float> %50)
+  %52 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %51)
+  %shift = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %53 = fadd <2 x float> %52, %shift
+  %54 = extractelement <2 x float> %53, i64 0
+  %55 = fdiv float 2.000000e+00, %54
+  %56 = fmul float %18, %55
+  store float %56, ptr %3, align 4
+  %57 = fdiv float %36, %55
+  br label %90
 
-57:                                               ; preds = %35
-  %58 = fdiv float %18, %8
-  %59 = tail call noundef float @llvm.fabs.f32(float %58)
-  %60 = fcmp olt float %59, 0x3810000000000000
-  br i1 %60, label %61, label %64
+58:                                               ; preds = %35
+  %59 = fdiv float %36, %8
+  %60 = tail call noundef float @llvm.fabs.f32(float %59)
+  %61 = fcmp olt float %60, 0x3810000000000000
+  br i1 %61, label %62, label %65
 
-61:                                               ; preds = %57
-  %62 = fmul float %19, %18
-  %63 = fdiv float %62, %8
-  store float %63, ptr %3, align 4
-  br label %89
+62:                                               ; preds = %58
+  %63 = fmul float %18, %36
+  %64 = fdiv float %63, %8
+  store float %64, ptr %3, align 4
+  br label %90
 
-64:                                               ; preds = %57
-  %65 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %66 = fdiv <2 x float> %17, %65
-  %67 = fsub <2 x float> %17, %65
-  %68 = shufflevector <2 x float> %66, <2 x float> %67, <2 x i32> <i32 0, i32 3>
-  %69 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
-  %70 = fadd <2 x float> %68, %69
-  %71 = fdiv <2 x float> %68, %69
-  %72 = shufflevector <2 x float> %70, <2 x float> %71, <2 x i32> <i32 0, i32 3>
-  %73 = insertelement <2 x float> poison, float %58, i64 0
-  %74 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x float> %74, %72
-  %76 = fmul <2 x float> %75, %75
-  %77 = fpext <2 x float> %76 to <2 x double>
-  %78 = fadd <2 x double> %77, <double 1.000000e+00, double 1.000000e+00>
-  %79 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %78)
-  %shift93 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %80 = fadd <2 x double> %79, %shift93
-  %81 = extractelement <2 x double> %80, i64 0
-  %82 = fdiv double 1.000000e+00, %81
-  %83 = fptrunc double %82 to float
-  %84 = fmul float %19, %83
-  %85 = fmul float %58, %84
-  %86 = fadd float %85, %85
-  store float %86, ptr %3, align 4
-  %87 = fadd float %83, %83
-  %88 = fdiv float %8, %87
-  br label %89
+65:                                               ; preds = %58
+  %66 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %67 = fdiv <2 x float> %17, %66
+  %68 = fsub <2 x float> %17, %66
+  %69 = shufflevector <2 x float> %67, <2 x float> %68, <2 x i32> <i32 0, i32 3>
+  %70 = insertelement <2 x float> %17, float 1.000000e+00, i64 0
+  %71 = fadd <2 x float> %69, %70
+  %72 = fdiv <2 x float> %69, %70
+  %73 = shufflevector <2 x float> %71, <2 x float> %72, <2 x i32> <i32 0, i32 3>
+  %74 = insertelement <2 x float> poison, float %59, i64 0
+  %75 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> zeroinitializer
+  %76 = fmul <2 x float> %75, %73
+  %77 = fmul <2 x float> %76, %76
+  %78 = fpext <2 x float> %77 to <2 x double>
+  %79 = fadd <2 x double> %78, <double 1.000000e+00, double 1.000000e+00>
+  %80 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %79)
+  %shift93 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %81 = fadd <2 x double> %80, %shift93
+  %82 = extractelement <2 x double> %81, i64 0
+  %83 = fdiv double 1.000000e+00, %82
+  %84 = fptrunc double %83 to float
+  %85 = fmul float %18, %84
+  %86 = fmul float %59, %85
+  %87 = fadd float %86, %86
+  store float %87, ptr %3, align 4
+  %88 = fadd float %84, %84
+  %89 = fdiv float %8, %88
+  br label %90
 
-89:                                               ; preds = %21, %37, %64, %61, %23
-  %.sink = phi float [ %56, %37 ], [ %88, %64 ], [ %8, %61 ], [ %34, %23 ], [ %8, %21 ]
+90:                                               ; preds = %20, %38, %65, %62, %23
+  %.sink = phi float [ %57, %38 ], [ %89, %65 ], [ %8, %62 ], [ %34, %23 ], [ %8, %20 ]
   store float %.sink, ptr %4, align 4
   ret void
 }

@@ -473,48 +473,48 @@ define noundef float @_ZN2cv8KeyPoint7overlapERKS0_S2_(ptr nocapture noundef non
   %8 = insertelement <2 x float> %7, float %4, i64 1
   %9 = fmul <2 x float> %8, <float 5.000000e-01, float 5.000000e-01>
   %10 = fmul <2 x float> %9, %9
-  %11 = extractelement <2 x float> %10, i64 1
-  %12 = extractelement <2 x float> %10, i64 0
-  %13 = load float, ptr %0, align 4
+  %11 = load float, ptr %0, align 4
   %.sroa_idx45 = getelementptr inbounds i8, ptr %0, i64 4
-  %14 = load float, ptr %.sroa_idx45, align 4
-  %15 = load float, ptr %1, align 4
+  %12 = load float, ptr %.sroa_idx45, align 4
+  %13 = load float, ptr %1, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
-  %16 = load float, ptr %.sroa_idx, align 4
-  %17 = fsub float %13, %15
-  %18 = fsub float %14, %16
-  %19 = fpext float %17 to double
-  %20 = fpext float %18 to double
-  %21 = fmul double %20, %20
-  %22 = tail call double @llvm.fmuladd.f64(double %19, double %19, double %21)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %22)
-  %23 = fptrunc double %sqrt.i to float
-  %24 = extractelement <2 x float> %9, i64 0
-  %25 = extractelement <2 x float> %9, i64 1
-  %26 = fcmp olt float %24, %25
-  %.sroa.speculated64 = select i1 %26, float %24, float %25
-  %27 = fadd float %.sroa.speculated64, %23
-  %28 = fcmp olt float %25, %24
-  %.sroa.speculated61 = select i1 %28, float %24, float %25
-  %29 = fcmp ugt float %27, %.sroa.speculated61
-  br i1 %29, label %34, label %30
+  %14 = load float, ptr %.sroa_idx, align 4
+  %15 = fsub float %11, %13
+  %16 = fsub float %12, %14
+  %17 = fpext float %15 to double
+  %18 = fpext float %16 to double
+  %19 = fmul double %18, %18
+  %20 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %19)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %20)
+  %21 = fptrunc double %sqrt.i to float
+  %22 = extractelement <2 x float> %9, i64 0
+  %23 = extractelement <2 x float> %9, i64 1
+  %24 = fcmp olt float %22, %23
+  %.sroa.speculated64 = select i1 %24, float %22, float %23
+  %25 = fadd float %.sroa.speculated64, %21
+  %26 = fcmp olt float %23, %22
+  %.sroa.speculated61 = select i1 %26, float %22, float %23
+  %27 = fcmp ugt float %25, %.sroa.speculated61
+  br i1 %27, label %34, label %28
 
-30:                                               ; preds = %2
-  %31 = fcmp olt float %12, %11
-  %.sroa.speculated54 = select i1 %31, float %12, float %11
-  %32 = fcmp olt float %11, %12
-  %.sroa.speculated = select i1 %32, float %12, float %11
+28:                                               ; preds = %2
+  %29 = extractelement <2 x float> %10, i64 0
+  %30 = extractelement <2 x float> %10, i64 1
+  %31 = fcmp olt float %29, %30
+  %.sroa.speculated54 = select i1 %31, float %29, float %30
+  %32 = fcmp olt float %30, %29
+  %.sroa.speculated = select i1 %32, float %29, float %30
   %33 = fdiv float %.sroa.speculated54, %.sroa.speculated
-  br label %69
+  br label %71
 
 34:                                               ; preds = %2
-  %35 = fadd float %25, %24
-  %36 = fcmp ogt float %35, %23
-  br i1 %36, label %37, label %69
+  %35 = fadd float %23, %22
+  %36 = fcmp ogt float %35, %21
+  br i1 %36, label %37, label %71
 
 37:                                               ; preds = %34
-  %38 = fmul float %23, %23
-  %39 = insertelement <2 x float> poison, float %23, i64 0
+  %38 = fmul float %21, %21
+  %39 = insertelement <2 x float> poison, float %21, i64 0
   %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
   %41 = fmul <2 x float> %8, %40
   %42 = insertelement <2 x float> poison, float %38, i64 0
@@ -529,25 +529,27 @@ define noundef float @_ZN2cv8KeyPoint7overlapERKS0_S2_(ptr nocapture noundef non
   %51 = tail call noundef float @acosf(float noundef %50) #19
   %52 = tail call noundef float @sinf(float noundef %49) #19
   %53 = tail call noundef float @sinf(float noundef %51) #19
-  %54 = fmul float %11, %51
-  %55 = fmul float %12, %49
-  %56 = insertelement <2 x float> poison, float %52, i64 0
-  %57 = insertelement <2 x float> %56, float %53, i64 1
-  %58 = fmul <2 x float> %10, %57
-  %59 = fmul <2 x float> %47, %58
-  %60 = fadd float %55, %54
-  %61 = extractelement <2 x float> %59, i64 1
-  %62 = fsub float %60, %61
-  %63 = extractelement <2 x float> %59, i64 0
+  %54 = extractelement <2 x float> %10, i64 1
+  %55 = fmul float %54, %51
+  %56 = extractelement <2 x float> %10, i64 0
+  %57 = fmul float %56, %49
+  %58 = insertelement <2 x float> poison, float %52, i64 0
+  %59 = insertelement <2 x float> %58, float %53, i64 1
+  %60 = fmul <2 x float> %10, %59
+  %61 = fmul <2 x float> %47, %60
+  %62 = fadd float %57, %55
+  %63 = extractelement <2 x float> %61, i64 1
   %64 = fsub float %62, %63
-  %65 = fadd float %11, %12
-  %66 = fneg float %64
-  %67 = tail call float @llvm.fmuladd.f32(float %65, float 0x400921FB60000000, float %66)
-  %68 = fdiv float %64, %67
-  br label %69
+  %65 = extractelement <2 x float> %61, i64 0
+  %66 = fsub float %64, %65
+  %67 = fadd float %54, %56
+  %68 = fneg float %66
+  %69 = tail call float @llvm.fmuladd.f32(float %67, float 0x400921FB60000000, float %68)
+  %70 = fdiv float %66, %69
+  br label %71
 
-69:                                               ; preds = %34, %37, %30
-  %.0 = phi float [ %33, %30 ], [ %68, %37 ], [ 0.000000e+00, %34 ]
+71:                                               ; preds = %34, %37, %28
+  %.0 = phi float [ %33, %28 ], [ %70, %37 ], [ 0.000000e+00, %34 ]
   ret float %.0
 }
 

@@ -43665,55 +43665,54 @@ land.end:                                         ; preds = %land.rhs, %sw.bb4
   %17 = shufflevector <2 x double> %14, <2 x double> %15, <2 x i32> <i32 0, i32 3>
   %18 = fcmp olt <2 x double> %16, %17
   %19 = select <2 x i1> %18, <2 x double> %14, <2 x double> %15
-  %20 = extractelement <2 x double> %19, i64 1
-  %21 = extractelement <2 x double> %19, i64 0
   %lowerUnbounded_14 = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %22 to i1
+  %20 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %20 to i1
   br i1 %tobool15, label %land.rhs16, label %land.end19
 
 land.rhs16:                                       ; preds = %land.end
   %lowerUnbounded_17 = getelementptr inbounds i8, ptr %other, i64 16
-  %23 = load i8, ptr %lowerUnbounded_17, align 8
-  %24 = and i8 %23, 1
+  %21 = load i8, ptr %lowerUnbounded_17, align 8
+  %22 = and i8 %21, 1
   br label %land.end19
 
 land.end19:                                       ; preds = %land.rhs16, %land.end
-  %frombool20 = phi i8 [ 0, %land.end ], [ %24, %land.rhs16 ]
+  %frombool20 = phi i8 [ 0, %land.end ], [ %22, %land.rhs16 ]
   %upperUnbounded_21 = getelementptr inbounds i8, ptr %this, i64 18
-  %25 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool22 = trunc i8 %25 to i1
+  %23 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool22 = trunc i8 %23 to i1
   br i1 %tobool22, label %land.rhs23, label %land.end26
 
 land.rhs23:                                       ; preds = %land.end19
   %upperUnbounded_24 = getelementptr inbounds i8, ptr %other, i64 18
-  %26 = load i8, ptr %upperUnbounded_24, align 2
-  %27 = and i8 %26, 1
+  %24 = load i8, ptr %upperUnbounded_24, align 2
+  %25 = and i8 %24, 1
   br label %land.end26
 
 land.end26:                                       ; preds = %land.rhs23, %land.end19
-  %frombool27 = phi i8 [ 0, %land.end19 ], [ %27, %land.rhs23 ]
+  %frombool27 = phi i8 [ 0, %land.end19 ], [ %25, %land.rhs23 ]
   %tobool28 = trunc nuw i8 %frombool20 to i1
   br i1 %tobool28, label %land.end34, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end26
-  %28 = fcmp uno double %21, 0.000000e+00
-  br i1 %28, label %land.end34, label %if.end.i.i12
+  %26 = extractelement <2 x double> %19, i64 0
+  %27 = fcmp uno double %26, 0.000000e+00
+  br i1 %27, label %land.end34, label %if.end.i.i12
 
 if.end.i.i12:                                     ; preds = %land.rhs29
   br i1 %tobool15, label %if.end10.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i12
-  %29 = fcmp ogt <2 x double> %15, %19
-  %cmp.i.i = extractelement <2 x i1> %29, i64 0
+  %28 = fcmp ogt <2 x double> %15, %19
+  %cmp.i.i = extractelement <2 x i1> %28, i64 0
   br i1 %cmp.i.i, label %land.end34, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then2.i.i
   %lowerExclusive_.i.i = getelementptr inbounds i8, ptr %this, i64 17
-  %30 = load i8, ptr %lowerExclusive_.i.i, align 1
-  %tobool5.i.i = trunc i8 %30 to i1
-  %31 = fcmp oeq <2 x double> %15, %19
-  %cmp7.i.i = extractelement <2 x i1> %31, i64 0
+  %29 = load i8, ptr %lowerExclusive_.i.i, align 1
+  %tobool5.i.i = trunc i8 %29 to i1
+  %30 = fcmp oeq <2 x double> %15, %19
+  %cmp7.i.i = extractelement <2 x i1> %30, i64 0
   %or.cond.i.i = and i1 %cmp7.i.i, %tobool5.i.i
   br i1 %or.cond.i.i, label %land.end34, label %if.end10.i.i
 
@@ -43721,34 +43720,35 @@ if.end10.i.i:                                     ; preds = %if.end4.i.i, %if.en
   br i1 %tobool22, label %lor.rhs, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end10.i.i
-  %32 = extractelement <2 x double> %15, i64 1
-  %cmp13.i.i = fcmp olt double %32, %21
+  %31 = extractelement <2 x double> %15, i64 1
+  %cmp13.i.i = fcmp olt double %31, %26
   br i1 %cmp13.i.i, label %land.end34, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %upperExclusive_.i.i = getelementptr inbounds i8, ptr %this, i64 19
-  %33 = load i8, ptr %upperExclusive_.i.i, align 1
-  %tobool16.i.i = trunc i8 %33 to i1
-  %cmp19.i.i = fcmp oeq double %32, %21
+  %32 = load i8, ptr %upperExclusive_.i.i, align 1
+  %tobool16.i.i = trunc i8 %32 to i1
+  %cmp19.i.i = fcmp oeq double %31, %26
   %or.cond6.i.i = and i1 %cmp19.i.i, %tobool16.i.i
   br i1 %or.cond6.i.i, label %land.end34, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end15.i.i, %if.end10.i.i
   %vtable31 = load ptr, ptr %other, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 96
-  %34 = load ptr, ptr %vfn32, align 8
-  %call33 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %21)
+  %33 = load ptr, ptr %vfn32, align 8
+  %call33 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %26)
   %lnot = xor i1 %call33, true
-  %35 = zext i1 %lnot to i8
+  %34 = zext i1 %lnot to i8
   br label %land.end34
 
 land.end34:                                       ; preds = %if.end15.i.i, %if.then12.i.i, %if.end4.i.i, %if.then2.i.i, %land.rhs29, %lor.rhs, %land.end26
-  %frombool35 = phi i8 [ 0, %land.end26 ], [ %35, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
+  %frombool35 = phi i8 [ 0, %land.end26 ], [ %34, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
   %tobool36 = trunc nuw i8 %frombool27 to i1
   br i1 %tobool36, label %land.end45, label %land.rhs37
 
 land.rhs37:                                       ; preds = %land.end34
-  %36 = fcmp uno double %20, 0.000000e+00
+  %35 = extractelement <2 x double> %19, i64 1
+  %36 = fcmp uno double %35, 0.000000e+00
   br i1 %36, label %land.end45, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.rhs37
@@ -43758,14 +43758,14 @@ if.end.i.i15:                                     ; preds = %land.rhs37
 
 if.then2.i.i18:                                   ; preds = %if.end.i.i15
   %38 = load double, ptr %lower_8, align 8
-  %cmp.i.i20 = fcmp ogt double %38, %20
+  %cmp.i.i20 = fcmp ogt double %38, %35
   br i1 %cmp.i.i20, label %land.end45, label %if.end4.i.i21
 
 if.end4.i.i21:                                    ; preds = %if.then2.i.i18
   %lowerExclusive_.i.i22 = getelementptr inbounds i8, ptr %this, i64 17
   %39 = load i8, ptr %lowerExclusive_.i.i22, align 1
   %tobool5.i.i23 = trunc i8 %39 to i1
-  %cmp7.i.i24 = fcmp oeq double %38, %20
+  %cmp7.i.i24 = fcmp oeq double %38, %35
   %or.cond.i.i25 = and i1 %cmp7.i.i24, %tobool5.i.i23
   br i1 %or.cond.i.i25, label %land.end45, label %if.end10.i.i26
 
@@ -43776,14 +43776,14 @@ if.end10.i.i26:                                   ; preds = %if.end4.i.i21, %if.
 
 if.then12.i.i29:                                  ; preds = %if.end10.i.i26
   %41 = load double, ptr %upper_11, align 8
-  %cmp13.i.i31 = fcmp olt double %41, %20
+  %cmp13.i.i31 = fcmp olt double %41, %35
   br i1 %cmp13.i.i31, label %land.end45, label %if.end15.i.i32
 
 if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   %upperExclusive_.i.i33 = getelementptr inbounds i8, ptr %this, i64 19
   %42 = load i8, ptr %upperExclusive_.i.i33, align 1
   %tobool16.i.i34 = trunc i8 %42 to i1
-  %cmp19.i.i35 = fcmp oeq double %41, %20
+  %cmp19.i.i35 = fcmp oeq double %41, %35
   %or.cond6.i.i36 = and i1 %cmp19.i.i35, %tobool16.i.i34
   br i1 %or.cond6.i.i36, label %land.end45, label %lor.rhs39
 
@@ -43791,24 +43791,26 @@ lor.rhs39:                                        ; preds = %if.end15.i.i32, %if
   %vtable40 = load ptr, ptr %other, align 8
   %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 96
   %43 = load ptr, ptr %vfn41, align 8
-  %call42 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %20)
+  %call42 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %35)
   %lnot43 = xor i1 %call42, true
   %44 = zext i1 %lnot43 to i8
   br label %land.end45
 
 land.end45:                                       ; preds = %if.end15.i.i32, %if.then12.i.i29, %if.end4.i.i21, %if.then2.i.i18, %land.rhs37, %lor.rhs39, %land.end34
   %frombool46 = phi i8 [ 0, %land.end34 ], [ %44, %lor.rhs39 ], [ 1, %land.rhs37 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
-  %cmp = fcmp ogt double %21, %20
+  %45 = extractelement <2 x double> %19, i64 0
+  %46 = extractelement <2 x double> %19, i64 1
+  %cmp = fcmp ogt double %45, %46
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end45
-  %cmp47 = fcmp oeq double %21, %20
+  %cmp47 = fcmp oeq double %45, %46
   br i1 %cmp47, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_48 = getelementptr inbounds i8, ptr %this, i64 17
-  %45 = load i8, ptr %lowerExclusive_48, align 1
-  %tobool49 = trunc i8 %45 to i1
+  %47 = load i8, ptr %lowerExclusive_48, align 1
+  %tobool49 = trunc i8 %47 to i1
   br i1 %tobool49, label %if.then, label %if.end54
 
 if.then:                                          ; preds = %land.lhs.true, %land.end45
@@ -43862,8 +43864,8 @@ _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i64 16), ptr %call.i47, align 8, !noalias !942
   %lower_.i.i64 = getelementptr inbounds i8, ptr %call.i47, i64 24
   store <2 x double> %19, ptr %lower_.i.i64, align 8, !noalias !942
-  %46 = fcmp ord double %21, 0.000000e+00
-  %or.cond.not.i.i66 = or i1 %46, %tobool28
+  %48 = fcmp ord double %45, 0.000000e+00
+  %or.cond.not.i.i66 = or i1 %48, %tobool28
   br i1 %or.cond.not.i.i66, label %if.end.i.i68, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
@@ -43871,8 +43873,8 @@ if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i68:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
-  %47 = fcmp ord double %20, 0.000000e+00
-  %or.cond3.not.i.i69 = or i1 %47, %tobool36
+  %49 = fcmp ord double %46, 0.000000e+00
+  %or.cond3.not.i.i69 = or i1 %49, %tobool36
   br i1 %or.cond3.not.i.i69, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIdEESt14default_deleteIS4_EED2Ev.exit74, label %if.then20.i.i70
 
 if.then20.i.i70:                                  ; preds = %if.end.i.i68
@@ -44694,55 +44696,54 @@ land.end:                                         ; preds = %land.rhs, %sw.bb4
   %17 = shufflevector <2 x float> %14, <2 x float> %15, <2 x i32> <i32 0, i32 3>
   %18 = fcmp olt <2 x float> %16, %17
   %19 = select <2 x i1> %18, <2 x float> %14, <2 x float> %15
-  %20 = extractelement <2 x float> %19, i64 1
-  %21 = extractelement <2 x float> %19, i64 0
   %lowerUnbounded_14 = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load i8, ptr %lowerUnbounded_14, align 8
-  %tobool15 = trunc i8 %22 to i1
+  %20 = load i8, ptr %lowerUnbounded_14, align 8
+  %tobool15 = trunc i8 %20 to i1
   br i1 %tobool15, label %land.rhs16, label %land.end19
 
 land.rhs16:                                       ; preds = %land.end
   %lowerUnbounded_17 = getelementptr inbounds i8, ptr %other, i64 16
-  %23 = load i8, ptr %lowerUnbounded_17, align 8
-  %24 = and i8 %23, 1
+  %21 = load i8, ptr %lowerUnbounded_17, align 8
+  %22 = and i8 %21, 1
   br label %land.end19
 
 land.end19:                                       ; preds = %land.rhs16, %land.end
-  %frombool20 = phi i8 [ 0, %land.end ], [ %24, %land.rhs16 ]
+  %frombool20 = phi i8 [ 0, %land.end ], [ %22, %land.rhs16 ]
   %upperUnbounded_21 = getelementptr inbounds i8, ptr %this, i64 18
-  %25 = load i8, ptr %upperUnbounded_21, align 2
-  %tobool22 = trunc i8 %25 to i1
+  %23 = load i8, ptr %upperUnbounded_21, align 2
+  %tobool22 = trunc i8 %23 to i1
   br i1 %tobool22, label %land.rhs23, label %land.end26
 
 land.rhs23:                                       ; preds = %land.end19
   %upperUnbounded_24 = getelementptr inbounds i8, ptr %other, i64 18
-  %26 = load i8, ptr %upperUnbounded_24, align 2
-  %27 = and i8 %26, 1
+  %24 = load i8, ptr %upperUnbounded_24, align 2
+  %25 = and i8 %24, 1
   br label %land.end26
 
 land.end26:                                       ; preds = %land.rhs23, %land.end19
-  %frombool27 = phi i8 [ 0, %land.end19 ], [ %27, %land.rhs23 ]
+  %frombool27 = phi i8 [ 0, %land.end19 ], [ %25, %land.rhs23 ]
   %tobool28 = trunc nuw i8 %frombool20 to i1
   br i1 %tobool28, label %land.end35, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end26
-  %28 = fcmp uno float %21, 0.000000e+00
-  br i1 %28, label %land.end35, label %if.end.i.i12
+  %26 = extractelement <2 x float> %19, i64 0
+  %27 = fcmp uno float %26, 0.000000e+00
+  br i1 %27, label %land.end35, label %if.end.i.i12
 
 if.end.i.i12:                                     ; preds = %land.rhs29
   br i1 %tobool15, label %if.end10.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i12
-  %29 = fcmp ogt <2 x float> %15, %19
-  %cmp.i.i = extractelement <2 x i1> %29, i64 0
+  %28 = fcmp ogt <2 x float> %15, %19
+  %cmp.i.i = extractelement <2 x i1> %28, i64 0
   br i1 %cmp.i.i, label %land.end35, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then2.i.i
   %lowerExclusive_.i.i = getelementptr inbounds i8, ptr %this, i64 17
-  %30 = load i8, ptr %lowerExclusive_.i.i, align 1
-  %tobool5.i.i = trunc i8 %30 to i1
-  %31 = fcmp oeq <2 x float> %15, %19
-  %cmp7.i.i = extractelement <2 x i1> %31, i64 0
+  %29 = load i8, ptr %lowerExclusive_.i.i, align 1
+  %tobool5.i.i = trunc i8 %29 to i1
+  %30 = fcmp oeq <2 x float> %15, %19
+  %cmp7.i.i = extractelement <2 x i1> %30, i64 0
   %or.cond.i.i = and i1 %cmp7.i.i, %tobool5.i.i
   br i1 %or.cond.i.i, label %land.end35, label %if.end10.i.i
 
@@ -44750,35 +44751,36 @@ if.end10.i.i:                                     ; preds = %if.end4.i.i, %if.en
   br i1 %tobool22, label %lor.rhs, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.end10.i.i
-  %32 = extractelement <2 x float> %15, i64 1
-  %cmp13.i.i = fcmp olt float %32, %21
+  %31 = extractelement <2 x float> %15, i64 1
+  %cmp13.i.i = fcmp olt float %31, %26
   br i1 %cmp13.i.i, label %land.end35, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
   %upperExclusive_.i.i = getelementptr inbounds i8, ptr %this, i64 19
-  %33 = load i8, ptr %upperExclusive_.i.i, align 1
-  %tobool16.i.i = trunc i8 %33 to i1
-  %cmp19.i.i = fcmp oeq float %32, %21
+  %32 = load i8, ptr %upperExclusive_.i.i, align 1
+  %tobool16.i.i = trunc i8 %32 to i1
+  %cmp19.i.i = fcmp oeq float %31, %26
   %or.cond6.i.i = and i1 %cmp19.i.i, %tobool16.i.i
   br i1 %or.cond6.i.i, label %land.end35, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end15.i.i, %if.end10.i.i
-  %conv31 = fpext float %21 to double
+  %conv31 = fpext float %26 to double
   %vtable32 = load ptr, ptr %other, align 8
   %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 96
-  %34 = load ptr, ptr %vfn33, align 8
-  %call34 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv31)
+  %33 = load ptr, ptr %vfn33, align 8
+  %call34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv31)
   %lnot = xor i1 %call34, true
-  %35 = zext i1 %lnot to i8
+  %34 = zext i1 %lnot to i8
   br label %land.end35
 
 land.end35:                                       ; preds = %if.end15.i.i, %if.then12.i.i, %if.end4.i.i, %if.then2.i.i, %land.rhs29, %lor.rhs, %land.end26
-  %frombool36 = phi i8 [ 0, %land.end26 ], [ %35, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
+  %frombool36 = phi i8 [ 0, %land.end26 ], [ %34, %lor.rhs ], [ 1, %land.rhs29 ], [ 1, %if.then2.i.i ], [ 1, %if.end4.i.i ], [ 1, %if.then12.i.i ], [ 1, %if.end15.i.i ]
   %tobool37 = trunc nuw i8 %frombool27 to i1
   br i1 %tobool37, label %land.end48, label %land.rhs38
 
 land.rhs38:                                       ; preds = %land.end35
-  %36 = fcmp uno float %20, 0.000000e+00
+  %35 = extractelement <2 x float> %19, i64 1
+  %36 = fcmp uno float %35, 0.000000e+00
   br i1 %36, label %land.end48, label %if.end.i.i15
 
 if.end.i.i15:                                     ; preds = %land.rhs38
@@ -44788,14 +44790,14 @@ if.end.i.i15:                                     ; preds = %land.rhs38
 
 if.then2.i.i18:                                   ; preds = %if.end.i.i15
   %38 = load float, ptr %lower_8, align 4
-  %cmp.i.i20 = fcmp ogt float %38, %20
+  %cmp.i.i20 = fcmp ogt float %38, %35
   br i1 %cmp.i.i20, label %land.end48, label %if.end4.i.i21
 
 if.end4.i.i21:                                    ; preds = %if.then2.i.i18
   %lowerExclusive_.i.i22 = getelementptr inbounds i8, ptr %this, i64 17
   %39 = load i8, ptr %lowerExclusive_.i.i22, align 1
   %tobool5.i.i23 = trunc i8 %39 to i1
-  %cmp7.i.i24 = fcmp oeq float %38, %20
+  %cmp7.i.i24 = fcmp oeq float %38, %35
   %or.cond.i.i25 = and i1 %cmp7.i.i24, %tobool5.i.i23
   br i1 %or.cond.i.i25, label %land.end48, label %if.end10.i.i26
 
@@ -44806,19 +44808,19 @@ if.end10.i.i26:                                   ; preds = %if.end4.i.i21, %if.
 
 if.then12.i.i29:                                  ; preds = %if.end10.i.i26
   %41 = load float, ptr %upper_11, align 8
-  %cmp13.i.i31 = fcmp olt float %41, %20
+  %cmp13.i.i31 = fcmp olt float %41, %35
   br i1 %cmp13.i.i31, label %land.end48, label %if.end15.i.i32
 
 if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   %upperExclusive_.i.i33 = getelementptr inbounds i8, ptr %this, i64 19
   %42 = load i8, ptr %upperExclusive_.i.i33, align 1
   %tobool16.i.i34 = trunc i8 %42 to i1
-  %cmp19.i.i35 = fcmp oeq float %41, %20
+  %cmp19.i.i35 = fcmp oeq float %41, %35
   %or.cond6.i.i36 = and i1 %cmp19.i.i35, %tobool16.i.i34
   br i1 %or.cond6.i.i36, label %land.end48, label %lor.rhs41
 
 lor.rhs41:                                        ; preds = %if.end15.i.i32, %if.end10.i.i26
-  %conv42 = fpext float %20 to double
+  %conv42 = fpext float %35 to double
   %vtable43 = load ptr, ptr %other, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 96
   %43 = load ptr, ptr %vfn44, align 8
@@ -44829,17 +44831,19 @@ lor.rhs41:                                        ; preds = %if.end15.i.i32, %if
 
 land.end48:                                       ; preds = %if.end15.i.i32, %if.then12.i.i29, %if.end4.i.i21, %if.then2.i.i18, %land.rhs38, %lor.rhs41, %land.end35
   %frombool49 = phi i8 [ 0, %land.end35 ], [ %44, %lor.rhs41 ], [ 1, %land.rhs38 ], [ 1, %if.then2.i.i18 ], [ 1, %if.end4.i.i21 ], [ 1, %if.then12.i.i29 ], [ 1, %if.end15.i.i32 ]
-  %cmp = fcmp ogt float %21, %20
+  %45 = extractelement <2 x float> %19, i64 0
+  %46 = extractelement <2 x float> %19, i64 1
+  %cmp = fcmp ogt float %45, %46
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.end48
-  %cmp50 = fcmp oeq float %21, %20
+  %cmp50 = fcmp oeq float %45, %46
   br i1 %cmp50, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_51 = getelementptr inbounds i8, ptr %this, i64 17
-  %45 = load i8, ptr %lowerExclusive_51, align 1
-  %tobool52 = trunc i8 %45 to i1
+  %47 = load i8, ptr %lowerExclusive_51, align 1
+  %tobool52 = trunc i8 %47 to i1
   br i1 %tobool52, label %if.then, label %if.end57
 
 if.then:                                          ; preds = %land.lhs.true, %land.end48
@@ -44893,8 +44897,8 @@ _ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63: ; 
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i64 16), ptr %call.i47, align 8, !noalias !963
   %lower_.i.i64 = getelementptr inbounds i8, ptr %call.i47, i64 20
   store <2 x float> %19, ptr %lower_.i.i64, align 4, !noalias !963
-  %46 = fcmp ord float %21, 0.000000e+00
-  %or.cond.not.i.i66 = or i1 %46, %tobool28
+  %48 = fcmp ord float %45, 0.000000e+00
+  %or.cond.not.i.i66 = or i1 %48, %tobool28
   br i1 %or.cond.not.i.i66, label %if.end.i.i68, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
@@ -44902,8 +44906,8 @@ if.then.i.i67:                                    ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i68:                                     ; preds = %_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE.exit.i.i63
-  %47 = fcmp ord float %20, 0.000000e+00
-  %or.cond3.not.i.i69 = or i1 %47, %tobool37
+  %49 = fcmp ord float %46, 0.000000e+00
+  %or.cond3.not.i.i69 = or i1 %49, %tobool37
   br i1 %or.cond3.not.i.i69, label %_ZNSt10unique_ptrIN8facebook5velox6common18FloatingPointRangeIfEESt14default_deleteIS4_EED2Ev.exit74, label %if.then20.i.i70
 
 if.then20.i.i70:                                  ; preds = %if.end.i.i68

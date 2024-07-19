@@ -17,34 +17,34 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %17 = insertelement <2 x float> poison, float %13, i64 0
   %18 = insertelement <2 x float> %17, float %9, i64 1
   %19 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %18)
-  %20 = extractelement <2 x float> %19, i64 0
-  %21 = fcmp ogt <2 x float> %16, %19
-  %22 = extractelement <2 x i1> %21, i64 1
-  %.0 = select i1 %22, float %8, float %9
-  %.088 = select i1 %22, float %9, float %8
-  %23 = extractelement <2 x i1> %21, i64 0
-  br i1 %23, label %24, label %33
+  %20 = fcmp ogt <2 x float> %16, %19
+  %21 = extractelement <2 x i1> %20, i64 1
+  %.0 = select i1 %21, float %8, float %9
+  %.088 = select i1 %21, float %9, float %8
+  %22 = extractelement <2 x i1> %20, i64 0
+  br i1 %22, label %23, label %32
 
-24:                                               ; preds = %7
-  %25 = extractelement <2 x float> %16, i64 0
-  %26 = fdiv <2 x float> %19, %16
-  %27 = fpext float %25 to double
-  %28 = fmul <2 x float> %26, %26
-  %29 = extractelement <2 x float> %28, i64 0
-  %30 = fpext float %29 to double
-  %31 = fadd double %30, 1.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %31)
-  %32 = fmul double %sqrt, %27
+23:                                               ; preds = %7
+  %24 = extractelement <2 x float> %16, i64 0
+  %25 = fdiv <2 x float> %19, %16
+  %26 = fpext float %24 to double
+  %27 = fmul <2 x float> %25, %25
+  %28 = extractelement <2 x float> %27, i64 0
+  %29 = fpext float %28 to double
+  %30 = fadd double %29, 1.000000e+00
+  %sqrt = tail call double @llvm.sqrt.f64(double %30)
+  %31 = fmul double %sqrt, %26
   br label %47
 
-33:                                               ; preds = %7
+32:                                               ; preds = %7
+  %33 = extractelement <2 x float> %19, i64 0
   %34 = fcmp olt <2 x float> %16, %19
   %35 = extractelement <2 x i1> %34, i64 0
   br i1 %35, label %36, label %44
 
-36:                                               ; preds = %33
+36:                                               ; preds = %32
   %37 = fdiv <2 x float> %16, %19
-  %38 = fpext float %20 to double
+  %38 = fpext float %33 to double
   %39 = fmul <2 x float> %37, %37
   %40 = extractelement <2 x float> %39, i64 0
   %41 = fpext float %40 to double
@@ -53,13 +53,13 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %43 = fmul double %sqrt101, %38
   br label %47
 
-44:                                               ; preds = %33
-  %45 = fpext float %20 to double
+44:                                               ; preds = %32
+  %45 = fpext float %33 to double
   %46 = fmul double %45, 0x3FF6A09E667F3BCD
   br label %47
 
-47:                                               ; preds = %36, %44, %24
-  %.092.in = phi double [ %32, %24 ], [ %43, %36 ], [ %46, %44 ]
+47:                                               ; preds = %36, %44, %23
+  %.092.in = phi double [ %31, %23 ], [ %43, %36 ], [ %46, %44 ]
   %.092 = fptrunc double %.092.in to float
   %48 = fcmp olt float %10, 0.000000e+00
   br i1 %48, label %49, label %58
@@ -108,59 +108,60 @@ define void @slaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.091 = fadd float %11, %.091.p
   %.089 = select i1 %73, i32 -1, i32 1
   %75 = tail call noundef float @llvm.fabs.f32(float %.091)
-  %76 = fcmp ogt float %75, %20
-  br i1 %76, label %77, label %86
+  %76 = extractelement <2 x float> %19, i64 0
+  %77 = fcmp ogt float %75, %76
+  br i1 %77, label %78, label %87
 
-77:                                               ; preds = %72
-  %78 = fneg float %13
-  %79 = fdiv float %78, %.091
-  %80 = fmul float %79, %79
-  %81 = fpext float %80 to double
-  %82 = fadd double %81, 1.000000e+00
-  %sqrt102 = tail call double @llvm.sqrt.f64(double %82)
-  %83 = fdiv double 1.000000e+00, %sqrt102
-  %84 = fptrunc double %83 to float
-  store float %84, ptr %6, align 4
-  %85 = fmul float %79, %84
-  store float %85, ptr %5, align 4
-  br label %98
+78:                                               ; preds = %72
+  %79 = fneg float %13
+  %80 = fdiv float %79, %.091
+  %81 = fmul float %80, %80
+  %82 = fpext float %81 to double
+  %83 = fadd double %82, 1.000000e+00
+  %sqrt102 = tail call double @llvm.sqrt.f64(double %83)
+  %84 = fdiv double 1.000000e+00, %sqrt102
+  %85 = fptrunc double %84 to float
+  store float %85, ptr %6, align 4
+  %86 = fmul float %80, %85
+  store float %86, ptr %5, align 4
+  br label %99
 
-86:                                               ; preds = %72
-  %87 = fcmp olt float %20, 0x3810000000000000
-  br i1 %87, label %88, label %89
+87:                                               ; preds = %72
+  %88 = fcmp olt float %76, 0x3810000000000000
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   store float 1.000000e+00, ptr %5, align 4
   store float 0.000000e+00, ptr %6, align 4
-  br label %98
+  br label %99
 
-89:                                               ; preds = %86
-  %90 = fneg float %.091
-  %91 = fdiv float %90, %13
-  %92 = fmul float %91, %91
-  %93 = fpext float %92 to double
-  %94 = fadd double %93, 1.000000e+00
-  %sqrt103 = tail call double @llvm.sqrt.f64(double %94)
-  %95 = fdiv double 1.000000e+00, %sqrt103
-  %96 = fptrunc double %95 to float
-  store float %96, ptr %5, align 4
-  %97 = fmul float %91, %96
-  store float %97, ptr %6, align 4
-  br label %98
+90:                                               ; preds = %87
+  %91 = fneg float %.091
+  %92 = fdiv float %91, %13
+  %93 = fmul float %92, %92
+  %94 = fpext float %93 to double
+  %95 = fadd double %94, 1.000000e+00
+  %sqrt103 = tail call double @llvm.sqrt.f64(double %95)
+  %96 = fdiv double 1.000000e+00, %sqrt103
+  %97 = fptrunc double %96 to float
+  store float %97, ptr %5, align 4
+  %98 = fmul float %92, %97
+  store float %98, ptr %6, align 4
+  br label %99
 
-98:                                               ; preds = %88, %89, %77
-  %99 = icmp eq i32 %.090, %.089
-  br i1 %99, label %100, label %104
+99:                                               ; preds = %89, %90, %78
+  %100 = icmp eq i32 %.090, %.089
+  br i1 %100, label %101, label %105
 
-100:                                              ; preds = %98
-  %101 = load float, ptr %5, align 4
-  %102 = load float, ptr %6, align 4
-  %103 = fneg float %102
-  store float %103, ptr %5, align 4
-  store float %101, ptr %6, align 4
-  br label %104
+101:                                              ; preds = %99
+  %102 = load float, ptr %5, align 4
+  %103 = load float, ptr %6, align 4
+  %104 = fneg float %103
+  store float %104, ptr %5, align 4
+  store float %102, ptr %6, align 4
+  br label %105
 
-104:                                              ; preds = %100, %98
+105:                                              ; preds = %101, %99
   ret void
 }
 

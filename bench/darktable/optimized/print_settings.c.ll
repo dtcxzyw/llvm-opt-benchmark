@@ -2188,16 +2188,16 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %373 = phi <4 x float> [ %334, %315 ], [ %367, %342 ]
   %374 = phi <2 x float> [ %338, %315 ], [ %358, %342 ]
   %375 = phi <2 x float> [ %341, %315 ], [ %366, %342 ]
-  %376 = extractelement <2 x float> %375, i64 1
-  %377 = extractelement <2 x float> %375, i64 0
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef 4.000000e-01, double noundef 4.000000e-01, double noundef 4.000000e-01, double noundef 1.000000e+00) #21
-  %378 = getelementptr inbounds i8, ptr %15, i64 3420
-  %379 = load i32, ptr %378, align 4, !tbaa !61
-  %380 = fptosi float %371 to i32
-  %381 = fptosi float %372 to i32
-  %382 = fptosi float %377 to i32
-  %383 = fptosi float %376 to i32
-  call void @_cairo_rectangle(ptr noundef %1, i32 noundef %379, i32 noundef %380, i32 noundef %381, i32 noundef %382, i32 noundef %383)
+  %376 = getelementptr inbounds i8, ptr %15, i64 3420
+  %377 = load i32, ptr %376, align 4, !tbaa !61
+  %378 = fptosi float %371 to i32
+  %379 = fptosi float %372 to i32
+  %380 = extractelement <2 x float> %375, i64 0
+  %381 = fptosi float %380 to i32
+  %382 = extractelement <2 x float> %375, i64 1
+  %383 = fptosi float %382 to i32
+  call void @_cairo_rectangle(ptr noundef %1, i32 noundef %377, i32 noundef %378, i32 noundef %379, i32 noundef %381, i32 noundef %383)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
   %384 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !94
@@ -2230,7 +2230,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %406 = fptosi float %405 to i32
   %407 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.101, i32 noundef %406) #21
   %408 = fpext float %372 to double
-  %409 = fsub reassoc nsz arcp contract afn float %376, %372
+  %409 = fsub reassoc nsz arcp contract afn float %382, %372
   %410 = fpext float %409 to double
   %411 = fsub reassoc nsz arcp contract afn double %410, %396
   %412 = fmul reassoc nsz arcp contract afn double %411, 5.000000e-01
@@ -2270,7 +2270,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 
 439:                                              ; preds = %422
   %440 = fadd reassoc nsz arcp contract afn double %438, %428
-  %441 = fpext float %376 to double
+  %441 = fpext float %382 to double
   %442 = fsub reassoc nsz arcp contract afn double %441, %396
   %443 = fmul reassoc nsz arcp contract afn double %395, 2.700000e+01
   %444 = fadd reassoc nsz arcp contract afn double %413, %443
@@ -2315,14 +2315,14 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 467:                                              ; preds = %448, %417, %370
   %468 = phi float [ %466, %448 ], [ %415, %417 ], [ %415, %370 ]
   %469 = phi double [ %450, %448 ], [ %413, %417 ], [ %413, %370 ]
-  %470 = fcmp reassoc nsz arcp contract afn ult float %377, %468
+  %470 = fcmp reassoc nsz arcp contract afn ult float %380, %468
   br i1 %470, label %526, label %471
 
 471:                                              ; preds = %467
   %472 = getelementptr inbounds i8, ptr %15, i64 3296
   %473 = load float, ptr %472, align 8, !tbaa !56
   %474 = fadd reassoc nsz arcp contract afn float %473, %468
-  %475 = fcmp reassoc nsz arcp contract afn ugt float %377, %474
+  %475 = fcmp reassoc nsz arcp contract afn ugt float %380, %474
   br i1 %475, label %526, label %476
 
 476:                                              ; preds = %471
@@ -2338,14 +2338,14 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %486 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 16, ptr noundef %407, double noundef %485) #21
   call void @pango_layout_set_text(ptr noundef %392, ptr noundef nonnull %11, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %392, ptr noundef null, ptr noundef nonnull %12) #21
-  %487 = fpext float %377 to double
+  %487 = fpext float %380 to double
   %488 = load float, ptr %414, align 8, !tbaa !54
   %489 = load float, ptr %472, align 8, !tbaa !56
   %490 = fadd reassoc nsz arcp contract afn float %489, %488
   %491 = getelementptr inbounds i8, ptr %12, i64 8
   %492 = load i32, ptr %491, align 4, !tbaa !102
   %493 = sitofp i32 %492 to float
-  %494 = fadd reassoc nsz arcp contract afn float %377, %493
+  %494 = fadd reassoc nsz arcp contract afn float %380, %493
   %495 = fsub reassoc nsz arcp contract afn float %490, %494
   %496 = fpext float %495 to double
   %497 = fmul reassoc nsz arcp contract afn double %496, 5.000000e-01
@@ -2355,7 +2355,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %501 = fadd reassoc nsz arcp contract afn double %500, %498
   %502 = fpext float %490 to double
   %503 = fcmp reassoc nsz arcp contract afn ogt double %501, %502
-  %504 = fsub reassoc nsz arcp contract afn float %377, %493
+  %504 = fsub reassoc nsz arcp contract afn float %380, %493
   %505 = fpext float %504 to double
   %506 = fmul reassoc nsz arcp contract afn double %395, 1.200000e+01
   %507 = fsub reassoc nsz arcp contract afn double %505, %506
@@ -2393,7 +2393,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 
 526:                                              ; preds = %476, %471, %467
   %527 = fpext float %371 to double
-  %528 = fsub reassoc nsz arcp contract afn float %377, %371
+  %528 = fsub reassoc nsz arcp contract afn float %380, %371
   %529 = fpext float %528 to double
   %530 = fsub reassoc nsz arcp contract afn double %529, %396
   %531 = fmul reassoc nsz arcp contract afn double %530, 5.000000e-01
@@ -2434,7 +2434,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   br label %568
 
 558:                                              ; preds = %541
-  %559 = fpext float %377 to double
+  %559 = fpext float %380 to double
   %560 = fsub reassoc nsz arcp contract afn double %559, %396
   %561 = fmul reassoc nsz arcp contract afn double %395, 2.700000e+01
   %562 = fadd reassoc nsz arcp contract afn double %532, %561
@@ -2495,14 +2495,14 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 596:                                              ; preds = %568, %536, %526
   %597 = phi float [ %595, %568 ], [ %534, %536 ], [ %534, %526 ]
   %598 = phi double [ %570, %568 ], [ %532, %536 ], [ %532, %526 ]
-  %599 = fcmp reassoc nsz arcp contract afn ult float %376, %597
+  %599 = fcmp reassoc nsz arcp contract afn ult float %382, %597
   br i1 %599, label %663, label %600
 
 600:                                              ; preds = %596
   %601 = getelementptr inbounds i8, ptr %15, i64 3300
   %602 = load float, ptr %601, align 4, !tbaa !57
   %603 = fadd reassoc nsz arcp contract afn float %602, %597
-  %604 = fcmp reassoc nsz arcp contract afn ugt float %376, %603
+  %604 = fcmp reassoc nsz arcp contract afn ugt float %382, %603
   br i1 %604, label %663, label %605
 
 605:                                              ; preds = %600
@@ -2518,14 +2518,14 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %615 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 16, ptr noundef %407, double noundef %614) #21
   call void @pango_layout_set_text(ptr noundef %392, ptr noundef nonnull %11, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %392, ptr noundef null, ptr noundef nonnull %12) #21
-  %616 = fpext float %376 to double
+  %616 = fpext float %382 to double
   %617 = load float, ptr %533, align 4, !tbaa !55
   %618 = load float, ptr %601, align 4, !tbaa !57
   %619 = fadd reassoc nsz arcp contract afn float %618, %617
   %620 = getelementptr inbounds i8, ptr %12, i64 8
   %621 = load i32, ptr %620, align 4, !tbaa !102
   %622 = sitofp i32 %621 to float
-  %623 = fadd reassoc nsz arcp contract afn float %376, %622
+  %623 = fadd reassoc nsz arcp contract afn float %382, %622
   %624 = fsub reassoc nsz arcp contract afn float %619, %623
   %625 = fpext float %624 to double
   %626 = fmul reassoc nsz arcp contract afn double %625, 5.000000e-01
@@ -2535,7 +2535,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %630 = fadd reassoc nsz arcp contract afn double %629, %627
   %631 = fpext float %619 to double
   %632 = fcmp reassoc nsz arcp contract afn ogt double %630, %631
-  %633 = fsub reassoc nsz arcp contract afn float %376, %622
+  %633 = fsub reassoc nsz arcp contract afn float %382, %622
   %634 = fpext float %633 to double
   %635 = fmul reassoc nsz arcp contract afn double %395, 1.200000e+01
   %636 = fsub reassoc nsz arcp contract afn double %634, %635
@@ -2590,7 +2590,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %666 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 16, ptr noundef %407, double noundef %665) #21
   call void @pango_layout_set_text(ptr noundef %392, ptr noundef nonnull %11, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %392, ptr noundef null, ptr noundef nonnull %12) #21
-  %667 = fadd reassoc nsz arcp contract afn float %377, %371
+  %667 = fadd reassoc nsz arcp contract afn float %380, %371
   %668 = getelementptr inbounds i8, ptr %12, i64 8
   %669 = load i32, ptr %668, align 4, !tbaa !102
   %670 = sitofp i32 %669 to float
@@ -2630,7 +2630,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %697 = fadd reassoc nsz arcp contract afn double %396, %527
   %698 = fsub reassoc nsz arcp contract afn double %697, %679
   %699 = select i1 %695, double %696, double %698
-  %700 = fadd reassoc nsz arcp contract afn float %376, %372
+  %700 = fadd reassoc nsz arcp contract afn float %382, %372
   %701 = fpext float %700 to double
   %702 = fmul reassoc nsz arcp contract afn double %701, 5.000000e-01
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 9.000000e-01) #21

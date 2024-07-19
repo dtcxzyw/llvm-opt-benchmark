@@ -6269,15 +6269,15 @@ _ZN7rocksdb33ConcurrentCacheReservationManagerC2ESt10shared_ptrINS_23CacheReserv
 
 .noexc85:                                         ; preds = %_ZN7rocksdb33ConcurrentCacheReservationManagerC2ESt10shared_ptrINS_23CacheReservationManagerEE.exit
   %92 = load <2 x ptr>, ptr %file_metadata_cache_res_mgr_, align 8
-  %93 = extractelement <2 x ptr> %92, i64 1
-  %94 = load <2 x ptr>, ptr %ref.tmp.i, align 16
-  store <2 x ptr> %94, ptr %file_metadata_cache_res_mgr_, align 8
+  %93 = load <2 x ptr>, ptr %ref.tmp.i, align 16
+  store <2 x ptr> %93, ptr %file_metadata_cache_res_mgr_, align 8
   store <2 x ptr> %92, ptr %ref.tmp.i, align 16
-  %cmp.not.i.i.i = icmp eq ptr %93, null
+  %94 = extractelement <2 x ptr> %92, i64 1
+  %cmp.not.i.i.i = icmp eq ptr %94, null
   br i1 %cmp.not.i.i.i, label %invoke.cont241, label %if.then.i.i.i73
 
 if.then.i.i.i73:                                  ; preds = %.noexc85
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 8
   %95 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %95, 4294967297
   %96 = trunc i64 %95 to i32
@@ -6285,12 +6285,12 @@ if.then.i.i.i73:                                  ; preds = %.noexc85
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i73
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %93, align 8
+  %vtable.i.i.i.i = load ptr, ptr %94, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %97 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %93) #30
+  call void %97(ptr noundef nonnull align 8 dereferenceable(16) %94) #30
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i73
@@ -6313,11 +6313,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %invoke.cont241
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i75 = load ptr, ptr %93, align 8
+  %vtable.i.i.i.i.i.i75 = load ptr, ptr %94, align 8
   %vfn.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i75, i64 16
   %100 = load ptr, ptr %vfn.i.i.i.i.i.i76, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %93) #30
-  %_M_weak_count.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %93, i64 12
+  call void %100(ptr noundef nonnull align 8 dereferenceable(16) %94) #30
+  %_M_weak_count.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %94, i64 12
   %101 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i78 = icmp eq i8 %101, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i78, label %if.else.i.i.i.i.i.i.i84, label %if.then.i.i.i.i.i.i.i79
@@ -6338,10 +6338,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i81: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i83, label %if.end8.sink.split.i.i.i.i, label %invoke.cont241
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i81, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %93, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %94, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %104 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(16) %93) #30
+  call void %104(ptr noundef nonnull align 8 dereferenceable(16) %94) #30
   br label %invoke.cont241
 
 invoke.cont241:                                   ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %.noexc85

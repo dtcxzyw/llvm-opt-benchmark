@@ -2714,9 +2714,8 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_d.exit:     ; preds = %36
   %64 = getelementptr inbounds i8, ptr %6, i64 8
   store float %62, ptr %64, align 4
   %65 = getelementptr inbounds i8, ptr %6, i64 12
-  store float %44, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
-  store float 0.000000e+00, ptr %66, align 4
+  %66 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %44, i64 0
+  store <2 x float> %66, ptr %65, align 4
   %67 = getelementptr inbounds i8, ptr %6, i64 20
   %68 = fneg <2 x float> %48
   store <2 x float> %68, ptr %67, align 4

@@ -326,74 +326,74 @@ entry:
   %24 = insertelement <2 x float> poison, float %sub14.i.i, i64 0
   %25 = shufflevector <2 x float> %24, <2 x float> poison, <2 x i32> zeroinitializer
   %26 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %17, <2 x float> %25, <2 x float> %23)
-  %27 = extractelement <2 x float> %26, i64 1
-  %28 = extractelement <2 x float> %26, i64 0
-  %29 = load <2 x float>, ptr %m_implicitShapeDimensions.i, align 4
-  %30 = fcmp olt <2 x float> %29, %26
-  %31 = select <2 x i1> %30, <2 x float> %29, <2 x float> %26
-  %32 = fneg <2 x float> %29
-  %33 = fcmp olt <2 x float> %31, %32
-  %34 = select <2 x i1> %33, <2 x float> %32, <2 x float> %31
-  %35 = fsub <2 x float> %26, %34
+  %27 = load <2 x float>, ptr %m_implicitShapeDimensions.i, align 4
+  %28 = fcmp olt <2 x float> %27, %26
+  %29 = select <2 x i1> %28, <2 x float> %27, <2 x float> %26
+  %30 = fneg <2 x float> %27
+  %31 = fcmp olt <2 x float> %29, %30
+  %32 = select <2 x i1> %31, <2 x float> %30, <2 x float> %29
+  %33 = fsub <2 x float> %26, %32
   %sub14.i = fsub float %13, %.sroa.speculated
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
-  store <2 x float> %35, ptr %normal, align 4
+  store <2 x float> %33, ptr %normal, align 4
   %ref.tmp29.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %normal, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp29.sroa.2.0..sroa_idx, align 4
   %arrayidx5.i.i48 = getelementptr inbounds i8, ptr %normal, i64 4
-  %36 = fmul <2 x float> %35, %35
-  %mul8.i.i = extractelement <2 x float> %36, i64 1
-  %37 = extractelement <2 x float> %35, i64 0
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %mul8.i.i)
-  %39 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %38)
+  %34 = fmul <2 x float> %33, %33
+  %mul8.i.i = extractelement <2 x float> %34, i64 1
+  %35 = extractelement <2 x float> %33, i64 0
+  %36 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %mul8.i.i)
+  %37 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %36)
   %mul = fmul float %add28, %add28
-  %cmp = fcmp ule float %39, %mul
+  %cmp = fcmp ule float %37, %mul
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmp33 = fcmp ugt float %39, 0x3E80000000000000
+  %cmp33 = fcmp ugt float %37, 0x3E80000000000000
   br i1 %cmp33, label %if.else, label %if.then34
 
 if.then34:                                        ; preds = %if.end
-  %40 = load float, ptr %m_implicitShapeDimensions.i, align 4
-  %sub.i49 = fsub float %40, %28
+  %38 = load float, ptr %m_implicitShapeDimensions.i, align 4
+  %39 = extractelement <2 x float> %26, i64 0
+  %sub.i49 = fsub float %38, %39
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %normal, align 4
-  %41 = load float, ptr %m_implicitShapeDimensions.i, align 4
-  %add.i = fadd float %28, %41
+  %40 = load float, ptr %m_implicitShapeDimensions.i, align 4
+  %add.i = fadd float %39, %40
   %cmp.i53 = fcmp olt float %add.i, %sub.i49
-  %42 = insertelement <2 x float> %34, float %40, i64 0
+  %41 = insertelement <2 x float> %32, float %38, i64 0
   br i1 %cmp.i53, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then34
-  %fneg.i = fneg float %41
+  %fneg.i = fneg float %40
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %normal, align 4
-  %43 = insertelement <2 x float> %26, float %fneg.i, i64 0
+  %42 = insertelement <2 x float> %26, float %fneg.i, i64 0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then34
-  %44 = phi float [ -1.000000e+00, %if.then.i ], [ 1.000000e+00, %if.then34 ]
+  %43 = phi float [ -1.000000e+00, %if.then.i ], [ 1.000000e+00, %if.then34 ]
   %closestPoint.sroa.26.0 = phi float [ %13, %if.then.i ], [ %.sroa.speculated, %if.then34 ]
   %minDist.0.i = phi float [ %add.i, %if.then.i ], [ %sub.i49, %if.then34 ]
-  %45 = phi <2 x float> [ %43, %if.then.i ], [ %42, %if.then34 ]
-  %46 = load float, ptr %arrayidx.i, align 4
-  %sub14.i54 = fsub float %46, %27
+  %44 = phi <2 x float> [ %42, %if.then.i ], [ %41, %if.then34 ]
+  %45 = load float, ptr %arrayidx.i, align 4
+  %46 = extractelement <2 x float> %26, i64 1
+  %sub14.i54 = fsub float %45, %46
   %cmp15.i = fcmp olt float %sub14.i54, %minDist.0.i
-  %47 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %44, i64 0
+  %47 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %43, i64 0
   br i1 %cmp15.i, label %if.then16.i, label %if.end21.i
 
 if.then16.i:                                      ; preds = %if.end.i
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %normal, align 4
   %.pre.i = load float, ptr %arrayidx.i, align 4
-  %48 = insertelement <2 x float> %26, float %46, i64 1
+  %48 = insertelement <2 x float> %26, float %45, i64 1
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then16.i, %if.end.i
   %closestPoint.sroa.26.1 = phi float [ %13, %if.then16.i ], [ %closestPoint.sroa.26.0, %if.end.i ]
-  %49 = phi float [ %.pre.i, %if.then16.i ], [ %46, %if.end.i ]
+  %49 = phi float [ %.pre.i, %if.then16.i ], [ %45, %if.end.i ]
   %minDist.1.i = phi float [ %sub14.i54, %if.then16.i ], [ %minDist.0.i, %if.end.i ]
-  %50 = phi <2 x float> [ %48, %if.then16.i ], [ %45, %if.end.i ]
+  %50 = phi <2 x float> [ %48, %if.then16.i ], [ %44, %if.end.i ]
   %51 = phi <2 x float> [ <float 0.000000e+00, float 1.000000e+00>, %if.then16.i ], [ %47, %if.end.i ]
-  %add24.i = fadd float %27, %49
+  %add24.i = fadd float %46, %49
   %cmp25.i = fcmp olt float %add24.i, %minDist.1.i
   br i1 %cmp25.i, label %if.then26.i, label %if.end32.i
 
@@ -444,11 +444,11 @@ _ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.
   br label %if.end39
 
 if.else:                                          ; preds = %if.end
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %39)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %37)
   %div.i = fdiv float 1.000000e+00, %sqrt.i
   %63 = insertelement <2 x float> poison, float %div.i, i64 0
   %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
-  %65 = fmul <2 x float> %35, %64
+  %65 = fmul <2 x float> %33, %64
   store <2 x float> %65, ptr %normal, align 4
   %mul7.i.i = fmul float %sub14.i, %div.i
   store float %mul7.i.i, ptr %ref.tmp29.sroa.2.0..sroa_idx, align 4
@@ -458,7 +458,7 @@ if.end39:                                         ; preds = %if.else, %_ZN29btSp
   %66 = phi float [ %mul7.i.i, %if.else ], [ %60, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %closestPoint.sroa.26.5 = phi float [ %.sroa.speculated, %if.else ], [ %closestPoint.sroa.26.4, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %distance.0 = phi float [ %sqrt.i, %if.else ], [ %fneg36, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
-  %67 = phi <2 x float> [ %34, %if.else ], [ %61, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
+  %67 = phi <2 x float> [ %32, %if.else ], [ %61, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %68 = phi <2 x float> [ %65, %if.else ], [ %62, %_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_.exit ]
   %69 = insertelement <2 x float> poison, float %call3, i64 0
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> zeroinitializer

@@ -13277,8 +13277,8 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %105 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i195.i)
   %106 = sitofp i16 %105 to float
   %107 = fmul float %106, 0x3F10000000000000
-  %108 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %107, i64 0
-  %109 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %107, i64 1
+  %108 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %107, i64 1
+  %109 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %107, i64 0
   br label %125
 
 110:                                              ; preds = %95
@@ -13299,16 +13299,16 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %120 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i207.i)
   %121 = sitofp i16 %120 to float
   %122 = fmul float %121, 0x3F10000000000000
-  %123 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %118, i64 0
-  %124 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %122, i64 1
+  %123 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %118, i64 1
+  %124 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %122, i64 0
   br label %125
 
 125:                                              ; preds = %153, %114, %103, %92
   %.sroa.7118.2 = phi i64 [ %.sroa.7118.1, %92 ], [ %100, %103 ], [ %111, %114 ], [ %150, %153 ]
-  %126 = phi <2 x float> [ <float 1.000000e+00, float 0.000000e+00>, %92 ], [ %108, %103 ], [ %123, %114 ], [ %163, %153 ]
-  %127 = phi <2 x float> [ <float 0.000000e+00, float 1.000000e+00>, %92 ], [ %109, %103 ], [ %124, %114 ], [ %165, %153 ]
-  %128 = shufflevector <2 x float> %127, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %129 = shufflevector <2 x float> %126, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %126 = phi <2 x float> [ <float 0.000000e+00, float 1.000000e+00>, %92 ], [ %108, %103 ], [ %123, %114 ], [ %163, %153 ]
+  %127 = phi <2 x float> [ <float 1.000000e+00, float 0.000000e+00>, %92 ], [ %109, %103 ], [ %124, %114 ], [ %165, %153 ]
+  %128 = shufflevector <2 x float> %127, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 0, i32 0>
+  %129 = shufflevector <2 x float> %126, <2 x float> poison, <4 x i32> <i32 1, i32 1, i32 0, i32 0>
   %130 = and i16 %49, 32
   %131 = icmp eq i16 %130, 0
   %spec.select = select i1 %131, i64 %24, i64 %.sroa.7118.2
@@ -13357,10 +13357,10 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %159 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i236.i)
   %160 = sitofp i16 %159 to float
   %161 = fmul float %160, 0x3F10000000000000
-  %162 = insertelement <2 x float> poison, float %137, i64 0
-  %163 = insertelement <2 x float> %162, float %157, i64 1
-  %164 = insertelement <2 x float> poison, float %145, i64 0
-  %165 = insertelement <2 x float> %164, float %161, i64 1
+  %162 = insertelement <2 x float> poison, float %157, i64 0
+  %163 = insertelement <2 x float> %162, float %137, i64 1
+  %164 = insertelement <2 x float> poison, float %161, i64 0
+  %165 = insertelement <2 x float> %164, float %145, i64 1
   br label %125
 
 166:                                              ; preds = %125

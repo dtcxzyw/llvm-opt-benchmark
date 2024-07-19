@@ -17845,55 +17845,56 @@ define linkonce_odr void @_ZNK12colvarmodule8rotation6matrixEv(ptr dead_on_unwin
   %8 = load <2 x double>, ptr %3, align 8, !noalias !488
   %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %10 = extractelement <2 x double> %8, i64 1
-  %11 = extractelement <2 x double> %8, i64 0
-  %12 = fmul <2 x double> %8, %8
-  %13 = extractelement <2 x double> %12, i64 1
-  %14 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %13)
+  %11 = fmul <2 x double> %8, %8
+  %12 = extractelement <2 x double> %11, i64 1
+  %13 = extractelement <2 x double> %8, i64 0
+  %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %12)
   %15 = fneg double %10
   %16 = fmul double %10, %15
-  %17 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %16)
-  %18 = fneg double %11
+  %17 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %16)
+  %18 = fneg double %13
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   %21 = load <2 x double>, ptr %4, align 8, !noalias !488
-  %22 = extractelement <2 x double> %21, i64 1
-  %23 = extractelement <2 x double> %21, i64 0
-  %24 = fneg double %23
-  %25 = fneg double %22
-  %26 = tail call double @llvm.fmuladd.f64(double %24, double %23, double %14)
-  %27 = tail call double @llvm.fmuladd.f64(double %25, double %22, double %26)
+  %22 = extractelement <2 x double> %21, i64 0
+  %23 = fneg double %22
+  %24 = extractelement <2 x double> %21, i64 1
+  %25 = fneg double %24
+  %26 = tail call double @llvm.fmuladd.f64(double %23, double %22, double %14)
+  %27 = tail call double @llvm.fmuladd.f64(double %25, double %24, double %26)
   store double %27, ptr %0, align 8, !alias.scope !488
-  %28 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %17)
-  %29 = tail call double @llvm.fmuladd.f64(double %25, double %22, double %28)
+  %28 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %17)
+  %29 = tail call double @llvm.fmuladd.f64(double %25, double %24, double %28)
   store double %29, ptr %5, align 8, !alias.scope !488
-  %30 = tail call double @llvm.fmuladd.f64(double %24, double %23, double %17)
-  %31 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %30)
+  %30 = tail call double @llvm.fmuladd.f64(double %23, double %22, double %17)
+  %31 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %30)
   store double %31, ptr %6, align 8, !alias.scope !488
-  %32 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 1, i32 3>
-  %33 = insertelement <2 x double> %21, double %18, i64 0
-  %34 = fmul <2 x double> %32, %33
-  %35 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %36 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %9, <2 x double> %35, <2 x double> %34)
-  %37 = fmul <2 x double> %36, <double 2.000000e+00, double 2.000000e+00>
-  store <2 x double> %37, ptr %7, align 8, !alias.scope !488
-  %38 = fmul <2 x double> %9, %21
-  %39 = extractelement <2 x double> %38, i64 0
-  %40 = tail call double @llvm.fmuladd.f64(double %11, double %22, double %39)
-  %41 = fmul double %40, 2.000000e+00
-  store double %41, ptr %19, align 8, !alias.scope !488
-  %42 = shufflevector <2 x double> %9, <2 x double> %21, <2 x i32> <i32 0, i32 2>
-  %43 = insertelement <2 x double> poison, double %18, i64 0
-  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
-  %45 = fmul <2 x double> %42, %44
-  %46 = shufflevector <2 x double> %8, <2 x double> %21, <2 x i32> <i32 3, i32 1>
-  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %21, <2 x double> %45)
-  %48 = fmul <2 x double> %47, <double 2.000000e+00, double 2.000000e+00>
-  store <2 x double> %48, ptr %20, align 8, !alias.scope !488
-  %49 = fmul double %23, %22
-  %50 = tail call double @llvm.fmuladd.f64(double %11, double %10, double %49)
-  %51 = fmul double %50, 2.000000e+00
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
-  store double %51, ptr %52, align 8, !alias.scope !488
+  %32 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %33 = shufflevector <2 x double> %32, <2 x double> %8, <2 x i32> <i32 0, i32 3>
+  %34 = insertelement <2 x double> %21, double %18, i64 0
+  %35 = fmul <2 x double> %33, %34
+  %36 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
+  %37 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %9, <2 x double> %36, <2 x double> %35)
+  %38 = fmul <2 x double> %37, <double 2.000000e+00, double 2.000000e+00>
+  store <2 x double> %38, ptr %7, align 8, !alias.scope !488
+  %39 = fmul <2 x double> %9, %21
+  %40 = extractelement <2 x double> %39, i64 0
+  %41 = tail call double @llvm.fmuladd.f64(double %13, double %24, double %40)
+  %42 = fmul double %41, 2.000000e+00
+  store double %42, ptr %19, align 8, !alias.scope !488
+  %43 = shufflevector <2 x double> %9, <2 x double> %21, <2 x i32> <i32 0, i32 2>
+  %44 = insertelement <2 x double> poison, double %18, i64 0
+  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
+  %46 = fmul <2 x double> %43, %45
+  %47 = shufflevector <2 x double> %8, <2 x double> %21, <2 x i32> <i32 3, i32 1>
+  %48 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %47, <2 x double> %21, <2 x double> %46)
+  %49 = fmul <2 x double> %48, <double 2.000000e+00, double 2.000000e+00>
+  store <2 x double> %49, ptr %20, align 8, !alias.scope !488
+  %50 = fmul double %22, %24
+  %51 = tail call double @llvm.fmuladd.f64(double %13, double %10, double %50)
+  %52 = fmul double %51, 2.000000e+00
+  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  store double %52, ptr %53, align 8, !alias.scope !488
   ret void
 }
 

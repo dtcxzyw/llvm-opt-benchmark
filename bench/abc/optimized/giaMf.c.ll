@@ -1216,14 +1216,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @Vec_WrdUniqifyHash(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load <2 x i32>, ptr %0, align 8
-  %3 = extractelement <2 x i32> %2, i64 1
-  %4 = shl nsw <2 x i32> %2, <i32 1, i32 1>
-  store <2 x i32> %4, ptr %0, align 8
-  %5 = icmp ult i32 %3, 2
-  %6 = add nsw i32 %3, -1
+  %3 = shl nsw <2 x i32> %2, <i32 1, i32 1>
+  store <2 x i32> %3, ptr %0, align 8
+  %4 = extractelement <2 x i32> %2, i64 1
+  %5 = icmp ult i32 %4, 2
+  %6 = add nsw i32 %4, -1
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %8 = sub nuw nsw i32 32, %7
-  %.09.i.i.i = select i1 %5, i32 %3, i32 %8
+  %.09.i.i.i = select i1 %5, i32 %4, i32 %8
   %9 = shl nuw i32 1, %.09.i.i.i
   %10 = add nsw i32 %9, -1
   %11 = sext i32 %9 to i64
@@ -1232,15 +1232,15 @@ define internal fastcc noalias noundef ptr @Vec_WrdUniqifyHash(ptr nocapture nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, i8 -1, i64 %12, i1 false)
   %14 = tail call noalias ptr @malloc(i64 noundef %12) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, i8 -1, i64 %12, i1 false)
-  %15 = sext i32 %3 to i64
+  %15 = sext i32 %4 to i64
   %16 = shl nsw i64 %15, 2
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #25
-  %18 = icmp sgt i32 %3, 0
+  %18 = icmp sgt i32 %4, 0
   br i1 %18, label %.lr.ph60.i.i, label %._crit_edge.i.i
 
 .lr.ph60.i.i:                                     ; preds = %1
   %19 = getelementptr i8, ptr %0, i64 8
-  %wide.trip.count.i.i = zext nneg i32 %3 to i64
+  %wide.trip.count.i.i = zext nneg i32 %4 to i64
   %.val49.i.i = load ptr, ptr %19, align 8
   br label %20
 
@@ -1355,8 +1355,8 @@ Vec_IntUniqueLookup.exit.i.i:                     ; preds = %.lr.ph.i.i.i, %Vec_
 Vec_IntUniqueCount.exit.i:                        ; preds = %66, %65
   %67 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %68 = getelementptr inbounds i8, ptr %67, i64 4
-  store i32 %3, ptr %68, align 4
-  store i32 %3, ptr %67, align 8
+  store i32 %4, ptr %68, align 4
+  store i32 %4, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %17, ptr %69, align 8
   %70 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
@@ -1386,7 +1386,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %73, %Vec_IntUniqueC
   br label %80
 
 80:                                               ; preds = %Vec_IntPushArray.exit.i, %.lr.ph.i
-  %.val33.i = phi i32 [ %3, %.lr.ph.i ], [ %.val.i, %Vec_IntPushArray.exit.i ]
+  %.val33.i = phi i32 [ %4, %.lr.ph.i ], [ %.val.i, %Vec_IntPushArray.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Vec_IntPushArray.exit.i ]
   %.val15.i = load ptr, ptr %69, align 8
   %81 = getelementptr inbounds i32, ptr %.val15.i, i64 %indvars.iv.i

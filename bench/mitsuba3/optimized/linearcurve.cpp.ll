@@ -2010,22 +2010,21 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %16 = getelementptr inbounds i8, ptr %0, i64 64
   %17 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
-  store float 0.000000e+00, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.3476.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(212) %19, i8 0, i64 212, i1 false)
-  %22 = load float, ptr %3, align 8
-  store float %22, ptr %0, align 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(212) %18, i8 0, i64 212, i1 false)
+  %21 = load float, ptr %3, align 8
+  %22 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %21, i64 0
+  store <2 x float> %22, ptr %0, align 16
   %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = insertelement <4 x float> poison, float %22, i64 0
+  %24 = insertelement <4 x float> poison, float %21, i64 0
   %25 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> zeroinitializer
   %26 = load <4 x float>, ptr %2, align 16
   %27 = load <4 x float>, ptr %23, align 16
   %28 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %27, <4 x float> %25, <4 x float> %26)
-  store <4 x float> %28, ptr %20, align 16
+  store <4 x float> %28, ptr %19, align 16
   %29 = getelementptr inbounds i8, ptr %3, i64 4
   %30 = load float, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %3, i64 12
@@ -2073,7 +2072,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %70 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> zeroinitializer
   %71 = fmul contract <4 x float> %62, %70
   store <4 x float> %71, ptr %.sroa.3476.0..sroa_idx, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.3476.0..sroa_idx, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.3476.0..sroa_idx, i64 16, i1 false)
   br i1 %.not, label %147, label %72
 
 72:                                               ; preds = %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit

@@ -3915,9 +3915,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %222 = fcmp contract olt <2 x float> %221, zeroinitializer
   %223 = select <2 x i1> %222, <2 x float> zeroinitializer, <2 x float> %221
   %224 = tail call contract <2 x float> @llvm.sqrt.v2f32(<2 x float> %223)
-  %225 = extractelement <2 x float> %224, i64 1
-  %226 = extractelement <2 x float> %224, i64 0
-  %227 = fdiv contract float %226, %225
+  %225 = extractelement <2 x float> %224, i64 0
+  %226 = extractelement <2 x float> %224, i64 1
+  %227 = fdiv contract float %225, %226
   %228 = insertelement <2 x float> poison, float %120, i64 0
   %229 = insertelement <2 x float> %228, float %122, i64 1
   %230 = insertelement <2 x float> poison, float %227, i64 0
@@ -4094,7 +4094,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %386 = fcmp contract olt float %385, 0.000000e+00
   %..i.i393 = select contract i1 %386, float 0.000000e+00, float %385
   %387 = tail call contract noundef float @llvm.sqrt.f32(float %..i.i393)
-  %388 = fmul contract float %225, %387
+  %388 = fmul contract float %226, %387
   %389 = fcmp contract oge float %388, 0.000000e+00
   %390 = fdiv contract float 1.000000e+00, %359
   %391 = select contract i1 %389, float %359, float %390
@@ -4171,9 +4171,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %444 = load float, ptr %437, align 8
   %445 = fmul contract float %122, %444
   %446 = load float, ptr %438, align 4
-  %447 = fmul contract float %225, %446
+  %447 = fmul contract float %226, %446
   %448 = fsub contract float %445, %447
-  %449 = fmul contract float %225, %444
+  %449 = fmul contract float %226, %444
   %450 = fmul contract float %122, %446
   %451 = fadd contract float %449, %450
   br label %470
@@ -4182,9 +4182,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %453 = load float, ptr %435, align 4
   %454 = fmul contract float %122, %453
   %455 = load float, ptr %436, align 8
-  %456 = fmul contract float %225, %455
+  %456 = fmul contract float %226, %455
   %457 = fadd contract float %454, %456
-  %458 = fmul contract float %225, %453
+  %458 = fmul contract float %226, %453
   %459 = fmul contract float %122, %455
   %460 = fsub contract float %458, %459
   br label %470
@@ -4193,9 +4193,9 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %462 = load float, ptr %433, align 4
   %463 = fmul contract float %122, %462
   %464 = load float, ptr %434, align 8
-  %465 = fmul contract float %225, %464
+  %465 = fmul contract float %226, %464
   %466 = fadd contract float %463, %465
-  %467 = fmul contract float %225, %462
+  %467 = fmul contract float %226, %462
   %468 = fmul contract float %122, %464
   %469 = fsub contract float %467, %468
   br label %470
@@ -4708,9 +4708,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %200 = fcmp contract olt <2 x float> %199, zeroinitializer
   %201 = select <2 x i1> %200, <2 x float> zeroinitializer, <2 x float> %199
   %202 = tail call contract <2 x float> @llvm.sqrt.v2f32(<2 x float> %201)
-  %203 = extractelement <2 x float> %202, i64 1
-  %204 = extractelement <2 x float> %202, i64 0
-  %205 = fdiv contract float %204, %203
+  %203 = extractelement <2 x float> %202, i64 0
+  %204 = extractelement <2 x float> %202, i64 1
+  %205 = fdiv contract float %203, %204
   %206 = fdiv contract float %98, %205
   %207 = fcmp contract ogt float %206, 1.000000e+00
   %..i.i162 = select contract i1 %207, float 1.000000e+00, float %206
@@ -4743,7 +4743,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %233 = bitcast float %230 to i32
   %234 = or disjoint i32 %232, %233
   %235 = bitcast i32 %234 to float
-  %236 = tail call <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15attenuation_pdfEfRKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, float noundef %203, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext true)
+  %236 = tail call <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15attenuation_pdfEfRKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, float noundef %204, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext true)
   store <4 x float> %236, ptr %6, align 16
   %237 = fsub contract float %192, %125
   %238 = getelementptr inbounds i8, ptr %0, i64 148
@@ -4773,9 +4773,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %250 = load float, ptr %242, align 8
   %251 = fmul contract float %100, %250
   %252 = load float, ptr %243, align 4
-  %253 = fmul contract float %203, %252
+  %253 = fmul contract float %204, %252
   %254 = fsub contract float %251, %253
-  %255 = fmul contract float %203, %250
+  %255 = fmul contract float %204, %250
   %256 = fmul contract float %100, %252
   %257 = fadd contract float %255, %256
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
@@ -4784,9 +4784,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %259 = load float, ptr %240, align 4
   %260 = fmul contract float %100, %259
   %261 = load float, ptr %241, align 8
-  %262 = fmul contract float %203, %261
+  %262 = fmul contract float %204, %261
   %263 = fadd contract float %260, %262
-  %264 = fmul contract float %203, %259
+  %264 = fmul contract float %204, %259
   %265 = fmul contract float %100, %261
   %266 = fsub contract float %264, %265
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
@@ -4795,9 +4795,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
   %268 = load float, ptr %238, align 4
   %269 = fmul contract float %100, %268
   %270 = load float, ptr %239, align 8
-  %271 = fmul contract float %203, %270
+  %271 = fmul contract float %204, %270
   %272 = fadd contract float %269, %271
-  %273 = fmul contract float %203, %268
+  %273 = fmul contract float %204, %268
   %274 = fmul contract float %100, %270
   %275 = fsub contract float %273, %274
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
@@ -5120,9 +5120,9 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %225 = fcmp contract olt <2 x float> %224, zeroinitializer
   %226 = select <2 x i1> %225, <2 x float> zeroinitializer, <2 x float> %224
   %227 = tail call contract <2 x float> @llvm.sqrt.v2f32(<2 x float> %226)
-  %228 = extractelement <2 x float> %227, i64 1
-  %229 = extractelement <2 x float> %227, i64 0
-  %230 = fdiv contract float %229, %228
+  %228 = extractelement <2 x float> %227, i64 0
+  %229 = extractelement <2 x float> %227, i64 1
+  %230 = fdiv contract float %228, %229
   %231 = insertelement <2 x float> poison, float %123, i64 0
   %232 = insertelement <2 x float> %231, float %152, i64 1
   %233 = insertelement <2 x float> poison, float %230, i64 0
@@ -5299,7 +5299,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %389 = fcmp contract olt float %388, 0.000000e+00
   %..i.i409 = select contract i1 %389, float 0.000000e+00, float %388
   %390 = tail call contract noundef float @llvm.sqrt.f32(float %..i.i409)
-  %391 = fmul contract float %228, %390
+  %391 = fmul contract float %229, %390
   %392 = fcmp contract oge float %391, 0.000000e+00
   %393 = fdiv contract float 1.000000e+00, %362
   %394 = select contract i1 %392, float %362, float %393
@@ -5349,7 +5349,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %433 = fdiv contract <4 x float> %430, %432
   %434 = getelementptr inbounds i8, ptr %13, i64 48
   store <4 x float> %433, ptr %434, align 16, !alias.scope !78
-  %435 = tail call <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15attenuation_pdfEfRKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(152) %1, float noundef %228, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
+  %435 = tail call <4 x float> @_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE15attenuation_pdfEfRKNS_18SurfaceInteractionIfS5_EEb(ptr noundef nonnull align 8 dereferenceable(152) %1, float noundef %229, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
   store <4 x float> %435, ptr %14, align 16
   %436 = fsub contract float %150, %177
   %437 = getelementptr inbounds i8, ptr %1, i64 148
@@ -5380,9 +5380,9 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %449 = load float, ptr %441, align 8
   %450 = fmul contract float %152, %449
   %451 = load float, ptr %442, align 4
-  %452 = fmul contract float %228, %451
+  %452 = fmul contract float %229, %451
   %453 = fsub contract float %450, %452
-  %454 = fmul contract float %228, %449
+  %454 = fmul contract float %229, %449
   %455 = fmul contract float %152, %451
   %456 = fadd contract float %454, %455
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
@@ -5391,9 +5391,9 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %458 = load float, ptr %439, align 4
   %459 = fmul contract float %152, %458
   %460 = load float, ptr %440, align 8
-  %461 = fmul contract float %228, %460
+  %461 = fmul contract float %229, %460
   %462 = fadd contract float %459, %461
-  %463 = fmul contract float %228, %458
+  %463 = fmul contract float %229, %458
   %464 = fmul contract float %152, %460
   %465 = fsub contract float %463, %464
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
@@ -5402,9 +5402,9 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %467 = load float, ptr %437, align 4
   %468 = fmul contract float %152, %467
   %469 = load float, ptr %438, align 8
-  %470 = fmul contract float %228, %469
+  %470 = fmul contract float %229, %469
   %471 = fadd contract float %468, %470
-  %472 = fmul contract float %228, %467
+  %472 = fmul contract float %229, %467
   %473 = fmul contract float %152, %469
   %474 = fsub contract float %472, %473
   br label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit

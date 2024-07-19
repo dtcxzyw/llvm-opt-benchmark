@@ -3759,17 +3759,17 @@ invoke.cont59:                                    ; preds = %invoke.cont45, %ini
   %160 = insertelement <2 x double> poison, double %sqrt.i.i, i64 0
   %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> zeroinitializer
   %162 = fmul <2 x double> %161, <double 0.000000e+00, double -0.000000e+00>
-  %163 = extractelement <2 x double> %162, i64 0
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   store double %sqrt.i.i, ptr %second, align 8
   %xform.sroa.6.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 8
   %xform.sroa.11.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 24
-  %164 = shufflevector <2 x double> %162, <2 x double> poison, <4 x i32> zeroinitializer
-  store <4 x double> %164, ptr %xform.sroa.6.0.second.sroa_idx, align 8
+  %163 = shufflevector <2 x double> %162, <2 x double> poison, <4 x i32> zeroinitializer
+  store <4 x double> %163, ptr %xform.sroa.6.0.second.sroa_idx, align 8
   %xform.sroa.15.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 40
   store double %sqrt.i.i, ptr %xform.sroa.15.0.second.sroa_idx, align 8
   %xform.sroa.18.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 48
-  store double %163, ptr %xform.sroa.18.0.second.sroa_idx, align 8
+  %164 = extractelement <2 x double> %162, i64 0
+  store double %164, ptr %xform.sroa.18.0.second.sroa_idx, align 8
   %xform.sroa.21.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 56
   store <2 x double> %162, ptr %xform.sroa.21.0.second.sroa_idx, align 8
   %xform.sroa.25.0.second.sroa_idx = getelementptr inbounds i8, ptr %second, i64 72
@@ -3788,17 +3788,17 @@ invoke.cont59:                                    ; preds = %invoke.cont45, %ini
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m0.i.i130), !noalias !48
   store double %sqrt.i.i, ptr %m0.i.i130, align 8, !noalias !48
   %xform.sroa.6.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 8
-  store double %163, ptr %xform.sroa.6.0.m0.i.i130.sroa_idx, align 8, !noalias !48
+  store double %164, ptr %xform.sroa.6.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.9.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 16
-  store double %163, ptr %xform.sroa.9.0.m0.i.i130.sroa_idx, align 8, !noalias !48
+  store double %164, ptr %xform.sroa.9.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.11.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 24
-  store double %163, ptr %xform.sroa.11.0.m0.i.i130.sroa_idx, align 8, !noalias !48
+  store double %164, ptr %xform.sroa.11.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.13.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 32
-  store double %163, ptr %xform.sroa.13.0.m0.i.i130.sroa_idx, align 8, !noalias !48
+  store double %164, ptr %xform.sroa.13.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.15.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 40
   store double %sqrt.i.i, ptr %xform.sroa.15.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.18.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 48
-  store double %163, ptr %xform.sroa.18.0.m0.i.i130.sroa_idx, align 8, !noalias !48
+  store double %164, ptr %xform.sroa.18.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.21.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 56
   store <2 x double> %162, ptr %xform.sroa.21.0.m0.i.i130.sroa_idx, align 8, !noalias !48
   %xform.sroa.25.0.m0.i.i130.sroa_idx = getelementptr inbounds i8, ptr %m0.i.i130, i64 72

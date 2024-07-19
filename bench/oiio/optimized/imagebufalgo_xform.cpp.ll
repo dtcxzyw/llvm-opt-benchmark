@@ -66199,11 +66199,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -66229,7 +66229,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37387 = icmp sge i32 %29, %28
-  %cmp49.not382 = icmp slt i32 %25, 0
+  %cmp49.not382 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37387, i1 true, i1 %cmp49.not382
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -66264,7 +66264,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -66347,13 +66347,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90433, label %for.body91.lr.ph, label %for.end263
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not409 = icmp slt i32 %24, 0
+  %cmp101.not409 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148415 = icmp sgt i32 %3, 0
-  %cmp165.not417 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not417 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp211421 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -66388,7 +66388,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax472 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax472, 1
   %53 = zext i32 %3 to i64
@@ -66428,7 +66428,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv468 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -66511,7 +66511,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136431, label %for.body137.lr.ph, label %for.inc261
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -66553,7 +66553,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end229
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -66883,9 +66883,9 @@ invoke.cont269:                                   ; preds = %invoke.cont266
 invoke.cont286.lr.ph:                             ; preds = %invoke.cont269
   %xend291 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp307389 = icmp sgt i32 %3, 0
-  %add315 = add i32 %25, 1
-  %sub322 = sub nsw i32 0, %24
-  %sub327 = sub nsw i32 0, %25
+  %add315 = add i32 %24, 1
+  %sub322 = sub nsw i32 0, %25
+  %sub327 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel267, i64 112
   %m_x.i222 = getelementptr inbounds i8, ptr %srcpel267, i64 60
@@ -66948,7 +66948,7 @@ for.body293.lr.ph:                                ; preds = %invoke.cont286
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i211 = fsub float %152, %153
   %conv.i210 = fptosi float %153 to i32
-  %sub317 = sub nsw i32 %conv.i210, %25
+  %sub317 = sub nsw i32 %conv.i210, %24
   %add319 = add i32 %add315, %conv.i210
   %sub337 = fadd float %sub.i211, -5.000000e-01
   br label %for.body293
@@ -67002,7 +67002,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end313:                                       ; preds = %for.body308.preheader, %for.body293
-  %sub314 = sub nsw i32 %conv.i212, %25
+  %sub314 = sub nsw i32 %conv.i212, %24
   %add316 = add i32 %add315, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel267, i32 noundef %sub314, i32 noundef %add316, i32 noundef %sub317, i32 noundef %add319, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont320 unwind label %lpad285.loopexit.split-lp
@@ -67165,12 +67165,12 @@ if.end13.i240:                                    ; preds = %if.then6.i232, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251 unwind label %lpad285.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251: ; preds = %if.end13.i240, %if.then2.i354, %if.then.i347, %if.else.i320, %if.then4.i323, %call.i.noexc356, %if.then10.i238
-  %exitcond456.not = icmp eq i32 %i326.0395, %25
+  %exitcond456.not = icmp eq i32 %i326.0395, %24
   br i1 %exitcond456.not, label %for.cond328.for.inc364_crit_edge, label %for.body330
 
 for.cond328.for.inc364_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251
   %inc365 = add i32 %j321.0399, 1
-  %exitcond457.not = icmp eq i32 %j321.0399, %24
+  %exitcond457.not = icmp eq i32 %j321.0399, %25
   br i1 %exitcond457.not, label %for.end366, label %for.body325, !llvm.loop !364
 
 for.end366:                                       ; preds = %for.cond328.for.inc364_crit_edge
@@ -67463,11 +67463,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -67493,7 +67493,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -67528,7 +67528,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -67611,13 +67611,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -67652,7 +67652,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -67692,7 +67692,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -67775,7 +67775,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -67817,7 +67817,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -68158,9 +68158,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -68223,7 +68223,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -68277,7 +68277,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -68442,12 +68442,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !380
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -68739,11 +68739,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -68769,7 +68769,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -68804,7 +68804,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -68887,13 +68887,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -68928,7 +68928,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -68968,7 +68968,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -69051,7 +69051,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -69093,7 +69093,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -69434,9 +69434,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -69499,7 +69499,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -69553,7 +69553,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -69718,12 +69718,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !396
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -70015,11 +70015,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -70045,7 +70045,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37418 = icmp sge i32 %29, %28
-  %cmp49.not413 = icmp slt i32 %25, 0
+  %cmp49.not413 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37418, i1 true, i1 %cmp49.not413
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -70080,7 +70080,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -70163,13 +70163,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90464, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not440 = icmp slt i32 %24, 0
+  %cmp101.not440 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148446 = icmp sgt i32 %3, 0
-  %cmp165.not448 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not448 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210452 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -70204,7 +70204,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax503 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax503, 1
   %53 = zext i32 %3 to i64
@@ -70244,7 +70244,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv499 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -70332,7 +70332,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136462, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -70374,7 +70374,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -70741,9 +70741,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308420 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %144 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -70806,7 +70806,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %157 = call noundef float @llvm.floor.f32(float %156)
   %sub.i212 = fsub float %156, %157
   %conv.i211 = fptosi float %157 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -70865,7 +70865,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp.loopexit.split-lp
@@ -71031,12 +71031,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i381, %if.then.i374, %if.else.i347, %if.then4.i350, %call.i.noexc383, %if.then10.i241
-  %exitcond487.not = icmp eq i32 %i327.0426, %25
+  %exitcond487.not = icmp eq i32 %i327.0426, %24
   br i1 %exitcond487.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0430, 1
-  %exitcond488.not = icmp eq i32 %j322.0430, %24
+  %exitcond488.not = icmp eq i32 %j322.0430, %25
   br i1 %exitcond488.not, label %for.end367, label %for.body326, !llvm.loop !412
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -71353,11 +71353,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -71383,7 +71383,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -71418,7 +71418,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -71501,13 +71501,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -71542,7 +71542,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -71582,7 +71582,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -71665,7 +71665,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -71707,7 +71707,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -72048,9 +72048,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -72113,7 +72113,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -72167,7 +72167,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -72332,12 +72332,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !428
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -72629,11 +72629,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -72659,7 +72659,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -72694,7 +72694,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -72777,13 +72777,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -72818,7 +72818,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -72858,7 +72858,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -72941,7 +72941,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -72983,7 +72983,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -73324,9 +73324,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -73389,7 +73389,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -73443,7 +73443,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -73608,12 +73608,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !444
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -73905,11 +73905,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -73935,7 +73935,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37401 = icmp sge i32 %29, %28
-  %cmp49.not396 = icmp slt i32 %25, 0
+  %cmp49.not396 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37401, i1 true, i1 %cmp49.not396
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -73970,7 +73970,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -74053,13 +74053,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90447, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not423 = icmp slt i32 %24, 0
+  %cmp101.not423 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148429 = icmp sgt i32 %3, 0
-  %cmp165.not431 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not431 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210435 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -74094,7 +74094,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i178 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i181 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i185 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax486 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax486, 1
   %53 = zext i32 %3 to i64
@@ -74134,7 +74134,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv482 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -74217,7 +74217,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136445, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -74259,7 +74259,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -74601,9 +74601,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308403 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i221 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i226 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -74666,7 +74666,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i213 = fsub float %152, %153
   %conv.i212 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i212, %25
+  %sub318 = sub nsw i32 %conv.i212, %24
   %add320 = add i32 %add316, %conv.i212
   %sub338 = fadd float %sub.i213, -5.000000e-01
   br label %for.body294
@@ -74720,7 +74720,7 @@ terminate.lpad.i.i219:                            ; preds = %if.then.i.i218
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i214, %25
+  %sub315 = sub nsw i32 %conv.i214, %24
   %add317 = add i32 %add316, %conv.i214
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -74885,12 +74885,12 @@ if.end13.i244:                                    ; preds = %if.then6.i236, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255: ; preds = %if.end13.i244, %if.then2.i368, %if.then.i361, %if.else.i334, %if.then4.i337, %call.i.noexc370, %if.then10.i242
-  %exitcond470.not = icmp eq i32 %i327.0409, %25
+  %exitcond470.not = icmp eq i32 %i327.0409, %24
   br i1 %exitcond470.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255
   %inc366 = add i32 %j322.0413, 1
-  %exitcond471.not = icmp eq i32 %j322.0413, %24
+  %exitcond471.not = icmp eq i32 %j322.0413, %25
   br i1 %exitcond471.not, label %for.end367, label %for.body326, !llvm.loop !460
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -75183,11 +75183,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -75213,7 +75213,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37401 = icmp sge i32 %29, %28
-  %cmp49.not396 = icmp slt i32 %25, 0
+  %cmp49.not396 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37401, i1 true, i1 %cmp49.not396
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -75248,7 +75248,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -75331,13 +75331,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90447, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not423 = icmp slt i32 %24, 0
+  %cmp101.not423 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148429 = icmp sgt i32 %3, 0
-  %cmp165.not431 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not431 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210435 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -75372,7 +75372,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i178 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i181 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i185 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax486 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax486, 1
   %53 = zext i32 %3 to i64
@@ -75412,7 +75412,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv482 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -75495,7 +75495,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136445, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -75537,7 +75537,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -75879,9 +75879,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308403 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i221 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i226 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -75944,7 +75944,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i213 = fsub float %152, %153
   %conv.i212 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i212, %25
+  %sub318 = sub nsw i32 %conv.i212, %24
   %add320 = add i32 %add316, %conv.i212
   %sub338 = fadd float %sub.i213, -5.000000e-01
   br label %for.body294
@@ -75998,7 +75998,7 @@ terminate.lpad.i.i219:                            ; preds = %if.then.i.i218
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i214, %25
+  %sub315 = sub nsw i32 %conv.i214, %24
   %add317 = add i32 %add316, %conv.i214
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -76163,12 +76163,12 @@ if.end13.i244:                                    ; preds = %if.then6.i236, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255: ; preds = %if.end13.i244, %if.then2.i368, %if.then.i361, %if.else.i334, %if.then4.i337, %call.i.noexc370, %if.then10.i242
-  %exitcond470.not = icmp eq i32 %i327.0409, %25
+  %exitcond470.not = icmp eq i32 %i327.0409, %24
   br i1 %exitcond470.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit255
   %inc366 = add i32 %j322.0413, 1
-  %exitcond471.not = icmp eq i32 %j322.0413, %24
+  %exitcond471.not = icmp eq i32 %j322.0413, %25
   br i1 %exitcond471.not, label %for.end367, label %for.body326, !llvm.loop !476
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -76461,11 +76461,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -76491,7 +76491,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37389 = icmp sge i32 %29, %28
-  %cmp49.not384 = icmp slt i32 %25, 0
+  %cmp49.not384 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37389, i1 true, i1 %cmp49.not384
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -76526,7 +76526,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -76609,13 +76609,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90435, label %for.body91.lr.ph, label %for.end267
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not411 = icmp slt i32 %24, 0
+  %cmp101.not411 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148417 = icmp sgt i32 %3, 0
-  %cmp165.not419 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not419 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210423 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -76650,7 +76650,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax474 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax474, 1
   %53 = zext i32 %3 to i64
@@ -76690,7 +76690,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv470 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -76773,7 +76773,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136433, label %for.body137.lr.ph, label %for.inc265
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -76815,7 +76815,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end230
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -77150,9 +77150,9 @@ invoke.cont273:                                   ; preds = %invoke.cont270
 invoke.cont290.lr.ph:                             ; preds = %invoke.cont273
   %xend295 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp311391 = icmp sgt i32 %3, 0
-  %add319 = add i32 %25, 1
-  %sub326 = sub nsw i32 0, %24
-  %sub331 = sub nsw i32 0, %25
+  %add319 = add i32 %24, 1
+  %sub326 = sub nsw i32 0, %25
+  %sub331 = sub nsw i32 0, %24
   %139 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel271, i64 112
   %m_x.i223 = getelementptr inbounds i8, ptr %srcpel271, i64 60
@@ -77215,7 +77215,7 @@ for.body297.lr.ph:                                ; preds = %invoke.cont290
   %152 = call noundef float @llvm.floor.f32(float %151)
   %sub.i211 = fsub float %151, %152
   %conv.i210 = fptosi float %152 to i32
-  %sub321 = sub nsw i32 %conv.i210, %25
+  %sub321 = sub nsw i32 %conv.i210, %24
   %add323 = add i32 %add319, %conv.i210
   %sub341 = fadd float %sub.i211, -5.000000e-01
   br label %for.body297
@@ -77269,7 +77269,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end317:                                       ; preds = %for.body312.preheader, %for.body297
-  %sub318 = sub nsw i32 %conv.i212, %25
+  %sub318 = sub nsw i32 %conv.i212, %24
   %add320 = add i32 %add319, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel271, i32 noundef %sub318, i32 noundef %add320, i32 noundef %sub321, i32 noundef %add323, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont324 unwind label %lpad289.loopexit.split-lp
@@ -77435,12 +77435,12 @@ if.end13.i241:                                    ; preds = %if.then6.i233, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252 unwind label %lpad289.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252: ; preds = %if.end13.i241, %if.then2.i356, %if.then.i349, %if.else.i322, %if.then4.i325, %call.i.noexc358, %if.then10.i239
-  %exitcond458.not = icmp eq i32 %i330.0397, %25
+  %exitcond458.not = icmp eq i32 %i330.0397, %24
   br i1 %exitcond458.not, label %for.cond332.for.inc370_crit_edge, label %for.body334
 
 for.cond332.for.inc370_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252
   %inc371 = add i32 %j325.0401, 1
-  %exitcond459.not = icmp eq i32 %j325.0401, %24
+  %exitcond459.not = icmp eq i32 %j325.0401, %25
   br i1 %exitcond459.not, label %for.end372, label %for.body329, !llvm.loop !492
 
 for.end372:                                       ; preds = %for.cond332.for.inc370_crit_edge
@@ -77729,11 +77729,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -77759,7 +77759,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37389 = icmp sge i32 %29, %28
-  %cmp49.not384 = icmp slt i32 %25, 0
+  %cmp49.not384 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37389, i1 true, i1 %cmp49.not384
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -77794,7 +77794,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -77877,13 +77877,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90435, label %for.body91.lr.ph, label %for.end262
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not411 = icmp slt i32 %24, 0
+  %cmp101.not411 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148417 = icmp sgt i32 %3, 0
-  %cmp165.not419 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not419 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210423 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -77918,7 +77918,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax474 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax474, 1
   %53 = zext i32 %3 to i64
@@ -77958,7 +77958,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv470 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -78041,7 +78041,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136433, label %for.body137.lr.ph, label %for.inc260
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -78083,7 +78083,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -78415,9 +78415,9 @@ invoke.cont268:                                   ; preds = %invoke.cont265
 invoke.cont285.lr.ph:                             ; preds = %invoke.cont268
   %xend290 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp306391 = icmp sgt i32 %3, 0
-  %add314 = add i32 %25, 1
-  %sub321 = sub nsw i32 0, %24
-  %sub326 = sub nsw i32 0, %25
+  %add314 = add i32 %24, 1
+  %sub321 = sub nsw i32 0, %25
+  %sub326 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel266, i64 112
   %m_x.i224 = getelementptr inbounds i8, ptr %srcpel266, i64 60
@@ -78480,7 +78480,7 @@ for.body292.lr.ph:                                ; preds = %invoke.cont285
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i211 = fsub float %152, %153
   %conv.i210 = fptosi float %153 to i32
-  %sub316 = sub nsw i32 %conv.i210, %25
+  %sub316 = sub nsw i32 %conv.i210, %24
   %add318 = add i32 %add314, %conv.i210
   %sub336 = fadd float %sub.i211, -5.000000e-01
   br label %for.body292
@@ -78534,7 +78534,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end312:                                       ; preds = %for.body307.preheader, %for.body292
-  %sub313 = sub nsw i32 %conv.i212, %25
+  %sub313 = sub nsw i32 %conv.i212, %24
   %add315 = add i32 %add314, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel266, i32 noundef %sub313, i32 noundef %add315, i32 noundef %sub316, i32 noundef %add318, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont319 unwind label %lpad284.loopexit.split-lp
@@ -78699,12 +78699,12 @@ if.end13.i242:                                    ; preds = %if.then6.i234, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253 unwind label %lpad284.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253: ; preds = %if.end13.i242, %if.then2.i356, %if.then.i349, %if.else.i322, %if.then4.i325, %call.i.noexc358, %if.then10.i240
-  %exitcond458.not = icmp eq i32 %i325.0397, %25
+  %exitcond458.not = icmp eq i32 %i325.0397, %24
   br i1 %exitcond458.not, label %for.cond327.for.inc363_crit_edge, label %for.body329
 
 for.cond327.for.inc363_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253
   %inc364 = add i32 %j320.0401, 1
-  %exitcond459.not = icmp eq i32 %j320.0401, %24
+  %exitcond459.not = icmp eq i32 %j320.0401, %25
   br i1 %exitcond459.not, label %for.end365, label %for.body324, !llvm.loop !508
 
 for.end365:                                       ; preds = %for.cond327.for.inc363_crit_edge
@@ -78987,11 +78987,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -79017,7 +79017,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37389 = icmp sge i32 %29, %28
-  %cmp49.not384 = icmp slt i32 %25, 0
+  %cmp49.not384 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37389, i1 true, i1 %cmp49.not384
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -79052,7 +79052,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -79135,13 +79135,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90435, label %for.body91.lr.ph, label %for.end262
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not411 = icmp slt i32 %24, 0
+  %cmp101.not411 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148417 = icmp sgt i32 %3, 0
-  %cmp165.not419 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not419 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210423 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -79176,7 +79176,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax474 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax474, 1
   %53 = zext i32 %3 to i64
@@ -79216,7 +79216,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv470 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -79299,7 +79299,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136433, label %for.body137.lr.ph, label %for.inc260
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -79341,7 +79341,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -79674,9 +79674,9 @@ invoke.cont268:                                   ; preds = %invoke.cont265
 invoke.cont285.lr.ph:                             ; preds = %invoke.cont268
   %xend290 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp306391 = icmp sgt i32 %3, 0
-  %add314 = add i32 %25, 1
-  %sub321 = sub nsw i32 0, %24
-  %sub326 = sub nsw i32 0, %25
+  %add314 = add i32 %24, 1
+  %sub321 = sub nsw i32 0, %25
+  %sub326 = sub nsw i32 0, %24
   %141 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel266, i64 112
   %m_x.i224 = getelementptr inbounds i8, ptr %srcpel266, i64 60
@@ -79739,7 +79739,7 @@ for.body292.lr.ph:                                ; preds = %invoke.cont285
   %154 = call noundef float @llvm.floor.f32(float %153)
   %sub.i211 = fsub float %153, %154
   %conv.i210 = fptosi float %154 to i32
-  %sub316 = sub nsw i32 %conv.i210, %25
+  %sub316 = sub nsw i32 %conv.i210, %24
   %add318 = add i32 %add314, %conv.i210
   %sub336 = fadd float %sub.i211, -5.000000e-01
   br label %for.body292
@@ -79793,7 +79793,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end312:                                       ; preds = %for.body307.preheader, %for.body292
-  %sub313 = sub nsw i32 %conv.i212, %25
+  %sub313 = sub nsw i32 %conv.i212, %24
   %add315 = add i32 %add314, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel266, i32 noundef %sub313, i32 noundef %add315, i32 noundef %sub316, i32 noundef %add318, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont319 unwind label %lpad284.loopexit.split-lp
@@ -79959,12 +79959,12 @@ if.end13.i242:                                    ; preds = %if.then6.i234, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253 unwind label %lpad284.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253: ; preds = %if.end13.i242, %if.then2.i356, %if.then.i349, %if.else.i322, %if.then4.i325, %call.i.noexc358, %if.then10.i240
-  %exitcond458.not = icmp eq i32 %i325.0397, %25
+  %exitcond458.not = icmp eq i32 %i325.0397, %24
   br i1 %exitcond458.not, label %for.cond327.for.inc363_crit_edge, label %for.body329
 
 for.cond327.for.inc363_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253
   %inc364 = add i32 %j320.0401, 1
-  %exitcond459.not = icmp eq i32 %j320.0401, %24
+  %exitcond459.not = icmp eq i32 %j320.0401, %25
   br i1 %exitcond459.not, label %for.end365, label %for.body324, !llvm.loop !524
 
 for.end365:                                       ; preds = %for.cond327.for.inc363_crit_edge
@@ -80247,11 +80247,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -80277,7 +80277,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37389 = icmp sge i32 %29, %28
-  %cmp49.not384 = icmp slt i32 %25, 0
+  %cmp49.not384 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37389, i1 true, i1 %cmp49.not384
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -80312,7 +80312,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -80395,13 +80395,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90435, label %for.body91.lr.ph, label %for.end262
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not411 = icmp slt i32 %24, 0
+  %cmp101.not411 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148417 = icmp sgt i32 %3, 0
-  %cmp165.not419 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not419 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210423 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -80436,7 +80436,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax474 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax474, 1
   %53 = zext i32 %3 to i64
@@ -80476,7 +80476,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv470 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -80559,7 +80559,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136433, label %for.body137.lr.ph, label %for.inc260
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -80601,7 +80601,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -80933,9 +80933,9 @@ invoke.cont268:                                   ; preds = %invoke.cont265
 invoke.cont285.lr.ph:                             ; preds = %invoke.cont268
   %xend290 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp306391 = icmp sgt i32 %3, 0
-  %add314 = add i32 %25, 1
-  %sub321 = sub nsw i32 0, %24
-  %sub326 = sub nsw i32 0, %25
+  %add314 = add i32 %24, 1
+  %sub321 = sub nsw i32 0, %25
+  %sub326 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel266, i64 112
   %m_x.i224 = getelementptr inbounds i8, ptr %srcpel266, i64 60
@@ -80998,7 +80998,7 @@ for.body292.lr.ph:                                ; preds = %invoke.cont285
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i211 = fsub float %152, %153
   %conv.i210 = fptosi float %153 to i32
-  %sub316 = sub nsw i32 %conv.i210, %25
+  %sub316 = sub nsw i32 %conv.i210, %24
   %add318 = add i32 %add314, %conv.i210
   %sub336 = fadd float %sub.i211, -5.000000e-01
   br label %for.body292
@@ -81052,7 +81052,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end312:                                       ; preds = %for.body307.preheader, %for.body292
-  %sub313 = sub nsw i32 %conv.i212, %25
+  %sub313 = sub nsw i32 %conv.i212, %24
   %add315 = add i32 %add314, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel266, i32 noundef %sub313, i32 noundef %add315, i32 noundef %sub316, i32 noundef %add318, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont319 unwind label %lpad284.loopexit.split-lp
@@ -81217,12 +81217,12 @@ if.end13.i242:                                    ; preds = %if.then6.i234, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253 unwind label %lpad284.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253: ; preds = %if.end13.i242, %if.then2.i356, %if.then.i349, %if.else.i322, %if.then4.i325, %call.i.noexc358, %if.then10.i240
-  %exitcond458.not = icmp eq i32 %i325.0397, %25
+  %exitcond458.not = icmp eq i32 %i325.0397, %24
   br i1 %exitcond458.not, label %for.cond327.for.inc363_crit_edge, label %for.body329
 
 for.cond327.for.inc363_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253
   %inc364 = add i32 %j320.0401, 1
-  %exitcond459.not = icmp eq i32 %j320.0401, %24
+  %exitcond459.not = icmp eq i32 %j320.0401, %25
   br i1 %exitcond459.not, label %for.end365, label %for.body324, !llvm.loop !540
 
 for.end365:                                       ; preds = %for.cond327.for.inc363_crit_edge
@@ -81505,11 +81505,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -81535,7 +81535,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37396 = icmp sge i32 %29, %28
-  %cmp49.not391 = icmp slt i32 %25, 0
+  %cmp49.not391 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37396, i1 true, i1 %cmp49.not391
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -81570,7 +81570,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -81653,13 +81653,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90442, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not418 = icmp slt i32 %24, 0
+  %cmp101.not418 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148424 = icmp sgt i32 %3, 0
-  %cmp165.not426 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not426 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210430 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -81694,7 +81694,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax481 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax481, 1
   %53 = zext i32 %3 to i64
@@ -81734,7 +81734,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv477 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -81817,7 +81817,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136440, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -81859,7 +81859,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -82198,9 +82198,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308398 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i222 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -82263,7 +82263,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i211 = fsub float %152, %153
   %conv.i210 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i210, %25
+  %sub318 = sub nsw i32 %conv.i210, %24
   %add320 = add i32 %add316, %conv.i210
   %sub338 = fadd float %sub.i211, -5.000000e-01
   br label %for.body294
@@ -82317,7 +82317,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i212, %25
+  %sub315 = sub nsw i32 %conv.i212, %24
   %add317 = add i32 %add316, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -82480,12 +82480,12 @@ if.end13.i240:                                    ; preds = %if.then6.i232, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251: ; preds = %if.end13.i240, %if.then2.i363, %if.then.i356, %if.else.i329, %if.then4.i332, %call.i.noexc365, %if.then10.i238
-  %exitcond465.not = icmp eq i32 %i327.0404, %25
+  %exitcond465.not = icmp eq i32 %i327.0404, %24
   br i1 %exitcond465.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251
   %inc366 = add i32 %j322.0408, 1
-  %exitcond466.not = icmp eq i32 %j322.0408, %24
+  %exitcond466.not = icmp eq i32 %j322.0408, %25
   br i1 %exitcond466.not, label %for.end367, label %for.body326, !llvm.loop !556
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -82777,11 +82777,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -82807,7 +82807,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37398 = icmp sge i32 %29, %28
-  %cmp49.not393 = icmp slt i32 %25, 0
+  %cmp49.not393 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37398, i1 true, i1 %cmp49.not393
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -82842,7 +82842,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -82925,13 +82925,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90444, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not420 = icmp slt i32 %24, 0
+  %cmp101.not420 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148426 = icmp sgt i32 %3, 0
-  %cmp165.not428 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not428 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210432 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -82966,7 +82966,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax483 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax483, 1
   %53 = zext i32 %3 to i64
@@ -83006,7 +83006,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv479 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -83089,7 +83089,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136442, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -83131,7 +83131,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -83473,9 +83473,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308400 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %141 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i224 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -83538,7 +83538,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %154 = call noundef float @llvm.floor.f32(float %153)
   %sub.i211 = fsub float %153, %154
   %conv.i210 = fptosi float %154 to i32
-  %sub318 = sub nsw i32 %conv.i210, %25
+  %sub318 = sub nsw i32 %conv.i210, %24
   %add320 = add i32 %add316, %conv.i210
   %sub338 = fadd float %sub.i211, -5.000000e-01
   br label %for.body294
@@ -83592,7 +83592,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i212, %25
+  %sub315 = sub nsw i32 %conv.i212, %24
   %add317 = add i32 %add316, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -83758,12 +83758,12 @@ if.end13.i242:                                    ; preds = %if.then6.i234, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253: ; preds = %if.end13.i242, %if.then2.i365, %if.then.i358, %if.else.i331, %if.then4.i334, %call.i.noexc367, %if.then10.i240
-  %exitcond467.not = icmp eq i32 %i327.0406, %25
+  %exitcond467.not = icmp eq i32 %i327.0406, %24
   br i1 %exitcond467.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253
   %inc366 = add i32 %j322.0410, 1
-  %exitcond468.not = icmp eq i32 %j322.0410, %24
+  %exitcond468.not = icmp eq i32 %j322.0410, %25
   br i1 %exitcond468.not, label %for.end367, label %for.body326, !llvm.loop !572
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -84055,11 +84055,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -84085,7 +84085,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -84120,7 +84120,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -84203,13 +84203,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -84244,7 +84244,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -84284,7 +84284,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -84367,7 +84367,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -84409,7 +84409,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -84750,9 +84750,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -84815,7 +84815,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -84869,7 +84869,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -85034,12 +85034,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !588
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -85331,11 +85331,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -85361,7 +85361,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37416 = icmp sge i32 %29, %28
-  %cmp49.not411 = icmp slt i32 %25, 0
+  %cmp49.not411 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37416, i1 true, i1 %cmp49.not411
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -85396,7 +85396,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -85479,13 +85479,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90462, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not438 = icmp slt i32 %24, 0
+  %cmp101.not438 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148444 = icmp sgt i32 %3, 0
-  %cmp165.not446 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not446 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210450 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -85520,7 +85520,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax501 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax501, 1
   %53 = zext i32 %3 to i64
@@ -85560,7 +85560,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv497 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -85648,7 +85648,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136460, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -85690,7 +85690,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -86054,9 +86054,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308418 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %143 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i223 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -86119,7 +86119,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %156 = call noundef float @llvm.floor.f32(float %155)
   %sub.i212 = fsub float %155, %156
   %conv.i211 = fptosi float %156 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -86178,7 +86178,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp.loopexit.split-lp
@@ -86341,12 +86341,12 @@ if.end13.i241:                                    ; preds = %if.then6.i233, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252: ; preds = %if.end13.i241, %if.then2.i379, %if.then.i372, %if.else.i345, %if.then4.i348, %call.i.noexc381, %if.then10.i239
-  %exitcond485.not = icmp eq i32 %i327.0424, %25
+  %exitcond485.not = icmp eq i32 %i327.0424, %24
   br i1 %exitcond485.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit252
   %inc366 = add i32 %j322.0428, 1
-  %exitcond486.not = icmp eq i32 %j322.0428, %24
+  %exitcond486.not = icmp eq i32 %j322.0428, %25
   br i1 %exitcond486.not, label %for.end367, label %for.body326, !llvm.loop !604
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -86663,11 +86663,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -86693,7 +86693,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37418 = icmp sge i32 %29, %28
-  %cmp49.not413 = icmp slt i32 %25, 0
+  %cmp49.not413 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37418, i1 true, i1 %cmp49.not413
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -86728,7 +86728,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -86811,13 +86811,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90464, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not440 = icmp slt i32 %24, 0
+  %cmp101.not440 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148446 = icmp sgt i32 %3, 0
-  %cmp165.not448 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not448 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210452 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -86852,7 +86852,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax503 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax503, 1
   %53 = zext i32 %3 to i64
@@ -86892,7 +86892,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv499 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -86980,7 +86980,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136462, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -87022,7 +87022,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -87388,9 +87388,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308420 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %143 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -87453,7 +87453,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %156 = call noundef float @llvm.floor.f32(float %155)
   %sub.i212 = fsub float %155, %156
   %conv.i211 = fptosi float %156 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -87512,7 +87512,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp.loopexit.split-lp
@@ -87677,12 +87677,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i381, %if.then.i374, %if.else.i347, %if.then4.i350, %call.i.noexc383, %if.then10.i241
-  %exitcond487.not = icmp eq i32 %i327.0426, %25
+  %exitcond487.not = icmp eq i32 %i327.0426, %24
   br i1 %exitcond487.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0430, 1
-  %exitcond488.not = icmp eq i32 %j322.0430, %24
+  %exitcond488.not = icmp eq i32 %j322.0430, %25
   br i1 %exitcond488.not, label %for.end367, label %for.body326, !llvm.loop !620
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -87999,11 +87999,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -88029,7 +88029,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37418 = icmp sge i32 %29, %28
-  %cmp49.not413 = icmp slt i32 %25, 0
+  %cmp49.not413 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37418, i1 true, i1 %cmp49.not413
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -88064,7 +88064,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -88147,13 +88147,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90464, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not440 = icmp slt i32 %24, 0
+  %cmp101.not440 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148446 = icmp sgt i32 %3, 0
-  %cmp165.not448 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not448 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210452 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -88188,7 +88188,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax503 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax503, 1
   %53 = zext i32 %3 to i64
@@ -88228,7 +88228,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv499 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -88316,7 +88316,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136462, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -88358,7 +88358,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -88724,9 +88724,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308420 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %143 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -88789,7 +88789,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %156 = call noundef float @llvm.floor.f32(float %155)
   %sub.i212 = fsub float %155, %156
   %conv.i211 = fptosi float %156 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -88848,7 +88848,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp.loopexit.split-lp
@@ -89013,12 +89013,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i381, %if.then.i374, %if.else.i347, %if.then4.i350, %call.i.noexc383, %if.then10.i241
-  %exitcond487.not = icmp eq i32 %i327.0426, %25
+  %exitcond487.not = icmp eq i32 %i327.0426, %24
   br i1 %exitcond487.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0430, 1
-  %exitcond488.not = icmp eq i32 %j322.0430, %24
+  %exitcond488.not = icmp eq i32 %j322.0430, %25
   br i1 %exitcond488.not, label %for.end367, label %for.body326, !llvm.loop !636
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -89335,11 +89335,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -89365,7 +89365,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37396 = icmp sge i32 %29, %28
-  %cmp49.not391 = icmp slt i32 %25, 0
+  %cmp49.not391 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37396, i1 true, i1 %cmp49.not391
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -89400,7 +89400,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -89483,13 +89483,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90442, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not418 = icmp slt i32 %24, 0
+  %cmp101.not418 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148424 = icmp sgt i32 %3, 0
-  %cmp165.not426 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not426 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210430 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -89524,7 +89524,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax481 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax481, 1
   %53 = zext i32 %3 to i64
@@ -89564,7 +89564,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv477 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -89647,7 +89647,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136440, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -89689,7 +89689,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -90028,9 +90028,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308398 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i222 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -90093,7 +90093,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i211 = fsub float %152, %153
   %conv.i210 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i210, %25
+  %sub318 = sub nsw i32 %conv.i210, %24
   %add320 = add i32 %add316, %conv.i210
   %sub338 = fadd float %sub.i211, -5.000000e-01
   br label %for.body294
@@ -90147,7 +90147,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i212, %25
+  %sub315 = sub nsw i32 %conv.i212, %24
   %add317 = add i32 %add316, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -90310,12 +90310,12 @@ if.end13.i240:                                    ; preds = %if.then6.i232, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251: ; preds = %if.end13.i240, %if.then2.i363, %if.then.i356, %if.else.i329, %if.then4.i332, %call.i.noexc365, %if.then10.i238
-  %exitcond465.not = icmp eq i32 %i327.0404, %25
+  %exitcond465.not = icmp eq i32 %i327.0404, %24
   br i1 %exitcond465.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit251
   %inc366 = add i32 %j322.0408, 1
-  %exitcond466.not = icmp eq i32 %j322.0408, %24
+  %exitcond466.not = icmp eq i32 %j322.0408, %25
   br i1 %exitcond466.not, label %for.end367, label %for.body326, !llvm.loop !652
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -90607,11 +90607,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -90637,7 +90637,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37399 = icmp sge i32 %29, %28
-  %cmp49.not394 = icmp slt i32 %25, 0
+  %cmp49.not394 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37399, i1 true, i1 %cmp49.not394
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -90672,7 +90672,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -90755,13 +90755,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90445, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not421 = icmp slt i32 %24, 0
+  %cmp101.not421 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148427 = icmp sgt i32 %3, 0
-  %cmp165.not429 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not429 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210433 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -90796,7 +90796,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i177 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i180 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i184 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax484 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax484, 1
   %53 = zext i32 %3 to i64
@@ -90836,7 +90836,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv480 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -90919,7 +90919,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136443, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -90961,7 +90961,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -91302,9 +91302,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308401 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %140 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i220 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i225 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -91367,7 +91367,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %153 = call noundef float @llvm.floor.f32(float %152)
   %sub.i212 = fsub float %152, %153
   %conv.i211 = fptosi float %153 to i32
-  %sub318 = sub nsw i32 %conv.i211, %25
+  %sub318 = sub nsw i32 %conv.i211, %24
   %add320 = add i32 %add316, %conv.i211
   %sub338 = fadd float %sub.i212, -5.000000e-01
   br label %for.body294
@@ -91421,7 +91421,7 @@ terminate.lpad.i.i218:                            ; preds = %if.then.i.i217
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i213, %25
+  %sub315 = sub nsw i32 %conv.i213, %24
   %add317 = add i32 %add316, %conv.i213
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -91586,12 +91586,12 @@ if.end13.i243:                                    ; preds = %if.then6.i235, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254: ; preds = %if.end13.i243, %if.then2.i366, %if.then.i359, %if.else.i332, %if.then4.i335, %call.i.noexc368, %if.then10.i241
-  %exitcond468.not = icmp eq i32 %i327.0407, %25
+  %exitcond468.not = icmp eq i32 %i327.0407, %24
   br i1 %exitcond468.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit254
   %inc366 = add i32 %j322.0411, 1
-  %exitcond469.not = icmp eq i32 %j322.0411, %24
+  %exitcond469.not = icmp eq i32 %j322.0411, %25
   br i1 %exitcond469.not, label %for.end367, label %for.body326, !llvm.loop !668
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge
@@ -91883,11 +91883,11 @@ entry:
   %21 = fdiv <2 x float> %20, %16
   %22 = tail call <2 x float> @llvm.ceil.v2f32(<2 x float> %21)
   %23 = fptosi <2 x float> %22 to <2 x i32>
-  %24 = extractelement <2 x i32> %23, i64 1
-  %25 = extractelement <2 x i32> %23, i64 0
-  %mul = shl i32 %25, 1
+  %24 = extractelement <2 x i32> %23, i64 0
+  %mul = shl i32 %24, 1
   %add = or disjoint i32 %mul, 1
-  %mul28 = shl i32 %24, 1
+  %25 = extractelement <2 x i32> %23, i64 1
+  %mul28 = shl i32 %25, 1
   %vtable = load ptr, ptr %10, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
@@ -91913,7 +91913,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit: ; preds = %if.then
   %cmp37398 = icmp sge i32 %29, %28
-  %cmp49.not393 = icmp slt i32 %25, 0
+  %cmp49.not393 = icmp slt i32 %24, 0
   %or.cond = select i1 %cmp37398, i1 true, i1 %cmp49.not393
   br i1 %or.cond, label %if.end76, label %for.body.preheader
 
@@ -91948,7 +91948,7 @@ for.body50:                                       ; preds = %for.body, %invoke.c
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i64 %indvars.iv to i32
-  %42 = sub i32 %41, %25
+  %42 = sub i32 %41, %24
   %conv52 = sitofp i32 %42 to float
   %sub54 = fsub float %conv52, %sub53
   %mul55 = fmul float %35, %sub54
@@ -92031,13 +92031,13 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   br i1 %cmp90444, label %for.body91.lr.ph, label %for.end264
 
 for.body91.lr.ph:                                 ; preds = %invoke.cont88
-  %cmp101.not420 = icmp slt i32 %24, 0
+  %cmp101.not420 = icmp slt i32 %25, 0
   %xend135 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp148426 = icmp sgt i32 %3, 0
-  %cmp165.not428 = icmp slt i32 %25, 0
-  %add176 = add i32 %25, 1
-  %add179 = add i32 %24, 1
-  %sub183 = sub i32 0, %24
+  %cmp165.not428 = icmp slt i32 %24, 0
+  %add176 = add i32 %24, 1
+  %add179 = add i32 %25, 1
+  %sub183 = sub i32 0, %25
   %cmp210432 = icmp slt i32 %3, 1
   %m_proxydata.i = getelementptr inbounds i8, ptr %srcpel, i64 112
   %m_x.i152 = getelementptr inbounds i8, ptr %srcpel, i64 60
@@ -92072,7 +92072,7 @@ for.body91.lr.ph:                                 ; preds = %invoke.cont88
   %m_rng_zend.i176 = getelementptr inbounds i8, ptr %out, i64 56
   %m_valid.i179 = getelementptr inbounds i8, ptr %out, i64 8
   %m_exists.i183 = getelementptr inbounds i8, ptr %out, i64 9
-  %51 = sext i32 %24 to i64
+  %51 = sext i32 %25 to i64
   %smax483 = call i32 @llvm.smax.i32(i32 %mul28, i32 0)
   %52 = or disjoint i32 %smax483, 1
   %53 = zext i32 %3 to i64
@@ -92112,7 +92112,7 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %62 = load ptr, ptr %8, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %indvars.iv479 to i32
-  %65 = sub i32 %64, %24
+  %65 = sub i32 %64, %25
   %conv105 = sitofp i32 %65 to float
   %sub107 = fsub float %conv105, %sub106
   %mul108 = fmul float %58, %sub107
@@ -92195,7 +92195,7 @@ if.end131:                                        ; preds = %for.body124, %for.b
   br i1 %cmp136442, label %for.body137.lr.ph, label %for.inc262
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %sub178 = sub nsw i32 %conv.i149, %24
+  %sub178 = sub nsw i32 %conv.i149, %25
   %add180 = add i32 %add179, %conv.i149
   br label %for.body137
 
@@ -92237,7 +92237,7 @@ for.end172:                                       ; preds = %for.body166
   br i1 %cmp173, label %if.then174, label %if.end228
 
 if.then174:                                       ; preds = %for.end172
-  %sub175 = sub nsw i32 %conv.i, %25
+  %sub175 = sub nsw i32 %conv.i, %24
   %add177 = add i32 %add176, %conv.i
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel, i32 noundef %sub175, i32 noundef %add177, i32 noundef %sub178, i32 noundef %add180, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont181 unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -92579,9 +92579,9 @@ invoke.cont270:                                   ; preds = %invoke.cont267
 invoke.cont287.lr.ph:                             ; preds = %invoke.cont270
   %xend292 = getelementptr inbounds i8, ptr %roi, i64 4
   %cmp308400 = icmp sgt i32 %3, 0
-  %add316 = add i32 %25, 1
-  %sub323 = sub nsw i32 0, %24
-  %sub328 = sub nsw i32 0, %25
+  %add316 = add i32 %24, 1
+  %sub323 = sub nsw i32 0, %25
+  %sub328 = sub nsw i32 0, %24
   %141 = icmp slt <2 x i32> %23, zeroinitializer
   %m_proxydata.i219 = getelementptr inbounds i8, ptr %srcpel268, i64 112
   %m_x.i224 = getelementptr inbounds i8, ptr %srcpel268, i64 60
@@ -92644,7 +92644,7 @@ for.body294.lr.ph:                                ; preds = %invoke.cont287
   %154 = call noundef float @llvm.floor.f32(float %153)
   %sub.i211 = fsub float %153, %154
   %conv.i210 = fptosi float %154 to i32
-  %sub318 = sub nsw i32 %conv.i210, %25
+  %sub318 = sub nsw i32 %conv.i210, %24
   %add320 = add i32 %add316, %conv.i210
   %sub338 = fadd float %sub.i211, -5.000000e-01
   br label %for.body294
@@ -92698,7 +92698,7 @@ terminate.lpad.i.i217:                            ; preds = %if.then.i.i216
   unreachable
 
 for.end314:                                       ; preds = %for.body309.preheader, %for.body294
-  %sub315 = sub nsw i32 %conv.i212, %25
+  %sub315 = sub nsw i32 %conv.i212, %24
   %add317 = add i32 %add316, %conv.i212
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %srcpel268, i32 noundef %sub315, i32 noundef %add317, i32 noundef %sub318, i32 noundef %add320, i32 noundef 0, i32 noundef 1, i32 noundef 2)
           to label %invoke.cont321 unwind label %lpad286.loopexit.split-lp
@@ -92864,12 +92864,12 @@ if.end13.i242:                                    ; preds = %if.then6.i234, %if.
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253 unwind label %lpad286.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253: ; preds = %if.end13.i242, %if.then2.i365, %if.then.i358, %if.else.i331, %if.then4.i334, %call.i.noexc367, %if.then10.i240
-  %exitcond467.not = icmp eq i32 %i327.0406, %25
+  %exitcond467.not = icmp eq i32 %i327.0406, %24
   br i1 %exitcond467.not, label %for.cond329.for.inc365_crit_edge, label %for.body331
 
 for.cond329.for.inc365_crit_edge:                 ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit253
   %inc366 = add i32 %j322.0410, 1
-  %exitcond468.not = icmp eq i32 %j322.0410, %24
+  %exitcond468.not = icmp eq i32 %j322.0410, %25
   br i1 %exitcond468.not, label %for.end367, label %for.body326, !llvm.loop !684
 
 for.end367:                                       ; preds = %for.cond329.for.inc365_crit_edge

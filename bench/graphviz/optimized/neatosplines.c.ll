@@ -2534,10 +2534,10 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load <2 x double>, ptr %4, align 8
-  %6 = extractelement <2 x double> %5, i64 1
-  %7 = extractelement <2 x double> %5, i64 0
-  %8 = fdiv double %7, 7.200000e+01
-  %9 = fdiv double %6, 7.200000e+01
+  %6 = extractelement <2 x double> %5, i64 0
+  %7 = fdiv double %6, 7.200000e+01
+  %8 = extractelement <2 x double> %5, i64 1
+  %9 = fdiv double %8, 7.200000e+01
   %10 = tail call ptr @agfstnode(ptr noundef %0) #22
   %.not36 = icmp eq ptr %10, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
@@ -2549,7 +2549,7 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = load double, ptr %14, align 8
-  %16 = fsub double %15, %8
+  %16 = fsub double %15, %7
   store double %16, ptr %14, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 176
@@ -2573,14 +2573,14 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %25, i64 72
   %32 = load double, ptr %31, align 8
-  %33 = fsub double %32, %7
+  %33 = fsub double %32, %6
   store double %33, ptr %31, align 8
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 144
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 80
   %38 = load double, ptr %37, align 8
-  %39 = fsub double %38, %6
+  %39 = fsub double %38, %8
   store double %39, ptr %37, align 8
   br label %40
 
@@ -2696,14 +2696,14 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %84, i64 72
   %91 = load double, ptr %90, align 8
-  %92 = fsub double %91, %7
+  %92 = fsub double %91, %6
   store double %92, ptr %90, align 8
   %93 = load ptr, ptr %44, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 120
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 80
   %97 = load double, ptr %96, align 8
-  %98 = fsub double %97, %6
+  %98 = fsub double %97, %8
   store double %98, ptr %96, align 8
   %.pre.i = load ptr, ptr %44, align 8
   br label %99
@@ -2724,14 +2724,14 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %102, i64 72
   %109 = load double, ptr %108, align 8
-  %110 = fsub double %109, %7
+  %110 = fsub double %109, %6
   store double %110, ptr %108, align 8
   %111 = load ptr, ptr %44, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 144
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 80
   %115 = load double, ptr %114, align 8
-  %116 = fsub double %115, %6
+  %116 = fsub double %115, %8
   store double %116, ptr %114, align 8
   %.pre67.i = load ptr, ptr %44, align 8
   br label %117
@@ -2752,14 +2752,14 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %120, i64 72
   %127 = load double, ptr %126, align 8
-  %128 = fsub double %127, %7
+  %128 = fsub double %127, %6
   store double %128, ptr %126, align 8
   %129 = load ptr, ptr %44, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 128
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 80
   %133 = load double, ptr %132, align 8
-  %134 = fsub double %133, %6
+  %134 = fsub double %133, %8
   store double %134, ptr %132, align 8
   %.pre68.i = load ptr, ptr %44, align 8
   br label %135
@@ -2780,14 +2780,14 @@ define void @neato_translate(ptr noundef %0) local_unnamed_addr #0 {
 143:                                              ; preds = %139
   %144 = getelementptr inbounds i8, ptr %138, i64 72
   %145 = load double, ptr %144, align 8
-  %146 = fsub double %145, %7
+  %146 = fsub double %145, %6
   store double %146, ptr %144, align 8
   %147 = load ptr, ptr %44, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 136
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 80
   %151 = load double, ptr %150, align 8
-  %152 = fsub double %151, %6
+  %152 = fsub double %151, %8
   store double %152, ptr %150, align 8
   br label %translateE.exit
 
@@ -2802,7 +2802,7 @@ translateE.exit:                                  ; preds = %143, %139, %135, %.
   br i1 %.not32, label %._crit_edge47, label %.lr.ph46
 
 ._crit_edge47:                                    ; preds = %._crit_edge42, %._crit_edge
-  tail call fastcc void @translateG(ptr noundef %0, double %7, double %6)
+  tail call fastcc void @translateG(ptr noundef %0, double %6, double %8)
   ret void
 }
 

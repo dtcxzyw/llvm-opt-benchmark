@@ -5246,10 +5246,10 @@ define void @Abc_SclLibNormalize(ptr nocapture noundef %0) local_unnamed_addr #1
   %17 = insertelement <2 x double> %16, double %6, i64 1
   %18 = fptrunc <2 x double> %17 to <2 x float>
   %19 = extractelement <2 x float> %18, i64 1
-  %20 = extractelement <2 x float> %18, i64 0
-  %21 = fcmp oeq float %19, 1.000000e+00
-  %22 = fcmp oeq float %20, 1.000000e+00
-  %or.cond = select i1 %21, i1 %22, i1 false
+  %20 = fcmp oeq float %19, 1.000000e+00
+  %21 = extractelement <2 x float> %18, i64 0
+  %22 = fcmp oeq float %21, 1.000000e+00
+  %or.cond = select i1 %20, i1 %22, i1 false
   br i1 %or.cond, label %.critedge3, label %23
 
 23:                                               ; preds = %1
@@ -5287,7 +5287,7 @@ define void @Abc_SclLibNormalize(ptr nocapture noundef %0) local_unnamed_addr #1
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load float, ptr %37, align 8
-  %39 = fmul float %38, %20
+  %39 = fmul float %38, %21
   store float %39, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val78 = load i32, ptr %27, align 4
@@ -5321,7 +5321,7 @@ define void @Abc_SclLibNormalize(ptr nocapture noundef %0) local_unnamed_addr #1
   store <2 x float> %53, ptr %51, align 4
   %54 = getelementptr inbounds i8, ptr %50, i64 20
   %55 = load float, ptr %54, align 4
-  %56 = fmul float %55, %20
+  %56 = fmul float %55, %21
   store float %56, ptr %54, align 4
   %57 = getelementptr inbounds i8, ptr %50, i64 32
   %58 = load <2 x float>, ptr %57, align 8
@@ -5403,7 +5403,7 @@ define void @Abc_SclLibNormalize(ptr nocapture noundef %0) local_unnamed_addr #1
   %.val43.i = load ptr, ptr %77, align 8
   %87 = getelementptr inbounds float, ptr %.val43.i, i64 %indvars.iv60.i
   %88 = load float, ptr %87, align 4
-  %89 = fmul float %88, %20
+  %89 = fmul float %88, %21
   store float %89, ptr %87, align 4
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %.val40.i = load i32, ptr %75, align 4
@@ -5498,7 +5498,7 @@ Abc_SclLibNormalizeSurface.exit:                  ; preds = %.critedge6.i, %.cri
   %.val43.i102 = load ptr, ptr %111, align 8
   %121 = getelementptr inbounds float, ptr %.val43.i102, i64 %indvars.iv60.i101
   %122 = load float, ptr %121, align 4
-  %123 = fmul float %122, %20
+  %123 = fmul float %122, %21
   store float %123, ptr %121, align 4
   %indvars.iv.next61.i103 = add nuw nsw i64 %indvars.iv60.i101, 1
   %.val40.i104 = load i32, ptr %109, align 4
@@ -5593,7 +5593,7 @@ Abc_SclLibNormalizeSurface.exit110:               ; preds = %.critedge6.i89, %.c
   %.val43.i134 = load ptr, ptr %145, align 8
   %155 = getelementptr inbounds float, ptr %.val43.i134, i64 %indvars.iv60.i133
   %156 = load float, ptr %155, align 4
-  %157 = fmul float %156, %20
+  %157 = fmul float %156, %21
   store float %157, ptr %155, align 4
   %indvars.iv.next61.i135 = add nuw nsw i64 %indvars.iv60.i133, 1
   %.val40.i136 = load i32, ptr %143, align 4
@@ -5688,7 +5688,7 @@ Abc_SclLibNormalizeSurface.exit142:               ; preds = %.critedge6.i121, %.
   %.val43.i166 = load ptr, ptr %179, align 8
   %189 = getelementptr inbounds float, ptr %.val43.i166, i64 %indvars.iv60.i165
   %190 = load float, ptr %189, align 4
-  %191 = fmul float %190, %20
+  %191 = fmul float %190, %21
   store float %191, ptr %189, align 4
   %indvars.iv.next61.i167 = add nuw nsw i64 %indvars.iv60.i165, 1
   %.val40.i168 = load i32, ptr %177, align 4

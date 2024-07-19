@@ -4270,12 +4270,12 @@ _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit: ; preds = %18, %21
   %50 = extractelement <2 x float> %.sroa.0153.0.copyload, i64 1
   %51 = extractelement <2 x float> %.sroa.0.0.i, i64 1
   %52 = fmul float %50, %51
-  %53 = extractelement <2 x float> %.sroa.0.0.i, i64 0
-  %54 = extractelement <2 x float> %.sroa.0153.0.copyload, i64 0
-  %55 = call float @llvm.fmuladd.f32(float %53, float %54, float %52)
+  %53 = extractelement <2 x float> %.sroa.0153.0.copyload, i64 0
+  %54 = extractelement <2 x float> %.sroa.0.0.i, i64 0
+  %55 = call float @llvm.fmuladd.f32(float %54, float %53, float %52)
   %56 = call noundef float @llvm.fmuladd.f32(float %.sroa.9.0.i, float %.sroa.14.0.copyload, float %55)
   %57 = fmul float %51, %51
-  %58 = call float @llvm.fmuladd.f32(float %53, float %53, float %57)
+  %58 = call float @llvm.fmuladd.f32(float %54, float %54, float %57)
   %59 = call float @llvm.fmuladd.f32(float %.sroa.9.0.i, float %.sroa.9.0.i, float %58)
   %sqrt.i.i.i.i = call noundef float @llvm.sqrt.f32(float %59)
   %60 = insertelement <2 x float> poison, float %sqrt.i.i.i.i, i64 0
@@ -4291,107 +4291,107 @@ _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit: ; preds = %18, %21
   %.0..0..0..0..0..fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.8..8..8..8..8..fca.1.load.i = load <2 x float>, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  %65 = extractelement <2 x float> %.8..8..8..8..8..fca.1.load.i, i64 1
-  %66 = extractelement <2 x float> %.8..8..8..8..8..fca.1.load.i, i64 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store <2 x float> zeroinitializer, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
-  store float 0.000000e+00, ptr %67, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  store float 0.000000e+00, ptr %65, align 8
   store <2 x float> zeroinitializer, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
-  store float 0.000000e+00, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 44
-  %70 = load float, ptr %69, align 4
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  store float 0.000000e+00, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %68 = load float, ptr %67, align 4
   store <2 x float> %.sroa.0153.0.copyload, ptr %7, align 8
   %.sroa.14.0..sroa_idx173 = getelementptr inbounds i8, ptr %7, i64 8
   store float %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx173, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 12
-  store float %70, ptr %71, align 4
+  %69 = getelementptr inbounds i8, ptr %7, i64 12
+  store float %68, ptr %69, align 4
   store <2 x float> %24, ptr %8, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
-  store float %.fca.1.extract10.sink.i, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 12
-  store <2 x float> %43, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %8, i64 20
-  store float %.sroa.23.0, ptr %74, align 4
-  %75 = call noundef zeroext i1 @_ZN3vcg22IntersectionLineSphereIfEEbRKNS_7Sphere3IT_EERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EESC_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  %76 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr noundef nonnull align 4 dereferenceable(273) %10)
-  %.fca.0.extract33 = extractvalue { <2 x float>, float } %76, 0
-  %.fca.1.extract34 = extractvalue { <2 x float>, float } %76, 1
-  br i1 %75, label %77, label %108
+  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  store float %.fca.1.extract10.sink.i, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %8, i64 12
+  store <2 x float> %43, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %8, i64 20
+  store float %.sroa.23.0, ptr %72, align 4
+  %73 = call noundef zeroext i1 @_ZN3vcg22IntersectionLineSphereIfEEbRKNS_7Sphere3IT_EERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EESC_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6)
+  %74 = call { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr noundef nonnull align 4 dereferenceable(273) %10)
+  %.fca.0.extract33 = extractvalue { <2 x float>, float } %74, 0
+  %.fca.1.extract34 = extractvalue { <2 x float>, float } %74, 1
+  br i1 %73, label %75, label %106
 
-77:                                               ; preds = %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
-  %78 = getelementptr inbounds i8, ptr %6, i64 4
-  %79 = getelementptr inbounds i8, ptr %5, i64 4
-  %80 = load float, ptr %5, align 8
-  %81 = load float, ptr %79, align 4
-  %82 = load float, ptr %67, align 8
-  %83 = load float, ptr %6, align 8
-  %84 = load float, ptr %78, align 4
-  %85 = load float, ptr %68, align 8
-  %86 = shufflevector <2 x float> %.fca.0.extract33, <2 x float> poison, <2 x i32> zeroinitializer
-  %87 = insertelement <2 x float> poison, float %80, i64 0
-  %88 = insertelement <2 x float> %87, float %83, i64 1
-  %89 = fsub <2 x float> %86, %88
-  %90 = shufflevector <2 x float> %.fca.0.extract33, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %91 = insertelement <2 x float> poison, float %81, i64 0
-  %92 = insertelement <2 x float> %91, float %84, i64 1
-  %93 = fsub <2 x float> %90, %92
-  %94 = insertelement <2 x float> poison, float %.fca.1.extract34, i64 0
-  %95 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> zeroinitializer
-  %96 = insertelement <2 x float> poison, float %82, i64 0
-  %97 = insertelement <2 x float> %96, float %85, i64 1
-  %98 = fsub <2 x float> %95, %97
-  %99 = fmul <2 x float> %93, %93
-  %100 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %89, <2 x float> %89, <2 x float> %99)
-  %101 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %98, <2 x float> %98, <2 x float> %100)
-  %102 = call <2 x float> @llvm.sqrt.v2f32(<2 x float> %101)
-  %103 = extractelement <2 x float> %102, i64 0
-  %104 = extractelement <2 x float> %102, i64 1
-  %105 = fcmp olt float %103, %104
-  br i1 %105, label %106, label %107
+75:                                               ; preds = %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
+  %76 = getelementptr inbounds i8, ptr %6, i64 4
+  %77 = getelementptr inbounds i8, ptr %5, i64 4
+  %78 = load float, ptr %5, align 8
+  %79 = load float, ptr %77, align 4
+  %80 = load float, ptr %65, align 8
+  %81 = load float, ptr %6, align 8
+  %82 = load float, ptr %76, align 4
+  %83 = load float, ptr %66, align 8
+  %84 = shufflevector <2 x float> %.fca.0.extract33, <2 x float> poison, <2 x i32> zeroinitializer
+  %85 = insertelement <2 x float> poison, float %78, i64 0
+  %86 = insertelement <2 x float> %85, float %81, i64 1
+  %87 = fsub <2 x float> %84, %86
+  %88 = shufflevector <2 x float> %.fca.0.extract33, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %89 = insertelement <2 x float> poison, float %79, i64 0
+  %90 = insertelement <2 x float> %89, float %82, i64 1
+  %91 = fsub <2 x float> %88, %90
+  %92 = insertelement <2 x float> poison, float %.fca.1.extract34, i64 0
+  %93 = shufflevector <2 x float> %92, <2 x float> poison, <2 x i32> zeroinitializer
+  %94 = insertelement <2 x float> poison, float %80, i64 0
+  %95 = insertelement <2 x float> %94, float %83, i64 1
+  %96 = fsub <2 x float> %93, %95
+  %97 = fmul <2 x float> %91, %91
+  %98 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %87, <2 x float> %87, <2 x float> %97)
+  %99 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %96, <2 x float> %96, <2 x float> %98)
+  %100 = call <2 x float> @llvm.sqrt.v2f32(<2 x float> %99)
+  %101 = extractelement <2 x float> %100, i64 0
+  %102 = extractelement <2 x float> %100, i64 1
+  %103 = fcmp olt float %101, %102
+  br i1 %103, label %104, label %105
 
-106:                                              ; preds = %77
+104:                                              ; preds = %75
   %.sroa.0110.0.copyload = load <2 x float>, ptr %5, align 8
-  br label %108
+  br label %106
 
-107:                                              ; preds = %77
+105:                                              ; preds = %75
   %.sroa.0110.0.copyload114 = load <2 x float>, ptr %6, align 8
-  br label %108
+  br label %106
 
-108:                                              ; preds = %106, %107, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
-  %.sroa.0110.0 = phi <2 x float> [ %.sroa.0110.0.copyload, %106 ], [ %.sroa.0110.0.copyload114, %107 ], [ zeroinitializer, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit ]
-  %.sroa.8116.0 = phi float [ %82, %106 ], [ %85, %107 ], [ 0.000000e+00, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit ]
-  %109 = fsub <2 x float> %.sroa.0153.0.copyload, %24
-  %110 = extractelement <2 x float> %109, i64 0
-  %111 = extractelement <2 x float> %24, i64 1
-  %112 = fsub float %50, %111
-  %113 = fsub float %.sroa.14.0.copyload, %.fca.1.extract10.sink.i
-  %114 = extractelement <2 x float> %43, i64 1
-  %115 = fmul float %112, %114
-  %116 = extractelement <2 x float> %43, i64 0
-  %117 = call float @llvm.fmuladd.f32(float %110, float %116, float %115)
-  %118 = call noundef float @llvm.fmuladd.f32(float %113, float %.sroa.23.0, float %117)
-  %119 = insertelement <2 x float> poison, float %118, i64 0
-  %120 = shufflevector <2 x float> %119, <2 x float> poison, <2 x i32> zeroinitializer
-  %121 = fmul <2 x float> %43, %120
-  %122 = fmul float %.sroa.23.0, %118
-  %123 = fadd <2 x float> %24, %121
-  %124 = fadd float %.fca.1.extract10.sink.i, %122
+106:                                              ; preds = %104, %105, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit
+  %.sroa.0110.0 = phi <2 x float> [ %.sroa.0110.0.copyload, %104 ], [ %.sroa.0110.0.copyload114, %105 ], [ zeroinitializer, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit ]
+  %.sroa.8116.0 = phi float [ %80, %104 ], [ %83, %105 ], [ 0.000000e+00, %_ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit ]
+  %107 = fsub <2 x float> %.sroa.0153.0.copyload, %24
+  %108 = extractelement <2 x float> %107, i64 0
+  %109 = extractelement <2 x float> %24, i64 1
+  %110 = fsub float %50, %109
+  %111 = fsub float %.sroa.14.0.copyload, %.fca.1.extract10.sink.i
+  %112 = extractelement <2 x float> %43, i64 1
+  %113 = fmul float %110, %112
+  %114 = extractelement <2 x float> %43, i64 0
+  %115 = call float @llvm.fmuladd.f32(float %108, float %114, float %113)
+  %116 = call noundef float @llvm.fmuladd.f32(float %111, float %.sroa.23.0, float %115)
+  %117 = insertelement <2 x float> poison, float %116, i64 0
+  %118 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> zeroinitializer
+  %119 = fmul <2 x float> %43, %118
+  %120 = fmul float %.sroa.23.0, %116
+  %121 = fadd <2 x float> %24, %119
+  %122 = fadd float %.fca.1.extract10.sink.i, %120
   %.sroa.0122.4.vec.extract = extractelement <2 x float> %.0..0..0..0..0..fca.0.load.i, i64 1
-  %125 = fmul float %114, %66
-  %126 = call float @llvm.fmuladd.f32(float %.sroa.0122.4.vec.extract, float %116, float %125)
-  %127 = call noundef float @llvm.fmuladd.f32(float %65, float %.sroa.23.0, float %126)
+  %123 = extractelement <2 x float> %.8..8..8..8..8..fca.1.load.i, i64 0
+  %124 = fmul float %112, %123
+  %125 = call float @llvm.fmuladd.f32(float %.sroa.0122.4.vec.extract, float %114, float %124)
+  %126 = extractelement <2 x float> %.8..8..8..8..8..fca.1.load.i, i64 1
+  %127 = call noundef float @llvm.fmuladd.f32(float %126, float %.sroa.23.0, float %125)
   %128 = call float @llvm.fabs.f32(float %127)
   %or.cond.i = fcmp uge float %128, 0x3E45798EE0000000
   br i1 %or.cond.i, label %129, label %_ZN3vcg21IntersectionPlaneLineIfEEbRKNS_6Plane3IT_Lb1EEERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EE.exit
 
-129:                                              ; preds = %108
+129:                                              ; preds = %106
   %130 = extractelement <2 x float> %24, i64 0
   %.sroa.0122.0.vec.extract = extractelement <2 x float> %.0..0..0..0..0..fca.0.load.i, i64 0
-  %131 = fmul float %111, %66
+  %131 = fmul float %109, %123
   %132 = call float @llvm.fmuladd.f32(float %.sroa.0122.4.vec.extract, float %130, float %131)
-  %133 = call noundef float @llvm.fmuladd.f32(float %65, float %.fca.1.extract10.sink.i, float %132)
+  %133 = call noundef float @llvm.fmuladd.f32(float %126, float %.fca.1.extract10.sink.i, float %132)
   %134 = fsub float %.sroa.0122.0.vec.extract, %133
   %135 = fdiv float %134, %127
   %136 = fmul float %.sroa.23.0, %135
@@ -4402,12 +4402,12 @@ _ZN3vcg4ViewIfE18ViewLineFromWindowERKNS_6Point3IfEE.exit: ; preds = %18, %21
   %141 = fadd float %.fca.1.extract10.sink.i, %136
   br label %_ZN3vcg21IntersectionPlaneLineIfEEbRKNS_6Plane3IT_Lb1EEERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EE.exit
 
-_ZN3vcg21IntersectionPlaneLineIfEEbRKNS_6Plane3IT_Lb1EEERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EE.exit: ; preds = %108, %129
-  %.sroa.0119.0 = phi <2 x float> [ %140, %129 ], [ zeroinitializer, %108 ]
-  %.sroa.5.0 = phi float [ %141, %129 ], [ 0.000000e+00, %108 ]
+_ZN3vcg21IntersectionPlaneLineIfEEbRKNS_6Plane3IT_Lb1EEERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EE.exit: ; preds = %106, %129
+  %.sroa.0119.0 = phi <2 x float> [ %140, %129 ], [ zeroinitializer, %106 ]
+  %.sroa.5.0 = phi float [ %141, %129 ], [ 0.000000e+00, %106 ]
   %142 = load i8, ptr %15, align 8
   %143 = trunc i8 %142 to i1
-  %144 = load float, ptr %69, align 4
+  %144 = load float, ptr %67, align 4
   br i1 %143, label %_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit, label %200
 
 _ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit: ; preds = %_ZN3vcg21IntersectionPlaneLineIfEEbRKNS_6Plane3IT_Lb1EEERKNS_5Line3IS2_Lb0EEERNS_6Point3IS2_EE.exit
@@ -4445,14 +4445,14 @@ _ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.e
   %172 = fmul <2 x float> %.8..8..8..8..8..fca.1.load.i, %.8..8..8..8..8..fca.1.load.i
   %173 = extractelement <2 x float> %172, i64 0
   %174 = call float @llvm.fmuladd.f32(float %.sroa.0122.4.vec.extract, float %.sroa.0122.4.vec.extract, float %173)
-  %175 = call float @llvm.fmuladd.f32(float %65, float %65, float %174)
+  %175 = call float @llvm.fmuladd.f32(float %126, float %126, float %174)
   %sqrt.i29.i = call float @llvm.sqrt.f32(float %175)
   %176 = fcmp ogt float %sqrt.i29.i, 0.000000e+00
   %177 = fdiv float %.sroa.0122.4.vec.extract, %sqrt.i29.i
   %.sroa.051.0.i = select i1 %176, float %177, float %.sroa.0122.4.vec.extract
   %.sroa.055.0.vec.extract58.i = extractelement <2 x float> %.sroa.055.0.i, i64 0
   %178 = fmul float %sqrt.i.i.i69, %.sroa.055.0.vec.extract58.i
-  %179 = fadd float %54, %178
+  %179 = fadd float %53, %178
   %180 = fmul float %.sroa.051.0.i, %171
   %181 = insertelement <2 x float> poison, float %sqrt.i29.i, i64 0
   %182 = shufflevector <2 x float> %181, <2 x float> poison, <2 x i32> zeroinitializer
@@ -4526,14 +4526,14 @@ cdce.end.i:                                       ; preds = %200
   %242 = fmul <2 x float> %.8..8..8..8..8..fca.1.load.i, %.8..8..8..8..8..fca.1.load.i
   %243 = extractelement <2 x float> %242, i64 0
   %244 = call float @llvm.fmuladd.f32(float %.sroa.0122.4.vec.extract, float %.sroa.0122.4.vec.extract, float %243)
-  %245 = call float @llvm.fmuladd.f32(float %65, float %65, float %244)
+  %245 = call float @llvm.fmuladd.f32(float %126, float %126, float %244)
   %sqrt.i47.i = call float @llvm.sqrt.f32(float %245)
   %246 = fcmp ogt float %sqrt.i47.i, 0.000000e+00
   %247 = fdiv float %.sroa.0122.4.vec.extract, %sqrt.i47.i
   %.sroa.069.0.i = select i1 %246, float %247, float %.sroa.0122.4.vec.extract
   %.sroa.073.0.vec.extract76.i = extractelement <2 x float> %.sroa.073.0.i, i64 0
   %248 = fmul float %229, %.sroa.073.0.vec.extract76.i
-  %249 = fadd float %54, %248
+  %249 = fadd float %53, %248
   %250 = fmul float %.sroa.069.0.i, %228
   %251 = insertelement <2 x float> poison, float %sqrt.i47.i, i64 0
   %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
@@ -4557,7 +4557,7 @@ cdce.end.i:                                       ; preds = %200
   br label %271
 
 _ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit: ; preds = %200
-  br i1 %75, label %313, label %270
+  br i1 %73, label %313, label %270
 
 270:                                              ; preds = %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit
   br label %313
@@ -4568,7 +4568,7 @@ _ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit: ;
   %.sroa.0.0.vec.insert.i43.i = insertelement <2 x float> poison, float %.sink212, i64 0
   %273 = shufflevector <2 x float> %.sroa.0.0.vec.insert.i43.i, <2 x float> %272, <2 x i32> <i32 0, i32 2>
   %274 = extractelement <2 x float> %272, i64 1
-  br i1 %75, label %.thread203, label %313
+  br i1 %73, label %.thread203, label %313
 
 .thread203:                                       ; preds = %271
   %275 = insertelement <2 x float> poison, float %.fca.1.extract34, i64 0
@@ -4629,8 +4629,8 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %.thread203, %307
   br label %313
 
 313:                                              ; preds = %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %271, %312, %270
-  %.sroa.051.0 = phi <2 x float> [ %273, %312 ], [ %123, %270 ], [ %273, %271 ], [ %.sroa.0110.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.0110.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
-  %.sroa.6.0 = phi float [ %274, %312 ], [ %124, %270 ], [ %274, %271 ], [ %.sroa.8116.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.8116.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
+  %.sroa.051.0 = phi <2 x float> [ %273, %312 ], [ %121, %270 ], [ %273, %271 ], [ %.sroa.0110.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.0110.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
+  %.sroa.6.0 = phi float [ %274, %312 ], [ %122, %270 ], [ %274, %271 ], [ %.sroa.8116.0, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ %.sroa.8116.0, %_ZN3vcg10trackutils8HitHyperENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.051.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.6.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -7327,14 +7327,14 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit100.thread:        ; preds = %_ZNK3vcg6Point3IfEe
   %.sroa.0.0.i = select i1 %95, <2 x float> %98, <2 x float> %88
   %100 = extractelement <2 x float> %.sroa.0.0.i, i64 1
   %101 = extractelement <2 x float> %.sroa.0.0.i, i64 0
-  %102 = shufflevector <2 x float> %.sroa.0.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %102 = shufflevector <2 x float> %.sroa.0.0.i, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
   %103 = insertelement <2 x float> %102, float %.sroa.6.0.i, i64 0
   %104 = fneg <2 x float> %103
   %105 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %106 = insertelement <2 x float> %105, float %.sroa.14.0, i64 1
   %107 = fmul <2 x float> %106, %104
-  %108 = insertelement <2 x float> %102, float %.sroa.6.0.i, i64 1
-  %109 = insertelement <2 x float> %56, float %.sroa.14.0, i64 0
+  %108 = shufflevector <2 x float> %.sroa.0.0.i, <2 x float> %49, <2 x i32> <i32 1, i32 2>
+  %109 = shufflevector <2 x float> %106, <2 x float> %103, <2 x i32> <i32 1, i32 2>
   %110 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %108, <2 x float> %109, <2 x float> %107)
   %111 = fneg float %100
   %112 = fmul float %52, %111
@@ -8886,10 +8886,10 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i:
   %7 = load float, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 4
   %9 = load <2 x float>, ptr %8, align 4
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load float, ptr %11, align 8
-  %13 = fsub float %10, %12
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = load float, ptr %10, align 8
+  %12 = extractelement <2 x float> %9, i64 1
+  %13 = fsub float %12, %11
   %14 = getelementptr inbounds i8, ptr %2, i64 12
   %15 = getelementptr inbounds i8, ptr %2, i64 20
   %16 = load float, ptr %15, align 4
@@ -8917,7 +8917,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i:
   %29 = fmul <2 x float> %21, %28
   %30 = fmul float %16, %26
   %31 = fadd <2 x float> %17, %29
-  %32 = fadd float %12, %30
+  %32 = fadd float %11, %30
   %33 = fsub <2 x float> %31, %.sroa.013.0.copyload
   %34 = fsub <2 x float> %.sroa.011.0.copyload, %.sroa.013.0.copyload
   %35 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8960,7 +8960,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit.i:
   %67 = fdiv float %.sroa.13.0.i, %sqrt.i41.i
   %.sroa.088.1.i = select i1 %60, <2 x float> %66, <2 x float> %.sroa.088.0.i
   %.sroa.13.1.i = select i1 %60, float %67, float %.sroa.13.0.i
-  %68 = fsub float %.sroa.210.0.copyload, %10
+  %68 = fsub float %.sroa.210.0.copyload, %12
   %69 = fsub <2 x float> %.sroa.09.0.copyload, %.sroa.013.0.copyload
   %70 = fmul <2 x float> %69, %69
   %71 = extractelement <2 x float> %70, i64 1
@@ -9081,7 +9081,7 @@ cdce.end:                                         ; preds = %141, %123
   store float %155, ptr %.sroa.210.0..sroa_idx.i, align 4
   %156 = fsub float %.sink89, %63
   %157 = fsub <2 x float> %153, %9
-  %158 = fsub float %155, %10
+  %158 = fsub float %155, %12
   %159 = fmul <2 x float> %157, %157
   %160 = extractelement <2 x float> %159, i64 0
   %161 = tail call float @llvm.fmuladd.f32(float %156, float %156, float %160)

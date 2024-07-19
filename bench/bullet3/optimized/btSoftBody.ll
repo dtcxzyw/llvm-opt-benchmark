@@ -8423,8 +8423,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit, !llvm.loop !75
 
 _ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit: ; preds = %for.body.i.i
-  %28 = fsub <2 x float> %16, %19
   %retval.sroa.5.0.insert.shift.i = shl nuw i64 %retval.sroa.5.0.insert.ext.i, 32
+  %28 = fsub <2 x float> %16, %19
   %retval.sroa.5.0.insert.shift.i117 = shl nuw i64 %retval.sroa.5.0.insert.ext.i116, 32
   %sub9.i136 = fsub float %mul.i133, %conv8.i135
   %retval.sroa.5.0.insert.shift.i139 = shl nuw i64 %retval.sroa.5.0.insert.ext.i138, 32

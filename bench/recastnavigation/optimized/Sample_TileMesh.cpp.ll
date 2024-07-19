@@ -2134,38 +2134,38 @@ _ZN15Sample_TileMesh7cleanupEv.exit:              ; preds = %23, %29
   %53 = getelementptr inbounds i8, ptr %0, i64 272
   %54 = getelementptr inbounds i8, ptr %0, i64 276
   %55 = load <2 x float>, ptr %52, align 4
-  %56 = extractelement <2 x float> %55, i64 0
   store <2 x float> %55, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
-  %58 = load float, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 304
-  store float %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 52
-  %61 = load float, ptr %60, align 4
-  %62 = extractelement <2 x float> %55, i64 1
-  %63 = fdiv float %61, %62
-  %64 = tail call float @llvm.ceil.f32(float %63)
-  %65 = getelementptr inbounds i8, ptr %0, i64 308
-  %66 = getelementptr inbounds i8, ptr %0, i64 60
-  %67 = load float, ptr %66, align 4
-  %68 = fdiv float %67, %62
-  %69 = tail call float @llvm.floor.f32(float %68)
-  %70 = getelementptr inbounds i8, ptr %0, i64 312
-  %71 = getelementptr inbounds i8, ptr %0, i64 56
-  %72 = load float, ptr %71, align 8
-  %73 = fdiv float %72, %56
+  %56 = getelementptr inbounds i8, ptr %0, i64 64
+  %57 = load float, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 304
+  store float %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 52
+  %60 = load float, ptr %59, align 4
+  %61 = extractelement <2 x float> %55, i64 1
+  %62 = fdiv float %60, %61
+  %63 = tail call float @llvm.ceil.f32(float %62)
+  %64 = getelementptr inbounds i8, ptr %0, i64 308
+  %65 = getelementptr inbounds i8, ptr %0, i64 60
+  %66 = load float, ptr %65, align 4
+  %67 = fdiv float %66, %61
+  %68 = tail call float @llvm.floor.f32(float %67)
+  %69 = getelementptr inbounds i8, ptr %0, i64 312
+  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %71 = load float, ptr %70, align 8
+  %72 = extractelement <2 x float> %55, i64 0
+  %73 = fdiv float %71, %72
   %74 = tail call float @llvm.ceil.f32(float %73)
   %75 = getelementptr inbounds i8, ptr %0, i64 316
   %76 = getelementptr inbounds i8, ptr %0, i64 76
   %77 = load float, ptr %76, align 4
-  %78 = fdiv float %77, %56
+  %78 = fdiv float %77, %72
   %79 = getelementptr inbounds i8, ptr %0, i64 320
-  %80 = insertelement <4 x float> poison, float %64, i64 0
-  %81 = insertelement <4 x float> %80, float %69, i64 1
+  %80 = insertelement <4 x float> poison, float %63, i64 0
+  %81 = insertelement <4 x float> %80, float %68, i64 1
   %82 = insertelement <4 x float> %81, float %74, i64 2
   %83 = insertelement <4 x float> %82, float %78, i64 3
   %84 = fptosi <4 x float> %83 to <4 x i32>
-  store <4 x i32> %84, ptr %65, align 4
+  store <4 x i32> %84, ptr %64, align 4
   %85 = getelementptr inbounds i8, ptr %0, i64 80
   %86 = load float, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 324
@@ -2199,13 +2199,13 @@ _ZN15Sample_TileMesh7cleanupEv.exit:              ; preds = %23, %29
   %108 = getelementptr inbounds i8, ptr %0, i64 88
   %109 = load float, ptr %108, align 8
   %110 = fcmp olt float %109, 0x3FECCCCCC0000000
-  %111 = fmul float %56, %109
+  %111 = fmul float %72, %109
   %112 = select i1 %110, float 0.000000e+00, float %111
   %113 = getelementptr inbounds i8, ptr %0, i64 340
   store float %112, ptr %113, align 4
   %114 = getelementptr inbounds i8, ptr %0, i64 92
   %115 = load float, ptr %114, align 4
-  %116 = fmul float %62, %115
+  %116 = fmul float %61, %115
   %117 = getelementptr inbounds i8, ptr %0, i64 344
   store float %116, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 280
@@ -2231,7 +2231,7 @@ _ZN15Sample_TileMesh7cleanupEv.exit:              ; preds = %23, %29
   %133 = getelementptr inbounds i8, ptr %0, i64 300
   %134 = sitofp i32 %103 to float
   %135 = fneg float %134
-  %136 = tail call float @llvm.fmuladd.f32(float %135, float %56, float %119)
+  %136 = tail call float @llvm.fmuladd.f32(float %135, float %72, float %119)
   store float %136, ptr %118, align 8
   %137 = insertelement <2 x float> poison, float %135, i64 0
   %138 = insertelement <2 x float> %137, float %134, i64 1
@@ -2240,7 +2240,7 @@ _ZN15Sample_TileMesh7cleanupEv.exit:              ; preds = %23, %29
   %141 = insertelement <2 x float> %140, float %127, i64 1
   %142 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %138, <2 x float> %139, <2 x float> %141)
   store <2 x float> %142, ptr %125, align 8
-  %143 = tail call float @llvm.fmuladd.f32(float %134, float %56, float %132)
+  %143 = tail call float @llvm.fmuladd.f32(float %134, float %72, float %132)
   store float %143, ptr %133, align 4
   %144 = getelementptr inbounds i8, ptr %0, i64 184
   %145 = load ptr, ptr %144, align 8
@@ -2369,13 +2369,13 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   %216 = sext i32 %212 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %215, i8 0, i64 %216, i1 false)
   %217 = load ptr, ptr %144, align 8
-  %218 = load float, ptr %59, align 8
+  %218 = load float, ptr %58, align 8
   %219 = load ptr, ptr %26, align 8
   call void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef %217, float noundef %218, ptr noundef %44, i32 noundef %46, ptr noundef %210, i32 noundef %212, ptr noundef %219)
   %220 = load ptr, ptr %144, align 8
   %221 = load ptr, ptr %26, align 8
   %222 = load ptr, ptr %30, align 8
-  %223 = load i32, ptr %70, align 8
+  %223 = load i32, ptr %69, align 8
   %224 = call noundef zeroext i1 @_Z20rcRasterizeTrianglesP9rcContextPKfiPKiPKhiR13rcHeightfieldi(ptr noundef %220, ptr noundef %44, i32 noundef %46, ptr noundef %210, ptr noundef %221, i32 noundef %212, ptr noundef nonnull align 8 dereferenceable(64) %222, i32 noundef %223)
   br i1 %224, label %198, label %.loopexit
 
@@ -2406,7 +2406,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 237:                                              ; preds = %233
   %238 = load ptr, ptr %144, align 8
-  %239 = load i32, ptr %70, align 8
+  %239 = load i32, ptr %69, align 8
   %240 = load ptr, ptr %30, align 8
   call void @_Z35rcFilterLowHangingWalkableObstaclesP9rcContextiR13rcHeightfield(ptr noundef %238, i32 noundef %239, ptr noundef nonnull align 8 dereferenceable(64) %240)
   br label %241
@@ -2419,8 +2419,8 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 245:                                              ; preds = %241
   %246 = load ptr, ptr %144, align 8
-  %247 = load i32, ptr %65, align 4
-  %248 = load i32, ptr %70, align 8
+  %247 = load i32, ptr %64, align 4
+  %248 = load i32, ptr %69, align 8
   %249 = load ptr, ptr %30, align 8
   call void @_Z18rcFilterLedgeSpansP9rcContextiiR13rcHeightfield(ptr noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef nonnull align 8 dereferenceable(64) %249)
   br label %250
@@ -2433,7 +2433,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 254:                                              ; preds = %250
   %255 = load ptr, ptr %144, align 8
-  %256 = load i32, ptr %65, align 4
+  %256 = load i32, ptr %64, align 4
   %257 = load ptr, ptr %30, align 8
   call void @_Z30rcFilterWalkableLowHeightSpansP9rcContextiR13rcHeightfield(ptr noundef %255, i32 noundef %256, ptr noundef nonnull align 8 dereferenceable(64) %257)
   br label %258
@@ -2450,8 +2450,8 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br label %.loopexit
 
 262:                                              ; preds = %258
-  %263 = load i32, ptr %65, align 4
-  %264 = load i32, ptr %70, align 8
+  %263 = load i32, ptr %64, align 4
+  %264 = load i32, ptr %69, align 8
   %265 = load ptr, ptr %30, align 8
   %266 = call noundef zeroext i1 @_Z25rcBuildCompactHeightfieldP9rcContextiiRK13rcHeightfieldR20rcCompactHeightfield(ptr noundef %260, i32 noundef %263, i32 noundef %264, ptr noundef nonnull align 8 dereferenceable(64) %265, ptr noundef nonnull align 8 dereferenceable(96) %259)
   br i1 %266, label %269, label %267
@@ -2799,9 +2799,9 @@ switch.lookup:                                    ; preds = %397
   %455 = getelementptr inbounds i8, ptr %12, i64 136
   store i32 %454, ptr %455, align 8
   %456 = getelementptr inbounds i8, ptr %12, i64 180
-  %457 = load <2 x float>, ptr %60, align 4
+  %457 = load <2 x float>, ptr %59, align 4
   store <2 x float> %457, ptr %456, align 4
-  %458 = load float, ptr %66, align 4
+  %458 = load float, ptr %65, align 4
   %459 = getelementptr inbounds i8, ptr %12, i64 188
   store float %458, ptr %459, align 4
   %460 = getelementptr inbounds i8, ptr %12, i64 144

@@ -11048,9 +11048,9 @@ entry:
   %7 = fcmp ogt <2 x float> %6, zeroinitializer
   %8 = select <2 x i1> %7, <2 x float> %6, <2 x float> zeroinitializer
   %9 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %8)
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = extractelement <2 x float> %9, i64 0
-  %div21 = fdiv float %11, %10
+  %10 = extractelement <2 x float> %9, i64 0
+  %11 = extractelement <2 x float> %9, i64 1
+  %div21 = fdiv float %10, %11
   %12 = load float, ptr %this, align 4
   %div23 = fdiv float %12, %div21
   %mul.i49 = fmul float %div23, %div23
@@ -11132,7 +11132,7 @@ _ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit:        ; preds = %for.body.i71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i70)
   %17 = load float, ptr %eta, align 4
   %18 = load float, ptr %this, align 4
-  call void @_ZN4pbrt8HairBxDF2ApEfffNS_15SampledSpectrumE(ptr nonnull sret(%"class.pstd::array.22") align 4 %ap, float noundef %10, float noundef %17, float noundef %18, <2 x float> %.fca.0.load.i76, <2 x float> %.fca.1.load.i79)
+  call void @_ZN4pbrt8HairBxDF2ApEfffNS_15SampledSpectrumE(ptr nonnull sret(%"class.pstd::array.22") align 4 %ap, float noundef %11, float noundef %17, float noundef %18, <2 x float> %.fca.0.load.i76, <2 x float> %.fca.1.load.i79)
   %sqrt.i38 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i37)
   %sub38 = fsub float %call.i39, %call.i
   %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 72
@@ -11162,9 +11162,9 @@ if.then:                                          ; preds = %for.body
   %21 = load float, ptr %arrayidx, align 4
   %mul42 = fmul float %wo.sroa.0.0.vec.extract, %21
   %22 = load float, ptr %arrayidx43, align 4
-  %mul44 = fmul float %10, %22
+  %mul44 = fmul float %11, %22
   %sub45 = fsub float %mul42, %mul44
-  %mul48 = fmul float %10, %21
+  %mul48 = fmul float %11, %21
   %mul51 = fmul float %wo.sroa.0.0.vec.extract, %22
   %add = fadd float %mul48, %mul51
   br label %if.end87
@@ -11173,9 +11173,9 @@ if.then53:                                        ; preds = %for.body
   %23 = load float, ptr %cos2kAlpha54, align 4
   %mul56 = fmul float %wo.sroa.0.0.vec.extract, %23
   %24 = load float, ptr %sin2kAlpha57, align 4
-  %mul59 = fmul float %10, %24
+  %mul59 = fmul float %11, %24
   %add60 = fadd float %mul56, %mul59
-  %mul63 = fmul float %10, %23
+  %mul63 = fmul float %11, %23
   %mul66 = fmul float %wo.sroa.0.0.vec.extract, %24
   %sub67 = fsub float %mul63, %mul66
   br label %if.end87
@@ -11184,9 +11184,9 @@ if.then70:                                        ; preds = %for.body
   %25 = load float, ptr %arrayidx72, align 4
   %mul73 = fmul float %wo.sroa.0.0.vec.extract, %25
   %26 = load float, ptr %arrayidx75, align 4
-  %mul76 = fmul float %10, %26
+  %mul76 = fmul float %11, %26
   %add77 = fadd float %mul73, %mul76
-  %mul80 = fmul float %10, %25
+  %mul80 = fmul float %11, %25
   %mul83 = fmul float %wo.sroa.0.0.vec.extract, %26
   %sub84 = fsub float %mul80, %mul83
   br label %if.end87
@@ -11265,7 +11265,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit:           ; preds = %for.body.i100
 for.end:                                          ; preds = %_ZN4pbrt15SampledSpectrumpLERKS0_.exit
   %arrayidx105 = getelementptr inbounds i8, ptr %this, i64 44
   %34 = load float, ptr %arrayidx105, align 4
-  %call106 = call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i38, float noundef %10, float noundef %wi.sroa.0.0.vec.extract, float noundef %wo.sroa.0.0.vec.extract, float noundef %34)
+  %call106 = call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i38, float noundef %11, float noundef %wi.sroa.0.0.vec.extract, float noundef %wo.sroa.0.0.vec.extract, float noundef %34)
   %arrayidx.i106 = getelementptr inbounds i8, ptr %ap, i64 48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i107)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i107, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i106, i64 16, i1 false)
@@ -12471,9 +12471,9 @@ entry:
   %7 = fcmp ogt <2 x float> %6, zeroinitializer
   %8 = select <2 x i1> %7, <2 x float> %6, <2 x float> zeroinitializer
   %9 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %8)
-  %10 = extractelement <2 x float> %9, i64 1
-  %11 = extractelement <2 x float> %9, i64 0
-  %div = fdiv float %11, %10
+  %10 = extractelement <2 x float> %9, i64 0
+  %11 = extractelement <2 x float> %9, i64 1
+  %div = fdiv float %10, %11
   %12 = load float, ptr %this, align 4
   %div18 = fdiv float %12, %div
   %cmp.i.i42 = fcmp olt float %div18, -1.000000e+00
@@ -12481,7 +12481,7 @@ entry:
   %conv2.val.i.i44 = select i1 %cmp3.i.i43, float 1.000000e+00, float %div18
   %retval.0.i.i45 = select i1 %cmp.i.i42, float -1.000000e+00, float %conv2.val.i.i44
   %call.i.i46 = tail call noundef float @asinf(float noundef %retval.0.i.i45) #23
-  %call20 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF5ApPDFEf(ptr noundef nonnull align 4 dereferenceable(76) %this, float noundef %10)
+  %call20 = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt8HairBxDF5ApPDFEf(ptr noundef nonnull align 4 dereferenceable(76) %this, float noundef %11)
   %13 = extractvalue { <2 x float>, <2 x float> } %call20, 0
   store <2 x float> %13, ptr %apPDF, align 8
   %14 = getelementptr inbounds i8, ptr %apPDF, i64 8
@@ -12512,9 +12512,9 @@ if.then:                                          ; preds = %for.body
   %17 = load float, ptr %arrayidx, align 4
   %mul23 = fmul float %wo.sroa.0.0.vec.extract, %17
   %18 = load float, ptr %arrayidx24, align 4
-  %mul25 = fmul float %10, %18
+  %mul25 = fmul float %11, %18
   %sub26 = fsub float %mul23, %mul25
-  %mul29 = fmul float %10, %17
+  %mul29 = fmul float %11, %17
   %mul32 = fmul float %wo.sroa.0.0.vec.extract, %18
   %add = fadd float %mul29, %mul32
   br label %if.end68
@@ -12523,9 +12523,9 @@ if.then34:                                        ; preds = %for.body
   %19 = load float, ptr %cos2kAlpha35, align 4
   %mul37 = fmul float %wo.sroa.0.0.vec.extract, %19
   %20 = load float, ptr %sin2kAlpha38, align 4
-  %mul40 = fmul float %10, %20
+  %mul40 = fmul float %11, %20
   %add41 = fadd float %mul37, %mul40
-  %mul44 = fmul float %10, %19
+  %mul44 = fmul float %11, %19
   %mul47 = fmul float %wo.sroa.0.0.vec.extract, %20
   %sub48 = fsub float %mul44, %mul47
   br label %if.end68
@@ -12534,9 +12534,9 @@ if.then51:                                        ; preds = %for.body
   %21 = load float, ptr %arrayidx53, align 4
   %mul54 = fmul float %wo.sroa.0.0.vec.extract, %21
   %22 = load float, ptr %arrayidx56, align 4
-  %mul57 = fmul float %10, %22
+  %mul57 = fmul float %11, %22
   %add58 = fadd float %mul54, %mul57
-  %mul61 = fmul float %10, %21
+  %mul61 = fmul float %11, %21
   %mul64 = fmul float %wo.sroa.0.0.vec.extract, %22
   %sub65 = fsub float %mul61, %mul64
   br label %if.end68
@@ -12566,7 +12566,7 @@ for.end:                                          ; preds = %if.end68
   %27 = extractelement <2 x float> %15, i64 1
   %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 44
   %28 = load float, ptr %arrayidx78, align 4
-  %call79 = tail call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i36, float noundef %10, float noundef %wi.sroa.0.0.vec.extract, float noundef %wo.sroa.0.0.vec.extract, float noundef %28)
+  %call79 = tail call noundef float @_ZN4pbrt8HairBxDF2MpEfffff(float noundef %sqrt.i36, float noundef %11, float noundef %wi.sroa.0.0.vec.extract, float noundef %wo.sroa.0.0.vec.extract, float noundef %28)
   %mul81 = fmul float %call79, %27
   %mul82 = fmul float %mul81, 0x3FC45F3060000000
   %add83 = fadd float %add76, %mul82
@@ -21962,10 +21962,10 @@ if.end10:                                         ; preds = %_ZNK4pbrt15SampledS
   %cmp11 = fcmp ogt float %div, %uc
   %4 = fmul <2 x float> %u.coerce, <float 2.000000e+00, float 2.000000e+00>
   %5 = fadd <2 x float> %4, <float -1.000000e+00, float -1.000000e+00>
-  %6 = extractelement <2 x float> %5, i64 1
-  %7 = extractelement <2 x float> %5, i64 0
-  %cmp.i.i29 = fcmp oeq float %7, 0.000000e+00
-  %cmp6.i.i = fcmp oeq float %6, 0.000000e+00
+  %6 = extractelement <2 x float> %5, i64 0
+  %cmp.i.i29 = fcmp oeq float %6, 0.000000e+00
+  %7 = extractelement <2 x float> %5, i64 1
+  %cmp6.i.i = fcmp oeq float %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i29, i1 %cmp6.i.i, i1 false
   br i1 %cmp11, label %if.then12, label %if.else
 
@@ -21980,18 +21980,18 @@ if.end.i.i:                                       ; preds = %if.then12
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  %div.i.i = fdiv float %6, %7
+  %div.i.i = fdiv float %7, %6
   %mul.i.i = fmul float %div.i.i, 0x3FE921FB60000000
   br label %if.end21.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %div19.i.i = fdiv float %7, %6
+  %div19.i.i = fdiv float %6, %7
   %mul20.i.i = fmul float %div19.i.i, 0x3FE921FB60000000
   %sub.i.i = fsub float 0x3FF921FB60000000, %mul20.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i.i, %if.then12.i.i
-  %r.0.i.i = phi float [ %7, %if.then12.i.i ], [ %6, %if.else.i.i ]
+  %r.0.i.i = phi float [ %6, %if.then12.i.i ], [ %7, %if.else.i.i ]
   %theta.0.i.i = phi float [ %mul.i.i, %if.then12.i.i ], [ %sub.i.i, %if.else.i.i ]
   %call.i.i.i = tail call noundef float @cosf(float noundef %theta.0.i.i) #23
   %call.i19.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i) #23
@@ -22098,18 +22098,18 @@ if.end.i.i42:                                     ; preds = %if.else
   br i1 %cmp11.i.i43, label %if.then12.i.i69, label %if.else.i.i44
 
 if.then12.i.i69:                                  ; preds = %if.end.i.i42
-  %div.i.i70 = fdiv float %6, %7
+  %div.i.i70 = fdiv float %7, %6
   %mul.i.i71 = fmul float %div.i.i70, 0x3FE921FB60000000
   br label %if.end21.i.i48
 
 if.else.i.i44:                                    ; preds = %if.end.i.i42
-  %div19.i.i45 = fdiv float %7, %6
+  %div19.i.i45 = fdiv float %6, %7
   %mul20.i.i46 = fmul float %div19.i.i45, 0x3FE921FB60000000
   %sub.i.i47 = fsub float 0x3FF921FB60000000, %mul20.i.i46
   br label %if.end21.i.i48
 
 if.end21.i.i48:                                   ; preds = %if.else.i.i44, %if.then12.i.i69
-  %r.0.i.i49 = phi float [ %7, %if.then12.i.i69 ], [ %6, %if.else.i.i44 ]
+  %r.0.i.i49 = phi float [ %6, %if.then12.i.i69 ], [ %7, %if.else.i.i44 ]
   %theta.0.i.i50 = phi float [ %mul.i.i71, %if.then12.i.i69 ], [ %sub.i.i47, %if.else.i.i44 ]
   %call.i.i.i51 = tail call noundef float @cosf(float noundef %theta.0.i.i50) #23
   %call.i19.i.i52 = tail call noundef float @sinf(float noundef %theta.0.i.i50) #23
