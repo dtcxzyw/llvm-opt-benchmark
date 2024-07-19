@@ -7534,12 +7534,12 @@ _ZN4core3cmp6max_by17h0c4ea46612dd2c9aE.exit:
   %.sroa.3.0.i27 = select i1 %switch.i26, i8 %17, i8 %21
   %.sroa.0.0.sroa.speculated.v.i28 = select i1 %switch.i26, i8 %14, i8 %19
   %23 = load <8 x i8>, ptr %1, align 1
-  %24 = trunc <8 x i8> %23 to <8 x i1>
-  %25 = shufflevector <8 x i1> %24, <8 x i1> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %24 = shufflevector <8 x i8> %23, <8 x i8> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %25 = trunc <4 x i8> %24 to <4 x i1>
   %26 = load <8 x i8>, ptr %2, align 1
-  %27 = shufflevector <8 x i8> %26, <8 x i8> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %28 = trunc <4 x i8> %27 to <4 x i1>
-  %29 = select <4 x i1> %25, <4 x i1> %28, <4 x i1> zeroinitializer
+  %27 = and <8 x i8> %26, %23
+  %28 = shufflevector <8 x i8> %27, <8 x i8> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %29 = trunc <4 x i8> %28 to <4 x i1>
   %30 = shufflevector <8 x i8> %23, <8 x i8> poison, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %31 = add <4 x i8> %30, <i8 -1, i8 -1, i8 -1, i8 -1>
   %32 = shufflevector <8 x i8> %26, <8 x i8> poison, <4 x i32> <i32 1, i32 3, i32 5, i32 7>

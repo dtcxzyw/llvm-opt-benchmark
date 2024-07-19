@@ -2614,131 +2614,122 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC18isSampleDegenerat
   %46 = lshr <2 x i64> %45, <i64 32, i64 32>
   %47 = trunc nuw <2 x i64> %46 to <2 x i32>
   %48 = bitcast <2 x i32> %47 to <2 x float>
-  %49 = trunc i64 %34 to i32
-  %50 = insertelement <2 x i32> poison, i32 %49, i64 0
-  %51 = trunc i64 %19 to i32
-  %52 = insertelement <2 x i32> %50, i32 %51, i64 1
-  %53 = bitcast <2 x i32> %52 to <2 x float>
-  %54 = insertelement <2 x i64> poison, i64 %37, i64 0
-  %55 = insertelement <2 x i64> %54, i64 %23, i64 1
-  %56 = trunc <2 x i64> %55 to <2 x i32>
-  %57 = bitcast <2 x i32> %56 to <2 x float>
-  %58 = extractelement <2 x float> %57, i64 1
-  %59 = bitcast i32 %51 to float
-  %60 = fcmp oeq float %58, %59
-  %61 = trunc i64 %43 to i32
-  %62 = insertelement <2 x i32> poison, i32 %61, i64 0
-  %63 = trunc i64 %31 to i32
-  %64 = insertelement <2 x i32> %62, i32 %63, i64 1
-  %65 = lshr <2 x i64> %55, <i64 32, i64 32>
+  %49 = trunc <2 x i64> %45 to <2 x i32>
+  %50 = bitcast <2 x i32> %49 to <2 x float>
+  %51 = insertelement <2 x i64> poison, i64 %37, i64 0
+  %52 = insertelement <2 x i64> %51, i64 %23, i64 1
+  %53 = trunc <2 x i64> %52 to <2 x i32>
+  %54 = bitcast <2 x i32> %53 to <2 x float>
+  %55 = extractelement <2 x float> %54, i64 1
+  %56 = extractelement <2 x float> %50, i64 1
+  %57 = fcmp oeq float %56, %55
+  %58 = insertelement <2 x i64> poison, i64 %43, i64 0
+  %59 = insertelement <2 x i64> %58, i64 %31, i64 1
+  %60 = trunc <2 x i64> %59 to <2 x i32>
+  %61 = lshr <2 x i64> %52, <i64 32, i64 32>
+  %62 = trunc nuw <2 x i64> %61 to <2 x i32>
+  %63 = insertelement <2 x i64> poison, i64 %40, i64 0
+  %64 = insertelement <2 x i64> %63, i64 %27, i64 1
+  %65 = lshr <2 x i64> %64, <i64 32, i64 32>
   %66 = trunc nuw <2 x i64> %65 to <2 x i32>
-  %67 = insertelement <2 x i64> poison, i64 %40, i64 0
-  %68 = insertelement <2 x i64> %67, i64 %27, i64 1
-  %69 = lshr <2 x i64> %68, <i64 32, i64 32>
-  %70 = trunc nuw <2 x i64> %69 to <2 x i32>
-  %71 = insertelement <2 x i64> poison, i64 %43, i64 0
-  %72 = insertelement <2 x i64> %71, i64 %31, i64 1
-  %73 = lshr <2 x i64> %72, <i64 32, i64 32>
-  %74 = trunc nuw <2 x i64> %73 to <2 x i32>
-  %75 = bitcast <2 x i32> %66 to <2 x float>
-  %76 = trunc i64 %40 to i32
-  %77 = insertelement <2 x i32> poison, i32 %76, i64 0
-  %78 = trunc i64 %27 to i32
-  %79 = insertelement <2 x i32> %77, i32 %78, i64 1
-  %80 = bitcast <2 x i32> %79 to <2 x float>
-  %81 = bitcast <2 x i32> %70 to <2 x float>
-  %82 = bitcast <2 x i32> %64 to <2 x float>
-  %83 = bitcast <2 x i32> %74 to <2 x float>
-  %84 = bitcast i32 %78 to float
-  %85 = fcmp oeq float %58, %84
-  %or.cond154 = select i1 %60, i1 true, i1 %85
-  br i1 %or.cond154, label %144, label %86
+  %67 = lshr <2 x i64> %59, <i64 32, i64 32>
+  %68 = trunc nuw <2 x i64> %67 to <2 x i32>
+  %69 = bitcast <2 x i32> %62 to <2 x float>
+  %70 = trunc <2 x i64> %64 to <2 x i32>
+  %71 = bitcast <2 x i32> %70 to <2 x float>
+  %72 = bitcast <2 x i32> %66 to <2 x float>
+  %73 = bitcast <2 x i32> %60 to <2 x float>
+  %74 = bitcast <2 x i32> %68 to <2 x float>
+  %75 = extractelement <2 x float> %71, i64 1
+  %76 = fcmp oeq float %55, %75
+  %or.cond154 = select i1 %57, i1 true, i1 %76
+  br i1 %or.cond154, label %135, label %77
 
-86:                                               ; preds = %1
-  %87 = bitcast i32 %63 to float
-  %88 = fcmp oeq float %84, %87
-  %89 = fcmp oeq float %59, %84
-  %or.cond = or i1 %89, %88
-  %90 = fcmp oeq float %58, %87
-  %or.cond149 = or i1 %90, %or.cond
-  %91 = fcmp oeq float %59, %87
-  %or.cond150 = or i1 %91, %or.cond149
-  %92 = extractelement <2 x float> %75, i64 1
-  %93 = extractelement <2 x float> %48, i64 1
-  %94 = fcmp oeq float %93, %92
-  %or.cond155 = select i1 %or.cond150, i1 true, i1 %94
-  %95 = extractelement <2 x float> %81, i64 1
-  %96 = fcmp oeq float %92, %95
-  %or.cond156 = select i1 %or.cond155, i1 true, i1 %96
-  br i1 %or.cond156, label %144, label %97
+77:                                               ; preds = %1
+  %78 = extractelement <2 x float> %73, i64 1
+  %79 = fcmp oeq float %75, %78
+  %80 = fcmp oeq float %56, %75
+  %or.cond = or i1 %80, %79
+  %81 = fcmp oeq float %55, %78
+  %or.cond149 = or i1 %81, %or.cond
+  %82 = fcmp oeq float %56, %78
+  %or.cond150 = or i1 %82, %or.cond149
+  %83 = extractelement <2 x float> %69, i64 1
+  %84 = extractelement <2 x float> %48, i64 1
+  %85 = fcmp oeq float %84, %83
+  %or.cond155 = select i1 %or.cond150, i1 true, i1 %85
+  %86 = extractelement <2 x float> %72, i64 1
+  %87 = fcmp oeq float %83, %86
+  %or.cond156 = select i1 %or.cond155, i1 true, i1 %87
+  br i1 %or.cond156, label %135, label %88
 
-97:                                               ; preds = %86
-  %98 = extractelement <2 x float> %83, i64 1
-  %99 = fcmp oeq float %95, %98
-  %100 = fcmp oeq float %93, %95
-  %or.cond151 = or i1 %100, %99
-  %101 = fcmp oeq float %92, %98
-  %or.cond152 = or i1 %101, %or.cond151
-  %102 = fcmp oeq float %93, %98
-  %or.cond153 = or i1 %102, %or.cond152
-  br i1 %or.cond153, label %144, label %103
+88:                                               ; preds = %77
+  %89 = extractelement <2 x float> %74, i64 1
+  %90 = fcmp oeq float %86, %89
+  %91 = fcmp oeq float %84, %86
+  %or.cond151 = or i1 %91, %90
+  %92 = fcmp oeq float %83, %89
+  %or.cond152 = or i1 %92, %or.cond151
+  %93 = fcmp oeq float %84, %89
+  %or.cond153 = or i1 %93, %or.cond152
+  br i1 %or.cond153, label %135, label %94
 
-103:                                              ; preds = %97
-  %104 = fsub <2 x float> %57, %53
-  %105 = fsub <2 x float> %48, %75
-  %106 = fneg <2 x float> %48
-  %107 = fmul <2 x float> %57, %106
-  %108 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %53, <2 x float> %75, <2 x float> %107)
-  %109 = fmul <2 x float> %104, %81
-  %110 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %105, <2 x float> %80, <2 x float> %109)
-  %111 = fadd <2 x float> %108, %110
-  %112 = fptosi <2 x float> %111 to <2 x i32>
-  %shift = shufflevector <2 x i32> %112, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %113 = xor <2 x i32> %shift, %112
-  %114 = extractelement <2 x i32> %113, i64 0
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %144, label %116
+94:                                               ; preds = %88
+  %95 = fsub <2 x float> %54, %50
+  %96 = fsub <2 x float> %48, %69
+  %97 = fneg <2 x float> %48
+  %98 = fmul <2 x float> %54, %97
+  %99 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %50, <2 x float> %69, <2 x float> %98)
+  %100 = fmul <2 x float> %95, %72
+  %101 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %96, <2 x float> %71, <2 x float> %100)
+  %102 = fadd <2 x float> %99, %101
+  %103 = fptosi <2 x float> %102 to <2 x i32>
+  %shift = shufflevector <2 x i32> %103, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %104 = xor <2 x i32> %shift, %103
+  %105 = extractelement <2 x i32> %104, i64 0
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %135, label %107
 
-116:                                              ; preds = %103
-  %117 = fmul <2 x float> %104, %83
-  %118 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %105, <2 x float> %82, <2 x float> %117)
-  %119 = fadd <2 x float> %108, %118
-  %120 = fptosi <2 x float> %119 to <2 x i32>
-  %shift157 = shufflevector <2 x i32> %120, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %121 = xor <2 x i32> %shift157, %120
-  %122 = extractelement <2 x i32> %121, i64 0
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %144, label %124
+107:                                              ; preds = %94
+  %108 = fmul <2 x float> %95, %74
+  %109 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %96, <2 x float> %73, <2 x float> %108)
+  %110 = fadd <2 x float> %99, %109
+  %111 = fptosi <2 x float> %110 to <2 x i32>
+  %shift157 = shufflevector <2 x i32> %111, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %112 = xor <2 x i32> %shift157, %111
+  %113 = extractelement <2 x i32> %112, i64 0
+  %114 = icmp slt i32 %113, 0
+  br i1 %114, label %135, label %115
 
-124:                                              ; preds = %116
-  %125 = fsub <2 x float> %81, %83
-  %126 = fsub <2 x float> %82, %80
-  %127 = fneg <2 x float> %81
-  %128 = fmul <2 x float> %82, %127
-  %129 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %80, <2 x float> %83, <2 x float> %128)
-  %130 = fmul <2 x float> %126, %48
-  %131 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %125, <2 x float> %53, <2 x float> %130)
-  %132 = fadd <2 x float> %129, %131
-  %133 = fptosi <2 x float> %132 to <2 x i32>
-  %shift158 = shufflevector <2 x i32> %133, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %134 = xor <2 x i32> %shift158, %133
-  %135 = extractelement <2 x i32> %134, i64 0
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %144, label %137
+115:                                              ; preds = %107
+  %116 = fsub <2 x float> %72, %74
+  %117 = fsub <2 x float> %73, %71
+  %118 = fneg <2 x float> %72
+  %119 = fmul <2 x float> %73, %118
+  %120 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %71, <2 x float> %74, <2 x float> %119)
+  %121 = fmul <2 x float> %117, %48
+  %122 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %116, <2 x float> %50, <2 x float> %121)
+  %123 = fadd <2 x float> %120, %122
+  %124 = fptosi <2 x float> %123 to <2 x i32>
+  %shift158 = shufflevector <2 x i32> %124, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %125 = xor <2 x i32> %shift158, %124
+  %126 = extractelement <2 x i32> %125, i64 0
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %135, label %128
 
-137:                                              ; preds = %124
-  %138 = fmul <2 x float> %126, %75
-  %139 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %125, <2 x float> %57, <2 x float> %138)
-  %140 = fadd <2 x float> %129, %139
-  %141 = fptosi <2 x float> %140 to <2 x i32>
-  %shift159 = shufflevector <2 x i32> %141, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %142 = xor <2 x i32> %shift159, %141
-  %143 = extractelement <2 x i32> %142, i64 0
-  %.lobit = lshr i32 %143, 31
-  br label %144
+128:                                              ; preds = %115
+  %129 = fmul <2 x float> %117, %69
+  %130 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %116, <2 x float> %54, <2 x float> %129)
+  %131 = fadd <2 x float> %120, %130
+  %132 = fptosi <2 x float> %131 to <2 x i32>
+  %shift159 = shufflevector <2 x i32> %132, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %133 = xor <2 x i32> %shift159, %132
+  %134 = extractelement <2 x i32> %133, i64 0
+  %.lobit = lshr i32 %134, 31
+  br label %135
 
-144:                                              ; preds = %137, %124, %116, %103, %1, %86, %97
-  %.0 = phi i32 [ 1, %97 ], [ 1, %86 ], [ 1, %1 ], [ 1, %103 ], [ 1, %116 ], [ 1, %124 ], [ %.lobit, %137 ]
+135:                                              ; preds = %128, %115, %107, %94, %1, %77, %88
+  %.0 = phi i32 [ 1, %88 ], [ 1, %77 ], [ 1, %1 ], [ 1, %94 ], [ 1, %107 ], [ 1, %115 ], [ %.lobit, %128 ]
   ret i32 %.0
 }
 
