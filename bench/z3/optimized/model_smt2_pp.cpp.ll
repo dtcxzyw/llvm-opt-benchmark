@@ -424,10 +424,10 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont23, %whi
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i27
-  br i1 %cmp.not.i.i.i, label %invoke.cont26, label %land.rhs.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %for.end, label %land.rhs.i.i.i, !llvm.loop !9
 
-invoke.cont26:                                    ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %invoke.cont23
-  %retval.sroa.0.1.i = phi ptr [ %36, %invoke.cont23 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+invoke.cont26:                                    ; preds = %land.rhs.i.i.i, %invoke.cont23
+  %retval.sroa.0.1.i = phi ptr [ %36, %invoke.cont23 ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i33.not237 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i27
   br i1 %cmp.i33.not237, label %for.end, label %for.body31
 
@@ -1008,9 +1008,9 @@ for.end.loopexit:                                 ; preds = %_ZN14core_hashtable
   %.pre274 = load ptr, ptr %deps, align 8
   br label %for.end
 
-for.end:                                          ; preds = %for.end.loopexit, %invoke.cont26
-  %91 = phi ptr [ %36, %invoke.cont26 ], [ %.pre274, %for.end.loopexit ]
-  %all_visited.0.lcssa = phi i1 [ true, %invoke.cont26 ], [ %all_visited.1, %for.end.loopexit ]
+for.end:                                          ; preds = %while.body.i.i.i, %for.end.loopexit, %invoke.cont26
+  %91 = phi ptr [ %36, %invoke.cont26 ], [ %.pre274, %for.end.loopexit ], [ %36, %while.body.i.i.i ]
+  %all_visited.0.lcssa = phi i1 [ true, %invoke.cont26 ], [ %all_visited.1, %for.end.loopexit ], [ true, %while.body.i.i.i ]
   %cmp.i.i.i.i124 = icmp eq ptr %91, null
   br i1 %cmp.i.i.i.i124, label %_ZN13obj_hashtableI9func_declED2Ev.exit, label %for.cond.preheader.i.i.i.i
 

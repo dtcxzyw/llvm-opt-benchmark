@@ -920,7 +920,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
@@ -1130,7 +1130,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -1365,7 +1365,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
@@ -1575,7 +1575,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -1738,7 +1738,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
@@ -1948,7 +1948,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -2172,7 +2172,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
@@ -2382,7 +2382,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90
@@ -2573,7 +2573,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %buf.coerce0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %buf.coerce1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i
@@ -2783,7 +2783,7 @@ while.body.i.i.i38:                               ; preds = %if.end65, %while.bo
 
 while.end.i.i.i50:                                ; preds = %while.body.i.i.i38, %if.end65
   %h.0.lcssa.i.i.i51 = phi i64 [ %mul.i.i.i, %if.end65 ], [ %mul7.i.i.i48, %while.body.i.i.i38 ]
-  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr2.i.i.i42, %while.body.i.i.i38 ]
+  %key.addr.0.lcssa.i.i.i52 = phi ptr [ %retval.0.i.i.i, %if.end65 ], [ %add.ptr.i.i.i36, %while.body.i.i.i38 ]
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i96
     i64 6, label %sw.bb9.i.i.i90

@@ -788,7 +788,7 @@ COVER_sum.exit120:                                ; preds = %.lr.ph.i114, %COVER
   br i1 %.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %191
-  %.0.lcssa.i.i.i = phi ptr [ %.02935.i.i, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %178, %191 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
   %201 = load i64, ptr %.0.lcssa.i.i.i, align 8
   %202 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   br label %203

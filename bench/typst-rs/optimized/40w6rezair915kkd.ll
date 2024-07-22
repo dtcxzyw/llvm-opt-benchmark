@@ -904,7 +904,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Grapheme
   br i1 %.not39.i, label %.thread66.i, label %.sink.split
 
 .thread66.i:                                      ; preds = %129, %96
-  %.sroa.0.26569.i = phi ptr [ %131, %129 ], [ %.sroa.0.1.i, %96 ]
+  %.sroa.0.26569.i = phi ptr [ %131, %129 ], [ %31, %96 ]
   %140 = load i64, ptr %4, align 8, !alias.scope !70, !noalias !75, !noundef !4
   %141 = load i64, ptr %14, align 8, !alias.scope !70, !noalias !75, !noundef !4
   %142 = icmp eq i64 %140, %141
@@ -88684,7 +88684,7 @@ define void @_ZN5typst11foundations7version7Version9component17h95255298b18464ac
 
 ..loopexit_crit_edge.i:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h6acd5fb5268a2169E.exit.thread.i"
   store i64 %19, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !22751, !noalias !22758
-  store ptr %18, ptr %6, align 8, !alias.scope !22771, !noalias !22758
+  store ptr %10, ptr %6, align 8, !alias.scope !22771, !noalias !22758
   br label %27
 
 ..loopexit_crit_edge12.i:                         ; preds = %.lr.ph.i
@@ -93236,8 +93236,8 @@ define void @_ZN5typst5model10numbering_16NumberingPattern5apply17h71884fa3d88e9
   br label %30
 
 30:                                               ; preds = %27, %24, %21
-  %31 = phi ptr [ %22, %21 ], [ %22, %24 ], [ %28, %27 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %21 ], [ %25, %24 ], [ %25, %27 ]
+  %31 = phi ptr [ %22, %21 ], [ %8, %24 ], [ %28, %27 ]
+  %.sroa.0.1 = phi ptr [ %12, %21 ], [ %25, %24 ], [ %25, %27 ]
   %.sroa.10.1 = phi i64 [ %.sroa.10.0, %21 ], [ %.sroa.10.0, %24 ], [ %29, %27 ]
   %.sroa.047.1 = phi i64 [ %.sroa.047.0, %21 ], [ %.sroa.047.0, %24 ], [ %.sroa.10.0, %27 ]
   %.sink9.i.sroa.phi = phi ptr [ %.sroa.548, %21 ], [ %.sroa.548, %24 ], [ %.sroa.949, %27 ]

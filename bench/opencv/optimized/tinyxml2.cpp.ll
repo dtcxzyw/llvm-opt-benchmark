@@ -441,12 +441,12 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN2cv8tinyxml27StrPair9ParseNameEPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %28, label %3
+  br i1 %.not, label %.critedge.thread, label %3
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %1, align 1
   %.not19 = icmp eq i8 %4, 0
-  br i1 %.not19, label %28, label %.preheader
+  br i1 %.not19, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %3, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread
   %.01625 = phi ptr [ %16, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %1, %3 ]
@@ -466,7 +466,7 @@ _ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit:  ; preds = %8
   br i1 %.not24, label %switch.early.test, label %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread
 
 switch.early.test:                                ; preds = %_ZN2cv8tinyxml27XMLUtil15IsNameStartCharEh.exit
-  switch i8 %5, label %.critedge [
+  switch i8 %5, label %.critedge.thread [
     i8 95, label %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread
     i8 58, label %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread
   ]
@@ -501,10 +501,10 @@ _ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread: ; preds = %switch.early.test,
   %.not20 = icmp eq i8 %.pr, 0
   br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !6
 
-.critedge:                                        ; preds = %switch.early.test, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit
-  %.016.lcssa = phi ptr [ %.01625, %switch.early.test ], [ %16, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %.01625, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit ]
+.critedge:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit
+  %.016.lcssa = phi ptr [ %16, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit.thread ], [ %.01625, %_ZN2cv8tinyxml27XMLUtil10IsNameCharEh.exit ]
   %17 = icmp ugt ptr %.016.lcssa, %1
-  br i1 %17, label %18, label %28
+  br i1 %17, label %18, label %.critedge.thread
 
 18:                                               ; preds = %.critedge
   %19 = load i32, ptr %0, align 8
@@ -528,10 +528,10 @@ _ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit:          ; preds = %18, %21, %25
   %27 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.016.lcssa, ptr %27, align 8
   store i32 256, ptr %0, align 8
-  br label %28
+  br label %.critedge.thread
 
-28:                                               ; preds = %.critedge, %2, %3, %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit
-  %.0 = phi ptr [ %.016.lcssa, %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit ], [ null, %3 ], [ null, %2 ], [ null, %.critedge ]
+.critedge.thread:                                 ; preds = %switch.early.test, %.critedge, %2, %3, %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit
+  %.0 = phi ptr [ %.016.lcssa, %_ZN2cv8tinyxml27StrPair3SetEPcS2_i.exit ], [ null, %3 ], [ null, %2 ], [ null, %.critedge ], [ null, %switch.early.test ]
   ret ptr %.0
 }
 

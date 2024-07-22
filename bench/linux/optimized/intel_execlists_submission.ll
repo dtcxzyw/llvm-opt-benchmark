@@ -1258,7 +1258,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   br i1 %513, label %526, label %.thread67
 
 .thread67:                                        ; preds = %478, %474, %468, %466, %._crit_edge129
-  %514 = phi ptr [ %.lcssa90, %._crit_edge129 ], [ %436, %466 ], [ %436, %468 ], [ %436, %474 ], [ %436, %478 ]
+  %514 = phi ptr [ %.lcssa90, %._crit_edge129 ], [ %436, %478 ], [ %436, %474 ], [ %436, %468 ], [ %58, %466 ]
   %515 = phi ptr [ %.lcssa92, %._crit_edge129 ], [ %437, %466 ], [ %437, %468 ], [ %437, %474 ], [ %437, %478 ]
   %516 = phi i8 [ %.lcssa94, %._crit_edge129 ], [ %439, %466 ], [ %439, %468 ], [ %439, %474 ], [ %439, %478 ]
   %517 = getelementptr inbounds i8, ptr %515, i64 56

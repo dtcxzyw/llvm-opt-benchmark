@@ -13,7 +13,7 @@ define noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr nocapture nou
   %.010 = phi ptr [ %1, %3 ], [ %8, %7 ]
   %.0 = phi ptr [ %0, %3 ], [ %10, %7 ]
   %.not = icmp eq ptr %.0, %5
-  br i1 %.not, label %.critedge, label %7
+  br i1 %.not, label %._crit_edge, label %7
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds i8, ptr %.010, i64 1
@@ -23,19 +23,18 @@ define noundef ptr @strncpy(ptr noundef returned writeonly %0, ptr nocapture nou
   %.not11 = icmp eq i8 %9, 0
   br i1 %.not11, label %.critedge, label %6, !llvm.loop !6
 
-.critedge:                                        ; preds = %6, %7
-  %.1 = phi ptr [ %10, %7 ], [ %.0, %6 ]
-  %.not1213 = icmp eq ptr %.1, %5
+.critedge:                                        ; preds = %7
+  %.not1213 = icmp eq ptr %10, %5
   br i1 %.not1213, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge
-  %.115 = ptrtoint ptr %.1 to i64
+  %.115 = ptrtoint ptr %10 to i64
   %11 = add i64 %4, %2
   %12 = sub i64 %11, %.115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.1, i8 0, i64 %12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %12, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %.critedge
+._crit_edge:                                      ; preds = %6, %.lr.ph.preheader, %.critedge
   ret ptr %0
 }
 

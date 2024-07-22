@@ -739,7 +739,7 @@ cond.true.i:                                      ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i, %if.then8
-  %__first.sroa.0.0.lcssa.i.i17.i = phi ptr [ %__first.sroa.0.1.i.i.i, %cond.true.i ], [ %__first.sroa.0.1.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %17, %if.then8 ]
+  %__first.sroa.0.0.lcssa.i.i17.i = phi ptr [ %__first.sroa.0.1.i.i.i, %cond.true.i ], [ %17, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %17, %if.then8 ]
   %cond.i = phi ptr [ %add.ptr17.i, %cond.true.i ], [ %16, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhET_S7_S7_RKT0_.exit.i ], [ %16, %if.then8 ]
   %cmp.i10.not.i = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i, %18
   br i1 %cmp.i10.not.i, label %cond.false28.i, label %cond.true22.i
@@ -816,7 +816,7 @@ cond.true.i64:                                    ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i32
 
 cond.end.i32:                                     ; preds = %cond.true.i64, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i, %if.then12
-  %__first.sroa.0.0.lcssa.i.i17.i33 = phi ptr [ %__first.sroa.0.1.i.i.i60, %cond.true.i64 ], [ %__first.sroa.0.1.i.i.i60, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %26, %if.then12 ]
+  %__first.sroa.0.0.lcssa.i.i17.i33 = phi ptr [ %__first.sroa.0.1.i.i.i60, %cond.true.i64 ], [ %26, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %26, %if.then12 ]
   %cond.i34 = phi ptr [ %add.ptr17.i68, %cond.true.i64 ], [ %25, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtET_S7_S7_RKT0_.exit.i ], [ %25, %if.then12 ]
   %cmp.i10.not.i35 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i33, %27
   br i1 %cmp.i10.not.i35, label %cond.false28.i49, label %cond.true22.i36
@@ -894,7 +894,7 @@ cond.true.i106:                                   ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i81
 
 cond.end.i81:                                     ; preds = %cond.true.i106, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i, %if.then17
-  %__first.sroa.0.0.lcssa.i.i17.i82 = phi ptr [ %__first.sroa.0.1.i.i.i102, %cond.true.i106 ], [ %__first.sroa.0.1.i.i.i102, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %35, %if.then17 ]
+  %__first.sroa.0.0.lcssa.i.i17.i82 = phi ptr [ %__first.sroa.0.1.i.i.i102, %cond.true.i106 ], [ %35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %35, %if.then17 ]
   %cond.i83 = phi ptr [ %add.ptr16.i, %cond.true.i106 ], [ %34, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit.i ], [ %34, %if.then17 ]
   %cmp.i10.not.i84 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i82, %36
   br i1 %cmp.i10.not.i84, label %cond.false26.i, label %cond.true21.i
@@ -965,7 +965,7 @@ cond.true.i149:                                   ; preds = %_ZSt11lower_boundIN
   br label %cond.end.i121
 
 cond.end.i121:                                    ; preds = %cond.true.i149, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i, %if.else18
-  %__first.sroa.0.0.lcssa.i.i17.i122 = phi ptr [ %__first.sroa.0.1.i.i.i145, %cond.true.i149 ], [ %__first.sroa.0.1.i.i.i145, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %44, %if.else18 ]
+  %__first.sroa.0.0.lcssa.i.i17.i122 = phi ptr [ %__first.sroa.0.1.i.i.i145, %cond.true.i149 ], [ %44, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %44, %if.else18 ]
   %cond.i123 = phi ptr [ %add.ptr16.i152, %cond.true.i149 ], [ %43, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmET_S7_S7_RKT0_.exit.i ], [ %43, %if.else18 ]
   %cmp.i10.not.i124 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i17.i122, %45
   br i1 %cmp.i10.not.i124, label %cond.false25.i, label %cond.true21.i125

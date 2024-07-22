@@ -339,7 +339,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   br label %146
 
 .thread76.i:                                      ; preds = %129, %96
-  %.sroa.0.27579.i = phi ptr [ %131, %129 ], [ %.sroa.0.1.i, %96 ]
+  %.sroa.0.27579.i = phi ptr [ %131, %129 ], [ %31, %96 ]
   %141 = load i64, ptr %4, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %142 = load i64, ptr %14, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %143 = icmp eq i64 %141, %142

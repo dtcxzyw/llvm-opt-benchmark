@@ -1867,7 +1867,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit51.thread: ; pre
 .thread185:                                       ; preds = %.thread183
   store i64 0, ptr %111, align 8
   %131 = getelementptr inbounds i8, ptr %111, i64 8
-  store ptr %.1173201, ptr %131, align 8
+  store ptr %2, ptr %131, align 8
   %132 = getelementptr inbounds i8, ptr %111, i64 16
   store ptr %132, ptr %9, align 8
   br label %.thread179

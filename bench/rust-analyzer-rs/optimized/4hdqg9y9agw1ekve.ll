@@ -27990,7 +27990,8 @@ _ZN11ide_assists8handlers35convert_tuple_return_type_to_struct31augment_referenc
   unreachable
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h5314870aa5abaaa4E.llvm.14339125420948612040.exit.loopexit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdad0682ccbd24d67E.llvm.14339125420948612040.exit.i", %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hfb819c669abd0fc4E.llvm.14339125420948612040.exit.i"
-  store ptr %48, ptr %22, align 8, !alias.scope !7746, !noalias !7749
+  %.lcssa = phi ptr [ %.sroa.4.0.copyload.i, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hdad0682ccbd24d67E.llvm.14339125420948612040.exit.i" ], [ %48, %"_ZN118_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hfb819c669abd0fc4E.llvm.14339125420948612040.exit.i" ]
+  store ptr %.lcssa, ptr %22, align 8, !alias.scope !7746, !noalias !7749
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h5314870aa5abaaa4E.llvm.14339125420948612040.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h5314870aa5abaaa4E.llvm.14339125420948612040.exit: ; preds = %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h5314870aa5abaaa4E.llvm.14339125420948612040.exit.loopexit, %_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct31augment_references_with_imports17hf0076f968cb18302E.llvm.14339125420948612040.exit

@@ -45972,7 +45972,7 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %85, label %._crit_edge.i.loopexit, label %81
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hfb2e0f0d157e82c1E.exit.i"
-  store ptr %83, ptr %45, align 8, !alias.scope !8342, !noalias !8340
+  store ptr %76, ptr %45, align 8, !alias.scope !8342, !noalias !8340
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %75
@@ -46084,7 +46084,7 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %112, label %._crit_edge.i28.loopexit, label %108
 
 ._crit_edge.i28.loopexit:                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6bb782a7e58a2272E.exit.i"
-  store ptr %110, ptr %101, align 8, !alias.scope !8365, !noalias !8363
+  store ptr %99, ptr %101, align 8, !alias.scope !8365, !noalias !8363
   br label %._crit_edge.i28
 
 ._crit_edge.i28:                                  ; preds = %._crit_edge.i28.loopexit, %98
@@ -46224,8 +46224,7 @@ default.unreachable1.i:                           ; preds = %59
   br i1 %145, label %._crit_edge.i40.loopexit, label %"_ZN6ide_db7helpers15visit_file_defs28_$u7b$$u7b$closure$u7d$$u7d$17hd70a4ba831674b9fE.exit.thread.i.i"
 
 ._crit_edge.i40.loopexit:                         ; preds = %.noexc6.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b52053931ab761E.exit.i.us"
-  %.us-phi84 = phi ptr [ %131, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b52053931ab761E.exit.i.us" ], [ %143, %.noexc6.i ]
-  store ptr %.us-phi84, ptr %126, align 8, !alias.scope !8393, !noalias !8394
+  store ptr %124, ptr %126, align 8, !alias.scope !8393, !noalias !8394
   br label %._crit_edge.i40
 
 ._crit_edge.i40:                                  ; preds = %._crit_edge.i40.loopexit, %123

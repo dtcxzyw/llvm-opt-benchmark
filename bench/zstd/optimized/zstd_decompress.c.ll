@@ -5184,7 +5184,7 @@ while.end.sink.split:                             ; preds = %ZSTD_nextSrcSizeToD
 
 while.end:                                        ; preds = %ZSTD_limitCopy.exit400, %if.end597, %if.end538, %while.end.sink.split
   %op.5.ph = phi ptr [ %op.5.ph.ph, %while.end.sink.split ], [ %cond636, %ZSTD_limitCopy.exit400 ], [ %op.0485, %if.end597 ], [ %op.0485, %if.end538 ]
-  %ip.2.ph = phi ptr [ %ip.2.ph.ph, %while.end.sink.split ], [ %ip.0488.ph, %ZSTD_limitCopy.exit400 ], [ %ip.0488.ph, %if.end538 ], [ %ip.1, %if.end597 ]
+  %ip.2.ph = phi ptr [ %ip.2.ph.ph, %while.end.sink.split ], [ %ip.0488.ph, %ZSTD_limitCopy.exit400 ], [ %add.ptr6, %if.end538 ], [ %ip.1, %if.end597 ]
   %88 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast675 = ptrtoint ptr %ip.2.ph to i64
   %sub.ptr.rhs.cast676 = ptrtoint ptr %88 to i64

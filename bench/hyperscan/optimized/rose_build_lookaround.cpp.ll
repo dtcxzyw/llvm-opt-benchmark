@@ -772,8 +772,8 @@ if.then.i.i.i.i.i340:                             ; preds = %_ZN5boost9container
   br label %.noexc.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.thread.i
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %63, align 8, !noalias !62
-  %ref.tmp.i.i.i.i.sroa.9.0..sroa_idx351 = getelementptr inbounds i8, ptr %63, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %add.ptr.i.i, align 8, !noalias !62
+  %ref.tmp.i.i.i.i.sroa.9.0..sroa_idx351 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 %55, ptr %ref.tmp.i.i.i.i.sroa.9.0..sroa_idx351, align 8, !noalias !62
   %68 = load i64, ptr %m_size.i.i.i.i.i.i.i.i71, align 8, !noalias !62
   %add.i.i.i = add i64 %68, 1
@@ -8491,8 +8491,8 @@ if.then.i.i.i.i.i36:                              ; preds = %_ZN5boost9container
   br label %.noexc
 
 if.then4.i.i.i:                                   ; preds = %if.then.thread.i
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %57, align 8, !noalias !289
-  %ref.tmp.i.i.sroa.9.0..sroa_idx46 = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i, ptr %add.ptr.i.i, align 8, !noalias !289
+  %ref.tmp.i.i.sroa.9.0..sroa_idx46 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 %49, ptr %ref.tmp.i.i.sroa.9.0..sroa_idx46, align 8, !noalias !289
   %62 = load i64, ptr %m_size.i.i.i.i.i.i.i.i13, align 8, !noalias !289
   %add.i.i.i = add i64 %62, 1
@@ -8951,7 +8951,7 @@ lor.rhs.i144:                                     ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i145, label %if.then.i149.thread, label %invoke.cont50
 
 if.then.i149:                                     ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPtLb0EEEtSt4lessItEET_S7_S7_RKT0_T1_.exit.i142
-  store ptr %25, ptr %agg.tmp14.i138, align 8, !noalias !308
+  store ptr %add.ptr.i.i140, ptr %agg.tmp14.i138, align 8, !noalias !308
   %27 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i128, align 8, !noalias !309
   %cmp.not.i17 = icmp eq i64 %27, %20
   br i1 %cmp.not.i17, label %if.then.i55, label %if.then4.i.i53
@@ -8967,7 +8967,7 @@ if.then.i55:                                      ; preds = %if.then.i149.thread
           to label %invoke.cont50 unwind label %lpad49
 
 if.then4.i.i53:                                   ; preds = %if.then.i149
-  store i16 %17, ptr %25, align 2, !noalias !309
+  store i16 %17, ptr %add.ptr.i.i140, align 2, !noalias !309
   %29 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i127, align 8, !noalias !309
   %add.i.i54 = add i64 %29, 1
   store i64 %add.i.i54, ptr %m_size.i.i.i.i.i.i.i.i.i127, align 8, !noalias !309

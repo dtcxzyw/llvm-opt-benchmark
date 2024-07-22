@@ -1970,7 +1970,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i.i.i.i.i, label %if.then.i.i.i.i104.thread.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i.i.i.i
 
 if.then.i.i.i.i104.i:                             ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i
-  store ptr %197, ptr %agg.tmp14.i.i.i.i.i, align 8, !noalias !74
+  store ptr %add.ptr.i.i.i4.i.i.i, ptr %agg.tmp14.i.i.i.i.i, align 8, !noalias !74
   %200 = load i64, ptr %m_capacity.i.i.i, align 8, !noalias !75
   %cmp.not.i32.i = icmp eq i64 %200, %191
   br i1 %cmp.not.i32.i, label %if.then.i42.i, label %if.then4.i.i.i
@@ -1987,7 +1987,7 @@ if.then.i42.i:                                    ; preds = %if.then.i.i.i.i104.
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i.i104.i
   %202 = load i32, ptr %agg.tmp.sroa.0.0.i.i.i, align 4, !noalias !75
-  store i32 %202, ptr %197, align 4, !noalias !75
+  store i32 %202, ptr %add.ptr.i.i.i4.i.i.i, align 4, !noalias !75
   %203 = load i64, ptr %m_size.i.i.i3.i.i.i, align 8, !noalias !75
   %add.i.i.i60 = add i64 %203, 1
   store i64 %add.i.i.i60, ptr %m_size.i.i.i3.i.i.i, align 8, !noalias !75
@@ -4827,7 +4827,7 @@ if.then.i.i.i.i.i376.i:                           ; preds = %_ZN5boost9container
 
 if.then4.i.i.i227:                                ; preds = %if.then.i.i.i.i.i226
   %542 = load i32, ptr %agg.tmp.sroa.0.0.i.i.i168, align 4, !noalias !173
-  store i32 %542, ptr %530, align 4, !noalias !173
+  store i32 %542, ptr %add.ptr.i.i.i4.i.i.i169, align 4, !noalias !173
   %543 = load i64, ptr %m_size.i.i.i3.i.i.i165, align 8, !noalias !173
   %add.i.i.i228 = add i64 %543, 1
   store i64 %add.i.i.i228, ptr %m_size.i.i.i3.i.i.i165, align 8, !noalias !173
@@ -11230,7 +11230,7 @@ if.then.i.i.i.i.i165:                             ; preds = %_ZN5boost9container
 
 if.then4.i.i:                                     ; preds = %if.then.i.i.i230.i
   %208 = load i32, ptr %agg.tmp.sroa.0.0.i.i, align 4, !noalias !397
-  store i32 %208, ptr %196, align 4, !noalias !397
+  store i32 %208, ptr %add.ptr.i.i.i4.i.i, align 4, !noalias !397
   %209 = load i64, ptr %m_size.i.i.i3.i.i, align 8, !noalias !397
   %add.i.i149 = add i64 %209, 1
   store i64 %add.i.i149, ptr %m_size.i.i.i3.i.i, align 8, !noalias !397
@@ -20498,7 +20498,7 @@ if.then.i.i.i.i.i100:                             ; preds = %_ZN5boost9container
   br label %invoke.cont29
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %2, ptr %9, align 4, !noalias !556
+  store i32 %2, ptr %add.ptr.i.i206, align 4, !noalias !556
   %18 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !556
   %add.i.i21 = add i64 %18, 1
   store i64 %add.i.i21, ptr %m_size.i.i.i.i.i.i.i.i.i, align 8, !noalias !556
@@ -20654,7 +20654,7 @@ lor.rhs.i.i.i.i.i:                                ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i.i.i.i.i, label %if.then.i.i.i.i.i.thread, label %_ZNSt15insert_iteratorIN3ue28flat_setIjSt4lessIjESaIjEEEEaSERKj.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i
-  store ptr %35, ptr %agg.tmp14.i.i.i.i.i, align 8, !noalias !583
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.tmp14.i.i.i.i.i, align 8, !noalias !583
   %37 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i216, align 8, !noalias !584
   %cmp.not.i26 = icmp eq i64 %37, %30
   br i1 %cmp.not.i26, label %if.then.i64, label %if.then4.i.i62
@@ -20671,7 +20671,7 @@ if.then.i64:                                      ; preds = %if.then.i.i.i.i.i.t
 
 if.then4.i.i62:                                   ; preds = %if.then.i.i.i.i.i
   %39 = load i32, ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.9.i, align 4, !noalias !584
-  store i32 %39, ptr %35, align 4, !noalias !584
+  store i32 %39, ptr %add.ptr.i.i.i.i.i.i, align 4, !noalias !584
   %40 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i215, align 8, !noalias !584
   %add.i.i63 = add i64 %40, 1
   store i64 %add.i.i63, ptr %m_size.i.i.i.i.i.i.i.i.i215, align 8, !noalias !584
@@ -23717,7 +23717,7 @@ lor.rhs.i24:                                      ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i23.i25, label %if.then.i29.thread, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit43
 
 if.then.i29:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i22
-  store ptr %28, ptr %agg.tmp14.i18, align 8, !noalias !655
+  store ptr %add.ptr.i.i20, ptr %agg.tmp14.i18, align 8, !noalias !655
   %m_capacity.i.i12 = getelementptr inbounds i8, ptr %call7.pn.i, i64 32
   %31 = load i64, ptr %m_capacity.i.i12, align 8, !noalias !663
   %cmp.not.i15 = icmp eq i64 %31, %22
@@ -23736,7 +23736,7 @@ if.then.i53:                                      ; preds = %if.then.i29.thread,
 
 if.then4.i.i51:                                   ; preds = %if.then.i29
   %33 = load i32, ptr %top, align 4, !noalias !663
-  store i32 %33, ptr %28, align 4, !noalias !663
+  store i32 %33, ptr %add.ptr.i.i20, align 4, !noalias !663
   %34 = load i64, ptr %m_size.i.i19, align 8, !noalias !663
   %add.i.i52 = add i64 %34, 1
   store i64 %add.i.i52, ptr %m_size.i.i19, align 8, !noalias !663
@@ -27103,7 +27103,7 @@ if.then.i11:                                      ; preds = %if.then.i.i.i.i.thr
 
 if.then4.i.i:                                     ; preds = %if.then.i.i.i.i
   %17 = load i32, ptr %agg.tmp.sroa.0.0.i.i, align 4, !noalias !765
-  store i32 %17, ptr %12, align 4, !noalias !765
+  store i32 %17, ptr %add.ptr.i.i.i4.i.i, align 4, !noalias !765
   %18 = load i64, ptr %m_size.i.i.i3.i.i, align 8, !noalias !765
   %add.i.i = add i64 %18, 1
   store i64 %add.i.i, ptr %m_size.i.i.i3.i.i, align 8, !noalias !765

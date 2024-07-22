@@ -37057,10 +37057,10 @@ land.rhs.i.i.i.i537:                              ; preds = %while.end, %while.b
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i537
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNK7obj_mapI4expr8rationalE5beginEv.exit, label %land.rhs.i.i.i.i537, !llvm.loop !176
+  br i1 %cmp.not.i.i.i.i, label %return, label %land.rhs.i.i.i.i537, !llvm.loop !176
 
-_ZNK7obj_mapI4expr8rationalE5beginEv.exit:        ; preds = %land.rhs.i.i.i.i537, %while.body.i.i.i.i, %while.end
-  %retval.sroa.0.1.i.i = phi ptr [ %216, %while.end ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i537 ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+_ZNK7obj_mapI4expr8rationalE5beginEv.exit:        ; preds = %land.rhs.i.i.i.i537, %while.end
+  %retval.sroa.0.1.i.i = phi ptr [ %216, %while.end ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i537 ]
   %cmp.i543.not735 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i543.not735, label %return, label %for.body142.lr.ph
 
@@ -37372,8 +37372,8 @@ return.loopexit:                                  ; preds = %_ZN14core_hashtable
   %retval.4.ph = xor i1 %switch28, true
   br label %return
 
-return:                                           ; preds = %_ZN8rationalD2Ev.exit536, %return.loopexit, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit
-  %retval.4 = phi i1 [ true, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit ], [ %retval.4.ph, %return.loopexit ], [ false, %_ZN8rationalD2Ev.exit536 ]
+return:                                           ; preds = %_ZN8rationalD2Ev.exit536, %while.body.i.i.i.i, %return.loopexit, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit
+  %retval.4 = phi i1 [ true, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit ], [ %retval.4.ph, %return.loopexit ], [ true, %while.body.i.i.i.i ], [ false, %_ZN8rationalD2Ev.exit536 ]
   ret i1 %retval.4
 
 eh.resume:                                        ; preds = %lpad144, %lpad152, %lpad, %ehcleanup134

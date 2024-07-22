@@ -498,16 +498,19 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 .thread:                                          ; preds = %.preheader15, %34
   %38 = icmp eq ptr %22, %31
-  br i1 %38, label %49, label %39
+  br i1 %38, label %50, label %39
 
 39:                                               ; preds = %.thread
   %40 = icmp eq ptr %22, %30
-  %.pre20 = load ptr, ptr %22, align 8, !tbaa !7
-  br i1 %40, label %.loopexit14, label %.preheader13
+  br i1 %40, label %.loopexit14, label %.preheader13.preheader
 
-.preheader13:                                     ; preds = %39, %.preheader13
-  %41 = phi ptr [ %44, %.preheader13 ], [ %.pre20, %39 ]
-  %42 = phi ptr [ %43, %.preheader13 ], [ %22, %39 ]
+.preheader13.preheader:                           ; preds = %39
+  %.pre = load ptr, ptr %22, align 8, !tbaa !7
+  br label %.preheader13
+
+.preheader13:                                     ; preds = %.preheader13.preheader, %.preheader13
+  %41 = phi ptr [ %44, %.preheader13 ], [ %.pre, %.preheader13.preheader ]
+  %42 = phi ptr [ %43, %.preheader13 ], [ %22, %.preheader13.preheader ]
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !7
   %45 = getelementptr inbounds i8, ptr %41, i64 56
@@ -516,231 +519,232 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   br i1 %46, label %.loopexit14, label %.preheader13, !llvm.loop !17
 
 .loopexit14:                                      ; preds = %.preheader13, %39
-  %47 = phi ptr [ %.pre20, %39 ], [ %44, %.preheader13 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 56
-  store ptr null, ptr %48, align 8, !tbaa !15
-  br label %49
+  %47 = phi ptr [ %22, %39 ], [ %30, %.preheader13 ]
+  %48 = load ptr, ptr %47, align 8, !tbaa !7
+  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  store ptr null, ptr %49, align 8, !tbaa !15
+  br label %50
 
-49:                                               ; preds = %.loopexit14, %.thread
+50:                                               ; preds = %.loopexit14, %.thread
   store ptr %22, ptr @__ctest_head_p, align 8, !tbaa !7
-  %50 = load ptr, ptr %22, align 8, !tbaa !7
-  store ptr %50, ptr @ctest_main.test, align 8, !tbaa !7
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit12.thread, label %.preheader11
+  %51 = load ptr, ptr %22, align 8, !tbaa !7
+  store ptr %51, ptr @ctest_main.test, align 8, !tbaa !7
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.loopexit12.thread, label %.preheader11
 
-.loopexit12.thread:                               ; preds = %49
+.loopexit12.thread:                               ; preds = %50
   store ptr null, ptr @ctest_main.test, align 8, !tbaa !7
   br label %.loopexit
 
-.preheader11:                                     ; preds = %49, %61
-  %52 = phi ptr [ %64, %61 ], [ %50, %49 ]
-  %53 = icmp eq ptr %52, @__ctest_suite_test
-  br i1 %53, label %61, label %54
+.preheader11:                                     ; preds = %50, %62
+  %53 = phi ptr [ %65, %62 ], [ %51, %50 ]
+  %54 = icmp eq ptr %53, @__ctest_suite_test
+  br i1 %54, label %62, label %55
 
-54:                                               ; preds = %.preheader11
-  %55 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
-  %56 = call i32 %55(ptr noundef nonnull %52) #14, !callees !18
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+55:                                               ; preds = %.preheader11
+  %56 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
+  %57 = call i32 %56(ptr noundef nonnull %53) #14, !callees !18
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %62, label %59
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr @ctest_main.total, align 4, !tbaa !3
-  br label %61
+59:                                               ; preds = %55
+  %60 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr @ctest_main.total, align 4, !tbaa !3
+  br label %62
 
-61:                                               ; preds = %58, %54, %.preheader11
-  %62 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !7
-  store ptr %64, ptr @ctest_main.test, align 8, !tbaa !7
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit12, label %.preheader11, !llvm.loop !19
+62:                                               ; preds = %59, %55, %.preheader11
+  %63 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %65 = load ptr, ptr %64, align 8, !tbaa !7
+  store ptr %65, ptr @ctest_main.test, align 8, !tbaa !7
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %.loopexit12, label %.preheader11, !llvm.loop !19
 
-.loopexit12:                                      ; preds = %61
-  %.pre21 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !7
-  %.pre22 = load ptr, ptr %.pre21, align 8, !tbaa !7
-  store ptr %.pre22, ptr @ctest_main.test, align 8, !tbaa !7
-  %66 = icmp eq ptr %.pre22, null
-  br i1 %66, label %.loopexit, label %.preheader
+.loopexit12:                                      ; preds = %62
+  %.pre20 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !7
+  %.pre21 = load ptr, ptr %.pre20, align 8, !tbaa !7
+  store ptr %.pre21, ptr @ctest_main.test, align 8, !tbaa !7
+  %67 = icmp eq ptr %.pre21, null
+  br i1 %67, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit12, %144
-  %67 = phi ptr [ %147, %144 ], [ %.pre22, %.loopexit12 ]
-  %68 = icmp eq ptr %67, @__ctest_suite_test
-  br i1 %68, label %144, label %69
+.preheader:                                       ; preds = %.loopexit12, %145
+  %68 = phi ptr [ %148, %145 ], [ %.pre21, %.loopexit12 ]
+  %69 = icmp eq ptr %68, @__ctest_suite_test
+  br i1 %69, label %145, label %70
 
-69:                                               ; preds = %.preheader
-  %70 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
-  %71 = call i32 %70(ptr noundef nonnull %67) #14, !callees !18
-  %72 = icmp eq i32 %71, 0
-  %.pre25 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br i1 %72, label %144, label %73
+70:                                               ; preds = %.preheader
+  %71 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !7
+  %72 = call i32 %71(ptr noundef nonnull %68) #14, !callees !18
+  %73 = icmp eq i32 %72, 0
+  %.pre24 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  br i1 %73, label %145, label %74
 
-73:                                               ; preds = %69
+74:                                               ; preds = %70
   store i8 0, ptr @ctest_errorbuffer, align 16, !tbaa !11
   store i64 4095, ptr @ctest_errorsize, align 8, !tbaa !9
   store ptr @ctest_errorbuffer, ptr @ctest_errormsg, align 8, !tbaa !7
-  %74 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
-  %75 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %76 = load ptr, ptr %.pre25, align 8, !tbaa !20
-  %77 = getelementptr inbounds i8, ptr %.pre25, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !21
-  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %74, i32 noundef %75, ptr noundef %76, ptr noundef %78)
-  %80 = load ptr, ptr @stdout, align 8, !tbaa !7
-  %81 = call i32 @fflush(ptr noundef %80)
-  %82 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
-  %84 = load i32, ptr %83, align 8, !tbaa !22
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %96, label %86
+  %75 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
+  %76 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %77 = load ptr, ptr %.pre24, align 8, !tbaa !20
+  %78 = getelementptr inbounds i8, ptr %.pre24, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !21
+  %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %75, i32 noundef %76, ptr noundef %77, ptr noundef %79)
+  %81 = load ptr, ptr @stdout, align 8, !tbaa !7
+  %82 = call i32 @fflush(ptr noundef %81)
+  %83 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %85 = load i32, ptr %84, align 8, !tbaa !22
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %97, label %87
 
-86:                                               ; preds = %73
-  %87 = load i32, ptr @color_output, align 4, !tbaa !3
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %91, label %89
+87:                                               ; preds = %74
+  %88 = load i32, ptr @color_output, align 4, !tbaa !3
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %92, label %90
 
-89:                                               ; preds = %86
-  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
-  br label %93
+90:                                               ; preds = %87
+  %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
+  br label %94
 
-91:                                               ; preds = %86
-  %92 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.22)
-  br label %93
+92:                                               ; preds = %87
+  %93 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.22)
+  br label %94
 
-93:                                               ; preds = %91, %89
-  %94 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  br label %141
+94:                                               ; preds = %92, %90
+  %95 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  br label %142
 
-96:                                               ; preds = %73
-  %97 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #17
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %126
+97:                                               ; preds = %74
+  %98 = call i32 @_setjmp(ptr noundef nonnull @ctest_err) #17
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %127
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %101 = getelementptr inbounds i8, ptr %100, i64 40
-  %102 = load ptr, ptr %101, align 8, !tbaa !23
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %107, label %104
+100:                                              ; preds = %97
+  %101 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %102 = getelementptr inbounds i8, ptr %101, i64 40
+  %103 = load ptr, ptr %102, align 8, !tbaa !23
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %108, label %105
 
-104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %100, i64 32
-  %106 = load ptr, ptr %105, align 8, !tbaa !24
-  call void %102(ptr noundef %106) #14
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds i8, ptr %101, i64 32
+  %107 = load ptr, ptr %106, align 8, !tbaa !24
+  call void %103(ptr noundef %107) #14
+  %.pre22 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  br label %108
+
+108:                                              ; preds = %105, %100
+  %109 = phi ptr [ %.pre22, %105 ], [ %101, %100 ]
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = load ptr, ptr %110, align 8, !tbaa !24
+  %112 = icmp eq ptr %111, null
+  %113 = getelementptr inbounds i8, ptr %109, i64 16
+  %114 = load ptr, ptr %113, align 8, !tbaa !25
+  br i1 %112, label %116, label %115
+
+115:                                              ; preds = %108
+  call void %114(ptr noundef nonnull %111) #14
+  br label %117
+
+116:                                              ; preds = %108
+  call void %114() #14
+  br label %117
+
+117:                                              ; preds = %116, %115
+  %118 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
+  %119 = getelementptr inbounds i8, ptr %118, i64 48
+  %120 = load ptr, ptr %119, align 8, !tbaa !26
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %125, label %122
+
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds i8, ptr %118, i64 32
+  %124 = load ptr, ptr %123, align 8, !tbaa !24
+  call void %120(ptr noundef %124) #14
+  br label %125
+
+125:                                              ; preds = %122, %117
+  %126 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %134
+
+127:                                              ; preds = %97
+  %128 = load i32, ptr @color_output, align 4, !tbaa !3
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %132, label %130
+
+130:                                              ; preds = %127
+  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24)
+  br label %134
+
+132:                                              ; preds = %127
+  %133 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.24)
+  br label %134
+
+134:                                              ; preds = %132, %130, %125
+  %135 = phi ptr [ @ctest_main.num_ok, %125 ], [ @ctest_main.num_fail, %130 ], [ @ctest_main.num_fail, %132 ]
+  %136 = load i32, ptr %135, align 4, !tbaa !3
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %135, align 4, !tbaa !3
+  %138 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
+  %139 = icmp eq i64 %138, 4095
+  br i1 %139, label %142, label %140
+
+140:                                              ; preds = %134
+  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @ctest_errorbuffer)
+  br label %142
+
+142:                                              ; preds = %140, %134, %94
+  %143 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr @ctest_main.index, align 4, !tbaa !3
   %.pre23 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br label %107
+  br label %145
 
-107:                                              ; preds = %104, %99
-  %108 = phi ptr [ %.pre23, %104 ], [ %100, %99 ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !24
-  %111 = icmp eq ptr %110, null
-  %112 = getelementptr inbounds i8, ptr %108, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !25
-  br i1 %111, label %115, label %114
+145:                                              ; preds = %142, %70, %.preheader
+  %146 = phi ptr [ %.pre23, %142 ], [ %.pre24, %70 ], [ @__ctest_suite_test, %.preheader ]
+  %147 = getelementptr inbounds i8, ptr %146, i64 56
+  %148 = load ptr, ptr %147, align 8, !tbaa !7
+  store ptr %148, ptr @ctest_main.test, align 8, !tbaa !7
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %.loopexit, label %.preheader, !llvm.loop !27
 
-114:                                              ; preds = %107
-  call void %113(ptr noundef nonnull %110) #14
-  br label %116
-
-115:                                              ; preds = %107
-  call void %113() #14
-  br label %116
-
-116:                                              ; preds = %115, %114
-  %117 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %118 = getelementptr inbounds i8, ptr %117, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !26
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %124, label %121
-
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %117, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !24
-  call void %119(ptr noundef %123) #14
-  br label %124
-
-124:                                              ; preds = %121, %116
-  %125 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %133
-
-126:                                              ; preds = %96
-  %127 = load i32, ptr @color_output, align 4, !tbaa !3
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %131, label %129
-
-129:                                              ; preds = %126
-  %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24)
-  br label %133
-
-131:                                              ; preds = %126
-  %132 = call i32 @puts(ptr nonnull dereferenceable(1) @.str.24)
-  br label %133
-
-133:                                              ; preds = %131, %129, %124
-  %134 = phi ptr [ @ctest_main.num_ok, %124 ], [ @ctest_main.num_fail, %129 ], [ @ctest_main.num_fail, %131 ]
-  %135 = load i32, ptr %134, align 4, !tbaa !3
-  %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %134, align 4, !tbaa !3
-  %137 = load i64, ptr @ctest_errorsize, align 8, !tbaa !9
-  %138 = icmp eq i64 %137, 4095
-  br i1 %138, label %141, label %139
-
-139:                                              ; preds = %133
-  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @ctest_errorbuffer)
-  br label %141
-
-141:                                              ; preds = %139, %133, %93
-  %142 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
-  %143 = add nsw i32 %142, 1
-  store i32 %143, ptr @ctest_main.index, align 4, !tbaa !3
-  %.pre24 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  br label %144
-
-144:                                              ; preds = %141, %69, %.preheader
-  %145 = phi ptr [ %.pre24, %141 ], [ %.pre25, %69 ], [ @__ctest_suite_test, %.preheader ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 56
-  %147 = load ptr, ptr %146, align 8, !tbaa !7
-  store ptr %147, ptr @ctest_main.test, align 8, !tbaa !7
-  %148 = icmp eq ptr %147, null
-  br i1 %148, label %.loopexit, label %.preheader, !llvm.loop !27
-
-.loopexit:                                        ; preds = %144, %.loopexit12.thread, %.loopexit12
+.loopexit:                                        ; preds = %145, %.loopexit12.thread, %.loopexit12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  %149 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
-  %150 = load <2 x i64>, ptr %3, align 16, !tbaa !9
+  %150 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
+  %151 = load <2 x i64>, ptr %3, align 16, !tbaa !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  %151 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %152 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
-  %153 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
-  %154 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
-  %155 = sub <2 x i64> %150, %20
-  %156 = extractelement <2 x i64> %155, i64 0
-  %157 = mul i64 %156, 1000000
-  %158 = extractelement <2 x i64> %155, i64 1
-  %159 = add i64 %158, %157
-  %160 = udiv i64 %159, 1000
-  %161 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i64 noundef %160) #14
-  %162 = load i32, ptr @color_output, align 4, !tbaa !3
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %168, label %164
+  %152 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
+  %153 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
+  %154 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
+  %155 = load i32, ptr @ctest_main.num_skip, align 4, !tbaa !3
+  %156 = sub <2 x i64> %151, %20
+  %157 = extractelement <2 x i64> %156, i64 0
+  %158 = mul i64 %157, 1000000
+  %159 = extractelement <2 x i64> %156, i64 1
+  %160 = add i64 %159, %158
+  %161 = udiv i64 %160, 1000
+  %162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155, i64 noundef %161) #14
+  %163 = load i32, ptr @color_output, align 4, !tbaa !3
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %169, label %165
 
-164:                                              ; preds = %.loopexit
-  %165 = icmp eq i32 %6, 0
-  %166 = select i1 %165, ptr @.str.19, ptr @.str.18
-  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %166, ptr noundef nonnull %5)
-  br label %170
+165:                                              ; preds = %.loopexit
+  %166 = icmp eq i32 %6, 0
+  %167 = select i1 %166, ptr @.str.19, ptr @.str.18
+  %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %167, ptr noundef nonnull %5)
+  br label %171
 
-168:                                              ; preds = %.loopexit
-  %169 = call i32 @puts(ptr nonnull dereferenceable(1) %5)
-  br label %170
+169:                                              ; preds = %.loopexit
+  %170 = call i32 @puts(ptr nonnull dereferenceable(1) %5)
+  br label %171
 
-170:                                              ; preds = %168, %164
-  %171 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
+171:                                              ; preds = %169, %165
+  %172 = load i32, ptr @ctest_main.num_fail, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
-  ret i32 %171
+  ret i32 %172
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

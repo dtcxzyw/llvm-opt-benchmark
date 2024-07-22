@@ -3407,7 +3407,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h1ac3ae6b73f6703
           to label %.body unwind label %18, !noalias !512
 
 "_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa176cbc18415474E.exit.thread.i": ; preds = %16, %4
-  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %14, %16 ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %8, %16 ]
   %13 = tail call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17h593f8b192216c90aE"(ptr noundef nonnull %.sroa.0.0.lcssa.i, ptr noundef nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !alias.scope !512
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
@@ -3462,7 +3462,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17h5d326e1742eb038
 
 "_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e0d901aba1e4784E.exit.thread.i": ; preds = %20, %4
   %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload, %4 ], [ %22, %20 ]
-  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %13, %20 ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %6, %20 ]
   %11 = tail call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17hfa757585648ccb81E"(ptr noundef nonnull %.sroa.0.0.lcssa.i, ptr noundef nonnull %6)
   store ptr %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !521
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3532,7 +3532,7 @@ define hidden void @_ZN5rayon4iter8plumbing8Producer9fold_with17hc34fbcbe72a839a
           to label %.body unwind label %18, !noalias !532
 
 "_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa176cbc18415474E.exit.thread.i": ; preds = %16, %4
-  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %14, %16 ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %1, %4 ], [ %8, %16 ]
   %13 = invoke { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$10into_slice17h593f8b192216c90aE"(ptr noundef nonnull %.sroa.0.0.lcssa.i, ptr noundef nonnull %8)
           to label %26 unwind label %20, !noalias !532
 

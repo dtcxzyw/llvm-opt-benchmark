@@ -627,7 +627,7 @@ land.lhs.true228.i:                               ; preds = %if.end222.i
   br i1 %cmp233.i, label %if.then235.i, label %for.inc.i
 
 if.then235.i:                                     ; preds = %land.lhs.true228.i
-  %arrayidx240.i = getelementptr inbounds i8, ptr %arrayidx232.i, i64 8
+  %arrayidx240.i = getelementptr inbounds i8, ptr %dp51.0.i, i64 8
   %53 = load double, ptr %arrayidx240.i, align 8
   %sub242.i = add nsw i32 %nfpr.1.i, -1
   %idxprom243.i = zext i32 %sub242.i to i64

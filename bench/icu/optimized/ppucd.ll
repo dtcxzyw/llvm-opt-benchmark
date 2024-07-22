@@ -906,7 +906,7 @@ while.cond58.preheader:                           ; preds = %while.end51
   br i1 %cmp60.not49, label %while.end63, label %while.body61
 
 if.then54:                                        ; preds = %while.end51
-  store ptr %limit.1.lcssa, ptr %fieldLimit, align 8
+  store ptr %arrayidx, ptr %fieldLimit, align 8
   store i32 1, ptr %lineType, align 8
   br label %return
 

@@ -304,7 +304,7 @@ define noundef zeroext i1 @zend_observer_remove_begin_handler(ptr nocapture noun
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.027.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %15, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
@@ -426,7 +426,7 @@ define noundef zeroext i1 @zend_observer_remove_end_handler(ptr nocapture nounde
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.027.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %17, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31

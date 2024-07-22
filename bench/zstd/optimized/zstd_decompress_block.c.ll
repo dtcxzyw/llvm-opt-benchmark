@@ -1917,7 +1917,7 @@ if.end18.i.i.i:                                   ; preds = %if.end7.i.i.i
   br label %ZSTD_initFseState.exit.i
 
 ZSTD_initFseState.exit.i:                         ; preds = %if.end18.i.i.i, %if.end7.i.i.i, %if.then6.i.i.i, %if.then.i.i.i
-  %34 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %.ptr.i, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
+  %34 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %seqStart, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
   %35 = phi i32 [ %33, %if.then.i.i.i ], [ %and.i32.i.i, %if.then6.i.i.i ], [ %33, %if.end7.i.i.i ], [ %sub.i.i1531.i, %if.end18.i.i.i ]
   %36 = phi i64 [ %30, %if.then.i.i.i ], [ %memPtr.val.i.i.i.i, %if.then6.i.i.i ], [ %30, %if.end7.i.i.i ], [ %memPtr.val.i.i1532.i, %if.end18.i.i.i ]
   %add.ptr.i1528.i = getelementptr inbounds i8, ptr %31, i64 8
@@ -4908,7 +4908,7 @@ if.end18.i.i.i:                                   ; preds = %if.end7.i.i.i
   br label %ZSTD_initFseState.exit.i
 
 ZSTD_initFseState.exit.i:                         ; preds = %if.end18.i.i.i, %if.end7.i.i.i, %if.then6.i.i.i, %if.then.i.i1002.i
-  %32 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i1002.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %.ptr.i, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
+  %32 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i1002.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %seqStart, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
   %33 = phi i32 [ %31, %if.then.i.i1002.i ], [ %and.i32.i.i, %if.then6.i.i.i ], [ %31, %if.end7.i.i.i ], [ %sub.i.i1000.i, %if.end18.i.i.i ]
   %34 = phi i64 [ %28, %if.then.i.i1002.i ], [ %memPtr.val.i.i.i.i, %if.then6.i.i.i ], [ %28, %if.end7.i.i.i ], [ %memPtr.val.i.i1001.i, %if.end18.i.i.i ]
   %add.ptr.i997.i = getelementptr inbounds i8, ptr %29, i64 8
@@ -6968,7 +6968,7 @@ if.end18.i.i.i:                                   ; preds = %if.end7.i.i.i
   br label %ZSTD_initFseState.exit.i
 
 ZSTD_initFseState.exit.i:                         ; preds = %if.end18.i.i.i, %if.end7.i.i.i, %if.then6.i.i.i, %if.then.i.i424.i
-  %34 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i424.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %.ptr.i, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
+  %34 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i424.i ], [ %add.ptr.i31.i.i, %if.then6.i.i.i ], [ %seqStart, %if.end7.i.i.i ], [ %add.ptr32.i.i.i, %if.end18.i.i.i ]
   %35 = phi i32 [ %33, %if.then.i.i424.i ], [ %and.i32.i.i, %if.then6.i.i.i ], [ %33, %if.end7.i.i.i ], [ %sub.i.i422.i, %if.end18.i.i.i ]
   %36 = phi i64 [ %30, %if.then.i.i424.i ], [ %memPtr.val.i.i.i.i, %if.then6.i.i.i ], [ %30, %if.end7.i.i.i ], [ %memPtr.val.i.i423.i, %if.end18.i.i.i ]
   %add.ptr.i419.i = getelementptr inbounds i8, ptr %31, i64 8
@@ -8114,7 +8114,7 @@ if.end18.i.i:                                     ; preds = %if.end7.i.i
   br label %ZSTD_initFseState.exit
 
 ZSTD_initFseState.exit:                           ; preds = %if.then.i.i, %if.then6.i.i, %if.end7.i.i, %if.end18.i.i
-  %33 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %.ptr, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
+  %33 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %seqStart, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
   %34 = phi i32 [ %32, %if.then.i.i ], [ %and.i32.i, %if.then6.i.i ], [ %32, %if.end7.i.i ], [ %sub.i.i1531, %if.end18.i.i ]
   %35 = phi i64 [ %29, %if.then.i.i ], [ %memPtr.val.i.i.i, %if.then6.i.i ], [ %29, %if.end7.i.i ], [ %memPtr.val.i.i1532, %if.end18.i.i ]
   %add.ptr.i1528 = getelementptr inbounds i8, ptr %30, i64 8
@@ -11458,7 +11458,7 @@ if.end18.i.i:                                     ; preds = %if.end7.i.i
   br label %ZSTD_initFseState.exit
 
 ZSTD_initFseState.exit:                           ; preds = %if.then.i.i1002, %if.then6.i.i, %if.end7.i.i, %if.end18.i.i
-  %31 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i1002 ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %.ptr, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
+  %31 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i1002 ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %seqStart, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
   %32 = phi i32 [ %30, %if.then.i.i1002 ], [ %and.i32.i, %if.then6.i.i ], [ %30, %if.end7.i.i ], [ %sub.i.i1000, %if.end18.i.i ]
   %33 = phi i64 [ %27, %if.then.i.i1002 ], [ %memPtr.val.i.i.i, %if.then6.i.i ], [ %27, %if.end7.i.i ], [ %memPtr.val.i.i1001, %if.end18.i.i ]
   %add.ptr.i997 = getelementptr inbounds i8, ptr %28, i64 8
@@ -13497,7 +13497,7 @@ if.end18.i.i:                                     ; preds = %if.end7.i.i
   br label %ZSTD_initFseState.exit
 
 ZSTD_initFseState.exit:                           ; preds = %if.then.i.i424, %if.then6.i.i, %if.end7.i.i, %if.end18.i.i
-  %33 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i424 ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %.ptr, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
+  %33 = phi ptr [ @BIT_reloadDStream.zeroFilled, %if.then.i.i424 ], [ %add.ptr.i31.i, %if.then6.i.i ], [ %seqStart, %if.end7.i.i ], [ %add.ptr32.i.i, %if.end18.i.i ]
   %34 = phi i32 [ %32, %if.then.i.i424 ], [ %and.i32.i, %if.then6.i.i ], [ %32, %if.end7.i.i ], [ %sub.i.i422, %if.end18.i.i ]
   %35 = phi i64 [ %29, %if.then.i.i424 ], [ %memPtr.val.i.i.i, %if.then6.i.i ], [ %29, %if.end7.i.i ], [ %memPtr.val.i.i423, %if.end18.i.i ]
   %add.ptr.i419 = getelementptr inbounds i8, ptr %30, i64 8

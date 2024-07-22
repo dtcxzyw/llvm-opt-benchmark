@@ -8085,8 +8085,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %108 = zext i32 %107 to i64
   %109 = shl nuw nsw i64 %108, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %105, i8 0, i64 %109, i1 false)
-  %scevgep110 = getelementptr i8, ptr %105, i64 %109
-  store ptr %scevgep110, ptr %102, align 8
+  store ptr %106, ptr %102, align 8
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
 
 110:                                              ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i
@@ -8717,13 +8716,13 @@ _ZN3tev4TaskIvE12await_resumeEv.exit.i6.i:        ; preds = %_ZN4tlog6StreamlsIA
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %329, %.lr.ph
-  %.018108 = phi i64 [ %336, %.lr.ph ], [ 0, %329 ]
-  %332 = shl i64 %.018108, 2
+  %.018107 = phi i64 [ %336, %.lr.ph ], [ 0, %329 ]
+  %332 = shl i64 %.018107, 2
   %333 = or disjoint i64 %332, 3
   %334 = load ptr, ptr %0, align 8
   %335 = getelementptr inbounds float, ptr %334, i64 %333
   store float 1.000000e+00, ptr %335, align 4
-  %336 = add nuw nsw i64 %.018108, 1
+  %336 = add nuw nsw i64 %.018107, 1
   %exitcond.not = icmp eq i64 %336, %94
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !222
 
@@ -59998,7 +59997,7 @@ thread-pre-split116:                              ; preds = %78
   br label %102
 
 102:                                              ; preds = %.sink.split, %89, %.thread, %78, %72, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %.0 = phi ptr [ %.0.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %73, %72 ], [ %79, %78 ], [ %.4120, %.thread ], [ %94, %89 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %7, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %73, %72 ], [ %79, %78 ], [ %.4120, %.thread ], [ %94, %89 ], [ %.0.ph, %.sink.split ]
   %103 = getelementptr inbounds i8, ptr %0, i64 8
   %104 = load i8, ptr %103, align 8
   switch i8 %104, label %105 [

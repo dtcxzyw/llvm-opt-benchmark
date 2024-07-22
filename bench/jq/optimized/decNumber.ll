@@ -1178,6 +1178,7 @@ define noundef ptr @decNumberFromString(ptr noundef returned %0, ptr noundef %1,
   br label %7
 
 26:                                               ; preds = %19, %17
+  %.0176.lcssa = phi ptr [ %1, %19 ], [ %.0176, %17 ]
   %27 = icmp eq ptr %.0179, null
   br i1 %27, label %28, label %89
 
@@ -1199,7 +1200,7 @@ define noundef ptr @decNumberFromString(ptr noundef returned %0, ptr noundef %1,
   br label %35
 
 35:                                               ; preds = %42, %31
-  %.09.i = phi ptr [ %.0176, %31 ], [ %43, %42 ]
+  %.09.i = phi ptr [ %.0176.lcssa, %31 ], [ %43, %42 ]
   %.08.i = phi ptr [ @.str, %31 ], [ %44, %42 ]
   %.0.i = phi ptr [ @.str.1, %31 ], [ %45, %42 ]
   %36 = load i8, ptr %.09.i, align 1
@@ -1223,7 +1224,7 @@ define noundef ptr @decNumberFromString(ptr noundef returned %0, ptr noundef %1,
   br label %35
 
 .preheader282:                                    ; preds = %38, %52
-  %.09.i255 = phi ptr [ %53, %52 ], [ %.0176, %38 ]
+  %.09.i255 = phi ptr [ %53, %52 ], [ %.0176.lcssa, %38 ]
   %.08.i256 = phi ptr [ %54, %52 ], [ @.str.2, %38 ]
   %.0.i257 = phi ptr [ %55, %52 ], [ @.str.3, %38 ]
   %46 = load i8, ptr %.09.i255, align 1
@@ -1254,14 +1255,14 @@ decBiStr.exit:                                    ; preds = %40, %50
 57:                                               ; preds = %48
   %58 = or i8 %.0166, 32
   store i8 %58, ptr %32, align 4
-  %59 = load i8, ptr %.0176, align 1
+  %59 = load i8, ptr %.0176.lcssa, align 1
   switch i8 %59, label %63 [
     i8 115, label %60
     i8 83, label %60
   ]
 
 60:                                               ; preds = %57, %57
-  %61 = getelementptr inbounds i8, ptr %.0176, i64 1
+  %61 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 1
   %62 = or i8 %.0166, 16
   store i8 %62, ptr %32, align 4
   %.pr = load i8, ptr %61, align 1
@@ -1270,7 +1271,7 @@ decBiStr.exit:                                    ; preds = %40, %50
 63:                                               ; preds = %57, %60
   %64 = phi i8 [ %58, %57 ], [ %62, %60 ]
   %65 = phi i8 [ %59, %57 ], [ %.pr, %60 ]
-  %.1177 = phi ptr [ %.0176, %57 ], [ %61, %60 ]
+  %.1177 = phi ptr [ %.0176.lcssa, %57 ], [ %61, %60 ]
   switch i8 %65, label %.thread [
     i8 110, label %66
     i8 78, label %66
@@ -1359,10 +1360,10 @@ decBiStr.exit:                                    ; preds = %40, %50
   ]
 
 91:                                               ; preds = %90, %90
-  %92 = getelementptr inbounds i8, ptr %.0176, i64 1
+  %92 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 1
   %93 = load i8, ptr %92, align 1
   %.not229 = icmp eq i8 %93, 45
-  %94 = getelementptr inbounds i8, ptr %.0176, i64 2
+  %94 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 2
   %95 = icmp eq i8 %93, 43
   %96 = or i1 %.not229, %95
   %.3 = select i1 %96, ptr %94, ptr %92

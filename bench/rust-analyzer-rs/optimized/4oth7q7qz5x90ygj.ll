@@ -49310,11 +49310,12 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h14e84330fbd171efE.exit.thread:
   br i1 %132, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i.sink.split", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i.sink.split": ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf70cb23c9e967477E.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.i"
-  store ptr %130, ptr %93, align 8, !alias.scope !12248, !noalias !12251
+  %.sink = phi ptr [ %130, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.i" ], [ %126, %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hf70cb23c9e967477E.exit.i" ]
+  store ptr %.sink, ptr %93, align 8, !alias.scope !12248, !noalias !12251
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i.sink.split", %125
-  %133 = phi ptr [ %.sroa.4.0.copyload.i, %125 ], [ %130, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i.sink.split" ]
+  %133 = phi ptr [ %.sroa.4.0.copyload.i, %125 ], [ %.sink, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab794cc0c6384038E.llvm.9930132259409388476.exit.thread.i.sink.split" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !12256
   store ptr %9, ptr %6, align 8, !noalias !12256
   %134 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d4184461851ee0E.llvm.17197147422070727095(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)

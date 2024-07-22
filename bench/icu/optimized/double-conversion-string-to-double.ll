@@ -592,7 +592,7 @@ if.end22.i228:                                    ; preds = %land.lhs.true.i230,
   br i1 %cmp23.i229, label %if.then193, label %while.cond.backedge
 
 if.then193:                                       ; preds = %if.end22.i228, %while.body, %while.body.us
-  %.us-phi = phi ptr [ %incdec.ptr.i243.us, %while.body.us ], [ %incdec.ptr7.i220, %while.body ], [ %62, %if.end22.i228 ]
+  %.us-phi = phi ptr [ %add.ptr, %while.body.us ], [ %incdec.ptr7.i220, %while.body ], [ %62, %if.end22.i228 ]
   %sub.ptr.lhs.cast194 = ptrtoint ptr %.us-phi to i64
   %sub.ptr.rhs.cast195 = ptrtoint ptr %input to i64
   %sub.ptr.sub196 = sub i64 %sub.ptr.lhs.cast194, %sub.ptr.rhs.cast195
@@ -1814,7 +1814,7 @@ if.end22.i192:                                    ; preds = %land.lhs.true.i194,
   br i1 %cmp23.i193, label %if.then199, label %while.cond.backedge
 
 if.then199:                                       ; preds = %if.end22.i192, %while.body, %while.body.us
-  %.us-phi = phi ptr [ %incdec.ptr.i207.us, %while.body.us ], [ %incdec.ptr7.i185, %while.body ], [ %61, %if.end22.i192 ]
+  %.us-phi = phi ptr [ %add.ptr, %while.body.us ], [ %incdec.ptr7.i185, %while.body ], [ %61, %if.end22.i192 ]
   %sub.ptr.lhs.cast200 = ptrtoint ptr %.us-phi to i64
   %sub.ptr.rhs.cast201 = ptrtoint ptr %input to i64
   %sub.ptr.sub202 = sub i64 %sub.ptr.lhs.cast200, %sub.ptr.rhs.cast201

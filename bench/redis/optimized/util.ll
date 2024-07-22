@@ -2996,7 +2996,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @vsnprintf_async_signal_safe(ptr noundef %to, i64 noundef %size, ptr nocapture noundef readonly %format, ptr nocapture noundef %ap) local_unnamed_addr #25 {
+define dso_local noundef i32 @vsnprintf_async_signal_safe(ptr noundef %to, i64 noundef %size, ptr nocapture noundef readonly %format, ptr nocapture noundef %ap) local_unnamed_addr #25 {
 entry:
   %buff = alloca [22 x i8], align 16
   %add.ptr = getelementptr inbounds i8, ptr %to, i64 %size
@@ -3393,8 +3393,9 @@ for.inc:                                          ; preds = %while.body, %while.
   br label %for.cond, !llvm.loop !38
 
 for.end:                                          ; preds = %for.cond, %if.then
-  store i8 0, ptr %to.addr.0, align 1
-  %sub.ptr.lhs.cast = ptrtoint ptr %to.addr.0 to i64
+  %to.addr.0.lcssa = phi ptr [ %to.addr.0, %for.cond ], [ %add.ptr1, %if.then ]
+  store i8 0, ptr %to.addr.0.lcssa, align 1
+  %sub.ptr.lhs.cast = ptrtoint ptr %to.addr.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %to to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv120 = trunc i64 %sub.ptr.sub to i32
@@ -3402,7 +3403,7 @@ for.end:                                          ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define dso_local i32 @snprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #26 {
+define dso_local noundef i32 @snprintf_async_signal_safe(ptr noundef %to, i64 noundef %n, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #26 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)

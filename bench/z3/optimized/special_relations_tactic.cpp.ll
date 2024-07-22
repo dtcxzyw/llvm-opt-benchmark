@@ -3858,10 +3858,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont13, %whi
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont19, label %land.rhs.i.i.i.i, !llvm.loop !35
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont64, label %land.rhs.i.i.i.i, !llvm.loop !35
 
-invoke.cont19:                                    ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %invoke.cont13
-  %retval.sroa.0.1.i.i = phi ptr [ %16, %invoke.cont13 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont19:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont13
+  %retval.sroa.0.1.i.i = phi ptr [ %16, %invoke.cont13 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not367 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.not367, label %invoke.cont64, label %for.body24.lr.ph
 
@@ -4615,8 +4615,8 @@ _ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE1
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i.i
   br i1 %cmp.i.not, label %invoke.cont64, label %for.body24
 
-invoke.cont64:                                    ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %invoke.cont19
-  %89 = phi ptr [ null, %invoke.cont19 ], [ %87, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ]
+invoke.cont64:                                    ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %invoke.cont19
+  %89 = phi ptr [ null, %invoke.cont19 ], [ %87, %_ZN14core_hashtableIN7obj_mapI9func_declN24special_relations_tactic9sp_axiomsEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ], [ null, %while.body.i.i.i.i ]
   %90 = load i32, ptr %m_size.i.i.i, align 4
   %cmp.i.i.i175 = icmp eq i32 %90, 0
   br i1 %cmp.i.i.i175, label %if.end96, label %for.cond67.preheader

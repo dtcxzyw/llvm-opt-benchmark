@@ -1738,7 +1738,7 @@ BIT_reloadDStream.exit.sink.split.i.i:            ; preds = %if.end22.i.i.i, %if
 FSE_initDState.exit.i:                            ; preds = %BIT_reloadDStream.exit.sink.split.i.i, %if.end10.i.i.i, %if.end20.i
   %seqState.sroa.0.2.i = phi i64 [ %seqState.sroa.0.1272.i, %if.end20.i ], [ %seqState.sroa.0.1272.i, %if.end10.i.i.i ], [ %add.ptr7.val.i.i.i, %BIT_reloadDStream.exit.sink.split.i.i ]
   %seqState.sroa.18.1.i = phi i32 [ %add.i.i.i.i, %if.end20.i ], [ %add.i.i.i.i, %if.end10.i.i.i ], [ %and.i.sink.i.i, %BIT_reloadDStream.exit.sink.split.i.i ]
-  %seqState.sroa.40225.2.i = phi ptr [ %seqState.sroa.40225.0274.i, %if.end20.i ], [ %seqState.sroa.40225.0274.i, %if.end10.i.i.i ], [ %seqState.sroa.40225.1.i, %BIT_reloadDStream.exit.sink.split.i.i ]
+  %seqState.sroa.40225.2.i = phi ptr [ %seqState.sroa.40225.0274.i, %if.end20.i ], [ %ip.3.i.i, %if.end10.i.i.i ], [ %seqState.sroa.40225.1.i, %BIT_reloadDStream.exit.sink.split.i.i ]
   %add.ptr.i53.i = getelementptr inbounds i8, ptr %dctx, i64 4
   %DTableH.sroa.0.0.copyload.i54.i = load i16, ptr %OffTable.i, align 4
   %conv.i55.i = zext i16 %DTableH.sroa.0.0.copyload.i54.i to i32
@@ -1794,7 +1794,7 @@ BIT_reloadDStream.exit.sink.split.i79.i:          ; preds = %if.end22.i.i87.i, %
 FSE_initDState.exit103.i:                         ; preds = %BIT_reloadDStream.exit.sink.split.i79.i, %if.end10.i.i85.i, %FSE_initDState.exit.i
   %seqState.sroa.0.3.i = phi i64 [ %seqState.sroa.0.2.i, %FSE_initDState.exit.i ], [ %seqState.sroa.0.2.i, %if.end10.i.i85.i ], [ %add.ptr7.val.i.i82.i, %BIT_reloadDStream.exit.sink.split.i79.i ]
   %seqState.sroa.18.2.i = phi i32 [ %add.i.i.i66.i, %FSE_initDState.exit.i ], [ %add.i.i.i66.i, %if.end10.i.i85.i ], [ %and.i.sink.i80.i, %BIT_reloadDStream.exit.sink.split.i79.i ]
-  %seqState.sroa.40225.4.i = phi ptr [ %seqState.sroa.40225.2.i, %FSE_initDState.exit.i ], [ %seqState.sroa.40225.2.i, %if.end10.i.i85.i ], [ %seqState.sroa.40225.3.i, %BIT_reloadDStream.exit.sink.split.i79.i ]
+  %seqState.sroa.40225.4.i = phi ptr [ %seqState.sroa.40225.2.i, %FSE_initDState.exit.i ], [ %ip.3.i.i, %if.end10.i.i85.i ], [ %seqState.sroa.40225.3.i, %BIT_reloadDStream.exit.sink.split.i79.i ]
   %add.ptr.i83.i = getelementptr inbounds i8, ptr %dctx, i64 4104
   %DTableH.sroa.0.0.copyload.i104.i = load i16, ptr %MLTable.i, align 4
   %conv.i105.i = zext i16 %DTableH.sroa.0.0.copyload.i104.i to i32
@@ -1848,7 +1848,7 @@ FSE_initDState.exit153.i:                         ; preds = %if.end10.i.i135.i
   br i1 %cmp.i155295.i, label %return, label %if.end.i156.lr.ph.i
 
 if.end.i156.lr.ph.i:                              ; preds = %if.end10.i.i135.i, %FSE_initDState.exit153.i, %FSE_initDState.exit153.thread334.i
-  %seqState.sroa.40225.6332.i = phi ptr [ %seqState.sroa.40225.5.i, %FSE_initDState.exit153.i ], [ %seqState.sroa.40225.5339.i, %FSE_initDState.exit153.thread334.i ], [ %seqState.sroa.40225.4.i, %if.end10.i.i135.i ]
+  %seqState.sroa.40225.6332.i = phi ptr [ %seqState.sroa.40225.5.i, %FSE_initDState.exit153.i ], [ %seqState.sroa.40225.5339.i, %FSE_initDState.exit153.thread334.i ], [ %ip.3.i.i, %if.end10.i.i135.i ]
   %seqState.sroa.18.3331.i = phi i32 [ %sub.i.i152.i, %FSE_initDState.exit153.i ], [ %and.i.i128.i, %FSE_initDState.exit153.thread334.i ], [ %add.i.i.i116.i, %if.end10.i.i135.i ]
   %seqState.sroa.0.4330.i = phi i64 [ %add.ptr7.val.i.i132.i, %FSE_initDState.exit153.i ], [ %add.ptr7.val.i.i132340.i, %FSE_initDState.exit153.thread334.i ], [ %seqState.sroa.0.3.i, %if.end10.i.i135.i ]
   %add.ptr.i133333.i = getelementptr inbounds i8, ptr %dctx, i64 6156

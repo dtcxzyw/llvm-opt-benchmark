@@ -1243,10 +1243,10 @@ land.rhs.i.i.i:                                   ; preds = %_ZN15ref_vector_cor
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i11
-  br i1 %cmp.not.i.i.i, label %invoke.cont4, label %land.rhs.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit, label %land.rhs.i.i.i, !llvm.loop !10
 
-invoke.cont4:                                     ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
-  %retval.sroa.0.1.i = phi ptr [ %7, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+invoke.cont4:                                     ; preds = %land.rhs.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit
+  %retval.sroa.0.1.i = phi ptr [ %7, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not51 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i11
   br i1 %cmp.i.not51, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit, label %invoke.cont8
 
@@ -1326,9 +1326,9 @@ if.end.i:                                         ; preds = %for.end
   %19 = load i32, ptr %arrayidx.i23, align 4
   br label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit
 
-_ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %invoke.cont4, %for.end, %if.end.i
-  %20 = phi ptr [ %.pre, %if.end.i ], [ null, %for.end ], [ null, %invoke.cont4 ]
-  %retval.0.i = phi i32 [ %19, %if.end.i ], [ 0, %for.end ], [ 0, %invoke.cont4 ]
+_ZNK6vectorIP3appLb0EjE4sizeEv.exit:              ; preds = %while.body.i.i.i, %invoke.cont4, %for.end, %if.end.i
+  %20 = phi ptr [ %.pre, %if.end.i ], [ null, %for.end ], [ null, %invoke.cont4 ], [ null, %while.body.i.i.i ]
+  %retval.0.i = phi i32 [ %19, %if.end.i ], [ 0, %for.end ], [ 0, %invoke.cont4 ], [ 0, %while.body.i.i.i ]
   invoke void @_ZN7nlarith4util3imp18extract_non_linearEjPKP3appR10ptr_vectorIS2_E(ptr noundef nonnull align 8 dereferenceable(1048) %this, i32 noundef %retval.0.i, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %nlvars)
           to label %invoke.cont17 unwind label %lpad2.loopexit.split-lp
 

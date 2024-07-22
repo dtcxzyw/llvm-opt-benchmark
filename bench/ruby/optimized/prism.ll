@@ -27016,7 +27016,7 @@ define internal fastcc void @parse_heredoc_dedent_string(ptr noundef %0, i64 nou
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !120
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %19, %13
-  %.023.lcssa.ph = phi ptr [ %.02326, %13 ], [ %20, %19 ], [ %.02326, %.lr.ph ]
+  %.023.lcssa.ph = phi ptr [ %.02326, %13 ], [ %5, %19 ], [ %.02326, %.lr.ph ]
   %.022.lcssa.ph = phi i64 [ %.02227, %13 ], [ 0, %19 ], [ %.02227, %.lr.ph ]
   %.pre = load ptr, ptr %0, align 8
   br label %.critedge
@@ -27236,7 +27236,7 @@ define internal fastcc void @parse_heredoc_dedent(ptr noundef %0, ptr nocapture 
   br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !120
 
 .critedge.loopexit.i:                             ; preds = %34, %28, %.lr.ph.i
-  %.023.lcssa.ph.i = phi ptr [ %.02326.i, %28 ], [ %35, %34 ], [ %.02326.i, %.lr.ph.i ]
+  %.023.lcssa.ph.i = phi ptr [ %.02326.i, %28 ], [ %20, %34 ], [ %.02326.i, %.lr.ph.i ]
   %.022.lcssa.ph.i = phi i64 [ %.02227.i, %28 ], [ 0, %34 ], [ %.02227.i, %.lr.ph.i ]
   %.pre.i = load ptr, ptr %17, align 8
   br label %parse_heredoc_dedent_string.exit

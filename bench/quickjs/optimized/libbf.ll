@@ -9763,7 +9763,7 @@ bf_delete.exit364:                                ; preds = %410, %407, %405, %b
   br label %bf_normalize_and_round.exit
 
 bf_normalize_and_round.exit:                      ; preds = %416, %414, %bf_delete.exit364, %368, %347, %._crit_edge.thread.i, %327, %bf_set_zero.exit, %bf_set_inf.exit347, %bf_set_nan.exit334, %bf_set_nan.exit325, %bf_set_inf.exit, %bf_set_nan.exit273, %bf_set_nan.exit
-  %.14 = phi ptr [ %.10529, %bf_set_nan.exit325 ], [ %.9522, %bf_set_nan.exit334 ], [ %.13543, %327 ], [ %.12598, %bf_set_inf.exit347 ], [ %.12598, %bf_set_zero.exit ], [ %.3495, %bf_set_nan.exit273 ], [ %scevgep640, %bf_set_inf.exit ], [ %scevgep, %bf_set_nan.exit ], [ %.13680689696, %._crit_edge.thread.i ], [ %.13680689696, %347 ], [ %.13680689696, %368 ], [ %.13542553, %bf_delete.exit364 ], [ %.13542553, %414 ], [ %.13542553, %416 ]
+  %.14 = phi ptr [ %.10529, %bf_set_nan.exit325 ], [ %.2494, %bf_set_nan.exit334 ], [ %.13543, %327 ], [ %.12598, %bf_set_inf.exit347 ], [ %.12598, %bf_set_zero.exit ], [ %.3495, %bf_set_nan.exit273 ], [ %scevgep640, %bf_set_inf.exit ], [ %scevgep, %bf_set_nan.exit ], [ %.13680689696, %._crit_edge.thread.i ], [ %.13680689696, %347 ], [ %.13680689696, %368 ], [ %.13542553, %bf_delete.exit364 ], [ %.13542553, %414 ], [ %.13542553, %416 ]
   %.2192 = phi i32 [ 32, %bf_set_nan.exit325 ], [ 0, %bf_set_nan.exit334 ], [ %329, %327 ], [ 20, %bf_set_inf.exit347 ], [ 24, %bf_set_zero.exit ], [ 0, %bf_set_nan.exit273 ], [ 0, %bf_set_inf.exit ], [ 0, %bf_set_nan.exit ], [ 0, %._crit_edge.thread.i ], [ 0, %347 ], [ %369, %368 ], [ %.1191, %bf_delete.exit364 ], [ %.1191, %414 ], [ %.1191, %416 ]
   %.not267 = icmp eq ptr %3, null
   br i1 %.not267, label %420, label %419

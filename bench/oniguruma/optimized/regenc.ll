@@ -1194,7 +1194,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
   br label %18
 
 18:                                               ; preds = %12, %14
-  %.2 = phi ptr [ %17, %14 ], [ %.1, %12 ]
+  %.2 = phi ptr [ %17, %14 ], [ %2, %12 ]
   %19 = trunc i32 %1 to i8
   %20 = getelementptr inbounds i8, ptr %.2, i64 1
   store i8 %19, ptr %.2, align 1

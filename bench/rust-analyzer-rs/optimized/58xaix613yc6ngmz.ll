@@ -60775,7 +60775,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i: ; p
   %.sroa.6225.4 = phi ptr [ %.sroa.6225.0, %557 ], [ %.sroa.6225.3, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
   %.sroa.11227.5 = phi ptr [ %.sroa.11227.0, %557 ], [ %.sroa.11227.4, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
   %.sroa.16.4 = phi i64 [ %.sroa.16.0, %557 ], [ %.sroa.16.3, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
-  %.sroa.25.1 = phi ptr [ %.sroa.25.0, %557 ], [ %560, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
+  %.sroa.25.1 = phi ptr [ %490, %557 ], [ %560, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
   %.sroa.31.1 = phi i64 [ %.sroa.31.0, %557 ], [ %574, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
   %.sroa.0232.1 = phi i64 [ %.sroa.0232.0, %557 ], [ %.sroa.31.0, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]
   %.sink.i.sroa.phi = phi ptr [ %.sroa.6233, %557 ], [ %.sroa.10234, %_ZN4core3ops8function6FnOnce9call_once17h4a34083d7e44ae92E.exit.i.i.i.i.i.i ]

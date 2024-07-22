@@ -29603,7 +29603,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
-  %44 = getelementptr i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -8
+  %44 = getelementptr i8, ptr %31, i64 -8
   br label %55
 
 45:                                               ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
@@ -29623,7 +29623,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br label %55
 
 55:                                               ; preds = %54, %47, %45, %43, %25
-  %.0.in.i = phi ptr [ %44, %43 ], [ %.sroa.011.0.lcssa.i.i.i, %54 ], [ %.sroa.011.0.lcssa.i.i.i, %45 ], [ %48, %47 ], [ %29, %25 ]
+  %.0.in.i = phi ptr [ %44, %43 ], [ %.sroa.011.0.lcssa.i.i.i, %54 ], [ %29, %45 ], [ %48, %47 ], [ %29, %25 ]
   %.0.i = load double, ptr %.0.in.i, align 8
   %56 = fmul double %11, %.0.i
   %57 = load ptr, ptr %8, align 8
@@ -30616,7 +30616,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit: ; preds = %_Z
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit
-  %23 = getelementptr i8, ptr %.sroa.011.0.lcssa.i.i, i64 -8
+  %23 = getelementptr i8, ptr %10, i64 -8
   br label %34
 
 24:                                               ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit
@@ -30636,7 +30636,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit: ; preds = %_Z
   br label %34
 
 34:                                               ; preds = %3, %26, %24, %33, %22
-  %.0.in = phi ptr [ %23, %22 ], [ %.sroa.011.0.lcssa.i.i, %33 ], [ %.sroa.011.0.lcssa.i.i, %24 ], [ %27, %26 ], [ %8, %3 ]
+  %.0.in = phi ptr [ %23, %22 ], [ %.sroa.011.0.lcssa.i.i, %33 ], [ %8, %24 ], [ %27, %26 ], [ %8, %3 ]
   %.0 = load double, ptr %.0.in, align 8
   ret double %.0
 }
@@ -31028,7 +31028,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
-  %119 = getelementptr i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -8
+  %119 = getelementptr i8, ptr %106, i64 -8
   br label %thread-pre-split
 
 120:                                              ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
@@ -31048,7 +31048,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br label %130
 
 thread-pre-split:                                 ; preds = %100, %118, %120
-  %.0.in.i.ph = phi ptr [ %104, %100 ], [ %.sroa.011.0.lcssa.i.i.i, %120 ], [ %119, %118 ]
+  %.0.in.i.ph = phi ptr [ %104, %100 ], [ %104, %120 ], [ %119, %118 ]
   %.0.i.pr = load double, ptr %.0.in.i.ph, align 8
   br label %130
 
@@ -32853,7 +32853,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
-  %136 = getelementptr i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -8
+  %136 = getelementptr i8, ptr %123, i64 -8
   br label %147
 
 137:                                              ; preds = %_ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i
@@ -32873,7 +32873,7 @@ _ZSt11lower_boundIN5QListIdE14const_iteratorEdET_S3_S3_RKT0_.exit.i: ; preds = %
   br label %147
 
 147:                                              ; preds = %146, %139, %137, %135, %116
-  %.0.in.i = phi ptr [ %136, %135 ], [ %.sroa.011.0.lcssa.i.i.i, %146 ], [ %.sroa.011.0.lcssa.i.i.i, %137 ], [ %140, %139 ], [ %121, %116 ]
+  %.0.in.i = phi ptr [ %136, %135 ], [ %.sroa.011.0.lcssa.i.i.i, %146 ], [ %121, %137 ], [ %140, %139 ], [ %121, %116 ]
   %.0.i = load double, ptr %.0.in.i, align 8
   %148 = load ptr, ptr %23, align 8
   %.not.i.i.i31 = icmp eq ptr %148, null

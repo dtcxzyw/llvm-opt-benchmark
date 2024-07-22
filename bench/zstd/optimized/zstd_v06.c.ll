@@ -6785,7 +6785,7 @@ BITv06_reloadDStream.exit.sink.split.i.i:         ; preds = %if.end22.i.i.i, %if
   br label %FSEv06_initDState.exit.i
 
 FSEv06_initDState.exit.i:                         ; preds = %BITv06_reloadDStream.exit.sink.split.i.i, %if.end10.i.i.i, %if.end18.i
-  %73 = phi ptr [ %70, %if.end18.i ], [ %70, %if.end10.i.i.i ], [ %add.ptr7.i.sink.i.i, %BITv06_reloadDStream.exit.sink.split.i.i ]
+  %73 = phi ptr [ %70, %if.end18.i ], [ %add.ptr10.i, %if.end10.i.i.i ], [ %add.ptr7.i.sink.i.i, %BITv06_reloadDStream.exit.sink.split.i.i ]
   %bitD.val3.i.i57.i = phi i32 [ %add.i.i.i.i, %if.end18.i ], [ %add.i.i.i.i, %if.end10.i.i.i ], [ %and.i.sink.i.i, %BITv06_reloadDStream.exit.sink.split.i.i ]
   %bitD.val.i.i56.i = phi i64 [ %bitD.val.i.i.i, %if.end18.i ], [ %bitD.val.i.i.i, %if.end10.i.i.i ], [ %add.ptr7.val.i.i.i, %BITv06_reloadDStream.exit.sink.split.i.i ]
   %add.ptr.i54.i = getelementptr inbounds i8, ptr %dctx, i64 4
@@ -6853,7 +6853,7 @@ BITv06_reloadDStream.exit.sink.split.i79.i:       ; preds = %if.end22.i.i87.i, %
   br label %FSEv06_initDState.exit103.i
 
 FSEv06_initDState.exit103.i:                      ; preds = %BITv06_reloadDStream.exit.sink.split.i79.i, %if.end10.i.i85.i, %FSEv06_initDState.exit.i
-  %75 = phi ptr [ %73, %FSEv06_initDState.exit.i ], [ %73, %if.end10.i.i85.i ], [ %add.ptr7.i.sink.i81.i, %BITv06_reloadDStream.exit.sink.split.i79.i ]
+  %75 = phi ptr [ %73, %FSEv06_initDState.exit.i ], [ %add.ptr10.i, %if.end10.i.i85.i ], [ %add.ptr7.i.sink.i81.i, %BITv06_reloadDStream.exit.sink.split.i79.i ]
   %bitD.val3.i.i106.i = phi i32 [ %add.i.i.i66.i, %FSEv06_initDState.exit.i ], [ %add.i.i.i66.i, %if.end10.i.i85.i ], [ %and.i.sink.i80.i, %BITv06_reloadDStream.exit.sink.split.i79.i ]
   %bitD.val.i.i105.i = phi i64 [ %bitD.val.i.i56.i, %FSEv06_initDState.exit.i ], [ %bitD.val.i.i56.i, %if.end10.i.i85.i ], [ %add.ptr7.val.i.i82.i, %BITv06_reloadDStream.exit.sink.split.i79.i ]
   %add.ptr.i83.i = getelementptr inbounds i8, ptr %dctx, i64 2056
@@ -8822,7 +8822,7 @@ while.body.outer.backedge:                        ; preds = %if.then206, %if.the
 
 while.end:                                        ; preds = %if.end126, %ZBUFFv06_limitCopy.exit, %ZBUFFv06_limitCopy.exit162, %if.then99
   %op.1.ph = phi ptr [ %op.0191.ph, %if.then99 ], [ %op.0191.ph, %if.end126 ], [ %op.0191.ph, %ZBUFFv06_limitCopy.exit ], [ %add.ptr193, %ZBUFFv06_limitCopy.exit162 ]
-  %ip.2.ph = phi ptr [ %ip.0192, %if.then99 ], [ %add.ptr152, %ZBUFFv06_limitCopy.exit ], [ %ip.0192, %if.end126 ], [ %ip.1, %ZBUFFv06_limitCopy.exit162 ]
+  %ip.2.ph = phi ptr [ %ip.0192, %if.then99 ], [ %add.ptr152, %ZBUFFv06_limitCopy.exit ], [ %add.ptr, %if.end126 ], [ %ip.1, %ZBUFFv06_limitCopy.exit162 ]
   %sub.ptr.lhs.cast211 = ptrtoint ptr %ip.2.ph to i64
   %sub.ptr.rhs.cast212 = ptrtoint ptr %src to i64
   %sub.ptr.sub213 = sub i64 %sub.ptr.lhs.cast211, %sub.ptr.rhs.cast212

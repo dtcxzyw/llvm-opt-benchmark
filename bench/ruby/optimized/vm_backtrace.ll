@@ -2519,69 +2519,69 @@ define internal fastcc i32 @thread_profile_frames(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %8
   %.not61 = icmp eq ptr %4, null
-  br label %15
+  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  br label %16
 
-15:                                               ; preds = %.lr.ph, %91
+16:                                               ; preds = %.lr.ph, %91
   %.04767 = phi ptr [ %7, %.lr.ph ], [ %92, %91 ]
   %.04865 = phi i32 [ 0, %.lr.ph ], [ %.1, %91 ]
   %.04964 = phi i32 [ %1, %.lr.ph ], [ %.150, %91 ]
-  %16 = getelementptr i8, ptr %.04767, i64 32
-  %.047.val = load ptr, ptr %16, align 8
+  %17 = getelementptr i8, ptr %.04767, i64 32
+  %.047.val = load ptr, ptr %17, align 8
   %.047.val.val = load i64, ptr %.047.val, align 8
-  %17 = and i64 %.047.val.val, 128
-  %.not56.not = icmp eq i64 %17, 0
-  br i1 %.not56.not, label %18, label %71
+  %18 = and i64 %.047.val.val, 128
+  %.not56.not = icmp eq i64 %18, 0
+  br i1 %.not56.not, label %19, label %71
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %.04767, align 8
-  %.not57 = icmp eq ptr %19, null
-  br i1 %.not57, label %71, label %20
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %.04767, align 8
+  %.not57 = icmp eq ptr %20, null
+  br i1 %.not57, label %71, label %21
 
-20:                                               ; preds = %18
-  %21 = icmp sgt i32 %.04964, 0
-  br i1 %21, label %22, label %24
+21:                                               ; preds = %19
+  %22 = icmp sgt i32 %.04964, 0
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %.04964, -1
+23:                                               ; preds = %21
+  %24 = add nsw i32 %.04964, -1
   br label %91
 
-24:                                               ; preds = %20
-  %25 = tail call ptr @rb_vm_frame_method_entry(ptr noundef nonnull %.04767) #4
-  %.not60 = icmp eq ptr %25, null
-  br i1 %.not60, label %32, label %26
+25:                                               ; preds = %21
+  %26 = tail call ptr @rb_vm_frame_method_entry(ptr noundef nonnull %.04767) #4
+  %.not60 = icmp eq ptr %26, null
+  br i1 %.not60, label %33, label %27
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 15
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %35, label %32
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = load i8, ptr %29, align 8
+  %31 = and i8 %30, 15
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %36, label %33
 
-32:                                               ; preds = %26, %24
-  %33 = getelementptr inbounds i8, ptr %.04767, i64 16
-  %34 = load ptr, ptr %33, align 8
-  br label %35
+33:                                               ; preds = %27, %25
+  %34 = getelementptr inbounds i8, ptr %.04767, i64 16
+  %35 = load ptr, ptr %34, align 8
+  br label %36
 
-35:                                               ; preds = %26, %32
-  %.sink70 = phi ptr [ %34, %32 ], [ %25, %26 ]
-  %36 = ptrtoint ptr %.sink70 to i64
-  %37 = sext i32 %.04865 to i64
-  %38 = getelementptr i64, ptr %3, i64 %37
-  store i64 %36, ptr %38, align 8
-  br i1 %.not61, label %69, label %39
+36:                                               ; preds = %27, %33
+  %.sink70 = phi ptr [ %35, %33 ], [ %26, %27 ]
+  %37 = ptrtoint ptr %.sink70 to i64
+  %38 = sext i32 %.04865 to i64
+  %39 = getelementptr i64, ptr %3, i64 %38
+  store i64 %37, ptr %39, align 8
+  br i1 %.not61, label %69, label %40
 
-39:                                               ; preds = %35
-  %40 = icmp eq ptr %.04767, %7
-  br i1 %40, label %41, label %44
+40:                                               ; preds = %36
+  %41 = icmp eq ptr %.04767, %7
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.04767, i64 48
-  %43 = load ptr, ptr %42, align 8
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %15, align 8
   %.not62 = icmp eq ptr %43, null
   br i1 %.not62, label %44, label %.sink.split
 
-44:                                               ; preds = %41, %39
+44:                                               ; preds = %42, %40
   %45 = getelementptr inbounds i8, ptr %.04767, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %.04767, align 8
@@ -2615,18 +2615,18 @@ define internal fastcc i32 @thread_profile_frames(ptr nocapture noundef readonly
   %66 = tail call i32 @rb_iseq_line_no(ptr noundef nonnull %46, i64 noundef %spec.select.i.i) #4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %57, %54, %51, %41
-  %.sink = phi i32 [ 0, %41 ], [ 0, %51 ], [ %66, %57 ], [ %56, %54 ]
+.sink.split:                                      ; preds = %57, %54, %51, %42
+  %.sink = phi i32 [ 0, %42 ], [ 0, %51 ], [ %66, %57 ], [ %56, %54 ]
   %67 = sext i32 %.04865 to i64
   %68 = getelementptr i32, ptr %4, i64 %67
   store i32 %.sink, ptr %68, align 4
   br label %69
 
-69:                                               ; preds = %.sink.split, %35
+69:                                               ; preds = %.sink.split, %36
   %70 = add nsw i32 %.04865, 1
   br label %91
 
-71:                                               ; preds = %18, %15
+71:                                               ; preds = %19, %16
   %72 = tail call ptr @rb_vm_frame_method_entry(ptr noundef nonnull %.04767) #4
   %.not58 = icmp eq ptr %72, null
   br i1 %.not58, label %91, label %73
@@ -2663,14 +2663,14 @@ define internal fastcc i32 @thread_profile_frames(ptr nocapture noundef readonly
   %90 = add nsw i32 %.04865, 1
   br label %91
 
-91:                                               ; preds = %69, %89, %73, %71, %81, %22
-  %.150 = phi i32 [ %23, %22 ], [ %.04964, %69 ], [ %82, %81 ], [ %.04964, %89 ], [ %.04964, %73 ], [ %.04964, %71 ]
-  %.1 = phi i32 [ %.04865, %22 ], [ %70, %69 ], [ %.04865, %81 ], [ %90, %89 ], [ %.04865, %73 ], [ %.04865, %71 ]
+91:                                               ; preds = %69, %89, %73, %71, %81, %23
+  %.150 = phi i32 [ %24, %23 ], [ %.04964, %69 ], [ %82, %81 ], [ %.04964, %89 ], [ %.04964, %73 ], [ %.04964, %71 ]
+  %.1 = phi i32 [ %.04865, %23 ], [ %70, %69 ], [ %.04865, %81 ], [ %90, %89 ], [ %.04865, %73 ], [ %.04865, %71 ]
   %92 = getelementptr i8, ptr %.04767, i64 56
   %93 = icmp slt i32 %.1, %2
   %94 = icmp ne ptr %92, %11
   %95 = select i1 %93, i1 %94, i1 false
-  br i1 %95, label %15, label %.loopexit, !llvm.loop !42
+  br i1 %95, label %16, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %91, %8, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ %.1, %91 ]

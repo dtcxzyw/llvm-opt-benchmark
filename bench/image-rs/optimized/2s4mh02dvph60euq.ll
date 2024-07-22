@@ -20566,7 +20566,7 @@ common.resume:                                    ; preds = %512, %515, %.body19
           to label %common.resume unwind label %534
 
 ._crit_edge:                                      ; preds = %531, %507
-  %.lcssa302 = phi ptr [ %.sroa.931.sroa.0.0.copyload61, %507 ], [ %521, %531 ]
+  %.lcssa302 = phi ptr [ %.sroa.931.sroa.0.0.copyload61, %507 ], [ %509, %531 ]
   store ptr %.lcssa302, ptr %.sroa.09.sroa.3.0..sroa_idx, align 8, !alias.scope !3184, !noalias !3189
   store i64 %.sroa.931.sroa.6.0.copyload63, ptr %.sroa.210.0..sroa_idx, align 8, !alias.scope !3191, !noalias !3189
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !3192
@@ -22381,7 +22381,7 @@ common.resume:                                    ; preds = %512, %515, %.body19
           to label %common.resume unwind label %534
 
 ._crit_edge:                                      ; preds = %531, %507
-  %.lcssa302 = phi ptr [ %.sroa.931.sroa.0.0.copyload61, %507 ], [ %521, %531 ]
+  %.lcssa302 = phi ptr [ %.sroa.931.sroa.0.0.copyload61, %507 ], [ %509, %531 ]
   store ptr %.lcssa302, ptr %.sroa.09.sroa.3.0..sroa_idx, align 8, !alias.scope !3527, !noalias !3532
   store i64 %.sroa.931.sroa.6.0.copyload63, ptr %.sroa.210.0..sroa_idx, align 8, !alias.scope !3534, !noalias !3532
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !3535

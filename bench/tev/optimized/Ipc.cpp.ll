@@ -11187,7 +11187,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIlNS_9allocatorIlEEE8__appendEm
   br i1 %.not.i, label %_ZNSt3__16vectorIlNS_9allocatorIlEEE18__construct_at_endEmRKl.exit, label %.lr.ph.i, !llvm.loop !155
 
 _ZNSt3__16vectorIlNS_9allocatorIlEEE18__construct_at_endEmRKl.exit: ; preds = %.lr.ph.i, %12
-  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %14, %.lr.ph.i ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %13, %.lr.ph.i ]
   store ptr %.sroa.3.0.lcssa.i, ptr %6, align 8
   br label %_ZNSt3__114__split_bufferIlRNS_9allocatorIlEEED2Ev.exit
 
@@ -11250,7 +11250,7 @@ _ZNSt3__114__split_bufferIlRNS_9allocatorIlEEE5clearB8ne190000Ev.exit.i: ; preds
   %40 = getelementptr inbounds i64, ptr %31, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %35, i64 %37, i1 false)
   store ptr %40, ptr %0, align 8
-  store ptr %33, ptr %6, align 8
+  store ptr %32, ptr %6, align 8
   store ptr %34, ptr %4, align 8
   %.not.i14 = icmp eq ptr %35, null
   br i1 %.not.i14, label %_ZNSt3__114__split_bufferIlRNS_9allocatorIlEEED2Ev.exit, label %41
@@ -11547,7 +11547,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorI
   br i1 %.not.i, label %_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE18__construct_at_endEm.exit, label %.lr.ph.i, !llvm.loop !159
 
 _ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE18__construct_at_endEm.exit: ; preds = %.lr.ph.i, %11
-  %.sroa.3.0.lcssa.i = phi ptr [ %6, %11 ], [ %14, %.lr.ph.i ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %6, %11 ], [ %12, %.lr.ph.i ]
   store ptr %.sroa.3.0.lcssa.i, ptr %5, align 8
   br label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit
 
@@ -11663,7 +11663,7 @@ _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000E
 _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %36
   %62 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %38, %36 ]
   store ptr %44, ptr %0, align 8
-  store ptr %35, ptr %5, align 8
+  store ptr %33, ptr %5, align 8
   store ptr %32, ptr %3, align 8
   %.not.i10 = icmp eq ptr %62, null
   br i1 %.not.i10, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit, label %63

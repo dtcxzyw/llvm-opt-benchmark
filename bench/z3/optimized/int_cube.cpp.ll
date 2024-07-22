@@ -344,10 +344,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.then, %while.bod
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 48
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNK2lp8lar_term5beginEv.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !6
+  br i1 %cmp.not.i.i.i.i.i, label %if.end30, label %land.rhs.i.i.i.i.i, !llvm.loop !6
 
-_ZNK2lp8lar_term5beginEv.exit:                    ; preds = %land.rhs.i.i.i.i.i, %while.body.i.i.i.i.i, %if.then
-  %retval.sroa.0.1.i.i.i = phi ptr [ %1, %if.then ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ]
+_ZNK2lp8lar_term5beginEv.exit:                    ; preds = %land.rhs.i.i.i.i.i, %if.then
+  %retval.sroa.0.1.i.i.i = phi ptr [ %1, %if.then ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.i.i.not198 = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not198, label %if.end30, label %for.body.lr.ph
 
@@ -690,7 +690,7 @@ if.then29:                                        ; preds = %for.end
   call void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result)
   br label %return
 
-if.end30:                                         ; preds = %_ZNK2lp8lar_term5beginEv.exit, %for.end
+if.end30:                                         ; preds = %while.body.i.i.i.i.i, %_ZNK2lp8lar_term5beginEv.exit, %for.end
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %m_kind.i.i.i.i.i86 = getelementptr inbounds i8, ptr %agg.result, i64 4
   %bf.load.i.i.i.i.i87 = load i8, ptr %m_kind.i.i.i.i.i86, align 4, !alias.scope !13
@@ -823,10 +823,10 @@ land.rhs.i.i.i.i.i114:                            ; preds = %_ZN2lp12zero_of_typ
 while.body.i.i.i.i.i118:                          ; preds = %land.rhs.i.i.i.i.i114
   %incdec.ptr.i.i.i.i.i119 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i115, i64 48
   %cmp.not.i.i.i.i.i120 = icmp eq ptr %incdec.ptr.i.i.i.i.i119, %add.ptr.i.i.i112
-  br i1 %cmp.not.i.i.i.i.i120, label %invoke.cont36, label %land.rhs.i.i.i.i.i114, !llvm.loop !6
+  br i1 %cmp.not.i.i.i.i.i120, label %for.end68, label %land.rhs.i.i.i.i.i114, !llvm.loop !6
 
-invoke.cont36:                                    ; preds = %land.rhs.i.i.i.i.i114, %while.body.i.i.i.i.i118, %_ZN2lp12zero_of_typeI8rationalEET_v.exit
-  %retval.sroa.0.1.i.i.i121 = phi ptr [ %44, %_ZN2lp12zero_of_typeI8rationalEET_v.exit ], [ %retval.sroa.0.0.i.i.i115, %land.rhs.i.i.i.i.i114 ], [ %incdec.ptr.i.i.i.i.i119, %while.body.i.i.i.i.i118 ]
+invoke.cont36:                                    ; preds = %land.rhs.i.i.i.i.i114, %_ZN2lp12zero_of_typeI8rationalEET_v.exit
+  %retval.sroa.0.1.i.i.i121 = phi ptr [ %44, %_ZN2lp12zero_of_typeI8rationalEET_v.exit ], [ %retval.sroa.0.0.i.i.i115, %land.rhs.i.i.i.i.i114 ]
   %cmp.i.i.i130.not204 = icmp eq ptr %retval.sroa.0.1.i.i.i121, %add.ptr.i.i.i112
   br i1 %cmp.i.i.i130.not204, label %for.end68, label %invoke.cont48.lr.ph
 
@@ -910,7 +910,7 @@ _ZN2lp8lar_term14const_iteratorppEv.exit154:      ; preds = %land.rhs.i.i.i.i145
   %cmp.i.i.i130.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i.i.i112
   br i1 %cmp.i.i.i130.not, label %for.end68, label %invoke.cont48
 
-for.end68:                                        ; preds = %_ZN2lp8lar_term14const_iteratorppEv.exit154, %invoke.cont36
+for.end68:                                        ; preds = %while.body.i.i.i.i.i118, %_ZN2lp8lar_term14const_iteratorppEv.exit154, %invoke.cont36
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp69, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4

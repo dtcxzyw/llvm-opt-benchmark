@@ -1405,7 +1405,7 @@ while.body.i.i.i.i:                               ; preds = %if.end, %while.body
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %if.end
   %h.0.lcssa.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end ], [ %mul7.i.i.i.i, %while.body.i.i.i.i ]
-  %key.addr.0.lcssa.i.i.i.i = phi ptr [ %13, %if.end ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
+  %key.addr.0.lcssa.i.i.i.i = phi ptr [ %13, %if.end ], [ %add.ptr.i.i.i.i6, %while.body.i.i.i.i ]
   %and.i.i.i.i = and i64 %14, 7
   switch i64 %and.i.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i.i
@@ -1559,7 +1559,7 @@ while.body.i.i.i28.i:                             ; preds = %_ZNSt12shared_mutex
 
 while.end.i.i.i40.i:                              ; preds = %while.body.i.i.i28.i, %_ZNSt12shared_mutex4lockEv.exit.i
   %h.0.lcssa.i.i.i41.i = phi i64 [ %mul.i.i.i24.i, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %mul7.i.i.i38.i, %while.body.i.i.i28.i ]
-  %key.addr.0.lcssa.i.i.i42.i = phi ptr [ %30, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %add.ptr2.i.i.i32.i, %while.body.i.i.i28.i ]
+  %key.addr.0.lcssa.i.i.i42.i = phi ptr [ %30, %_ZNSt12shared_mutex4lockEv.exit.i ], [ %add.ptr.i.i.i26.i, %while.body.i.i.i28.i ]
   %and.i.i.i43.i = and i64 %31, 7
   switch i64 %and.i.i.i43.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i85.i
@@ -50394,7 +50394,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %entry
   %h.0.lcssa.i.i.i = phi i64 [ %mul.i.i.i, %entry ], [ %mul7.i.i.i, %while.body.i.i.i ]
-  %key.addr.0.lcssa.i.i.i = phi ptr [ %0, %entry ], [ %add.ptr2.i.i.i, %while.body.i.i.i ]
+  %key.addr.0.lcssa.i.i.i = phi ptr [ %0, %entry ], [ %add.ptr.i.i.i, %while.body.i.i.i ]
   %and.i.i.i = and i64 %1, 7
   switch i64 %and.i.i.i, label %default.unreachable [
     i64 7, label %sw.bb.i.i.i

@@ -525,7 +525,7 @@ _ZN9Stockfish12_GLOBAL__N_122partial_insertion_sortEPNS_7ExtMoveES2_i.exit: ; pr
   br i1 %.not19.i38, label %.critedge.i35, label %.lr.ph.i33, !llvm.loop !5
 
 .critedge.i35:                                    ; preds = %149, %.lr.ph.i33, %142
-  %.0.lcssa.i36 = phi ptr [ %144, %142 ], [ %.021.i34, %.lr.ph.i33 ], [ %150, %149 ]
+  %.0.lcssa.i36 = phi ptr [ %134, %142 ], [ %.021.i34, %.lr.ph.i33 ], [ %134, %149 ]
   store i64 %143, ptr %.0.lcssa.i36, align 4
   br label %152
 

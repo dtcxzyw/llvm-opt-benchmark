@@ -478,7 +478,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 128:                                              ; preds = %121, %106, %85
   %129 = phi i64 [ %88, %85 ], [ %88, %106 ], [ %127, %121 ]
   %130 = phi i32 [ %91, %85 ], [ %91, %106 ], [ %123, %121 ]
-  %131 = phi ptr [ %86, %85 ], [ %86, %106 ], [ %126, %121 ]
+  %131 = phi ptr [ %86, %85 ], [ %2, %106 ], [ %126, %121 ]
   %132 = getelementptr i8, ptr %4, i64 4
   %133 = add i32 %130, %90
   %134 = sub i32 0, %133
@@ -538,7 +538,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 
 .lr.ph.preheader:                                 ; preds = %.thread151, %.thread150, %153
   %172 = phi i64 [ %152, %.thread150 ], [ %170, %153 ], [ %149, %.thread151 ]
-  %173 = phi ptr [ %131, %.thread150 ], [ %168, %153 ], [ %147, %.thread151 ]
+  %173 = phi ptr [ %2, %.thread150 ], [ %168, %153 ], [ %147, %.thread151 ]
   %174 = phi i32 [ %133, %.thread150 ], [ %165, %153 ], [ %144, %.thread151 ]
   %175 = phi i64 [ %129, %.thread150 ], [ %169, %153 ], [ %148, %.thread151 ]
   br label %.lr.ph
@@ -595,7 +595,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %.lcssa92 = phi i64 [ %99, %153 ], [ %99, %.thread149 ], [ %178, %201 ], [ %269, %218 ], [ %178, %186 ]
   %.lcssa91 = phi i64 [ %138, %153 ], [ %138, %.thread149 ], [ %177, %201 ], [ %288, %218 ], [ %177, %186 ]
   %.lcssa90 = phi ptr [ %0, %153 ], [ %0, %.thread149 ], [ %176, %201 ], [ %290, %218 ], [ %176, %186 ]
-  %213 = phi ptr [ %168, %153 ], [ %131, %.thread149 ], [ %207, %201 ], [ %207, %218 ], [ %179, %186 ]
+  %213 = phi ptr [ %168, %153 ], [ %131, %.thread149 ], [ %207, %201 ], [ %207, %218 ], [ %2, %186 ]
   %214 = phi i32 [ %165, %153 ], [ %133, %.thread149 ], [ %203, %201 ], [ %286, %218 ], [ %180, %186 ]
   %215 = phi i64 [ %169, %153 ], [ %129, %.thread149 ], [ %208, %201 ], [ %208, %218 ], [ %181, %186 ]
   %216 = getelementptr i8, ptr %9, i64 -2
@@ -998,7 +998,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 521:                                              ; preds = %514, %499, %478
   %522 = phi i64 [ %481, %478 ], [ %481, %499 ], [ %520, %514 ]
   %523 = phi i32 [ %484, %478 ], [ %484, %499 ], [ %516, %514 ]
-  %524 = phi ptr [ %479, %478 ], [ %479, %499 ], [ %519, %514 ]
+  %524 = phi ptr [ %479, %478 ], [ %2, %499 ], [ %519, %514 ]
   %525 = getelementptr i8, ptr %4, i64 4
   %526 = add i32 %523, %483
   %527 = sub i32 0, %526
@@ -1058,7 +1058,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
 
 .lr.ph114.preheader:                              ; preds = %.thread154, %.thread153, %546
   %565 = phi i64 [ %545, %.thread153 ], [ %563, %546 ], [ %542, %.thread154 ]
-  %566 = phi ptr [ %524, %.thread153 ], [ %561, %546 ], [ %540, %.thread154 ]
+  %566 = phi ptr [ %2, %.thread153 ], [ %561, %546 ], [ %540, %.thread154 ]
   %567 = phi i32 [ %526, %.thread153 ], [ %558, %546 ], [ %537, %.thread154 ]
   %568 = phi i64 [ %522, %.thread153 ], [ %562, %546 ], [ %541, %.thread154 ]
   br label %.lr.ph114
@@ -1115,7 +1115,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %.lcssa87 = phi i64 [ %492, %546 ], [ %492, %.thread152 ], [ %571, %594 ], [ %665, %611 ], [ %571, %579 ]
   %.lcssa86 = phi i64 [ %531, %546 ], [ %531, %.thread152 ], [ %570, %594 ], [ %685, %611 ], [ %570, %579 ]
   %.lcssa = phi ptr [ %0, %546 ], [ %0, %.thread152 ], [ %569, %594 ], [ %687, %611 ], [ %569, %579 ]
-  %606 = phi ptr [ %561, %546 ], [ %524, %.thread152 ], [ %600, %594 ], [ %600, %611 ], [ %572, %579 ]
+  %606 = phi ptr [ %561, %546 ], [ %524, %.thread152 ], [ %600, %594 ], [ %600, %611 ], [ %2, %579 ]
   %607 = phi i32 [ %558, %546 ], [ %526, %.thread152 ], [ %596, %594 ], [ %675, %611 ], [ %573, %579 ]
   %608 = phi i64 [ %562, %546 ], [ %522, %.thread152 ], [ %601, %594 ], [ %601, %611 ], [ %574, %579 ]
   %609 = getelementptr i8, ptr %9, i64 -2

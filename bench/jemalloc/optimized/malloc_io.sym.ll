@@ -252,7 +252,7 @@ while.end:                                        ; preds = %land.lhs.true50, %l
 
 label_return.sink.split:                          ; preds = %while.body85, %while.end, %entry
   %.sink = phi i32 [ 22, %entry ], [ 22, %while.end ], [ 34, %while.body85 ]
-  %p.4.ph = phi ptr [ %nptr, %entry ], [ %p.3, %while.end ], [ %p.3, %while.body85 ]
+  %p.4.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.3, %while.body85 ]
   %ns.0.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.1, %while.body85 ]
   %call.i56 = tail call ptr @__errno_location() #14
   store i32 %.sink, ptr %call.i56, align 4

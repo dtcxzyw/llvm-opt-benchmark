@@ -6573,7 +6573,7 @@ BITv05_reloadDStream.exit.sink.split.i.i:         ; preds = %if.end22.i.i.i, %if
 FSEv05_initDState.exit.i:                         ; preds = %BITv05_reloadDStream.exit.sink.split.i.i, %if.end10.i.i.i, %if.end19.i
   %seqState.sroa.0.2.i = phi i64 [ %seqState.sroa.0.1285.i, %if.end19.i ], [ %seqState.sroa.0.1285.i, %if.end10.i.i.i ], [ %add.ptr7.val.i.i.i, %BITv05_reloadDStream.exit.sink.split.i.i ]
   %seqState.sroa.18.1.i = phi i32 [ %add.i.i.i.i, %if.end19.i ], [ %add.i.i.i.i, %if.end10.i.i.i ], [ %and.i.sink.i.i, %BITv05_reloadDStream.exit.sink.split.i.i ]
-  %seqState.sroa.40224.2.i = phi ptr [ %seqState.sroa.40224.0287.i, %if.end19.i ], [ %seqState.sroa.40224.0287.i, %if.end10.i.i.i ], [ %seqState.sroa.40224.1.i, %BITv05_reloadDStream.exit.sink.split.i.i ]
+  %seqState.sroa.40224.2.i = phi ptr [ %seqState.sroa.40224.0287.i, %if.end19.i ], [ %ip.4.i.i, %if.end10.i.i.i ], [ %seqState.sroa.40224.1.i, %BITv05_reloadDStream.exit.sink.split.i.i ]
   %add.ptr.i53.i = getelementptr inbounds i8, ptr %dctx, i64 4
   %63 = load i16, ptr %OffTable.i, align 2
   %conv.i54.i = zext i16 %63 to i32
@@ -8366,7 +8366,7 @@ if.then173:                                       ; preds = %if.then167
 
 while.end:                                        ; preds = %if.end99, %ZBUFFv05_limitCopy.exit162, %ZBUFFv05_limitCopy.exit169, %if.then76
   %op.1.ph = phi ptr [ %op.0227.ph.ph, %if.then76 ], [ %op.0227.ph.ph, %if.end99 ], [ %op.0227.ph.ph, %ZBUFFv05_limitCopy.exit162 ], [ %add.ptr163, %ZBUFFv05_limitCopy.exit169 ]
-  %ip.5.ph = phi ptr [ %ip.2, %if.then76 ], [ %add.ptr123, %ZBUFFv05_limitCopy.exit162 ], [ %ip.2, %if.end99 ], [ %ip.4, %ZBUFFv05_limitCopy.exit169 ]
+  %ip.5.ph = phi ptr [ %ip.2, %if.then76 ], [ %add.ptr123, %ZBUFFv05_limitCopy.exit162 ], [ %add.ptr, %if.end99 ], [ %ip.4, %ZBUFFv05_limitCopy.exit169 ]
   %sub.ptr.lhs.cast178 = ptrtoint ptr %ip.5.ph to i64
   %sub.ptr.rhs.cast179 = ptrtoint ptr %src to i64
   %sub.ptr.sub180 = sub i64 %sub.ptr.lhs.cast178, %sub.ptr.rhs.cast179

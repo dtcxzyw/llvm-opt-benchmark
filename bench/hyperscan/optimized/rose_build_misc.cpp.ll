@@ -3533,7 +3533,7 @@ if.then.i18:                                      ; preds = %if.then.i.thread, %
           to label %if.then.i.invoke.cont19_crit_edge unwind label %lpad18
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !235
+  store i32 %m.sroa.0.0.extract.trunc, ptr %add.ptr.i.i74, align 4, !noalias !235
   %29 = load i64, ptr %m_size.i.i, align 8, !noalias !235
   %add.i.i = add i64 %29, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !235
@@ -4800,7 +4800,7 @@ if.then.i18:                                      ; preds = %if.then.i.thread, %
           to label %if.then.i.invoke.cont19_crit_edge unwind label %lpad18
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  store i32 %m.sroa.0.0.extract.trunc, ptr %25, align 4, !noalias !264
+  store i32 %m.sroa.0.0.extract.trunc, ptr %add.ptr.i.i76, align 4, !noalias !264
   %29 = load i64, ptr %m_size.i.i, align 8, !noalias !264
   %add.i.i = add i64 %29, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !264

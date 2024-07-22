@@ -116124,7 +116124,7 @@ _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit38.i: ; pre
   br i1 %exitcond.not.i, label %1243, label %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i, !llvm.loop !530
 
 .critedge.i:                                      ; preds = %1225, %.lr.ph.i, %.preheader39.i
-  %.029.lcssa.i = phi ptr [ %9, %.preheader39.i ], [ %.02944.i, %.lr.ph.i ], [ %1226, %1225 ]
+  %.029.lcssa.i = phi ptr [ %9, %.preheader39.i ], [ %.02944.i, %.lr.ph.i ], [ %.0.i, %1225 ]
   %.not36.lcssa.i = phi i64 [ 0, %.preheader39.i ], [ -16, %.lr.ph.i ], [ 0, %1225 ]
   %spec.select.idx.i = phi i64 [ 16, %.preheader39.i ], [ 0, %.lr.ph.i ], [ 16, %1225 ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.029.lcssa.i) #28

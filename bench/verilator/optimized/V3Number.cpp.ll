@@ -2052,7 +2052,7 @@ _ZN8V3Number5widthEib.exit:                       ; preds = %.invoke, %.loopexit
   %.not294422 = phi i1 [ false, %_ZN8V3Number5widthEib.exit ], [ true, %39 ], [ true, %35 ]
   %.0281 = phi i1 [ %65, %_ZN8V3Number5widthEib.exit ], [ false, %39 ], [ false, %35 ]
   %.1279 = phi i8 [ %63, %_ZN8V3Number5widthEib.exit ], [ 100, %39 ], [ 100, %35 ]
-  %.1251 = phi ptr [ %spec.select323, %_ZN8V3Number5widthEib.exit ], [ %40, %39 ], [ %1, %35 ]
+  %.1251 = phi ptr [ %spec.select323, %_ZN8V3Number5widthEib.exit ], [ %1, %39 ], [ %1, %35 ]
   %97 = load i32, ptr %.phi.trans.insert.i, align 8
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %.lr.ph, label %._crit_edge

@@ -111,24 +111,24 @@ if.end30:                                         ; preds = %entry, %if.else19, 
 
 sw.bb:                                            ; preds = %if.end30
   %add.i = add i32 %h, %y
-  %cmp34.i = icmp sgt i32 %add.i, %y
-  br i1 %cmp34.i, label %for.body.lr.ph.i, label %sw.epilog
+  %cmp33.i = icmp sgt i32 %add.i, %y
+  br i1 %cmp33.i, label %for.body.lr.ph.i, label %sw.epilog
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
   %add4.i = add i32 %w, %x
-  %cmp532.i = icmp sgt i32 %add4.i, %x
-  br i1 %cmp532.i, label %for.body.us.i, label %sw.epilog
+  %cmp531.i = icmp sgt i32 %add4.i, %x
+  br i1 %cmp531.i, label %for.body.us.i, label %sw.epilog
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.cond3.for.inc16_crit_edge.us.i
-  %ty.035.us.i = phi i32 [ %add17.us.i, %for.cond3.for.inc16_crit_edge.us.i ], [ %y, %for.body.lr.ph.i ]
-  %sub.us.i = sub i32 %add.i, %ty.035.us.i
+  %ty.034.us.i = phi i32 [ %add17.us.i, %for.cond3.for.inc16_crit_edge.us.i ], [ %y, %for.body.lr.ph.i ]
+  %sub.us.i = sub i32 %add.i, %ty.034.us.i
   %cond.us.i = call i32 @llvm.smin.i32(i32 %sub.us.i, i32 64)
   %cmp110124.i.us.i = icmp sgt i32 %sub.us.i, 0
   br label %for.body6.us.i
 
 for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne.exit.us.i, %for.body.us.i
-  %tx.033.us.i = phi i32 [ %x, %for.body.us.i ], [ %add15.us.i, %zrle_encode_tile8ne.exit.us.i ]
-  %sub8.us.i = sub i32 %add4.i, %tx.033.us.i
+  %tx.032.us.i = phi i32 [ %x, %for.body.us.i ], [ %add15.us.i, %zrle_encode_tile8ne.exit.us.i ]
+  %sub8.us.i = sub i32 %add4.i, %tx.032.us.i
   %cond14.us.i = call i32 @llvm.smin.i32(i32 %sub8.us.i, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
   %11 = load ptr, ptr %zrle, align 8
@@ -145,7 +145,7 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   %13 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i, i64 40, i1 false)
-  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.033.us.i, i32 noundef %ty.035.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #8
+  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.032.us.i, i32 noundef %ty.034.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #8
   %14 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -354,7 +354,7 @@ while.body118.i.us.i.backedge:                    ; preds = %if.end135.i.thread.
   br label %while.body118.i.us.i, !llvm.loop !9
 
 for.inc147.i.us.i:                                ; preds = %if.end135.i.thread.us.i, %if.then140.i.us.i, %while.end136.i.us.i, %for.body112.i.us.i
-  %ptr.6.lcssa144.i.us.i = phi ptr [ %incdec.ptr120.i.us.i, %while.end136.i.us.i ], [ %incdec.ptr120.i.us.i, %if.then140.i.us.i ], [ %ptr.5125.i.us.i, %for.body112.i.us.i ], [ %incdec.ptr120.i.us.i, %if.end135.i.thread.us.i ]
+  %ptr.6.lcssa144.i.us.i = phi ptr [ %add.ptr114.i.us.i, %while.end136.i.us.i ], [ %add.ptr114.i.us.i, %if.then140.i.us.i ], [ %ptr.5125.i.us.i, %for.body112.i.us.i ], [ %add.ptr114.i.us.i, %if.end135.i.thread.us.i ]
   %inc148.i.us.i = add nuw nsw i32 %i.1126.i.us.i, 1
   %exitcond133.not.i.us.i = icmp eq i32 %inc148.i.us.i, %cond.us.i
   br i1 %exitcond133.not.i.us.i, label %zrle_encode_tile8ne.exit.us.i, label %for.body112.i.us.i, !llvm.loop !10
@@ -438,12 +438,12 @@ if.then22.i.us.i:                                 ; preds = %while.end18.i.us.i
 zrle_encode_tile8ne.exit.us.i:                    ; preds = %for.inc147.i.us.i, %while.cond50.backedge.i.us.i, %if.then22.i.us.i, %while.cond50.preheader.i.us.i, %if.end105.i.us.i, %if.else150.i.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %found.i.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %colors.i.i)
-  %add15.us.i = add i32 %tx.033.us.i, 64
+  %add15.us.i = add i32 %tx.032.us.i, 64
   %cmp5.us.i = icmp slt i32 %add15.us.i, %add4.i
   br i1 %cmp5.us.i, label %for.body6.us.i, label %for.cond3.for.inc16_crit_edge.us.i, !llvm.loop !14
 
 for.cond3.for.inc16_crit_edge.us.i:               ; preds = %zrle_encode_tile8ne.exit.us.i
-  %add17.us.i = add i32 %ty.035.us.i, 64
+  %add17.us.i = add i32 %ty.034.us.i, 64
   %cmp.us.i = icmp slt i32 %add17.us.i, %add.i
   br i1 %cmp.us.i, label %for.body.us.i, label %sw.epilog, !llvm.loop !15
 

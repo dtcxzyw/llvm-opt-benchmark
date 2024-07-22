@@ -15656,7 +15656,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he4a62856bd3da84cE.exit.thread: ; p
   br i1 %153, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit38.thread80.i.i.i", label %.sink.split.i.i.i
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit38.thread80.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit38.i.i.i", %110
-  %.sroa.0.282.i.i.i = phi ptr [ %144, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit38.i.i.i" ], [ %.sroa.0.1.i.i.i, %110 ]
+  %.sroa.0.282.i.i.i = phi ptr [ %144, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit38.i.i.i" ], [ %51, %110 ]
   %154 = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !3392, !noalias !3393, !noundef !14
   %155 = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !3392, !noalias !3393, !noundef !14
   %156 = icmp eq i64 %154, %155

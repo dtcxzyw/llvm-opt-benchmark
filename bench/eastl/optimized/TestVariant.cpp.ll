@@ -6840,7 +6840,7 @@ _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %l
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %if.end7.i.i, %for.inc, %land.end
-  %insertPosition.0.lcssa = phi ptr [ %insertPosition.065, %if.end7.i.i ], [ %incdec.ptr10, %for.inc ], [ %insertPosition.065, %land.end ]
+  %insertPosition.0.lcssa = phi ptr [ %insertPosition.065, %if.end7.i.i ], [ %first, %for.inc ], [ %insertPosition.065, %land.end ]
   %cmp.not.i25 = icmp eq ptr %insertPosition.0.lcssa, %insertValue
   br i1 %cmp.not.i25, label %invoke.cont12, label %if.then.i26
 

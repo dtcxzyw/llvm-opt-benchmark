@@ -6830,7 +6830,8 @@ land.rhs.i.i.i.i:                                 ; preds = %while.cond11.i.i.i.
   br i1 %cmp16.not.i.i.i.i, label %while.end.i.i.i.i, label %while.cond11.i.i.i.i, !llvm.loop !47
 
 while.end.i.i.i.i:                                ; preds = %land.rhs.i.i.i.i, %while.cond11.i.i.i.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr12.i.i.i.i to i64
+  %incdec.ptr12.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.cond11.i.i.i.i ], [ %incdec.ptr12.i.i.i.i, %land.rhs.i.i.i.i ]
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr12.lcssa.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %p.02.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i.i.i) #17
@@ -6877,7 +6878,7 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad20.i.i.i.i, %lp
   br label %common.resume.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont25.i.i.i.i, %if.then10.i.i.i.i
-  %p.2.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then10.i.i.i.i ], [ %incdec.ptr12.i.i.i.i, %invoke.cont25.i.i.i.i ]
+  %p.2.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then10.i.i.i.i ], [ %incdec.ptr12.lcssa.i.i.i.i, %invoke.cont25.i.i.i.i ]
   %cmp6.not.i.i.i.i = icmp eq ptr %p.2.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp6.not.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i, label %while.body.i.i.i.i, !llvm.loop !48
 

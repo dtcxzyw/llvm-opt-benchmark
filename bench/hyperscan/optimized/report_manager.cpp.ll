@@ -976,7 +976,7 @@ if.then.i18.if.then.i74.invoke.cont9_crit_edge_crit_edge: ; preds = %if.then.i18
 
 if.then4.i.i:                                     ; preds = %if.then.i74
   %24 = load i32, ptr %i, align 4
-  store i32 %24, ptr %19, align 4, !noalias !30
+  store i32 %24, ptr %add.ptr.i.i, align 4, !noalias !30
   %25 = load i64, ptr %m_size.i.i, align 8, !noalias !30
   %add.i.i = add i64 %25, 1
   store i64 %add.i.i, ptr %m_size.i.i, align 8, !noalias !30

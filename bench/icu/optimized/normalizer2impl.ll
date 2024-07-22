@@ -6369,8 +6369,7 @@ _ZN6icu_7516ReorderingBuffer12removeSuffixEi.exit: ; preds = %if.then.i, %if.els
 if.end14:                                         ; preds = %cond.true.i.i.i, %if.then7, %land.rhs.i.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit, %if.end, %_ZN6icu_7516ReorderingBuffer12removeSuffixEi.exit, %entry
   %prevBoundary.0 = phi ptr [ %add.ptr, %_ZN6icu_7516ReorderingBuffer12removeSuffixEi.exit ], [ %src, %if.end ], [ %src, %entry ], [ %src.addr.0.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %src.addr.0.i, %land.rhs.i.i ], [ %src.addr.0.i, %if.then7 ], [ %src.addr.0.i, %cond.true.i.i.i ]
   %limit.addr.0 = phi ptr [ %call5, %_ZN6icu_7516ReorderingBuffer12removeSuffixEi.exit ], [ %call5, %if.end ], [ %limit, %entry ], [ %call5, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %call5, %land.rhs.i.i ], [ %call5, %if.then7 ], [ %call5, %cond.true.i.i.i ]
-  %src.addr.0 = phi ptr [ %add.ptr, %_ZN6icu_7516ReorderingBuffer12removeSuffixEi.exit ], [ %src.addr.0.i, %if.end ], [ %src, %entry ], [ %src.addr.0.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %src.addr.0.i, %land.rhs.i.i ], [ %src.addr.0.i, %if.then7 ], [ %src.addr.0.i, %cond.true.i.i.i ]
-  %cmp16360363367 = icmp eq ptr %src.addr.0, %limit.addr.0
+  %cmp16360363367 = icmp eq ptr %prevBoundary.0, %limit.addr.0
   br i1 %cmp16360363367, label %if.then17, label %if.end23.lr.ph.lr.ph.lr.ph
 
 if.end23.lr.ph.lr.ph.lr.ph:                       ; preds = %if.end14
@@ -6394,12 +6393,11 @@ if.end23.lr.ph.lr.ph.lr.ph:                       ; preds = %if.end14
   br label %if.end23.lr.ph.lr.ph
 
 if.end23.lr.ph.lr.ph:                             ; preds = %if.end23.lr.ph.lr.ph.lr.ph, %for.cond.outer.backedge
-  %src.addr.1.ph370 = phi ptr [ %src.addr.0, %if.end23.lr.ph.lr.ph.lr.ph ], [ %prevBoundary.1.ph.be, %for.cond.outer.backedge ]
-  %prevBoundary.1.ph368 = phi ptr [ %prevBoundary.0, %if.end23.lr.ph.lr.ph.lr.ph ], [ %prevBoundary.1.ph.be, %for.cond.outer.backedge ]
+  %src.addr.1.ph370 = phi ptr [ %prevBoundary.0, %if.end23.lr.ph.lr.ph.lr.ph ], [ %prevBoundary.1.ph.be, %for.cond.outer.backedge ]
   br label %if.end23
 
 if.then17:                                        ; preds = %for.cond.outer.backedge, %if.then318, %if.end69, %if.end14
-  %prevBoundary.1.ph.lcssa = phi ptr [ %prevBoundary.0, %if.end14 ], [ %prevBoundary.1.ph368, %if.end69 ], [ %prevBoundary.1.ph368, %if.then318 ], [ %prevBoundary.1.ph.be, %for.cond.outer.backedge ]
+  %prevBoundary.1.ph.lcssa = phi ptr [ %prevBoundary.0, %if.end14 ], [ %src.addr.1.ph370, %if.end69 ], [ %src.addr.1.ph370, %if.then318 ], [ %prevBoundary.1.ph.be, %for.cond.outer.backedge ]
   %cmp18 = icmp ne ptr %prevBoundary.1.ph.lcssa, %limit.addr.0
   %tobool19 = icmp ne i8 %doCompose, 0
   %or.cond = and i1 %tobool19, %cmp18
@@ -6528,11 +6526,11 @@ lor.lhs.false81:                                  ; preds = %land.rhs.i, %if.the
   br i1 %tobool83.not, label %if.end327, label %if.then84
 
 if.then84:                                        ; preds = %land.rhs.i, %lor.lhs.false81
-  %cmp85.not = icmp eq ptr %prevBoundary.1.ph368, %src.addr.2361
+  %cmp85.not = icmp eq ptr %src.addr.1.ph370, %src.addr.2361
   br i1 %cmp85.not, label %if.end90, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %if.then84
-  %call87 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call87 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool88.not = icmp eq i8 %call87, 0
   br i1 %tobool88.not, label %return, label %if.end90
 
@@ -6576,11 +6574,11 @@ lor.lhs.false104:                                 ; preds = %if.then101
   br i1 %tobool106.not, label %if.end327, label %if.then107
 
 if.then107:                                       ; preds = %lor.lhs.false104, %if.then101
-  %cmp108.not = icmp eq ptr %prevBoundary.1.ph368, %src.addr.2361
+  %cmp108.not = icmp eq ptr %src.addr.1.ph370, %src.addr.2361
   br i1 %cmp108.not, label %if.end113, label %land.lhs.true109
 
 land.lhs.true109:                                 ; preds = %if.then107
-  %call110 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call110 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool111.not = icmp eq i8 %call110, 0
   br i1 %tobool111.not, label %return, label %if.end113
 
@@ -6609,22 +6607,22 @@ if.then128:                                       ; preds = %if.else124
   br i1 %tobool130.not, label %lor.lhs.false131, label %if.then134
 
 lor.lhs.false131:                                 ; preds = %if.then128
-  %call132 = tail call noundef signext i8 @_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEPKDsS2_a(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %src.addr.2361, i8 noundef signext %onlyContiguous)
+  %call132 = tail call noundef signext i8 @_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEPKDsS2_a(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %src.addr.2361, i8 noundef signext %onlyContiguous)
   %tobool133.not = icmp eq i8 %call132, 0
   br i1 %tobool133.not, label %if.end327, label %if.then134
 
 if.then134:                                       ; preds = %lor.lhs.false131, %if.then128
-  %cmp135.not = icmp eq ptr %prevBoundary.1.ph368, %src.addr.2361
+  %cmp135.not = icmp eq ptr %src.addr.1.ph370, %src.addr.2361
   br i1 %cmp135.not, label %for.cond.outer.backedge, label %land.lhs.true136
 
 land.lhs.true136:                                 ; preds = %if.then134
-  %call137 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call137 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %src.addr.2361, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool138.not = icmp eq i8 %call137, 0
   br i1 %tobool138.not, label %return, label %for.cond.outer.backedge
 
 if.else145:                                       ; preds = %for.end
   %cmp.i226 = icmp ne i16 %norm16.0, -512
-  %cmp149.not = icmp eq ptr %prevBoundary.1.ph368, %src.addr.2361
+  %cmp149.not = icmp eq ptr %src.addr.1.ph370, %src.addr.2361
   %or.cond200 = or i1 %cmp.i226, %cmp149.not
   br i1 %or.cond200, label %if.else227, label %if.then150
 
@@ -6673,11 +6671,11 @@ if.then180:                                       ; preds = %if.then170, %if.els
   %mul184 = mul nuw nsw i32 %add183, 28
   %add185 = add nuw nsw i32 %mul184, 44032
   %add186 = add nuw nsw i32 %add185, %t.0.ph
-  %cmp188.not = icmp eq ptr %prevBoundary.1.ph368, %add.ptr151
+  %cmp188.not = icmp eq ptr %src.addr.1.ph370, %add.ptr151
   br i1 %cmp188.not, label %if.end193, label %land.lhs.true189
 
 land.lhs.true189:                                 ; preds = %if.then180
-  %call190 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %add.ptr151, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call190 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %add.ptr151, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool191.not = icmp eq i8 %call190, 0
   br i1 %tobool191.not, label %return, label %if.end193
 
@@ -6701,11 +6699,11 @@ if.then205:                                       ; preds = %if.else201
   br i1 %tobool309.not, label %return, label %if.end208
 
 if.end208:                                        ; preds = %if.then205
-  %cmp214.not = icmp eq ptr %prevBoundary.1.ph368, %add.ptr151
+  %cmp214.not = icmp eq ptr %src.addr.1.ph370, %add.ptr151
   br i1 %cmp214.not, label %if.end219, label %land.lhs.true215
 
 land.lhs.true215:                                 ; preds = %if.end208
-  %call216 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %add.ptr151, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call216 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %add.ptr151, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool217.not = icmp eq i8 %call216, 0
   br i1 %tobool217.not, label %return, label %if.end219
 
@@ -6730,7 +6728,7 @@ for.cond243.preheader:                            ; preds = %land.lhs.true233, %
   br label %for.cond243
 
 land.lhs.true233:                                 ; preds = %if.then230
-  %call234 = tail call noundef zeroext i8 @_ZNK6icu_7515Normalizer2Impl18getPreviousTrailCCEPKDsS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %prevBoundary.1.ph368, ptr noundef nonnull %src.addr.2361)
+  %call234 = tail call noundef zeroext i8 @_ZNK6icu_7515Normalizer2Impl18getPreviousTrailCCEPKDsS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %src.addr.1.ph370, ptr noundef nonnull %src.addr.2361)
   %cmp237 = icmp ugt i8 %call234, %conv1.i230
   br i1 %cmp237, label %if.then238, label %for.cond243.preheader
 
@@ -6747,7 +6745,7 @@ if.then245:                                       ; preds = %for.cond243
   br i1 %tobool309.not, label %return, label %if.then247
 
 if.then247:                                       ; preds = %if.then245
-  %call248 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef %limit.addr.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call248 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef %limit.addr.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %return
 
 if.end250:                                        ; preds = %for.cond243
@@ -6860,7 +6858,7 @@ if.then318:                                       ; preds = %for.end315, %_ZNK6i
 
 if.end327:                                        ; preds = %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit, %if.else227, %if.else201, %if.else172, %if.then153, %if.then238, %lor.lhs.false81, %if.else124, %lor.lhs.false131, %lor.lhs.false104
   %src.addr.8 = phi ptr [ %src.addr.4, %if.then153 ], [ %src.addr.4, %if.then238 ], [ %src.addr.4, %lor.lhs.false81 ], [ %src.addr.4, %lor.lhs.false104 ], [ %src.addr.4, %lor.lhs.false131 ], [ %src.addr.4, %if.else124 ], [ %src.addr.4, %if.else172 ], [ %src.addr.4, %if.else201 ], [ %src.addr.4, %if.else227 ], [ %src.addr.6, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit ]
-  %cmp328.not = icmp eq ptr %prevBoundary.1.ph368, %src.addr.2361
+  %cmp328.not = icmp eq ptr %src.addr.1.ph370, %src.addr.2361
   %72 = load i16, ptr %minNoNoCompNoMaybeCC.i, align 2
   %cmp.i240 = icmp ugt i16 %72, %norm16.0
   %or.cond311 = select i1 %cmp328.not, i1 true, i1 %cmp.i240
@@ -6897,7 +6895,7 @@ if.then339:                                       ; preds = %if.then332
 if.else348:                                       ; preds = %if.then332
   %and350 = and i32 %conv335, 1024
   %cmp351.not = icmp eq i32 %and350, 0
-  %cmp353.not = icmp eq ptr %incdec.ptr334, %prevBoundary.1.ph368
+  %cmp353.not = icmp eq ptr %incdec.ptr334, %src.addr.1.ph370
   %or.cond202 = or i1 %cmp351.not, %cmp353.not
   br i1 %or.cond202, label %if.else348.if.else377_crit_edge, label %land.lhs.true354
 
@@ -6957,12 +6955,12 @@ if.end382:                                        ; preds = %cond.true368, %cond
 
 if.end392:                                        ; preds = %if.end382, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit249, %if.end327
   %prevSrc.0 = phi ptr [ %src.addr.2361, %_ZNK6icu_7515Normalizer2Impl27norm16HasCompBoundaryBeforeEt.exit249 ], [ %src.addr.2361, %if.end327 ], [ %spec.select203, %if.end382 ]
-  %cmp395.not = icmp eq ptr %prevBoundary.1.ph368, %prevSrc.0
+  %cmp395.not = icmp eq ptr %src.addr.1.ph370, %prevSrc.0
   %or.cond204 = or i1 %tobool309.not, %cmp395.not
   br i1 %or.cond204, label %if.end400, label %land.lhs.true396
 
 land.lhs.true396:                                 ; preds = %if.end392
-  %call397 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %prevBoundary.1.ph368, ptr noundef %prevSrc.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call397 = tail call noundef signext i8 @_ZN6icu_7516ReorderingBuffer12appendZeroCCEPKDsS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %buffer, ptr noundef %src.addr.1.ph370, ptr noundef %prevSrc.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool398.not = icmp eq i8 %call397, 0
   br i1 %tobool398.not, label %return, label %if.end400
 
@@ -7594,7 +7592,6 @@ _ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread107: ; preds = 
 if.end9:                                          ; preds = %cond.true.i.i.i, %if.then4, %land.rhs.i.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread107, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit, %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit, %entry
   %prevBoundary.0 = phi ptr [ %src, %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %src, %entry ], [ %add.ptr, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread107 ], [ %src.addr.0.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %src.addr.0.i, %land.rhs.i.i ], [ %src.addr.0.i, %if.then4 ], [ %src.addr.0.i, %cond.true.i.i.i ]
   %limit.addr.0 = phi ptr [ %call2, %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %limit, %entry ], [ %call2, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread107 ], [ %call2, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %call2, %land.rhs.i.i ], [ %call2, %if.then4 ], [ %call2, %cond.true.i.i.i ]
-  %src.addr.0 = phi ptr [ %src.addr.0.i, %_ZNK6icu_7515Normalizer2Impl30copyLowPrefixFromNulTerminatedEPKDsiPNS_16ReorderingBufferER10UErrorCode.exit ], [ %src, %entry ], [ %add.ptr, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit.thread107 ], [ %src.addr.0.i, %_ZNK6icu_7515Normalizer2Impl20hasCompBoundaryAfterEia.exit ], [ %src.addr.0.i, %land.rhs.i.i ], [ %src.addr.0.i, %if.then4 ], [ %src.addr.0.i, %cond.true.i.i.i ]
   %normTrie = getelementptr inbounds i8, ptr %this, i64 32
   %minNoNo.i = getelementptr inbounds i8, ptr %this, i64 18
   %minNoNoCompNoMaybeCC.i = getelementptr inbounds i8, ptr %this, i64 22
@@ -7609,7 +7606,7 @@ if.end9:                                          ; preds = %cond.true.i.i.i, %i
 
 for.cond:                                         ; preds = %for.end214, %if.end9
   %prevBoundary.1 = phi ptr [ %prevBoundary.0, %if.end9 ], [ %src.addr.5, %for.end214 ]
-  %src.addr.1 = phi ptr [ %src.addr.0, %if.end9 ], [ %nextSrc.0, %for.end214 ]
+  %src.addr.1 = phi ptr [ %prevBoundary.0, %if.end9 ], [ %nextSrc.0, %for.end214 ]
   %cmp11126 = icmp eq ptr %src.addr.1, %limit.addr.0
   br i1 %cmp11126, label %return, label %if.end13
 

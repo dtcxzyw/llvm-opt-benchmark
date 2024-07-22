@@ -44,7 +44,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture nou
   br label %15
 
 15:                                               ; preds = %13, %12
-  %.1.i = phi ptr [ %14, %13 ], [ %.02634.i, %12 ]
+  %.1.i = phi ptr [ %14, %13 ], [ %3, %12 ]
   %16 = getelementptr i8, ptr %.02535.i, i64 1
   %17 = load i8, ptr %.02535.i, align 1
   %18 = zext i8 %17 to i32

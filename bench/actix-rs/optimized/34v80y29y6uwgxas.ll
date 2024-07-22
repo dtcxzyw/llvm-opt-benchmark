@@ -8072,10 +8072,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr260dro
   br i1 %134, label %.loopexit.i.loopexit, label %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i", %133
-  %.sroa.010.i.sroa.0.1.ph = phi i64 [ %.sroa.010.i.sroa.0.0.copyload58, %133 ], [ %.sroa.010.i.sroa.0.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ]
-  %.sroa.010.i.sroa.6.1.ph = phi ptr [ %.sroa.010.i.sroa.6.0.copyload61, %133 ], [ %.sroa.010.i.sroa.6.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ]
-  %.sroa.010.i.sroa.7.1.ph = phi i64 [ %127, %133 ], [ %.sroa.010.i.sroa.7.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ]
-  store ptr %114, ptr %11, align 8, !alias.scope !1457, !noalias !1460
+  %.lcssa = phi ptr [ %114, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ], [ %100, %133 ]
+  %.sroa.010.i.sroa.0.1.ph = phi i64 [ %.sroa.010.i.sroa.0.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ], [ %.sroa.010.i.sroa.0.0.copyload58, %133 ]
+  %.sroa.010.i.sroa.6.1.ph = phi ptr [ %.sroa.010.i.sroa.6.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ], [ %.sroa.010.i.sroa.6.0.copyload61, %133 ]
+  %.sroa.010.i.sroa.7.1.ph = phi i64 [ %.sroa.010.i.sroa.7.0, %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5e3095c7bdf67cafE.exit.i" ], [ %127, %133 ]
+  store ptr %.lcssa, ptr %11, align 8, !alias.scope !1457, !noalias !1460
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %94

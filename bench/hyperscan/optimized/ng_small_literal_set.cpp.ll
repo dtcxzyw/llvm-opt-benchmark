@@ -1008,7 +1008,7 @@ lor.rhs.i:                                        ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5.i, label %if.then.thread.i, label %.noexc119.us.i
 
 if.then.i:                                        ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
-  store ptr %119, ptr %agg.tmp14.i, align 8, !noalias !27
+  store ptr %add.ptr.i.i25, ptr %agg.tmp14.i, align 8, !noalias !27
   %122 = load i64, ptr %m_capacity.i.i.i.i12.i, align 8, !noalias !36
   %cmp.not.i.i.i.i = icmp eq i64 %122, %113
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %if.then3.i.i.i.i.i

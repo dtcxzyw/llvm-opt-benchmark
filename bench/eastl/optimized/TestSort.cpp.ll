@@ -6539,7 +6539,7 @@ for.body5.i.i5361:                                ; preds = %land.rhs.i.i5348
   br i1 %cmp4.not.i.i5362, label %for.end.i.i5353, label %land.rhs.i.i5348, !llvm.loop !80
 
 for.end.i.i5353:                                  ; preds = %for.body5.i.i5361, %land.rhs.i.i5348, %for.body.i.i5343
-  %iNext.0.lcssa.i.i5354 = phi ptr [ %iSorted.020.i.i5344, %for.body.i.i5343 ], [ %iCurrent.017.i.i5350, %for.body5.i.i5361 ], [ %iCurrent.017.pn.i.i5349, %land.rhs.i.i5348 ]
+  %iNext.0.lcssa.i.i5354 = phi ptr [ %toArray591.sroa.0.6, %for.body.i.i5343 ], [ %toArray591.sroa.0.6, %for.body5.i.i5361 ], [ %iCurrent.017.pn.i.i5349, %land.rhs.i.i5348 ]
   store i32 %temp.sroa.0.0.copyload.i.i5345, ptr %iNext.0.lcssa.i.i5354, align 8
   %temp.sroa.3.0.iNext.0.sroa_idx.i.i5355 = getelementptr inbounds i8, ptr %iNext.0.lcssa.i.i5354, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.0.iNext.0.sroa_idx.i.i5355, ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.i.i5313, i64 12, i1 false)
@@ -6671,7 +6671,7 @@ for.body5.i.i5264:                                ; preds = %land.rhs.i.i5251
   br i1 %cmp4.not.i.i5265, label %for.end.i.i5256, label %land.rhs.i.i5251, !llvm.loop !80
 
 for.end.i.i5256:                                  ; preds = %for.body5.i.i5264, %land.rhs.i.i5251, %for.body.i.i5246
-  %iNext.0.lcssa.i.i5257 = phi ptr [ %iSorted.020.i.i5247, %for.body.i.i5246 ], [ %iCurrent.017.i.i5253, %for.body5.i.i5264 ], [ %iCurrent.017.pn.i.i5252, %land.rhs.i.i5251 ]
+  %iNext.0.lcssa.i.i5257 = phi ptr [ %add.ptr.i5241, %for.body.i.i5246 ], [ %add.ptr.i5241, %for.body5.i.i5264 ], [ %iCurrent.017.pn.i.i5252, %land.rhs.i.i5251 ]
   store i32 %temp.sroa.0.0.copyload.i.i5248, ptr %iNext.0.lcssa.i.i5257, align 8
   %temp.sroa.3.0.iNext.0.sroa_idx.i.i5258 = getelementptr inbounds i8, ptr %iNext.0.lcssa.i.i5257, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.0.iNext.0.sroa_idx.i.i5258, ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.i.i5216, i64 12, i1 false)
@@ -6960,7 +6960,7 @@ for.body5.i.i5167:                                ; preds = %land.rhs.i.i5154
   br i1 %cmp4.not.i.i5168, label %for.end.i.i5159, label %land.rhs.i.i5154, !llvm.loop !80
 
 for.end.i.i5159:                                  ; preds = %for.body5.i.i5167, %land.rhs.i.i5154, %for.body.i.i5149
-  %iNext.0.lcssa.i.i5160 = phi ptr [ %iSorted.020.i.i5150, %for.body.i.i5149 ], [ %iCurrent.017.i.i5156, %for.body5.i.i5167 ], [ %iCurrent.017.pn.i.i5155, %land.rhs.i.i5154 ]
+  %iNext.0.lcssa.i.i5160 = phi ptr [ %add.ptr.i5144, %for.body.i.i5149 ], [ %add.ptr.i5144, %for.body5.i.i5167 ], [ %iCurrent.017.pn.i.i5155, %land.rhs.i.i5154 ]
   store i32 %temp.sroa.0.0.copyload.i.i5151, ptr %iNext.0.lcssa.i.i5160, align 8
   %temp.sroa.3.0.iNext.0.sroa_idx.i.i5161 = getelementptr inbounds i8, ptr %iNext.0.lcssa.i.i5160, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.0.iNext.0.sroa_idx.i.i5161, ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.i.i5119, i64 12, i1 false)
@@ -7941,7 +7941,7 @@ for.body5.i.i4811:                                ; preds = %land.rhs.i.i4800
   br i1 %cmp4.not.i.i4812, label %for.end.i.i4804, label %land.rhs.i.i4800, !llvm.loop !80
 
 for.end.i.i4804:                                  ; preds = %for.body5.i.i4811, %land.rhs.i.i4800, %for.body.i.i4796
-  %iNext.0.lcssa.i.i4805 = phi ptr [ %iSorted.020.i.i4797, %for.body.i.i4796 ], [ %iCurrent.017.i.i4802, %for.body5.i.i4811 ], [ %iCurrent.017.pn.i.i4801, %land.rhs.i.i4800 ]
+  %iNext.0.lcssa.i.i4805 = phi ptr [ %add.ptr.i4794, %for.body.i.i4796 ], [ %add.ptr.i4794, %for.body5.i.i4811 ], [ %iCurrent.017.pn.i.i4801, %land.rhs.i.i4800 ]
   store i32 %temp.sroa.0.0.copyload.i.i4798, ptr %iNext.0.lcssa.i.i4805, align 8
   %temp.sroa.3.0.iNext.0.sroa_idx.i.i4806 = getelementptr inbounds i8, ptr %iNext.0.lcssa.i.i4805, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.0.iNext.0.sroa_idx.i.i4806, ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.i.i4778, i64 12, i1 false)
@@ -15473,7 +15473,7 @@ for.body5.i:                                      ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !361
 
 for.end.i:                                        ; preds = %for.body5.i, %land.rhs.i, %for.body.i
-  %iNext.0.lcssa.i = phi ptr [ %iSorted.020.i, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %iCurrent.017.i, %for.body5.i ]
+  %iNext.0.lcssa.i = phi ptr [ %first, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %first, %for.body5.i ]
   store i64 %2, ptr %iNext.0.lcssa.i, align 8
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %iSorted.020.i, i64 8
   %cmp1.not.i30 = icmp eq ptr %incdec.ptr9.i, %last
@@ -16384,7 +16384,7 @@ for.body5.i:                                      ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !361
 
 for.end.i:                                        ; preds = %for.body5.i, %land.rhs.i, %for.body.i
-  %iNext.0.lcssa.i = phi ptr [ %iSorted.020.i, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %iCurrent.017.i, %for.body5.i ]
+  %iNext.0.lcssa.i = phi ptr [ %add.ptr, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %add.ptr, %for.body5.i ]
   store i64 %12, ptr %iNext.0.lcssa.i, align 8
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %iSorted.020.i, i64 8
   %cmp1.not.i = icmp eq ptr %incdec.ptr9.i, %add.ptr8
@@ -17524,7 +17524,7 @@ _ZN10TestObjectaSERKS_.exit.i:                    ; preds = %land.end.i
   br i1 %cmp4.not.i, label %for.end.i, label %land.end.i, !llvm.loop !385
 
 for.end.i:                                        ; preds = %_ZN10TestObjectaSERKS_.exit.i, %land.end.i, %for.body.i
-  %iNext.0.lcssa.i = phi ptr [ %iSorted.044.i, %for.body.i ], [ %iSorted.0.pn40.i, %land.end.i ], [ %iCurrent.041.i, %_ZN10TestObjectaSERKS_.exit.i ]
+  %iNext.0.lcssa.i = phi ptr [ %first, %for.body.i ], [ %iSorted.0.pn40.i, %land.end.i ], [ %first, %_ZN10TestObjectaSERKS_.exit.i ]
   %13 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i21.i = add nsw i64 %13, 1
   store i64 %inc.i21.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -18709,7 +18709,7 @@ _ZN10TestObjectaSERKS_.exit.i:                    ; preds = %land.end.i
   br i1 %cmp4.not.i, label %for.end.i, label %land.end.i, !llvm.loop !385
 
 for.end.i:                                        ; preds = %_ZN10TestObjectaSERKS_.exit.i, %land.end.i, %for.body.i
-  %iNext.0.lcssa.i = phi ptr [ %iSorted.044.i, %for.body.i ], [ %iSorted.0.pn40.i, %land.end.i ], [ %iCurrent.041.i, %_ZN10TestObjectaSERKS_.exit.i ]
+  %iNext.0.lcssa.i = phi ptr [ %add.ptr, %for.body.i ], [ %iSorted.0.pn40.i, %land.end.i ], [ %add.ptr, %_ZN10TestObjectaSERKS_.exit.i ]
   %15 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i21.i = add nsw i64 %15, 1
   store i64 %inc.i21.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -19390,7 +19390,7 @@ for.body5.i:                                      ; preds = %land.rhs.i
   br i1 %cmp4.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !80
 
 for.end.i:                                        ; preds = %for.body5.i, %land.rhs.i, %for.body.i
-  %iNext.0.lcssa.i = phi ptr [ %iSorted.020.i, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %iCurrent.017.i, %for.body5.i ]
+  %iNext.0.lcssa.i = phi ptr [ %first, %for.body.i ], [ %iCurrent.017.pn.i, %land.rhs.i ], [ %first, %for.body5.i ]
   store i32 %temp.sroa.0.0.copyload.i, ptr %iNext.0.lcssa.i, align 8
   %temp.sroa.3.0.iNext.0.sroa_idx.i = getelementptr inbounds i8, ptr %iNext.0.lcssa.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.0.iNext.0.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.sroa.3.i, i64 12, i1 false)

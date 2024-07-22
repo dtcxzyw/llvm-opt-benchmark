@@ -1172,7 +1172,7 @@ if.then.i63:                                      ; preds = %if.then.i.i.i89.thr
 
 if.then4.i.i61:                                   ; preds = %if.then.i.i.i89
   %88 = load i32, ptr %agg.tmp55.sroa.0.0.i, align 4, !noalias !73
-  store i32 %88, ptr %83, align 4, !noalias !73
+  store i32 %88, ptr %add.ptr.i.i.i94.i, align 4, !noalias !73
   %89 = load i64, ptr %m_size.i.i.i93.i, align 8, !noalias !73
   %add.i.i62 = add i64 %89, 1
   store i64 %add.i.i62, ptr %m_size.i.i.i93.i, align 8, !noalias !73

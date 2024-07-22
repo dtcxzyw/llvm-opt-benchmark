@@ -11534,8 +11534,8 @@ _ZN12clap_builder6parser11arg_matcher10ArgMatcher8contains17h25bdae54dbad0760E.e
   br i1 %.not.i.i.i.i.i.i.i.i, label %.critedge.backedge.i.i22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .critedge.backedge.i.i22.i.i.i:                   ; preds = %.critedge.backedge.i.i.i.i.i.i.i.i, %87
-  %.not29.i.i.i.i.i = icmp eq ptr %89, %85
-  br i1 %.not29.i.i.i.i.i, label %".critedge._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf87987267a4512dfE.exit.loopexit_crit_edge.i.i.i.i.i", label %87
+  %.not30.i.i.i.i.i = icmp eq ptr %89, %85
+  br i1 %.not30.i.i.i.i.i, label %".critedge._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf87987267a4512dfE.exit.loopexit_crit_edge.i.i.i.i.i", label %87
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %87
   %93 = load i64, ptr %86, align 8, !alias.scope !2543, !noalias !2550, !noundef !5

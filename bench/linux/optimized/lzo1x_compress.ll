@@ -639,7 +639,8 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 407:                                              ; preds = %400
   %408 = trunc nuw i64 %398 to i8
   %409 = add nuw i8 %408, 17
-  %410 = getelementptr i8, ptr %397, i64 1
+  %410 = getelementptr i8, ptr %13, i64 1
+  store i8 %409, ptr %13, align 1
   br label %441
 
 411:                                              ; preds = %400
@@ -662,6 +663,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 420:                                              ; preds = %417
   %421 = trunc nuw nsw i64 %398 to i8
   %422 = add nsw i8 %421, -3
+  store i8 %422, ptr %397, align 1
   br label %441
 
 423:                                              ; preds = %417
@@ -693,9 +695,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   br label %.preheader10.preheader
 
 441:                                              ; preds = %420, %407
-  %.sink = phi i8 [ %422, %420 ], [ %409, %407 ]
-  %442 = phi ptr [ %419, %420 ], [ %410, %407 ]
-  store i8 %.sink, ptr %397, align 1
+  %442 = phi ptr [ %410, %407 ], [ %419, %420 ]
   %443 = icmp ugt i64 %398, 15
   br i1 %443, label %.preheader10.preheader, label %.preheader.preheader
 

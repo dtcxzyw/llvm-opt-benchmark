@@ -16746,7 +16746,7 @@ _ZN3hir4Type19iterate_assoc_items17h5165499f9f396ee1E.exit: ; preds = %585
   br i1 %608, label %._crit_edge.i.loopexit, label %599
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17he401ba89f8eba8c9E.exit.i"
-  store ptr %601, ptr %594, align 8, !alias.scope !3513, !noalias !3516
+  store ptr %592, ptr %594, align 8, !alias.scope !3513, !noalias !3516
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %591
@@ -28610,7 +28610,7 @@ _ZN3hir4Type19iterate_assoc_items17hddcef3f98ab10ed3E.exit: ; preds = %393
   br i1 %423, label %._crit_edge.i.loopexit, label %408
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17heab81555ea0edfb5E.exit.i"
-  store ptr %410, ptr %402, align 8, !alias.scope !6379, !noalias !6382
+  store ptr %400, ptr %402, align 8, !alias.scope !6379, !noalias !6382
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %399

@@ -498,7 +498,7 @@ define dso_local void @_ZN5vcpkg18HelpTableFormatter4textENS_10StringViewEi(ptr 
   br i1 %.not, label %._crit_edge, label %32, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %74, %27, %._crit_edge.i.i.i, %"_ZSt7find_ifIPKcZN5vcpkg18HelpTableFormatter4textENS2_10StringViewEiE3$_0ET_S6_S6_T0_.exit"
-  %.018.lcssa = phi ptr [ %.028.i.i.i, %"_ZSt7find_ifIPKcZN5vcpkg18HelpTableFormatter4textENS2_10StringViewEiE3$_0ET_S6_S6_T0_.exit" ], [ %5, %._crit_edge.i.i.i ], [ %5, %27 ], [ %.028.i.i.i26, %74 ]
+  %.018.lcssa = phi ptr [ %5, %"_ZSt7find_ifIPKcZN5vcpkg18HelpTableFormatter4textENS2_10StringViewEiE3$_0ET_S6_S6_T0_.exit" ], [ %5, %._crit_edge.i.i.i ], [ %5, %27 ], [ %.028.i.i.i26, %74 ]
   %.0.lcssa = phi ptr [ %1, %"_ZSt7find_ifIPKcZN5vcpkg18HelpTableFormatter4textENS2_10StringViewEiE3$_0ET_S6_S6_T0_.exit" ], [ %1, %._crit_edge.i.i.i ], [ %1, %27 ], [ %.1, %74 ]
   %75 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %76 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16

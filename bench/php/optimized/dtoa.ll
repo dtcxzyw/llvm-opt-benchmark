@@ -273,7 +273,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %.1103.i.i = phi i32 [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ 0, %lexbor_dec_count.exit.i.i ]
   %.not118.i.i = icmp eq i32 %.0104.i.i, 0
   %.not119.i.i = icmp eq ptr %.0100.i.i, %.021
-  %or.cond.i.i = select i1 %.not118.i.i, i1 %.not119.i.i, i1 false
+  %or.cond.i.i = and i1 %.not119.i.i, %.not118.i.i
   br i1 %or.cond.i.i, label %170, label %161
 
 161:                                              ; preds = %160
@@ -291,7 +291,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   br label %lexbor_grisu2.exit
 
 170:                                              ; preds = %161, %160
-  %.1101.i.i = phi ptr [ %164, %161 ], [ %.0100.i.i, %160 ]
+  %.1101.i.i = phi ptr [ %164, %161 ], [ %.021, %160 ]
   %171 = add nsw i32 %.099.i.i, -1
   %172 = zext nneg i32 %.1103.i.i to i64
   %173 = shl i64 %172, %110
@@ -354,7 +354,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %203 = and i64 %202, 255
   %.not.i45.i = icmp eq i64 %203, 0
   %.not117.i.i = icmp eq ptr %.2.i.i, %.021
-  %or.cond121.i.i = select i1 %.not.i45.i, i1 %.not117.i.i, i1 false
+  %or.cond121.i.i = and i1 %.not117.i.i, %.not.i45.i
   br i1 %or.cond121.i.i, label %213, label %204
 
 204:                                              ; preds = %.preheader.i.i
@@ -372,7 +372,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   br label %lexbor_grisu2.exit
 
 213:                                              ; preds = %204, %.preheader.i.i
-  %.3.i.i = phi ptr [ %207, %204 ], [ %.2.i.i, %.preheader.i.i ]
+  %.3.i.i = phi ptr [ %207, %204 ], [ %.021, %.preheader.i.i ]
   %214 = and i64 %200, %114
   %215 = add nsw i32 %.1.i.i, -1
   %216 = icmp ult i64 %214, %201

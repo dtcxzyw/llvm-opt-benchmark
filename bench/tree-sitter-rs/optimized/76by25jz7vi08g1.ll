@@ -36206,10 +36206,11 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar13parse_grammar1
           to label %"_ZN4core3ptr133drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17hc681883239f16345E.exit" unwind label %222
 
 .loopexit:                                        ; preds = %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i"
-  %.sroa.0266.0.ph.ph = phi i64 [ %164, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ], [ %.sroa.07.0.copyload.i463, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ]
-  %.sroa.5267.0.ph.ph = phi ptr [ %.sroa.7.1.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ], [ %195, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ]
-  %.sroa.9268.0.ph.ph = phi i64 [ %163, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ], [ %196, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ]
-  store ptr %166, ptr %156, align 8, !alias.scope !8513, !noalias !8514
+  %.lcssa420 = phi ptr [ %154, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ], [ %166, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ]
+  %.sroa.0266.0.ph.ph = phi i64 [ %.sroa.07.0.copyload.i463, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ], [ %164, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ]
+  %.sroa.5267.0.ph.ph = phi ptr [ %195, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ], [ %.sroa.7.1.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ]
+  %.sroa.9268.0.ph.ph = phi i64 [ %196, %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1aa9cb571411bf75E.exit.i" ], [ %163, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he6f246f2ee3ef625E.exit.i" ]
+  store ptr %.lcssa420, ptr %156, align 8, !alias.scope !8513, !noalias !8514
   br label %200
 
 200:                                              ; preds = %.loopexit, %152

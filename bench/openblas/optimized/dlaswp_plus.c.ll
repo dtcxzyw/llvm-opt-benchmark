@@ -131,7 +131,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  store double %85, ptr %81, align 8, !tbaa !7
+  store double %85, ptr %73, align 8, !tbaa !7
   store double %83, ptr %84, align 8, !tbaa !7
   store double %88, ptr %80, align 8, !tbaa !7
   store double %86, ptr %87, align 8, !tbaa !7
@@ -170,7 +170,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  store double %83, ptr %84, align 8, !tbaa !7
+  store double %83, ptr %73, align 8, !tbaa !7
   store double %88, ptr %80, align 8, !tbaa !7
   store double %86, ptr %87, align 8, !tbaa !7
   store double %91, ptr %79, align 8, !tbaa !7
@@ -180,7 +180,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %130
 
 120:                                              ; preds = %117
-  store double %96, ptr %84, align 8, !tbaa !7
+  store double %96, ptr %73, align 8, !tbaa !7
   store double %83, ptr %75, align 8, !tbaa !7
   store double %88, ptr %80, align 8, !tbaa !7
   store double %98, ptr %87, align 8, !tbaa !7
@@ -197,7 +197,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %115, label %122, label %123
 
 122:                                              ; preds = %121
-  store double %85, ptr %81, align 8, !tbaa !7
+  store double %85, ptr %75, align 8, !tbaa !7
   store double %95, ptr %84, align 8, !tbaa !7
   store double %83, ptr %73, align 8, !tbaa !7
   store double %88, ptr %80, align 8, !tbaa !7
@@ -365,7 +365,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %194, label %195, label %196
 
 195:                                              ; preds = %193
-  store double %162, ptr %163, align 8, !tbaa !7
+  store double %162, ptr %153, align 8, !tbaa !7
   store double %167, ptr %148, align 8, !tbaa !7
   store double %165, ptr %166, align 8, !tbaa !7
   store double %170, ptr %149, align 8, !tbaa !7
@@ -375,7 +375,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %206
 
 196:                                              ; preds = %193
-  store double %175, ptr %163, align 8, !tbaa !7
+  store double %175, ptr %155, align 8, !tbaa !7
   store double %162, ptr %153, align 8, !tbaa !7
   store double %167, ptr %148, align 8, !tbaa !7
   store double %177, ptr %166, align 8, !tbaa !7
@@ -556,7 +556,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %277, label %278, label %279
 
 278:                                              ; preds = %276
-  store double %264, ptr %260, align 8, !tbaa !7
+  store double %264, ptr %254, align 8, !tbaa !7
   store double %262, ptr %263, align 8, !tbaa !7
   store double %267, ptr %259, align 8, !tbaa !7
   store double %265, ptr %266, align 8, !tbaa !7
@@ -587,13 +587,13 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %287, label %288, label %289
 
 288:                                              ; preds = %286
-  store double %262, ptr %263, align 8, !tbaa !7
+  store double %262, ptr %254, align 8, !tbaa !7
   store double %267, ptr %259, align 8, !tbaa !7
   store double %265, ptr %266, align 8, !tbaa !7
   br label %299
 
 289:                                              ; preds = %286
-  store double %269, ptr %263, align 8, !tbaa !7
+  store double %269, ptr %254, align 8, !tbaa !7
   store double %262, ptr %256, align 8, !tbaa !7
   store double %267, ptr %259, align 8, !tbaa !7
   store double %271, ptr %266, align 8, !tbaa !7
@@ -604,7 +604,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %284, label %291, label %292
 
 291:                                              ; preds = %290
-  store double %264, ptr %260, align 8, !tbaa !7
+  store double %264, ptr %256, align 8, !tbaa !7
   store double %268, ptr %263, align 8, !tbaa !7
   store double %262, ptr %254, align 8, !tbaa !7
   store double %267, ptr %259, align 8, !tbaa !7
@@ -718,13 +718,13 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %341, label %342, label %343
 
 342:                                              ; preds = %340
-  store double %323, ptr %324, align 8, !tbaa !7
+  store double %323, ptr %314, align 8, !tbaa !7
   store double %328, ptr %311, align 8, !tbaa !7
   store double %326, ptr %327, align 8, !tbaa !7
   br label %353
 
 343:                                              ; preds = %340
-  store double %320, ptr %324, align 8, !tbaa !7
+  store double %320, ptr %316, align 8, !tbaa !7
   store double %323, ptr %314, align 8, !tbaa !7
   store double %328, ptr %311, align 8, !tbaa !7
   store double %322, ptr %327, align 8, !tbaa !7
@@ -853,7 +853,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %406, label %407, label %408
 
 407:                                              ; preds = %405
-  store double %398, ptr %394, align 8, !tbaa !7
+  store double %398, ptr %390, align 8, !tbaa !7
   store double %396, ptr %397, align 8, !tbaa !7
   br label %428
 
@@ -880,11 +880,11 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %416, label %417, label %418
 
 417:                                              ; preds = %415
-  store double %396, ptr %397, align 8, !tbaa !7
+  store double %396, ptr %390, align 8, !tbaa !7
   br label %428
 
 418:                                              ; preds = %415
-  store double %400, ptr %397, align 8, !tbaa !7
+  store double %400, ptr %390, align 8, !tbaa !7
   store double %396, ptr %391, align 8, !tbaa !7
   br label %428
 
@@ -892,7 +892,7 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %413, label %420, label %421
 
 420:                                              ; preds = %419
-  store double %398, ptr %394, align 8, !tbaa !7
+  store double %398, ptr %391, align 8, !tbaa !7
   store double %399, ptr %397, align 8, !tbaa !7
   store double %396, ptr %390, align 8, !tbaa !7
   br label %428
@@ -979,11 +979,11 @@ define noundef i32 @dlaswp_plus(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %459, label %460, label %461
 
 460:                                              ; preds = %458
-  store double %442, ptr %443, align 8, !tbaa !7
+  store double %442, ptr %439, align 8, !tbaa !7
   br label %471
 
 461:                                              ; preds = %458
-  store double %446, ptr %443, align 8, !tbaa !7
+  store double %446, ptr %440, align 8, !tbaa !7
   store double %442, ptr %439, align 8, !tbaa !7
   br label %471
 

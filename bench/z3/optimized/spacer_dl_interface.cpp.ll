@@ -901,10 +901,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont30, %whi
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i21
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont35, label %land.rhs.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i, !llvm.loop !9
 
-invoke.cont35:                                    ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %invoke.cont30
-  %retval.sroa.0.1.i.i = phi ptr [ %26, %invoke.cont30 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont35:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont30
+  %retval.sroa.0.1.i.i = phi ptr [ %26, %invoke.cont30 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not161 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i21
   br i1 %cmp.i.not161, label %for.end, label %invoke.cont42.lr.ph
 
@@ -1055,7 +1055,7 @@ lpad23:                                           ; preds = %lpad23.loopexit.spl
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transformer) #15
   br label %ehcleanup211
 
-for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont35
+for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont35
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transformer) #15
   br label %if.end
 
@@ -1220,7 +1220,7 @@ while.body.i.i.i.i80:                             ; preds = %land.rhs.i.i.i.i76
   br i1 %cmp.not.i.i.i.i82, label %invoke.cont109thread-pre-split, label %land.rhs.i.i.i.i76, !llvm.loop !12
 
 invoke.cont109thread-pre-split:                   ; preds = %while.body.i.i.i.i80, %if.end108
-  %retval.sroa.0.1.i.i79.ph = phi ptr [ %70, %if.end108 ], [ %incdec.ptr.i.i.i.i81, %while.body.i.i.i.i80 ]
+  %retval.sroa.0.1.i.i79.ph = phi ptr [ %70, %if.end108 ], [ %add.ptr.i.i74, %while.body.i.i.i.i80 ]
   %.pr = load ptr, ptr %retval.sroa.0.1.i.i79.ph, align 8
   br label %invoke.cont109
 
@@ -1602,9 +1602,9 @@ terminate.lpad.i149:                              ; preds = %if.then2.i.i.i148
   unreachable
 
 _ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %cleanup210.thread, %cleanup210, %if.then.i.i.i143, %if.then2.i.i.i148
-  %retval.1168 = phi i32 [ -1, %cleanup210.thread ], [ %retval.0, %cleanup210 ], [ %retval.0, %if.then.i.i.i143 ], [ %retval.0, %if.then2.i.i.i148 ]
+  %retval.1170 = phi i32 [ -1, %cleanup210.thread ], [ %retval.0, %cleanup210 ], [ %retval.0, %if.then.i.i.i143 ], [ %retval.0, %if.then2.i.i.i148 ]
   call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %old_rules) #15
-  ret i32 %retval.1168
+  ret i32 %retval.1170
 
 ehcleanup211:                                     ; preds = %ehcleanup209, %ehcleanup, %lpad23, %lpad8
   %.pn12 = phi { ptr, i32 } [ %lpad.phi159, %lpad23 ], [ %.pn10, %ehcleanup ], [ %.pn, %ehcleanup209 ], [ %50, %lpad8 ]
@@ -1962,10 +1962,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont33, %whi
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i22
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont38, label %land.rhs.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i, !llvm.loop !9
 
-invoke.cont38:                                    ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %invoke.cont33
-  %retval.sroa.0.1.i.i = phi ptr [ %27, %invoke.cont33 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont38:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont33
+  %retval.sroa.0.1.i.i = phi ptr [ %27, %invoke.cont33 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not167 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i22
   br i1 %cmp.i.not167, label %for.end, label %invoke.cont45.lr.ph
 
@@ -2121,7 +2121,7 @@ lpad26:                                           ; preds = %lpad26.loopexit.spl
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transformer) #15
   br label %ehcleanup209
 
-for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont38
+for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont38
   call void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %transformer) #15
   br label %if.end
 
@@ -2286,7 +2286,7 @@ while.body.i.i.i.i81:                             ; preds = %land.rhs.i.i.i.i77
   br i1 %cmp.not.i.i.i.i83, label %invoke.cont112thread-pre-split, label %land.rhs.i.i.i.i77, !llvm.loop !12
 
 invoke.cont112thread-pre-split:                   ; preds = %while.body.i.i.i.i81, %if.end111
-  %retval.sroa.0.1.i.i80.ph = phi ptr [ %72, %if.end111 ], [ %incdec.ptr.i.i.i.i82, %while.body.i.i.i.i81 ]
+  %retval.sroa.0.1.i.i80.ph = phi ptr [ %72, %if.end111 ], [ %add.ptr.i.i75, %while.body.i.i.i.i81 ]
   %.pr = load ptr, ptr %retval.sroa.0.1.i.i80.ph, align 8
   br label %invoke.cont112
 

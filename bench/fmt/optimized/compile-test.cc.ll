@@ -26297,7 +26297,7 @@ if.then15:                                        ; preds = %if.end12
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then15, %if.end7, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit, %entry, %lor.lhs.false
-  %retval.0 = phi ptr [ %0, %lor.lhs.false ], [ %0, %entry ], [ %retval.0.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %call9, %if.end7 ], [ %call13, %if.then15 ], [ %call13, %if.end12 ]
+  %retval.0 = phi ptr [ %0, %lor.lhs.false ], [ %0, %entry ], [ %add.ptr.i.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %call9, %if.end7 ], [ %call13, %if.then15 ], [ %call13, %if.end12 ]
   ret ptr %retval.0
 }
 
@@ -35284,7 +35284,7 @@ if.end23:                                         ; preds = %if.then22, %land.lh
   br label %return
 
 return:                                           ; preds = %if.end7, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit, %entry, %lor.lhs.false, %if.end23
-  %retval.0 = phi ptr [ %call24, %if.end23 ], [ %0, %lor.lhs.false ], [ %0, %entry ], [ %retval.0.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %call9, %if.end7 ]
+  %retval.0 = phi ptr [ %call24, %if.end23 ], [ %0, %lor.lhs.false ], [ %0, %entry ], [ %add.ptr.i.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %call9, %if.end7 ]
   ret ptr %retval.0
 }
 

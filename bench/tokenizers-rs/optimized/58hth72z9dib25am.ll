@@ -24019,7 +24019,7 @@ _ZN10tokenizers6models3bpe4word4Word13with_capacity17h513d274a4a7206d7E.exit: ; 
   br i1 %159, label %170, label %.invoke
 
 160:                                              ; preds = %105, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i"
-  %.ph = phi ptr [ %128, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i" ], [ %106, %105 ]
+  %.ph = phi ptr [ %128, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i" ], [ %32, %105 ]
   %161 = icmp eq i64 %.sroa.389.0498, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   br i1 %161, label %.thread548, label %162

@@ -10020,7 +10020,7 @@ if.then60:                                        ; preds = %if.end57
 
 if.end65:                                         ; preds = %if.end57, %if.then60, %invoke.cont41
   %cmp.not1.i76 = icmp eq ptr %add.ptr.i.i45, %iter.addr.0.lcssa.i62
-  br i1 %cmp.not1.i76, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86", label %land.rhs.preheader.i77
+  br i1 %cmp.not1.i76, label %if.then70, label %land.rhs.preheader.i77
 
 land.rhs.preheader.i77:                           ; preds = %if.end65
   %iter4.i78 = ptrtoint ptr %iter.addr.0.lcssa.i62 to i64
@@ -10041,12 +10041,12 @@ while.body.i82:                                   ; preds = %land.rhs.i80, %land
   %cmp.not.i84 = icmp eq ptr %incdec.ptr.i83, %add.ptr.i.i45
   br i1 %cmp.not.i84, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86", label %land.rhs.i80, !llvm.loop !239
 
-"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86": ; preds = %land.rhs.i80, %while.body.i82, %if.end65
-  %iter.addr.0.lcssa.i85 = phi ptr [ %iter.addr.0.lcssa.i62, %if.end65 ], [ %scevgep.i79, %while.body.i82 ], [ %iter.addr.02.i81, %land.rhs.i80 ]
+"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86": ; preds = %land.rhs.i80, %while.body.i82
+  %iter.addr.0.lcssa.i85 = phi ptr [ %iter.addr.02.i81, %land.rhs.i80 ], [ %scevgep.i79, %while.body.i82 ]
   %cmp69 = icmp eq ptr %iter.addr.0.lcssa.i85, %add.ptr.i.i45
   br i1 %cmp69, label %if.then70, label %land.lhs.true.preheader.i100
 
-if.then70:                                        ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86"
+if.then70:                                        ; preds = %if.end65, %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86"
   %33 = load i8, ptr %set.i, align 8
   %tobool.i.i90 = trunc i8 %33 to i1
   br i1 %tobool.i.i90, label %invoke.cont71, label %land.rhs.i.i38.invoke
@@ -10254,7 +10254,7 @@ if.then124:                                       ; preds = %land.lhs.true
   br i1 %cmp128.not400, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %if.then124
-  %nStored.i242453 = getelementptr inbounds i8, ptr %51, i64 176
+  %nStored.i242455 = getelementptr inbounds i8, ptr %51, i64 176
   br label %_ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEE5clearEv.exit
 
 for.body:                                         ; preds = %if.then124, %for.inc
@@ -10494,8 +10494,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i244, label %for.body.i, label %_ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEE5clearEv.exit, !llvm.loop !248
 
 _ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEE5clearEv.exit: ; preds = %for.body.i, %for.end.thread, %for.end
-  %nStored.i242455 = phi ptr [ %nStored.i242453, %for.end.thread ], [ %nStored.i242, %for.end ], [ %nStored.i242, %for.body.i ]
-  store i64 0, ptr %nStored.i242455, align 8
+  %nStored.i242457 = phi ptr [ %nStored.i242455, %for.end.thread ], [ %nStored.i242, %for.end ], [ %nStored.i242, %for.body.i ]
+  store i64 0, ptr %nStored.i242457, align 8
   br label %if.end146
 
 if.end146:                                        ; preds = %_ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS6_EEE5clearEv.exit, %land.lhs.true, %if.end120

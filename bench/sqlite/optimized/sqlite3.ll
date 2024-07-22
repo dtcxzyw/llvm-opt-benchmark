@@ -89691,7 +89691,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
 
 .critedge:                                        ; preds = %.lr.ph326, %131, %121
   %.0192.lcssa = phi i32 [ %126, %121 ], [ %135, %131 ], [ %.0192324, %.lr.ph326 ]
-  %.2.lcssa = phi ptr [ %117, %121 ], [ %133, %131 ], [ %.2325, %.lr.ph326 ]
+  %.2.lcssa = phi ptr [ %103, %121 ], [ %103, %131 ], [ %.2325, %.lr.ph326 ]
   %136 = icmp ult i32 %.0192.lcssa, 128
   %137 = and i32 %.0192.lcssa, -2048
   %138 = icmp eq i32 %137, 55296
@@ -89787,7 +89787,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %106, %108
 
 .critedge4:                                       ; preds = %.lr.ph313, %185, %175
   %.2194.lcssa = phi i32 [ %180, %175 ], [ %189, %185 ], [ %.2194311, %.lr.ph313 ]
-  %.5.lcssa = phi ptr [ %171, %175 ], [ %187, %185 ], [ %.5312, %.lr.ph313 ]
+  %.5.lcssa = phi ptr [ %103, %175 ], [ %103, %185 ], [ %.5312, %.lr.ph313 ]
   %190 = icmp ult i32 %.2194.lcssa, 128
   %191 = and i32 %.2194.lcssa, -2048
   %192 = icmp eq i32 %191, 55296

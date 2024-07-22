@@ -1082,6 +1082,7 @@ for.inc:                                          ; preds = %if.then7, %if.then2
   br label %for.cond, !llvm.loop !15
 
 for.end:                                          ; preds = %if.then13, %if.end11
+  %c.0.lcssa = phi ptr [ %chars, %if.then13 ], [ %c.0, %if.end11 ]
   %cmp26 = icmp eq ptr %last.0, null
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -1103,7 +1104,7 @@ if.end34:                                         ; preds = %if.then27
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %if.end34
-  %targ.addr.0.i = phi ptr [ %c.0, %if.end34 ], [ %incdec.ptr.i, %for.inc.i ]
+  %targ.addr.0.i = phi ptr [ %c.0.lcssa, %if.end34 ], [ %incdec.ptr.i, %for.inc.i ]
   %str1.addr.0.i = phi ptr [ @.str, %if.end34 ], [ %incdec.ptr9.i, %for.inc.i ]
   %str2.addr.0.i = phi ptr [ @.str.1, %if.end34 ], [ %incdec.ptr10.i, %for.inc.i ]
   %2 = load i8, ptr %targ.addr.0.i, align 1
@@ -1127,7 +1128,7 @@ for.inc.i:                                        ; preds = %if.end.i
   br label %for.cond.i, !llvm.loop !16
 
 for.cond.i142:                                    ; preds = %land.lhs.true.i, %for.inc.i152
-  %targ.addr.0.i143 = phi ptr [ %incdec.ptr.i153, %for.inc.i152 ], [ %c.0, %land.lhs.true.i ]
+  %targ.addr.0.i143 = phi ptr [ %incdec.ptr.i153, %for.inc.i152 ], [ %c.0.lcssa, %land.lhs.true.i ]
   %str1.addr.0.i144 = phi ptr [ %incdec.ptr9.i154, %for.inc.i152 ], [ @.str.2, %land.lhs.true.i ]
   %str2.addr.0.i145 = phi ptr [ %incdec.ptr10.i155, %for.inc.i152 ], [ @.str.3, %land.lhs.true.i ]
   %5 = load i8, ptr %targ.addr.0.i143, align 1
@@ -1158,14 +1159,14 @@ if.then38:                                        ; preds = %if.end.i, %if.end.i
 if.end42:                                         ; preds = %land.lhs.true.i147
   %or44 = or i8 %bits.0, 32
   store i8 %or44, ptr %bits.i, align 4
-  %9 = load i8, ptr %c.0, align 1
+  %9 = load i8, ptr %c.0.lcssa, align 1
   switch i8 %9, label %if.end58 [
     i8 115, label %if.then52
     i8 83, label %if.then52
   ]
 
 if.then52:                                        ; preds = %if.end42, %if.end42
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %c.0, i64 1
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %c.0.lcssa, i64 1
   %10 = or i8 %bits.0, 16
   store i8 %10, ptr %bits.i, align 4
   %.pr = load i8, ptr %incdec.ptr53, align 1
@@ -1174,7 +1175,7 @@ if.then52:                                        ; preds = %if.end42, %if.end42
 if.end58:                                         ; preds = %if.end42, %if.then52
   %11 = phi i8 [ %or44, %if.end42 ], [ %10, %if.then52 ]
   %12 = phi i8 [ %9, %if.end42 ], [ %.pr, %if.then52 ]
-  %c.1 = phi ptr [ %c.0, %if.end42 ], [ %incdec.ptr53, %if.then52 ]
+  %c.1 = phi ptr [ %c.0.lcssa, %if.end42 ], [ %incdec.ptr53, %if.then52 ]
   switch i8 %12, label %if.end275 [
     i8 110, label %if.end65
     i8 78, label %if.end65
@@ -1263,10 +1264,10 @@ if.then121:                                       ; preds = %if.else
   ]
 
 if.end128:                                        ; preds = %if.then121, %if.then121
-  %incdec.ptr129 = getelementptr inbounds i8, ptr %c.0, i64 1
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %c.0.lcssa, i64 1
   %20 = load i8, ptr %incdec.ptr129, align 1
   %cmp131.not = icmp eq i8 %20, 45
-  %incdec.ptr133 = getelementptr inbounds i8, ptr %c.0, i64 2
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %c.0.lcssa, i64 2
   %cmp136 = icmp eq i8 %20, 43
   %21 = or i1 %cmp131.not, %cmp136
   %c.3 = select i1 %21, ptr %incdec.ptr133, ptr %incdec.ptr129

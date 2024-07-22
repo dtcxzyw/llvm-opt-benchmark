@@ -8432,7 +8432,7 @@ if.end45:                                         ; preds = %if.then40
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end45, %if.end37
-  %cp.1 = phi ptr [ %add.ptr41, %if.end45 ], [ %cp.049, %if.end37 ]
+  %cp.1 = phi ptr [ %add.ptr41, %if.end45 ], [ %name_out, %if.end37 ]
   %idx.ext48 = zext nneg i8 %1 to i64
   %add.ptr49 = getelementptr inbounds i8, ptr %cp.1, i64 %idx.ext48
   %cmp50.not = icmp ult ptr %add.ptr49, %add.ptr

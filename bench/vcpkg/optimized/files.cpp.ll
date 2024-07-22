@@ -2626,7 +2626,7 @@ _ZN12_GLOBAL__N_113find_filenameEPKcS1_.exit.i:   ; preds = %42, %41
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
-  %57 = load i8, ptr %54, align 1
+  %57 = load i8, ptr %.0.lcssa.i.i, align 1
   %58 = icmp eq i8 %57, 46
   br i1 %58, label %_ZN12_GLOBAL__N_115parse_extensionEN5vcpkg10StringViewE.exit, label %59
 
@@ -2791,7 +2791,7 @@ _ZN12_GLOBAL__N_113find_filenameEPKcS1_.exit.i:   ; preds = %42, %41
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
-  %57 = load i8, ptr %54, align 1
+  %57 = load i8, ptr %.0.lcssa.i.i, align 1
   %58 = icmp eq i8 %57, 46
   br i1 %58, label %_ZN12_GLOBAL__N_110parse_stemEN5vcpkg10StringViewE.exit, label %59
 

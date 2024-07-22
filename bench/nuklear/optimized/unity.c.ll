@@ -30207,10 +30207,10 @@ nk__match.exit173.i.i:                            ; preds = %while.body.i161.i.i
 
 nk_decompress_token.exit.i:                       ; preds = %nk__lit.exit.i, %nk__lit.exit133.i.i, %nk__lit.exit.i.i
   %conv36.i.sink.i = phi i64 [ %conv36.i.i, %nk__lit.exit.i.i ], [ %add114.i.i, %nk__lit.exit133.i.i ], [ %add138.i.pre-phi.i, %nk__lit.exit.i ]
-  %.sink66.i = phi i64 [ -30, %nk__lit.exit.i.i ], [ -2045, %nk__lit.exit133.i.i ], [ 4, %nk__lit.exit.i ]
+  %.sink67.i = phi i64 [ -30, %nk__lit.exit.i.i ], [ -2045, %nk__lit.exit133.i.i ], [ 4, %nk__lit.exit.i ]
   %76 = phi ptr [ %add.ptr8.sink.i.i.i, %nk__lit.exit.i.i ], [ %add.ptr8.sink.i130.i.i, %nk__lit.exit133.i.i ], [ %add.ptr8.sink.i.i, %nk__lit.exit.i ]
   %77 = getelementptr i8, ptr %i.addr.0.i, i64 %conv36.i.sink.i
-  %add.ptr41.i.i = getelementptr i8, ptr %77, i64 %.sink66.i
+  %add.ptr41.i.i = getelementptr i8, ptr %77, i64 %.sink67.i
   %cmp34.i = icmp eq ptr %add.ptr41.i.i, %i.addr.0.i
   br i1 %cmp34.i, label %nk_decompress.exit, label %if.end70.i
 

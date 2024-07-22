@@ -26915,7 +26915,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %36, label %._crit_edge.i.i.loopexit.i.i, label %32
 
 ._crit_edge.i.i.loopexit.i.i:                     ; preds = %35
-  store ptr %34, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !8207, !noalias !8210
+  store ptr %27, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !8207, !noalias !8210
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.i.i.loopexit.i.i, %20
@@ -31357,7 +31357,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %"_ZN4core5slice29_$
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9410ba483f7770fbE.exit.thread.i, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h9410ba483f7770fbE.exit.i: ; preds = %270, %.lr.ph.i.i
-  %291 = phi ptr [ %252, %.lr.ph.i.i ], [ %275, %270 ]
+  %291 = phi ptr [ %250, %.lr.ph.i.i ], [ %275, %270 ]
   %292 = icmp eq i64 %.sroa.01.013.i.i, %251
   br i1 %292, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9410ba483f7770fbE.exit.thread.i, label %"_ZN6ide_db13documentation15docs_from_attrs28_$u7b$$u7b$closure$u7d$$u7d$17h64e639b8c66bf7c7E.exit.i.i.i.i.i.i"
 

@@ -1327,10 +1327,10 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont, %while
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
-  br i1 %cmp.not.i.i.i, label %invoke.cont3, label %land.rhs.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i, label %for.end, label %land.rhs.i.i.i, !llvm.loop !11
 
-invoke.cont3:                                     ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %invoke.cont
-  %retval.sroa.0.1.i = phi ptr [ %0, %invoke.cont ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+invoke.cont3:                                     ; preds = %land.rhs.i.i.i, %invoke.cont
+  %retval.sroa.0.1.i = phi ptr [ %0, %invoke.cont ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not11 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
   br i1 %cmp.i.not11, label %for.end, label %invoke.cont7
 
@@ -1376,7 +1376,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZN13obj_hashtableI9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %fns) #17
   resume { ptr, i32 } %lpad.phi
 
-for.end:                                          ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %invoke.cont3
+for.end:                                          ; preds = %while.body.i.i.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %invoke.cont3
   %cmp.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.i, label %_ZN13obj_hashtableI9func_declED2Ev.exit, label %for.cond.preheader.i.i.i.i
 

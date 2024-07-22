@@ -62962,7 +62962,7 @@ _ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit207: ; preds = %668, %6
   br i1 %675, label %select.unfold547.loopexit, label %.lr.ph824
 
 select.unfold547.loopexit:                        ; preds = %.lr.ph824, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit207
-  %.lcssa820.ph = phi ptr [ %669, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit207 ], [ %665, %.lr.ph824 ]
+  %.lcssa820.ph = phi ptr [ %669, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit207 ], [ %660, %.lr.ph824 ]
   %.pre1023 = load i64, ptr %216, align 8, !noalias !10604
   br label %select.unfold547
 
@@ -62982,7 +62982,7 @@ select.unfold547:                                 ; preds = %select.unfold547.lo
   br i1 %682, label %select.unfold553.loopexit, label %692
 
 select.unfold553.loopexit:                        ; preds = %.lr.ph831, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit197
-  %.lcssa828.ph = phi ptr [ %693, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit197 ], [ %680, %.lr.ph831 ]
+  %.lcssa828.ph = phi ptr [ %693, %_ZN5typst6layout3abs3Abs7set_max17h554b29dd7b5c3c55E.exit197 ], [ %660, %.lr.ph831 ]
   %.pre1024 = load i64, ptr %216, align 8, !alias.scope !10726, !noalias !10604
   br label %select.unfold553
 

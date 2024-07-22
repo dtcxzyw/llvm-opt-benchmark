@@ -335,7 +335,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; 
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc, %while.body
-  %it.sroa.0.1.lcssa = phi ptr [ %it.sroa.0.0293, %while.body ], [ %incdec.ptr.i34, %for.inc ]
+  %it.sroa.0.1.lcssa = phi ptr [ %it.sroa.0.0293, %while.body ], [ %add.ptr.i, %for.inc ]
   %numChildren.1.lcssa = phi i32 [ %numChildren.0294, %while.body ], [ %dec, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i36)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i36, ptr noundef nonnull %call, i32 noundef 19)

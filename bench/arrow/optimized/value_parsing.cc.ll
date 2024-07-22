@@ -2057,7 +2057,7 @@ if.end.i108:                                      ; preds = %while.body.i106
 while.end.i97:                                    ; preds = %if.end.i108, %while.body.i106, %entry
   %p.0.lcssa = phi ptr [ %0, %entry ], [ %p.0438, %while.body.i106 ], [ %add.ptr.i109, %if.end.i108 ]
   %cmp3.i99.not442 = icmp eq ptr %p.0.lcssa, %add.ptr
-  br i1 %cmp3.i99.not442, label %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111, label %while.body4.i100
+  br i1 %cmp3.i99.not442, label %while.end33, label %while.body4.i100
 
 while.body4.i100:                                 ; preds = %while.end.i97, %if.end7.i103
   %p.1443 = phi ptr [ %incdec.ptr.i104, %if.end7.i103 ], [ %p.0.lcssa, %while.end.i97 ]
@@ -2068,11 +2068,10 @@ while.body4.i100:                                 ; preds = %while.end.i97, %if.
 if.end7.i103:                                     ; preds = %while.body4.i100
   %incdec.ptr.i104 = getelementptr inbounds i8, ptr %p.1443, i64 1
   %cmp3.i99.not = icmp eq ptr %incdec.ptr.i104, %add.ptr
-  br i1 %cmp3.i99.not, label %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111, label %while.body4.i100, !llvm.loop !31
+  br i1 %cmp3.i99.not, label %while.end33, label %while.body4.i100, !llvm.loop !31
 
-_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111: ; preds = %if.end7.i103, %while.body4.i100, %while.end.i97
-  %p.1.lcssa = phi ptr [ %p.0.lcssa, %while.end.i97 ], [ %p.1443, %while.body4.i100 ], [ %incdec.ptr.i104, %if.end7.i103 ]
-  %cmp.not475 = icmp eq ptr %p.1.lcssa, %add.ptr
+_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111: ; preds = %while.body4.i100
+  %cmp.not475 = icmp eq ptr %p.1443, %add.ptr
   br i1 %cmp.not475, label %while.end33, label %invoke.cont.preheader.lr.ph
 
 invoke.cont.preheader.lr.ph:                      ; preds = %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111
@@ -2080,7 +2079,7 @@ invoke.cont.preheader.lr.ph:                      ; preds = %_ZN14arrow_vendored
   br label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %invoke.cont.preheader.lr.ph, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260
-  %p.2476 = phi ptr [ %p.1.lcssa, %invoke.cont.preheader.lr.ph ], [ %p.4.lcssa, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260 ]
+  %p.2476 = phi ptr [ %p.1443, %invoke.cont.preheader.lr.ph ], [ %p.4.lcssa, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260 ]
   %digits.promoted = load i64, ptr %digits, align 8
   %sub.ptr.rhs.cast.i.i156447 = ptrtoint ptr %p.2476 to i64
   %sub.ptr.sub.i.i157448 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i156447
@@ -2271,8 +2270,8 @@ while.body4.i220:                                 ; preds = %while.cond2.i217.pr
   %cmp5.i222.not.not = icmp ne i8 %17, 48
   %incdec.ptr.i224 = getelementptr inbounds i8, ptr %first.addr.i208.1483, i64 1
   %cmp3.i218.not = icmp eq ptr %incdec.ptr.i224, %add.ptr
-  %or.cond667 = select i1 %cmp5.i222.not.not, i1 true, i1 %cmp3.i218.not
-  br i1 %or.cond667, label %_ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit231, label %while.body4.i220, !llvm.loop !37
+  %or.cond679 = select i1 %cmp5.i222.not.not, i1 true, i1 %cmp3.i218.not
+  br i1 %or.cond679, label %_ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit231, label %while.body4.i220, !llvm.loop !37
 
 _ZN14arrow_vendored10fast_float12is_truncatedEPKcS2_.exit231: ; preds = %while.body.i226, %while.body4.i220, %while.cond2.i217.preheader
   %retval.i207.0 = phi i1 [ false, %while.cond2.i217.preheader ], [ %cmp5.i222.not.not, %while.body4.i220 ], [ true, %while.body.i226 ]
@@ -2466,7 +2465,7 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit260: ; preds = %while.body.i.i2
   %cmp.not = icmp eq ptr %p.4.lcssa, %add.ptr
   br i1 %cmp.not, label %while.end33, label %invoke.cont.preheader, !llvm.loop !38
 
-while.end33:                                      ; preds = %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260, %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111
+while.end33:                                      ; preds = %if.end7.i103, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit260, %while.end.i97, %_ZN14arrow_vendored10fast_float10skip_zerosERPKcS2_.exit111
   %fraction34 = getelementptr inbounds i8, ptr %num, i64 48
   %41 = load ptr, ptr %fraction34, align 8
   %cmp36.not = icmp eq ptr %41, null
@@ -2501,7 +2500,7 @@ if.end.i:                                         ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end.i, %while.body.i, %invoke.cont.i.preheader
   %p.5.lcssa = phi ptr [ %41, %invoke.cont.i.preheader ], [ %p.5498, %while.body.i ], [ %add.ptr.i, %if.end.i ]
   %cmp3.i.not501 = icmp eq ptr %p.5.lcssa, %add.ptr42
-  br i1 %cmp3.i.not501, label %if.end45, label %while.body4.i
+  br i1 %cmp3.i.not501, label %if.end88, label %while.body4.i
 
 while.body4.i:                                    ; preds = %while.end.i, %if.end7.i
   %p.6502 = phi ptr [ %incdec.ptr.i, %if.end7.i ], [ %p.5.lcssa, %while.end.i ]
@@ -2512,10 +2511,10 @@ while.body4.i:                                    ; preds = %while.end.i, %if.en
 if.end7.i:                                        ; preds = %while.body4.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.6502, i64 1
   %cmp3.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr42
-  br i1 %cmp3.i.not, label %if.end45, label %while.body4.i, !llvm.loop !31
+  br i1 %cmp3.i.not, label %if.end88, label %while.body4.i, !llvm.loop !31
 
-if.end45:                                         ; preds = %while.body4.i, %if.end7.i, %while.end.i, %if.then37
-  %p.7 = phi ptr [ %41, %if.then37 ], [ %p.5.lcssa, %while.end.i ], [ %p.6502, %while.body4.i ], [ %incdec.ptr.i, %if.end7.i ]
+if.end45:                                         ; preds = %while.body4.i, %if.then37
+  %p.7 = phi ptr [ %41, %if.then37 ], [ %p.6502, %while.body4.i ]
   %cmp47.not537 = icmp eq ptr %p.7, %add.ptr42
   br i1 %cmp47.not537, label %if.end88, label %invoke.cont50.preheader.lr.ph
 
@@ -2865,12 +2864,12 @@ _ZN14arrow_vendored10fast_float6bigint3addEm.exit400: ; preds = %while.body.i.i3
 
 if.end88.sink.split.sink.split:                   ; preds = %if.then.i.i347, %if.then.i.i207
   %conv.i.i.i345.lcssa.sink = phi i64 [ %conv.i.i.i205, %if.then.i.i207 ], [ %conv.i.i.i345, %if.then.i.i347 ]
-  %length.i.i.i357.sink627 = phi ptr [ %length.i.i.i217, %if.then.i.i207 ], [ %length.i.i.i357, %if.then.i.i347 ]
+  %length.i.i.i357.sink635 = phi ptr [ %length.i.i.i217, %if.then.i.i207 ], [ %length.i.i.i357, %if.then.i.i347 ]
   %arrayidx.i.i.i.i351 = getelementptr inbounds [62 x i64], ptr %result, i64 0, i64 %conv.i.i.i345.lcssa.sink
   store i64 1, ptr %arrayidx.i.i.i.i351, align 8
-  %81 = load i16, ptr %length.i.i.i357.sink627, align 8
+  %81 = load i16, ptr %length.i.i.i357.sink635, align 8
   %inc.i.i.i.i352 = add i16 %81, 1
-  store i16 %inc.i.i.i.i352, ptr %length.i.i.i357.sink627, align 8
+  store i16 %inc.i.i.i.i352, ptr %length.i.i.i357.sink635, align 8
   br label %if.end88.sink.split
 
 if.end88.sink.split:                              ; preds = %while.body.i.i213, %while.body.i.i353, %if.end88.sink.split.sink.split, %if.then.i.i347, %if.then.i.i207
@@ -2879,7 +2878,7 @@ if.end88.sink.split:                              ; preds = %while.body.i.i213, 
   store i64 %inc.i239, ptr %digits, align 8
   br label %if.end88
 
-if.end88:                                         ; preds = %_ZN14arrow_vendored10fast_float6bigint3addEm.exit400, %while.cond2.i194, %if.end88.sink.split, %_ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit, %if.end45, %while.cond2.i194.preheader, %while.end33, %if.end
+if.end88:                                         ; preds = %if.end7.i, %_ZN14arrow_vendored10fast_float6bigint3addEm.exit400, %while.cond2.i194, %if.end88.sink.split, %while.end.i, %_ZN14arrow_vendored10fast_float12is_truncatedENS0_4spanIKcEE.exit, %if.end45, %while.cond2.i194.preheader, %while.end33, %if.end
   ret void
 }
 

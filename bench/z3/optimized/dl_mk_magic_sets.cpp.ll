@@ -4261,10 +4261,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end20, %while.bo
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont23, label %land.rhs.i.i.i.i.i, !llvm.loop !35
+  br i1 %cmp.not.i.i.i.i.i, label %for.end40, label %land.rhs.i.i.i.i.i, !llvm.loop !35
 
-invoke.cont23:                                    ; preds = %land.rhs.i.i.i.i.i, %while.body.i.i.i.i.i, %if.end20
-  %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end20 ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
+invoke.cont23:                                    ; preds = %land.rhs.i.i.i.i.i, %if.end20
+  %retval.sroa.0.1.i.i.i = phi ptr [ %13, %if.end20 ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.not70 = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not70, label %for.end40, label %invoke.cont30.lr.ph
 
@@ -4367,7 +4367,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableIS1_EE13obj_map_entryE8o
   %cmp.i.not = icmp eq ptr %it.sroa.0.2, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %for.end40, label %invoke.cont30
 
-for.end40:                                        ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableIS1_EE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %invoke.cont23
+for.end40:                                        ; preds = %while.body.i.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableIS1_EE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %invoke.cont23
   call void @_ZN7datalog17rule_dependenciesD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %computed_deps) #15
   %25 = load ptr, ptr %intentional, align 8
   %cmp.i.i.i.i31 = icmp eq ptr %25, null

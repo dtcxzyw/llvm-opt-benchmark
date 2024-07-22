@@ -5686,7 +5686,7 @@ while.body10.i.i:                                 ; preds = %while.cond8.prehead
   br i1 %cmp9.not.i.i, label %if.end.i.i, label %while.body10.i.i, !llvm.loop !61
 
 if.end.i.i:                                       ; preds = %while.body10.i.i, %while.body.i.i, %while.cond.preheader.i.i, %while.cond8.preheader.i.i
-  %pos.2.i.i = phi ptr [ %0, %while.cond.preheader.i.i ], [ %0, %while.cond8.preheader.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr11.i.i, %while.body10.i.i ]
+  %pos.2.i.i = phi ptr [ %0, %while.cond.preheader.i.i ], [ %0, %while.cond8.preheader.i.i ], [ %add.ptr.i.i, %while.body.i.i ], [ %add.ptr.i.i, %while.body10.i.i ]
   %h.2.i.i = phi i64 [ %xor.i.i, %while.cond.preheader.i.i ], [ %xor.i.i, %while.cond8.preheader.i.i ], [ %mul7.i.i, %while.body.i.i ], [ %mul19.i.i, %while.body10.i.i ]
   %and21.i.i = and i64 %conv, 7
   switch i64 %and21.i.i, label %default.unreachable [

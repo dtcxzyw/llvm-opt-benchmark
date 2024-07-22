@@ -12720,10 +12720,10 @@ _ZL10stb__matchPKhj.exit181.i.i:                  ; preds = %while.body.i169.i.i
 
 _ZL20stb_decompress_tokenPKh.exit.i:              ; preds = %_ZL8stb__litPKhj.exit141.i.i, %_ZL8stb__litPKhj.exit131.i.i, %_ZL8stb__litPKhj.exit.i.i
   %conv33.i.sink.i = phi i64 [ %conv33.i.i, %_ZL8stb__litPKhj.exit.i.i ], [ %add108.i.i, %_ZL8stb__litPKhj.exit131.i.i ], [ %add131.pre-phi.i.i, %_ZL8stb__litPKhj.exit141.i.i ]
-  %.sink60.i = phi i64 [ -30, %_ZL8stb__litPKhj.exit.i.i ], [ -2045, %_ZL8stb__litPKhj.exit131.i.i ], [ 4, %_ZL8stb__litPKhj.exit141.i.i ]
+  %.sink61.i = phi i64 [ -30, %_ZL8stb__litPKhj.exit.i.i ], [ -2045, %_ZL8stb__litPKhj.exit131.i.i ], [ 4, %_ZL8stb__litPKhj.exit141.i.i ]
   %incdec.ptr7.lcssa.sink.i.i53.i = phi ptr [ %add.ptr.sink.i.i.i, %_ZL8stb__litPKhj.exit.i.i ], [ %add.ptr.sink.i128.i.i, %_ZL8stb__litPKhj.exit131.i.i ], [ %add.ptr.sink.i138.i.i, %_ZL8stb__litPKhj.exit141.i.i ]
   %48 = getelementptr i8, ptr %i.addr.0.i, i64 %conv33.i.sink.i
-  %add.ptr38.i.i = getelementptr i8, ptr %48, i64 %.sink60.i
+  %add.ptr38.i.i = getelementptr i8, ptr %48, i64 %.sink61.i
   %cmp30.i = icmp eq ptr %add.ptr38.i.i, %i.addr.0.i
   br i1 %cmp30.i, label %_ZL14stb_decompressPhPKhj.exit, label %if.end61.i
 

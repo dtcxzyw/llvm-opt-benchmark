@@ -26146,7 +26146,7 @@ if.end11.sink.split.i:                            ; preds = %while.end.i, %for.b
 if.end11.i:                                       ; preds = %if.end11.sink.split.i, %while.end.i
   %185 = phi i8 [ %182, %while.end.i ], [ %.pre792, %if.end11.sink.split.i ]
   %it.2.i = phi ptr [ %it.1.i, %while.end.i ], [ %it.2.ph.i, %if.end11.sink.split.i ]
-  %write.1.i = phi ptr [ %write.017.i, %while.end.i ], [ %incdec.ptr9.i, %if.end11.sink.split.i ]
+  %write.1.i = phi ptr [ %retval.0.i702, %while.end.i ], [ %incdec.ptr9.i, %if.end11.sink.split.i ]
   %tobool.not.i414 = icmp eq i8 %185, 0
   br i1 %tobool.not.i414, label %for.end.i415, label %for.body.i411, !llvm.loop !227
 
@@ -26166,7 +26166,7 @@ land.lhs.true.i:                                  ; preds = %for.end.i415
   br label %_ZN4pugi4impl12_GLOBAL__N_115normalize_spaceEPc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_115normalize_spaceEPc.exit: ; preds = %if.end254, %for.end.i415, %land.lhs.true.i
-  %write.2.i = phi ptr [ %write.1.i, %for.end.i415 ], [ %spec.select.i, %land.lhs.true.i ], [ %retval.0.i702, %if.end254 ]
+  %write.2.i = phi ptr [ %retval.0.i702, %for.end.i415 ], [ %spec.select.i, %land.lhs.true.i ], [ %retval.0.i702, %if.end254 ]
   store i8 0, ptr %write.2.i, align 1
   %sub.ptr.lhs.cast.i417 = ptrtoint ptr %write.2.i to i64
   %sub.ptr.rhs.cast.i418 = ptrtoint ptr %retval.0.i702 to i64
@@ -26304,7 +26304,7 @@ if.end11.sink.split.i470:                         ; preds = %while.end.i468, %fo
 if.end11.i474:                                    ; preds = %if.end11.sink.split.i470, %while.end.i468
   %208 = phi i8 [ %205, %while.end.i468 ], [ %.pre791, %if.end11.sink.split.i470 ]
   %it.2.i475 = phi ptr [ %it.1.i463, %while.end.i468 ], [ %it.2.ph.i472, %if.end11.sink.split.i470 ]
-  %write.1.i476 = phi ptr [ %write.017.i456, %while.end.i468 ], [ %incdec.ptr9.i473, %if.end11.sink.split.i470 ]
+  %write.1.i476 = phi ptr [ %retval.0.i438708, %while.end.i468 ], [ %incdec.ptr9.i473, %if.end11.sink.split.i470 ]
   %tobool.not.i477 = icmp eq i8 %208, 0
   br i1 %tobool.not.i477, label %for.end.i478, label %for.body.i455, !llvm.loop !227
 
@@ -26324,7 +26324,7 @@ land.lhs.true.i480:                               ; preds = %for.end.i478
   br label %_ZN4pugi4impl12_GLOBAL__N_115normalize_spaceEPc.exit487
 
 _ZN4pugi4impl12_GLOBAL__N_115normalize_spaceEPc.exit487: ; preds = %if.end265, %for.end.i478, %land.lhs.true.i480
-  %write.2.i486 = phi ptr [ %write.1.i476, %for.end.i478 ], [ %spec.select.i485, %land.lhs.true.i480 ], [ %retval.0.i438708, %if.end265 ]
+  %write.2.i486 = phi ptr [ %retval.0.i438708, %for.end.i478 ], [ %spec.select.i485, %land.lhs.true.i480 ], [ %retval.0.i438708, %if.end265 ]
   store i8 0, ptr %write.2.i486, align 1
   %sub.ptr.lhs.cast.i488 = ptrtoint ptr %write.2.i486 to i64
   %sub.ptr.rhs.cast.i489 = ptrtoint ptr %retval.0.i438708 to i64

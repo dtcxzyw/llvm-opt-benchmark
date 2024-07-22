@@ -107,7 +107,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %43
 
 43:                                               ; preds = %41, %40
-  %.3.i = phi ptr [ %42, %41 ], [ %.148.lcssa.i, %40 ]
+  %.3.i = phi ptr [ %42, %41 ], [ %3, %40 ]
   %notmask.i = shl nsw i32 -1, %37
   %44 = xor i32 %notmask.i, -1
   %45 = sub nuw nsw i32 8, %37
@@ -300,7 +300,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %128
 
 128:                                              ; preds = %126, %.lr.ph149.split.us.split.us.i
-  %.3.us.us.i = phi ptr [ %127, %126 ], [ %.097146.us.us.i, %.lr.ph149.split.us.split.us.i ]
+  %.3.us.us.i = phi ptr [ %127, %126 ], [ %7, %.lr.ph149.split.us.split.us.i ]
   %129 = load i8, ptr %.0147.us.us.i, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 8
@@ -335,7 +335,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %146
 
 146:                                              ; preds = %144, %143
-  %.3.us.i = phi ptr [ %145, %144 ], [ %.097146.us.i, %143 ]
+  %.3.us.i = phi ptr [ %145, %144 ], [ %7, %143 ]
   %147 = load i8, ptr %.0147.us.i, align 1
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 8
@@ -450,7 +450,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %204
 
 204:                                              ; preds = %202, %201
-  %.3.i15 = phi ptr [ %203, %202 ], [ %.097146.i, %201 ]
+  %.3.i15 = phi ptr [ %203, %202 ], [ %7, %201 ]
   %205 = load i8, ptr %.0147.i, align 1
   %206 = zext i8 %205 to i32
   %207 = shl nuw nsw i32 %206, 8

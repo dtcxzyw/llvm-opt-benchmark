@@ -770,7 +770,7 @@ define internal i64 @cParser_parse(i64 noundef %0) #0 {
   ret i64 %78
 
 .thread:                                          ; preds = %55, %.loopexit99, %21, %58, %.preheader100, %.preheader103, %.backedge102, %.preheader96, %34, %32, %37, %.preheader88, %.preheader90, %.backedge, %.preheader, %19, %7, %.loopexit93
-  %.2086 = phi ptr [ %.20, %.loopexit93 ], [ %.1, %19 ], [ %9, %7 ], [ %46, %.preheader ], [ %44, %.backedge ], [ %50, %.preheader90 ], [ %39, %.preheader88 ], [ %28, %32 ], [ %35, %37 ], [ %35, %34 ], [ %67, %.preheader96 ], [ %65, %.backedge102 ], [ %71, %.preheader103 ], [ %60, %.preheader100 ], [ %.1, %21 ], [ %56, %58 ], [ %14, %.loopexit99 ], [ %56, %55 ]
+  %.2086 = phi ptr [ %.20, %.loopexit93 ], [ %.1, %19 ], [ %9, %7 ], [ %46, %.preheader ], [ %44, %.backedge ], [ %50, %.preheader90 ], [ %39, %.preheader88 ], [ %28, %32 ], [ %35, %37 ], [ %35, %34 ], [ %12, %.preheader96 ], [ %12, %.backedge102 ], [ %12, %.preheader103 ], [ %12, %.preheader100 ], [ %.1, %21 ], [ %56, %58 ], [ %12, %.loopexit99 ], [ %12, %55 ]
   %79 = tail call nonnull ptr @rb_utf8_encoding() #13
   %80 = load i64, ptr @eParserError, align 8
   tail call void (ptr, i64, ptr, ...) @rb_enc_raise(ptr noundef nonnull %79, i64 noundef %80, ptr noundef nonnull @.str.39, ptr noundef %.2086) #15

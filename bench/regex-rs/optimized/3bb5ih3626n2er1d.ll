@@ -4277,7 +4277,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 62:                                               ; preds = %59, %55, %52
   %.sroa.0127.1.idx.i = phi i64 [ 16, %52 ], [ %.sroa.0127.0.add.i, %55 ], [ %.sroa.0127.0.add.i, %59 ]
   %.sroa.8129.1.i = phi i64 [ %.sroa.8129.0.i, %52 ], [ %56, %55 ], [ %56, %59 ]
-  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %.sroa.13131.0.i, %55 ], [ %61, %59 ]
+  %.sroa.13131.1.i = phi ptr [ %.sroa.13131.0.i, %52 ], [ %48, %55 ], [ %61, %59 ]
   %.sroa.0134.1.i = phi i32 [ %.sroa.0134.0.i, %52 ], [ %.sroa.0134.0.i, %55 ], [ %60, %59 ]
   %.sink19.i.sroa.phi.i = phi ptr [ %.sroa.6136.i, %52 ], [ %.sroa.6136.i, %55 ], [ %.sroa.11138.i, %59 ]
   %.sink.i.i = phi ptr [ null, %52 ], [ null, %55 ], [ %.sroa.13131.0.i, %59 ]

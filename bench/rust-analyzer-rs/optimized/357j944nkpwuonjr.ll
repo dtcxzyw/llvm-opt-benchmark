@@ -7495,7 +7495,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %199, label %._crit_edge.i.loopexit.i.i.i, label %183
 
 ._crit_edge.i.loopexit.i.i.i:                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb1a69902cd15f6ccE.exit.i.i.i.i"
-  store ptr %186, ptr %71, align 8, !alias.scope !1453, !noalias !1456
+  store ptr %.sroa.4.0.copyload.i104.i.i.i, ptr %71, align 8, !alias.scope !1453, !noalias !1456
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.i.loopexit.i.i.i, %178

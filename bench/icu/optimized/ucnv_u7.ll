@@ -397,7 +397,7 @@ if.end167:                                        ; preds = %if.end165, %if.end1
   %bits.4 = phi i16 [ %bits.0, %while.end ], [ %bits.1, %unicodeMode ], [ %bits.4.ph, %if.end167.sink.split ], [ %bits.3, %if.end165 ]
   %base64Counter.4 = phi i8 [ %base64Counter.0, %while.end ], [ %base64Counter.1, %unicodeMode ], [ %base64Counter.4.ph, %if.end167.sink.split ], [ %base64Counter.3, %if.end165 ]
   %inDirectMode.2 = phi i32 [ 16777216, %while.end ], [ 0, %unicodeMode ], [ %inDirectMode.2.ph, %if.end167.sink.split ], [ 0, %if.end165 ]
-  %source.5 = phi ptr [ %source.2, %while.end ], [ %source.3, %unicodeMode ], [ %source.5.ph, %if.end167.sink.split ], [ %incdec.ptr57, %if.end165 ]
+  %source.5 = phi ptr [ %source.2, %while.end ], [ %source.3, %unicodeMode ], [ %source.5.ph, %if.end167.sink.split ], [ %scevgep, %if.end165 ]
   %18 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %18, 0
   br i1 %cmp.i, label %if.end177, label %land.lhs.true169
@@ -1445,7 +1445,7 @@ endloop:                                          ; preds = %if.end181, %unicode
   %bits.2211 = phi i16 [ %bits.2256, %if.else180 ], [ %bits.1, %unicodeMode ], [ %bits.3, %if.end181 ]
   %base64Counter.2202 = phi i8 [ %base64Counter.2257, %if.else180 ], [ %base64Counter.1, %unicodeMode ], [ %base64Counter.3, %if.end181 ]
   %target.3193 = phi ptr [ %target.3258, %if.else180 ], [ %target.2, %unicodeMode ], [ %target.5, %if.end181 ]
-  %source.4178 = phi ptr [ %source.4261, %if.else180 ], [ %source.3, %unicodeMode ], [ %incdec.ptr47, %if.end181 ]
+  %source.4178 = phi ptr [ %source.4261, %if.else180 ], [ %source.3, %unicodeMode ], [ %scevgep, %if.end181 ]
   %20 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %20, 1
   %cmp189 = icmp eq i8 %byteIndex.2229, 0

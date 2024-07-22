@@ -27388,11 +27388,11 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000EOS3_.exit.i.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i, label %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !122
 
 _ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit: ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEEaSB8ne190000EOS3_.exit.i.i.i.i.i
-  %.pre20 = load ptr, ptr %9, align 8
+  %.pre18 = load ptr, ptr %9, align 8
   br label %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit
 
 _ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit: ; preds = %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit, %14
-  %33 = phi ptr [ %10, %14 ], [ %.pre20, %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit ]
+  %33 = phi ptr [ %10, %14 ], [ %.pre18, %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit ]
   %storemerge.lcssa.i.i.i.i.i = phi ptr [ %19, %14 ], [ %32, %_ZNSt3__14moveB8ne190000IPNS_10shared_ptrIN3tev5ImageEEES5_EET0_T_S7_S6_.exit.loopexit ]
   %34 = ptrtoint ptr %storemerge.lcssa.i.i.i.i.i to i64
   %35 = ptrtoint ptr %19 to i64
@@ -27452,17 +27452,17 @@ _ZNSt3__114__split_bufferINS_10shared_ptrIN3tev5ImageEEERNS_9allocatorIS4_EEEC2E
 
 .loopexit:                                        ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr %0, align 8
-  %.pre18 = load ptr, ptr %9, align 8
-  %.pre19 = load ptr, ptr %3, align 8
+  %.pre16 = load ptr, ptr %9, align 8
+  %.pre17 = load ptr, ptr %3, align 8
   store ptr %48, ptr %0, align 8
   store ptr %49, ptr %9, align 8
-  store ptr %58, ptr %3, align 8
+  store ptr %53, ptr %3, align 8
   store ptr %50, ptr %5, align 8
-  %.not2.i.i.i.i = icmp eq ptr %.pre19, %.pre18
+  %.not2.i.i.i.i = icmp eq ptr %.pre17, %.pre16
   br i1 %.not2.i.i.i.i, label %_ZNSt3__114__split_bufferINS_10shared_ptrIN3tev5ImageEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %_ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i
-  %60 = phi ptr [ %61, %_ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i ], [ %.pre19, %.loopexit ]
+  %60 = phi ptr [ %61, %_ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i ], [ %.pre17, %.loopexit ]
   %61 = getelementptr inbounds i8, ptr %60, i64 -16
   %62 = getelementptr inbounds i8, ptr %60, i64 -8
   %63 = load ptr, ptr %62, align 8
@@ -27484,7 +27484,7 @@ _ZNSt3__114__split_bufferINS_10shared_ptrIN3tev5ImageEEERNS_9allocatorIS4_EEEC2E
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i: ; preds = %68, %64, %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %61, %.pre18
+  %.not.i.i.i.i = icmp eq ptr %61, %.pre16
   br i1 %.not.i.i.i.i, label %_ZNSt3__114__split_bufferINS_10shared_ptrIN3tev5ImageEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__114__split_bufferINS_10shared_ptrIN3tev5ImageEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_10shared_ptrIN3tev5ImageEEEEEE7destroyB8ne190000IS5_vTnNS_9enable_ifIXntsr13__has_destroyIS6_PT_EE5valueEiE4typeELi0EEEvRS6_SB_.exit.i.i.i.i, %.loopexit.thread, %.loopexit

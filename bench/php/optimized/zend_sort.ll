@@ -164,7 +164,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br i1 %77, label %64, label %.preheader129
 
 78:                                               ; preds = %.lr.ph142, %.loopexit
-  %.1140 = phi ptr [ %58, %.lr.ph142 ], [ %100, %.loopexit ]
+  %.1140 = phi ptr [ %58, %.lr.ph142 ], [ %99, %.loopexit ]
   %79 = getelementptr inbounds i8, ptr %.1140, i64 %63
   %80 = tail call i32 %3(ptr noundef %79, ptr noundef %.1140) #1
   %81 = icmp sgt i32 %80, 0
@@ -194,28 +194,27 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br i1 %92, label %93, label %.preheader
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %82, i64 %63
-  %95 = tail call i32 %3(ptr noundef %.1140, ptr noundef %94) #1
-  %96 = icmp sgt i32 %95, 0
-  %spec.select127 = select i1 %96, ptr %59, ptr %94
+  %94 = tail call i32 %3(ptr noundef %.1140, ptr noundef %0) #1
+  %95 = icmp sgt i32 %94, 0
+  %spec.select127 = select i1 %95, ptr %59, ptr %0
   br label %.loopexit128
 
 .loopexit128:                                     ; preds = %89, %93, %85
   %.3 = phi ptr [ %spec.select, %85 ], [ %spec.select127, %93 ], [ %0, %89 ]
-  %97 = icmp ugt ptr %.1140, %.3
-  br i1 %97, label %.lr.ph139, label %.loopexit
+  %96 = icmp ugt ptr %.1140, %.3
+  br i1 %96, label %.lr.ph139, label %.loopexit
 
 .lr.ph139:                                        ; preds = %.loopexit128, %.lr.ph139
-  %.1123138 = phi ptr [ %98, %.lr.ph139 ], [ %.1140, %.loopexit128 ]
-  %98 = getelementptr inbounds i8, ptr %.1123138, i64 %63
-  tail call void %4(ptr noundef nonnull %.1123138, ptr noundef nonnull %98) #1
-  %99 = icmp ugt ptr %98, %.3
-  br i1 %99, label %.lr.ph139, label %.loopexit
+  %.1123138 = phi ptr [ %97, %.lr.ph139 ], [ %.1140, %.loopexit128 ]
+  %97 = getelementptr inbounds i8, ptr %.1123138, i64 %63
+  tail call void %4(ptr noundef nonnull %.1123138, ptr noundef nonnull %97) #1
+  %98 = icmp ugt ptr %97, %.3
+  br i1 %98, label %.lr.ph139, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph139, %.loopexit128, %78
-  %100 = getelementptr inbounds i8, ptr %.1140, i64 %2
-  %101 = icmp ult ptr %100, %56
-  br i1 %101, label %78, label %zend_sort_2.exit
+  %99 = getelementptr inbounds i8, ptr %.1140, i64 %2
+  %100 = icmp ult ptr %99, %56
+  br i1 %100, label %78, label %zend_sort_2.exit
 
 zend_sort_2.exit:                                 ; preds = %.loopexit, %.preheader129, %53, %50, %47, %44, %36, %30, %27, %26, %22, %19, %16, %10, %6, %5, %5, %31
   ret void

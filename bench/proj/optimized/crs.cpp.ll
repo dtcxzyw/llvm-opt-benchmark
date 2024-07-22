@@ -48949,7 +48949,7 @@ _ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit35.i: ; pre
   br i1 %exitcond.not.i, label %739, label %_ZNSt8__detail13_Scratch_list10_M_put_allEPNS_15_List_node_baseE.exit.i, !llvm.loop !544
 
 .critedge.i:                                      ; preds = %721, %.lr.ph.i, %716
-  %.026.lcssa.i = phi ptr [ %5, %716 ], [ %.02640.i, %.lr.ph.i ], [ %722, %721 ]
+  %.026.lcssa.i = phi ptr [ %5, %716 ], [ %.02640.i, %.lr.ph.i ], [ %.0.i, %721 ]
   %.not33.lcssa.i = phi i64 [ 0, %716 ], [ -16, %.lr.ph.i ], [ 0, %721 ]
   %spec.select.idx.i = phi i64 [ 16, %716 ], [ 0, %.lr.ph.i ], [ 16, %721 ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.026.lcssa.i) #37
@@ -60099,7 +60099,7 @@ _ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16Ident
   br i1 %.not36.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !664
 
 .critedge.i:                                      ; preds = %546, %.lr.ph.i, %.preheader39.i
-  %.029.lcssa.i = phi ptr [ %5, %.preheader39.i ], [ %.02941.i, %.lr.ph.i ], [ %547, %546 ]
+  %.029.lcssa.i = phi ptr [ %5, %.preheader39.i ], [ %.02941.i, %.lr.ph.i ], [ %.0.ptr.i, %546 ]
   %.not36.lcssa.i = phi i64 [ 0, %.preheader39.i ], [ -16, %.lr.ph.i ], [ 0, %546 ]
   %spec.select.idx.i = phi i64 [ 16, %.preheader39.i ], [ 0, %.lr.ph.i ], [ 16, %546 ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.029.lcssa.i) #37
@@ -71764,7 +71764,7 @@ define internal fastcc void @"_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt1
   br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !702
 
 .critedge:                                        ; preds = %.lr.ph, %16, %.preheader39
-  %.029.lcssa = phi ptr [ %4, %.preheader39 ], [ %17, %16 ], [ %.02941, %.lr.ph ]
+  %.029.lcssa = phi ptr [ %4, %.preheader39 ], [ %.0.ptr, %16 ], [ %.02941, %.lr.ph ]
   %.not36.lcssa = phi i64 [ 0, %.preheader39 ], [ 0, %16 ], [ -16, %.lr.ph ]
   %spec.select.idx = phi i64 [ 16, %.preheader39 ], [ 16, %16 ], [ 0, %.lr.ph ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.029.lcssa) #37
@@ -77843,7 +77843,7 @@ define internal fastcc void @"_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt1
   br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !763
 
 .critedge:                                        ; preds = %.lr.ph, %16, %.preheader39
-  %.029.lcssa = phi ptr [ %4, %.preheader39 ], [ %17, %16 ], [ %.02941, %.lr.ph ]
+  %.029.lcssa = phi ptr [ %4, %.preheader39 ], [ %.0.ptr, %16 ], [ %.02941, %.lr.ph ]
   %.not36.lcssa = phi i64 [ 0, %.preheader39 ], [ 0, %16 ], [ -16, %.lr.ph ]
   %spec.select.idx = phi i64 [ 16, %.preheader39 ], [ 16, %16 ], [ 0, %.lr.ph ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.029.lcssa) #37

@@ -22505,7 +22505,7 @@ define hidden void @_ZN14ide_completion11completions3vis17complete_vis_path17h66
   br i1 %70, label %._crit_edge.i.i.i, label %59
 
 ._crit_edge.i.i.i:                                ; preds = %69
-  store ptr %62, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !2399, !noalias !2400
+  store ptr %49, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !2399, !noalias !2400
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1976f98a6916e4a2E.exit.i"
 
 71:                                               ; preds = %66, %67

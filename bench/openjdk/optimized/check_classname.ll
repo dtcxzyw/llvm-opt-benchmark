@@ -241,7 +241,7 @@ isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %44, %7, %
 
 ._crit_edge.loopexit:                             ; preds = %isJvmIdentifier.exit.thread51
   %60 = icmp eq i16 %.1, 0
-  %61 = select i1 %60, ptr null, ptr %.2
+  %61 = select i1 %60, ptr null, ptr %4
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, %15, %56, %2, %._crit_edge.loopexit, %.loopexit

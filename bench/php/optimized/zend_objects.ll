@@ -228,7 +228,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %19
   %81 = phi ptr [ %22, %19 ], [ %.pre79, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %20, %19 ], [ %80, %.loopexit.loopexit ]
+  %.1 = phi ptr [ %20, %19 ], [ %27, %.loopexit.loopexit ]
   %82 = getelementptr inbounds i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 2048

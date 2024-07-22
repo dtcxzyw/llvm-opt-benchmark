@@ -14668,7 +14668,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4refs11UnitRefsMap5pa
   br label %.split
 
 ._crit_edge.split.us:                             ; preds = %.thread.us
-  store ptr %30, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3813, !noalias !3816
+  store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3813, !noalias !3816
   br label %._crit_edge
 
 .loopexit:                                        ; preds = %77, %42, %.noexc, %.noexc7

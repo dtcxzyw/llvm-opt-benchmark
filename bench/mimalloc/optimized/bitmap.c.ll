@@ -1058,14 +1058,14 @@ while.end62.i:                                    ; preds = %while.body60.i, %ro
   br i1 %cmp63.i, label %if.then64.i, label %if.end77.i
 
 if.then64.i:                                      ; preds = %while.end62.i
-  %31 = load atomic i64, ptr %incdec.ptr58.lcssa.i monotonic, align 8
+  %31 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
   %not.i34 = xor i64 %retval.0.i76.i, -1
   br label %do.body66.i
 
 do.body66.i:                                      ; preds = %do.body66.i, %if.then64.i
   %map.4.i = phi i64 [ %31, %if.then64.i ], [ %34, %do.body66.i ]
   %and67.i = and i64 %map.4.i, %not.i34
-  %32 = cmpxchg ptr %incdec.ptr58.lcssa.i, i64 %map.4.i, i64 %and67.i acq_rel acquire, align 8
+  %32 = cmpxchg ptr %arrayidx.i17, i64 %map.4.i, i64 %and67.i acq_rel acquire, align 8
   %33 = extractvalue { i64, i1 } %32, 1
   %34 = extractvalue { i64, i1 } %32, 0
   br i1 %33, label %if.end77.i, label %do.body66.i, !llvm.loop !14

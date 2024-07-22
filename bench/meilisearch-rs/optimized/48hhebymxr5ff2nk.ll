@@ -95973,7 +95973,7 @@ define hidden void @"_ZN91_$LT$actix_web..scope..Scope$LT$T$GT$$u20$as$u20$actix
   br i1 %82, label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..service..AppServiceFactory$GT$$GT$$GT$17h781cdc1fbad0af8eE.exit.i.loopexit", label %50
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..service..AppServiceFactory$GT$$GT$$GT$17h781cdc1fbad0af8eE.exit.i.loopexit": ; preds = %81
-  store ptr %52, ptr %46, align 8, !alias.scope !18335, !noalias !18346
+  store ptr %44, ptr %46, align 8, !alias.scope !18335, !noalias !18346
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..service..AppServiceFactory$GT$$GT$$GT$17h781cdc1fbad0af8eE.exit.i"
 
 "_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..service..AppServiceFactory$GT$$GT$$GT$17h781cdc1fbad0af8eE.exit.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..service..AppServiceFactory$GT$$GT$$GT$17h781cdc1fbad0af8eE.exit.i.loopexit", %42

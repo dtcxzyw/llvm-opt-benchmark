@@ -1226,7 +1226,7 @@ if.then24:                                        ; preds = %if.then15
   %123 = load i64, ptr %lbasz, align 8
   %call26 = tail call noalias ptr @g_malloc0(i64 noundef %123) #13
   %124 = load i64, ptr %lbasz, align 8
-  %bcmp = tail call i32 @bcmp(ptr %bufp.052, ptr %call26, i64 %124)
+  %bcmp = tail call i32 @bcmp(ptr %buf, ptr %call26, i64 %124)
   %cmp29 = icmp eq i32 %bcmp, 0
   br i1 %cmp29, label %if.then31, label %if.end36
 

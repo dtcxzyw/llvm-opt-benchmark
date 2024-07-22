@@ -12568,7 +12568,7 @@ if.then19:                                        ; preds = %land.lhs.true14, %l
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then19, %land.lhs.true14, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit, %entry
-  %retval.0 = phi ptr [ %0, %entry ], [ %retval.0.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %incdec.ptr20, %if.then19 ], [ %it.0, %if.end12 ], [ %it.0, %land.lhs.true14 ]
+  %retval.0 = phi ptr [ %0, %entry ], [ %add.ptr.i.i, %_ZN3fmt3v106detail11parse_alignIcEEPKT_S5_S5_RNS0_12format_specsIS3_EE.exit ], [ %incdec.ptr20, %if.then19 ], [ %it.0, %if.end12 ], [ %it.0, %land.lhs.true14 ]
   ret ptr %retval.0
 }
 

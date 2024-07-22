@@ -630,7 +630,7 @@ define hidden i32 @_pcre2_check_escape_8(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not359, label %201, label %.critedge15.thread
 
 .critedge15.thread:                               ; preds = %193, %.preheader, %197, %.critedge15
-  %199 = phi ptr [ %196, %197 ], [ %196, %.critedge15 ], [ %120, %.preheader ], [ %120, %193 ]
+  %199 = phi ptr [ %196, %197 ], [ %.pn357515, %.critedge15 ], [ %120, %.preheader ], [ %120, %193 ]
   %200 = getelementptr inbounds i8, ptr %199, i64 1
   store ptr %200, ptr %10, align 8
   br label %512

@@ -3770,7 +3770,7 @@ sw.bb12:                                          ; preds = %while.body
   br i1 %cmp13, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %sw.bb12
-  %add.ptr16 = getelementptr i8, ptr %ptr.addr.057, i64 1
+  %add.ptr16 = getelementptr i8, ptr %ptr, i64 1
   %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -3787,7 +3787,7 @@ sw.bb19:                                          ; preds = %while.body
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %sw.bb19
-  %add.ptr23 = getelementptr i8, ptr %ptr.addr.057, i64 1
+  %add.ptr23 = getelementptr i8, ptr %ptr, i64 1
   store ptr %add.ptr23, ptr %nextTokPtr, align 8
   br label %return
 
@@ -3800,7 +3800,7 @@ sw.bb25:                                          ; preds = %while.body
   br i1 %cmp26, label %if.then28, label %if.end46
 
 if.then28:                                        ; preds = %sw.bb25
-  %add.ptr29 = getelementptr i8, ptr %ptr.addr.057, i64 1
+  %add.ptr29 = getelementptr i8, ptr %ptr, i64 1
   %sub.ptr.rhs.cast31 = ptrtoint ptr %add.ptr29 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast31
   %cmp33 = icmp sgt i64 %sub.ptr.sub32, 0
@@ -3812,7 +3812,7 @@ if.end36:                                         ; preds = %if.then28
   %arrayidx39 = getelementptr [256 x i8], ptr %type, i64 0, i64 %idxprom38
   %3 = load i8, ptr %arrayidx39, align 1
   %cmp41 = icmp eq i8 %3, 10
-  %add.ptr44 = getelementptr i8, ptr %ptr.addr.057, i64 2
+  %add.ptr44 = getelementptr i8, ptr %ptr, i64 2
   %spec.select = select i1 %cmp41, ptr %add.ptr44, ptr %add.ptr29
   store ptr %spec.select, ptr %nextTokPtr, align 8
   br label %return
@@ -3826,7 +3826,7 @@ sw.bb47:                                          ; preds = %while.body
   br i1 %cmp48, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %sw.bb47
-  %add.ptr51 = getelementptr i8, ptr %ptr.addr.057, i64 1
+  %add.ptr51 = getelementptr i8, ptr %ptr, i64 1
   store ptr %add.ptr51, ptr %nextTokPtr, align 8
   br label %return
 
@@ -3898,7 +3898,7 @@ sw.bb12:                                          ; preds = %while.body
   br i1 %cmp13, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %sw.bb12
-  %add.ptr16 = getelementptr i8, ptr %ptr.addr.056, i64 1
+  %add.ptr16 = getelementptr i8, ptr %ptr, i64 1
   %call = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr16, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -3911,7 +3911,7 @@ sw.bb18:                                          ; preds = %while.body
   br i1 %cmp19, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %sw.bb18
-  %add.ptr22 = getelementptr i8, ptr %ptr.addr.056, i64 1
+  %add.ptr22 = getelementptr i8, ptr %ptr, i64 1
   %call23 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp24 = icmp eq i32 %call23, 22
   %cond = select i1 %cmp24, i32 0, i32 %call23
@@ -3926,7 +3926,7 @@ sw.bb27:                                          ; preds = %while.body
   br i1 %cmp28, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %sw.bb27
-  %add.ptr31 = getelementptr i8, ptr %ptr.addr.056, i64 1
+  %add.ptr31 = getelementptr i8, ptr %ptr, i64 1
   store ptr %add.ptr31, ptr %nextTokPtr, align 8
   br label %return
 
@@ -3939,7 +3939,7 @@ sw.bb33:                                          ; preds = %while.body
   br i1 %cmp34, label %if.then36, label %if.end54
 
 if.then36:                                        ; preds = %sw.bb33
-  %add.ptr37 = getelementptr i8, ptr %ptr.addr.056, i64 1
+  %add.ptr37 = getelementptr i8, ptr %ptr, i64 1
   %sub.ptr.rhs.cast39 = ptrtoint ptr %add.ptr37 to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast39
   %cmp41 = icmp sgt i64 %sub.ptr.sub40, 0
@@ -3951,7 +3951,7 @@ if.end44:                                         ; preds = %if.then36
   %arrayidx47 = getelementptr [256 x i8], ptr %type, i64 0, i64 %idxprom46
   %3 = load i8, ptr %arrayidx47, align 1
   %cmp49 = icmp eq i8 %3, 10
-  %add.ptr52 = getelementptr i8, ptr %ptr.addr.056, i64 2
+  %add.ptr52 = getelementptr i8, ptr %ptr, i64 2
   %spec.select = select i1 %cmp49, ptr %add.ptr52, ptr %add.ptr37
   store ptr %spec.select, ptr %nextTokPtr, align 8
   br label %return
@@ -9630,8 +9630,8 @@ return:                                           ; preds = %sw.bb19, %sw.bb28, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -9685,7 +9685,7 @@ sw.bb18:                                          ; preds = %cond.end
   br i1 %cmp19, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %sw.bb18
-  %add.ptr22 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr22 = getelementptr i8, ptr %ptr, i64 2
   %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -9702,7 +9702,7 @@ sw.bb26:                                          ; preds = %cond.end
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %sw.bb26
-  %add.ptr30 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr30 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr30, ptr %nextTokPtr, align 8
   br label %return
 
@@ -9715,14 +9715,14 @@ sw.bb32:                                          ; preds = %cond.end
   br i1 %cmp33, label %if.then35, label %if.end64
 
 if.then35:                                        ; preds = %sw.bb32
-  %add.ptr36 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr36 = getelementptr i8, ptr %ptr, i64 2
   %sub.ptr.rhs.cast38 = ptrtoint ptr %add.ptr36 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast38
   %cmp40 = icmp sgt i64 %sub.ptr.sub39, 1
   br i1 %cmp40, label %if.end43, label %return
 
 if.end43:                                         ; preds = %if.then35
-  %arrayidx44 = getelementptr i8, ptr %ptr.addr.075, i64 3
+  %arrayidx44 = getelementptr i8, ptr %ptr, i64 3
   %3 = load i8, ptr %arrayidx44, align 1
   %cond = icmp eq i8 %3, 0
   br i1 %cond, label %cond.end57, label %cond.end57.thread
@@ -9734,7 +9734,7 @@ cond.end57:                                       ; preds = %if.end43
   %5 = load i8, ptr %arrayidx51, align 1
   %.fr = freeze i8 %5
   %cmp59 = icmp eq i8 %.fr, 10
-  %add.ptr62 = getelementptr i8, ptr %ptr.addr.075, i64 4
+  %add.ptr62 = getelementptr i8, ptr %ptr, i64 4
   %spec.select = select i1 %cmp59, ptr %add.ptr62, ptr %add.ptr36
   br label %cond.end57.thread
 
@@ -9752,7 +9752,7 @@ sw.bb65:                                          ; preds = %cond.end
   br i1 %cmp66, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %sw.bb65
-  %add.ptr69 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr69 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr69, ptr %nextTokPtr, align 8
   br label %return
 
@@ -9777,8 +9777,8 @@ return:                                           ; preds = %if.then35, %if.else
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @little2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal i32 @little2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -9831,7 +9831,7 @@ sw.bb18:                                          ; preds = %cond.end
   br i1 %cmp19, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %sw.bb18
-  %add.ptr22 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr22 = getelementptr i8, ptr %ptr, i64 2
   %call23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr22, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -9844,7 +9844,7 @@ sw.bb25:                                          ; preds = %cond.end
   br i1 %cmp26, label %if.then28, label %if.end37
 
 if.then28:                                        ; preds = %sw.bb25
-  %add.ptr29 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr29 = getelementptr i8, ptr %ptr, i64 2
   %call30 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr29, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp31 = icmp eq i32 %call30, 22
   %cond36 = select i1 %cmp31, i32 0, i32 %call30
@@ -9859,7 +9859,7 @@ sw.bb38:                                          ; preds = %cond.end
   br i1 %cmp39, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %sw.bb38
-  %add.ptr42 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr42 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr42, ptr %nextTokPtr, align 8
   br label %return
 
@@ -9872,14 +9872,14 @@ sw.bb44:                                          ; preds = %cond.end
   br i1 %cmp45, label %if.then47, label %if.end76
 
 if.then47:                                        ; preds = %sw.bb44
-  %add.ptr48 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr48 = getelementptr i8, ptr %ptr, i64 2
   %sub.ptr.rhs.cast50 = ptrtoint ptr %add.ptr48 to i64
   %sub.ptr.sub51 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast50
   %cmp52 = icmp sgt i64 %sub.ptr.sub51, 1
   br i1 %cmp52, label %if.end55, label %return
 
 if.end55:                                         ; preds = %if.then47
-  %arrayidx56 = getelementptr i8, ptr %ptr.addr.075, i64 3
+  %arrayidx56 = getelementptr i8, ptr %ptr, i64 3
   %3 = load i8, ptr %arrayidx56, align 1
   %cond = icmp eq i8 %3, 0
   br i1 %cond, label %cond.end69, label %cond.end69.thread
@@ -9891,7 +9891,7 @@ cond.end69:                                       ; preds = %if.end55
   %5 = load i8, ptr %arrayidx63, align 1
   %.fr = freeze i8 %5
   %cmp71 = icmp eq i8 %.fr, 10
-  %add.ptr74 = getelementptr i8, ptr %ptr.addr.075, i64 4
+  %add.ptr74 = getelementptr i8, ptr %ptr, i64 4
   %spec.select = select i1 %cmp71, ptr %add.ptr74, ptr %add.ptr48
   br label %cond.end69.thread
 
@@ -15701,8 +15701,8 @@ return:                                           ; preds = %sw.bb20, %sw.bb29, 
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -15756,7 +15756,7 @@ sw.bb19:                                          ; preds = %cond.end
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %sw.bb19
-  %add.ptr23 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr23 = getelementptr i8, ptr %ptr, i64 2
   %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -15773,7 +15773,7 @@ sw.bb27:                                          ; preds = %cond.end
   br i1 %cmp28, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %sw.bb27
-  %add.ptr31 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr31 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr31, ptr %nextTokPtr, align 8
   br label %return
 
@@ -15786,7 +15786,7 @@ sw.bb33:                                          ; preds = %cond.end
   br i1 %cmp34, label %if.then36, label %if.end66
 
 if.then36:                                        ; preds = %sw.bb33
-  %add.ptr37 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr37 = getelementptr i8, ptr %ptr, i64 2
   %sub.ptr.rhs.cast39 = ptrtoint ptr %add.ptr37 to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast39
   %cmp41 = icmp sgt i64 %sub.ptr.sub40, 1
@@ -15798,14 +15798,14 @@ if.end44:                                         ; preds = %if.then36
   br i1 %cond, label %cond.end59, label %cond.end59.thread
 
 cond.end59:                                       ; preds = %if.end44
-  %arrayidx51 = getelementptr i8, ptr %ptr.addr.075, i64 3
+  %arrayidx51 = getelementptr i8, ptr %ptr, i64 3
   %4 = load i8, ptr %arrayidx51, align 1
   %idxprom52 = zext i8 %4 to i64
   %arrayidx53 = getelementptr [256 x i8], ptr %type, i64 0, i64 %idxprom52
   %5 = load i8, ptr %arrayidx53, align 1
   %.fr = freeze i8 %5
   %cmp61 = icmp eq i8 %.fr, 10
-  %add.ptr64 = getelementptr i8, ptr %ptr.addr.075, i64 4
+  %add.ptr64 = getelementptr i8, ptr %ptr, i64 4
   %spec.select = select i1 %cmp61, ptr %add.ptr64, ptr %add.ptr37
   br label %cond.end59.thread
 
@@ -15823,7 +15823,7 @@ sw.bb67:                                          ; preds = %cond.end
   br i1 %cmp68, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %sw.bb67
-  %add.ptr71 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr71 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr71, ptr %nextTokPtr, align 8
   br label %return
 
@@ -15848,8 +15848,8 @@ return:                                           ; preds = %if.then36, %if.else
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @big2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal i32 @big2_entityValueTok(ptr nocapture noundef readonly %enc, ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef writeonly %nextTokPtr) #0 {
 entry:
   %cmp.not = icmp ult ptr %ptr, %end
   br i1 %cmp.not, label %if.else, label %return
@@ -15902,7 +15902,7 @@ sw.bb19:                                          ; preds = %cond.end
   br i1 %cmp20, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %sw.bb19
-  %add.ptr23 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr23 = getelementptr i8, ptr %ptr, i64 2
   %call24 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %enc, ptr noundef %add.ptr23, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   br label %return
 
@@ -15915,7 +15915,7 @@ sw.bb26:                                          ; preds = %cond.end
   br i1 %cmp27, label %if.then29, label %if.end38
 
 if.then29:                                        ; preds = %sw.bb26
-  %add.ptr30 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr30 = getelementptr i8, ptr %ptr, i64 2
   %call31 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %enc, ptr noundef %add.ptr30, ptr noundef nonnull %end, ptr noundef %nextTokPtr)
   %cmp32 = icmp eq i32 %call31, 22
   %cond37 = select i1 %cmp32, i32 0, i32 %call31
@@ -15930,7 +15930,7 @@ sw.bb39:                                          ; preds = %cond.end
   br i1 %cmp40, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %sw.bb39
-  %add.ptr43 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr43 = getelementptr i8, ptr %ptr, i64 2
   store ptr %add.ptr43, ptr %nextTokPtr, align 8
   br label %return
 
@@ -15943,7 +15943,7 @@ sw.bb45:                                          ; preds = %cond.end
   br i1 %cmp46, label %if.then48, label %if.end78
 
 if.then48:                                        ; preds = %sw.bb45
-  %add.ptr49 = getelementptr i8, ptr %ptr.addr.075, i64 2
+  %add.ptr49 = getelementptr i8, ptr %ptr, i64 2
   %sub.ptr.rhs.cast51 = ptrtoint ptr %add.ptr49 to i64
   %sub.ptr.sub52 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast51
   %cmp53 = icmp sgt i64 %sub.ptr.sub52, 1
@@ -15955,14 +15955,14 @@ if.end56:                                         ; preds = %if.then48
   br i1 %cond, label %cond.end71, label %cond.end71.thread
 
 cond.end71:                                       ; preds = %if.end56
-  %arrayidx63 = getelementptr i8, ptr %ptr.addr.075, i64 3
+  %arrayidx63 = getelementptr i8, ptr %ptr, i64 3
   %4 = load i8, ptr %arrayidx63, align 1
   %idxprom64 = zext i8 %4 to i64
   %arrayidx65 = getelementptr [256 x i8], ptr %type, i64 0, i64 %idxprom64
   %5 = load i8, ptr %arrayidx65, align 1
   %.fr = freeze i8 %5
   %cmp73 = icmp eq i8 %.fr, 10
-  %add.ptr76 = getelementptr i8, ptr %ptr.addr.075, i64 4
+  %add.ptr76 = getelementptr i8, ptr %ptr, i64 4
   %spec.select = select i1 %cmp73, ptr %add.ptr76, ptr %add.ptr49
   br label %cond.end71.thread
 

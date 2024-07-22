@@ -64,7 +64,7 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %gv_isspace.exit, %.lr.ph, %.preheader69
-  %.0.lcssa = phi ptr [ %.070, %.preheader69 ], [ %.071, %.lr.ph ], [ %.0, %gv_isspace.exit ]
+  %.0.lcssa = phi ptr [ %.070, %.preheader69 ], [ %.071, %.lr.ph ], [ %scevgep, %gv_isspace.exit ]
   %25 = ptrtoint ptr %.0.lcssa to i64
   %26 = ptrtoint ptr %.070 to i64
   %27 = ptrtoint ptr %19 to i64

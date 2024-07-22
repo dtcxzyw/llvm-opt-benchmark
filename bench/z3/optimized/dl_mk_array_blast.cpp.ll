@@ -1664,7 +1664,7 @@ if.then.i143:                                     ; preds = %lor.lhs.false.i135,
           to label %for.inc101.sink.split unwind label %lpad15.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc101.sink.split:                            ; preds = %if.then.i143, %if.then.i125
-  %.sink1103.ph = phi ptr [ %71, %if.then.i125 ], [ %63, %if.then.i143 ]
+  %.sink1109.ph = phi ptr [ %71, %if.then.i125 ], [ %63, %if.then.i143 ]
   %.sink.in.ph = phi ptr [ %args, %if.then.i125 ], [ %todo, %if.then.i143 ]
   %valid.1.ph = phi i1 [ %valid.0929, %if.then.i125 ], [ false, %if.then.i143 ]
   %.pre.i144.sink = load ptr, ptr %.sink.in.ph, align 8
@@ -1673,14 +1673,14 @@ for.inc101.sink.split:                            ; preds = %if.then.i143, %if.t
   br label %for.inc101
 
 for.inc101:                                       ; preds = %for.inc101.sink.split, %lor.lhs.false.i135, %lor.lhs.false.i117
-  %.sink1105 = phi i32 [ %73, %lor.lhs.false.i117 ], [ %76, %lor.lhs.false.i135 ], [ %.pre1.i146, %for.inc101.sink.split ]
-  %.sink1104 = phi ptr [ %72, %lor.lhs.false.i117 ], [ %75, %lor.lhs.false.i135 ], [ %.pre.i144.sink, %for.inc101.sink.split ]
-  %.sink1103 = phi ptr [ %71, %lor.lhs.false.i117 ], [ %63, %lor.lhs.false.i135 ], [ %.sink1103.ph, %for.inc101.sink.split ]
+  %.sink1111 = phi i32 [ %73, %lor.lhs.false.i117 ], [ %76, %lor.lhs.false.i135 ], [ %.pre1.i146, %for.inc101.sink.split ]
+  %.sink1110 = phi ptr [ %72, %lor.lhs.false.i117 ], [ %75, %lor.lhs.false.i135 ], [ %.pre.i144.sink, %for.inc101.sink.split ]
+  %.sink1109 = phi ptr [ %71, %lor.lhs.false.i117 ], [ %63, %lor.lhs.false.i135 ], [ %.sink1109.ph, %for.inc101.sink.split ]
   %.sink.in = phi ptr [ %args, %lor.lhs.false.i117 ], [ %todo, %lor.lhs.false.i135 ], [ %.sink.in.ph, %for.inc101.sink.split ]
   %valid.1 = phi i1 [ %valid.0929, %lor.lhs.false.i117 ], [ false, %lor.lhs.false.i135 ], [ %valid.1.ph, %for.inc101.sink.split ]
-  %idx.ext.i139 = zext i32 %.sink1105 to i64
-  %add.ptr.i140 = getelementptr inbounds ptr, ptr %.sink1104, i64 %idx.ext.i139
-  store ptr %.sink1103, ptr %add.ptr.i140, align 8
+  %idx.ext.i139 = zext i32 %.sink1111 to i64
+  %add.ptr.i140 = getelementptr inbounds ptr, ptr %.sink1110, i64 %idx.ext.i139
+  store ptr %.sink1109, ptr %add.ptr.i140, align 8
   %.sink = load ptr, ptr %.sink.in, align 8
   %arrayidx10.i141 = getelementptr inbounds i8, ptr %.sink, i64 -4
   %78 = load i32, ptr %arrayidx10.i141, align 4
@@ -2556,10 +2556,10 @@ land.rhs.i.i.i.i492:                              ; preds = %for.end232, %while.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i492
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i491
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont237, label %land.rhs.i.i.i.i492, !llvm.loop !20
+  br i1 %cmp.not.i.i.i.i, label %for.end316, label %land.rhs.i.i.i.i492, !llvm.loop !20
 
-invoke.cont237:                                   ; preds = %land.rhs.i.i.i.i492, %while.body.i.i.i.i, %for.end232
-  %retval.sroa.0.1.i.i = phi ptr [ %196, %for.end232 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i492 ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont237:                                   ; preds = %land.rhs.i.i.i.i492, %for.end232
+  %retval.sroa.0.1.i.i = phi ptr [ %196, %for.end232 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i492 ]
   %cmp.i498.not947 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i491
   br i1 %cmp.i498.not947, label %for.end316, label %invoke.cont245.lr.ph
 
@@ -3128,8 +3128,8 @@ for.end316.loopexit:                              ; preds = %_ZN14core_hashtable
   %.pre1002 = load ptr, ptr %m_nodes.i.i, align 8
   br label %for.end316
 
-for.end316:                                       ; preds = %for.end316.loopexit, %invoke.cont237
-  %264 = phi ptr [ %.pre1002, %for.end316.loopexit ], [ %125, %invoke.cont237 ]
+for.end316:                                       ; preds = %while.body.i.i.i.i, %for.end316.loopexit, %invoke.cont237
+  %264 = phi ptr [ %.pre1002, %for.end316.loopexit ], [ %125, %invoke.cont237 ], [ %125, %while.body.i.i.i.i ]
   %265 = load ptr, ptr %m, align 8
   %cmp.i.i629 = icmp eq ptr %264, null
   br i1 %cmp.i.i629, label %invoke.cont318, label %if.end.i.i630

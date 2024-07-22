@@ -241,15 +241,19 @@ find_positions.exit.thread:                       ; preds = %26, %21, %18, %12, 
 .preheader:                                       ; preds = %61
   %65 = load i32, ptr %7, align 1
   %66 = icmp eq i32 %65, 33639248
-  br i1 %66, label %.lr.ph, label %._crit_edge
+  br i1 %66, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 28
+  br label %.lr.ph
 
 67:                                               ; preds = %61
   tail call void @free(ptr noundef nonnull %7) #14
   br label %181
 
-.lr.ph:                                           ; preds = %.preheader, %175
-  %.08799 = phi i32 [ %176, %175 ], [ %63, %.preheader ]
-  %.08898 = phi ptr [ %178, %175 ], [ %7, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %175
+  %.08799 = phi i32 [ %176, %175 ], [ %63, %.lr.ph.preheader ]
+  %.08898 = phi ptr [ %178, %175 ], [ %7, %.lr.ph.preheader ]
   %68 = icmp slt i32 %.08799, 46
   br i1 %68, label %69, label %78
 
@@ -299,7 +303,6 @@ find_positions.exit.thread:                       ; preds = %26, %21, %18, %12, 
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %93, %94
-  %.290 = phi ptr [ %7, %94 ], [ %.189, %93 ]
   %95 = sub nsw i32 %90, %.1
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 1020)
   %97 = add nuw nsw i32 %96, 4
@@ -316,13 +319,12 @@ find_positions.exit.thread:                       ; preds = %26, %21, %18, %12, 
 
 104:                                              ; preds = %._crit_edge102
   %105 = add nsw i32 %.1, %101
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.290, i64 28
   %.pre = load i16, ptr %.phi.trans.insert, align 1
   br label %106
 
 106:                                              ; preds = %104, %78
   %107 = phi i16 [ %.pre, %104 ], [ %80, %78 ]
-  %.3 = phi ptr [ %.290, %104 ], [ %.189, %78 ]
+  %.3 = phi ptr [ %7, %104 ], [ %.189, %78 ]
   %.2 = phi i32 [ %105, %104 ], [ %.1, %78 ]
   %108 = zext i16 %107 to i64
   %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15

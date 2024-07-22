@@ -5930,7 +5930,7 @@ poolStoreString.exit748.i:                        ; preds = %._crit_edge.i745.i,
   br label %190
 
 190:                                              ; preds = %.sink.split.i.i, %186, %185
-  %.1.i.i = phi ptr [ %.016.i.i, %186 ], [ %.016.i.i, %185 ], [ %189, %.sink.split.i.i ]
+  %.1.i.i = phi ptr [ %.016.i.i, %186 ], [ %183, %185 ], [ %189, %.sink.split.i.i ]
   %191 = getelementptr inbounds i8, ptr %.0.i749.i, i64 1
   br label %.preheader1016.i, !llvm.loop !27
 
@@ -5946,7 +5946,7 @@ poolStoreString.exit748.i:                        ; preds = %._crit_edge.i745.i,
   br label %normalizePublicId.exit.i
 
 normalizePublicId.exit.i:                         ; preds = %193, %192
-  %.2.i.i = phi ptr [ %.016.i.i, %192 ], [ %spec.select.i.i, %193 ]
+  %.2.i.i = phi ptr [ %183, %192 ], [ %spec.select.i.i, %193 ]
   store i8 0, ptr %.2.i.i, align 1
   %197 = load ptr, ptr %63, align 8
   store ptr %197, ptr %64, align 8
@@ -6069,7 +6069,7 @@ poolStoreString.exit761.i:                        ; preds = %._crit_edge.i758.i,
   br label %242
 
 242:                                              ; preds = %.sink.split.i766.i, %238, %237
-  %.1.i768.i = phi ptr [ %.016.i762.i, %238 ], [ %.016.i762.i, %237 ], [ %241, %.sink.split.i766.i ]
+  %.1.i768.i = phi ptr [ %.016.i762.i, %238 ], [ %235, %237 ], [ %241, %.sink.split.i766.i ]
   %243 = getelementptr inbounds i8, ptr %.0.i763.i, i64 1
   br label %.preheader.i, !llvm.loop !27
 
@@ -6085,7 +6085,7 @@ poolStoreString.exit761.i:                        ; preds = %._crit_edge.i758.i,
   br label %normalizePublicId.exit772.i
 
 normalizePublicId.exit772.i:                      ; preds = %245, %244
-  %.2.i771.i = phi ptr [ %.016.i762.i, %244 ], [ %spec.select.i770.i, %245 ]
+  %.2.i771.i = phi ptr [ %235, %244 ], [ %spec.select.i770.i, %245 ]
   store i8 0, ptr %.2.i771.i, align 1
   %249 = load ptr, ptr %65, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 40
@@ -7735,7 +7735,7 @@ poolStoreString.exit909.i:                        ; preds = %._crit_edge.i906.i,
   br label %951
 
 951:                                              ; preds = %.sink.split.i914.i, %947, %946
-  %.1.i916.i = phi ptr [ %.016.i910.i, %947 ], [ %.016.i910.i, %946 ], [ %950, %.sink.split.i914.i ]
+  %.1.i916.i = phi ptr [ %.016.i910.i, %947 ], [ %944, %946 ], [ %950, %.sink.split.i914.i ]
   %952 = getelementptr inbounds i8, ptr %.0.i911.i, i64 1
   br label %.preheader1019.i, !llvm.loop !27
 
@@ -7751,7 +7751,7 @@ poolStoreString.exit909.i:                        ; preds = %._crit_edge.i906.i,
   br label %normalizePublicId.exit920.i
 
 normalizePublicId.exit920.i:                      ; preds = %954, %953
-  %.2.i919.i = phi ptr [ %.016.i910.i, %953 ], [ %spec.select.i918.i, %954 ]
+  %.2.i919.i = phi ptr [ %944, %953 ], [ %spec.select.i918.i, %954 ]
   store i8 0, ptr %.2.i919.i, align 1
   store ptr %944, ptr %57, align 8
   %958 = load ptr, ptr %63, align 8

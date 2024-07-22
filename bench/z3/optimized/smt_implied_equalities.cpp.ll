@@ -1301,11 +1301,11 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i46285.i
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont25.i, label %land.rhs.i.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i.i, label %for.end54.i, label %land.rhs.i.i.i.i.i, !llvm.loop !15
 
-invoke.cont25.i:                                  ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %invoke.cont22.i
-  %add.ptr.i.i46286.i = phi ptr [ %add.ptr.i.i46.i, %invoke.cont22.i ], [ %add.ptr.i.i46285.i, %land.rhs.i.i.i.i.i ], [ %add.ptr.i.i46285.i, %while.body.i.i.i.i.i ]
-  %retval.sroa.0.1.i.i.i = phi ptr [ %termids.val.pre.i, %invoke.cont22.i ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
+invoke.cont25.i:                                  ; preds = %land.rhs.i.i.i.i.i, %invoke.cont22.i
+  %add.ptr.i.i46286.i = phi ptr [ %add.ptr.i.i46.i, %invoke.cont22.i ], [ %add.ptr.i.i46285.i, %land.rhs.i.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi ptr [ %termids.val.pre.i, %invoke.cont22.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.not251.i = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i46286.i
   br i1 %cmp.i.not251.i, label %for.end54.i, label %invoke.cont31.i
 
@@ -1397,7 +1397,7 @@ _ZN14core_hashtableIN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equaliti
   %cmp.i.not.i = icmp eq ptr %it.sroa.0.2.i, %add.ptr.i.i46286.i
   br i1 %cmp.i.not.i, label %for.end54.i, label %invoke.cont31.i, !llvm.loop !18
 
-for.end54.i:                                      ; preds = %_ZN14core_hashtableIN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit.i, %invoke.cont25.i
+for.end54.i:                                      ; preds = %while.body.i.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4sort6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit.i, %invoke.cont25.i
   %112 = load ptr, ptr %model.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %112, null
   br i1 %tobool.not.i.i.i, label %if.end.i, label %if.then.i.i.i

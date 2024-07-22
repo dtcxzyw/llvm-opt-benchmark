@@ -728,8 +728,8 @@ if.then.i.i.i.i.i150:                             ; preds = %_ZN5boost9container
   br label %.noexc.i
 
 if.then4.i.i.i88:                                 ; preds = %if.then.thread.i85
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i94, ptr %24, align 8, !noalias !52
-  %ref.tmp.i.i.i.sroa.9.0..sroa_idx194 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i94, ptr %add.ptr.i.i40, align 8, !noalias !52
+  %ref.tmp.i.i.i.sroa.9.0..sroa_idx194 = getelementptr inbounds i8, ptr %add.ptr.i.i40, i64 8
   store i64 %16, ptr %ref.tmp.i.i.i.sroa.9.0..sroa_idx194, align 8, !noalias !52
   %29 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !52
   %add.i.i.i90 = add i64 %29, 1
@@ -2719,7 +2719,7 @@ if.then.i.i.i.i.i34:                              ; preds = %_ZN5boost9container
   br label %.noexc112
 
 if.then4.i.i.i:                                   ; preds = %if.then.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.08.i.i, i64 16, i1 false), !noalias !137
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.08.i.i, i64 16, i1 false), !noalias !137
   %35 = load i64, ptr %m_size.i.i.i.i.i.i.i.i, align 8, !noalias !137
   %add.i.i.i = add i64 %35, 1
   store i64 %add.i.i.i, ptr %m_size.i.i.i.i.i.i.i.i, align 8, !noalias !137

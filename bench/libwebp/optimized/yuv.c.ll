@@ -517,7 +517,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %100, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %101, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %99, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %98, %.lr.ph ]
   %102 = and i32 %4, 1
@@ -698,7 +698,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %102, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %103, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %101, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %100, %.lr.ph ]
   %104 = and i32 %4, 1
@@ -877,7 +877,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %100, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %101, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %99, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %98, %.lr.ph ]
   %102 = and i32 %4, 1
@@ -1058,7 +1058,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %102, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %103, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %101, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %100, %.lr.ph ]
   %104 = and i32 %4, 1
@@ -1241,7 +1241,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %102, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %103, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %101, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %100, %.lr.ph ]
   %104 = and i32 %4, 1
@@ -1420,7 +1420,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %102, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %103, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %101, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %100, %.lr.ph ]
   %104 = and i32 %4, 1
@@ -1603,7 +1603,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %108, %.lr.ph ]
-  %.021.lcssa = phi ptr [ %3, %5 ], [ %109, %.lr.ph ]
+  %.021.lcssa = phi ptr [ %3, %5 ], [ %9, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %5 ], [ %107, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %5 ], [ %106, %.lr.ph ]
   %110 = and i32 %4, 1

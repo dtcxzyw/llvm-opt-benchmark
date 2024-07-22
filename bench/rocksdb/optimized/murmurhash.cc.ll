@@ -32,7 +32,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry
-  %data.0.lcssa = phi ptr [ %key, %entry ], [ %incdec.ptr, %while.body ]
+  %data.0.lcssa = phi ptr [ %key, %entry ], [ %add.ptr, %while.body ]
   %h.0.lcssa = phi i64 [ %xor, %entry ], [ %mul6, %while.body ]
   %and = and i32 %len, 7
   switch i32 %and, label %default.unreachable35 [

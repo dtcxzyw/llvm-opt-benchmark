@@ -799,7 +799,7 @@ while.body6:                                      ; preds = %land.rhs
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !10
 
 while.end:                                        ; preds = %land.rhs, %while.body6, %while.cond
-  %end.0.lcssa = phi ptr [ %begin.0, %while.cond ], [ %scevgep25, %while.body6 ], [ %end.018, %land.rhs ]
+  %end.0.lcssa = phi ptr [ %add.ptr.i, %while.cond ], [ %scevgep25, %while.body6 ], [ %end.018, %land.rhs ]
   %cmp.not.lcssa = phi i1 [ true, %while.cond ], [ %cmp5.not.not, %while.body6 ], [ %cmp5.not.not, %land.rhs ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
   %call.i9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)

@@ -852,7 +852,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !14
 
 return:                                           ; preds = %if.end, %while.body, %if.end8.i, %if.end.i, %while.body72.i.i.us.us, %if.end99.i.i.us.us, %for.cond77.i.preheader.i, %if.end99.ithread-pre-split.i, %land.lhs.true2.i.i, %while.body72.i.i.us, %if.end99.ithread-pre-split.i.us, %if.then2, %while.cond68.i.preheader.split.i, %if.then.i, %for.cond.preheader.i, %if.else
-  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %while.cond68.i.preheader.split.i ], [ %s, %for.cond.preheader.i ], [ null, %if.then2 ], [ %s.addr.1.i22.i.us, %while.body72.i.i.us ], [ null, %if.end99.ithread-pre-split.i.us ], [ %s.addr.1.i22.i, %for.cond77.i.preheader.i ], [ %s.addr.1.i22.i, %land.lhs.true2.i.i ], [ null, %if.end99.ithread-pre-split.i ], [ null, %if.end99.i.i.us.us ], [ %s.addr.1.i22.i.us.us, %while.body72.i.i.us.us ], [ null, %if.end.i ], [ %incdec.ptr.i, %if.end8.i ], [ null, %if.end ], [ %s.addr.014, %while.body ]
+  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %while.cond68.i.preheader.split.i ], [ %s, %for.cond.preheader.i ], [ null, %if.then2 ], [ %s.addr.1.i22.i.us, %while.body72.i.i.us ], [ null, %if.end99.ithread-pre-split.i.us ], [ %s, %for.cond77.i.preheader.i ], [ %s.addr.1.i22.i, %land.lhs.true2.i.i ], [ null, %if.end99.ithread-pre-split.i ], [ null, %if.end99.i.i.us.us ], [ %s.addr.1.i22.i.us.us, %while.body72.i.i.us.us ], [ null, %if.end.i ], [ %incdec.ptr.i, %if.end8.i ], [ null, %if.end ], [ %s.addr.014, %while.body ]
   ret ptr %retval.0
 }
 
@@ -1222,7 +1222,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   br i1 %cmp6, label %return, label %for.cond, !llvm.loop !16
 
 return:                                           ; preds = %for.cond, %if.end52.i.us, %for.cond.i.preheader.us, %land.lhs.true2.i.i.us, %for.cond.i.preheader.us19, %land.lhs.true12.i.i.us, %if.end52.i.us17, %if.end52.i.us.us, %while.body.i.us.us, %u_strlen_75.exit55.i, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %u_strlen_75.exit55.i ], [ %incdec.ptr32.i.us.us, %while.body.i.us.us ], [ null, %if.end52.i.us.us ], [ %incdec.ptr32.i.us14, %land.lhs.true12.i.i.us ], [ %incdec.ptr32.i.us14, %for.cond.i.preheader.us19 ], [ null, %if.end52.i.us17 ], [ %incdec.ptr32.i.us, %for.cond.i.preheader.us ], [ %incdec.ptr32.i.us, %land.lhs.true2.i.i.us ], [ null, %if.end52.i.us ], [ %spec.select, %for.cond ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %u_strlen_75.exit55.i ], [ %incdec.ptr32.i.us.us, %while.body.i.us.us ], [ null, %if.end52.i.us.us ], [ %incdec.ptr32.i.us14, %land.lhs.true12.i.i.us ], [ %incdec.ptr32.i.us14, %for.cond.i.preheader.us19 ], [ null, %if.end52.i.us17 ], [ %s, %for.cond.i.preheader.us ], [ %incdec.ptr32.i.us, %land.lhs.true2.i.i.us ], [ null, %if.end52.i.us ], [ %spec.select, %for.cond ]
   ret ptr %retval.0
 }
 
@@ -1405,7 +1405,7 @@ while.body:                                       ; preds = %if.then2, %while.bo
   br i1 %cmp6.not, label %return, label %while.body, !llvm.loop !20
 
 return:                                           ; preds = %while.body, %for.cond.i, %for.cond.i.preheader.us.i, %if.end52.i.us.i, %land.lhs.true2.i.i.us.i, %for.cond.i.preheader.us19.i, %if.end52.i.us17.i, %land.lhs.true12.i.i.us.i, %if.end52.i.us.us.i, %while.body.i.us.us.i, %if.then2, %u_strlen_75.exit55.i.i, %if.then.i, %if.else
-  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %u_strlen_75.exit55.i.i ], [ null, %if.then2 ], [ null, %if.end52.i.us.us.i ], [ %incdec.ptr32.i.us.us.i, %while.body.i.us.us.i ], [ null, %if.end52.i.us17.i ], [ %incdec.ptr32.i.us14.i, %for.cond.i.preheader.us19.i ], [ %incdec.ptr32.i.us14.i, %land.lhs.true12.i.i.us.i ], [ null, %if.end52.i.us.i ], [ %incdec.ptr32.i.us.i, %land.lhs.true2.i.i.us.i ], [ %incdec.ptr32.i.us.i, %for.cond.i.preheader.us.i ], [ %spec.select.i, %for.cond.i ], [ %result.1, %while.body ]
+  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then.i ], [ null, %u_strlen_75.exit55.i.i ], [ null, %if.then2 ], [ null, %if.end52.i.us.us.i ], [ %incdec.ptr32.i.us.us.i, %while.body.i.us.us.i ], [ null, %if.end52.i.us17.i ], [ %incdec.ptr32.i.us14.i, %for.cond.i.preheader.us19.i ], [ %incdec.ptr32.i.us14.i, %land.lhs.true12.i.i.us.i ], [ null, %if.end52.i.us.i ], [ %incdec.ptr32.i.us.i, %land.lhs.true2.i.i.us.i ], [ %s, %for.cond.i.preheader.us.i ], [ %spec.select.i, %for.cond.i ], [ %result.1, %while.body ]
   ret ptr %retval.0
 }
 

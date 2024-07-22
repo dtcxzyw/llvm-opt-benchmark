@@ -91,7 +91,7 @@ define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %57 = phi ptr [ %0, %3 ], [ %55, %.preheader ]
+  %57 = phi ptr [ %0, %3 ], [ %7, %.preheader ]
   %58 = phi i64 [ %17, %3 ], [ %54, %.preheader ]
   %59 = phi i64 [ %16, %3 ], [ %52, %.preheader ]
   %60 = phi i64 [ %15, %3 ], [ %53, %.preheader ]
@@ -1173,7 +1173,7 @@ define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %43 = phi ptr [ %0, %3 ], [ %41, %.preheader ]
+  %43 = phi ptr [ %0, %3 ], [ %7, %.preheader ]
   %44 = phi i64 [ %17, %3 ], [ %40, %.preheader ]
   %45 = phi i64 [ %16, %3 ], [ %38, %.preheader ]
   %46 = phi i64 [ %15, %3 ], [ %39, %.preheader ]

@@ -8113,10 +8113,10 @@ land.rhs.i.i.i.i134:                              ; preds = %for.end159, %while.
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i134
   %incdec.ptr.i.i.i.i135 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i136 = icmp eq ptr %incdec.ptr.i.i.i.i135, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i136, label %invoke.cont166, label %land.rhs.i.i.i.i134, !llvm.loop !54
+  br i1 %cmp.not.i.i.i.i136, label %for.end207, label %land.rhs.i.i.i.i134, !llvm.loop !54
 
-invoke.cont166:                                   ; preds = %land.rhs.i.i.i.i134, %while.body.i.i.i.i, %for.end159
-  %retval.sroa.0.1.i.i = phi ptr [ %84, %for.end159 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i134 ], [ %incdec.ptr.i.i.i.i135, %while.body.i.i.i.i ]
+invoke.cont166:                                   ; preds = %land.rhs.i.i.i.i134, %for.end159
+  %retval.sroa.0.1.i.i = phi ptr [ %84, %for.end159 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i134 ]
   %cmp.i142.not206 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i142.not206, label %for.end207, label %for.body171
 
@@ -8180,7 +8180,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %cmp.i142.not = icmp eq ptr %__begin1162.sroa.0.2, %add.ptr.i.i
   br i1 %cmp.i142.not, label %for.end207, label %for.body171
 
-for.end207:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, %invoke.cont166
+for.end207:                                       ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, %invoke.cont166
   %m_enabled.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %99 = load i8, ptr %m_enabled.i.i, align 8
   %tobool.i.i = trunc i8 %99 to i1

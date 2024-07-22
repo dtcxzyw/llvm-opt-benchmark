@@ -34702,7 +34702,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
           to label %.body.i unwind label %210
 
 ._crit_edge.i:                                    ; preds = %199, %172
-  %.lcssa107.i = phi ptr [ %.sroa.4.0.copyload.i, %172 ], [ %183, %199 ]
+  %.lcssa107.i = phi ptr [ %.sroa.4.0.copyload.i, %172 ], [ %173, %199 ]
   store ptr %.lcssa107.i, ptr %.sroa.5.0..sroa_idx63.i, align 8, !alias.scope !4153, !noalias !4156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28), !noalias !4158
   store ptr %29, ptr %28, align 8, !noalias !4158

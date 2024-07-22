@@ -799,7 +799,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.not.i.i.i, label %COVER_lower_bound.exit.i.i, label %while.body.i.i.i, !llvm.loop !10
 
 COVER_lower_bound.exit.i.i:                       ; preds = %while.body.i.i.i, %if.then11.i.i
-  %first.addr.0.lcssa.i.i.i = phi ptr [ %curOffsetPtr.018.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
+  %first.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i, %if.then11.i.i ], [ %first.addr.1.i.i.i, %while.body.i.i.i ]
   %56 = load i64, ptr %first.addr.0.lcssa.i.i.i, align 8
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %first.addr.0.lcssa.i.i.i, i64 8
   br label %for.inc.i.i

@@ -5044,9 +5044,9 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %28 = ptrtoint ptr %26 to i64
   br label %29
 
-29:                                               ; preds = %.backedge691, %1
-  %.0366 = phi ptr [ %3, %1 ], [ %.3369593, %.backedge691 ]
-  %.0363 = phi i64 [ %5, %1 ], [ %.2365594, %.backedge691 ]
+29:                                               ; preds = %.backedge689, %1
+  %.0366 = phi ptr [ %3, %1 ], [ %.3369593, %.backedge689 ]
+  %.0363 = phi i64 [ %5, %1 ], [ %.2365594, %.backedge689 ]
   %.not = icmp eq i64 %.0363, 0
   br i1 %.not, label %30, label %.critedge.thread
 
@@ -5231,7 +5231,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
 .critedge4:                                       ; preds = %127, %73, %40
   %129 = phi i32 [ %41, %40 ], [ %41, %73 ], [ %39, %127 ]
   %130 = phi i32 [ %59, %40 ], [ %59, %73 ], [ %103, %127 ]
-  %.3369 = phi ptr [ %.0366, %40 ], [ %64, %73 ], [ %89, %127 ]
+  %.3369 = phi ptr [ %.0366, %40 ], [ %57, %73 ], [ %89, %127 ]
   %.2365 = phi i64 [ %58, %40 ], [ %58, %73 ], [ 0, %127 ]
   %131 = sub i32 32768, %130
   %. = tail call i32 @llvm.umin.i32(i32 %131, i32 %129)
@@ -5437,7 +5437,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %227 = getelementptr inbounds i8, ptr %.0361, i64 2
   %228 = load i16, ptr %227, align 2
   %229 = icmp eq i16 %226, %228
-  br i1 %229, label %230, label %.split.loop.exit.split.loop.exit619
+  br i1 %229, label %230, label %.split.loop.exit.split.loop.exit618
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds i8, ptr %.0358, i64 4
@@ -5445,7 +5445,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %233 = getelementptr inbounds i8, ptr %.0361, i64 4
   %234 = load i16, ptr %233, align 2
   %235 = icmp eq i16 %232, %234
-  br i1 %235, label %236, label %.split.loop.exit.split.loop.exit623
+  br i1 %235, label %236, label %.split.loop.exit.split.loop.exit622
 
 236:                                              ; preds = %230
   %237 = getelementptr inbounds i8, ptr %.0358, i64 6
@@ -5453,7 +5453,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %239 = getelementptr inbounds i8, ptr %.0361, i64 6
   %240 = load i16, ptr %239, align 2
   %241 = icmp eq i16 %238, %240
-  br i1 %241, label %242, label %.split.loop.exit.split.loop.exit627
+  br i1 %241, label %242, label %.split.loop.exit.split.loop.exit626
 
 242:                                              ; preds = %236
   %243 = getelementptr inbounds i8, ptr %.0358, i64 8
@@ -5472,22 +5472,22 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %250 = tail call i32 @llvm.umin.i32(i32 %134, i32 258)
   br label %.loopexit
 
-.split.loop.exit.split.loop.exit619:              ; preds = %224
+.split.loop.exit.split.loop.exit618:              ; preds = %224
   %251 = getelementptr inbounds i8, ptr %.0358, i64 2
   br label %.split.loop.exit
 
-.split.loop.exit.split.loop.exit623:              ; preds = %230
+.split.loop.exit.split.loop.exit622:              ; preds = %230
   %252 = getelementptr inbounds i8, ptr %.0358, i64 4
   br label %.split.loop.exit
 
-.split.loop.exit.split.loop.exit627:              ; preds = %236
+.split.loop.exit.split.loop.exit626:              ; preds = %236
   %253 = getelementptr inbounds i8, ptr %.0358, i64 6
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %242, %.split.loop.exit.split.loop.exit627, %.split.loop.exit.split.loop.exit623, %.split.loop.exit.split.loop.exit619
-  %.in = phi i16 [ %228, %.split.loop.exit.split.loop.exit619 ], [ %234, %.split.loop.exit.split.loop.exit623 ], [ %240, %.split.loop.exit.split.loop.exit627 ], [ %246, %242 ]
-  %.in582 = phi i16 [ %226, %.split.loop.exit.split.loop.exit619 ], [ %232, %.split.loop.exit.split.loop.exit623 ], [ %238, %.split.loop.exit.split.loop.exit627 ], [ %244, %242 ]
-  %.1359.ph = phi ptr [ %251, %.split.loop.exit.split.loop.exit619 ], [ %252, %.split.loop.exit.split.loop.exit623 ], [ %253, %.split.loop.exit.split.loop.exit627 ], [ %243, %242 ]
+.split.loop.exit:                                 ; preds = %242, %.split.loop.exit.split.loop.exit626, %.split.loop.exit.split.loop.exit622, %.split.loop.exit.split.loop.exit618
+  %.in = phi i16 [ %228, %.split.loop.exit.split.loop.exit618 ], [ %234, %.split.loop.exit.split.loop.exit622 ], [ %240, %.split.loop.exit.split.loop.exit626 ], [ %246, %242 ]
+  %.in582 = phi i16 [ %226, %.split.loop.exit.split.loop.exit618 ], [ %232, %.split.loop.exit.split.loop.exit622 ], [ %238, %.split.loop.exit.split.loop.exit626 ], [ %244, %242 ]
+  %.1359.ph = phi ptr [ %251, %.split.loop.exit.split.loop.exit618 ], [ %252, %.split.loop.exit.split.loop.exit622 ], [ %253, %.split.loop.exit.split.loop.exit626 ], [ %243, %242 ]
   %254 = trunc i16 %.in582 to i8
   %255 = trunc i16 %.in to i8
   %256 = ptrtoint ptr %.1359.ph to i64
@@ -5883,7 +5883,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
 491:                                              ; preds = %482
   %492 = load i32, ptr %18, align 4
   %493 = icmp ugt i32 %492, 31744
-  br i1 %493, label %494, label %.backedge691
+  br i1 %493, label %494, label %.backedge689
 
 494:                                              ; preds = %491
   %495 = ptrtoint ptr %489 to i64
@@ -5898,16 +5898,16 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef %0
   %501 = load i32, ptr %15, align 8
   %502 = and i32 %501, 524288
   %.not457 = icmp eq i32 %502, 0
-  br i1 %.not457, label %.backedge691, label %503
+  br i1 %.not457, label %.backedge689, label %503
 
 503:                                              ; preds = %500, %494, %482
   store ptr %.3369593, ptr %2, align 8
   store i64 %.2365594, ptr %4, align 8
   %504 = tail call fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 noundef 0)
   %.not458 = icmp eq i32 %504, 0
-  br i1 %.not458, label %.backedge691, label %505
+  br i1 %.not458, label %.backedge689, label %505
 
-.backedge691:                                     ; preds = %503, %500, %491
+.backedge689:                                     ; preds = %503, %500, %491
   br label %29
 
 505:                                              ; preds = %503

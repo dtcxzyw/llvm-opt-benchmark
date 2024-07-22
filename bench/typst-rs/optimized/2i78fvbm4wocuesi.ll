@@ -1356,7 +1356,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   br i1 %.not39.i, label %.thread66.i, label %.sink.split
 
 .thread66.i:                                      ; preds = %129, %96
-  %.sroa.0.26569.i = phi ptr [ %131, %129 ], [ %.sroa.0.1.i, %96 ]
+  %.sroa.0.26569.i = phi ptr [ %131, %129 ], [ %31, %96 ]
   %140 = load i64, ptr %4, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %141 = load i64, ptr %14, align 8, !alias.scope !6, !noalias !11, !noundef !4
   %142 = icmp eq i64 %140, %141
@@ -88812,10 +88812,11 @@ _ZN9hayagriva3csl12StyleContext11sorting_ctx17h40f6014b6625e197E.exit: ; preds =
   br i1 %125, label %.loopexit.i.loopexit.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i"
 
 .loopexit.i.loopexit.i.i:                         ; preds = %124, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i"
-  %.sroa.014.i.sroa.0.1.ph.i.i = phi i64 [ %.sroa.014.i.sroa.0.0.copyload7.i.i, %124 ], [ %.sroa.014.i.sroa.0.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ]
-  %.sroa.014.i.sroa.6.1.ph.i.i = phi ptr [ %.sroa.014.i.sroa.6.0.copyload10.i.i, %124 ], [ %.sroa.014.i.sroa.6.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ]
-  %.sroa.014.i.sroa.7.1.ph.i.i = phi i64 [ %.sroa.014.i.sroa.7.0.copyload14.i.i, %124 ], [ %.sroa.014.i.sroa.7.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ]
-  store ptr %102, ptr %91, align 8, !alias.scope !17860, !noalias !17863
+  %.lcssa.i.i = phi ptr [ %102, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ], [ %89, %124 ]
+  %.sroa.014.i.sroa.0.1.ph.i.i = phi i64 [ %.sroa.014.i.sroa.0.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ], [ %.sroa.014.i.sroa.0.0.copyload7.i.i, %124 ]
+  %.sroa.014.i.sroa.6.1.ph.i.i = phi ptr [ %.sroa.014.i.sroa.6.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ], [ %.sroa.014.i.sroa.6.0.copyload10.i.i, %124 ]
+  %.sroa.014.i.sroa.7.1.ph.i.i = phi i64 [ %.sroa.014.i.sroa.7.0.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56240e18ff1d064bE.exit.i.i.i" ], [ %.sroa.014.i.sroa.7.0.copyload14.i.i, %124 ]
+  store ptr %.lcssa.i.i, ptr %91, align 8, !alias.scope !17860, !noalias !17863
   br label %.noexc16
 
 126:                                              ; preds = %.body.thread.i.i.i
@@ -90612,21 +90613,21 @@ define internal fastcc void @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$h
   %47 = icmp eq i64 %46, 2
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
-  br i1 %47, label %.preheader367, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h939f28ecd9256e36E.exit"
+  br i1 %47, label %.preheader368, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h939f28ecd9256e36E.exit"
 
-.preheader367:                                    ; preds = %2, %50
+.preheader368:                                    ; preds = %2, %50
   %.idx = phi i64 [ %.add, %50 ], [ 0, %2 ]
   %.not.i.not.i.not = icmp eq i64 %.idx, 2
   br i1 %.not.i.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h939f28ecd9256e36E.exit", label %50
 
-50:                                               ; preds = %.preheader367
+50:                                               ; preds = %.preheader368
   %.ptr = getelementptr inbounds i8, ptr %49, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 1
   %51 = load i8, ptr %.ptr, align 1, !range !3050, !alias.scope !18037, !noalias !18044, !noundef !4
   %52 = icmp eq i8 %51, 9
-  br i1 %52, label %.preheader, label %.preheader367
+  br i1 %52, label %.preheader, label %.preheader368
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h939f28ecd9256e36E.exit": ; preds = %.preheader367, %.preheader, %2, %59
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h939f28ecd9256e36E.exit": ; preds = %.preheader368, %.preheader, %2, %59
   %53 = getelementptr inbounds i8, ptr %49, i64 %46
   store ptr %49, ptr %37, align 8
   %54 = getelementptr inbounds i8, ptr %37, i64 8
@@ -91209,8 +91210,9 @@ _ZN9hayagriva3csl9rendering5names21DisambiguatedNameForm4from17hd6e422e0263c5d73
   br i1 %235, label %.loopexit.i.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d1fe423d5e1e8f7E.exit.i"
 
 .loopexit.i.loopexit:                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d1fe423d5e1e8f7E.exit.i", %"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hce512cb12a37511cE.exit.i"
-  %.07.i.ph = phi i64 [ %234, %"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hce512cb12a37511cE.exit.i" ], [ %.08.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d1fe423d5e1e8f7E.exit.i" ]
-  store ptr %231, ptr %223, align 8, !alias.scope !18122, !noalias !18125
+  %.lcssa = phi ptr [ %231, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d1fe423d5e1e8f7E.exit.i" ], [ %221, %"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hce512cb12a37511cE.exit.i" ]
+  %.07.i.ph = phi i64 [ %.08.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d1fe423d5e1e8f7E.exit.i" ], [ %234, %"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hce512cb12a37511cE.exit.i" ]
+  store ptr %.lcssa, ptr %223, align 8, !alias.scope !18122, !noalias !18125
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %220

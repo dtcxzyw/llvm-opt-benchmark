@@ -43474,7 +43474,7 @@ define internal fastcc void @_ZN3ide5hover6render10closure_ty17h8aa872d5ab4066b5
   br i1 %115, label %._crit_edge.i.loopexit, label %106
 
 ._crit_edge.i.loopexit:                           ; preds = %114
-  store ptr %108, ptr %98, align 8, !alias.scope !10320, !noalias !10323
+  store ptr %96, ptr %98, align 8, !alias.scope !10320, !noalias !10323
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %95

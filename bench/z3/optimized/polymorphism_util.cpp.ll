@@ -5133,10 +5133,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %entry, %while.body.
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNK12polymorphism12substitution5beginEv.exit, label %land.rhs.i.i.i.i.i, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i.i, !llvm.loop !23
 
-_ZNK12polymorphism12substitution5beginEv.exit:    ; preds = %land.rhs.i.i.i.i.i, %while.body.i.i.i.i.i, %entry
-  %retval.sroa.0.1.i.i.i = phi ptr [ %0, %entry ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
+_ZNK12polymorphism12substitution5beginEv.exit:    ; preds = %land.rhs.i.i.i.i.i, %entry
+  %retval.sroa.0.1.i.i.i = phi ptr [ %0, %entry ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i.not79 = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not79, label %for.end, label %for.body
 
@@ -5166,7 +5166,7 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZNK12polymorphism12substitution5beginEv.exit
+for.end:                                          ; preds = %while.body.i.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZNK12polymorphism12substitution5beginEv.exit
   %m_sub.i20 = getelementptr inbounds i8, ptr %s2, i64 8
   %6 = load ptr, ptr %m_sub.i20, align 8
   %m_capacity.i.i.i21 = getelementptr inbounds i8, ptr %s2, i64 16
@@ -5185,10 +5185,10 @@ land.rhs.i.i.i.i.i25:                             ; preds = %for.end, %while.bod
 while.body.i.i.i.i.i31:                           ; preds = %land.rhs.i.i.i.i.i25
   %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i26, i64 16
   %cmp.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i32, %add.ptr.i.i.i23
-  br i1 %cmp.not.i.i.i.i.i33, label %_ZNK12polymorphism12substitution5beginEv.exit34, label %land.rhs.i.i.i.i.i25, !llvm.loop !23
+  br i1 %cmp.not.i.i.i.i.i33, label %return, label %land.rhs.i.i.i.i.i25, !llvm.loop !23
 
-_ZNK12polymorphism12substitution5beginEv.exit34:  ; preds = %land.rhs.i.i.i.i.i25, %while.body.i.i.i.i.i31, %for.end
-  %retval.sroa.0.1.i.i.i28 = phi ptr [ %6, %for.end ], [ %incdec.ptr.i.i.i.i.i32, %while.body.i.i.i.i.i31 ], [ %retval.sroa.0.0.i.i.i26, %land.rhs.i.i.i.i.i25 ]
+_ZNK12polymorphism12substitution5beginEv.exit34:  ; preds = %land.rhs.i.i.i.i.i25, %for.end
+  %retval.sroa.0.1.i.i.i28 = phi ptr [ %6, %for.end ], [ %retval.sroa.0.0.i.i.i26, %land.rhs.i.i.i.i.i25 ]
   %cmp.i41.not81 = icmp eq ptr %retval.sroa.0.1.i.i.i28, %add.ptr.i.i.i23
   br i1 %cmp.i41.not81, label %return, label %for.body13.lr.ph
 
@@ -5364,8 +5364,8 @@ _ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %cmp.i41.not = icmp eq ptr %__begin17.sroa.0.2, %add.ptr.i.i.i23
   br i1 %cmp.i41.not, label %return, label %for.body13
 
-return:                                           ; preds = %_ZN7obj_refI4sort11ast_managerED2Ev.exit, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit61, %_ZNK12polymorphism12substitution5beginEv.exit34
-  %cmp.i41.not.lcssa = phi i1 [ true, %_ZNK12polymorphism12substitution5beginEv.exit34 ], [ true, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit61 ], [ false, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ]
+return:                                           ; preds = %while.body.i.i.i.i.i31, %_ZN7obj_refI4sort11ast_managerED2Ev.exit, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit61, %_ZNK12polymorphism12substitution5beginEv.exit34
+  %cmp.i41.not.lcssa = phi i1 [ true, %_ZNK12polymorphism12substitution5beginEv.exit34 ], [ true, %_ZN14core_hashtableIN7obj_mapI4sortPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit61 ], [ false, %_ZN7obj_refI4sort11ast_managerED2Ev.exit ], [ true, %while.body.i.i.i.i.i31 ]
   ret i1 %cmp.i41.not.lcssa
 
 eh.resume:                                        ; preds = %lpad25, %lpad

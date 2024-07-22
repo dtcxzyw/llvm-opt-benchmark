@@ -240,10 +240,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont, %while
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont10, label %land.rhs.i.i.i.i, !llvm.loop !4
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont35, label %land.rhs.i.i.i.i, !llvm.loop !4
 
-invoke.cont10:                                    ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %invoke.cont
-  %retval.sroa.0.1.i.i = phi ptr [ %1, %invoke.cont ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont10:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont
+  %retval.sroa.0.1.i.i = phi ptr [ %1, %invoke.cont ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not41 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.not41, label %invoke.cont35, label %invoke.cont16
 
@@ -350,7 +350,7 @@ if.else.i.i.i:                                    ; preds = %.noexc
   invoke void @_ZSt16__insertion_sortIP8rationalN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S5_T0_(ptr noundef nonnull %.pre, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont35 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont35:                                    ; preds = %.noexc16, %invoke.cont10, %_ZN6vectorI8rationalLb1EjE3endEv.exit, %if.else.i.i.i
+invoke.cont35:                                    ; preds = %while.body.i.i.i.i, %.noexc16, %invoke.cont10, %_ZN6vectorI8rationalLb1EjE3endEv.exit, %if.else.i.i.i
   %.pr = load ptr, ptr %m_values, align 8
   %cmp.i.i18 = icmp eq ptr %.pr, null
   br i1 %cmp.i.i18, label %_ZN6vectorI8rationalLb1EjE3endEv.exit23, label %if.end.i.i19

@@ -4313,7 +4313,7 @@ while.end:                                        ; preds = %if.end98, %if.end18
   %s.0.lcssa = phi ptr [ %0, %if.end18 ], [ %ns.1, %if.end98 ]
   %matched.1.lcssa = phi i8 [ %matched.0, %if.end18 ], [ %matched.2, %if.end98 ]
   %lastmatch.1.lcssa = phi ptr [ %lastmatch.0, %if.end18 ], [ %lastmatch.2, %if.end98 ]
-  %p.0.lcssa = phi ptr [ %1, %if.end18 ], [ %incdec.ptr, %if.end98 ]
+  %p.0.lcssa = phi ptr [ %1, %if.end18 ], [ %add.ptr, %if.end98 ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %params, align 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %length_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload
@@ -6114,7 +6114,7 @@ _ZN3re210SparseSetTIvE6insertEi.exit206:          ; preds = %_ZNK3re210SparseSet
   br i1 %cmp171, label %for.body172, label %if.end186, !llvm.loop !62
 
 if.end186:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit206, %for.body172, %if.then166, %if.then163, %if.end161
-  %lastmatch.0 = phi ptr [ %p.0, %if.then163 ], [ null, %if.end161 ], [ %p.0, %if.then166 ], [ %p.0, %for.body172 ], [ %p.0, %_ZN3re210SparseSetTIvE6insertEi.exit206 ]
+  %lastmatch.0 = phi ptr [ %add.ptr, %if.then163 ], [ null, %if.end161 ], [ %add.ptr, %if.then166 ], [ %add.ptr, %for.body172 ], [ %add.ptr, %_ZN3re210SparseSetTIvE6insertEi.exit206 ]
   %ep187 = getelementptr inbounds i8, ptr %params, i64 64
   store ptr %lastmatch.0, ptr %ep187, align 8
   br label %return

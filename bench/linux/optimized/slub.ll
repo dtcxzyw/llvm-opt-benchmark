@@ -6847,7 +6847,7 @@ define internal fastcc i32 @sysfs_slab_add(ptr noundef %0) unnamed_addr #0 align
   br label %55
 
 55:                                               ; preds = %53, %50
-  %56 = phi ptr [ %54, %53 ], [ %51, %50 ]
+  %56 = phi ptr [ %54, %53 ], [ %24, %50 ]
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %21 to i64
   %59 = add i64 %58, 32

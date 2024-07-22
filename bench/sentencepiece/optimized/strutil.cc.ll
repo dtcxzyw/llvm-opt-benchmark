@@ -378,7 +378,8 @@ define void @_ZN6google8protobuf16SplitStringUsingENS0_11StringPieceEPKcPSt6vect
   br i1 %.not44.i, label %.critedge.i, label %.preheader.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %27, %.preheader.i
-  %29 = ptrtoint ptr %26 to i64
+  %.lcssa.i = phi ptr [ %19, %.preheader.i ], [ %26, %27 ]
+  %29 = ptrtoint ptr %.lcssa.i to i64
   %30 = ptrtoint ptr %.070.i to i64
   %31 = sub i64 %29, %30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28
@@ -424,7 +425,7 @@ _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
   br label %82
 
 44:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i, %24
-  %.2.i = phi ptr [ %25, %24 ], [ %26, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i ]
+  %.2.i = phi ptr [ %25, %24 ], [ %.lcssa.i, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i ]
   %.not42.i = icmp eq ptr %.2.i, %19
   br i1 %.not42.i, label %_ZN6google8protobufL26SplitStringToIteratorUsingISt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEEvNS0_11StringPieceEPKcRT_.exit, label %.lr.ph.i, !llvm.loop !10
 

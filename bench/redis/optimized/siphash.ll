@@ -65,7 +65,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v2.0.lcssa = phi i64 [ %xor3, %entry ], [ %or30, %for.body ]
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor27, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor31, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr32, %for.body ]
+  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
   switch i32 %conv, label %default.unreachable [
     i32 7, label %sw.bb
     i32 6, label %sw.bb36
@@ -285,7 +285,7 @@ for.end:                                          ; preds = %for.body, %entry
   %v2.0.lcssa = phi i64 [ %xor3, %entry ], [ %or74, %for.body ]
   %v1.0.lcssa = phi i64 [ %xor4, %entry ], [ %xor71, %for.body ]
   %v0.0.lcssa = phi i64 [ %xor5, %entry ], [ %xor75, %for.body ]
-  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr76, %for.body ]
+  %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr2, %for.body ]
   switch i32 %conv, label %default.unreachable [
     i32 7, label %sw.bb
     i32 6, label %sw.bb83

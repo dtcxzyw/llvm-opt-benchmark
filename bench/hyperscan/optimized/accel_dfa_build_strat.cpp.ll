@@ -1668,9 +1668,9 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %if.then.i198.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %152 to i64
   %sub.ptr.rhs.cast.i.i.i.i203.i.i = ptrtoint ptr %144 to i64
   %sub.ptr.sub.i.i.i.i204.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i203.i.i
-  store i32 %conv43.i.i.i, ptr %add.ptr.i.i196.i.i, align 8, !noalias !66
-  %ref.tmp10.i.sroa.6.0.add.ptr.i.i196.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i196.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp10.i.sroa.6.0.add.ptr.i.i196.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp10.i.sroa.6.i.i, i64 36, i1 false), !noalias !66
+  store i32 %conv43.i.i.i, ptr %152, align 8, !noalias !66
+  %ref.tmp10.i.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %152, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp10.i.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp10.i.sroa.6.i.i, i64 36, i1 false), !noalias !66
   %158 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
   %add.i.i.i.i.i.i.i = add i64 %158, 1
   store i64 %add.i.i.i.i.i.i.i, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
@@ -7823,7 +7823,7 @@ lor.rhs:                                          ; preds = %_ZSt11lower_boundIN
   br i1 %cmp.i5, label %if.then.thread, label %return
 
 if.then:                                          ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPtLb0EEEtSt4lessItEET_S7_S7_RKT0_T1_.exit
-  store ptr %7, ptr %agg.tmp14, align 8
+  store ptr %add.ptr.i, ptr %agg.tmp14, align 8
   %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %m_capacity.i.i.i.i, align 8, !noalias !260
   %cmp.not.i.i.i = icmp eq i64 %10, %1
@@ -8315,7 +8315,7 @@ if.else.i.i.i:                                    ; preds = %if.then
   br i1 %cmp.i, label %if.then3.i.i.i.i, label %if.then6.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp10, i64 40, i1 false), !noalias !282
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp10, i64 40, i1 false), !noalias !282
   %9 = load i64, ptr %m_size.i.i, align 8, !noalias !282
   %add.i.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i.i, ptr %m_size.i.i, align 8, !noalias !282

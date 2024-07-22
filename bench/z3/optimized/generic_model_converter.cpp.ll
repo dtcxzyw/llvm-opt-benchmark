@@ -1186,10 +1186,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont4, %whil
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont10, label %land.rhs.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i, !llvm.loop !10
 
-invoke.cont10:                                    ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %invoke.cont4
-  %retval.sroa.0.1.i.i = phi ptr [ %3, %invoke.cont4 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont10:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont4
+  %retval.sroa.0.1.i.i = phi ptr [ %3, %invoke.cont4 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i.not168 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.not168, label %for.end, label %invoke.cont14
 
@@ -1250,7 +1250,7 @@ lpad8:                                            ; preds = %lpad8.loopexit.spli
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %rw) #15
   br label %eh.resume
 
-for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, %invoke.cont10
+for.end:                                          ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, %invoke.cont10
   %m_entries = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load ptr, ptr %m_entries, align 8
   %cmp.i23 = icmp eq ptr %11, null
@@ -1636,10 +1636,10 @@ invoke.cont105:                                   ; preds = %invoke.cont101
   br label %invoke.cont105.invoke
 
 invoke.cont105.invoke:                            ; preds = %invoke.cont133, %invoke.cont105
-  %.sink187 = phi i64 [ 864, %invoke.cont133 ], [ 856, %invoke.cont105 ]
+  %.sink191 = phi i64 [ 864, %invoke.cont133 ], [ 856, %invoke.cont105 ]
   %64 = load ptr, ptr %tmp, align 8
   %65 = load ptr, ptr %m, align 8
-  %m_false.i151 = getelementptr inbounds i8, ptr %65, i64 %.sink187
+  %m_false.i151 = getelementptr inbounds i8, ptr %65, i64 %.sink191
   %66 = load ptr, ptr %m_false.i151, align 8
   invoke void @_ZN17expr_safe_replace6insertEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(136) %rep, ptr noundef %64, ptr noundef %66)
           to label %sw.epilog unwind label %lpad8.loopexit

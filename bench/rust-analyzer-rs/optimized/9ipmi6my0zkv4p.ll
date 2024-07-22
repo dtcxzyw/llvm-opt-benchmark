@@ -11944,7 +11944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %723, label %._crit_edge.i.loopexit.i, label %711
 
 ._crit_edge.i.loopexit.i:                         ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9ee337753c5ec2feE.exit.i.i"
-  store ptr %714, ptr %707, align 8, !alias.scope !2835, !noalias !2838
+  store ptr %.sroa.4512.0.copyload.pre.i, ptr %707, align 8, !alias.scope !2835, !noalias !2838
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %._crit_edge.i, %._crit_edge.thread.i
@@ -12082,7 +12082,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %760, label %._crit_edge.i429.loopexit.i, label %748
 
 ._crit_edge.i429.loopexit.i:                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb340e295b71cf78fE.exit.i.i"
-  store ptr %751, ptr %744, align 8, !alias.scope !2872, !noalias !2875
+  store ptr %733, ptr %744, align 8, !alias.scope !2872, !noalias !2875
   br label %._crit_edge.i429.i
 
 ._crit_edge.i429.i:                               ; preds = %._crit_edge.i429.loopexit.i, %740

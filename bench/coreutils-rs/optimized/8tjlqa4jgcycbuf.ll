@@ -221,7 +221,7 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias nocapture 
 
 select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i", %61, %30
   %76 = phi i64 [ %75, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %31, %61 ], [ %31, %30 ]
-  %77 = phi ptr [ %.sink14.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %63, %61 ], [ %32, %30 ]
+  %77 = phi ptr [ %.sink14.i.i.i.i.i.i, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %63, %61 ], [ %26, %30 ]
   %.pre.i.i.i16.i.i = phi i64 [ %75, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pre.i.i.i1718.i.i, %61 ], [ %.pre.i.i.i1718.i.i, %30 ]
   %78 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ true, %61 ], [ true, %30 ]
   %.pn25.i.i = phi i64 [ %31, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.sroa.5.0.i.i, %61 ], [ %.sroa.5.0.i.i, %30 ]

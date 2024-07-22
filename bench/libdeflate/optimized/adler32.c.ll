@@ -175,7 +175,7 @@ adler32_avx2_chunk.exit:                          ; preds = %do.body.i
 while.end:                                        ; preds = %adler32_avx2_chunk.exit, %if.end
   %s2.2.lcssa = phi i32 [ %s2.1, %if.end ], [ %rem27, %adler32_avx2_chunk.exit ]
   %s1.2.lcssa = phi i32 [ %s1.1, %if.end ], [ %rem26, %adler32_avx2_chunk.exit ]
-  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr24, %adler32_avx2_chunk.exit ]
+  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr9, %adler32_avx2_chunk.exit ]
   %cmp28.not = icmp eq ptr %p.addr.2.lcssa, %add.ptr
   br i1 %cmp28.not, label %if.end42, label %do.body31
 
@@ -330,7 +330,7 @@ adler32_sse2_chunk.exit:                          ; preds = %do.body.i
 while.end:                                        ; preds = %adler32_sse2_chunk.exit, %if.end
   %s2.2.lcssa = phi i32 [ %s2.1, %if.end ], [ %rem27, %adler32_sse2_chunk.exit ]
   %s1.2.lcssa = phi i32 [ %s1.1, %if.end ], [ %rem26, %adler32_sse2_chunk.exit ]
-  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr24, %adler32_sse2_chunk.exit ]
+  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr9, %adler32_sse2_chunk.exit ]
   %cmp28.not = icmp eq ptr %p.addr.2.lcssa, %add.ptr
   br i1 %cmp28.not, label %if.end42, label %do.body31
 

@@ -1229,10 +1229,10 @@ land.rhs.i.i.i.i:                                 ; preds = %invoke.cont67, %whi
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i127
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont69, label %land.rhs.i.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i.i, label %for.end102, label %land.rhs.i.i.i.i, !llvm.loop !14
 
-invoke.cont69:                                    ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %invoke.cont67
-  %retval.sroa.0.1.i.i = phi ptr [ %92, %invoke.cont67 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
+invoke.cont69:                                    ; preds = %land.rhs.i.i.i.i, %invoke.cont67
+  %retval.sroa.0.1.i.i = phi ptr [ %92, %invoke.cont67 ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
   %cmp.i133.not299 = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i127
   br i1 %cmp.i133.not299, label %for.end102, label %invoke.cont82.lr.ph
 
@@ -1362,7 +1362,7 @@ lpad81:                                           ; preds = %if.then.i.i154, %in
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp) #15
   br label %ehcleanup
 
-for.end102:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI4exprP3varE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %invoke.cont69
+for.end102:                                       ; preds = %while.body.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4exprP3varE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %invoke.cont69
   %115 = load ptr, ptr %m, align 8
   store ptr null, ptr %pr, align 8
   %m_manager.i168 = getelementptr inbounds i8, ptr %pr, i64 8

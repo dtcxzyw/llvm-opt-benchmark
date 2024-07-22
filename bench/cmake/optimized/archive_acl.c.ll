@@ -2188,7 +2188,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
   br label %.preheader53.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %.preheader53.i, %.critedge2.i
-  %storemerge48.i = phi ptr [ %.3216, %.critedge2.i ], [ %.pn.i, %.preheader53.i ]
+  %storemerge48.i = phi ptr [ %.2215, %.critedge2.i ], [ %.pn.i, %.preheader53.i ]
   %20 = icmp eq i32 %.pr, 35
   br i1 %20, label %.preheader.i, label %.critedge6.i
 
@@ -3078,7 +3078,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
   br label %.preheader53.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %.preheader53.i, %.critedge2.i
-  %storemerge48.i = phi ptr [ %.3235, %.critedge2.i ], [ %.pn.i, %.preheader53.i ]
+  %storemerge48.i = phi ptr [ %.2234, %.critedge2.i ], [ %.pn.i, %.preheader53.i ]
   %21 = icmp eq i8 %.pr, 35
   br i1 %21, label %.preheader.i, label %.critedge6.i
 

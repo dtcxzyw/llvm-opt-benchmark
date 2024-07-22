@@ -1947,10 +1947,10 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont67, %whi
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i64
-  br i1 %cmp.not.i.i.i, label %invoke.cont74, label %land.rhs.i.i.i, !llvm.loop !24
+  br i1 %cmp.not.i.i.i, label %for.end92, label %land.rhs.i.i.i, !llvm.loop !24
 
-invoke.cont74:                                    ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %invoke.cont67
-  %retval.sroa.0.1.i = phi ptr [ %56, %invoke.cont67 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
+invoke.cont74:                                    ; preds = %land.rhs.i.i.i, %invoke.cont67
+  %retval.sroa.0.1.i = phi ptr [ %56, %invoke.cont67 ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not135 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i64
   br i1 %cmp.i.not135, label %for.end92, label %for.body79
 
@@ -2003,7 +2003,7 @@ lpad84:                                           ; preds = %invoke.cont85, %for
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp82) #18
   br label %ehcleanup
 
-for.end92:                                        ; preds = %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %invoke.cont74
+for.end92:                                        ; preds = %while.body.i.i.i, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %invoke.cont74
   invoke void @_ZNK6spacer18inductive_property9to_stringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %invoke.cont94 unwind label %lpad70.loopexit.split-lp
 

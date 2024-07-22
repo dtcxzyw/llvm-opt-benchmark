@@ -6267,7 +6267,7 @@ for.inc.sink.split.i:                             ; preds = %land.lhs.true.i768,
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %land.lhs.true.i768, %sw.bb.i
-  %p.1.i = phi ptr [ %p.0.i, %land.lhs.true.i768 ], [ %p.0.i, %sw.bb.i ], [ %incdec.ptr5.i, %for.inc.sink.split.i ]
+  %p.1.i = phi ptr [ %p.0.i, %land.lhs.true.i768 ], [ %54, %sw.bb.i ], [ %incdec.ptr5.i, %for.inc.sink.split.i ]
   %incdec.ptr6.i = getelementptr i8, ptr %s.0.i, i64 1
   br label %for.cond.i, !llvm.loop !27
 
@@ -6283,7 +6283,7 @@ land.lhs.true9.i:                                 ; preds = %for.end.i
   br label %normalizePublicId.exit
 
 normalizePublicId.exit:                           ; preds = %for.end.i, %land.lhs.true9.i
-  %p.2.i = phi ptr [ %p.0.i, %for.end.i ], [ %spec.select.i, %land.lhs.true9.i ]
+  %p.2.i = phi ptr [ %54, %for.end.i ], [ %spec.select.i, %land.lhs.true9.i ]
   store i8 0, ptr %p.2.i, align 1
   %58 = load ptr, ptr %ptr1.i.i1178, align 8
   store ptr %58, ptr %start.i.i1192, align 8
@@ -6406,7 +6406,7 @@ for.inc.sink.split.i807:                          ; preds = %land.lhs.true.i804,
   br label %for.inc.i810
 
 for.inc.i810:                                     ; preds = %for.inc.sink.split.i807, %land.lhs.true.i804, %sw.bb.i802
-  %p.1.i811 = phi ptr [ %p.0.i800, %land.lhs.true.i804 ], [ %p.0.i800, %sw.bb.i802 ], [ %incdec.ptr5.i809, %for.inc.sink.split.i807 ]
+  %p.1.i811 = phi ptr [ %p.0.i800, %land.lhs.true.i804 ], [ %72, %sw.bb.i802 ], [ %incdec.ptr5.i809, %for.inc.sink.split.i807 ]
   %incdec.ptr6.i812 = getelementptr i8, ptr %s.0.i801, i64 1
   br label %for.cond.i799, !llvm.loop !27
 
@@ -6422,7 +6422,7 @@ land.lhs.true9.i815:                              ; preds = %for.end.i813
   br label %normalizePublicId.exit820
 
 normalizePublicId.exit820:                        ; preds = %for.end.i813, %land.lhs.true9.i815
-  %p.2.i819 = phi ptr [ %p.0.i800, %for.end.i813 ], [ %spec.select.i818, %land.lhs.true9.i815 ]
+  %p.2.i819 = phi ptr [ %72, %for.end.i813 ], [ %spec.select.i818, %land.lhs.true9.i815 ]
   store i8 0, ptr %p.2.i819, align 1
   %76 = load ptr, ptr %m_declEntity819, align 8
   %publicId = getelementptr inbounds i8, ptr %76, i64 40
@@ -8200,7 +8200,7 @@ for.inc.sink.split.i1163:                         ; preds = %land.lhs.true.i1160
   br label %for.inc.i1166
 
 for.inc.i1166:                                    ; preds = %for.inc.sink.split.i1163, %land.lhs.true.i1160, %sw.bb.i1158
-  %p.1.i1167 = phi ptr [ %p.0.i1156, %land.lhs.true.i1160 ], [ %p.0.i1156, %sw.bb.i1158 ], [ %incdec.ptr5.i1165, %for.inc.sink.split.i1163 ]
+  %p.1.i1167 = phi ptr [ %p.0.i1156, %land.lhs.true.i1160 ], [ %390, %sw.bb.i1158 ], [ %incdec.ptr5.i1165, %for.inc.sink.split.i1163 ]
   %incdec.ptr6.i1168 = getelementptr i8, ptr %s.0.i1157, i64 1
   br label %for.cond.i1155, !llvm.loop !27
 
@@ -8216,7 +8216,7 @@ land.lhs.true9.i1171:                             ; preds = %for.end.i1169
   br label %normalizePublicId.exit1176
 
 normalizePublicId.exit1176:                       ; preds = %for.end.i1169, %land.lhs.true9.i1171
-  %p.2.i1175 = phi ptr [ %p.0.i1156, %for.end.i1169 ], [ %spec.select.i1174, %land.lhs.true9.i1171 ]
+  %p.2.i1175 = phi ptr [ %390, %for.end.i1169 ], [ %spec.select.i1174, %land.lhs.true9.i1171 ]
   store i8 0, ptr %p.2.i1175, align 1
   store ptr %390, ptr %m_declNotationPublicId937, align 8
   %394 = load ptr, ptr %ptr1.i.i1178, align 8

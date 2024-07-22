@@ -7951,10 +7951,10 @@ land.rhs.i.i.i:                                   ; preds = %entry, %while.body.
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 20
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
-  br i1 %cmp.not.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i, !llvm.loop !51
+  br i1 %cmp.not.i.i.i, label %for.end, label %land.rhs.i.i.i, !llvm.loop !51
 
-invoke.cont2:                                     ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %entry
-  %retval.sroa.0.1.i = phi ptr [ %0, %entry ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+invoke.cont2:                                     ; preds = %land.rhs.i.i.i, %entry
+  %retval.sroa.0.1.i = phi ptr [ %0, %entry ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not135 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
   br i1 %cmp.i.not135, label %for.end, label %for.body
 
@@ -8063,7 +8063,7 @@ _ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4has
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit, %invoke.cont2
+for.end:                                          ; preds = %while.body.i.i.i, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit, %invoke.cont2
   invoke void @_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE5resetEv(ptr noundef nonnull align 8 dereferenceable(20) %m_bins)
           to label %invoke.cont13 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -8623,10 +8623,10 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont, %while
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 20
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i
-  br i1 %cmp.not.i.i.i, label %invoke.cont5, label %land.rhs.i.i.i, !llvm.loop !51
+  br i1 %cmp.not.i.i.i, label %for.end, label %land.rhs.i.i.i, !llvm.loop !51
 
-invoke.cont5:                                     ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %invoke.cont
-  %retval.sroa.0.1.i = phi ptr [ %2, %invoke.cont ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+invoke.cont5:                                     ; preds = %land.rhs.i.i.i, %invoke.cont
+  %retval.sroa.0.1.i = phi ptr [ %2, %invoke.cont ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
   %cmp.i.not185 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
   br i1 %cmp.i.not185, label %for.end, label %for.body.lr.ph
 
@@ -8810,7 +8810,7 @@ _ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4has
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.2, %add.ptr.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit, %invoke.cont5
+for.end:                                          ; preds = %while.body.i.i.i, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit, %invoke.cont5
   %call79 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %invoke.cont78 unwind label %lpad.loopexit.split-lp
 
@@ -8847,10 +8847,10 @@ land.rhs.i.i.i103:                                ; preds = %invoke.cont85, %whi
 while.body.i.i.i107:                              ; preds = %land.rhs.i.i.i103
   %incdec.ptr.i.i.i108 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i104, i64 20
   %cmp.not.i.i.i109 = icmp eq ptr %incdec.ptr.i.i.i108, %add.ptr.i101
-  br i1 %cmp.not.i.i.i109, label %invoke.cont89, label %land.rhs.i.i.i103, !llvm.loop !51
+  br i1 %cmp.not.i.i.i109, label %for.end105, label %land.rhs.i.i.i103, !llvm.loop !51
 
-invoke.cont89:                                    ; preds = %land.rhs.i.i.i103, %while.body.i.i.i107, %invoke.cont85
-  %retval.sroa.0.1.i110 = phi ptr [ %38, %invoke.cont85 ], [ %retval.sroa.0.0.i104, %land.rhs.i.i.i103 ], [ %incdec.ptr.i.i.i108, %while.body.i.i.i107 ]
+invoke.cont89:                                    ; preds = %land.rhs.i.i.i103, %invoke.cont85
+  %retval.sroa.0.1.i110 = phi ptr [ %38, %invoke.cont85 ], [ %retval.sroa.0.0.i104, %land.rhs.i.i.i103 ]
   %cmp.i119.not190 = icmp eq ptr %retval.sroa.0.1.i110, %add.ptr.i101
   br i1 %cmp.i119.not190, label %for.end105, label %for.body94
 
@@ -8883,8 +8883,8 @@ _ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4has
   %cmp.i119.not = icmp eq ptr %__begin5.sroa.0.2, %add.ptr.i101
   br i1 %cmp.i119.not, label %for.end105, label %for.body94
 
-for.end105:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit131, %invoke.cont89
-  %n.0.lcssa = phi i32 [ 0, %invoke.cont89 ], [ %spec.select, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit131 ]
+for.end105:                                       ; preds = %while.body.i.i.i107, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit131, %invoke.cont89
+  %n.0.lcssa = phi i32 [ 0, %invoke.cont89 ], [ %spec.select, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit131 ], [ 0, %while.body.i.i.i107 ]
   %call107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
           to label %invoke.cont106 unwind label %lpad.loopexit.split-lp
 
@@ -8928,10 +8928,10 @@ land.rhs.i.i.i136:                                ; preds = %if.else120, %while.
 while.body.i.i.i140:                              ; preds = %land.rhs.i.i.i136
   %incdec.ptr.i.i.i141 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i137, i64 20
   %cmp.not.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i141, %add.ptr.i134
-  br i1 %cmp.not.i.i.i142, label %invoke.cont125, label %land.rhs.i.i.i136, !llvm.loop !51
+  br i1 %cmp.not.i.i.i142, label %for.end142, label %land.rhs.i.i.i136, !llvm.loop !51
 
-invoke.cont125:                                   ; preds = %land.rhs.i.i.i136, %while.body.i.i.i140, %if.else120
-  %retval.sroa.0.1.i143 = phi ptr [ %44, %if.else120 ], [ %retval.sroa.0.0.i137, %land.rhs.i.i.i136 ], [ %incdec.ptr.i.i.i141, %while.body.i.i.i140 ]
+invoke.cont125:                                   ; preds = %land.rhs.i.i.i136, %if.else120
+  %retval.sroa.0.1.i143 = phi ptr [ %44, %if.else120 ], [ %retval.sroa.0.0.i137, %land.rhs.i.i.i136 ]
   %cmp.i152.not187 = icmp eq ptr %retval.sroa.0.1.i143, %add.ptr.i134
   br i1 %cmp.i152.not187, label %for.end142, label %for.body130
 
@@ -8964,8 +8964,8 @@ _ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4has
   %cmp.i152.not = icmp eq ptr %__begin4.sroa.0.2, %add.ptr.i134
   br i1 %cmp.i152.not, label %for.end142, label %for.body130
 
-for.end142:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit164, %invoke.cont125
-  %n121.0.lcssa = phi i32 [ 0, %invoke.cont125 ], [ %spec.select14, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit164 ]
+for.end142:                                       ; preds = %while.body.i.i.i140, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit164, %invoke.cont125
+  %n121.0.lcssa = phi i32 [ 0, %invoke.cont125 ], [ %spec.select14, %_ZN14core_hashtableI18default_hash_entryIN3sat14cut_simplifier7bin_relEENS3_4hashENS3_2eqEE8iteratorppEv.exit164 ], [ 0, %while.body.i.i.i140 ]
   %call144 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
           to label %invoke.cont143 unwind label %lpad.loopexit.split-lp
 

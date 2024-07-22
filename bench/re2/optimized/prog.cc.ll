@@ -6219,7 +6219,7 @@ if.end118:                                        ; preds = %if.end.if.end118_cr
   %19 = phi ptr [ %2, %do.end ], [ %.pre, %if.end.if.end118_crit_edge ]
   %curr.1 = phi i64 [ %shr40, %do.end ], [ 0, %if.end.if.end118_crit_edge ]
   %size.addr.0 = phi i64 [ %and117, %do.end ], [ %size, %if.end.if.end118_crit_edge ]
-  %data.addr.0 = phi ptr [ %add.ptr115, %do.end ], [ %data, %if.end.if.end118_crit_edge ]
+  %data.addr.0 = phi ptr [ %add.ptr, %do.end ], [ %data, %if.end.if.end118_crit_edge ]
   %add.ptr121 = getelementptr inbounds i8, ptr %data.addr.0, i64 %size.addr.0
   br label %while.cond
 

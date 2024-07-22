@@ -696,7 +696,7 @@ do.body:                                          ; preds = %for.body.lr.ph.i, %
 
 if.then18:                                        ; preds = %do.body
   invoke void @_Z4SetRPv(ptr noundef null)
-          to label %cleanup unwind label %ehcleanup64.thread97
+          to label %cleanup unwind label %ehcleanup64.thread99
 
 lpad12.loopexit:                                  ; preds = %if.then.i.i.i
   %lpad.loopexit86 = landingpad { ptr, i32 }
@@ -704,12 +704,12 @@ lpad12.loopexit:                                  ; preds = %if.then.i.i.i
           catch ptr @_ZTI12z3_exception
   br label %ehcleanup64
 
-ehcleanup64.thread97:                             ; preds = %if.then18
+ehcleanup64.thread99:                             ; preds = %if.then18
   %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   call void @_ZN10ref_vectorI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %vars) #14
-  %ehselector.slot.399 = extractvalue { ptr, i32 } %lpad.loopexit.split-lp87, 1
+  %ehselector.slot.3101 = extractvalue { ptr, i32 } %lpad.loopexit.split-lp87, 1
   br label %if.then.i72
 
 if.end21:                                         ; preds = %invoke.cont11, %invoke.cont13
@@ -773,10 +773,10 @@ land.rhs.i.i.i.i.i:                               ; preds = %invoke.cont40, %whi
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i34
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont44, label %land.rhs.i.i.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i.i.i, label %for.end, label %land.rhs.i.i.i.i.i, !llvm.loop !7
 
-invoke.cont44:                                    ; preds = %land.rhs.i.i.i.i.i, %while.body.i.i.i.i.i, %invoke.cont40
-  %retval.sroa.0.1.i.i.i = phi ptr [ %20, %invoke.cont40 ], [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
+invoke.cont44:                                    ; preds = %land.rhs.i.i.i.i.i, %invoke.cont40
+  %retval.sroa.0.1.i.i.i = phi ptr [ %20, %invoke.cont40 ], [ %retval.sroa.0.0.i.i.i, %land.rhs.i.i.i.i.i ]
   %cmp.i41.not95 = icmp eq ptr %retval.sroa.0.1.i.i.i, %add.ptr.i.i.i34
   br i1 %cmp.i41.not95, label %for.end, label %invoke.cont48.lr.ph
 
@@ -865,7 +865,7 @@ lpad33:                                           ; preds = %lpad33.loopexit.spl
   call void @_ZN8expr_mapD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %emap) #14
   br label %ehcleanup61
 
-for.end:                                          ; preds = %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont44
+for.end:                                          ; preds = %while.body.i.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %invoke.cont44
   %31 = load ptr, ptr %result, align 8
   call void @_ZN8expr_mapD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %emap) #14
   %32 = load ptr, ptr %model, align 8
@@ -1001,9 +1001,9 @@ ehcleanup64:                                      ; preds = %lpad12.loopexit, %e
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %tobool.i, label %if.then.i72, label %_ZN10z3_log_ctxD2Ev.exit73
 
-if.then.i72:                                      ; preds = %ehcleanup64.thread97, %ehcleanup64.thread, %ehcleanup64
-  %ehselector.slot.385 = phi i32 [ %ehselector.slot.381, %ehcleanup64.thread ], [ %ehselector.slot.3, %ehcleanup64 ], [ %ehselector.slot.399, %ehcleanup64.thread97 ]
-  %.pn.pn.pn.pn83 = phi { ptr, i32 } [ %1, %ehcleanup64.thread ], [ %.pn.pn.pn, %ehcleanup64 ], [ %lpad.loopexit.split-lp87, %ehcleanup64.thread97 ]
+if.then.i72:                                      ; preds = %ehcleanup64.thread99, %ehcleanup64.thread, %ehcleanup64
+  %ehselector.slot.385 = phi i32 [ %ehselector.slot.381, %ehcleanup64.thread ], [ %ehselector.slot.3, %ehcleanup64 ], [ %ehselector.slot.3101, %ehcleanup64.thread99 ]
+  %.pn.pn.pn.pn83 = phi { ptr, i32 } [ %1, %ehcleanup64.thread ], [ %.pn.pn.pn, %ehcleanup64 ], [ %lpad.loopexit.split-lp87, %ehcleanup64.thread99 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit73
 

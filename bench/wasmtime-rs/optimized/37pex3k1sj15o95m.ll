@@ -20526,7 +20526,7 @@ _ZN17cranelift_codegen2ir12dynamic_type15DynamicTypeData8concrete17hb4c86d64a2ca
 87:                                               ; preds = %._crit_edge56, %.loopexit
   %88 = phi i64 [ %.pre57, %._crit_edge56 ], [ %44, %.loopexit ]
   %89 = phi i64 [ %.pre, %._crit_edge56 ], [ %46, %.loopexit ]
-  %.sroa.0.150 = phi ptr [ %86, %._crit_edge56 ], [ %.sroa.0.055, %.loopexit ]
+  %.sroa.0.150 = phi ptr [ %86, %._crit_edge56 ], [ %12, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   %90 = icmp eq i64 %89, %88
   br i1 %90, label %._crit_edge, label %43

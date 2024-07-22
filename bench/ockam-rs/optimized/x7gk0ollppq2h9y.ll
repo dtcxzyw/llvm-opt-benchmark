@@ -509,7 +509,7 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   br i1 %37, label %38, label %.lr.ph.i
 
 38:                                               ; preds = %31, %.lr.ph.i
-  %.lcssa.ph.i = phi ptr [ %32, %31 ], [ %30, %.lr.ph.i ]
+  %.lcssa.ph.i = phi ptr [ %32, %31 ], [ %29, %.lr.ph.i ]
   %.0.lcssa.ph.i = phi i64 [ %36, %31 ], [ %.023.i, %.lr.ph.i ]
   %39 = trunc i64 %.0.lcssa.ph.i to i16
   store i16 %39, ptr %7, align 2, !alias.scope !59

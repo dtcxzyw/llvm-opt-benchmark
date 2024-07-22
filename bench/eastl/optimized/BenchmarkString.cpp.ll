@@ -3944,7 +3944,7 @@ while.body.i.i1022:                               ; preds = %land.rhs.i.i1019
   br i1 %cmp.i.not.i.i1024, label %_ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEEDsEET_SB_SB_RKT0_.exit.i, label %land.rhs.i.i1019, !llvm.loop !41
 
 _ZN5eastl4findIN9__gnu_cxx17__normal_iteratorIPDsNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEEDsEET_SB_SB_RKT0_.exit.i: ; preds = %while.body.i.i1022, %land.rhs.i.i1019, %for.body.i1015
-  %first.sroa.0.0.lcssa.i.i1025 = phi ptr [ %367, %for.body.i1015 ], [ %incdec.ptr.i.i.i1023, %while.body.i.i1022 ], [ %first.sroa.0.04.i.i1020, %land.rhs.i.i1019 ]
+  %first.sroa.0.0.lcssa.i.i1025 = phi ptr [ %367, %for.body.i1015 ], [ %add.ptr.i.i1017, %while.body.i.i1022 ], [ %first.sroa.0.04.i.i1020, %land.rhs.i.i1019 ]
   %370 = load i16, ptr %first.sroa.0.0.lcssa.i.i1025, align 2
   %conv.i1026 = zext i16 %370 to i32
   invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull %ss16, i32 noundef %conv.i1026)

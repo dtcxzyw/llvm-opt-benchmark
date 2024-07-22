@@ -1981,7 +1981,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 35:                                               ; preds = %32, %29
   %.sroa.10.1.i.i = phi ptr [ %.sroa.6.0.i.i, %32 ], [ %.sroa.10.0.i.i, %29 ]
-  %.sroa.8.1.i.i = phi ptr [ %.sroa.0.0.i.i, %32 ], [ %.sroa.8.0.i.i, %29 ]
+  %.sroa.8.1.i.i = phi ptr [ %.sroa.6.0.i.i, %32 ], [ %.sroa.8.0.i.i, %29 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.10.0.i.i, %32 ], [ %.sroa.6.0.i.i, %29 ]
   %.sink6.i.i.i = phi ptr [ %.sroa.8.0.i.i, %32 ], [ %.sroa.0.0.i.i, %29 ]
   %36 = getelementptr inbounds i8, ptr %.sink6.i.i.i, i64 32

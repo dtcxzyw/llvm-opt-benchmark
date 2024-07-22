@@ -466,6 +466,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef readnone %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
 entry:
+  %first161 = ptrtoint ptr %first to i64
+  %afterLast160 = ptrtoint ptr %afterLast to i64
   %nullCounter = alloca i32, align 4
   %cmp = icmp eq ptr %itemCount, null
   %cond = select i1 %cmp, ptr %nullCounter, ptr %itemCount
@@ -494,12 +496,17 @@ do.end:                                           ; preds = %do.body, %if.else
   store ptr null, ptr %dest, align 8
   store i32 0, ptr %cond, align 4
   %cmp14141 = icmp ult ptr %first, %afterLast
-  br i1 %cmp14141, label %for.body.outer, label %if.else53.split
+  br i1 %cmp14141, label %for.body.preheader, label %if.else53.split
 
-for.body.outer:                                   ; preds = %do.end, %for.inc.thread
-  %prevNext.0150.ph = phi ptr [ %prevNext.1, %for.inc.thread ], [ %dest, %do.end ]
-  %keyFirst.0146.ph = phi ptr [ %add.ptr., %for.inc.thread ], [ %first, %do.end ]
-  %walk.0142.ph = phi ptr [ %incdec.ptr178, %for.inc.thread ], [ %first, %do.end ]
+for.body.preheader:                               ; preds = %do.end
+  %0 = sub i64 %afterLast160, %first161
+  %scevgep = getelementptr i8, ptr %first, i64 %0
+  br label %for.body.outer
+
+for.body.outer:                                   ; preds = %for.inc.thread, %for.body.preheader
+  %prevNext.0150.ph = phi ptr [ %prevNext.1, %for.inc.thread ], [ %dest, %for.body.preheader ]
+  %keyFirst.0146.ph = phi ptr [ %add.ptr., %for.inc.thread ], [ %first, %for.body.preheader ]
+  %walk.0142.ph = phi ptr [ %incdec.ptr178, %for.inc.thread ], [ %first, %for.body.preheader ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %for.inc
@@ -507,8 +514,8 @@ for.body:                                         ; preds = %for.body.outer, %fo
   %valueFirst.0148 = phi ptr [ %valueFirst.1, %for.inc ], [ null, %for.body.outer ]
   %keyAfter.0147 = phi ptr [ %keyAfter.2, %for.inc ], [ null, %for.body.outer ]
   %walk.0142 = phi ptr [ %incdec.ptr, %for.inc ], [ %walk.0142.ph, %for.body.outer ]
-  %0 = load i8, ptr %walk.0142, align 1
-  switch i8 %0, label %for.inc [
+  %1 = load i8, ptr %walk.0142, align 1
+  switch i8 %1, label %for.inc [
     i8 38, label %sw.bb
     i8 61, label %sw.bb38
   ]
@@ -532,12 +539,12 @@ if.else18.split:                                  ; preds = %sw.bb
 lor.lhs.false20.i:                                ; preds = %if.else18.split
   %cmp21.i = icmp eq ptr %keyFirst.0146.ph, %walk.0142
   %cmp26.i = icmp eq ptr %valueAfter.0149, null
-  %1 = and i1 %cmp21.i, %cmp26.i
-  br i1 %1, label %land.lhs.true, label %if.end.i
+  %2 = and i1 %cmp21.i, %cmp26.i
+  br i1 %2, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false20.i
-  %2 = load ptr, ptr %memory.addr.0, align 8
-  %call.i = call ptr %2(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
+  %3 = load ptr, ptr %memory.addr.0, align 8
+  %call.i = call ptr %3(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
   store ptr %call.i, ptr %prevNext.0150.ph, align 8
   %cmp28.i = icmp eq ptr %call.i, null
   br i1 %cmp28.i, label %if.then23, label %if.end31.i
@@ -545,19 +552,19 @@ if.end.i:                                         ; preds = %lor.lhs.false20.i
 if.end31.i:                                       ; preds = %if.end.i
   %next.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %next.i, align 8
-  %3 = load ptr, ptr %memory.addr.0, align 8
+  %4 = load ptr, ptr %memory.addr.0, align 8
   %add.i = shl i64 %sub.ptr.sub.i, 32
   %sext.i = add i64 %add.i, 4294967296
   %conv33.i = ashr exact i64 %sext.i, 32
-  %call34.i = call ptr %3(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i) #6
+  %call34.i = call ptr %4(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i) #6
   %cmp35.i = icmp eq ptr %call34.i, null
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
 
 if.then37.i:                                      ; preds = %if.end31.i
   %free.i = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
-  %4 = load ptr, ptr %free.i, align 8
-  %5 = load ptr, ptr %prevNext.0150.ph, align 8
-  call void %4(ptr noundef nonnull %memory.addr.0, ptr noundef %5) #6
+  %5 = load ptr, ptr %free.i, align 8
+  %6 = load ptr, ptr %prevNext.0150.ph, align 8
+  call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef %6) #6
   store ptr null, ptr %prevNext.0150.ph, align 8
   br label %if.then23
 
@@ -574,13 +581,13 @@ if.then41.i:                                      ; preds = %if.end38.i
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then41.i, %if.end38.i
-  %6 = load ptr, ptr %prevNext.0150.ph, align 8
-  store ptr %call34.i, ptr %6, align 8
   %7 = load ptr, ptr %prevNext.0150.ph, align 8
-  %value72.i = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %call34.i, ptr %7, align 8
+  %8 = load ptr, ptr %prevNext.0150.ph, align 8
+  %value72.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr null, ptr %value72.i, align 8
-  %8 = load i32, ptr %cond, align 4
-  %inc.i = add nsw i32 %8, 1
+  %9 = load i32, ptr %cond, align 4
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %cond, align 4
   br label %land.lhs.true
 
@@ -591,10 +598,10 @@ if.end19:                                         ; preds = %sw.bb
 
 if.then23:                                        ; preds = %if.end.i, %if.end19, %if.then37.i
   store i32 0, ptr %cond, align 4
-  %9 = load ptr, ptr %dest, align 8
+  %10 = load ptr, ptr %dest, align 8
   %call.i56 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
   %cmp1.not.i = icmp ne i32 %call.i56, 1
-  %cmp4.not12.i = icmp eq ptr %9, null
+  %cmp4.not12.i = icmp eq ptr %10, null
   %or.cond126 = select i1 %cmp1.not.i, i1 true, i1 %cmp4.not12.i
   br i1 %or.cond126, label %return, label %while.body.lr.ph.i
 
@@ -603,19 +610,19 @@ while.body.lr.ph.i:                               ; preds = %if.then23
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %queryList.addr.013.i = phi ptr [ %9, %while.body.lr.ph.i ], [ %10, %while.body.i ]
+  %queryList.addr.013.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %while.body.i ]
   %next.i59 = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
-  %10 = load ptr, ptr %next.i59, align 8
-  %11 = load ptr, ptr %free.i58, align 8
-  %12 = load ptr, ptr %queryList.addr.013.i, align 8
-  call void %11(ptr noundef nonnull %memory.addr.0, ptr noundef %12) #6
-  %13 = load ptr, ptr %free.i58, align 8
+  %11 = load ptr, ptr %next.i59, align 8
+  %12 = load ptr, ptr %free.i58, align 8
+  %13 = load ptr, ptr %queryList.addr.013.i, align 8
+  call void %12(ptr noundef nonnull %memory.addr.0, ptr noundef %13) #6
+  %14 = load ptr, ptr %free.i58, align 8
   %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
-  %14 = load ptr, ptr %value.i, align 8
-  call void %13(ptr noundef nonnull %memory.addr.0, ptr noundef %14) #6
-  %15 = load ptr, ptr %free.i58, align 8
-  call void %15(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
-  %cmp4.not.i = icmp eq ptr %10, null
+  %15 = load ptr, ptr %value.i, align 8
+  call void %14(ptr noundef nonnull %memory.addr.0, ptr noundef %15) #6
+  %16 = load ptr, ptr %free.i58, align 8
+  call void %16(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
+  %cmp4.not.i = icmp eq ptr %11, null
   br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !6
 
 if.end25:                                         ; preds = %if.else18.split, %if.end19
@@ -623,9 +630,9 @@ if.end25:                                         ; preds = %if.else18.split, %i
   br i1 %cmp26.not, label %for.inc.thread, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end45.i, %lor.lhs.false20.i, %if.end25
-  %16 = load ptr, ptr %prevNext.0150.ph, align 8
-  %cmp28.not = icmp eq ptr %16, null
-  %next = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load ptr, ptr %prevNext.0150.ph, align 8
+  %cmp28.not = icmp eq ptr %17, null
+  %next = getelementptr inbounds i8, ptr %17, i64 16
   %spec.select = select i1 %cmp28.not, ptr %prevNext.0150.ph, ptr %next
   br label %for.inc.thread
 
@@ -655,15 +662,15 @@ for.inc.thread:                                   ; preds = %if.end25, %land.lhs
   br i1 %exitcond.not179, label %if.else53.split, label %for.body.outer, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
-  %17 = icmp eq ptr %valueAfter.2, null
+  %18 = icmp eq ptr %valueAfter.2, null
   %cmp50.not = icmp eq ptr %valueFirst.1, null
   br i1 %cmp50.not, label %if.else53.split, label %if.end54
 
 if.else53.split:                                  ; preds = %for.inc.thread, %do.end, %for.end
   %prevNext.0.lcssa172 = phi ptr [ %prevNext.0150.ph, %for.end ], [ %dest, %do.end ], [ %prevNext.1, %for.inc.thread ]
-  %valueAfter.0.lcssa171 = phi i1 [ %17, %for.end ], [ true, %do.end ], [ true, %for.inc.thread ]
+  %valueAfter.0.lcssa171 = phi i1 [ %18, %for.end ], [ true, %do.end ], [ true, %for.inc.thread ]
   %keyFirst.0.lcssa170 = phi ptr [ %keyFirst.0146.ph, %for.end ], [ %first, %do.end ], [ %add.ptr., %for.inc.thread ]
-  %walk.0.lcssa169 = phi ptr [ %incdec.ptr, %for.end ], [ %first, %do.end ], [ %incdec.ptr178, %for.inc.thread ]
+  %walk.0.lcssa169 = phi ptr [ %scevgep, %for.end ], [ %first, %do.end ], [ %scevgep, %for.inc.thread ]
   %sub.ptr.lhs.cast.i60 = ptrtoint ptr %walk.0.lcssa169 to i64
   %sub.ptr.rhs.cast.i61 = ptrtoint ptr %keyFirst.0.lcssa170 to i64
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i61
@@ -674,13 +681,13 @@ if.else53.split:                                  ; preds = %for.inc.thread, %do
   %cmp15.i71 = icmp ugt ptr %keyFirst.0.lcssa170, %walk.0.lcssa169
   %or.cond61.i72 = or i1 %cmp15.i71, %or.cond1.i68
   %cmp21.i74 = icmp eq ptr %keyFirst.0.lcssa170, %walk.0.lcssa169
-  %18 = and i1 %cmp21.i74, %valueAfter.0.lcssa171
-  %or.cond205 = select i1 %or.cond61.i72, i1 true, i1 %18
-  br i1 %or.cond205, label %return, label %if.end.i76
+  %19 = and i1 %cmp21.i74, %valueAfter.0.lcssa171
+  %or.cond203 = select i1 %or.cond61.i72, i1 true, i1 %19
+  br i1 %or.cond203, label %return, label %if.end.i76
 
 if.end.i76:                                       ; preds = %if.else53.split
-  %19 = load ptr, ptr %memory.addr.0, align 8
-  %call.i77 = call ptr %19(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
+  %20 = load ptr, ptr %memory.addr.0, align 8
+  %call.i77 = call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
   store ptr %call.i77, ptr %prevNext.0.lcssa172, align 8
   %cmp28.i78 = icmp eq ptr %call.i77, null
   br i1 %cmp28.i78, label %if.then58, label %if.end31.i79
@@ -688,19 +695,19 @@ if.end.i76:                                       ; preds = %if.else53.split
 if.end31.i79:                                     ; preds = %if.end.i76
   %next.i80 = getelementptr inbounds i8, ptr %call.i77, i64 16
   store ptr null, ptr %next.i80, align 8
-  %20 = load ptr, ptr %memory.addr.0, align 8
+  %21 = load ptr, ptr %memory.addr.0, align 8
   %add.i81 = shl i64 %sub.ptr.sub.i62, 32
   %sext.i82 = add i64 %add.i81, 4294967296
   %conv33.i83 = ashr exact i64 %sext.i82, 32
-  %call34.i84 = call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i83) #6
+  %call34.i84 = call ptr %21(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i83) #6
   %cmp35.i85 = icmp eq ptr %call34.i84, null
   br i1 %cmp35.i85, label %if.then37.i96, label %if.end38.i86
 
 if.then37.i96:                                    ; preds = %if.end31.i79
   %free.i97 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
-  %21 = load ptr, ptr %free.i97, align 8
-  %22 = load ptr, ptr %prevNext.0.lcssa172, align 8
-  call void %21(ptr noundef nonnull %memory.addr.0, ptr noundef %22) #6
+  %22 = load ptr, ptr %free.i97, align 8
+  %23 = load ptr, ptr %prevNext.0.lcssa172, align 8
+  call void %22(ptr noundef nonnull %memory.addr.0, ptr noundef %23) #6
   store ptr null, ptr %prevNext.0.lcssa172, align 8
   br label %if.then58
 
@@ -717,27 +724,27 @@ if.then41.i94:                                    ; preds = %if.end38.i86
   br label %if.end45.i90
 
 if.end45.i90:                                     ; preds = %if.then41.i94, %if.end38.i86
-  %23 = load ptr, ptr %prevNext.0.lcssa172, align 8
-  store ptr %call34.i84, ptr %23, align 8
   %24 = load ptr, ptr %prevNext.0.lcssa172, align 8
-  %value72.i91 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %call34.i84, ptr %24, align 8
+  %25 = load ptr, ptr %prevNext.0.lcssa172, align 8
+  %value72.i91 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr null, ptr %value72.i91, align 8
-  %25 = load i32, ptr %cond, align 4
-  %inc.i92 = add nsw i32 %25, 1
+  %26 = load i32, ptr %cond, align 4
+  %inc.i92 = add nsw i32 %26, 1
   store i32 %inc.i92, ptr %cond, align 4
   br label %return
 
 if.end54:                                         ; preds = %for.end
-  %call5550 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
+  %call5550 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0150.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0146.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %scevgep, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
   %cmp56 = icmp eq i32 %call5550, 0
   br i1 %cmp56, label %if.then58, label %return
 
 if.then58:                                        ; preds = %if.end.i76, %if.then37.i96, %if.end54
   store i32 0, ptr %cond, align 4
-  %26 = load ptr, ptr %dest, align 8
+  %27 = load ptr, ptr %dest, align 8
   %call.i100 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
   %cmp1.not.i101 = icmp ne i32 %call.i100, 1
-  %cmp4.not12.i104 = icmp eq ptr %26, null
+  %cmp4.not12.i104 = icmp eq ptr %27, null
   %or.cond127 = select i1 %cmp1.not.i101, i1 true, i1 %cmp4.not12.i104
   br i1 %or.cond127, label %return, label %while.body.lr.ph.i105
 
@@ -746,19 +753,19 @@ while.body.lr.ph.i105:                            ; preds = %if.then58
   br label %while.body.i107
 
 while.body.i107:                                  ; preds = %while.body.i107, %while.body.lr.ph.i105
-  %queryList.addr.013.i108 = phi ptr [ %26, %while.body.lr.ph.i105 ], [ %27, %while.body.i107 ]
+  %queryList.addr.013.i108 = phi ptr [ %27, %while.body.lr.ph.i105 ], [ %28, %while.body.i107 ]
   %next.i109 = getelementptr inbounds i8, ptr %queryList.addr.013.i108, i64 16
-  %27 = load ptr, ptr %next.i109, align 8
-  %28 = load ptr, ptr %free.i106, align 8
-  %29 = load ptr, ptr %queryList.addr.013.i108, align 8
-  call void %28(ptr noundef nonnull %memory.addr.0, ptr noundef %29) #6
-  %30 = load ptr, ptr %free.i106, align 8
+  %28 = load ptr, ptr %next.i109, align 8
+  %29 = load ptr, ptr %free.i106, align 8
+  %30 = load ptr, ptr %queryList.addr.013.i108, align 8
+  call void %29(ptr noundef nonnull %memory.addr.0, ptr noundef %30) #6
+  %31 = load ptr, ptr %free.i106, align 8
   %value.i110 = getelementptr inbounds i8, ptr %queryList.addr.013.i108, i64 8
-  %31 = load ptr, ptr %value.i110, align 8
-  call void %30(ptr noundef nonnull %memory.addr.0, ptr noundef %31) #6
-  %32 = load ptr, ptr %free.i106, align 8
-  call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i108) #6
-  %cmp4.not.i111 = icmp eq ptr %27, null
+  %32 = load ptr, ptr %value.i110, align 8
+  call void %31(ptr noundef nonnull %memory.addr.0, ptr noundef %32) #6
+  %33 = load ptr, ptr %free.i106, align 8
+  call void %33(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i108) #6
+  %cmp4.not.i111 = icmp eq ptr %28, null
   br i1 %cmp4.not.i111, label %return, label %while.body.i107, !llvm.loop !6
 
 return:                                           ; preds = %while.body.i, %while.body.i107, %if.else53.split, %if.end45.i90, %if.then58, %if.then23, %if.end54, %if.else, %if.end, %entry

@@ -7594,7 +7594,7 @@ _ZNSt3__16fill_nB8ne190000IPNS_9sub_matchIPKcEEmS4_EET_S6_T0_RKT1_.exit: ; preds
   br i1 %.not.i, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, label %.lr.ph.i, !llvm.loop !72
 
 _ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit: ; preds = %.lr.ph.i
-  store ptr %33, ptr %12, align 8
+  store ptr %32, ptr %12, align 8
   br label %54
 
 34:                                               ; preds = %_ZNSt3__16fill_nB8ne190000IPNS_9sub_matchIPKcEEmS4_EET_S6_T0_RKT1_.exit
@@ -7656,7 +7656,7 @@ _ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000E
   br i1 %.not.i10, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12, label %.lr.ph.i8, !llvm.loop !72
 
 _ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12: ; preds = %.lr.ph.i8
-  store ptr %53, ptr %50, align 8
+  store ptr %52, ptr %50, align 8
   br label %54
 
 54:                                               ; preds = %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, %34, %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12
@@ -8253,7 +8253,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocat
   br i1 %.not.i, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, label %.lr.ph.i, !llvm.loop !72
 
 _ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit: ; preds = %.lr.ph.i, %12
-  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %14, %.lr.ph.i ]
+  %.sroa.3.0.lcssa.i = phi ptr [ %7, %12 ], [ %13, %.lr.ph.i ]
   store ptr %.sroa.3.0.lcssa.i, ptr %6, align 8
   br label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEED2Ev.exit
 
@@ -8316,7 +8316,7 @@ _ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne1900
   %39 = getelementptr inbounds %"class.std::__1::sub_match", ptr %32, i64 %.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %.promoted.fr.i.i.i.i, i64 %38, i1 false)
   store ptr %39, ptr %0, align 8
-  store ptr %34, ptr %6, align 8
+  store ptr %33, ptr %6, align 8
   store ptr %35, ptr %4, align 8
   %.not.i12 = icmp eq ptr %.promoted.fr.i.i.i.i, null
   br i1 %.not.i12, label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEED2Ev.exit, label %40
@@ -18180,11 +18180,11 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: 
   %62 = getelementptr inbounds ptr, ptr %58, i64 %.sroa.speculated.i
   tail call void @_ZdlPv(ptr noundef nonnull %42) #28
   %.pre = load ptr, ptr %16, align 8
-  %.pre111 = load ptr, ptr %9, align 8
+  %.pre110 = load ptr, ptr %9, align 8
   br label %63
 
 63:                                               ; preds = %59, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit
-  %64 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i ], [ %.pre111, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit ]
+  %64 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i ], [ %.pre110, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit ]
   %65 = phi ptr [ %17, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i ], [ %.pre, %59 ], [ %17, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit ]
   %.sroa.049.0 = phi ptr [ %42, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i ], [ %58, %59 ], [ %42, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit ]
   %.sroa.954.0 = phi ptr [ %51, %_ZNSt3__14moveB8ne190000IPPNS_7__stateIcEES4_EET0_T_S6_S5_.exit.i ], [ %61, %59 ], [ %43, %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit ]
@@ -18271,7 +18271,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
   br i1 %.not.i.i.i20, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21, label %.lr.ph.i.i.i17, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21: ; preds = %.lr.ph.i.i.i17, %.noexc27
-  %storemerge.i22 = phi ptr [ %96, %.noexc27 ], [ %102, %.lr.ph.i.i.i17 ]
+  %storemerge.i22 = phi ptr [ %96, %.noexc27 ], [ %100, %.lr.ph.i.i.i17 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.199) #28
   br label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
@@ -18413,7 +18413,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
   br i1 %.not.i.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i.i, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %storemerge = phi ptr [ %36, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %42, %.lr.ph.i.i ]
+  %storemerge = phi ptr [ %36, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %40, %.lr.ph.i.i ]
   store ptr %35, ptr %0, align 8
   store ptr %36, ptr %9, align 8
   store ptr %storemerge, ptr %3, align 8
@@ -18514,7 +18514,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
   br i1 %.not.i.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i.i, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %storemerge = phi ptr [ %36, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %42, %.lr.ph.i.i ]
+  %storemerge = phi ptr [ %36, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %40, %.lr.ph.i.i ]
   store ptr %35, ptr %0, align 8
   store ptr %36, ptr %9, align 8
   store ptr %storemerge, ptr %3, align 8
@@ -18618,7 +18618,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
   br i1 %.not.i.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i.i, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %storemerge = phi ptr [ %40, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %46, %.lr.ph.i.i ]
+  %storemerge = phi ptr [ %40, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %44, %.lr.ph.i.i ]
   store ptr %39, ptr %0, align 8
   store ptr %40, ptr %3, align 8
   store ptr %storemerge, ptr %8, align 8
@@ -18842,7 +18842,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i16
   br i1 %.not.i.i.i21, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22, label %.lr.ph.i.i.i18, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i22: ; preds = %.lr.ph.i.i.i18, %.noexc31
-  %storemerge.i23 = phi ptr [ %94, %.noexc31 ], [ %100, %.lr.ph.i.i.i18 ]
+  %storemerge.i23 = phi ptr [ %94, %.noexc31 ], [ %98, %.lr.ph.i.i.i18 ]
   %.not.i.i24 = icmp eq ptr %.sroa.053.1105, null
   br i1 %.not.i.i24, label %103, label %102
 
@@ -19009,7 +19009,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
   br i1 %.not.i.i, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !117
 
 _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i.i, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %storemerge = phi ptr [ %40, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %46, %.lr.ph.i.i ]
+  %storemerge = phi ptr [ %40, %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit ], [ %44, %.lr.ph.i.i ]
   store ptr %39, ptr %0, align 8
   store ptr %40, ptr %3, align 8
   store ptr %storemerge, ptr %8, align 8

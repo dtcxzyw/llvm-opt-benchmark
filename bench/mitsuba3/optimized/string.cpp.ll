@@ -3789,7 +3789,7 @@ define linkonce_odr hidden void @_ZN10fast_float14parse_mantissaERNS_6bigintERNS
   %.0252.lcssa609.pre-phi = phi i64 [ %7, %4 ], [ %.pre619, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %15, %13 ]
   %.0252.lcssa = phi ptr [ %6, %4 ], [ %.0252442, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %14, %13 ]
   %.not263447 = icmp eq ptr %.0252.lcssa, %10
-  br i1 %.not263447, label %._crit_edge451, label %.lr.ph450.preheader
+  br i1 %.not263447, label %._crit_edge482, label %.lr.ph450.preheader
 
 .lr.ph450.preheader:                              ; preds = %._crit_edge
   %18 = add i64 %9, %7
@@ -3808,8 +3808,8 @@ define linkonce_odr hidden void @_ZN10fast_float14parse_mantissaERNS_6bigintERNS
   %.not263 = icmp eq ptr %22, %10
   br i1 %.not263, label %._crit_edge451, label %.lr.ph450, !llvm.loop !46
 
-._crit_edge451:                                   ; preds = %21, %.lr.ph450, %._crit_edge
-  %.1253.lcssa = phi ptr [ %.0252.lcssa, %._crit_edge ], [ %.1253448, %.lr.ph450 ], [ %scevgep, %21 ]
+._crit_edge451:                                   ; preds = %21, %.lr.ph450
+  %.1253.lcssa = phi ptr [ %scevgep, %21 ], [ %.1253448, %.lr.ph450 ]
   %.not265480 = icmp eq ptr %.1253.lcssa, %10
   br i1 %.not265480, label %._crit_edge482, label %.preheader391.lr.ph
 
@@ -4015,8 +4015,8 @@ _ZN10fast_float6bigint3addEm.exit:                ; preds = %92, %_ZN10fast_floa
   %.not279.not = icmp ne i8 %111, 48
   %112 = getelementptr inbounds i8, ptr %.1188487, i64 1
   %.not278 = icmp eq ptr %112, %10
-  %or.cond756 = select i1 %.not279.not, i1 true, i1 %.not278
-  br i1 %or.cond756, label %.loopexit389, label %.lr.ph488, !llvm.loop !52
+  %or.cond760 = select i1 %.not279.not, i1 true, i1 %.not278
+  br i1 %or.cond760, label %.loopexit389, label %.lr.ph488, !llvm.loop !52
 
 .loopexit389:                                     ; preds = %.lr.ph484, %.lr.ph488, %.preheader388
   %.0185 = phi i1 [ false, %.preheader388 ], [ %.not279.not, %.lr.ph488 ], [ true, %.lr.ph484 ]
@@ -4210,7 +4210,7 @@ _ZN10fast_float6bigint3addEm.exit326:             ; preds = %182, %_ZN10fast_flo
   %.not265 = icmp eq ptr %.4256.lcssa, %10
   br i1 %.not265, label %._crit_edge482, label %.preheader391, !llvm.loop !53
 
-._crit_edge482:                                   ; preds = %_ZN10fast_float6bigint3addEm.exit326, %._crit_edge451
+._crit_edge482:                                   ; preds = %_ZN10fast_float6bigint3addEm.exit326, %._crit_edge, %._crit_edge451
   %193 = getelementptr inbounds i8, ptr %1, i64 48
   %194 = load ptr, ptr %193, align 8
   %195 = ptrtoint ptr %194 to i64
@@ -4251,7 +4251,7 @@ _ZN10fast_float6bigint3addEm.exit326:             ; preds = %182, %_ZN10fast_flo
   %.5257.lcssa610.pre-phi = phi i64 [ %195, %.preheader384 ], [ %.pre, %.lr.ph503.._crit_edge504.loopexit_crit_edge ], [ %206, %204 ]
   %.5257.lcssa = phi ptr [ %194, %.preheader384 ], [ %.5257502, %.lr.ph503.._crit_edge504.loopexit_crit_edge ], [ %205, %204 ]
   %.not268508 = icmp eq ptr %.5257.lcssa, %199
-  br i1 %.not268508, label %.loopexit383, label %.lr.ph511.preheader
+  br i1 %.not268508, label %.loopexit, label %.lr.ph511.preheader
 
 .lr.ph511.preheader:                              ; preds = %._crit_edge504
   %209 = add i64 %198, %195
@@ -4270,8 +4270,8 @@ _ZN10fast_float6bigint3addEm.exit326:             ; preds = %182, %_ZN10fast_flo
   %.not268 = icmp eq ptr %213, %199
   br i1 %.not268, label %.loopexit383, label %.lr.ph511, !llvm.loop !46
 
-.loopexit383:                                     ; preds = %.lr.ph511, %212, %._crit_edge504, %196
-  %.7 = phi ptr [ %194, %196 ], [ %.5257.lcssa, %._crit_edge504 ], [ %.6258509, %.lr.ph511 ], [ %scevgep611, %212 ]
+.loopexit383:                                     ; preds = %.lr.ph511, %212, %196
+  %.7 = phi ptr [ %194, %196 ], [ %.6258509, %.lr.ph511 ], [ %scevgep611, %212 ]
   %.not270543 = icmp eq ptr %.7, %199
   br i1 %.not270543, label %.loopexit, label %.preheader381.lr.ph
 
@@ -4641,7 +4641,7 @@ _ZN10fast_float6bigint3addEm.exit379:             ; preds = %360, %_ZN10fast_flo
   store i64 %375, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN10fast_float6bigint3addEm.exit379, %303, %.loopexit.sink.split, %.loopexit386, %.loopexit383, %.preheader, %._crit_edge482, %127
+.loopexit:                                        ; preds = %_ZN10fast_float6bigint3addEm.exit379, %303, %.loopexit.sink.split, %._crit_edge504, %.loopexit386, %.loopexit383, %.preheader, %._crit_edge482, %127
   ret void
 }
 

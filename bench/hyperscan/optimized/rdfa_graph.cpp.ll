@@ -427,7 +427,8 @@ if.then.thread.i:                                 ; preds = %lor.rhs.i
   br i1 %cmp.not.i.i.i13.i, label %if.then.i.i.i.i39, label %if.then6.i.i.i.i.i
 
 if.then.i.i.i.i39:                                ; preds = %if.then.thread.i, %if.then.i40
-  %sub.ptr.lhs.cast.i60 = ptrtoint ptr %38 to i64
+  %agg.tmp14.i.sroa.0.0 = phi ptr [ %38, %if.then.thread.i ], [ %add.ptr.i.i, %if.then.i40 ]
+  %sub.ptr.lhs.cast.i60 = ptrtoint ptr %agg.tmp14.i.sroa.0.0 to i64
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %reass.sub = add i64 %33, 1
   %cmp.i.i64 = icmp eq i64 %33, 9223372036854775807
@@ -488,7 +489,7 @@ invoke.cont14.thread.i.i:                         ; preds = %call5.i.i.i.i.i.i.i
   br label %.noexc45
 
 invoke.cont8.i.i:                                 ; preds = %call5.i.i.i.i.i.i.i.noexc
-  %cmp.i.i.i.not.i = icmp eq ptr %32, %38
+  %cmp.i.i.i.not.i = icmp eq ptr %32, %agg.tmp14.i.sroa.0.0
   br i1 %cmp.i.i.i.not.i, label %if.then21.i.i, label %if.then.i.i.i.i67
 
 if.then.i.i.i.i67:                                ; preds = %invoke.cont8.i.i
@@ -500,15 +501,15 @@ if.then21.i.i:                                    ; preds = %if.then.i.i.i.i67, 
   %r.addr.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i68, %if.then.i.i.i.i67 ], [ %call5.i.i.i.i.i.i.i78, %invoke.cont8.i.i ]
   store i16 %12, ptr %r.addr.0.i.i.i.i, align 2, !noalias !34
   %add.ptr.i.i69 = getelementptr inbounds i8, ptr %r.addr.0.i.i.i.i, i64 2
-  %cmp.i.i15.i.i = icmp ne ptr %add.ptr.i.i, %38
-  %tobool5.i.i18.i.i = icmp ne ptr %38, null
+  %cmp.i.i15.i.i = icmp ne ptr %add.ptr.i.i, %agg.tmp14.i.sroa.0.0
+  %tobool5.i.i18.i.i = icmp ne ptr %agg.tmp14.i.sroa.0.0, null
   %or.cond1.i.i19.i.i = and i1 %tobool5.i.i18.i.i, %cmp.i.i15.i.i
   br i1 %or.cond1.i.i19.i.i, label %if.then.i.i21.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItSaIvEvEEPtS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i.i
 
 if.then.i.i21.i.i:                                ; preds = %if.then21.i.i
   %sub.ptr.lhs.cast.i.i22.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i24.i.i = sub i64 %sub.ptr.lhs.cast.i.i22.i.i, %sub.ptr.lhs.cast.i60
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr.i.i69, ptr nonnull align 2 %38, i64 %sub.ptr.sub.i.i24.i.i, i1 false), !noalias !34
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr.i.i69, ptr nonnull align 2 %agg.tmp14.i.sroa.0.0, i64 %sub.ptr.sub.i.i24.i.i, i1 false), !noalias !34
   %add.ptr.i.i.i25.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i69, i64 %sub.ptr.sub.i.i24.i.i
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorItSaIvEvEEPtS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit26.i.i
 

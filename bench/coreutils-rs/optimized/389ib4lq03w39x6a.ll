@@ -1690,7 +1690,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   %.sroa.17.1.ph = phi i64 [ %.sroa.17.074, %26 ], [ %69, %71 ], [ %.sroa.17.074, %.loopexit.i.i ], [ %.sroa.17.074, %55 ]
   %.sroa.14.4.ph = phi i64 [ %.sroa.14.075, %26 ], [ %69, %71 ], [ %.sroa.14.1, %55 ], [ %69, %.loopexit.i.i ]
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %71 ], [ true, %.loopexit.i.i ], [ true, %55 ]
-  %.sroa.842.2.ph = phi ptr [ %.sroa.842.077, %26 ], [ %.sink14.i.i.i, %71 ], [ %57, %55 ], [ %.sink14.i.i.i, %.loopexit.i.i ]
+  %.sroa.842.2.ph = phi ptr [ %18, %26 ], [ %.sink14.i.i.i, %71 ], [ %57, %55 ], [ %18, %.loopexit.i.i ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %71 ], [ %2, %.loopexit.i.i ], [ %2, %55 ]
   %.sroa.0.1.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.074
   %.sroa.4.1.i.ph = sub i64 %.pn, %.sroa.17.074

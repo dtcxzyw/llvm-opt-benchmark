@@ -2470,8 +2470,8 @@ if.then.i.i.i.i.i710:                             ; preds = %_ZN5boost9container
   br label %.noexc243.i.i.i
 
 if.then4.i.i.i345:                                ; preds = %if.then.thread.i342
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i351, ptr %176, align 8, !noalias !91
-  %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728 = getelementptr inbounds i8, ptr %176, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i351, ptr %add.ptr.i.i297, align 8, !noalias !91
+  %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728 = getelementptr inbounds i8, ptr %add.ptr.i.i297, i64 8
   store i64 %168, ptr %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728, align 8, !noalias !91
   %181 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !91
   %add.i.i.i347 = add i64 %181, 1
@@ -5399,8 +5399,8 @@ if.then.i.i.i.i.i710:                             ; preds = %_ZN5boost9container
   br label %.noexc243.i.i.i
 
 if.then4.i.i.i345:                                ; preds = %if.then.thread.i342
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i351, ptr %176, align 8, !noalias !164
-  %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728 = getelementptr inbounds i8, ptr %176, i64 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.fr.i351, ptr %add.ptr.i.i297, align 8, !noalias !164
+  %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728 = getelementptr inbounds i8, ptr %add.ptr.i.i297, i64 8
   store i64 %168, ptr %ref.tmp.i.i.i.i.i.sroa.9.0..sroa_idx728, align 8, !noalias !164
   %181 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !164
   %add.i.i.i347 = add i64 %181, 1

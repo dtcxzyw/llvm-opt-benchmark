@@ -1603,7 +1603,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
           to label %134 unwind label %.loopexit.i
 
 .thread.i:                                        ; preds = %137, %107
-  %127 = phi ptr [ %122, %137 ], [ %108, %107 ]
+  %127 = phi ptr [ %122, %137 ], [ %72, %107 ]
   %128 = phi ptr [ %108, %137 ], [ null, %107 ]
   %129 = phi i1 [ %136, %137 ], [ true, %107 ]
   %.sroa.048.0.i = phi i64 [ %.sroa.048.1.i, %137 ], [ 1, %107 ]

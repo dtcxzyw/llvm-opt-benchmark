@@ -855,7 +855,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %76
   ]
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf755d61a2b489f22E.exit.i.i": ; preds = %117, %88
-  %.sroa.12.3.i = phi ptr [ %.sroa.12.1.i, %88 ], [ %119, %117 ]
+  %.sroa.12.3.i = phi ptr [ %70, %88 ], [ %119, %117 ]
   %132 = add i64 %73, %.sroa.0149.0219.i
   %133 = sub i64 %69, %132
   br label %144

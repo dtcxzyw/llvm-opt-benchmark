@@ -4413,7 +4413,7 @@ invoke.cont16:                                    ; preds = %for.body, %if.then7
   br i1 %cmp13.not, label %for.end, label %land.rhs, !llvm.loop !52
 
 for.end:                                          ; preds = %land.rhs, %invoke.cont16, %do.body
-  %__counter.0.lcssa = phi ptr [ %__tmp, %do.body ], [ %incdec.ptr, %invoke.cont16 ], [ %__counter.050, %land.rhs ]
+  %__counter.0.lcssa = phi ptr [ %__tmp, %do.body ], [ %__fill.0.ptr, %invoke.cont16 ], [ %__counter.050, %land.rhs ]
   %cmp13.not.lcssa = phi i1 [ true, %do.body ], [ %cmp.i, %invoke.cont16 ], [ false, %land.rhs ]
   %spec.select.idx = phi i64 [ 16, %do.body ], [ 16, %invoke.cont16 ], [ 0, %land.rhs ]
   call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__carry, ptr noundef nonnull align 8 dereferenceable(16) %__counter.0.lcssa) #19

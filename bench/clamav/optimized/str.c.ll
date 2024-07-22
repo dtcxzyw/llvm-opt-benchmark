@@ -2259,7 +2259,7 @@ define range(i32 0, 27) i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %.not, label %16, label %19
 
 16:                                               ; preds = %15
-  %17 = load i8, ptr %.0, align 1
+  %17 = load i8, ptr %0, align 1
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %19, label %20
 
@@ -2267,7 +2267,7 @@ define range(i32 0, 27) i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr no
   br label %20
 
 20:                                               ; preds = %19, %16
-  %.1 = phi ptr [ %.pn, %19 ], [ %.0, %16 ]
+  %.1 = phi ptr [ %.pn, %19 ], [ %0, %16 ]
   %21 = ptrtoint ptr %.1 to i64
   %22 = ptrtoint ptr %0 to i64
   %.neg = sub i64 %22, %21

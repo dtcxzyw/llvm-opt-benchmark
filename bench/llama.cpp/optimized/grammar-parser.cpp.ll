@@ -3761,7 +3761,7 @@ cleanup.action:                                   ; preds = %ehcleanup41.thread,
 
 if.end43:                                         ; preds = %for.end
   %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %value.2, 0
-  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %pos.0.lcssa, 1
+  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %add.ptr, 1
   ret { i32, ptr } %.fca.1.insert.i
 
 eh.resume:                                        ; preds = %ehcleanup41, %cleanup.action

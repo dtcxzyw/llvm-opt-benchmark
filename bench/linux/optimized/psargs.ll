@@ -140,7 +140,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   br label %.loopexit
 
 .thread:                                          ; preds = %13
-  %21 = getelementptr i8, ptr %9, i64 1
+  %21 = getelementptr i8, ptr %7, i64 1
   store ptr %21, ptr %6, align 8
   tail call void @acpi_ps_init_op(ptr noundef %2, i16 noundef zeroext 45) #4
   br label %25

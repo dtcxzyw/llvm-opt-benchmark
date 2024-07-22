@@ -11351,12 +11351,12 @@ if.then106.i.i2515:                               ; preds = %LZ4_count.exit356.i
 
 if.then.i263.i2583:                               ; preds = %if.then106.i.i2515
   %.val = load i64, ptr %2, align 1
-  %add.ptr100.i.i2437.val = load i64, ptr %add.ptr100.i.i2437, align 1
+  %add.ptr100.i.i2437.val = load i64, ptr %spec.select1864, align 1
   %tobool5.i267.i2587.not = icmp eq i64 %.val, %add.ptr100.i.i2437.val
   br i1 %tobool5.i267.i2587.not, label %if.then6.i268.i2588, label %if.else.i272.i2591
 
 if.then6.i268.i2588:                              ; preds = %if.then.i263.i2583
-  %add.ptr7.i269.i2589 = getelementptr inbounds i8, ptr %add.ptr100.i.i2437, i64 8
+  %add.ptr7.i269.i2589 = getelementptr inbounds i8, ptr %spec.select1864, i64 8
   br label %if.end10.i205.i2523
 
 if.else.i272.i2591:                               ; preds = %if.then.i263.i2583
@@ -11368,7 +11368,7 @@ if.else.i272.i2591:                               ; preds = %if.then.i263.i2583
 
 if.end10.i205.i2523:                              ; preds = %if.then6.i268.i2588, %if.then106.i.i2515
   %pMatch.addr.i195.i1777.0 = phi ptr [ %add.ptr8.i270.i2590, %if.then6.i268.i2588 ], [ %2, %if.then106.i.i2515 ]
-  %pIn.addr.i194.i1776.0 = phi ptr [ %add.ptr7.i269.i2589, %if.then6.i268.i2588 ], [ %add.ptr100.i.i2437, %if.then106.i.i2515 ]
+  %pIn.addr.i194.i1776.0 = phi ptr [ %add.ptr7.i269.i2589, %if.then6.i268.i2588 ], [ %spec.select1864, %if.then106.i.i2515 ]
   %cmp12.i208.i25262671 = icmp ult ptr %pIn.addr.i194.i1776.0, %add.ptr2
   br i1 %cmp12.i208.i25262671, label %while.body.i247.i2567, label %while.end.i212.i2530
 
@@ -12822,12 +12822,12 @@ if.then106.i.i1424:                               ; preds = %LZ4_count.exit356.i
 
 if.then.i263.i1492:                               ; preds = %if.then106.i.i1424
   %.val1950 = load i64, ptr %2, align 1
-  %add.ptr100.i.i1346.val = load i64, ptr %add.ptr100.i.i1346, align 1
+  %add.ptr100.i.i1346.val = load i64, ptr %spec.select1887, align 1
   %tobool5.i267.i1496.not = icmp eq i64 %.val1950, %add.ptr100.i.i1346.val
   br i1 %tobool5.i267.i1496.not, label %if.then6.i268.i1497, label %if.else.i272.i1500
 
 if.then6.i268.i1497:                              ; preds = %if.then.i263.i1492
-  %add.ptr7.i269.i1498 = getelementptr inbounds i8, ptr %add.ptr100.i.i1346, i64 8
+  %add.ptr7.i269.i1498 = getelementptr inbounds i8, ptr %spec.select1887, i64 8
   br label %if.end10.i205.i1432
 
 if.else.i272.i1500:                               ; preds = %if.then.i263.i1492
@@ -12839,7 +12839,7 @@ if.else.i272.i1500:                               ; preds = %if.then.i263.i1492
 
 if.end10.i205.i1432:                              ; preds = %if.then6.i268.i1497, %if.then106.i.i1424
   %pMatch.addr.i195.i686.0 = phi ptr [ %add.ptr8.i270.i2590, %if.then6.i268.i1497 ], [ %2, %if.then106.i.i1424 ]
-  %pIn.addr.i194.i685.0 = phi ptr [ %add.ptr7.i269.i1498, %if.then6.i268.i1497 ], [ %add.ptr100.i.i1346, %if.then106.i.i1424 ]
+  %pIn.addr.i194.i685.0 = phi ptr [ %add.ptr7.i269.i1498, %if.then6.i268.i1497 ], [ %spec.select1887, %if.then106.i.i1424 ]
   %cmp12.i208.i14352756 = icmp ult ptr %pIn.addr.i194.i685.0, %add.ptr2
   br i1 %cmp12.i208.i14352756, label %while.body.i247.i1476, label %while.end.i212.i1439
 
@@ -14016,12 +14016,12 @@ if.then106.i.i:                                   ; preds = %LZ4_count.exit356.i
 
 if.then.i263.i:                                   ; preds = %if.then106.i.i
   %.val1959 = load i64, ptr %2, align 1
-  %add.ptr100.i.i.val = load i64, ptr %add.ptr100.i.i, align 1
+  %add.ptr100.i.i.val = load i64, ptr %spec.select1907, align 1
   %tobool5.i267.i.not = icmp eq i64 %.val1959, %add.ptr100.i.i.val
   br i1 %tobool5.i267.i.not, label %if.then6.i268.i, label %if.else.i272.i
 
 if.then6.i268.i:                                  ; preds = %if.then.i263.i
-  %add.ptr7.i269.i = getelementptr inbounds i8, ptr %add.ptr100.i.i, i64 8
+  %add.ptr7.i269.i = getelementptr inbounds i8, ptr %spec.select1907, i64 8
   br label %if.end10.i205.i
 
 if.else.i272.i:                                   ; preds = %if.then.i263.i
@@ -14033,7 +14033,7 @@ if.else.i272.i:                                   ; preds = %if.then.i263.i
 
 if.end10.i205.i:                                  ; preds = %if.then6.i268.i, %if.then106.i.i
   %pMatch.addr.i195.i.0 = phi ptr [ %add.ptr8.i270.i2590, %if.then6.i268.i ], [ %2, %if.then106.i.i ]
-  %pIn.addr.i194.i.0 = phi ptr [ %add.ptr7.i269.i, %if.then6.i268.i ], [ %add.ptr100.i.i, %if.then106.i.i ]
+  %pIn.addr.i194.i.0 = phi ptr [ %add.ptr7.i269.i, %if.then6.i268.i ], [ %spec.select1907, %if.then106.i.i ]
   %cmp12.i208.i2830 = icmp ult ptr %pIn.addr.i194.i.0, %add.ptr2
   br i1 %cmp12.i208.i2830, label %while.body.i247.i, label %while.end.i212.i
 

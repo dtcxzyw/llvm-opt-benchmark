@@ -49447,7 +49447,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @_ZN4core4iter6trai
   br i1 %34, label %..loopexit_crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 ..loopexit_crit_edge.i.i.i.i.i:                   ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6a7cf03636ef4755E.exit.i.i.i.i.i"
-  store ptr %22, ptr %.val3.i.i, align 8, !alias.scope !14750, !noalias !14753
+  store ptr %19, ptr %.val3.i.i, align 8, !alias.scope !14750, !noalias !14753
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee948c241d3c204dE.llvm.6579604558243679033.exit"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee948c241d3c204dE.llvm.6579604558243679033.exit": ; preds = %9, %13, %..loopexit_crit_edge.i.i.i.i.i
@@ -49829,7 +49829,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core4iter8ada
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3f9759db3e2ac765E.exit"
 
 ..loopexit_crit_edge.i.i.i.i:                     ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6a7cf03636ef4755E.exit.i.i.i.i"
-  store ptr %16, ptr %.val3.i, align 8, !alias.scope !14926, !noalias !14929
+  store ptr %11, ptr %.val3.i, align 8, !alias.scope !14926, !noalias !14929
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3f9759db3e2ac765E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3f9759db3e2ac765E.exit": ; preds = %..loopexit_crit_edge.i.i.i.i, %29, %4, %2
@@ -85940,7 +85940,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN98_$LT$core..i
   br i1 %34, label %..loopexit_crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 ..loopexit_crit_edge.i.i.i.i.i.i:                 ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6a7cf03636ef4755E.exit.i.i.i.i.i.i"
-  store ptr %22, ptr %.val3.i.i.i, align 8, !alias.scope !22834, !noalias !22837
+  store ptr %19, ptr %.val3.i.i.i, align 8, !alias.scope !22834, !noalias !22837
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee948c241d3c204dE.llvm.6579604558243679033.exit.i"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hee948c241d3c204dE.llvm.6579604558243679033.exit.i": ; preds = %..loopexit_crit_edge.i.i.i.i.i.i, %13, %9

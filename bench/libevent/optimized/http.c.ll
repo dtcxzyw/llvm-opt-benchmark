@@ -9158,7 +9158,7 @@ if.then22:                                        ; preds = %while.body
   br i1 %exitcond.not, label %while.endthread-pre-split, label %land.rhs, !llvm.loop !43
 
 while.endthread-pre-split:                        ; preds = %if.then22, %while.cond.preheader
-  %s.addr.0.lcssa = phi ptr [ %add.ptr12, %while.cond.preheader ], [ %incdec.ptr23, %if.then22 ]
+  %s.addr.0.lcssa = phi ptr [ %add.ptr12, %while.cond.preheader ], [ %scevgep, %if.then22 ]
   %.pr = load i8, ptr %s.addr.0.lcssa, align 1
   %5 = icmp eq i8 %.pr, 46
   br i1 %5, label %while.cond31.preheader, label %return

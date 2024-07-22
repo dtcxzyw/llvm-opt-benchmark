@@ -21505,7 +21505,7 @@ common.resume:                                    ; preds = %33, %.body.i
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit.loopexit: ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b24730117b2158E.exit.i"
-  store ptr %62, ptr %.sroa.422.0..sroa_idx, align 8, !alias.scope !4565, !noalias !4563
+  store ptr %.sroa.4.0.copyload.i.i10, ptr %.sroa.422.0..sroa_idx, align 8, !alias.scope !4565, !noalias !4563
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit: ; preds = %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h2a1c14993cb13b12E.exit.loopexit, %_ZN6ide_db14path_transform12preorder_rev17h29c1774802873552E.exit16

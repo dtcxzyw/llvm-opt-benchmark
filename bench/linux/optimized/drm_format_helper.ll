@@ -1665,7 +1665,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %45, %39, %57, %52
-  %61 = phi ptr [ %21, %52 ], [ %60, %57 ], [ %21, %39 ], [ %21, %45 ]
+  %61 = phi ptr [ %8, %52 ], [ %60, %57 ], [ %21, %39 ], [ %21, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %62 = add nuw i64 %20, 1
   %63 = icmp eq i64 %62, %2

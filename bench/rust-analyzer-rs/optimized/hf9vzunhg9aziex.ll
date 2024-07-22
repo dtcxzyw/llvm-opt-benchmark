@@ -30868,7 +30868,7 @@ default.unreachable:                              ; preds = %295
   br i1 %321, label %._crit_edge.i.loopexit, label %295
 
 ._crit_edge.i.loopexit:                           ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1cae8db3689659eeE.exit.i"
-  store ptr %297, ptr %289, align 8, !alias.scope !6028, !noalias !6031
+  store ptr %287, ptr %289, align 8, !alias.scope !6028, !noalias !6031
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %282
