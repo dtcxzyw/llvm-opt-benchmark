@@ -4538,12 +4538,12 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %62 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %61)
   %63 = getelementptr inbounds i8, ptr %55, i64 4
   %64 = tail call double @cos(double noundef %40) #25
-  %65 = tail call double @llvm.fmuladd.f64(double %64, double -1.000000e+00, double %50)
+  %65 = fsub double %50, %64
   %66 = insertelement <2 x double> poison, double %65, i64 0
   %67 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %66)
   %68 = getelementptr inbounds %"class.cv::Point_.14", ptr %38, i64 %indvars.iv135
   %69 = tail call double @sin(double noundef %40) #25
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double -1.000000e+00, double %58)
+  %70 = fsub double %58, %69
   %71 = insertelement <2 x double> poison, double %70, i64 0
   %72 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %71)
   %73 = getelementptr inbounds i8, ptr %68, i64 4

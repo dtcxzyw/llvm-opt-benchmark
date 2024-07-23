@@ -953,7 +953,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc12.i
   %20 = load float, ptr %.sroa.09.014.i.i, align 4, !noalias !29
   %21 = load float, ptr %.sroa.07.012.i.i, align 4, !noalias !29
   %22 = fmul float %21, 2.000000e+00
-  %23 = tail call noundef float @llvm.fmuladd.f32(float %20, float -1.000000e+00, float %22)
+  %23 = fsub float %22, %20
   store float %23, ptr %.sroa.05.013.i.i, align 4, !noalias !29
   %24 = getelementptr inbounds i8, ptr %.sroa.09.014.i.i, i64 4
   %25 = getelementptr inbounds i8, ptr %.sroa.07.012.i.i, i64 4

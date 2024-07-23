@@ -8853,7 +8853,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
   %131 = load double, ptr %.0912.i198, align 8
   %132 = getelementptr inbounds i8, ptr %.0813.i197, i64 8
   %133 = load double, ptr %.0813.i197, align 8
-  %134 = tail call double @llvm.fmuladd.f64(double %131, double -1.000000e+00, double %133)
+  %134 = fsub double %133, %131
   store double %134, ptr %.0813.i197, align 8
   %135 = add nuw nsw i64 %.014.i196, 1
   %exitcond.not.i199 = icmp eq i64 %135, %122

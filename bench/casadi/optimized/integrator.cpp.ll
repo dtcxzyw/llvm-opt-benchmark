@@ -9507,7 +9507,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit401:        ; preds = %_ZN6casadi12casadi_
   %680 = load double, ptr %.0912.i, align 8
   %681 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %682 = load double, ptr %.0813.i, align 8
-  %683 = call double @llvm.fmuladd.f64(double %680, double -1.000000e+00, double %682)
+  %683 = fsub double %682, %680
   store double %683, ptr %.0813.i, align 8
   %684 = add nuw nsw i64 %.014.i404, 1
   %exitcond.not.i405 = icmp eq i64 %684, %675

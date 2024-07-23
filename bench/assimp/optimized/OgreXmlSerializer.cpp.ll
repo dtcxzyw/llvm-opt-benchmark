@@ -4615,7 +4615,7 @@ invoke.cont124:                                   ; preds = %for.body122
           to label %invoke.cont127 unwind label %lpad65.loopexit
 
 invoke.cont127:                                   ; preds = %invoke.cont124
-  %77 = call float @llvm.fmuladd.f32(float %call128, float -1.000000e+00, float 1.000000e+00)
+  %77 = fsub float 1.000000e+00, %call128
   %_M_finish.i339 = getelementptr inbounds i8, ptr %__begin8.sroa.0.0487, i64 8
   %78 = load ptr, ptr %_M_finish.i339, align 8
   %_M_end_of_storage.i340 = getelementptr inbounds i8, ptr %__begin8.sroa.0.0487, i64 16

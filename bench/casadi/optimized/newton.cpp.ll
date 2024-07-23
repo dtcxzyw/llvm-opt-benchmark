@@ -2276,7 +2276,7 @@ _ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %403 = load double, ptr %.0912.i214, align 8
   %404 = getelementptr inbounds i8, ptr %.0813.i213, i64 8
   %405 = load double, ptr %.0813.i213, align 8
-  %406 = call double @llvm.fmuladd.f64(double %403, double -1.000000e+00, double %405)
+  %406 = fsub double %405, %403
   store double %406, ptr %.0813.i213, align 8
   %407 = add nuw nsw i64 %.014.i212, 1
   %exitcond.not.i215 = icmp eq i64 %407, %396

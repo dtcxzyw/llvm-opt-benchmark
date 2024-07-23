@@ -2960,7 +2960,7 @@ _ZL12check_lengthfii.exit.i:                      ; preds = %1017, %988
   %1149 = getelementptr inbounds float, ptr %1148, i64 %indvars.iv399.i
   %1150 = load float, ptr %1149, align 4
   %1151 = fpext float %1150 to double
-  %1152 = call double @llvm.fmuladd.f64(double %1146, double -1.000000e+00, double %1151)
+  %1152 = fsub double %1151, %1146
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1140, %._crit_edge322.i

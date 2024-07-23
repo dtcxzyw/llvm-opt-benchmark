@@ -26090,25 +26090,25 @@ define hidden noalias noundef ptr @par_shapes_create_disk(float noundef %0, i32 
   br i1 %exitcond.not, label %par_shapes__normalize3.exit, label %17
 
 par_shapes__normalize3.exit:                      ; preds = %17, %4
-  %33 = load float, ptr %3, align 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 4
-  %35 = load <2 x float>, ptr %34, align 4
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = load float, ptr %33, align 4
+  %35 = load <2 x float>, ptr %3, align 4
   %36 = fmul <2 x float> %35, %35
-  %37 = extractelement <2 x float> %36, i64 0
-  %38 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %37)
-  %39 = extractelement <2 x float> %35, i64 1
-  %40 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %38)
+  %37 = extractelement <2 x float> %36, i64 1
+  %38 = extractelement <2 x float> %35, i64 0
+  %39 = tail call float @llvm.fmuladd.f32(float %38, float %38, float %37)
+  %40 = tail call float @llvm.fmuladd.f32(float %34, float %34, float %39)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %40)
   %41 = fcmp ogt float %sqrt.i, 0.000000e+00
   %42 = fdiv float 1.000000e+00, %sqrt.i
-  %43 = fmul float %33, %42
-  %44 = insertelement <2 x float> poison, float %42, i64 0
-  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
-  %46 = fmul <2 x float> %35, %45
-  %.sroa.059.0 = select i1 %41, float %43, float %33
+  %43 = insertelement <2 x float> poison, float %42, i64 0
+  %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
+  %45 = fmul <2 x float> %35, %44
+  %46 = fmul float %34, %42
   %47 = insertelement <2 x i1> poison, i1 %41, i64 0
   %48 = shufflevector <2 x i1> %47, <2 x i1> poison, <2 x i32> zeroinitializer
-  %49 = select <2 x i1> %48, <2 x float> %46, <2 x float> %35
+  %49 = select <2 x i1> %48, <2 x float> %45, <2 x float> %35
+  %.sroa.10.0 = select i1 %41, float %46, float %34
   %50 = tail call noalias ptr @malloc(i64 noundef %11) #55
   %51 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %50, ptr %51, align 8
@@ -26118,10 +26118,10 @@ par_shapes__normalize3.exit:                      ; preds = %17, %4
 .lr.ph72:                                         ; preds = %par_shapes__normalize3.exit, %.lr.ph72
   %.05271 = phi i32 [ %54, %.lr.ph72 ], [ 0, %par_shapes__normalize3.exit ]
   %.05370 = phi ptr [ %53, %.lr.ph72 ], [ %50, %par_shapes__normalize3.exit ]
-  %52 = getelementptr inbounds i8, ptr %.05370, i64 4
-  store float %.sroa.059.0, ptr %.05370, align 4
+  %52 = getelementptr inbounds i8, ptr %.05370, i64 8
+  store <2 x float> %49, ptr %.05370, align 4
   %53 = getelementptr inbounds i8, ptr %.05370, i64 12
-  store <2 x float> %49, ptr %52, align 4
+  store float %.sroa.10.0, ptr %52, align 4
   %54 = add nuw i32 %.05271, 1
   %exitcond78.not = icmp eq i32 %.05271, %1
   br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph72
@@ -26156,38 +26156,39 @@ par_shapes__normalize3.exit:                      ; preds = %17, %4
   br i1 %exitcond79.not, label %._crit_edge77, label %.lr.ph76
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
-  %70 = extractelement <2 x float> %49, i64 1
-  %71 = fmul float %70, -0.000000e+00
-  %72 = insertelement <2 x float> poison, float %71, i64 0
-  %73 = insertelement <2 x float> %72, float %.sroa.059.0, i64 1
-  %74 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %49, <2 x float> <float -1.000000e+00, float 0.000000e+00>, <2 x float> %73)
-  %75 = extractelement <2 x float> %49, i64 0
-  %76 = fmul float %75, -0.000000e+00
-  %77 = tail call float @llvm.fmuladd.f32(float %.sroa.059.0, float 0.000000e+00, float %76)
-  store <2 x float> %74, ptr %5, align 8
+  %70 = fmul float %.sroa.10.0, -0.000000e+00
+  %71 = extractelement <2 x float> %49, i64 1
+  %72 = fsub float %70, %71
+  %73 = extractelement <2 x float> %49, i64 0
+  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.10.0, float 0.000000e+00, float %73)
+  %75 = fmul float %71, -0.000000e+00
+  %76 = tail call float @llvm.fmuladd.f32(float %73, float 0.000000e+00, float %75)
+  store float %72, ptr %5, align 8
+  %77 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %74, ptr %77, align 4
   %78 = getelementptr inbounds i8, ptr %5, i64 8
-  store float %77, ptr %78, align 8
-  %79 = fmul <2 x float> %74, %74
-  %80 = extractelement <2 x float> %79, i64 1
-  %81 = extractelement <2 x float> %74, i64 0
-  %82 = tail call float @llvm.fmuladd.f32(float %81, float %81, float %80)
-  %83 = tail call float @llvm.fmuladd.f32(float %77, float %77, float %82)
-  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %83)
-  %84 = fcmp ogt float %sqrt.i57, 0.000000e+00
-  br i1 %84, label %85, label %par_shapes__normalize3.exit58
+  store float %76, ptr %78, align 8
+  %79 = fmul float %74, %74
+  %80 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %79)
+  %81 = tail call float @llvm.fmuladd.f32(float %76, float %76, float %80)
+  %sqrt.i57 = tail call float @llvm.sqrt.f32(float %81)
+  %82 = fcmp ogt float %sqrt.i57, 0.000000e+00
+  br i1 %82, label %83, label %par_shapes__normalize3.exit58
 
-85:                                               ; preds = %._crit_edge77
-  %86 = fdiv float 1.000000e+00, %sqrt.i57
-  %87 = insertelement <2 x float> poison, float %86, i64 0
+83:                                               ; preds = %._crit_edge77
+  %84 = fdiv float 1.000000e+00, %sqrt.i57
+  %85 = insertelement <2 x float> poison, float %72, i64 0
+  %86 = insertelement <2 x float> %85, float %74, i64 1
+  %87 = insertelement <2 x float> poison, float %84, i64 0
   %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
-  %89 = fmul <2 x float> %74, %88
+  %89 = fmul <2 x float> %86, %88
   store <2 x float> %89, ptr %5, align 8
-  %90 = fmul float %77, %86
+  %90 = fmul float %76, %84
   store float %90, ptr %78, align 8
   br label %par_shapes__normalize3.exit58
 
-par_shapes__normalize3.exit58:                    ; preds = %._crit_edge77, %85
-  %91 = fpext float %70 to double
+par_shapes__normalize3.exit58:                    ; preds = %._crit_edge77, %83
+  %91 = fpext float %.sroa.10.0 to double
   %92 = tail call double @acos(double noundef %91) #53
   %93 = fptrunc double %92 to float
   call void @par_shapes_rotate(ptr noundef nonnull %6, float noundef %93, ptr noundef nonnull %5)

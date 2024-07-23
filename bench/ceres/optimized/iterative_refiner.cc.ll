@@ -779,7 +779,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS_3MapIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EE
   %.0.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %33 ], [ %93, %90 ], [ %81, %79 ], [ %88, %.lr.ph83.i.i.i.i.i.i.i.i.i.i ]
   %94 = load ptr, ptr %0, align 8
   %95 = load double, ptr %94, align 8
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i, double -1.000000e+00, double %95)
+  %96 = fsub double %95, %.0.i.i.i.i.i.i.i.i
   store double %96, ptr %94, align 8
   br label %_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_7ProductINS_3MapIKNS2_IdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEENS5_IS3_Li0ES9_EELi0EEENS0_13sub_assign_opIddEEEEvRT_RKT0_RKT1_.exit
 

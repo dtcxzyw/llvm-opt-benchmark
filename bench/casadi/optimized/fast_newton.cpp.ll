@@ -1654,7 +1654,7 @@ _ZN6casadi15casadi_norm_infIdEET_xPKS1_.exit:     ; preds = %.lr.ph.i, %5
   %55 = load double, ptr %.0912.i, align 8
   %56 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %57 = load double, ptr %.0813.i, align 8
-  %58 = tail call double @llvm.fmuladd.f64(double %55, double -1.000000e+00, double %57)
+  %58 = fsub double %57, %55
   store double %58, ptr %.0813.i, align 8
   %59 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i31 = icmp eq i64 %59, %47

@@ -3142,7 +3142,7 @@ define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef
   %39 = fmul float %36, 2.000000e+00
   %40 = fmul float %36, %39
   %41 = tail call float @llvm.fmuladd.f32(float %38, float %36, float %40)
-  %42 = tail call float @llvm.fmuladd.f32(float %36, float -1.000000e+00, float %41)
+  %42 = fsub float %41, %36
   %43 = fmul float %36, 3.000000e+00
   %44 = fmul float %36, %43
   %45 = fmul float %36, -5.000000e+00
@@ -3680,7 +3680,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %16 = fmul float %13, 2.000000e+00
   %17 = fmul float %13, %16
   %18 = tail call float @llvm.fmuladd.f32(float %15, float %13, float %17)
-  %19 = tail call float @llvm.fmuladd.f32(float %13, float -1.000000e+00, float %18)
+  %19 = fsub float %18, %13
   %20 = fmul float %13, 3.000000e+00
   %21 = fmul float %13, %20
   %22 = fmul float %13, -5.000000e+00
@@ -3799,7 +3799,7 @@ define <2 x float> @GetSplinePointCatmullRom(<2 x float> %0, <2 x float> %1, <2 
   %8 = fmul float %4, 2.000000e+00
   %9 = fmul float %8, %4
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %4, float %9)
-  %11 = tail call float @llvm.fmuladd.f32(float %4, float -1.000000e+00, float %10)
+  %11 = fsub float %10, %4
   %12 = fmul float %4, 3.000000e+00
   %13 = fmul float %12, %4
   %14 = fmul float %4, -5.000000e+00

@@ -5436,7 +5436,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i63:           ; preds = %.lr.ph.i.i.i.i57
   %127 = getelementptr inbounds i16, ptr %14, i64 %indvars.iv.i65
   %128 = load i16, ptr %127, align 2
   %129 = uitofp i16 %128 to double
-  %130 = call double @llvm.fmuladd.f64(double %123, double -1.000000e+00, double %129)
+  %130 = fsub double %129, %123
   %131 = call noundef double @llvm.fabs.f64(double %130)
   %132 = fcmp ogt double %131, %124
   br i1 %132, label %_ZN5ZXing9IsPatternILb0ELi10ELi10EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread, label %125

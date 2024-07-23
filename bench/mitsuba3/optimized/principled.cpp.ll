@@ -5055,7 +5055,7 @@ _ZN7mitsuba9luminanceINS_8SpectrumIfLm4EEEEEN5drjit6detail5valueIT_iE4typeERKS6_
 
 581:                                              ; preds = %546
   %582 = fmul contract float %572, 5.000000e-01
-  %583 = call contract <2 x float> @llvm.fma.v2f32(<2 x float> %557, <2 x float> <float -1.000000e+00, float -1.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %583 = fsub contract <2 x float> <float 1.000000e+00, float 1.000000e+00>, %557
   %584 = insertelement <2 x float> poison, float %582, i64 0
   %585 = shufflevector <2 x float> %584, <2 x float> poison, <2 x i32> zeroinitializer
   %586 = call contract <2 x float> @llvm.fma.v2f32(<2 x float> %585, <2 x float> %557, <2 x float> %583)
@@ -5234,7 +5234,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i.i.i778: ; preds = %676, %673, %_ZN7mi
   %698 = bitcast i8 %697 to <8 x i1>
   %699 = shufflevector <8 x i1> %698, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %700 = select contract <4 x i1> %699, <4 x float> %696, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %701 = call contract noundef float @llvm.fma.f32(float %637, float -1.000000e+00, float 1.000000e+00)
+  %701 = fsub contract float 1.000000e+00, %637
   %702 = insertelement <4 x float> poison, float %637, i64 0
   %703 = shufflevector <4 x float> %702, <4 x float> poison, <4 x i32> zeroinitializer
   %704 = insertelement <4 x float> poison, float %701, i64 0

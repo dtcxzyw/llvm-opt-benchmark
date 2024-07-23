@@ -65657,9 +65657,9 @@ if.end.i58.i:                                     ; preds = %if.end3.i65.i.i, %i
   %conv.i.i.i.i.i = fptosi float %div.i.i.i.i.i to i32
   %conv2.i.i.i.i.i = sitofp i32 %conv.i.i.i.i.i to float
   %sub.i.i.i.i.i = fsub float %div.i.i.i.i.i, %conv2.i.i.i.i.i
-  %85 = tail call float @llvm.fmuladd.f32(float %sub.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
-  %sub6.i.i.i.i.i = fsub float 1.000000e+00, %sub.i.i.i.i.i
-  %86 = tail call float @llvm.fmuladd.f32(float %sub6.i.i.i.i.i, float -1.000000e+00, float 1.000000e+00)
+  %85 = fsub float 1.000000e+00, %sub.i.i.i.i.i
+  %86 = fadd float %sub.i.i.i.i.i, -1.000000e+00
+  %87 = fadd float %86, 1.000000e+00
   switch i32 %conv.i.i.i.i.i, label %nk_hsv_f.exit.i.i [
     i32 5, label %sw.bb29.i.i.i.i.i
     i32 1, label %sw.bb13.i.i.i.i.i
@@ -65684,71 +65684,71 @@ sw.bb29.i.i.i.i.i:                                ; preds = %if.end.i58.i
   br label %nk_hsv_f.exit.i.i
 
 nk_hsv_f.exit.i.i:                                ; preds = %sw.bb29.i.i.i.i.i, %sw.bb25.i.i.i.i.i, %sw.bb21.i.i.i.i.i, %sw.bb17.i.i.i.i.i, %sw.bb13.i.i.i.i.i, %if.end.i58.i
-  %v.sink.i.i.i.i.i = phi float [ 1.000000e+00, %sw.bb29.i.i.i.i.i ], [ %86, %sw.bb25.i.i.i.i.i ], [ 0.000000e+00, %sw.bb21.i.i.i.i.i ], [ 0.000000e+00, %sw.bb17.i.i.i.i.i ], [ %85, %sw.bb13.i.i.i.i.i ], [ 1.000000e+00, %if.end.i58.i ]
-  %mul.sink.i.i.i.i.i = phi float [ 0.000000e+00, %sw.bb29.i.i.i.i.i ], [ 0.000000e+00, %sw.bb25.i.i.i.i.i ], [ %85, %sw.bb21.i.i.i.i.i ], [ 1.000000e+00, %sw.bb17.i.i.i.i.i ], [ 1.000000e+00, %sw.bb13.i.i.i.i.i ], [ %86, %if.end.i58.i ]
-  %mul5.sink.i.i.i.i.i = phi float [ %85, %sw.bb29.i.i.i.i.i ], [ 1.000000e+00, %sw.bb25.i.i.i.i.i ], [ 1.000000e+00, %sw.bb21.i.i.i.i.i ], [ %86, %sw.bb17.i.i.i.i.i ], [ 0.000000e+00, %sw.bb13.i.i.i.i.i ], [ 0.000000e+00, %if.end.i58.i ]
+  %v.sink.i.i.i.i.i = phi float [ 1.000000e+00, %sw.bb29.i.i.i.i.i ], [ %87, %sw.bb25.i.i.i.i.i ], [ 0.000000e+00, %sw.bb21.i.i.i.i.i ], [ 0.000000e+00, %sw.bb17.i.i.i.i.i ], [ %85, %sw.bb13.i.i.i.i.i ], [ 1.000000e+00, %if.end.i58.i ]
+  %mul.sink.i.i.i.i.i = phi float [ 0.000000e+00, %sw.bb29.i.i.i.i.i ], [ 0.000000e+00, %sw.bb25.i.i.i.i.i ], [ %85, %sw.bb21.i.i.i.i.i ], [ 1.000000e+00, %sw.bb17.i.i.i.i.i ], [ 1.000000e+00, %sw.bb13.i.i.i.i.i ], [ %87, %if.end.i58.i ]
+  %mul5.sink.i.i.i.i.i = phi float [ %85, %sw.bb29.i.i.i.i.i ], [ 1.000000e+00, %sw.bb25.i.i.i.i.i ], [ 1.000000e+00, %sw.bb21.i.i.i.i.i ], [ %87, %sw.bb17.i.i.i.i.i ], [ 0.000000e+00, %sw.bb13.i.i.i.i.i ], [ 0.000000e+00, %if.end.i58.i ]
   %cmp.i1.i.i.i.i = fcmp ogt float %v.sink.i.i.i.i.i, 1.000000e+00
   %cond.i.i.i.i.i = select i1 %cmp.i1.i.i.i.i, float 1.000000e+00, float %v.sink.i.i.i.i.i
   %cmp1.i.i.i.i.i = fcmp ogt float %cond.i.i.i.i.i, 0.000000e+00
-  %87 = fmul float %cond.i.i.i.i.i, 2.550000e+02
-  %88 = fptoui float %87 to i8
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i32 %89, -16777216
+  %88 = fmul float %cond.i.i.i.i.i, 2.550000e+02
+  %89 = fptoui float %88 to i8
+  %90 = zext i8 %89 to i32
+  %91 = or disjoint i32 %90, -16777216
   %cmp12.i.i.i.i.i = fcmp ogt float %mul.sink.i.i.i.i.i, 1.000000e+00
   %cond17.i.i.i.i.i = select i1 %cmp12.i.i.i.i.i, float 1.000000e+00, float %mul.sink.i.i.i.i.i
   %cmp18.i.i.i.i.i = fcmp ogt float %cond17.i.i.i.i.i, 0.000000e+00
-  %91 = fmul float %cond17.i.i.i.i.i, 2.550000e+02
-  %92 = fptoui float %91 to i8
-  %93 = zext i8 %92 to i32
-  %94 = shl nuw nsw i32 %93, 8
-  %cond29.i.i.i.i.i = select i1 %cmp18.i.i.i.i.i, i32 %94, i32 0
+  %92 = fmul float %cond17.i.i.i.i.i, 2.550000e+02
+  %93 = fptoui float %92 to i8
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 8
+  %cond29.i.i.i.i.i = select i1 %cmp18.i.i.i.i.i, i32 %95, i32 0
   %cmp33.i.i.i.i.i = fcmp ogt float %mul5.sink.i.i.i.i.i, 1.000000e+00
   %cond38.i.i.i.i.i = select i1 %cmp33.i.i.i.i.i, float 1.000000e+00, float %mul5.sink.i.i.i.i.i
   %cmp39.i.i.i.i.i = fcmp ogt float %cond38.i.i.i.i.i, 0.000000e+00
-  %95 = fmul float %cond38.i.i.i.i.i, 2.550000e+02
-  %96 = fptoui float %95 to i8
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 16
-  %cond50.i.i.i.i.i = select i1 %cmp39.i.i.i.i.i, i32 %98, i32 0
-  %retval.sroa.3.0.insert.insert.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 %90, i32 -16777216
+  %96 = fmul float %cond38.i.i.i.i.i, 2.550000e+02
+  %97 = fptoui float %96 to i8
+  %98 = zext i8 %97 to i32
+  %99 = shl nuw nsw i32 %98, 16
+  %cond50.i.i.i.i.i = select i1 %cmp39.i.i.i.i.i, i32 %99, i32 0
+  %retval.sroa.3.0.insert.insert.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i, i32 %91, i32 -16777216
   %retval.sroa.2.0.insert.insert.i.i.i.i.i = or disjoint i32 %cond29.i.i.i.i.i, %retval.sroa.3.0.insert.insert.i.i.i.i.i
   %retval.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i.i.i.i, %cond50.i.i.i.i.i
   tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %8, <2 x float> %matrix.sroa.10.8.vec.insert.i, i32 -1, i32 %retval.sroa.0.0.insert.insert.i.i.i.i.i, i32 %retval.sroa.0.0.insert.insert.i.i.i.i.i, i32 -1)
   tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %buffer, <2 x float> %8, <2 x float> %matrix.sroa.10.8.vec.insert.i, i32 0, i32 0, i32 -16777216, i32 -16777216)
-  %99 = tail call float @llvm.fmuladd.f32(float %div41.i.i.i53.i, float %sub.i, float %10)
-  %conv62.i.i = fptosi float %99 to i32
+  %100 = tail call float @llvm.fmuladd.f32(float %div41.i.i.i53.i, float %sub.i, float %10)
+  %conv62.i.i = fptosi float %100 to i32
   %conv63.i.i = sitofp i32 %conv62.i.i to float
   %sub66.i.i = fsub float 1.000000e+00, %in.sroa.0.0.vec.extract11.i.i.i37.i
-  %100 = tail call float @llvm.fmuladd.f32(float %sub66.i.i, float %bounds.sroa.11.12.vec.extract.i, float %66)
-  %conv68.i.i = fptosi float %100 to i32
+  %101 = tail call float @llvm.fmuladd.f32(float %sub66.i.i, float %bounds.sroa.11.12.vec.extract.i, float %66)
+  %conv68.i.i = fptosi float %101 to i32
   %conv69.i.i = sitofp i32 %conv68.i.i to float
-  %101 = load ptr, ptr %buffer, align 8
-  %call.i.i93.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %101, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %102 = load ptr, ptr %buffer, align 8
+  %call.i.i93.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %102, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i94.i.i = icmp eq ptr %call.i.i93.i.i, null
   br i1 %tobool1.not.i.i94.i.i, label %if.end.i122.i.i, label %if.end3.i95.i.i
 
 if.end3.i95.i.i:                                  ; preds = %nk_hsv_f.exit.i.i
   %sub75.i.i = fadd float %conv63.i.i, -2.000000e+00
   %sub72.i.i = fadd float %conv63.i.i, -7.000000e+00
-  %102 = load ptr, ptr %buffer, align 8
-  %memory5.i.i96.i.i = getelementptr inbounds i8, ptr %102, i64 64
-  %103 = load ptr, ptr %memory5.i.i96.i.i, align 8
+  %103 = load ptr, ptr %buffer, align 8
+  %memory5.i.i96.i.i = getelementptr inbounds i8, ptr %103, i64 64
+  %104 = load ptr, ptr %memory5.i.i96.i.i, align 8
   %sub.ptr.lhs.cast.i.i97.i.i = ptrtoint ptr %call.i.i93.i.i to i64
-  %sub.ptr.rhs.cast.i.i98.i.i = ptrtoint ptr %103 to i64
+  %sub.ptr.rhs.cast.i.i98.i.i = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i99.i.i = sub i64 %sub.ptr.lhs.cast.i.i97.i.i, %sub.ptr.rhs.cast.i.i98.i.i
   %last.i.i100.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i99.i.i, ptr %last.i.i100.i.i, align 8
   %add.ptr.i.i101.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 32
   %add.ptr6.i.i102.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 39
-  %104 = ptrtoint ptr %add.ptr6.i.i102.i.i to i64
-  %and.i.i103.i.i = and i64 %104, -8
+  %105 = ptrtoint ptr %add.ptr6.i.i102.i.i to i64
+  %and.i.i103.i.i = and i64 %105, -8
   %sub.ptr.rhs.cast8.i.i104.i.i = ptrtoint ptr %add.ptr.i.i101.i.i to i64
   %sub.ptr.sub9.i.i105.i.i = sub i64 %and.i.i103.i.i, %sub.ptr.rhs.cast8.i.i104.i.i
   store i32 2, ptr %call.i.i93.i.i, align 8
-  %105 = load ptr, ptr %buffer, align 8
-  %allocated.i.i106.i.i = getelementptr inbounds i8, ptr %105, i64 88
-  %106 = load i64, ptr %allocated.i.i106.i.i, align 8
-  %add.i.i107.i.i = add i64 %106, %sub.ptr.sub9.i.i105.i.i
+  %106 = load ptr, ptr %buffer, align 8
+  %allocated.i.i106.i.i = getelementptr inbounds i8, ptr %106, i64 88
+  %107 = load i64, ptr %allocated.i.i106.i.i, align 8
+  %add.i.i107.i.i = add i64 %107, %sub.ptr.sub9.i.i105.i.i
   %next.i.i108.i.i = getelementptr inbounds i8, ptr %call.i.i93.i.i, i64 8
   store i64 %add.i.i107.i.i, ptr %next.i.i108.i.i, align 8
   %end.i.i109.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65771,8 +65771,8 @@ if.end3.i95.i.i:                                  ; preds = %nk_hsv_f.exit.i.i
   br label %if.end.i122.i.i
 
 if.end.i122.i.i:                                  ; preds = %if.end3.i95.i.i, %nk_hsv_f.exit.i.i
-  %107 = load ptr, ptr %buffer, align 8
-  %call.i.i123.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %107, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %108 = load ptr, ptr %buffer, align 8
+  %call.i.i123.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %108, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i124.i.i = icmp eq ptr %call.i.i123.i.i, null
   br i1 %tobool1.not.i.i124.i.i, label %if.end.i152.i.i, label %if.end3.i125.i.i
 
@@ -65780,25 +65780,25 @@ if.end3.i125.i.i:                                 ; preds = %if.end.i122.i.i
   %add82214.i.i = fadd float %conv63.i.i, 3.000000e+00
   %add78212.i.i = fadd float %conv63.i.i, 7.000000e+00
   %add79213.i.i = fadd float %add78212.i.i, 1.000000e+00
-  %108 = load ptr, ptr %buffer, align 8
-  %memory5.i.i126.i.i = getelementptr inbounds i8, ptr %108, i64 64
-  %109 = load ptr, ptr %memory5.i.i126.i.i, align 8
+  %109 = load ptr, ptr %buffer, align 8
+  %memory5.i.i126.i.i = getelementptr inbounds i8, ptr %109, i64 64
+  %110 = load ptr, ptr %memory5.i.i126.i.i, align 8
   %sub.ptr.lhs.cast.i.i127.i.i = ptrtoint ptr %call.i.i123.i.i to i64
-  %sub.ptr.rhs.cast.i.i128.i.i = ptrtoint ptr %109 to i64
+  %sub.ptr.rhs.cast.i.i128.i.i = ptrtoint ptr %110 to i64
   %sub.ptr.sub.i.i129.i.i = sub i64 %sub.ptr.lhs.cast.i.i127.i.i, %sub.ptr.rhs.cast.i.i128.i.i
   %last.i.i130.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i129.i.i, ptr %last.i.i130.i.i, align 8
   %add.ptr.i.i131.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 32
   %add.ptr6.i.i132.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 39
-  %110 = ptrtoint ptr %add.ptr6.i.i132.i.i to i64
-  %and.i.i133.i.i = and i64 %110, -8
+  %111 = ptrtoint ptr %add.ptr6.i.i132.i.i to i64
+  %and.i.i133.i.i = and i64 %111, -8
   %sub.ptr.rhs.cast8.i.i134.i.i = ptrtoint ptr %add.ptr.i.i131.i.i to i64
   %sub.ptr.sub9.i.i135.i.i = sub i64 %and.i.i133.i.i, %sub.ptr.rhs.cast8.i.i134.i.i
   store i32 2, ptr %call.i.i123.i.i, align 8
-  %111 = load ptr, ptr %buffer, align 8
-  %allocated.i.i136.i.i = getelementptr inbounds i8, ptr %111, i64 88
-  %112 = load i64, ptr %allocated.i.i136.i.i, align 8
-  %add.i.i137.i.i = add i64 %112, %sub.ptr.sub9.i.i135.i.i
+  %112 = load ptr, ptr %buffer, align 8
+  %allocated.i.i136.i.i = getelementptr inbounds i8, ptr %112, i64 88
+  %113 = load i64, ptr %allocated.i.i136.i.i, align 8
+  %add.i.i137.i.i = add i64 %113, %sub.ptr.sub9.i.i135.i.i
   %next.i.i138.i.i = getelementptr inbounds i8, ptr %call.i.i123.i.i, i64 8
   store i64 %add.i.i137.i.i, ptr %next.i.i138.i.i, align 8
   %end.i.i139.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65821,8 +65821,8 @@ if.end3.i125.i.i:                                 ; preds = %if.end.i122.i.i
   br label %if.end.i152.i.i
 
 if.end.i152.i.i:                                  ; preds = %if.end3.i125.i.i, %if.end.i122.i.i
-  %113 = load ptr, ptr %buffer, align 8
-  %call.i.i153.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %113, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %114 = load ptr, ptr %buffer, align 8
+  %call.i.i153.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %114, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i154.i.i = icmp eq ptr %call.i.i153.i.i, null
   br i1 %tobool1.not.i.i154.i.i, label %if.end.i182.i.i, label %if.end3.i155.i.i
 
@@ -65830,25 +65830,25 @@ if.end3.i155.i.i:                                 ; preds = %if.end.i152.i.i
   %add90219.i.i = fadd float %conv69.i.i, 3.000000e+00
   %add86217.i.i = fadd float %conv69.i.i, 7.000000e+00
   %add87218.i.i = fadd float %add86217.i.i, 1.000000e+00
-  %114 = load ptr, ptr %buffer, align 8
-  %memory5.i.i156.i.i = getelementptr inbounds i8, ptr %114, i64 64
-  %115 = load ptr, ptr %memory5.i.i156.i.i, align 8
+  %115 = load ptr, ptr %buffer, align 8
+  %memory5.i.i156.i.i = getelementptr inbounds i8, ptr %115, i64 64
+  %116 = load ptr, ptr %memory5.i.i156.i.i, align 8
   %sub.ptr.lhs.cast.i.i157.i.i = ptrtoint ptr %call.i.i153.i.i to i64
-  %sub.ptr.rhs.cast.i.i158.i.i = ptrtoint ptr %115 to i64
+  %sub.ptr.rhs.cast.i.i158.i.i = ptrtoint ptr %116 to i64
   %sub.ptr.sub.i.i159.i.i = sub i64 %sub.ptr.lhs.cast.i.i157.i.i, %sub.ptr.rhs.cast.i.i158.i.i
   %last.i.i160.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i159.i.i, ptr %last.i.i160.i.i, align 8
   %add.ptr.i.i161.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 32
   %add.ptr6.i.i162.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 39
-  %116 = ptrtoint ptr %add.ptr6.i.i162.i.i to i64
-  %and.i.i163.i.i = and i64 %116, -8
+  %117 = ptrtoint ptr %add.ptr6.i.i162.i.i to i64
+  %and.i.i163.i.i = and i64 %117, -8
   %sub.ptr.rhs.cast8.i.i164.i.i = ptrtoint ptr %add.ptr.i.i161.i.i to i64
   %sub.ptr.sub9.i.i165.i.i = sub i64 %and.i.i163.i.i, %sub.ptr.rhs.cast8.i.i164.i.i
   store i32 2, ptr %call.i.i153.i.i, align 8
-  %117 = load ptr, ptr %buffer, align 8
-  %allocated.i.i166.i.i = getelementptr inbounds i8, ptr %117, i64 88
-  %118 = load i64, ptr %allocated.i.i166.i.i, align 8
-  %add.i.i167.i.i = add i64 %118, %sub.ptr.sub9.i.i165.i.i
+  %118 = load ptr, ptr %buffer, align 8
+  %allocated.i.i166.i.i = getelementptr inbounds i8, ptr %118, i64 88
+  %119 = load i64, ptr %allocated.i.i166.i.i, align 8
+  %add.i.i167.i.i = add i64 %119, %sub.ptr.sub9.i.i165.i.i
   %next.i.i168.i.i = getelementptr inbounds i8, ptr %call.i.i153.i.i, i64 8
   store i64 %add.i.i167.i.i, ptr %next.i.i168.i.i, align 8
   %end.i.i169.i.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -65871,33 +65871,33 @@ if.end3.i155.i.i:                                 ; preds = %if.end.i152.i.i
   br label %if.end.i182.i.i
 
 if.end.i182.i.i:                                  ; preds = %if.end3.i155.i.i, %if.end.i152.i.i
-  %119 = load ptr, ptr %buffer, align 8
-  %call.i.i183.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %119, i32 noundef 0, i64 noundef 32, i64 noundef 8)
+  %120 = load ptr, ptr %buffer, align 8
+  %call.i.i183.i.i = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %120, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %tobool1.not.i.i184.i.i = icmp eq ptr %call.i.i183.i.i, null
   br i1 %tobool1.not.i.i184.i.i, label %return, label %if.end3.i185.i.i
 
 if.end3.i185.i.i:                                 ; preds = %if.end.i182.i.i
   %sub96223.i.i = fadd float %conv69.i.i, -2.000000e+00
   %sub93222.i.i = fadd float %conv69.i.i, -7.000000e+00
-  %120 = load ptr, ptr %buffer, align 8
-  %memory5.i.i186.i.i = getelementptr inbounds i8, ptr %120, i64 64
-  %121 = load ptr, ptr %memory5.i.i186.i.i, align 8
+  %121 = load ptr, ptr %buffer, align 8
+  %memory5.i.i186.i.i = getelementptr inbounds i8, ptr %121, i64 64
+  %122 = load ptr, ptr %memory5.i.i186.i.i, align 8
   %sub.ptr.lhs.cast.i.i187.i.i = ptrtoint ptr %call.i.i183.i.i to i64
-  %sub.ptr.rhs.cast.i.i188.i.i = ptrtoint ptr %121 to i64
+  %sub.ptr.rhs.cast.i.i188.i.i = ptrtoint ptr %122 to i64
   %sub.ptr.sub.i.i189.i.i = sub i64 %sub.ptr.lhs.cast.i.i187.i.i, %sub.ptr.rhs.cast.i.i188.i.i
   %last.i.i190.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %sub.ptr.sub.i.i189.i.i, ptr %last.i.i190.i.i, align 8
   %add.ptr.i.i191.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 32
   %add.ptr6.i.i192.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 39
-  %122 = ptrtoint ptr %add.ptr6.i.i192.i.i to i64
-  %and.i.i193.i.i = and i64 %122, -8
+  %123 = ptrtoint ptr %add.ptr6.i.i192.i.i to i64
+  %and.i.i193.i.i = and i64 %123, -8
   %sub.ptr.rhs.cast8.i.i194.i.i = ptrtoint ptr %add.ptr.i.i191.i.i to i64
   %sub.ptr.sub9.i.i195.i.i = sub i64 %and.i.i193.i.i, %sub.ptr.rhs.cast8.i.i194.i.i
   store i32 2, ptr %call.i.i183.i.i, align 8
-  %123 = load ptr, ptr %buffer, align 8
-  %allocated.i.i196.i.i = getelementptr inbounds i8, ptr %123, i64 88
-  %124 = load i64, ptr %allocated.i.i196.i.i, align 8
-  %add.i.i197.i.i = add i64 %124, %sub.ptr.sub9.i.i195.i.i
+  %124 = load ptr, ptr %buffer, align 8
+  %allocated.i.i196.i.i = getelementptr inbounds i8, ptr %124, i64 88
+  %125 = load i64, ptr %allocated.i.i196.i.i, align 8
+  %add.i.i197.i.i = add i64 %125, %sub.ptr.sub9.i.i195.i.i
   %next.i.i198.i.i = getelementptr inbounds i8, ptr %call.i.i183.i.i, i64 8
   store i64 %add.i.i197.i.i, ptr %next.i.i198.i.i, align 8
   %end.i.i199.i.i = getelementptr inbounds i8, ptr %0, i64 152

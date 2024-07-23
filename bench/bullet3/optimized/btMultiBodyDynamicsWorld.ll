@@ -4926,7 +4926,7 @@ for.body.i.i92:                                   ; preds = %_Z7btClampIfEvRT_RK
   %41 = load ptr, ptr %m_data.i.i.i90, align 8
   %arrayidx.i.i.i95 = getelementptr inbounds float, ptr %41, i64 %indvars.iv.i.i93
   %42 = load float, ptr %arrayidx.i.i.i95, align 4
-  %43 = call float @llvm.fmuladd.f32(float %40, float -1.000000e+00, float %42)
+  %43 = fsub float %42, %40
   store float %43, ptr %arrayidx.i.i.i95, align 4
   %44 = load ptr, ptr %m_data.i.i.i90, align 8
   %arrayidx.i7.i.i96 = getelementptr inbounds float, ptr %44, i64 %indvars.iv.i.i93

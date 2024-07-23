@@ -489,7 +489,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %304 = tail call double @llvm.fmuladd.f64(double %298, double %300, double %303)
   %305 = fdiv double %304, %sqrt.i64
   %306 = load double, ptr %.val61, align 8
-  %307 = tail call double @llvm.fmuladd.f64(double %305, double -1.000000e+00, double %306)
+  %307 = fsub double %306, %305
   store double %307, ptr %.val61, align 8
   %308 = getelementptr inbounds i8, ptr %.val61, i64 8
   %309 = load <2 x double>, ptr %308, align 8

@@ -261,7 +261,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i
   %83 = getelementptr inbounds i16, ptr %62, i64 %indvars.iv.i.i.i
   %84 = load i16, ptr %83, align 2
   %85 = uitofp i16 %84 to double
-  %86 = call double @llvm.fmuladd.f64(double %76, double -1.000000e+00, double %85)
+  %86 = fsub double %85, %76
   %87 = call noundef double @llvm.fabs.f64(double %86)
   %88 = fcmp ogt double %87, %80
   br i1 %88, label %.thread, label %81
@@ -296,7 +296,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %97 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv.i.i
   %98 = load i16, ptr %97, align 2
   %99 = uitofp i16 %98 to double
-  %100 = call double @llvm.fmuladd.f64(double %93, double -1.000000e+00, double %99)
+  %100 = fsub double %99, %93
   %101 = call noundef double @llvm.fabs.f64(double %100)
   %102 = fcmp ogt double %101, %94
   br i1 %102, label %.thread, label %95
@@ -707,7 +707,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i.i38:       ; preds = %.lr.ph.i.i.i.i.i.i3
   %238 = getelementptr inbounds i16, ptr %.ptr115.i, i64 %indvars.iv.i.i.i39
   %239 = load i16, ptr %238, align 2
   %240 = uitofp i16 %239 to double
-  %241 = call double @llvm.fmuladd.f64(double %231, double -1.000000e+00, double %240)
+  %241 = fsub double %240, %231
   %242 = call noundef double @llvm.fabs.f64(double %241)
   %243 = fcmp ogt double %242, %235
   br i1 %243, label %.thread286, label %236
@@ -742,7 +742,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i49:         ; preds = %.lr.ph.i.i.i.i.i43
   %252 = getelementptr inbounds i16, ptr %.ptr114.i, i64 %indvars.iv.i.i50
   %253 = load i16, ptr %252, align 2
   %254 = uitofp i16 %253 to double
-  %255 = call double @llvm.fmuladd.f64(double %248, double -1.000000e+00, double %254)
+  %255 = fsub double %254, %248
   %256 = call noundef double @llvm.fabs.f64(double %255)
   %257 = fcmp ogt double %256, %249
   br i1 %257, label %.thread286, label %250
@@ -1157,7 +1157,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i.i106:      ; preds = %.lr.ph.i.i.i.i.i.i1
   %393 = getelementptr inbounds i16, ptr %.ptr39.i, i64 %indvars.iv.i.i.i107
   %394 = load i16, ptr %393, align 2
   %395 = uitofp i16 %394 to double
-  %396 = call double @llvm.fmuladd.f64(double %386, double -1.000000e+00, double %395)
+  %396 = fsub double %395, %386
   %397 = call noundef double @llvm.fabs.f64(double %396)
   %398 = fcmp ogt double %397, %390
   br i1 %398, label %.thread289, label %391
@@ -2529,7 +2529,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i29:           ; preds = %.lr.ph.i.i.i.i23
   %63 = getelementptr inbounds i16, ptr %spec.select, i64 %indvars.iv.i31
   %64 = load i16, ptr %63, align 2
   %65 = uitofp i16 %64 to double
-  %66 = call double @llvm.fmuladd.f64(double %25, double -1.000000e+00, double %65)
+  %66 = fsub double %65, %25
   %67 = call noundef double @llvm.fabs.f64(double %66)
   %68 = fcmp ogt double %67, %26
   br i1 %68, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %60

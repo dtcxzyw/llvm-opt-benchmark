@@ -242,7 +242,7 @@ define internal { double, double } @_ZL14geos_e_inverse5PJ_XYP8PJconsts(double %
   %48 = fmul double %32, 2.000000e+00
   %49 = fdiv double %47, %48
   %50 = load double, ptr %33, align 8
-  %51 = tail call double @llvm.fmuladd.f64(double %49, double -1.000000e+00, double %50)
+  %51 = fsub double %50, %49
   %52 = fmul double %.042, %49
   %53 = fmul double %.0, %49
   %54 = tail call double @atan2(double noundef %52, double noundef %51) #9
@@ -408,7 +408,7 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   %45 = fmul double %29, 2.000000e+00
   %46 = fdiv double %44, %45
   %47 = load double, ptr %30, align 8
-  %48 = tail call double @llvm.fmuladd.f64(double %46, double -1.000000e+00, double %47)
+  %48 = fsub double %47, %46
   %49 = fmul double %.0, %46
   %50 = fmul double %.041, %46
   %51 = tail call double @atan2(double noundef %49, double noundef %48) #9

@@ -5821,7 +5821,7 @@ _ZNK11colvar_gridIdE5valueERKSt6vectorIiSaIiEERKm.exit: ; preds = %135, %.lr.ph1
   %159 = load ptr, ptr %gep156, align 8
   %160 = getelementptr inbounds %class.colvarvalue, ptr %159, i64 %storemerge60113, i32 1
   %161 = load double, ptr %160, align 8
-  %162 = tail call double @llvm.fmuladd.f64(double %158, double -1.000000e+00, double %161)
+  %162 = fsub double %161, %158
   store double %162, ptr %160, align 8
   %163 = load i64, ptr %3, align 8
   %164 = add i64 %163, 1

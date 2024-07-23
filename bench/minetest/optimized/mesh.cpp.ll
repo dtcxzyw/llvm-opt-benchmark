@@ -2542,7 +2542,7 @@ for.body20.i.i.i.epil:                            ; preds = %for.cond.cleanup19.
   %8 = tail call nsz float @llvm.fmuladd.f32(float %6, float 0xBE6777A5C0000000, float %7)
   store float %8, ptr %add.ptr.i.i.i.epil, align 4, !tbaa !14
   %mul7.i.i.i.i.epil = fmul nsz float %7, 0xBE6777A5C0000000
-  %9 = tail call nsz float @llvm.fmuladd.f32(float %6, float -1.000000e+00, float %mul7.i.i.i.i.epil)
+  %9 = fsub nsz float %mul7.i.i.i.i.epil, %6
   store float %9, ptr %memptr.offset3.i.i.i.i.epil, align 4, !tbaa !14
   br label %for.cond.cleanup19.i.i.i
 
@@ -2562,7 +2562,7 @@ for.body20.i.i.i:                                 ; preds = %for.body20.i.i.i, %
   %12 = tail call nsz float @llvm.fmuladd.f32(float %10, float 0xBE6777A5C0000000, float %11)
   store float %12, ptr %add.ptr.i.i.i, align 4, !tbaa !14
   %mul7.i.i.i.i = fmul nsz float %11, 0xBE6777A5C0000000
-  %13 = tail call nsz float @llvm.fmuladd.f32(float %10, float -1.000000e+00, float %mul7.i.i.i.i)
+  %13 = fsub nsz float %mul7.i.i.i.i, %10
   store float %13, ptr %memptr.offset3.i.i.i.i, align 4, !tbaa !14
   %indvars.iv.next.i.i.i = or disjoint i64 %indvars.iv.i.i.i, 1
   %mul.i.i.i.1 = mul nuw nsw i64 %indvars.iv.next.i.i.i, %switch.select3.i.i.i.i
@@ -2574,7 +2574,7 @@ for.body20.i.i.i:                                 ; preds = %for.body20.i.i.i, %
   %16 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0xBE6777A5C0000000, float %15)
   store float %16, ptr %add.ptr.i.i.i.1, align 4, !tbaa !14
   %mul7.i.i.i.i.1 = fmul nsz float %15, 0xBE6777A5C0000000
-  %17 = tail call nsz float @llvm.fmuladd.f32(float %14, float -1.000000e+00, float %mul7.i.i.i.i.1)
+  %17 = fsub nsz float %mul7.i.i.i.i.1, %14
   store float %17, ptr %memptr.offset3.i.i.i.i.1, align 4, !tbaa !14
   %indvars.iv.next.i.i.i.1 = add nuw i64 %indvars.iv.i.i.i, 2
   %niter327.ncmp.1 = icmp eq i64 %indvars.iv.next.i.i.i.1, %unroll_iter326
@@ -2631,7 +2631,7 @@ for.body20.i.i.i44:                               ; preds = %for.body20.i.i.i44,
   %memptr.offset3.i.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr.i.i.i48, i64 8
   %24 = load float, ptr %memptr.offset3.i.i.i.i49, align 4, !tbaa !14
   %neg.i.i.i.i = fmul nsz float %24, 0x3E7777A5C0000000
-  %25 = tail call nsz float @llvm.fmuladd.f32(float %23, float -1.000000e+00, float %neg.i.i.i.i)
+  %25 = fsub nsz float %neg.i.i.i.i, %23
   store float %25, ptr %add.ptr.i.i.i48, align 4, !tbaa !14
   %mul7.i.i.i.i50 = fneg nsz float %24
   %26 = tail call nsz float @llvm.fmuladd.f32(float %23, float 0xBE7777A5C0000000, float %mul7.i.i.i.i50)

@@ -786,7 +786,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %318 = getelementptr inbounds i16, ptr %.sroa.0197.0, i64 %indvars.iv.i.i
   %319 = load i16, ptr %318, align 2
   %320 = uitofp i16 %319 to double
-  %321 = tail call double @llvm.fmuladd.f64(double %311, double -1.000000e+00, double %320)
+  %321 = fsub double %320, %311
   %322 = tail call noundef double @llvm.fabs.f64(double %321)
   %323 = fcmp ogt double %322, %315
   br i1 %323, label %_ZN5ZXing4OneD12_GLOBAL__N_19IsPatternILi5ELi5EEEbRNS_11PatternViewERKNS_12FixedPatternIXT_EXT0_ELb0EEEf.exit.thread209, label %316

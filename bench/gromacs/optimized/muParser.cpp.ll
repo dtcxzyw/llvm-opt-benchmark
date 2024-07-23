@@ -2165,7 +2165,7 @@ define noundef double @_ZNK2mu6Parser4DiffEPddd(ptr noundef nonnull align 8 dere
   %14 = fadd double %.0, %2
   store double %14, ptr %1, align 8
   %15 = tail call noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 dereferenceable(596) %0)
-  %16 = tail call double @llvm.fmuladd.f64(double %.0, double -1.000000e+00, double %2)
+  %16 = fsub double %2, %.0
   store double %16, ptr %1, align 8
   %17 = tail call noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 dereferenceable(596) %0)
   %18 = tail call double @llvm.fmuladd.f64(double %.0, double -2.000000e+00, double %2)

@@ -763,8 +763,8 @@ define weak_odr void @_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %.sroa.9.0.copyload = load <4 x float>, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 192
   %.sroa.13.0.copyload = load <4 x float>, ptr %.sroa.13.0..sroa_idx, align 16
-  %5 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0175.0.copyload, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, <4 x float> %.sroa.13.0.copyload)
-  %6 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.5.0.copyload, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, <4 x float> %5)
+  %5 = fsub contract <4 x float> %.sroa.13.0.copyload, %.sroa.0175.0.copyload
+  %6 = fsub contract <4 x float> %5, %.sroa.5.0.copyload
   %7 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.9.0.copyload, <4 x float> zeroinitializer, <4 x float> %6)
   %8 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %7, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>)
   %9 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %7, <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>)
@@ -773,7 +773,7 @@ define weak_odr void @_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %12 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %11, <4 x float> %8)
   %13 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %11, <4 x float> %9)
   %14 = fadd contract <4 x float> %.sroa.0175.0.copyload, %.sroa.13.0.copyload
-  %15 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.5.0.copyload, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, <4 x float> %14)
+  %15 = fsub contract <4 x float> %14, %.sroa.5.0.copyload
   %16 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.9.0.copyload, <4 x float> zeroinitializer, <4 x float> %15)
   %17 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %16, <4 x float> %12)
   %18 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %16, <4 x float> %13)

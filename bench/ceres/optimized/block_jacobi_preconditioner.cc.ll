@@ -3886,7 +3886,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin
   %.0.i.i.i.i.i.i.i.i.i.i130.i.i.i = phi double [ %731, %728 ], [ %720, %718 ], [ %726, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i126.i.i.i ]
   %732 = load ptr, ptr %10, align 8
   %733 = load double, ptr %732, align 8
-  %734 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i.i130.i.i.i, double -1.000000e+00, double %733)
+  %734 = fsub double %733, %.0.i.i.i.i.i.i.i.i.i.i130.i.i.i
   store double %734, ptr %732, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS3_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS3_Li1ELin1ELb0EEEEELi0EEEEERS4_RKNS5_IT_EE.exit.i.i.i.i
 
@@ -4195,7 +4195,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %881, %878 ], [ %870, %868 ], [ %876, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %882 = load ptr, ptr %14, align 8
   %883 = load double, ptr %882, align 8
-  %884 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, double -1.000000e+00, double %883)
+  %884 = fsub double %883, %.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   store double %884, ptr %882, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS4_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS4_Li1ELin1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit.i.i.i.i
 
@@ -13470,7 +13470,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin
   %.0.i.i.i.i.i.i.i.i.i = phi double [ %132, %129 ], [ %121, %119 ], [ %127, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i ]
   %133 = load ptr, ptr %5, align 8
   %134 = load double, ptr %133, align 8
-  %135 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i, double -1.000000e+00, double %134)
+  %135 = fsub double %134, %.0.i.i.i.i.i.i.i.i.i
   store double %135, ptr %133, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS3_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS3_Li1ELin1ELb0EEEEELi0EEEEERS4_RKNS5_IT_EE.exit
 
@@ -13800,7 +13800,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %.0.i.i.i.i.i.i.i.i.i = phi double [ %139, %136 ], [ %128, %126 ], [ %134, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i ]
   %140 = load ptr, ptr %5, align 8
   %141 = load double, ptr %140, align 8
-  %142 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i, double -1.000000e+00, double %141)
+  %142 = fsub double %141, %.0.i.i.i.i.i.i.i.i.i
   store double %142, ptr %140, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS4_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS4_Li1ELin1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit
 
@@ -18662,7 +18662,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin
   %.0.i.i.i.i.i.i.i.i.i.i132 = phi double [ %428, %425 ], [ %417, %415 ], [ %423, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i128 ]
   %429 = load ptr, ptr %6, align 8
   %430 = load double, ptr %429, align 8
-  %431 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i.i132, double -1.000000e+00, double %430)
+  %431 = fsub double %430, %.0.i.i.i.i.i.i.i.i.i.i132
   store double %431, ptr %429, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS3_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS3_Li1ELin1ELb0EEEEELi0EEEEERS4_RKNS5_IT_EE.exit.i
 
@@ -18971,7 +18971,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %.0.i.i.i.i.i.i.i.i.i.i = phi double [ %578, %575 ], [ %567, %565 ], [ %573, %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i ]
   %579 = load ptr, ptr %10, align 8
   %580 = load double, ptr %579, align 8
-  %581 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i.i.i.i.i, double -1.000000e+00, double %580)
+  %581 = fsub double %580, %.0.i.i.i.i.i.i.i.i.i.i
   store double %581, ptr %579, align 8
   br label %_ZN5Eigen7NoAliasINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELi1ELb0EEENS_10MatrixBaseEEmIINS_7ProductINS1_IS4_Lin1ELin1ELb0EEENS_9TransposeIKNS1_IS4_Li1ELin1ELb0EEEEELi0EEEEERS5_RKNS6_IT_EE.exit.i
 
