@@ -1888,7 +1888,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface4resFEdP17_generic
   %54 = load double, ptr %.0912.i, align 8
   %55 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %56 = load double, ptr %.0813.i, align 8
-  %57 = tail call double @llvm.fmuladd.f64(double %54, double -1.000000e+00, double %56)
+  %57 = fsub double %56, %54
   store double %57, ptr %.0813.i, align 8
   %58 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %58, %43
@@ -4772,7 +4772,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit163:        ; preds = %_ZN6casadi12casadi_
   %168 = load double, ptr %.0912.i, align 8
   %169 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %170 = load double, ptr %.0813.i, align 8
-  %171 = tail call double @llvm.fmuladd.f64(double %168, double -1.000000e+00, double %170)
+  %171 = fsub double %170, %168
   store double %171, ptr %.0813.i, align 8
   %172 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i166 = icmp eq i64 %172, %159
@@ -4810,7 +4810,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
   %185 = load double, ptr %.0912.i172, align 8
   %186 = getelementptr inbounds i8, ptr %.0813.i171, i64 8
   %187 = load double, ptr %.0813.i171, align 8
-  %188 = tail call double @llvm.fmuladd.f64(double %185, double -1.000000e+00, double %187)
+  %188 = fsub double %187, %185
   store double %188, ptr %.0813.i171, align 8
   %189 = add nuw nsw i64 %.014.i170, 1
   %exitcond.not.i173 = icmp eq i64 %189, %173
@@ -6168,7 +6168,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit98:         ; preds = %123, %.lr.ph.prehea
   %183 = load double, ptr %.0912.i, align 8
   %184 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %185 = load double, ptr %.0813.i, align 8
-  %186 = tail call double @llvm.fmuladd.f64(double %183, double -1.000000e+00, double %185)
+  %186 = fsub double %185, %183
   store double %186, ptr %.0813.i, align 8
   %187 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i102 = icmp eq i64 %187, %172
@@ -6620,7 +6620,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit135:        ; preds = %_ZN6casadi12casadi_
   %191 = load double, ptr %.0912.i, align 8
   %192 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %193 = load double, ptr %.0813.i, align 8
-  %194 = tail call double @llvm.fmuladd.f64(double %191, double -1.000000e+00, double %193)
+  %194 = fsub double %193, %191
   store double %194, ptr %.0813.i, align 8
   %195 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i138 = icmp eq i64 %195, %180
@@ -6664,7 +6664,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
   %210 = load double, ptr %.0912.i144, align 8
   %211 = getelementptr inbounds i8, ptr %.0813.i143, i64 8
   %212 = load double, ptr %.0813.i143, align 8
-  %213 = tail call double @llvm.fmuladd.f64(double %210, double -1.000000e+00, double %212)
+  %213 = fsub double %212, %210
   store double %213, ptr %.0813.i143, align 8
   %214 = add nuw nsw i64 %.014.i142, 1
   %exitcond.not.i145 = icmp eq i64 %214, %199

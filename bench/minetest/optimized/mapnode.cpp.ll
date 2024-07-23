@@ -837,7 +837,7 @@ if.then24:                                        ; preds = %sw.bb
   %50 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %49)
   %51 = fptrunc <2 x double> %50 to <2 x float>
   %52 = fmul nsz <2 x double> %49, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %53 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %52)
+  %53 = fsub nsz <2 x double> %52, %48
   %54 = fptrunc <2 x double> %53 to <2 x float>
   br label %sw.epilog
 
@@ -845,7 +845,7 @@ if.then28:                                        ; preds = %sw.bb
   %55 = fpext <2 x float> %43 to <2 x double>
   %56 = fpext <2 x float> %45 to <2 x double>
   %57 = fmul nsz <2 x double> %56, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %58 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %57)
+  %58 = fsub nsz <2 x double> %57, %55
   %59 = fptrunc <2 x double> %58 to <2 x float>
   %60 = fneg nsz <2 x double> %56
   %61 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %60)
@@ -894,7 +894,7 @@ if.then56:                                        ; preds = %sw.bb43
   %87 = fpext <2 x float> %43 to <2 x double>
   %88 = fpext <2 x float> %75 to <2 x double>
   %89 = fmul nsz <2 x double> %88, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %90 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %89)
+  %90 = fsub nsz <2 x double> %89, %87
   %91 = fptrunc <2 x double> %90 to <2 x float>
   %92 = fneg nsz <2 x double> %88
   %93 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %92)
@@ -907,7 +907,7 @@ if.then63:                                        ; preds = %sw.bb43
   %97 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %96)
   %98 = fptrunc <2 x double> %97 to <2 x float>
   %99 = fmul nsz <2 x double> %96, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %100 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %99)
+  %100 = fsub nsz <2 x double> %99, %95
   %101 = fptrunc <2 x double> %100 to <2 x float>
   br label %sw.epilog
 
@@ -917,7 +917,7 @@ sw.bb71:                                          ; preds = %if.end
   %104 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %103)
   %105 = fptrunc <2 x double> %104 to <2 x float>
   %106 = fmul nsz <2 x double> %103, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %107 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %106)
+  %107 = fsub nsz <2 x double> %106, %102
   %108 = fptrunc <2 x double> %107 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then77
@@ -932,7 +932,7 @@ if.then77:                                        ; preds = %sw.bb71
   %111 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %110)
   %112 = fptrunc <2 x double> %111 to <2 x float>
   %113 = fmul nsz <2 x double> %110, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %114 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %113)
+  %114 = fsub nsz <2 x double> %113, %109
   %115 = fptrunc <2 x double> %114 to <2 x float>
   br label %sw.epilog
 
@@ -940,7 +940,7 @@ if.then84:                                        ; preds = %sw.bb71
   %116 = fpext <2 x float> %43 to <2 x double>
   %117 = fpext <2 x float> %105 to <2 x double>
   %118 = fmul nsz <2 x double> %117, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %119 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %116, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %118)
+  %119 = fsub nsz <2 x double> %118, %116
   %120 = fptrunc <2 x double> %119 to <2 x float>
   %121 = fneg nsz <2 x double> %117
   %122 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %116, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %121)
@@ -964,7 +964,7 @@ sw.bb99:                                          ; preds = %if.end
   %134 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %132, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %133)
   %135 = fptrunc <2 x double> %134 to <2 x float>
   %136 = fmul nsz <2 x double> %133, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %137 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %132, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %136)
+  %137 = fsub nsz <2 x double> %136, %132
   %138 = fptrunc <2 x double> %137 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then105
@@ -988,7 +988,7 @@ if.then112:                                       ; preds = %sw.bb99
   %147 = fpext <2 x float> %138 to <2 x double>
   %148 = fpext <2 x float> %45 to <2 x double>
   %149 = fmul nsz <2 x double> %148, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %150 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %149)
+  %150 = fsub nsz <2 x double> %149, %147
   %151 = fptrunc <2 x double> %150 to <2 x float>
   %152 = fneg nsz <2 x double> %148
   %153 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %152)
@@ -1001,7 +1001,7 @@ if.then119:                                       ; preds = %sw.bb99
   %157 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %155, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %156)
   %158 = fptrunc <2 x double> %157 to <2 x float>
   %159 = fmul nsz <2 x double> %156, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %160 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %155, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %159)
+  %160 = fsub nsz <2 x double> %159, %155
   %161 = fptrunc <2 x double> %160 to <2 x float>
   br label %sw.epilog
 
@@ -1027,7 +1027,7 @@ if.then133:                                       ; preds = %sw.bb127
   %172 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %170, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %171)
   %173 = fptrunc <2 x double> %172 to <2 x float>
   %174 = fmul nsz <2 x double> %171, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %175 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %170, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %174)
+  %175 = fsub nsz <2 x double> %174, %170
   %176 = fptrunc <2 x double> %175 to <2 x float>
   br label %sw.epilog
 
@@ -1035,7 +1035,7 @@ if.then140:                                       ; preds = %sw.bb127
   %177 = fpext <2 x float> %169 to <2 x double>
   %178 = fpext <2 x float> %45 to <2 x double>
   %179 = fmul nsz <2 x double> %178, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %180 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %179)
+  %180 = fsub nsz <2 x double> %179, %177
   %181 = fptrunc <2 x double> %180 to <2 x float>
   %182 = fneg nsz <2 x double> %178
   %183 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %182)
@@ -1057,7 +1057,7 @@ sw.bb155:                                         ; preds = %if.end
   %193 = fpext <2 x float> %43 to <2 x double>
   %194 = fpext <2 x float> %47 to <2 x double>
   %195 = fmul nsz <2 x double> %194, <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>
-  %196 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %195)
+  %196 = fsub nsz <2 x double> %195, %193
   %197 = fptrunc <2 x double> %196 to <2 x float>
   %198 = fneg nsz <2 x double> %194
   %199 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>, <2 x double> %198)
@@ -1084,7 +1084,7 @@ if.then168:                                       ; preds = %sw.bb155
   %209 = fpext <2 x float> %197 to <2 x double>
   %210 = fpext <2 x float> %45 to <2 x double>
   %211 = fmul nsz <2 x double> %210, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %212 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %209, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %211)
+  %212 = fsub nsz <2 x double> %211, %209
   %213 = fptrunc <2 x double> %212 to <2 x float>
   %214 = fneg nsz <2 x double> %210
   %215 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %209, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %214)
@@ -1097,7 +1097,7 @@ if.then175:                                       ; preds = %sw.bb155
   %219 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %217, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %218)
   %220 = fptrunc <2 x double> %219 to <2 x float>
   %221 = fmul nsz <2 x double> %218, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
-  %222 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %217, <2 x double> <double -1.000000e+00, double -1.000000e+00>, <2 x double> %221)
+  %222 = fsub nsz <2 x double> %221, %217
   %223 = fptrunc <2 x double> %222 to <2 x float>
   br label %sw.epilog
 
@@ -1976,7 +1976,7 @@ if.then269.1:                                     ; preds = %land.lhs.true.i1856
   %conv.i1871.1 = fpext float %vertices245.sroa.30.12.copyload to double
   %conv8.i1872.1 = fpext float %vertices245.sroa.45.12.copyload to double
   %neg.i1873.1 = fmul nsz double %conv8.i1872.1, 0xBCA1A62633145C07
-  %349 = tail call nsz double @llvm.fmuladd.f64(double %conv.i1871.1, double -1.000000e+00, double %neg.i1873.1)
+  %349 = fsub nsz double %neg.i1873.1, %conv.i1871.1
   %conv10.i1874.1 = fptrunc double %349 to float
   %mul16.i1875.1 = fneg nsz double %conv8.i1872.1
   %350 = tail call nsz double @llvm.fmuladd.f64(double %conv.i1871.1, double 0x3CA1A62633145C07, double %mul16.i1875.1)
@@ -1995,7 +1995,7 @@ if.then279.1:                                     ; preds = %_ZNK3irr4core8vecto
   %351 = tail call nsz double @llvm.fmuladd.f64(double %conv.i1923.1, double 0x3C91A62633145C07, double %conv8.i1924.1)
   %conv10.i1925.1 = fptrunc double %351 to float
   %mul16.i1926.1 = fmul nsz double %conv8.i1924.1, 0x3C91A62633145C07
-  %352 = tail call nsz double @llvm.fmuladd.f64(double %conv.i1923.1, double -1.000000e+00, double %mul16.i1926.1)
+  %352 = fsub nsz double %mul16.i1926.1, %conv.i1923.1
   %conv17.i1927.1 = fptrunc double %352 to float
   br label %if.end281.1
 

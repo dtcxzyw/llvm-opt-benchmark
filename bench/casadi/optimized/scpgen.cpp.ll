@@ -12652,7 +12652,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i43, %_ZN6ca
   %129 = load double, ptr %.0912.i50, align 8
   %130 = getelementptr inbounds i8, ptr %.0813.i49, i64 8
   %131 = load double, ptr %.0813.i49, align 8
-  %132 = tail call double @llvm.fmuladd.f64(double %129, double -1.000000e+00, double %131)
+  %132 = fsub double %131, %129
   store double %132, ptr %.0813.i49, align 8
   %133 = add nuw nsw i64 %.014.i48, 1
   %exitcond.not.i51 = icmp eq i64 %133, %121
@@ -12678,7 +12678,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i43, %_ZN6ca
   %143 = load double, ptr %.0912.i58, align 8
   %144 = getelementptr inbounds i8, ptr %.0813.i57, i64 8
   %145 = load double, ptr %.0813.i57, align 8
-  %146 = tail call double @llvm.fmuladd.f64(double %143, double -1.000000e+00, double %145)
+  %146 = fsub double %145, %143
   store double %146, ptr %.0813.i57, align 8
   %147 = add nuw nsw i64 %.014.i56, 1
   %exitcond.not.i59 = icmp eq i64 %147, %135
@@ -14200,7 +14200,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit57:     ; preds = %.lr.ph.i50, %_ZN6ca
   %42 = load double, ptr %.0912.i, align 8
   %43 = getelementptr inbounds i8, ptr %.0813.i, i64 8
   %44 = load double, ptr %.0813.i, align 8
-  %45 = tail call double @llvm.fmuladd.f64(double %42, double -1.000000e+00, double %44)
+  %45 = fsub double %44, %42
   store double %45, ptr %.0813.i, align 8
   %46 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i59 = icmp eq i64 %46, %34
@@ -14230,7 +14230,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
   %54 = load double, ptr %.0912.i65, align 8
   %55 = getelementptr inbounds i8, ptr %.0813.i64, i64 8
   %56 = load double, ptr %.0813.i64, align 8
-  %57 = tail call double @llvm.fmuladd.f64(double %54, double -1.000000e+00, double %56)
+  %57 = fsub double %56, %54
   store double %57, ptr %.0813.i64, align 8
   %58 = add nuw nsw i64 %.014.i63, 1
   %exitcond.not.i66 = icmp eq i64 %58, %48
@@ -14265,7 +14265,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit67:  ; preds = %_ZN6casadi11casadi_
   %69 = load double, ptr %.0912.i73, align 8
   %70 = getelementptr inbounds i8, ptr %.0813.i72, i64 8
   %71 = load double, ptr %.0813.i72, align 8
-  %72 = tail call double @llvm.fmuladd.f64(double %69, double -1.000000e+00, double %71)
+  %72 = fsub double %71, %69
   store double %72, ptr %.0813.i72, align 8
   %73 = add nuw nsw i64 %.014.i71, 1
   %exitcond.not.i74 = icmp eq i64 %73, %60
@@ -14301,7 +14301,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit75:  ; preds = %_ZN6casadi11casadi_
   %83 = load double, ptr %.0912.i81, align 8
   %84 = getelementptr inbounds i8, ptr %.0813.i80, i64 8
   %85 = load double, ptr %.0813.i80, align 8
-  %86 = tail call double @llvm.fmuladd.f64(double %83, double -1.000000e+00, double %85)
+  %86 = fsub double %85, %83
   store double %86, ptr %.0813.i80, align 8
   %87 = add nuw nsw i64 %.014.i79, 1
   %exitcond.not.i82 = icmp eq i64 %87, %76
@@ -14439,7 +14439,7 @@ _ZN6casadi15casadi_norm_infIdEET_xPKS1_.exit:     ; preds = %_ZN6casadi15casadi_
   %166 = load double, ptr %.0912.i94, align 8
   %167 = getelementptr inbounds i8, ptr %.0813.i93, i64 8
   %168 = load double, ptr %.0813.i93, align 8
-  %169 = tail call double @llvm.fmuladd.f64(double %166, double -1.000000e+00, double %168)
+  %169 = fsub double %168, %166
   store double %169, ptr %.0813.i93, align 8
   %170 = add nuw nsw i64 %.014.i92, 1
   %exitcond.not.i95 = icmp eq i64 %170, %159

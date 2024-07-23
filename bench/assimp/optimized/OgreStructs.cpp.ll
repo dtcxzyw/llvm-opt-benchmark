@@ -4784,7 +4784,7 @@ invoke.cont304:                                   ; preds = %if.then297
 invoke.cont309:                                   ; preds = %invoke.cont304
   %y = getelementptr inbounds i8, ptr %arrayidx306, i64 4
   %143 = load float, ptr %y, align 4
-  %144 = call float @llvm.fmuladd.f32(float %143, float -1.000000e+00, float 1.000000e+00)
+  %144 = fsub float 1.000000e+00, %143
   store float %144, ptr %y, align 4
   br label %if.end315
 
@@ -4813,7 +4813,7 @@ invoke.cont326:                                   ; preds = %if.then319
 invoke.cont331:                                   ; preds = %invoke.cont326
   %y334 = getelementptr inbounds i8, ptr %arrayidx328, i64 4
   %148 = load float, ptr %y334, align 4
-  %149 = call float @llvm.fmuladd.f32(float %148, float -1.000000e+00, float 1.000000e+00)
+  %149 = fsub float 1.000000e+00, %148
   store float %149, ptr %y334, align 4
   br label %for.inc339
 

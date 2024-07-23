@@ -9621,7 +9621,7 @@ for.body.us248.preheader:                         ; preds = %_ZN21MapblockMeshGe
   %32 = insertelement <2 x double> %13, double %mul16.i173.us.1, i64 0
   %33 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> <double -1.000000e+00, double 0x3C91A62633145C07>, <2 x double> %32)
   %34 = extractelement <2 x double> %21, i64 1
-  %35 = tail call nsz double @llvm.fmuladd.f64(double %34, double -1.000000e+00, double %mul16.i173.us.1)
+  %35 = fsub nsz double %mul16.i173.us.1, %34
   %36 = shufflevector <2 x double> %33, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %37 = insertelement <4 x double> %36, double %18, i64 2
   %38 = insertelement <4 x double> %37, double %35, i64 3
@@ -9631,7 +9631,7 @@ for.body.us248.preheader:                         ; preds = %_ZN21MapblockMeshGe
   store float %40, ptr %Y.i50, align 8, !tbaa !104
   %41 = tail call nsz double @llvm.fmuladd.f64(double %34, double 0x3C91A62633145C07, double %14)
   %conv10.i172.us.3 = fptrunc double %41 to float
-  %42 = tail call nsz double @llvm.fmuladd.f64(double %34, double -1.000000e+00, double %mul16.i160.us)
+  %42 = fsub nsz double %mul16.i160.us, %34
   %conv17.i174.us.3 = fptrunc double %42 to float
   store float %conv10.i172.us.3, ptr %arrayinit.element6, align 4, !tbaa !107
   store float %conv17.i174.us.3, ptr %Z.i51, align 4, !tbaa !50
@@ -10088,8 +10088,6 @@ for.body63.us298.preheader:                       ; preds = %for.cond40.preheade
   %mul16.i207.us = fmul nsz double %conv8.i205.us, 0x3C91A62633145C07
   %conv.i217.us = fpext float %add.i121 to double
   %95 = extractelement <2 x float> %46, i64 0
-  %conv8.i205.us.1 = fpext float %95 to double
-  %mul16.i207.us.1 = fmul nsz double %conv8.i205.us.1, 0x3C91A62633145C07
   %96 = fpext <2 x float> %31 to <2 x double>
   %97 = extractelement <2 x double> %96, i64 1
   %98 = tail call nsz double @llvm.fmuladd.f64(double %97, double 0x3C91A62633145C07, double %conv8.i205.us)
@@ -10099,245 +10097,246 @@ for.body63.us298.preheader:                       ; preds = %for.cond40.preheade
   %99 = tail call nsz double @llvm.fmuladd.f64(double %conv.i217.us, double 0x3C91A62633145C07, double %neg.i219.us)
   %mul16.i221.us = fmul nsz double %conv8.i218.us, 0x3C91A62633145C07
   %100 = fadd nsz double %mul16.i221.us, %conv.i217.us
+  %conv8.i205.us.1 = fpext float %95 to double
   %101 = tail call nsz double @llvm.fmuladd.f64(double %97, double 0x3C91A62633145C07, double %conv8.i205.us.1)
   %conv10.i206.us.1 = fptrunc double %101 to float
-  %102 = tail call nsz double @llvm.fmuladd.f64(double %97, double -1.000000e+00, double %mul16.i207.us.1)
   %conv8.i218.us.1 = fpext float %conv10.i206.us.1 to double
   %neg.i219.us.1 = fneg nsz double %conv8.i218.us.1
-  %103 = insertelement <2 x double> poison, double %neg.i219.us.1, i64 0
-  %104 = insertelement <2 x double> %103, double %mul16.i207.us, i64 1
-  %105 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %96, <2 x double> <double 0x3C91A62633145C07, double -1.000000e+00>, <2 x double> %104)
-  %mul16.i221.us.1 = fmul nsz double %conv8.i218.us.1, 0x3C91A62633145C07
-  %106 = extractelement <2 x double> %96, i64 0
-  %107 = fadd nsz double %106, %mul16.i221.us.1
-  %108 = insertelement <4 x double> poison, double %99, i64 0
-  %109 = insertelement <4 x double> %108, double %100, i64 1
-  %110 = shufflevector <2 x double> %105, <2 x double> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
-  %111 = shufflevector <4 x double> %109, <4 x double> %110, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %112 = fptrunc <4 x double> %111 to <4 x float>
-  store <4 x float> %112, ptr %vertices, align 16, !tbaa !49
+  %102 = insertelement <2 x double> poison, double %neg.i219.us.1, i64 0
+  %103 = insertelement <2 x double> %102, double %mul16.i207.us, i64 1
+  %104 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %96, <2 x double> <double 0x3C91A62633145C07, double -1.000000e+00>, <2 x double> %103)
+  %105 = insertelement <2 x double> poison, double %conv8.i218.us.1, i64 0
+  %106 = insertelement <2 x double> %105, double %conv8.i205.us.1, i64 1
+  %107 = fmul nsz <2 x double> %106, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %108 = fadd nsz <2 x double> %107, %96
+  %109 = fsub nsz <2 x double> %107, %96
+  %110 = shufflevector <2 x double> %108, <2 x double> %109, <2 x i32> <i32 0, i32 3>
+  %111 = insertelement <4 x double> poison, double %99, i64 0
+  %112 = insertelement <4 x double> %111, double %100, i64 1
+  %113 = shufflevector <2 x double> %104, <2 x double> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %114 = shufflevector <4 x double> %112, <4 x double> %113, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %115 = fptrunc <4 x double> %114 to <4 x float>
+  store <4 x float> %115, ptr %vertices, align 16, !tbaa !49
   %conv8.i205.us.2 = fpext float %add6.i.2 to double
   %mul16.i207.us.2 = fmul nsz double %conv8.i205.us.2, 0x3C91A62633145C07
-  %113 = extractelement <2 x float> %46, i64 1
-  %conv.i217.us.2 = fpext float %113 to double
-  %114 = insertelement <4 x double> poison, double %107, i64 0
-  %115 = insertelement <4 x double> %114, double %102, i64 1
-  %conv8.i205.us.3 = fpext float %add6.i.3 to double
-  %mul16.i207.us.3 = fmul nsz double %conv8.i205.us.3, 0x3C91A62633145C07
-  %116 = fpext <2 x float> %50 to <2 x double>
-  %117 = extractelement <2 x double> %116, i64 1
-  %118 = tail call nsz double @llvm.fmuladd.f64(double %117, double 0x3C91A62633145C07, double %conv8.i205.us.2)
-  %conv10.i206.us.2 = fptrunc double %118 to float
+  %116 = extractelement <2 x float> %46, i64 1
+  %conv.i217.us.2 = fpext float %116 to double
+  %117 = shufflevector <2 x double> %110, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %118 = fpext <2 x float> %50 to <2 x double>
+  %119 = extractelement <2 x double> %118, i64 1
+  %120 = tail call nsz double @llvm.fmuladd.f64(double %119, double 0x3C91A62633145C07, double %conv8.i205.us.2)
+  %conv10.i206.us.2 = fptrunc double %120 to float
   %conv8.i218.us.2 = fpext float %conv10.i206.us.2 to double
   %neg.i219.us.2 = fneg nsz double %conv8.i218.us.2
-  %119 = tail call nsz double @llvm.fmuladd.f64(double %conv.i217.us.2, double 0x3C91A62633145C07, double %neg.i219.us.2)
+  %121 = tail call nsz double @llvm.fmuladd.f64(double %conv.i217.us.2, double 0x3C91A62633145C07, double %neg.i219.us.2)
   %mul16.i221.us.2 = fmul nsz double %conv8.i218.us.2, 0x3C91A62633145C07
-  %120 = fadd nsz double %mul16.i221.us.2, %conv.i217.us.2
-  %121 = insertelement <4 x double> %115, double %119, i64 2
-  %122 = insertelement <4 x double> %121, double %120, i64 3
-  %123 = fptrunc <4 x double> %122 to <4 x float>
-  store <4 x float> %123, ptr %Y3.i.1, align 16, !tbaa !49
-  %124 = tail call nsz double @llvm.fmuladd.f64(double %117, double 0x3C91A62633145C07, double %conv8.i205.us.3)
-  %conv10.i206.us.3 = fptrunc double %124 to float
-  %125 = tail call nsz double @llvm.fmuladd.f64(double %117, double -1.000000e+00, double %mul16.i207.us.3)
+  %122 = fadd nsz double %mul16.i221.us.2, %conv.i217.us.2
+  %123 = insertelement <4 x double> %117, double %121, i64 2
+  %124 = insertelement <4 x double> %123, double %122, i64 3
+  %125 = fptrunc <4 x double> %124 to <4 x float>
+  store <4 x float> %125, ptr %Y3.i.1, align 16, !tbaa !49
+  %conv8.i205.us.3 = fpext float %add6.i.3 to double
+  %126 = tail call nsz double @llvm.fmuladd.f64(double %119, double 0x3C91A62633145C07, double %conv8.i205.us.3)
+  %conv10.i206.us.3 = fptrunc double %126 to float
   %conv8.i218.us.3 = fpext float %conv10.i206.us.3 to double
   %neg.i219.us.3 = fneg nsz double %conv8.i218.us.3
-  %126 = insertelement <2 x double> poison, double %neg.i219.us.3, i64 0
-  %127 = insertelement <2 x double> %126, double %mul16.i207.us.2, i64 1
-  %128 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %116, <2 x double> <double 0x3C91A62633145C07, double -1.000000e+00>, <2 x double> %127)
-  %mul16.i221.us.3 = fmul nsz double %conv8.i218.us.3, 0x3C91A62633145C07
-  %129 = extractelement <2 x double> %116, i64 0
-  %130 = fadd nsz double %129, %mul16.i221.us.3
-  %131 = shufflevector <2 x double> %128, <2 x double> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
-  %132 = insertelement <4 x double> %131, double %130, i64 2
-  %133 = insertelement <4 x double> %132, double %125, i64 3
-  %134 = fptrunc <4 x double> %133 to <4 x float>
-  store <4 x float> %134, ptr %Z.i113, align 16, !tbaa !49
+  %127 = insertelement <2 x double> poison, double %neg.i219.us.3, i64 0
+  %128 = insertelement <2 x double> %127, double %mul16.i207.us.2, i64 1
+  %129 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %118, <2 x double> <double 0x3C91A62633145C07, double -1.000000e+00>, <2 x double> %128)
+  %130 = insertelement <2 x double> poison, double %conv8.i218.us.3, i64 0
+  %131 = insertelement <2 x double> %130, double %conv8.i205.us.3, i64 1
+  %132 = fmul nsz <2 x double> %131, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %133 = fadd nsz <2 x double> %132, %118
+  %134 = fsub nsz <2 x double> %132, %118
+  %135 = shufflevector <2 x double> %133, <2 x double> %134, <2 x i32> <i32 0, i32 3>
+  %136 = shufflevector <2 x double> %129, <2 x double> %135, <4 x i32> <i32 1, i32 0, i32 2, i32 3>
+  %137 = fptrunc <4 x double> %136 to <4 x float>
+  store <4 x float> %137, ptr %Z.i113, align 16, !tbaa !49
   br label %if.end82
 
 for.body63.us290.preheader:                       ; preds = %for.cond40.preheader
   %conv.i173.us = fpext float %add.i121 to double
   %conv8.i174.us = fpext float %32 to double
   %mul16.i176.us = fmul nsz double %conv8.i174.us, 0x3C91A62633145C07
-  %135 = tail call nsz double @llvm.fmuladd.f64(double %conv.i173.us, double -1.000000e+00, double %mul16.i176.us)
-  %conv17.i177.us = fptrunc double %135 to float
+  %138 = fsub nsz double %mul16.i176.us, %conv.i173.us
+  %conv17.i177.us = fptrunc double %138 to float
   %conv.i188.us = fpext float %conv17.i177.us to double
   %conv8.i189.us = fpext float %add6.i to double
   %neg.i190.us = fmul nsz double %conv8.i189.us, 0xBCA1A62633145C07
   %mul16.i192.us = fneg nsz double %conv8.i189.us
-  %136 = extractelement <2 x float> %31, i64 0
-  %conv.i173.us.1 = fpext float %136 to double
-  %137 = tail call nsz double @llvm.fmuladd.f64(double %conv.i173.us.1, double -1.000000e+00, double %mul16.i176.us)
-  %conv17.i177.us.1 = fptrunc double %137 to float
-  %138 = insertelement <4 x double> poison, double %conv.i173.us, i64 0
-  %139 = insertelement <4 x double> %138, double %conv.i188.us, i64 1
-  %140 = insertelement <4 x double> %139, double %conv.i173.us.1, i64 3
-  %141 = shufflevector <4 x double> %140, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
-  %142 = insertelement <4 x double> poison, double %conv8.i174.us, i64 0
-  %143 = insertelement <4 x double> %142, double %neg.i190.us, i64 1
-  %144 = insertelement <4 x double> %143, double %mul16.i192.us, i64 2
-  %145 = shufflevector <4 x double> %144, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %146 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %141, <4 x double> <double 0x3C91A62633145C07, double -1.000000e+00, double 0x3CA1A62633145C07, double 0x3C91A62633145C07>, <4 x double> %145)
-  %147 = fptrunc <4 x double> %146 to <4 x float>
-  store <4 x float> %147, ptr %vertices, align 16, !tbaa !49
+  %139 = extractelement <2 x float> %31, i64 0
+  %conv.i173.us.1 = fpext float %139 to double
+  %140 = fsub nsz double %mul16.i176.us, %conv.i173.us.1
+  %conv17.i177.us.1 = fptrunc double %140 to float
+  %141 = insertelement <4 x double> poison, double %conv.i173.us, i64 0
+  %142 = insertelement <4 x double> %141, double %conv.i188.us, i64 1
+  %143 = insertelement <4 x double> %142, double %conv.i173.us.1, i64 3
+  %144 = shufflevector <4 x double> %143, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 3>
+  %145 = insertelement <4 x double> poison, double %conv8.i174.us, i64 0
+  %146 = insertelement <4 x double> %145, double %neg.i190.us, i64 1
+  %147 = insertelement <4 x double> %146, double %mul16.i192.us, i64 2
+  %148 = shufflevector <4 x double> %147, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %149 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %144, <4 x double> <double 0x3C91A62633145C07, double -1.000000e+00, double 0x3CA1A62633145C07, double 0x3C91A62633145C07>, <4 x double> %148)
+  %150 = fptrunc <4 x double> %149 to <4 x float>
+  store <4 x float> %150, ptr %vertices, align 16, !tbaa !49
   %conv.i188.us.1 = fpext float %conv17.i177.us.1 to double
-  %148 = extractelement <2 x float> %46, i64 0
-  %conv8.i189.us.1 = fpext float %148 to double
+  %151 = extractelement <2 x float> %46, i64 0
+  %conv8.i189.us.1 = fpext float %151 to double
   %neg.i190.us.1 = fmul nsz double %conv8.i189.us.1, 0xBCA1A62633145C07
   %mul16.i192.us.1 = fneg nsz double %conv8.i189.us.1
-  %149 = extractelement <2 x float> %46, i64 1
-  %conv.i173.us.2 = fpext float %149 to double
+  %152 = extractelement <2 x float> %46, i64 1
+  %conv.i173.us.2 = fpext float %152 to double
   %conv8.i174.us.2 = fpext float %51 to double
   %mul16.i176.us.2 = fmul nsz double %conv8.i174.us.2, 0x3C91A62633145C07
-  %150 = tail call nsz double @llvm.fmuladd.f64(double %conv.i173.us.2, double -1.000000e+00, double %mul16.i176.us.2)
-  %conv17.i177.us.2 = fptrunc double %150 to float
+  %153 = fsub nsz double %mul16.i176.us.2, %conv.i173.us.2
+  %conv17.i177.us.2 = fptrunc double %153 to float
   %conv.i188.us.2 = fpext float %conv17.i177.us.2 to double
   %conv8.i189.us.2 = fpext float %add6.i.2 to double
   %neg.i190.us.2 = fmul nsz double %conv8.i189.us.2, 0xBCA1A62633145C07
   %mul16.i192.us.2 = fneg nsz double %conv8.i189.us.2
-  %151 = insertelement <4 x double> poison, double %conv.i188.us.1, i64 0
-  %152 = insertelement <4 x double> %151, double %conv.i173.us.2, i64 2
-  %153 = insertelement <4 x double> %152, double %conv.i188.us.2, i64 3
-  %154 = shufflevector <4 x double> %153, <4 x double> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
-  %155 = insertelement <4 x double> poison, double %neg.i190.us.1, i64 0
-  %156 = insertelement <4 x double> %155, double %mul16.i192.us.1, i64 1
-  %157 = insertelement <4 x double> %156, double %conv8.i174.us.2, i64 2
-  %158 = insertelement <4 x double> %157, double %neg.i190.us.2, i64 3
-  %159 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %154, <4 x double> <double -1.000000e+00, double 0x3CA1A62633145C07, double 0x3C91A62633145C07, double -1.000000e+00>, <4 x double> %158)
-  %160 = fptrunc <4 x double> %159 to <4 x float>
-  store <4 x float> %160, ptr %Y3.i.1, align 16, !tbaa !49
-  %161 = extractelement <2 x float> %50, i64 0
-  %conv.i173.us.3 = fpext float %161 to double
-  %162 = tail call nsz double @llvm.fmuladd.f64(double %conv.i173.us.3, double -1.000000e+00, double %mul16.i176.us.2)
-  %conv17.i177.us.3 = fptrunc double %162 to float
+  %154 = insertelement <4 x double> poison, double %conv.i188.us.1, i64 0
+  %155 = insertelement <4 x double> %154, double %conv.i173.us.2, i64 2
+  %156 = insertelement <4 x double> %155, double %conv.i188.us.2, i64 3
+  %157 = shufflevector <4 x double> %156, <4 x double> poison, <4 x i32> <i32 0, i32 0, i32 2, i32 3>
+  %158 = insertelement <4 x double> poison, double %neg.i190.us.1, i64 0
+  %159 = insertelement <4 x double> %158, double %mul16.i192.us.1, i64 1
+  %160 = insertelement <4 x double> %159, double %conv8.i174.us.2, i64 2
+  %161 = insertelement <4 x double> %160, double %neg.i190.us.2, i64 3
+  %162 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %157, <4 x double> <double -1.000000e+00, double 0x3CA1A62633145C07, double 0x3C91A62633145C07, double -1.000000e+00>, <4 x double> %161)
+  %163 = fptrunc <4 x double> %162 to <4 x float>
+  store <4 x float> %163, ptr %Y3.i.1, align 16, !tbaa !49
+  %164 = extractelement <2 x float> %50, i64 0
+  %conv.i173.us.3 = fpext float %164 to double
+  %165 = fsub nsz double %mul16.i176.us.2, %conv.i173.us.3
+  %conv17.i177.us.3 = fptrunc double %165 to float
   %conv.i188.us.3 = fpext float %conv17.i177.us.3 to double
   %conv8.i189.us.3 = fpext float %add6.i.3 to double
   %neg.i190.us.3 = fmul nsz double %conv8.i189.us.3, 0xBCA1A62633145C07
   %mul16.i192.us.3 = fneg nsz double %conv8.i189.us.3
-  %163 = insertelement <4 x double> poison, double %conv.i188.us.2, i64 0
-  %164 = insertelement <4 x double> %163, double %conv.i173.us.3, i64 1
-  %165 = insertelement <4 x double> %164, double %conv.i188.us.3, i64 2
-  %166 = shufflevector <4 x double> %165, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
-  %167 = insertelement <4 x double> poison, double %mul16.i192.us.2, i64 0
-  %168 = insertelement <4 x double> %167, double %conv8.i174.us.2, i64 1
-  %169 = insertelement <4 x double> %168, double %neg.i190.us.3, i64 2
-  %170 = insertelement <4 x double> %169, double %mul16.i192.us.3, i64 3
-  %171 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %166, <4 x double> <double 0x3CA1A62633145C07, double 0x3C91A62633145C07, double -1.000000e+00, double 0x3CA1A62633145C07>, <4 x double> %170)
-  %172 = fptrunc <4 x double> %171 to <4 x float>
-  store <4 x float> %172, ptr %Z.i113, align 16, !tbaa !49
+  %166 = insertelement <4 x double> poison, double %conv.i188.us.2, i64 0
+  %167 = insertelement <4 x double> %166, double %conv.i173.us.3, i64 1
+  %168 = insertelement <4 x double> %167, double %conv.i188.us.3, i64 2
+  %169 = shufflevector <4 x double> %168, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
+  %170 = insertelement <4 x double> poison, double %mul16.i192.us.2, i64 0
+  %171 = insertelement <4 x double> %170, double %conv8.i174.us.2, i64 1
+  %172 = insertelement <4 x double> %171, double %neg.i190.us.3, i64 2
+  %173 = insertelement <4 x double> %172, double %mul16.i192.us.3, i64 3
+  %174 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %169, <4 x double> <double 0x3CA1A62633145C07, double 0x3C91A62633145C07, double -1.000000e+00, double 0x3CA1A62633145C07>, <4 x double> %173)
+  %175 = fptrunc <4 x double> %174 to <4 x float>
+  store <4 x float> %175, ptr %Z.i113, align 16, !tbaa !49
   br label %if.end82
 
 for.body63.us282.preheader:                       ; preds = %for.cond40.preheader
   %conv.i159.us = fpext float %add.i121 to double
   %conv8.i160.us = fpext float %32 to double
   %neg.i161.us = fneg nsz double %conv8.i160.us
-  %173 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us, double 0x3C91A62633145C07, double %neg.i161.us)
+  %176 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us, double 0x3C91A62633145C07, double %neg.i161.us)
   %mul16.i163.us = fmul nsz double %conv8.i160.us, 0x3C91A62633145C07
-  %174 = fadd nsz double %mul16.i163.us, %conv.i159.us
-  %175 = insertelement <2 x double> poison, double %173, i64 0
-  %176 = insertelement <2 x double> %175, double %174, i64 1
-  %177 = fptrunc <2 x double> %176 to <2 x float>
-  store <2 x float> %177, ptr %vertices, align 16, !tbaa !49
-  %178 = extractelement <2 x float> %31, i64 0
-  %conv.i159.us.1 = fpext float %178 to double
-  %179 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.1, double 0x3C91A62633145C07, double %neg.i161.us)
-  %180 = fadd nsz double %mul16.i163.us, %conv.i159.us.1
-  %181 = insertelement <2 x double> poison, double %179, i64 0
-  %182 = insertelement <2 x double> %181, double %180, i64 1
-  %183 = fptrunc <2 x double> %182 to <2 x float>
-  store <2 x float> %183, ptr %arrayinit.element, align 4, !tbaa !49
-  %184 = extractelement <2 x float> %46, i64 1
-  %conv.i159.us.2 = fpext float %184 to double
+  %177 = fadd nsz double %mul16.i163.us, %conv.i159.us
+  %178 = insertelement <2 x double> poison, double %176, i64 0
+  %179 = insertelement <2 x double> %178, double %177, i64 1
+  %180 = fptrunc <2 x double> %179 to <2 x float>
+  store <2 x float> %180, ptr %vertices, align 16, !tbaa !49
+  %181 = extractelement <2 x float> %31, i64 0
+  %conv.i159.us.1 = fpext float %181 to double
+  %182 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.1, double 0x3C91A62633145C07, double %neg.i161.us)
+  %183 = fadd nsz double %mul16.i163.us, %conv.i159.us.1
+  %184 = insertelement <2 x double> poison, double %182, i64 0
+  %185 = insertelement <2 x double> %184, double %183, i64 1
+  %186 = fptrunc <2 x double> %185 to <2 x float>
+  store <2 x float> %186, ptr %arrayinit.element, align 4, !tbaa !49
+  %187 = extractelement <2 x float> %46, i64 1
+  %conv.i159.us.2 = fpext float %187 to double
   %conv8.i160.us.2 = fpext float %51 to double
   %neg.i161.us.2 = fneg nsz double %conv8.i160.us.2
-  %185 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.2, double 0x3C91A62633145C07, double %neg.i161.us.2)
+  %188 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.2, double 0x3C91A62633145C07, double %neg.i161.us.2)
   %mul16.i163.us.2 = fmul nsz double %conv8.i160.us.2, 0x3C91A62633145C07
-  %186 = fadd nsz double %mul16.i163.us.2, %conv.i159.us.2
-  %187 = insertelement <2 x double> poison, double %185, i64 0
-  %188 = insertelement <2 x double> %187, double %186, i64 1
-  %189 = fptrunc <2 x double> %188 to <2 x float>
-  store <2 x float> %189, ptr %arrayinit.element13, align 8, !tbaa !49
-  %190 = extractelement <2 x float> %50, i64 0
-  %conv.i159.us.3 = fpext float %190 to double
-  %191 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.3, double 0x3C91A62633145C07, double %neg.i161.us.2)
-  %192 = fadd nsz double %mul16.i163.us.2, %conv.i159.us.3
-  %193 = insertelement <2 x double> poison, double %191, i64 0
-  %194 = insertelement <2 x double> %193, double %192, i64 1
-  %195 = fptrunc <2 x double> %194 to <2 x float>
-  store <2 x float> %195, ptr %arrayinit.element14, align 4, !tbaa !49
+  %189 = fadd nsz double %mul16.i163.us.2, %conv.i159.us.2
+  %190 = insertelement <2 x double> poison, double %188, i64 0
+  %191 = insertelement <2 x double> %190, double %189, i64 1
+  %192 = fptrunc <2 x double> %191 to <2 x float>
+  store <2 x float> %192, ptr %arrayinit.element13, align 8, !tbaa !49
+  %193 = extractelement <2 x float> %50, i64 0
+  %conv.i159.us.3 = fpext float %193 to double
+  %194 = tail call nsz double @llvm.fmuladd.f64(double %conv.i159.us.3, double 0x3C91A62633145C07, double %neg.i161.us.2)
+  %195 = fadd nsz double %mul16.i163.us.2, %conv.i159.us.3
+  %196 = insertelement <2 x double> poison, double %194, i64 0
+  %197 = insertelement <2 x double> %196, double %195, i64 1
+  %198 = fptrunc <2 x double> %197 to <2 x float>
+  store <2 x float> %198, ptr %arrayinit.element14, align 4, !tbaa !49
   br label %if.end82
 
 for.body63.us.preheader:                          ; preds = %for.cond40.preheader
   %conv.i145.us = fpext float %add.i121 to double
-  %196 = extractelement <2 x float> %46, i64 0
-  %conv8.i132.us.1 = fpext float %196 to double
+  %199 = extractelement <2 x float> %46, i64 0
+  %conv8.i132.us.1 = fpext float %199 to double
   %neg.i133.us.1 = fmul nsz double %conv8.i132.us.1, 0xBCA1A62633145C07
   %mul16.i135.us.1 = fneg nsz double %conv8.i132.us.1
-  %197 = insertelement <4 x double> poison, double %conv.i145.us, i64 0
-  %198 = shufflevector <2 x float> %31, <2 x float> %50, <4 x i32> <i32 1, i32 0, i32 poison, i32 3>
-  %199 = shufflevector <2 x float> %46, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %200 = shufflevector <4 x float> %198, <4 x float> %199, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
-  %201 = fpext <4 x float> %200 to <4 x double>
-  %202 = extractelement <4 x double> %201, i64 0
+  %200 = insertelement <4 x double> poison, double %conv.i145.us, i64 0
+  %201 = shufflevector <2 x float> %31, <2 x float> %50, <4 x i32> <i32 1, i32 0, i32 poison, i32 3>
+  %202 = shufflevector <2 x float> %46, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %203 = shufflevector <4 x float> %201, <4 x float> %202, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
+  %204 = fpext <4 x float> %203 to <4 x double>
+  %205 = extractelement <4 x double> %204, i64 0
   %conv8.i132.us = fpext float %add6.i to double
   %mul16.i135.us = fneg nsz double %conv8.i132.us
-  %203 = tail call nsz double @llvm.fmuladd.f64(double %202, double 0x3CA1A62633145C07, double %mul16.i135.us)
-  %conv17.i136.us = fptrunc double %203 to float
+  %206 = tail call nsz double @llvm.fmuladd.f64(double %205, double 0x3CA1A62633145C07, double %mul16.i135.us)
+  %conv17.i136.us = fptrunc double %206 to float
   %conv8.i146.us = fpext float %conv17.i136.us to double
-  %204 = insertelement <2 x double> poison, double %conv8.i146.us, i64 0
-  %205 = insertelement <2 x double> %204, double %conv8.i132.us, i64 1
-  %206 = fmul nsz <2 x double> %205, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %207 = insertelement <2 x double> poison, double %conv8.i146.us, i64 0
+  %208 = insertelement <2 x double> %207, double %conv8.i132.us, i64 1
+  %209 = fmul nsz <2 x double> %208, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
   %mul16.i149.us = fneg nsz double %conv8.i146.us
-  %207 = tail call nsz double @llvm.fmuladd.f64(double %202, double 0x3CA1A62633145C07, double %mul16.i135.us.1)
-  %conv17.i136.us.1 = fptrunc double %207 to float
+  %210 = tail call nsz double @llvm.fmuladd.f64(double %205, double 0x3CA1A62633145C07, double %mul16.i135.us.1)
+  %conv17.i136.us.1 = fptrunc double %210 to float
   %conv8.i146.us.1 = fpext float %conv17.i136.us.1 to double
   %neg.i147.us.1 = fmul nsz double %conv8.i146.us.1, 0xBCA1A62633145C07
   %mul16.i149.us.1 = fneg nsz double %conv8.i146.us.1
-  %208 = shufflevector <4 x double> %197, <4 x double> %201, <4 x i32> <i32 0, i32 4, i32 poison, i32 5>
-  %209 = shufflevector <4 x double> %208, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %210 = shufflevector <2 x double> %206, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %211 = insertelement <4 x double> %210, double %mul16.i149.us, i64 2
-  %212 = insertelement <4 x double> %211, double %neg.i147.us.1, i64 3
-  %213 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %209, <4 x double> <double -1.000000e+00, double -1.000000e+00, double 0x3CA1A62633145C07, double -1.000000e+00>, <4 x double> %212)
-  %214 = fptrunc <4 x double> %213 to <4 x float>
-  store <4 x float> %214, ptr %vertices, align 16, !tbaa !49
-  %215 = extractelement <4 x double> %201, i64 3
+  %211 = shufflevector <4 x double> %200, <4 x double> %204, <4 x i32> <i32 0, i32 4, i32 poison, i32 5>
+  %212 = shufflevector <4 x double> %211, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %213 = shufflevector <2 x double> %209, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %214 = insertelement <4 x double> %213, double %mul16.i149.us, i64 2
+  %215 = insertelement <4 x double> %214, double %neg.i147.us.1, i64 3
+  %216 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %212, <4 x double> <double -1.000000e+00, double -1.000000e+00, double 0x3CA1A62633145C07, double -1.000000e+00>, <4 x double> %215)
+  %217 = fptrunc <4 x double> %216 to <4 x float>
+  store <4 x float> %217, ptr %vertices, align 16, !tbaa !49
+  %218 = extractelement <4 x double> %204, i64 3
   %conv8.i132.us.2 = fpext float %add6.i.2 to double
   %mul16.i135.us.2 = fneg nsz double %conv8.i132.us.2
-  %216 = tail call nsz double @llvm.fmuladd.f64(double %215, double 0x3CA1A62633145C07, double %mul16.i135.us.2)
-  %conv17.i136.us.2 = fptrunc double %216 to float
+  %219 = tail call nsz double @llvm.fmuladd.f64(double %218, double 0x3CA1A62633145C07, double %mul16.i135.us.2)
+  %conv17.i136.us.2 = fptrunc double %219 to float
   %conv8.i146.us.2 = fpext float %conv17.i136.us.2 to double
-  %217 = insertelement <2 x double> poison, double %conv8.i146.us.2, i64 0
-  %218 = insertelement <2 x double> %217, double %conv8.i132.us.2, i64 1
-  %219 = fmul nsz <2 x double> %218, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
-  %220 = insertelement <4 x double> poison, double %neg.i133.us.1, i64 0
-  %221 = insertelement <4 x double> %220, double %mul16.i149.us.1, i64 1
-  %222 = shufflevector <2 x double> %219, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %223 = shufflevector <4 x double> %221, <4 x double> %222, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %224 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %201, <4 x double> <double -1.000000e+00, double 0x3CA1A62633145C07, double -1.000000e+00, double -1.000000e+00>, <4 x double> %223)
-  %225 = fptrunc <4 x double> %224 to <4 x float>
+  %220 = insertelement <2 x double> poison, double %conv8.i146.us.2, i64 0
+  %221 = insertelement <2 x double> %220, double %conv8.i132.us.2, i64 1
+  %222 = fmul nsz <2 x double> %221, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %223 = insertelement <4 x double> poison, double %neg.i133.us.1, i64 0
+  %224 = insertelement <4 x double> %223, double %mul16.i149.us.1, i64 1
+  %225 = shufflevector <2 x double> %222, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %226 = shufflevector <4 x double> %224, <4 x double> %225, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %227 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %204, <4 x double> <double -1.000000e+00, double 0x3CA1A62633145C07, double -1.000000e+00, double -1.000000e+00>, <4 x double> %226)
+  %228 = fptrunc <4 x double> %227 to <4 x float>
   %mul16.i149.us.2 = fneg nsz double %conv8.i146.us.2
-  store <4 x float> %225, ptr %Y3.i.1, align 16, !tbaa !49
+  store <4 x float> %228, ptr %Y3.i.1, align 16, !tbaa !49
   %conv8.i132.us.3 = fpext float %add6.i.3 to double
   %neg.i133.us.3 = fmul nsz double %conv8.i132.us.3, 0xBCA1A62633145C07
   %mul16.i135.us.3 = fneg nsz double %conv8.i132.us.3
-  %226 = tail call nsz double @llvm.fmuladd.f64(double %215, double 0x3CA1A62633145C07, double %mul16.i135.us.3)
-  %conv17.i136.us.3 = fptrunc double %226 to float
-  %227 = extractelement <2 x float> %50, i64 0
-  %conv.i145.us.3 = fpext float %227 to double
+  %229 = tail call nsz double @llvm.fmuladd.f64(double %218, double 0x3CA1A62633145C07, double %mul16.i135.us.3)
+  %conv17.i136.us.3 = fptrunc double %229 to float
+  %230 = extractelement <2 x float> %50, i64 0
+  %conv.i145.us.3 = fpext float %230 to double
   %conv8.i146.us.3 = fpext float %conv17.i136.us.3 to double
   %neg.i147.us.3 = fmul nsz double %conv8.i146.us.3, 0xBCA1A62633145C07
   %mul16.i149.us.3 = fneg nsz double %conv8.i146.us.3
-  %228 = shufflevector <4 x double> %201, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 3, i32 poison>
-  %229 = insertelement <4 x double> %228, double %conv.i145.us.3, i64 1
-  %230 = shufflevector <4 x double> %229, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  %231 = insertelement <4 x double> poison, double %mul16.i149.us.2, i64 0
-  %232 = insertelement <4 x double> %231, double %neg.i147.us.3, i64 1
-  %233 = insertelement <4 x double> %232, double %neg.i133.us.3, i64 2
-  %234 = insertelement <4 x double> %233, double %mul16.i149.us.3, i64 3
-  %235 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %230, <4 x double> <double 0x3CA1A62633145C07, double -1.000000e+00, double -1.000000e+00, double 0x3CA1A62633145C07>, <4 x double> %234)
-  %236 = fptrunc <4 x double> %235 to <4 x float>
-  store <4 x float> %236, ptr %Z.i113, align 16, !tbaa !49
+  %231 = shufflevector <4 x double> %204, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 3, i32 poison>
+  %232 = insertelement <4 x double> %231, double %conv.i145.us.3, i64 1
+  %233 = shufflevector <4 x double> %232, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
+  %234 = insertelement <4 x double> poison, double %mul16.i149.us.2, i64 0
+  %235 = insertelement <4 x double> %234, double %neg.i147.us.3, i64 1
+  %236 = insertelement <4 x double> %235, double %neg.i133.us.3, i64 2
+  %237 = insertelement <4 x double> %236, double %mul16.i149.us.3, i64 3
+  %238 = tail call nsz <4 x double> @llvm.fmuladd.v4f64(<4 x double> %233, <4 x double> <double 0x3CA1A62633145C07, double -1.000000e+00, double -1.000000e+00, double 0x3CA1A62633145C07>, <4 x double> %237)
+  %239 = fptrunc <4 x double> %238 to <4 x float>
+  store <4 x float> %239, ptr %Z.i113, align 16, !tbaa !49
   br label %if.end82
 
 if.end82:                                         ; preds = %for.body63.us.preheader, %for.body63.us282.preheader, %for.body63.us290.preheader, %for.body63.us298.preheader, %for.body63.us306.preheader, %for.cond40.preheader
@@ -10347,8 +10346,8 @@ if.end82:                                         ; preds = %for.body63.us.prehe
   store i16 0, ptr %Y.i255, align 2, !tbaa !39
   %Z.i256 = getelementptr inbounds i8, ptr %ref.tmp84, i64 4
   store i16 0, ptr %Z.i256, align 2, !tbaa !40
-  %237 = load float, ptr %plant_height, align 8, !tbaa !170
-  call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp84, float noundef %237)
+  %240 = load float, ptr %plant_height, align 8, !tbaa !170
+  call void @_ZN21MapblockMeshGenerator8drawQuadEPN3irr4core8vector3dIfEERKNS2_IsEEf(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull %vertices, ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp84, float noundef %240)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %ref.tmp84) #24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %vertices) #24
   ret void
@@ -11343,7 +11342,7 @@ if.end51:                                         ; preds = %if.end41.thread, %i
   %122 = insertelement <2 x float> %121, float %fneg.i205, i64 1
   %123 = fpext <2 x float> %122 to <2 x double>
   %124 = extractelement <2 x double> %123, i64 1
-  %125 = call nsz double @llvm.fmuladd.f64(double %124, double -1.000000e+00, double %neg.i43.i217)
+  %125 = fsub nsz double %neg.i43.i217, %124
   %126 = insertelement <2 x double> poison, double %neg.i43.i217, i64 0
   %127 = insertelement <2 x double> %126, double %mul16.i45.i219, i64 1
   %128 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %123, <2 x double> <double -1.000000e+00, double 0x3CA1A62633145C07>, <2 x double> %127)
@@ -11411,7 +11410,7 @@ if.end51.thread:                                  ; preds = %if.else47, %if.end4
   %148 = insertelement <2 x float> %147, float %143, i64 1
   %149 = fpext <2 x float> %148 to <2 x double>
   %150 = extractelement <2 x double> %149, i64 0
-  %151 = call nsz double @llvm.fmuladd.f64(double %150, double -1.000000e+00, double %neg.i43.i251)
+  %151 = fsub nsz double %neg.i43.i251, %150
   %conv10.i44.i252 = fptrunc double %151 to float
   store float %conv10.i44.i252, ptr %vertices.i236, align 16, !tbaa !107
   %152 = insertelement <2 x double> poison, double %mul16.i45.i253, i64 0
@@ -11494,7 +11493,7 @@ if.then56:                                        ; preds = %if.end51.thread, %i
   store <2 x float> %186, ptr %Z2.i.1.i289, align 4, !tbaa !49
   %187 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %172, <2 x double> <double -1.000000e+00, double 0xBCAA79394C9E8A0A>, <2 x double> <double 0xBCD01C250C64E2A0, double 0x4013791420000000>)
   %188 = fptrunc <2 x double> %187 to <2 x float>
-  %189 = call nsz double @llvm.fmuladd.f64(double %173, double -1.000000e+00, double 0xBCD01C250C64E2A0)
+  %189 = fsub nsz double 0xBCD01C250C64E2A0, %173
   %conv17.i46.3.i301 = fptrunc double %189 to float
   store <2 x float> %188, ptr %Z2.i.2.i294, align 16, !tbaa !49
   store float %conv17.i46.3.i301, ptr %Z2.i.3.i298, align 4, !tbaa !50
@@ -11555,7 +11554,7 @@ if.then59:                                        ; preds = %if.else57, %if.end5
   store float 0x40090A08C0000000, ptr %Y3.i.2.i329, align 4, !tbaa !104
   %Z2.i.3.i332 = getelementptr inbounds i8, ptr %vertices.i304, i64 44
   %Y3.i.3.i333 = getelementptr inbounds i8, ptr %vertices.i304, i64 40
-  %207 = call nsz double @llvm.fmuladd.f64(double %197, double -1.000000e+00, double 0xBC14D4C30639FFBE)
+  %207 = fsub nsz double 0xBC14D4C30639FFBE, %197
   %conv17.i46.3.i335 = fptrunc double %207 to float
   %208 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %196, <2 x double> <double 0xBCAA79394C9E8A0A, double -1.000000e+00>, <2 x double> <double 0x3F592E0000000000, double 0xBC14D4C30639FFBE>)
   %209 = fptrunc <2 x double> %208 to <2 x float>
