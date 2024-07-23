@@ -1190,7 +1190,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 15:                                               ; preds = %7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i64 noundef %5, i64 noundef %6) #18
-  br label %77
+  br label %75
 
 16:                                               ; preds = %7
   %. = tail call i64 @llvm.umin.i64(i64 %12, i64 %6)
@@ -1229,7 +1229,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.13) #18
   %32 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %32) #18
-  br label %77
+  br label %75
 
 33:                                               ; preds = %25
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %28, ptr noundef nonnull @.str.14, ptr noundef %26, i64 noundef %5, i64 noundef %.) #18
@@ -1253,11 +1253,11 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 40:                                               ; preds = %38
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #18
   %.not68 = icmp eq ptr %.050, null
-  br i1 %.not68, label %77, label %41
+  br i1 %.not68, label %75, label %41
 
 41:                                               ; preds = %40
   call void @free(ptr noundef nonnull %.050) #18
-  br label %77
+  br label %75
 
 42:                                               ; preds = %38
   %.not65 = icmp eq ptr %.050, null
@@ -1272,15 +1272,15 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %46 = getelementptr inbounds i8, ptr %0, i64 104
   br label %47
 
-47:                                               ; preds = %66, %44
-  %.049 = phi i64 [ %5, %44 ], [ %54, %66 ]
-  %.048 = phi i64 [ %17, %44 ], [ %67, %66 ]
+47:                                               ; preds = %65, %44
+  %.049 = phi i64 [ %5, %44 ], [ %54, %65 ]
+  %.048 = phi i64 [ %17, %44 ], [ %66, %65 ]
   %48 = load i64, ptr %45, align 8
   %.not.i = icmp ugt i64 %48, %.049
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %47
-  %49 = sub i64 %48, %.049
+  %49 = sub nuw i64 %48, %.049
   %50 = call i64 @llvm.umin.i64(i64 %.048, i64 %49)
   %spec.select.i = call i64 @llvm.umin.i64(i64 %50, i64 8192)
   %51 = load ptr, ptr %46, align 8
@@ -1288,51 +1288,50 @@ fmap_need_off_once_len.exit:                      ; preds = %47
   %.not20.i = icmp eq ptr %52, null
   %53 = select i1 %.not20.i, i64 0, i64 %spec.select.i
   %54 = add i64 %53, %.049
-  %55 = icmp ne i64 %53, 0
-  br i1 %55, label %56, label %.thread
+  %.not82 = icmp eq i64 %53, 0
+  br i1 %.not82, label %.thread, label %55
 
-56:                                               ; preds = %fmap_need_off_once_len.exit
-  %57 = load i32, ptr %10, align 4
-  %58 = call i64 @cli_writen(i32 noundef %57, ptr noundef nonnull %52, i64 noundef %spec.select.i) #18
-  %.not66 = icmp eq i64 %58, %spec.select.i
-  br i1 %.not66, label %66, label %59
+55:                                               ; preds = %fmap_need_off_once_len.exit
+  %56 = load i32, ptr %10, align 4
+  %57 = call i64 @cli_writen(i32 noundef %56, ptr noundef nonnull %52, i64 noundef %spec.select.i) #18
+  %.not66 = icmp eq i64 %57, %spec.select.i
+  br i1 %.not66, label %65, label %58
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef %60) #18
-  %61 = load i32, ptr %10, align 4
-  %62 = call i32 @close(i32 noundef %61) #18
-  %63 = load ptr, ptr %9, align 8
-  %64 = call i32 @unlink(ptr noundef %63) #18
-  %65 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %65) #18
-  br label %77
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %9, align 8
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef %59) #18
+  %60 = load i32, ptr %10, align 4
+  %61 = call i32 @close(i32 noundef %60) #18
+  %62 = load ptr, ptr %9, align 8
+  %63 = call i32 @unlink(ptr noundef %62) #18
+  %64 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %64) #18
+  br label %75
 
-66:                                               ; preds = %56
-  %67 = sub i64 %.048, %spec.select.i
-  %68 = icmp ugt i64 %.048, %spec.select.i
-  %69 = and i1 %55, %68
-  br i1 %69, label %47, label %.thread
+65:                                               ; preds = %55
+  %66 = sub nuw i64 %.048, %spec.select.i
+  %67 = icmp ugt i64 %.048, %spec.select.i
+  br i1 %67, label %47, label %.thread
 
-.thread:                                          ; preds = %fmap_need_off_once_len.exit, %47, %66
-  %70 = load i32, ptr %10, align 4
-  %71 = call i64 @lseek(i32 noundef %70, i64 noundef 0, i32 noundef 0) #18
-  %72 = icmp eq i64 %71, -1
-  br i1 %72, label %73, label %74
+.thread:                                          ; preds = %fmap_need_off_once_len.exit, %47, %65
+  %68 = load i32, ptr %10, align 4
+  %69 = call i64 @lseek(i32 noundef %68, i64 noundef 0, i32 noundef 0) #18
+  %70 = icmp eq i64 %69, -1
+  br i1 %70, label %71, label %72
 
-73:                                               ; preds = %.thread
+71:                                               ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #18
-  br label %74
+  br label %72
 
-74:                                               ; preds = %73, %.thread
-  %75 = load ptr, ptr %9, align 8
-  store ptr %75, ptr %3, align 8
-  %76 = load i32, ptr %10, align 4
-  store i32 %76, ptr %4, align 4
-  br label %77
+72:                                               ; preds = %71, %.thread
+  %73 = load ptr, ptr %9, align 8
+  store ptr %73, ptr %3, align 8
+  %74 = load i32, ptr %10, align 4
+  store i32 %74, ptr %4, align 4
+  br label %75
 
-77:                                               ; preds = %40, %41, %74, %59, %31, %15
-  %.0 = phi i32 [ 3, %15 ], [ 14, %59 ], [ 0, %74 ], [ 20, %31 ], [ %39, %41 ], [ %39, %40 ]
+75:                                               ; preds = %40, %41, %72, %58, %31, %15
+  %.0 = phi i32 [ 3, %15 ], [ 14, %58 ], [ 0, %72 ], [ 20, %31 ], [ %39, %41 ], [ %39, %40 ]
   ret i32 %.0
 }
 

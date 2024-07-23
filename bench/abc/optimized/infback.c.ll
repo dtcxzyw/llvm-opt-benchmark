@@ -706,7 +706,7 @@ default.unreachable1324:                          ; preds = %70
   %.8.lcssa = phi i32 [ %.7.lcssa, %.preheader ], [ %257, %._crit_edge947.loopexit ]
   %258 = zext nneg i8 %.sroa.16.0.copyload.lcssa to i64
   %259 = lshr i64 %.8544.lcssa, %258
-  %260 = sub i32 %.8.lcssa, %.lcssa898
+  %260 = sub nuw i32 %.8.lcssa, %.lcssa898
   %261 = load i32, ptr %28, align 4
   %262 = add i32 %261, 1
   store i32 %262, ptr %28, align 4
@@ -794,7 +794,7 @@ default.unreachable1324:                          ; preds = %70
   %.9.lcssa = phi i32 [ %.7.lcssa, %.preheader694 ], [ %292, %._crit_edge929.loopexit ]
   %293 = zext nneg i8 %.sroa.16.0.copyload.lcssa to i64
   %294 = lshr i64 %.9545.lcssa, %293
-  %295 = sub i32 %.9.lcssa, %.lcssa898
+  %295 = sub nuw i32 %.9.lcssa, %.lcssa898
   %296 = load i32, ptr %28, align 4
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %299
@@ -1227,7 +1227,7 @@ default.unreachable1324:                          ; preds = %70
   %.sroa.022.0.copyload32 = load i8, ptr %.lcssa775, align 2
   %479 = zext nneg i8 %.sroa.16.0.copyload36.lcssa to i64
   %480 = lshr i64 %.17553.lcssa, %479
-  %481 = sub i32 %.17.lcssa, %.lcssa763
+  %481 = sub nuw i32 %.17.lcssa, %.lcssa763
   br label %482
 
 482:                                              ; preds = %._crit_edge968, %._crit_edge983
@@ -1358,7 +1358,7 @@ default.unreachable1324:                          ; preds = %70
   store i32 %532, ptr %38, align 4
   %533 = zext nneg i32 %.lcssa780 to i64
   %534 = lshr i64 %.19555.lcssa, %533
-  %535 = sub i32 %.19.lcssa, %.lcssa780
+  %535 = sub nuw i32 %.19.lcssa, %.lcssa780
   br label %536
 
 536:                                              ; preds = %._crit_edge993, %507
@@ -1535,7 +1535,7 @@ default.unreachable1324:                          ; preds = %70
   %.sroa.022.0.copyload34 = load i8, ptr %.lcssa797, align 2
   %611 = zext nneg i8 %.sroa.16.0.copyload40.lcssa to i64
   %612 = lshr i64 %.22558.lcssa, %611
-  %613 = sub i32 %.22.lcssa, %.lcssa785
+  %613 = sub nuw i32 %.22.lcssa, %.lcssa785
   br label %614
 
 614:                                              ; preds = %._crit_edge1009, %._crit_edge1024
@@ -1626,7 +1626,7 @@ default.unreachable1324:                          ; preds = %70
   store i32 %648, ptr %40, align 8
   %649 = zext nneg i32 %.lcssa802 to i64
   %650 = lshr i64 %.24560.lcssa, %649
-  %651 = sub i32 %.24.lcssa, %.lcssa802
+  %651 = sub nuw i32 %.24.lcssa, %.lcssa802
   br label %652
 
 652:                                              ; preds = %._crit_edge1034, %622
@@ -1676,7 +1676,7 @@ default.unreachable1324:                          ; preds = %70
   %671 = zext i32 %667 to i64
   %672 = sub nsw i64 0, %671
   %673 = select i1 %669, i32 %668, i32 0
-  %.4 = sub i32 %.5568, %673
+  %.4 = sub nuw i32 %.5568, %673
   %.pn = select i1 %669, i64 %670, i64 %672
   %.0526 = getelementptr i8, ptr %.5602, i64 %.pn
   %674 = load i32, ptr %38, align 4
@@ -1710,7 +1710,7 @@ default.unreachable1324:                          ; preds = %70
 
 687:                                              ; preds = %684
   %688 = load ptr, ptr %21, align 8
-  %689 = sub i32 %685, %.0563
+  %689 = sub nuw i32 %685, %.0563
   %690 = call i32 %3(ptr noundef %4, ptr noundef %688, i32 noundef %689) #4
   %.not655 = icmp eq i32 %690, 0
   %spec.select686 = select i1 %.not655, i32 1, i32 -5

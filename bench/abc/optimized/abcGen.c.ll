@@ -448,7 +448,7 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
   br i1 %or.cond, label %28, label %31
 
 28:                                               ; preds = %26
-  %29 = sub nsw i32 %.4136, %.0105148
+  %29 = sub nuw nsw i32 %.4136, %.0105148
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %.09.i, i32 noundef %.0105148, i32 noundef %.09.i, i32 noundef %29, i32 noundef %.09.i, i32 noundef %.0105148, i32 noundef %.09.i118, i32 noundef %.4136) #15
   br label %33
 

@@ -432,7 +432,7 @@ for.body16.i:                                     ; preds = %for.body11.i, %for.
 
 land.rhs.i:                                       ; preds = %for.body16.i, %for.body26.i
   %j17.i.0291 = phi i64 [ %sub22.i, %for.body26.i ], [ %i13.i.0295, %for.body16.i ]
-  %sub22.i = sub i64 %j17.i.0291, %14
+  %sub22.i = sub nuw i64 %j17.i.0291, %14
   %arrayidx23.i = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %sub22.i
   %16 = load i32, ptr %arrayidx23.i, align 4
   %cmp.i276.not = icmp ugt i32 %16, %tmp18.i.sroa.0.0.extract.trunc
@@ -2761,46 +2761,45 @@ for.end45.i:                                      ; preds = %for.body41.i, %land
 while.body.preheader.i:                           ; preds = %for.cond33.preheader.i, %for.end45.i
   %add4794.i = phi i64 [ %add47.i, %for.end45.i ], [ %k.065.i, %for.cond33.preheader.i ]
   %reps31.0.lcssa93.i = phi i32 [ %reps31.0.lcssa.i, %for.end45.i ], [ 1, %for.cond33.preheader.i ]
-  br label %while.body.i
+  %cmp50.i134 = icmp ult i32 %reps31.0.lcssa93.i, %shl.i69
+  br i1 %cmp50.i134, label %if.then52.i, label %if.else60.i
 
-while.body.i:                                     ; preds = %if.else60.i, %while.body.preheader.i
-  %33 = phi i64 [ %inc70.i, %if.else60.i ], [ %28, %while.body.preheader.i ]
-  %reps31.172.i = phi i32 [ %sub69.i, %if.else60.i ], [ %reps31.0.lcssa93.i, %while.body.preheader.i ]
-  %cmp50.i = icmp ult i32 %reps31.172.i, %shl.i69
-  br i1 %cmp50.i, label %if.then52.i, label %if.else60.i
-
-if.then52.i:                                      ; preds = %while.body.i
-  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %reps31.172.i, i1 true)
-  %xor.i.i73 = xor i32 %34, 31
+if.then52.i:                                      ; preds = %if.else60.i, %while.body.preheader.i
+  %.lcssa125 = phi i64 [ %28, %while.body.preheader.i ], [ %inc70.i, %if.else60.i ]
+  %reps31.172.i.lcssa = phi i32 [ %reps31.0.lcssa93.i, %while.body.preheader.i ], [ %sub69.i, %if.else60.i ]
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %reps31.172.i.lcssa, i1 true)
+  %xor.i.i73 = xor i32 %33, 31
   %shl55.neg.i = shl nsw i32 -1, %xor.i.i73
-  %sub.i74 = add i32 %shl55.neg.i, %reps31.172.i
+  %sub.i74 = add i32 %shl55.neg.i, %reps31.172.i.lcssa
   %shl56.i = shl i32 %sub.i74, 9
   %add57.i = or disjoint i32 %shl56.i, %xor.i.i73
-  %arrayidx58.i = getelementptr inbounds i32, ptr %call, i64 %33
+  %arrayidx58.i = getelementptr inbounds i32, ptr %call, i64 %.lcssa125
   store i32 %add57.i, ptr %arrayidx58.i, align 4, !alias.scope !46, !noalias !49
   br label %if.end71.sink.split.i
 
-if.else60.i:                                      ; preds = %while.body.i
-  %arrayidx66.i = getelementptr inbounds i32, ptr %call, i64 %33
+if.else60.i:                                      ; preds = %while.body.preheader.i, %if.else60.i
+  %reps31.172.i135 = phi i32 [ %sub69.i, %if.else60.i ], [ %reps31.0.lcssa93.i, %while.body.preheader.i ]
+  %34 = phi i64 [ %inc70.i, %if.else60.i ], [ %28, %while.body.preheader.i ]
+  %arrayidx66.i = getelementptr inbounds i32, ptr %call, i64 %34
   store i32 %add65.i, ptr %arrayidx66.i, align 4, !alias.scope !46, !noalias !49
-  %reass.sub.i = sub i32 %reps31.172.i, %shl.i69
-  %sub69.i = add i32 %reass.sub.i, 1
-  %inc70.i = add i64 %33, 1
-  %cmp48.not.i = icmp eq i32 %sub69.i, 0
-  br i1 %cmp48.not.i, label %if.end71.i, label %while.body.i, !llvm.loop !56
+  %reass.sub.i = sub nuw i32 %reps31.172.i135, %shl.i69
+  %sub69.i = add nuw i32 %reass.sub.i, 1
+  %inc70.i = add i64 %34, 1
+  %cmp50.i = icmp ult i32 %sub69.i, %shl.i69
+  br i1 %cmp50.i, label %if.then52.i, label %if.else60.i
 
 if.end71.sink.split.i:                            ; preds = %if.then52.i, %if.then.i71
-  %.lcssa.sink.i = phi i64 [ %33, %if.then52.i ], [ %28, %if.then.i71 ]
+  %.lcssa.sink.i = phi i64 [ %.lcssa125, %if.then52.i ], [ %28, %if.then.i71 ]
   %i.4.ph.i = phi i64 [ %add4794.i, %if.then52.i ], [ %inc29.i, %if.then.i71 ]
   %inc59.i = add i64 %.lcssa.sink.i, 1
   br label %if.end71.i
 
-if.end71.i:                                       ; preds = %if.else60.i, %if.end71.sink.split.i, %for.end45.i
-  %num_rle_symbols.1 = phi i64 [ %num_rle_symbols.0, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
-  %35 = phi i64 [ %28, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
-  %i.4.i = phi i64 [ %add47.i, %for.end45.i ], [ %i.4.ph.i, %if.end71.sink.split.i ], [ %add4794.i, %if.else60.i ]
+if.end71.i:                                       ; preds = %if.end71.sink.split.i, %for.end45.i
+  %num_rle_symbols.1 = phi i64 [ %num_rle_symbols.0, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ]
+  %35 = phi i64 [ %28, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ]
+  %i.4.i = phi i64 [ %add47.i, %for.end45.i ], [ %i.4.ph.i, %if.end71.sink.split.i ]
   %cmp21.i = icmp ult i64 %i.4.i, %context_map_size
-  br i1 %cmp21.i, label %for.body23.i, label %RunLengthCodeZeros.exit, !llvm.loop !57
+  br i1 %cmp21.i, label %for.body23.i, label %RunLengthCodeZeros.exit, !llvm.loop !56
 
 RunLengthCodeZeros.exit:                          ; preds = %if.end71.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1088) %arena, i8 0, i64 1088, i1 false)
@@ -2819,7 +2818,7 @@ for.body:                                         ; preds = %RunLengthCodeZeros.
   store i32 %inc, ptr %arrayidx8, align 4
   %inc9 = add nuw i64 %i.097, 1
   %exitcond.not = icmp eq i64 %inc9, %num_rle_symbols.1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
 for.end:                                          ; preds = %for.body, %RunLengthCodeZeros.exit.thread, %RunLengthCodeZeros.exit
   %cmp796.not115 = phi i1 [ true, %RunLengthCodeZeros.exit.thread ], [ true, %RunLengthCodeZeros.exit ], [ %cmp796.not, %for.body ]
@@ -2911,7 +2910,7 @@ for.inc41:                                        ; preds = %for.body23, %if.the
   %52 = phi i64 [ %add.i69, %for.body23 ], [ %add.i56, %if.then37 ]
   %inc42 = add nuw i64 %i.199, 1
   %exitcond110.not = icmp eq i64 %inc42, %num_rle_symbols.2114
-  br i1 %exitcond110.not, label %for.end43, label %for.body23, !llvm.loop !59
+  br i1 %exitcond110.not, label %for.end43, label %for.body23, !llvm.loop !58
 
 for.end43:                                        ; preds = %for.inc41, %if.end16
   %53 = phi i64 [ %.pre111, %if.end16 ], [ %52, %for.inc41 ]
@@ -3244,7 +3243,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %inc.i = add i64 %pos.113.i, 1
   %dec.i = add nsw i64 %j.014.i, -1
   %cmp3.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp3.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !60
+  br i1 %cmp3.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !59
 
 for.end.i:                                        ; preds = %for.body5.i, %for.body.i
   %total_count_.i28.promoted.i65 = phi i64 [ %total_count_.i28.promoted.i, %for.body.i ], [ %inc1.i29.i, %for.body5.i ]
@@ -3272,7 +3271,7 @@ if.then.i59:                                      ; preds = %for.end.i
 for.inc17.i:                                      ; preds = %if.then.i59, %for.end.i
   %inc18.i = add nuw i64 %i.017.i, 1
   %exitcond.not.i = icmp eq i64 %inc18.i, %n_commands
-  br i1 %exitcond.not.i, label %BuildHistograms.exit, label %for.body.i, !llvm.loop !61
+  br i1 %exitcond.not.i, label %BuildHistograms.exit, label %for.body.i, !llvm.loop !60
 
 BuildHistograms.exit:                             ; preds = %for.inc17.i, %StoreCompressedMetaBlockHeader.exit
   %25 = load i64, ptr %storage_ix, align 8
@@ -3350,7 +3349,7 @@ for.inc:                                          ; preds = %for.body, %if.end6
   %count.1 = phi i64 [ %inc, %if.end6 ], [ %count.042, %for.body ]
   %inc8 = add nuw i64 %i.043, 1
   %exitcond.not = icmp eq i64 %inc8, %histogram_length
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !62
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !61
 
 for.end:                                          ; preds = %for.inc, %if.else, %entry
   %count.0.lcssa = phi i64 [ 0, %entry ], [ %count.042, %if.else ], [ %count.1, %for.inc ]
@@ -3429,7 +3428,7 @@ if.then20:                                        ; preds = %if.end18
 
 for.cond.loopexit.i:                              ; preds = %for.inc.i, %for.body.i
   %exitcond.not.i = icmp eq i64 %add.i39, %count.0.lcssa
-  br i1 %exitcond.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %for.end16.i, label %for.body.i, !llvm.loop !62
 
 for.body.i:                                       ; preds = %if.then20, %for.cond.loopexit.i
   %i.0112.i = phi i64 [ %add.i39, %for.cond.loopexit.i ], [ 0, %if.then20 ]
@@ -3463,7 +3462,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %18 = phi i64 [ %14, %for.body3.i ], [ %15, %if.then.i ]
   %inc.i = add nuw nsw i64 %j.0110.i, 1
   %cmp2.i = icmp ult i64 %inc.i, %count.0.lcssa
-  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !64
+  br i1 %cmp2.i, label %for.body3.i, label %for.cond.loopexit.i, !llvm.loop !63
 
 for.end16.i:                                      ; preds = %for.cond.loopexit.i
   %19 = load i64, ptr %s4, align 16
@@ -3763,7 +3762,7 @@ for.body9:                                        ; preds = %GetCopyLengthCode.e
   %inc = add i64 %pos.172, 1
   %dec = add nsw i64 %j.071, -1
   %cmp7.not = icmp eq i64 %dec, 0
-  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !65
+  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !64
 
 for.end:                                          ; preds = %for.body9, %GetCopyLengthCode.exit
   %21 = phi i64 [ %add.i.i, %GetCopyLengthCode.exit ], [ %add.i61, %for.body9 ]
@@ -3816,7 +3815,7 @@ for.inc33:                                        ; preds = %for.end, %if.then
   %28 = phi i64 [ %21, %for.end ], [ %add.i, %if.then ]
   %inc34 = add nuw i64 %i.074, 1
   %exitcond.not = icmp eq i64 %inc34, %n_commands
-  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !66
+  br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !65
 
 for.end35:                                        ; preds = %for.inc33, %entry
   ret void
@@ -3951,7 +3950,7 @@ for.body9:                                        ; preds = %for.body, %for.body
   %inc12 = add i64 %pos.1117, 1
   %dec = add nsw i64 %j.0118, -1
   %cmp7.not = icmp eq i64 %dec, 0
-  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !67
+  br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !66
 
 for.end:                                          ; preds = %for.body9, %for.body
   %pos.1.lcssa = phi i64 [ %pos.0120, %for.body ], [ %inc12, %for.body9 ]
@@ -3961,7 +3960,7 @@ for.end:                                          ; preds = %for.body9, %for.bod
   %add18 = add i64 %pos.1.lcssa, %conv17
   %inc20 = add nuw nsw i64 %i.0122, 1
   %exitcond.not = icmp eq i64 %inc20, %n_commands
-  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !68
+  br i1 %exitcond.not, label %for.end21, label %for.body, !llvm.loop !67
 
 for.end21:                                        ; preds = %for.end, %if.then
   %num_literals.0.lcssa = phi i64 [ 0, %if.then ], [ %add15, %for.end ]
@@ -4066,7 +4065,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %inc.i = add i64 %pos.113.i, 1
   %dec.i = add nsw i64 %j.014.i, -1
   %cmp3.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp3.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !60
+  br i1 %cmp3.not.i, label %for.end.i, label %for.body5.i, !llvm.loop !59
 
 for.end.i:                                        ; preds = %for.body5.i, %for.body.i
   %35 = phi i64 [ %total_count_.i28.promoted.i, %for.body.i ], [ %inc1.i29.i, %for.body5.i ]
@@ -4094,7 +4093,7 @@ if.then.i111:                                     ; preds = %for.end.i
 for.inc17.i:                                      ; preds = %if.then.i111, %for.end.i
   %inc18.i = add nuw i64 %i.017.i, 1
   %exitcond.not.i = icmp eq i64 %inc18.i, %n_commands
-  br i1 %exitcond.not.i, label %BuildHistograms.exit, label %for.body.i, !llvm.loop !61
+  br i1 %exitcond.not.i, label %BuildHistograms.exit, label %for.body.i, !llvm.loop !60
 
 BuildHistograms.exit:                             ; preds = %for.inc17.i
   %add = sub nuw nsw i32 32, %29
@@ -4356,4 +4355,3 @@ attributes #12 = { nounwind }
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}

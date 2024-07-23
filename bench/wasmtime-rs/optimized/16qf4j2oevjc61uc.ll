@@ -5517,7 +5517,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he6c296cd9ad748f7E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1069, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -5585,7 +5585,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17haca276e62e4342efE.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1081, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -5653,7 +5653,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h2db66033177f4501E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1093, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -5721,7 +5721,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h5b3014a2a3dbf4b4E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1105, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -5789,7 +5789,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed637aae7c17cedbE.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1117, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -5852,7 +5852,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN16cranelift_e
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h3b6d7fecc2cd228eE.llvm.14502953478370073462.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %3, %9
+  %12 = sub nuw i64 %3, %9
   %13 = load i64, ptr %0, align 8, !alias.scope !1134, !noundef !4
   %14 = sub i64 %13, %9
   %15 = icmp ult i64 %14, %12
@@ -5928,7 +5928,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN16cranelift_en
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h9ea14e9d18523a40E.llvm.14502953478370073462.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %3, %9
+  %12 = sub nuw i64 %3, %9
   %13 = load i64, ptr %0, align 8, !alias.scope !1147, !noundef !4
   %14 = sub i64 %13, %9
   %15 = icmp ult i64 %14, %12
@@ -6006,7 +6006,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_e
   br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h7d1bd8c2f3c31114E.llvm.14502953478370073462.exit"
 
 15:                                               ; preds = %2
-  %16 = sub i64 %3, %13
+  %16 = sub nuw i64 %3, %13
   %17 = load i64, ptr %0, align 8, !alias.scope !1163, !noalias !1168, !noundef !4
   %18 = sub i64 %17, %13
   %19 = icmp ult i64 %18, %16
@@ -6086,7 +6086,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h43a84daa20cc6dc5E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1179, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6222,7 +6222,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed1378313bb09d87E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1213, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6290,7 +6290,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h24043911f696c29aE.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1225, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6358,7 +6358,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h24043911f696c29aE.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1237, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6474,7 +6474,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cranelift_e
   br i1 %14, label %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he8b03bf861563415E.llvm.14502953478370073462.exit"
 
 15:                                               ; preds = %2
-  %16 = sub i64 %3, %13
+  %16 = sub nuw i64 %3, %13
   %17 = load i64, ptr %0, align 8, !alias.scope !1265, !noalias !1270, !noundef !4
   %18 = sub i64 %17, %13
   %19 = icmp ult i64 %18, %16
@@ -6554,7 +6554,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he5a3f6178ce569b0E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1279, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6622,7 +6622,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he99dffbe07882eaeE.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1291, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6692,7 +6692,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN16cranelift_en
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he1ae29a096988b01E.llvm.14502953478370073462.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %3, %9
+  %12 = sub nuw i64 %3, %9
   %13 = load i64, ptr %0, align 8, !alias.scope !1303, !noundef !4
   %14 = sub i64 %13, %9
   %15 = icmp ult i64 %14, %12
@@ -6764,7 +6764,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN16cranelift_en
   br i1 %8, label %9, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h526c9bc7bf986738E.llvm.14502953478370073462.exit"
 
 9:                                                ; preds = %2
-  %10 = sub i64 %3, %7
+  %10 = sub nuw i64 %3, %7
   %11 = load i64, ptr %0, align 8, !alias.scope !1316, !noundef !4
   %12 = sub i64 %11, %7
   %13 = icmp ult i64 %12, %10
@@ -6833,7 +6833,7 @@ define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN16cranelift_e
   br i1 %16, label %17, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h946b033b7a94a5bfE.llvm.14502953478370073462.exit"
 
 17:                                               ; preds = %2
-  %18 = sub i64 %3, %15
+  %18 = sub nuw i64 %3, %15
   %19 = load i64, ptr %0, align 8, !alias.scope !1333, !noalias !1338, !noundef !4
   %20 = sub i64 %19, %15
   %21 = icmp ult i64 %20, %18
@@ -6919,7 +6919,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN16cranelift_en
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc1e11fecf9511895E.llvm.14502953478370073462.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %3, %9
+  %12 = sub nuw i64 %3, %9
   %13 = load i64, ptr %0, align 8, !alias.scope !1347, !noundef !4
   %14 = sub i64 %13, %9
   %15 = icmp ult i64 %14, %12
@@ -6993,7 +6993,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN16cranelift_en
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc6ff6d4965fcb14fE.llvm.14502953478370073462.exit"
 
 11:                                               ; preds = %2
-  %12 = sub i64 %3, %9
+  %12 = sub nuw i64 %3, %9
   %13 = load i64, ptr %0, align 8, !alias.scope !1359, !noundef !4
   %14 = sub i64 %13, %9
   %15 = icmp ult i64 %14, %12
@@ -7104,7 +7104,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN16cranelift_en
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfab631a85c2b4ab7E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %2
-  %9 = sub i64 %3, %6
+  %9 = sub nuw i64 %3, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !1377, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -7350,7 +7350,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h43a84daa20cc6dc5E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %2
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !1391, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -7406,7 +7406,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h2db66033177f4501E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %2
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !1403, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -7464,7 +7464,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc6ff6d4965fcb14fE.llvm.14502953478370073462.exit"
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = load i64, ptr %0, align 8, !alias.scope !1415, !noundef !4
   %13 = sub i64 %12, %8
   %14 = icmp ult i64 %13, %11
@@ -7526,7 +7526,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc1e11fecf9511895E.llvm.14502953478370073462.exit"
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = load i64, ptr %0, align 8, !alias.scope !1427, !noundef !4
   %13 = sub i64 %12, %8
   %14 = icmp ult i64 %13, %11
@@ -7586,7 +7586,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed1378313bb09d87E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %2
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !1439, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -7644,7 +7644,7 @@ define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$6resize
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he1ae29a096988b01E.llvm.14502953478370073462.exit"
 
 10:                                               ; preds = %2
-  %11 = sub i64 %1, %8
+  %11 = sub nuw i64 %1, %8
   %12 = load i64, ptr %0, align 8, !alias.scope !1451, !noundef !4
   %13 = sub i64 %12, %8
   %14 = icmp ult i64 %13, %11
@@ -15286,7 +15286,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h96fe31cfa28ab91eE"
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %11, i64 12
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   %18 = mul i64 %17, 12
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %16, ptr nonnull align 4 %11, i64 %18, i1 false)
   br label %20
@@ -15327,7 +15327,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hc46c4526c5f4510dE"
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %11, i64 1
-  %17 = sub i64 %5, %1
+  %17 = sub nuw i64 %5, %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %11, i64 %17, i1 false)
   br label %19
 
@@ -15376,7 +15376,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h24043911f696c29aE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h7ebf803db1658dcaE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2614, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15430,7 +15430,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h2db66033177f4501E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hd207da29bcb66db8E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2620, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15484,7 +15484,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h33b5fc9f66b35761E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h271aa539f65250daE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2626, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15544,7 +15544,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h37b703c8b4532b8cE.
           to label %11 unwind label %21
 
 .thread5:                                         ; preds = %3
-  %9 = sub i64 %1, %7
+  %9 = sub nuw i64 %1, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h4c57a840873d9e4dE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
@@ -15601,7 +15601,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h3b6d7fecc2cd228eE.
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8047baaf9ff8b5e6E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2639, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -15659,7 +15659,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h43a84daa20cc6dc5E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hd4dd60d91d949d82E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2645, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15713,7 +15713,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h526c9bc7bf986738E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hecda49c7aade7ea9E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2651, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15760,7 +15760,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h5b3014a2a3dbf4b4E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h82fde7be21c87042E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2657, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -15817,7 +15817,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h75124c474f9543caE.
   br i1 %.not.not, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h733618f6d0c597f7E.llvm.14502953478370073462.exit.thread", label %9
 
 9:                                                ; preds = %3
-  %10 = sub i64 %8, %1
+  %10 = sub nuw i64 %8, %1
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !2663, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds { { ptr, i64 }, { { [8 x i64] }, i64 } }, ptr %12, i64 %1
@@ -15826,7 +15826,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h75124c474f9543caE.
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h733618f6d0c597f7E.llvm.14502953478370073462.exit" unwind label %36
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h733618f6d0c597f7E.llvm.14502953478370073462.exit.thread": ; preds = %3
-  %14 = sub i64 %1, %8
+  %14 = sub nuw i64 %1, %8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hdad168cf34bfb35dE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %14, ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %6)
@@ -15907,7 +15907,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h7d1bd8c2f3c31114E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h87aa176d5af7c088E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -15980,7 +15980,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h946b033b7a94a5bfE.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h517a23499bf4e8b1E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -16062,7 +16062,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h95361556c487612bE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i8, ptr %2, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1
@@ -16239,7 +16239,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h9ea14e9d18523a40E.
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hcd5a765285ed523bE.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2707, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -16302,7 +16302,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h9fb260fa30b5e8a7E"
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17ha820216e3d9bd5c5E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2713, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -16370,7 +16370,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha09d9226af063e08E"
 
 11:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2719)
-  %12 = sub i64 %10, %1
+  %12 = sub nuw i64 %10, %1
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !2719, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, ptr %14, i64 %1
@@ -16421,7 +16421,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha09d9226af063e08E"
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hcbb2eeb7f95c21a3E.llvm.14502953478370073462.exit.thread": ; preds = %3
-  %29 = sub i64 %1, %10
+  %29 = sub nuw i64 %1, %10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h811383dac8971678E.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8)
@@ -16463,7 +16463,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17haca276e62e4342efE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hc84309bbb19927f9E.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2743, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -16517,7 +16517,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc1e11fecf9511895E.
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h72557ba6bb5dc685E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2749, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -16575,7 +16575,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hc6ff6d4965fcb14fE.
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hd4cd6c197413403eE.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2755, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -16633,7 +16633,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he1ae29a096988b01E.
   br i1 %7, label %8, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5cfdbc84eefaba24E.llvm.14502953478370073462.exit"
 
 8:                                                ; preds = %4
-  %9 = sub i64 %1, %6
+  %9 = sub nuw i64 %1, %6
   %10 = load i64, ptr %0, align 8, !alias.scope !2761, !noundef !4
   %11 = sub i64 %10, %6
   %12 = icmp ult i64 %11, %9
@@ -16691,7 +16691,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he2dab03384fc29c5E"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9ea3ad5b18b022e4E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2767, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -16745,7 +16745,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he5a3f6178ce569b0E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hf81b6ac079bbeeeaE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2773, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -16799,7 +16799,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he6c296cd9ad748f7E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hfffabde447485ae3E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2779, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -16853,7 +16853,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he8b03bf861563415E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9b37b0a3c734221dE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -16926,7 +16926,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he99dffbe07882eaeE.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h86252bba17b8323aE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2793, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -16980,7 +16980,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed1378313bb09d87E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hd7aa181f4b8dc6baE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2799, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -17034,7 +17034,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hed637aae7c17cedbE"
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h578314d25deeafddE.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2805, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -17081,7 +17081,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hfab631a85c2b4ab7E.
   br i1 %6, label %7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h55bdbe8dce332163E.llvm.14502953478370073462.exit"
 
 7:                                                ; preds = %3
-  %8 = sub i64 %1, %5
+  %8 = sub nuw i64 %1, %5
   %9 = load i64, ptr %0, align 8, !alias.scope !2811, !noundef !4
   %10 = sub i64 %9, %5
   %11 = icmp ult i64 %10, %8
@@ -17475,7 +17475,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h6558d2ab54dc36fd
   br i1 %6, label %"_ZN4core3ptr92drop_in_place$LT$$u5b$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$u5d$$GT$17h2158761dcb3a48c5E.llvm.14502953478370073462.exit", label %7
 
 7:                                                ; preds = %2
-  %8 = sub i64 %5, %1
+  %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %10, i64 %1
@@ -17568,7 +17568,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h733618f6d0c597f7
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds { { ptr, i64 }, { { [8 x i64] }, i64 } }, ptr %9, i64 %1
@@ -17678,7 +17678,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h9b463bb5b256eba8
   br i1 %5, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$u5d$$GT$17he4d8c26f88648d84E.llvm.14502953478370073462.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = sub i64 %4, %1
+  %7 = sub nuw i64 %4, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds { i8, [39 x i8] }, ptr %9, i64 %1
@@ -17780,7 +17780,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17hcbb2eeb7f95c21a3
   br i1 %7, label %"_ZN4core3ptr72drop_in_place$LT$$u5b$regalloc2..ion..data_structures..PRegData$u5d$$GT$17h1a644095233e9c21E.llvm.14502953478370073462.exit", label %8
 
 8:                                                ; preds = %2
-  %9 = sub i64 %6, %1
+  %9 = sub nuw i64 %6, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, ptr %11, i64 %1
@@ -22049,7 +22049,7 @@ define void @_ZN17cranelift_codegen7binemit9stack_map8StackMap10from_slice17hfb6
   %.sroa.014.028 = phi ptr [ %21, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h190e23028e45bedbE.exit" ], [ %1, %3 ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.029, i64 32)
   %21 = getelementptr inbounds i8, ptr %.sroa.014.028, i64 %.0.sroa.speculated.i.i
-  %22 = sub i64 %.sroa.5.029, %.0.sroa.speculated.i.i
+  %22 = sub nuw i64 %.sroa.5.029, %.0.sroa.speculated.i.i
   br label %.lr.ph
 
 .thread21:                                        ; preds = %.lr.ph

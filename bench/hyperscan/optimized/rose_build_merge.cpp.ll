@@ -5346,16 +5346,15 @@ if.end.i:                                         ; preds = %for.body72
   br i1 %cmp.not.i, label %for.body.lr.ph.i, label %lor.lhs.false
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %sub.i = sub i32 %17, %13
+  %sub.i = sub nuw i32 %17, %13
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  %20 = tail call i32 @llvm.umax.i32(i32 %sub.i, i32 1)
-  %umax.i = zext i32 %20 to i64
+  %umax.i = zext i32 %sub.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %i.035.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %21 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %add.i.i.i.i.i = sub i64 %21, %i.035.i
+  %20 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %add.i.i.i.i.i = sub i64 %20, %i.035.i
   %call13.i = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr nonnull %16, ptr nonnull %16, i64 %add.i.i.i.i.i)
   %inc.i = add nuw nsw i64 %i.035.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
@@ -5371,10 +5370,10 @@ _ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge:
   br label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge, %if.end.i
-  %22 = phi i32 [ %.pre228, %_ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge ], [ 0, %if.end.i ]
-  %23 = phi i32 [ %.pre, %_ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge ], [ 0, %if.end.i ]
-  %tobool.not.i159 = icmp eq i32 %23, 0
-  %tobool2.not.i161 = icmp eq i32 %22, 0
+  %21 = phi i32 [ %.pre228, %_ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge ], [ 0, %if.end.i ]
+  %22 = phi i32 [ %.pre, %_ZN3ue2L11checkPrefixERKNS_15rose_literal_idEjS2_j.exit.lor.lhs.false_crit_edge ], [ 0, %if.end.i ]
+  %tobool.not.i159 = icmp eq i32 %22, 0
+  %tobool2.not.i161 = icmp eq i32 %21, 0
   %or.cond.i162 = select i1 %tobool.not.i159, i1 %tobool2.not.i161, i1 false
   br i1 %or.cond.i162, label %if.end.i164, label %return
 
@@ -5383,15 +5382,14 @@ if.end.i164:                                      ; preds = %lor.lhs.false
   br i1 %cmp.not.i165, label %for.body.lr.ph.i166, label %if.end83
 
 for.body.lr.ph.i166:                              ; preds = %if.end.i164
-  %sub.i167 = sub i32 %13, %17
-  %24 = tail call i32 @llvm.umax.i32(i32 %sub.i167, i32 1)
-  %umax.i169 = zext i32 %24 to i64
+  %sub.i167 = sub nuw i32 %13, %17
+  %umax.i169 = zext i32 %sub.i167 to i64
   br label %for.body.i170
 
 for.body.i170:                                    ; preds = %for.body.i170, %for.body.lr.ph.i166
   %i.035.i171 = phi i64 [ 0, %for.body.lr.ph.i166 ], [ %inc.i174, %for.body.i170 ]
-  %25 = load i64, ptr %_M_string_length.i.i.i168, align 8
-  %add.i.i.i.i.i172 = sub i64 %25, %i.035.i171
+  %23 = load i64, ptr %_M_string_length.i.i.i168, align 8
+  %add.i.i.i.i.i172 = sub i64 %23, %i.035.i171
   %call13.i173 = tail call fastcc noundef zeroext i1 @_ZN3ue2L26stringsCanFinishAtSameSpotERKNS_11ue2_literalENS0_14const_iteratorES3_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr nonnull %12, ptr nonnull %12, i64 %add.i.i.i.i.i172)
   %inc.i174 = add nuw nsw i64 %i.035.i171, 1
   %exitcond.not.i175 = icmp eq i64 %inc.i174, %umax.i169
@@ -41506,7 +41504,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub i64 %add12.i.i.i, %sub.ptr.div.i
+  %sub.i = sub nuw i64 %add12.i.i.i, %sub.ptr.div.i
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i), !noalias !997
   %.pre.i = load ptr, ptr %_M_start, align 8, !noalias !1000
   %.pre9.i = load ptr, ptr %_M_first.i57, align 8, !noalias !1000
@@ -41634,7 +41632,7 @@ if.then19:                                        ; preds = %if.else
   br i1 %cmp.i87, label %if.then.i99, label %if.end.i88
 
 if.then.i99:                                      ; preds = %if.then19
-  %sub4.i = sub i64 %add12.i.i.i, %sub.i86
+  %sub4.i = sub nuw i64 %add12.i.i.i, %sub.i86
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !1012
   %.pre.i100 = load ptr, ptr %_M_finish, align 8
   %.pre10.i101 = load ptr, ptr %_M_last.i81, align 8
@@ -41865,7 +41863,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i175 = sub i64 %__n, %sub.ptr.div.i174
+  %sub.i175 = sub nuw i64 %__n, %sub.ptr.div.i174
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub.i175), !noalias !1027
   %.pre.i = load ptr, ptr %_M_start, align 8
   %.pre9.i = load ptr, ptr %_M_first.i170, align 8
@@ -42401,7 +42399,7 @@ if.else62:                                        ; preds = %entry
   br i1 %cmp.i447, label %if.then.i474, label %if.end.i448
 
 if.then.i474:                                     ; preds = %if.else62
-  %sub4.i = sub i64 %__n, %sub.i446
+  %sub4.i = sub nuw i64 %__n, %sub.i446
   tail call void @_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %sub4.i), !noalias !1103
   %.pre.i475 = load ptr, ptr %_M_finish.i, align 8
   %.pre10.i476 = load ptr, ptr %_M_last.i441, align 8

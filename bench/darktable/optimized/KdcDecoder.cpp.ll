@@ -363,7 +363,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
 
 82:                                               ; preds = %71
   %83 = zext i32 %79 to i64
-  %84 = sub i32 %79, %77
+  %84 = sub nuw i32 %79, %77
   %85 = zext i32 %84 to i64
   %86 = add nuw nsw i64 %76, %85
   %87 = icmp ugt i64 %86, %83
@@ -380,12 +380,10 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   tail call void @llvm.assume(i1 %92)
   %93 = icmp sgt i32 %77, -1
   tail call void @llvm.assume(i1 %93)
-  %94 = icmp sgt i32 %84, -1
-  tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds i8, ptr %91, i64 %76
-  %96 = insertvalue { ptr, i32 } poison, ptr %95, 0
-  %97 = insertvalue { ptr, i32 } %96, i32 %84, 1
-  ret { ptr, i32 } %97
+  %94 = getelementptr inbounds i8, ptr %91, i64 %76
+  %95 = insertvalue { ptr, i32 } poison, ptr %94, 0
+  %96 = insertvalue { ptr, i32 } %95, i32 %84, 1
+  ret { ptr, i32 } %96
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

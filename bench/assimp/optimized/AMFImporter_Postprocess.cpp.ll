@@ -379,7 +379,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i
 
 if.then.i27:                                      ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE7reserveEm.exit
-  %sub.i = sub i64 %6, %sub.ptr.div.i.i23
+  %sub.i = sub nuw i64 %6, %sub.ptr.div.i.i23
   tail call void @_ZNSt6vectorIP8AMFColorSaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pVertexColorArray, i64 noundef %sub.i)
   br label %_ZNSt6vectorIP8AMFColorSaIS1_EE6resizeEm.exit
 
@@ -3599,11 +3599,10 @@ delete.notnull:                                   ; preds = %for.cond214.loopexi
   br i1 %cmp.i586, label %if.else.i.i605, label %if.else.i587
 
 if.else.i.i605:                                   ; preds = %delete.notnull
-  %sub.i594 = sub i64 %idx_vert_new.0.lcssa, %.pre1898
+  %sub.i594 = sub nuw i64 %idx_vert_new.0.lcssa, %.pre1898
   %cmp4.i.i599 = icmp ult i64 %.pre1898, 768614336404564651
   call void @llvm.assume(i1 %cmp4.i.i599)
-  %sub.i.i600 = sub nuw nsw i64 768614336404564650, %.pre1898
-  %cmp.i.i.i606 = icmp ult i64 %sub.i.i600, %sub.i594
+  %cmp.i.i.i606 = icmp ugt i64 %idx_vert_new.0.lcssa, 768614336404564650
   br i1 %cmp.i.i.i606, label %if.then.i.i.i625, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i607
 
 if.then.i.i.i625:                                 ; preds = %if.else.i.i605

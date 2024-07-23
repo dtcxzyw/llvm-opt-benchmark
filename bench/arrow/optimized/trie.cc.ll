@@ -813,18 +813,17 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %child_lookup_10 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %substring_ = getelementptr inbounds i8, ptr %child_node, i64 4
   %data_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %sub.i.i = sub nsw i64 %conv.i.i, %add
+  %sub.i.i = sub nuw nsw i64 %conv.i.i, %add
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data_.i.i, i64 %add
-  %conv.i.i.i = trunc i64 %sub.i.i to i8
-  %conv4.i.i.i = and i64 %sub.i.i, 255
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4, ptr nonnull align 1 %add.ptr.i.i, i64 %conv4.i.i.i, i1 false)
-  %retval.i.sroa.4.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63 = load i56, ptr %retval.i.sroa.4, align 8
-  %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx66 = getelementptr inbounds i8, ptr %retval.i.sroa.4, i64 7
-  %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i = load i32, ptr %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx66, align 1
+  %conv.i.i.i = trunc nuw i64 %sub.i.i to i8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4, ptr nonnull align 1 %add.ptr.i.i, i64 %sub.i.i, i1 false)
+  %retval.i.sroa.4.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62 = load i56, ptr %retval.i.sroa.4, align 8
+  %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx65 = getelementptr inbounds i8, ptr %retval.i.sroa.4, i64 7
+  %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i = load i32, ptr %retval.i.sroa.4.7.retval.i.8.retval.8.retval.8.retval.sroa_idx65, align 1
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4)
   store i8 %conv.i.i.i, ptr %substring_, align 4
   %substring_.sroa_idx = getelementptr inbounds i8, ptr %child_node, i64 5
-  store i56 %retval.i.sroa.4.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63, ptr %substring_.sroa_idx, align 1
+  store i56 %retval.i.sroa.4.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62, ptr %substring_.sroa_idx, align 1
   %tmp.coerce.sroa.2.0.substring_.sroa_idx = getelementptr inbounds i8, ptr %child_node, i64 12
   store i32 %retval.i.sroa.4.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx, align 4
   %arrayidx.i = getelementptr inbounds [11 x i8], ptr %data_.i.i, i64 0, i64 %split_at
@@ -835,15 +834,15 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i.i, i64 %split_at)
   %conv.i.i.i17 = trunc nuw i64 %.sroa.speculated.i.i to i8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i11.sroa.4, ptr nonnull align 1 %data_.i.i, i64 %.sroa.speculated.i.i, i1 false)
-  %retval.i11.sroa.4.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065 = load i56, ptr %retval.i11.sroa.4, align 8
-  %retval.i11.sroa.4.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx67 = getelementptr inbounds i8, ptr %retval.i11.sroa.4, i64 7
-  %retval.i11.sroa.4.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22 = load i32, ptr %retval.i11.sroa.4.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx67, align 1
+  %retval.i11.sroa.4.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964 = load i56, ptr %retval.i11.sroa.4, align 8
+  %retval.i11.sroa.4.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx66 = getelementptr inbounds i8, ptr %retval.i11.sroa.4, i64 7
+  %retval.i11.sroa.4.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21 = load i32, ptr %retval.i11.sroa.4.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx66, align 1
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i11.sroa.4)
   store i8 %conv.i.i.i17, ptr %substring_11, align 2
   %substring_11.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  store i56 %retval.i11.sroa.4.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065, ptr %substring_11.sroa_idx, align 1
+  store i56 %retval.i11.sroa.4.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964, ptr %substring_11.sroa_idx, align 1
   %ref.tmp.sroa.2.0.substring_20.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
-  store i32 %retval.i11.sroa.4.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx, align 2
+  store i32 %retval.i11.sroa.4.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx, align 2
   call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %3, ptr noundef nonnull align 2 dereferenceable(16) %child_node)
   %4 = load ptr, ptr %ref.tmp21, align 8, !noalias !52
   store ptr %4, ptr %agg.result, align 8
@@ -881,8 +880,8 @@ while.body:                                       ; preds = %if.end99, %entry
   %1 = load i8, ptr %substring_.i, align 1
   %conv.i.i = zext i8 %1 to i64
   %data_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %cmp308.not = icmp eq i8 %1, 0
-  br i1 %cmp308.not, label %for.end, label %for.body.preheader
+  %cmp307.not = icmp eq i8 %1, 0
+  br i1 %cmp307.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.body
   %2 = add i64 %pos.0, %conv.i.i
@@ -890,10 +889,10 @@ for.body.preheader:                               ; preds = %while.body
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end54
-  %pos.1311 = phi i64 [ %inc55, %if.end54 ], [ %pos.0, %for.body.preheader ]
-  %remaining.1310 = phi i64 [ %dec, %if.end54 ], [ %remaining.0, %for.body.preheader ]
-  %i.0309 = phi i64 [ %inc56, %if.end54 ], [ 0, %for.body.preheader ]
-  %cmp5 = icmp eq i64 %remaining.1310, 0
+  %pos.1310 = phi i64 [ %inc55, %if.end54 ], [ %pos.0, %for.body.preheader ]
+  %remaining.1309 = phi i64 [ %dec, %if.end54 ], [ %remaining.0, %for.body.preheader ]
+  %i.0308 = phi i64 [ %inc56, %if.end54 ], [ 0, %for.body.preheader ]
+  %cmp5 = icmp eq i64 %remaining.1309, 0
   br i1 %cmp5, label %do.body, label %if.end19
 
 do.body:                                          ; preds = %for.body
@@ -912,20 +911,19 @@ if.then.i.i.i.i:                                  ; preds = %do.body
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   %child_lookup_10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %substring_.i.le366 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %substring_.i.le365 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %substring_.i33 = getelementptr inbounds i8, ptr %child_node.i, i64 4
-  %sub.i.i.i = sub nsw i64 %conv.i.i, %add.i
+  %sub.i.i.i = sub nuw nsw i64 %conv.i.i, %add.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data_.i.i, i64 %add.i
-  %conv.i.i.i.i = trunc i64 %sub.i.i.i to i8
-  %conv4.i.i.i.i = and i64 %sub.i.i.i, 255
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %conv4.i.i.i.i, i1 false), !noalias !55
-  %retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63.i = load i56, ptr %retval.i.sroa.4.i, align 8, !noalias !55
+  %conv.i.i.i.i = trunc nuw i64 %sub.i.i.i to i8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.i.i.i, i1 false), !noalias !55
+  %retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i = load i56, ptr %retval.i.sroa.4.i, align 8, !noalias !55
   %retval.i.sroa.4.i.7.i.7.i.7.retval.i.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i.sroa.4.i, i64 7
   %retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i = load i32, ptr %retval.i.sroa.4.i.7.i.7.i.7.retval.i.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !55
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4.i)
   store i8 %conv.i.i.i.i, ptr %substring_.i33, align 4, !noalias !55
   %substring_.sroa_idx.i = getelementptr inbounds i8, ptr %child_node.i, i64 5
-  store i56 %retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63.i, ptr %substring_.sroa_idx.i, align 1, !noalias !55
+  store i56 %retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.i.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i, ptr %substring_.sroa_idx.i, align 1, !noalias !55
   %tmp.coerce.sroa.2.0.substring_.sroa_idx.i = getelementptr inbounds i8, ptr %child_node.i, i64 12
   store i32 %retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.i.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i, align 4, !noalias !55
   %arrayidx.i.i = getelementptr inbounds [11 x i8], ptr %data_.i.i, i64 0, i64 %remaining.0
@@ -935,14 +933,14 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i)
   %conv.i.i.i17.i = trunc nuw i64 %remaining.0 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i11.sroa.4.i, ptr nonnull align 1 %data_.i.i, i64 %remaining.0, i1 false), !noalias !55
-  %retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065.i = load i56, ptr %retval.i11.sroa.4.i, align 8, !noalias !55
+  %retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i = load i56, ptr %retval.i11.sroa.4.i, align 8, !noalias !55
   %retval.i11.sroa.4.i.7.i.7.i.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i11.sroa.4.i, i64 7
-  %retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22.i = load i32, ptr %retval.i11.sroa.4.i.7.i.7.i.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !55
+  %retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i = load i32, ptr %retval.i11.sroa.4.i.7.i.7.i.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !55
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i)
-  store i8 %conv.i.i.i17.i, ptr %substring_.i.le366, align 2, !noalias !55
-  store i56 %retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065.i, ptr %data_.i.i, align 1, !noalias !55
+  store i8 %conv.i.i.i17.i, ptr %substring_.i.le365, align 2, !noalias !55
+  store i56 %retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.i.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i, ptr %data_.i.i, align 1, !noalias !55
   %ref.tmp.sroa.2.0.substring_20.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
-  store i32 %retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22.i, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i, align 2, !noalias !55
+  store i32 %retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.i.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i, align 2, !noalias !55
   call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %5, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i), !noalias !55
   %6 = load ptr, ptr %ref.tmp21.i, align 8, !noalias !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %child_node.i)
@@ -963,72 +961,71 @@ do.end14:                                         ; preds = %_ZN5arrow6StatusD2E
   br label %return
 
 if.end19:                                         ; preds = %for.body
-  %add.ptr.i71 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1311
+  %add.ptr.i71 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1310
   %9 = load i8, ptr %add.ptr.i71, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %data_.i.i, i64 %i.0309
+  %arrayidx = getelementptr inbounds i8, ptr %data_.i.i, i64 %i.0308
   %10 = load i8, ptr %arrayidx, align 1
   %cmp22.not = icmp eq i8 %9, %10
   br i1 %cmp22.not, label %if.end54, label %do.body24
 
 do.body24:                                        ; preds = %if.end19
-  %add.ptr.i71.le = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1311
+  %add.ptr.i71.le = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1310
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %child_node.i74)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp21.i75)
   %11 = load <2 x i16>, ptr %add.ptr.i, align 2, !noalias !67
   store <2 x i16> %11, ptr %child_node.i74, align 4, !noalias !67
-  %add.i80 = add nuw nsw i64 %i.0309, 1
+  %add.i80 = add nuw nsw i64 %i.0308, 1
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i.sroa.4.i73)
-  %cmp.i.i.i.i82.not = icmp ult i64 %i.0309, %conv.i.i
-  br i1 %cmp.i.i.i.i82.not, label %_ZN5arrow6StatusD2Ev.exit139, label %if.then.i.i.i.i102
+  %cmp.i.i.i.i82.not = icmp ult i64 %i.0308, %conv.i.i
+  br i1 %cmp.i.i.i.i82.not, label %_ZN5arrow6StatusD2Ev.exit138, label %if.then.i.i.i.i101
 
-if.then.i.i.i.i102:                               ; preds = %do.body24
+if.then.i.i.i.i101:                               ; preds = %do.body24
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, i64 noundef %add.i80, i64 noundef %conv.i.i) #19, !noalias !67
   unreachable
 
-_ZN5arrow6StatusD2Ev.exit139:                     ; preds = %do.body24
+_ZN5arrow6StatusD2Ev.exit138:                     ; preds = %do.body24
   %child_lookup_10.i78 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %substring_.i.le = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %substring_.i83 = getelementptr inbounds i8, ptr %child_node.i74, i64 4
-  %sub.i.i.i85 = sub nsw i64 %conv.i.i, %add.i80
+  %sub.i.i.i85 = sub nuw nsw i64 %conv.i.i, %add.i80
   %add.ptr.i.i.i86 = getelementptr inbounds i8, ptr %data_.i.i, i64 %add.i80
-  %conv.i.i.i.i87 = trunc i64 %sub.i.i.i85 to i8
-  %conv4.i.i.i.i88 = and i64 %sub.i.i.i85, 255
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4.i73, ptr nonnull align 1 %add.ptr.i.i.i86, i64 %conv4.i.i.i.i88, i1 false), !noalias !67
-  %retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63.i89 = load i56, ptr %retval.i.sroa.4.i73, align 8, !noalias !67
+  %conv.i.i.i.i87 = trunc nuw i64 %sub.i.i.i85 to i8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i.sroa.4.i73, ptr nonnull align 1 %add.ptr.i.i.i86, i64 %sub.i.i.i85, i1 false), !noalias !67
+  %retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i88 = load i56, ptr %retval.i.sroa.4.i73, align 8, !noalias !67
   %retval.i.sroa.4.i73.7.i73.7.i73.7.retval.i.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i.sroa.4.i73, i64 7
-  %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i91 = load i32, ptr %retval.i.sroa.4.i73.7.i73.7.i73.7.retval.i.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !67
+  %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i90 = load i32, ptr %retval.i.sroa.4.i73.7.i73.7.i73.7.retval.i.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !67
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i.sroa.4.i73)
   store i8 %conv.i.i.i.i87, ptr %substring_.i83, align 4, !noalias !67
-  %substring_.sroa_idx.i92 = getelementptr inbounds i8, ptr %child_node.i74, i64 5
-  store i56 %retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i63.i89, ptr %substring_.sroa_idx.i92, align 1, !noalias !67
-  %tmp.coerce.sroa.2.0.substring_.sroa_idx.i93 = getelementptr inbounds i8, ptr %child_node.i74, i64 12
-  store i32 %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i91, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i93, align 4, !noalias !67
+  %substring_.sroa_idx.i91 = getelementptr inbounds i8, ptr %child_node.i74, i64 5
+  store i56 %retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.i73.0.retval.i.sroa.4.0.retval.i.sroa.4.1.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i62.i88, ptr %substring_.sroa_idx.i91, align 1, !noalias !67
+  %tmp.coerce.sroa.2.0.substring_.sroa_idx.i92 = getelementptr inbounds i8, ptr %child_node.i74, i64 12
+  store i32 %retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.i73.7.retval.i.sroa.4.7.retval.i.sroa.4.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i.i90, ptr %tmp.coerce.sroa.2.0.substring_.sroa_idx.i92, align 4, !noalias !67
   store i16 -1, ptr %child_lookup_10.i78, align 2, !noalias !67
   store i16 -1, ptr %add.ptr.i, align 2, !noalias !67
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i72)
-  %conv.i.i.i17.i96 = trunc nuw i64 %i.0309 to i8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i11.sroa.4.i72, ptr nonnull align 1 %data_.i.i, i64 %i.0309, i1 false), !noalias !67
-  %retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065.i97 = load i56, ptr %retval.i11.sroa.4.i72, align 8, !noalias !67
+  %conv.i.i.i17.i95 = trunc nuw i64 %i.0308 to i8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %retval.i11.sroa.4.i72, ptr nonnull align 1 %data_.i.i, i64 %i.0308, i1 false), !noalias !67
+  %retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i96 = load i56, ptr %retval.i11.sroa.4.i72, align 8, !noalias !67
   %retval.i11.sroa.4.i72.7.i72.7.i72.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx = getelementptr inbounds i8, ptr %retval.i11.sroa.4.i72, i64 7
-  %retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22.i99 = load i32, ptr %retval.i11.sroa.4.i72.7.i72.7.i72.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !67
+  %retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i98 = load i32, ptr %retval.i11.sroa.4.i72.7.i72.7.i72.7.retval.i11.8.retval.8.retval.8.retval.sroa_idx, align 1, !noalias !67
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %retval.i11.sroa.4.i72)
-  store i8 %conv.i.i.i17.i96, ptr %substring_.i.le, align 2, !noalias !67
-  store i56 %retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i2065.i97, ptr %data_.i.i, align 1, !noalias !67
-  %ref.tmp.sroa.2.0.substring_20.sroa_idx.i101 = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
-  store i32 %retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i22.i99, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i101, align 2, !noalias !67
+  store i8 %conv.i.i.i17.i95, ptr %substring_.i.le, align 2, !noalias !67
+  store i56 %retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.i72.0.retval.i11.sroa.4.0.retval.i11.sroa.4.1.retval.i11.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1964.i96, ptr %data_.i.i, align 1, !noalias !67
+  %ref.tmp.sroa.2.0.substring_20.sroa_idx.i100 = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  store i32 %retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.i72.7.retval.i11.sroa.4.7.retval.i11.sroa.4.8.retval.i11.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i21.i98, ptr %ref.tmp.sroa.2.0.substring_20.sroa_idx.i100, align 2, !noalias !67
   call void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhOS3_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp21.i75, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %10, ptr noundef nonnull align 2 dereferenceable(16) %child_node.i74), !noalias !67
   %12 = load ptr, ptr %ref.tmp21.i75, align 8, !noalias !70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %child_node.i74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp21.i75)
   store ptr %12, ptr %agg.result, align 8, !alias.scope !73
-  %cmp.i140 = icmp eq ptr %12, null
-  br i1 %cmp.i140, label %do.end48, label %return
+  %cmp.i139 = icmp eq ptr %12, null
+  br i1 %cmp.i139, label %do.end48, label %return
 
-do.end48:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit139
+do.end48:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit138
   %13 = load ptr, ptr %this, align 8
-  %add.ptr.i177 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %13, i64 %node_index.0
+  %add.ptr.i176 = getelementptr inbounds %"struct.arrow::internal::Trie::Node", ptr %13, i64 %node_index.0
   %14 = load i8, ptr %add.ptr.i71.le, align 1
-  %add = add nsw i64 %pos.1311, 1
+  %add = add nsw i64 %pos.1310, 1
   %cmp.i.i = icmp ugt i64 %add, %s.coerce0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
@@ -1037,8 +1034,8 @@ if.then.i.i:                                      ; preds = %do.end48
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %do.end48
-  %sub.i = sub i64 %s.coerce0, %add
-  %add.ptr.i181 = getelementptr inbounds i8, ptr %s.coerce1, i64 %add
+  %sub.i = sub nuw i64 %s.coerce0, %add
+  %add.ptr.i180 = getelementptr inbounds i8, ptr %s.coerce1, i64 %add
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mid_node.i.i), !noalias !76
@@ -1056,10 +1053,10 @@ _ZN5arrow6StatusD2Ev.exit.lr.ph.i.i:              ; preds = %_ZNKSt17basic_strin
   br label %_ZN5arrow6StatusD2Ev.exit.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i
-  %parent.addr.0139.i.i = phi ptr [ %add.ptr.i177, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %parent.addr.0139.i.i = phi ptr [ %add.ptr.i176, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %ch.addr.0138.i.i = phi i8 [ %14, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %storemerge137.i.i = phi ptr [ %add.ptr.i181, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %substring.sroa.0.0136.i.i = phi i64 [ %sub.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %sub.i.i.i183, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %storemerge137.i.i = phi ptr [ %add.ptr.i180, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %substring.sroa.0.0136.i.i = phi i64 [ %sub.i, %_ZN5arrow6StatusD2Ev.exit.lr.ph.i.i ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   store i16 -1, ptr %mid_node.i.i, align 2, !noalias !82
   store i16 -1, ptr %child_lookup_.i.i, align 2, !noalias !82
   store i8 11, ptr %substring_.i.i, align 2, !noalias !82
@@ -1075,18 +1072,18 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %_ZNKSt17basic_strin
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !82
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
-  %add.ptr.i.i.i182 = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 11
-  %17 = load i8, ptr %add.ptr.i.i.i182, align 1, !noalias !82
-  %sub.i.i.i183 = add i64 %substring.sroa.0.0136.i.i, -12
+  %add.ptr.i.i.i181 = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 11
+  %17 = load i8, ptr %add.ptr.i.i.i181, align 1, !noalias !82
+  %sub.i.i.i182 = add i64 %substring.sroa.0.0136.i.i, -12
   %add.ptr.i44.i.i = getelementptr inbounds i8, ptr %storemerge137.i.i, i64 12
-  %cmp.i.i184 = icmp ugt i64 %sub.i.i.i183, 11
-  br i1 %cmp.i.i184, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %_ZN5arrow6StatusD2Ev.exit88.i.i, !llvm.loop !31
+  %cmp.i.i183 = icmp ugt i64 %sub.i.i.i182, 11
+  br i1 %cmp.i.i183, label %_ZN5arrow6StatusD2Ev.exit.i.i, label %_ZN5arrow6StatusD2Ev.exit88.i.i, !llvm.loop !31
 
 _ZN5arrow6StatusD2Ev.exit88.i.i:                  ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %substring.sroa.0.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %sub.i.i.i183, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %storemerge.lcssa.i.i = phi ptr [ %add.ptr.i181, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %substring.sroa.0.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %sub.i.i.i182, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %storemerge.lcssa.i.i = phi ptr [ %add.ptr.i180, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i44.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %ch.addr.0.lcssa.i.i = phi i8 [ %14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %parent.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i177, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %parent.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i176, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %add.ptr.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %size_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %18 = load i16, ptr %size_.i.i, align 8, !noalias !82
   store i16 %18, ptr %child_node.i.i, align 2, !noalias !82
@@ -1119,9 +1116,9 @@ _ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_stri
   br label %return
 
 if.end54:                                         ; preds = %if.end19
-  %inc55 = add nsw i64 %pos.1311, 1
-  %dec = add nsw i64 %remaining.1310, -1
-  %inc56 = add nuw nsw i64 %i.0309, 1
+  %inc55 = add nsw i64 %pos.1310, 1
+  %dec = add nsw i64 %remaining.1309, -1
+  %inc56 = add nuw nsw i64 %i.0308, 1
   %exitcond.not = icmp eq i64 %inc56, %conv.i.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !94
 
@@ -1170,8 +1167,8 @@ do.body73:                                        ; preds = %if.end69
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %cmp.i185 = icmp ugt i64 %sub.ptr.div.i.i, 8388607
-  br i1 %cmp.i185, label %_ZN5arrow6StatusD2Ev.exit221, label %nrvo.skipdtor94.thread
+  %cmp.i184 = icmp ugt i64 %sub.ptr.div.i.i, 8388607
+  br i1 %cmp.i184, label %_ZN5arrow6StatusD2Ev.exit220, label %nrvo.skipdtor94.thread
 
 nrvo.skipdtor94.thread:                           ; preds = %do.body73
   %div3.i = lshr i64 %sub.ptr.div.i.i, 8
@@ -1185,20 +1182,20 @@ nrvo.skipdtor94.thread:                           ; preds = %do.body73
   store ptr null, ptr %ref.tmp75, align 8, !noalias !104
   br label %if.end99
 
-_ZN5arrow6StatusD2Ev.exit221:                     ; preds = %do.body73
+_ZN5arrow6StatusD2Ev.exit220:                     ; preds = %do.body73
   call void @_ZN5arrow6Status8FromArgsIJRA47_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp75, i8 noundef signext 6, ptr noundef nonnull align 1 dereferenceable(47) @.str.16)
   %.pr = load ptr, ptr %ref.tmp75, align 8, !noalias !107
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   store ptr %.pr, ptr %agg.result, align 8, !alias.scope !107
   store ptr null, ptr %ref.tmp75, align 8, !noalias !107
-  %cmp.i222 = icmp eq ptr %.pr, null
-  br i1 %cmp.i222, label %if.end99, label %return
+  %cmp.i221 = icmp eq ptr %.pr, null
+  br i1 %cmp.i221, label %if.end99, label %return
 
-if.end99:                                         ; preds = %nrvo.skipdtor94.thread, %_ZN5arrow6StatusD2Ev.exit221, %if.end69
+if.end99:                                         ; preds = %nrvo.skipdtor94.thread, %_ZN5arrow6StatusD2Ev.exit220, %if.end69
   %inc100 = add nsw i64 %pos.1.lcssa, 1
-  %add.ptr.i260 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1.lcssa
-  %26 = load i8, ptr %add.ptr.i260, align 1
+  %add.ptr.i259 = getelementptr inbounds i8, ptr %s.coerce1, i64 %pos.1.lcssa
+  %26 = load i8, ptr %add.ptr.i259, align 1
   %27 = load i16, ptr %child_lookup_, align 2
   %conv105 = sext i16 %27 to i32
   %mul = shl nsw i32 %conv105, 8
@@ -1206,28 +1203,28 @@ if.end99:                                         ; preds = %nrvo.skipdtor94.thr
   %add107 = or disjoint i32 %mul, %conv106
   %conv108 = sext i32 %add107 to i64
   %28 = load ptr, ptr %lookup_table_.i, align 8
-  %add.ptr.i261 = getelementptr inbounds i16, ptr %28, i64 %conv108
-  %29 = load i16, ptr %add.ptr.i261, align 2
+  %add.ptr.i260 = getelementptr inbounds i16, ptr %28, i64 %conv108
+  %29 = load i16, ptr %add.ptr.i260, align 2
   %cmp111 = icmp eq i16 %29, -1
   %conv110 = sext i16 %29 to i64
   %dec102 = add nsw i64 %remaining.1.lcssa, -1
   br i1 %cmp111, label %if.then112, label %while.body, !llvm.loop !109
 
 if.then112:                                       ; preds = %if.end99
-  %cmp.i.i262 = icmp ugt i64 %inc100, %s.coerce0
-  br i1 %cmp.i.i262, label %if.then.i.i268, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit269
+  %cmp.i.i261 = icmp ugt i64 %inc100, %s.coerce0
+  br i1 %cmp.i.i261, label %if.then.i.i267, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit268
 
-if.then.i.i268:                                   ; preds = %if.then112
+if.then.i.i267:                                   ; preds = %if.then112
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, i64 noundef %inc100, i64 noundef %s.coerce0) #19
   unreachable
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit269: ; preds = %if.then112
-  %sub.i263 = sub i64 %s.coerce0, %inc100
-  %add.ptr.i265 = getelementptr inbounds i8, ptr %s.coerce1, i64 %inc100
-  call void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %26, i64 %sub.i263, ptr %add.ptr.i265)
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit268: ; preds = %if.then112
+  %sub.i262 = sub nuw i64 %s.coerce0, %inc100
+  %add.ptr.i264 = getelementptr inbounds i8, ptr %s.coerce1, i64 %inc100
+  call void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %add.ptr.i, i8 noundef zeroext %26, i64 %sub.i262, ptr %add.ptr.i264)
   br label %return
 
-return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit221, %_ZN5arrow6StatusD2Ev.exit139, %_ZN5arrow6StatusD2Ev.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit269, %if.end64, %if.else, %if.then63, %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit, %do.end14
+return:                                           ; preds = %_ZN5arrow6StatusD2Ev.exit220, %_ZN5arrow6StatusD2Ev.exit138, %_ZN5arrow6StatusD2Ev.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit268, %if.end64, %if.else, %if.then63, %_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE.exit, %do.end14
   ret void
 }
 
@@ -1722,7 +1719,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i16, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

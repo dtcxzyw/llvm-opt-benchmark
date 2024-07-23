@@ -892,12 +892,12 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %26
   %35 = icmp ugt i64 %3, 4611686018427387903
   %36 = shl nuw i64 %3, 2
   %37 = getelementptr i32, ptr %.0103, i64 %3
-  %38 = sub i64 %.0106, %3
+  %38 = sub nuw i64 %.0106, %3
   br i1 %34, label %.lr.ph143.split.us, label %.lr.ph143.split
 
 .lr.ph143.split.us:                               ; preds = %.lr.ph143, %bary_add.exit124.us
   %.0107141.us = phi i64 [ %61, %bary_add.exit124.us ], [ 0, %.lr.ph143 ]
-  %39 = sub i64 %5, %.0107141.us
+  %39 = sub nuw i64 %5, %.0107141.us
   %40 = call i64 @llvm.umin.i64(i64 %39, i64 %3)
   %41 = add i64 %40, %3
   %42 = shl i64 %41, 1
@@ -948,7 +948,7 @@ bary_add.exit124.us:                              ; preds = %.lr.ph.i.i.us, %._c
 
 .lr.ph143.split:                                  ; preds = %.lr.ph143, %bary_add.exit124
   %.0107141 = phi i64 [ %131, %bary_add.exit124 ], [ 0, %.lr.ph143 ]
-  %63 = sub i64 %5, %.0107141
+  %63 = sub nuw i64 %5, %.0107141
   %64 = call i64 @llvm.umin.i64(i64 %63, i64 %3)
   %65 = add i64 %64, %3
   %66 = shl i64 %65, 1
@@ -1111,7 +1111,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 .lr.ph94.preheader.i.i:                           ; preds = %.preheader.i.i
   %124 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %68, i64 %124
-  %125 = sub i64 %65, %.4.lcssa.i.i
+  %125 = sub nuw i64 %65, %.4.lcssa.i.i
   %126 = shl i64 %125, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %126, i1 false)
   br label %bary_add.exit124
@@ -1550,7 +1550,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %52
 .lr.ph92.preheader.i.i:                           ; preds = %.preheader69.i.i
   %98 = shl i64 %.3.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %0, i64 %98
-  %99 = sub i64 %44, %.3.i.i
+  %99 = sub nuw i64 %44, %.3.i.i
   %100 = shl i64 %99, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 -1, i64 %100, i1 false)
   br label %bary_sub.exit
@@ -2083,8 +2083,8 @@ bary_add.exit335:                                 ; preds = %.lr.ph.i.i320, %bar
 .lr.ph94.preheader.i:                             ; preds = %.preheader.i
   %292 = shl i64 %.4.lcssa.i, 2
   %scevgep.i = getelementptr i8, ptr %60, i64 %292
-  %293 = sub i64 %44, %.4.lcssa.i
-  %294 = shl i64 %293, 2
+  %293 = sub nuw i64 %44, %.4.lcssa.i
+  %294 = shl nuw i64 %293, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %294, i1 false)
   br label %bary_addc.exit343
 
@@ -2198,7 +2198,7 @@ bary_addc.exit343:                                ; preds = %._crit_edge.i, %.lo
 .lr.ph94.preheader.i.i:                           ; preds = %.preheader.i.i356
   %334 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i357 = getelementptr i8, ptr %60, i64 %334
-  %335 = sub i64 %228, %.4.lcssa.i.i
+  %335 = sub nuw i64 %228, %.4.lcssa.i.i
   %336 = shl i64 %335, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i357, i8 0, i64 %336, i1 false)
   br label %bary_add.exit360
@@ -2351,7 +2351,7 @@ bary_add_one.exit:                                ; preds = %.lr.ph.i361, %bary_
 .lr.ph94.preheader.i.i401:                        ; preds = %.preheader.i.i399
   %385 = shl i64 %.4.lcssa.i.i400, 2
   %scevgep.i.i402 = getelementptr i8, ptr %62, i64 %385
-  %386 = sub i64 %250, %.4.lcssa.i.i400
+  %386 = sub nuw i64 %250, %.4.lcssa.i.i400
   %387 = shl i64 %386, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i402, i8 0, i64 %387, i1 false)
   br label %bary_sub_one.exit
@@ -2935,7 +2935,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %31
 .lr.ph94.preheader.i.i:                           ; preds = %.preheader.i.i
   %97 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %.0532, i64 %97
-  %98 = sub i64 %15, %.4.lcssa.i.i
+  %98 = sub nuw i64 %15, %.4.lcssa.i.i
   %99 = shl i64 %98, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %99, i1 false)
   br label %bary_add.exit
@@ -3255,7 +3255,7 @@ bary_add.exit650:                                 ; preds = %bary_2comp.exit, %1
 .lr.ph92.preheader.i.i700:                        ; preds = %.preheader69.i.i698
   %224 = shl i64 %.3.i.i697, 2
   %scevgep.i.i701 = getelementptr i8, ptr %40, i64 %224
-  %225 = sub i64 %15, %.3.i.i697
+  %225 = sub nuw i64 %15, %.3.i.i697
   %226 = shl i64 %225, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i701, i8 -1, i64 %226, i1 false)
   br label %.lr.ph.i720.preheader
@@ -3368,7 +3368,7 @@ bary_small_lshift.exit:                           ; preds = %bary_2comp.exit729
   %.6.lcssa.i.i707.sink2718 = phi i64 [ %.3.i.i674, %.preheader.i.i677 ], [ %.6.lcssa.i.i707, %.preheader.i.i706 ]
   %267 = shl i64 %.6.lcssa.i.i707.sink2718, 2
   %scevgep113.i.i709 = getelementptr i8, ptr %40, i64 %267
-  %268 = sub i64 %15, %.6.lcssa.i.i707.sink2718
+  %268 = sub nuw i64 %15, %.6.lcssa.i.i707.sink2718
   %269 = shl i64 %268, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep113.i.i709, i8 0, i64 %269, i1 false)
   br label %.critedge597.preheader
@@ -3557,7 +3557,7 @@ bary_add.exit770:                                 ; preds = %296, %.lr.ph26.i820
 .lr.ph94.preheader.i.i853:                        ; preds = %.preheader.i.i851
   %339 = shl i64 %.4.lcssa.i.i852, 2
   %scevgep.i.i854 = getelementptr i8, ptr %41, i64 %339
-  %340 = sub i64 %15, %.4.lcssa.i.i852
+  %340 = sub nuw i64 %15, %.4.lcssa.i.i852
   %341 = shl i64 %340, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i854, i8 0, i64 %341, i1 false)
   br label %bary_add.exit862
@@ -3876,7 +3876,7 @@ bary_add.exit946:                                 ; preds = %bary_2comp.exit908,
 .lr.ph92.preheader.i.i999:                        ; preds = %.preheader69.i.i997
   %466 = shl i64 %.3.i.i996, 2
   %scevgep.i.i1000 = getelementptr i8, ptr %43, i64 %466
-  %467 = sub i64 %15, %.3.i.i996
+  %467 = sub nuw i64 %15, %.3.i.i996
   %468 = shl i64 %467, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1000, i8 -1, i64 %468, i1 false)
   br label %.lr.ph.i1021.preheader
@@ -3989,7 +3989,7 @@ bary_small_lshift.exit1038:                       ; preds = %bary_2comp.exit1030
   %.6.lcssa.i.i1006.sink2720 = phi i64 [ %.3.i.i970, %.preheader.i.i973 ], [ %.6.lcssa.i.i1006, %.preheader.i.i1005 ]
   %509 = shl i64 %.6.lcssa.i.i1006.sink2720, 2
   %scevgep113.i.i1008 = getelementptr i8, ptr %43, i64 %509
-  %510 = sub i64 %15, %.6.lcssa.i.i1006.sink2720
+  %510 = sub nuw i64 %15, %.6.lcssa.i.i1006.sink2720
   %511 = shl i64 %510, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep113.i.i1008, i8 0, i64 %511, i1 false)
   br label %.critedge599.preheader
@@ -5056,7 +5056,7 @@ ruby_nonempty_memcpy.exit1751:                    ; preds = %rbimpl_size_mul_or_
 .lr.ph94.preheader.i.i1780:                       ; preds = %.preheader.i.i1778
   %967 = shl i64 %.4.lcssa.i.i1779, 2
   %scevgep.i.i1781 = getelementptr i8, ptr %930, i64 %967
-  %968 = sub i64 %931, %.4.lcssa.i.i1779
+  %968 = sub nuw i64 %931, %.4.lcssa.i.i1779
   %969 = shl i64 %968, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1781, i8 0, i64 %969, i1 false)
   br label %bary_add.exit1789
@@ -5147,7 +5147,7 @@ ruby_nonempty_memcpy.exit1751:                    ; preds = %rbimpl_size_mul_or_
 .lr.ph92.preheader.i.i1804:                       ; preds = %.loopexit72.i.i1799
   %1007 = shl i64 %.3.i.i1801, 2
   %scevgep.i.i1805 = getelementptr i8, ptr %930, i64 %1007
-  %1008 = sub i64 %931, %.3.i.i1801
+  %1008 = sub nuw i64 %931, %.3.i.i1801
   %1009 = shl i64 %1008, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1805, i8 -1, i64 %1009, i1 false)
   br label %bary_add.exit1789
@@ -5253,7 +5253,7 @@ bary_add.exit1789:                                ; preds = %960, %989, %.lr.ph8
 .lr.ph94.preheader.i.i1854:                       ; preds = %.preheader.i.i1852
   %1047 = shl i64 %.4.lcssa.i.i1853, 2
   %scevgep.i.i1855 = getelementptr i8, ptr %926, i64 %1047
-  %1048 = sub i64 %1010, %.4.lcssa.i.i1853
+  %1048 = sub nuw i64 %1010, %.4.lcssa.i.i1853
   %1049 = shl i64 %1048, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1855, i8 0, i64 %1049, i1 false)
   br label %bary_add.exit1863
@@ -5342,7 +5342,7 @@ bary_add.exit1789:                                ; preds = %960, %989, %.lr.ph8
 .lr.ph92.preheader.i.i1878:                       ; preds = %.loopexit72.i.i1873
   %1087 = shl i64 %.3.i.i1875, 2
   %scevgep.i.i1879 = getelementptr i8, ptr %926, i64 %1087
-  %1088 = sub i64 %1010, %.3.i.i1875
+  %1088 = sub nuw i64 %1010, %.3.i.i1875
   %1089 = shl i64 %1088, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1879, i8 -1, i64 %1089, i1 false)
   br label %bary_add.exit1863
@@ -5455,7 +5455,7 @@ bary_add.exit1863:                                ; preds = %1040, %1069, %.lr.p
 .lr.ph94.preheader.i.i1928:                       ; preds = %.preheader.i.i1926
   %1128 = shl i64 %.4.lcssa.i.i1927, 2
   %scevgep.i.i1929 = getelementptr i8, ptr %1091, i64 %1128
-  %1129 = sub i64 %1092, %.4.lcssa.i.i1927
+  %1129 = sub nuw i64 %1092, %.4.lcssa.i.i1927
   %1130 = shl i64 %1129, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1929, i8 0, i64 %1130, i1 false)
   br label %bary_add.exit1937.preheader
@@ -5546,7 +5546,7 @@ bary_add.exit1863:                                ; preds = %1040, %1069, %.lr.p
 .lr.ph92.preheader.i.i1952:                       ; preds = %.loopexit72.i.i1947
   %1168 = shl i64 %.3.i.i1949, 2
   %scevgep.i.i1953 = getelementptr i8, ptr %1091, i64 %1168
-  %1169 = sub i64 %1092, %.3.i.i1949
+  %1169 = sub nuw i64 %1092, %.3.i.i1949
   %1170 = shl i64 %1169, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i1953, i8 -1, i64 %1170, i1 false)
   br label %bary_add.exit1937.preheader
@@ -9919,7 +9919,7 @@ rbimpl_size_mul_or_raise.exit341:                 ; preds = %.critedge3
 
 rbimpl_size_mul_or_raise.exit342:                 ; preds = %135, %128, %rbimpl_size_mul_or_raise.exit341
   %.0270.lcssa578586 = phi i64 [ %.0270550, %rbimpl_size_mul_or_raise.exit341 ], [ 0, %128 ], [ 0, %135 ]
-  %137 = sub i64 %132, %.0270.lcssa578586
+  %137 = sub nuw i64 %132, %.0270.lcssa578586
   %138 = getelementptr i8, ptr %3, i64 %.0270.lcssa578586
   tail call void @llvm.memset.p0.i64(ptr align 1 %138, i8 0, i64 %137, i1 false)
   br label %ruby_nonempty_memcpy.exit345
@@ -12717,7 +12717,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %16
 
 64:                                               ; preds = %.preheader202, %bary_add.exit
   %.2219 = phi i64 [ 0, %.preheader202 ], [ %176, %bary_add.exit ]
-  %65 = sub i64 %4, %.2219
+  %65 = sub nuw i64 %4, %.2219
   %.not136 = icmp ugt i64 %59, %65
   br i1 %.not136, label %120, label %66
 
@@ -12844,7 +12844,7 @@ BIGNUM_LEN.exit:                                  ; preds = %70, %73
 .lr.ph94.preheader.i.i:                           ; preds = %.preheader.i.i
   %113 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %67, i64 %113
-  %114 = sub i64 %59, %.4.lcssa.i.i
+  %114 = sub nuw i64 %59, %.4.lcssa.i.i
   %115 = shl i64 %114, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %115, i1 false)
   br label %bary_add.exit
@@ -12861,21 +12861,21 @@ BIGNUM_LEN.exit:                                  ; preds = %70, %73
 
 120:                                              ; preds = %64
   %.not137 = icmp ugt i64 %.0124221, %65
-  %121 = getelementptr i32, ptr %.0122223, i64 %.2219
-  br i1 %.not137, label %170, label %122
+  br i1 %.not137, label %170, label %121
 
-122:                                              ; preds = %120
+121:                                              ; preds = %120
+  %122 = getelementptr i32, ptr %.0122223, i64 %.2219
   %123 = load i64, ptr %60, align 8
   %124 = and i64 %123, 16384
   %.not.i141 = icmp eq i64 %124, 0
   br i1 %.not.i141, label %125, label %128
 
-125:                                              ; preds = %122
+125:                                              ; preds = %121
   %126 = load ptr, ptr %62, align 8
   %127 = load i64, ptr %61, align 8
   br label %BIGNUM_LEN.exit146
 
-128:                                              ; preds = %122
+128:                                              ; preds = %121
   %129 = lshr i64 %123, 15
   %130 = and i64 %129, 7
   br label %BIGNUM_LEN.exit146
@@ -12887,7 +12887,7 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
   %132 = getelementptr i32, ptr %131, i64 %.0124221
   %133 = add i64 %.0124221, %.2219
   %134 = sub i64 %4, %133
-  call fastcc void @bary_mul(ptr noundef %121, i64 noundef %65, ptr noundef %.0.i142197, i64 noundef %.0.i145, ptr noundef %132, i64 noundef %134)
+  call fastcc void @bary_mul(ptr noundef %122, i64 noundef %65, ptr noundef %.0.i142197, i64 noundef %.0.i145, ptr noundef %132, i64 noundef %134)
   %135 = icmp ugt i64 %65, %.0124221
   br i1 %135, label %136, label %137
 
@@ -12896,7 +12896,7 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
 
 137:                                              ; preds = %136, %BIGNUM_LEN.exit146
   %.064.i.i147 = phi i64 [ %.0124221, %136 ], [ %65, %BIGNUM_LEN.exit146 ]
-  %.063.i.i148 = phi ptr [ %121, %136 ], [ %131, %BIGNUM_LEN.exit146 ]
+  %.063.i.i148 = phi ptr [ %122, %136 ], [ %131, %BIGNUM_LEN.exit146 ]
   %.062.i.i149 = phi i64 [ %65, %136 ], [ %.0124221, %BIGNUM_LEN.exit146 ]
   %138 = phi ptr [ %.0123222, %136 ], [ %.0122223, %BIGNUM_LEN.exit146 ]
   %.not95.i.i151 = icmp eq i64 %.064.i.i147, 0
@@ -12923,7 +12923,7 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
   %147 = add nuw nsw i64 %.05878.i.i154, %143
   %148 = add nuw nsw i64 %147, %146
   %149 = trunc i64 %148 to i32
-  %150 = getelementptr i32, ptr %121, i64 %.05779.i.i153
+  %150 = getelementptr i32, ptr %122, i64 %.05779.i.i153
   store i32 %149, ptr %150, align 4
   %151 = lshr i64 %148, 32
   %152 = add nuw i64 %.05779.i.i153, 1
@@ -12942,7 +12942,7 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
   %157 = zext i32 %156 to i64
   %158 = add nuw nsw i64 %157, 1
   %159 = trunc i64 %158 to i32
-  %160 = getelementptr i32, ptr %121, i64 %.182.i.i181
+  %160 = getelementptr i32, ptr %122, i64 %.182.i.i181
   store i32 %159, ptr %160, align 4
   %161 = lshr i64 %158, 32
   %162 = add i64 %.182.i.i181, 1
@@ -12950,7 +12950,7 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
   br i1 %exitcond103.not.i.i183, label %bary_add.exit, label %.lr.ph83.i.i180, !llvm.loop !22
 
 .loopexit71.i.i169:                               ; preds = %.lr.ph83.i.i180
-  %163 = icmp ne ptr %.063.i.i148, %121
+  %163 = icmp ne ptr %.063.i.i148, %122
   %164 = icmp ne i64 %.062.i.i149, %65
   %or.cond.i.i171.not266 = or i1 %163, %164
   %165 = icmp ult i64 %.182.i.i181, %.062.i.i149
@@ -12961,31 +12961,28 @@ BIGNUM_LEN.exit146:                               ; preds = %125, %128
   %.490.i.i178 = phi i64 [ %169, %.lr.ph91.i.i177 ], [ %.182.i.i181, %.loopexit71.i.i169 ]
   %166 = getelementptr i32, ptr %.063.i.i148, i64 %.490.i.i178
   %167 = load i32, ptr %166, align 4
-  %168 = getelementptr i32, ptr %121, i64 %.490.i.i178
+  %168 = getelementptr i32, ptr %122, i64 %.490.i.i178
   store i32 %167, ptr %168, align 4
   %169 = add nuw i64 %.490.i.i178, 1
   %exitcond106.not.i.i179 = icmp eq i64 %169, %.062.i.i149
   br i1 %exitcond106.not.i.i179, label %bary_add.exit, label %.lr.ph91.i.i177, !llvm.loop !24
 
 170:                                              ; preds = %120
-  %171 = getelementptr i32, ptr %.0123222, i64 %.2219
-  %172 = icmp ugt i64 %65, 4611686018427387903
-  br i1 %172, label %173, label %rbimpl_size_mul_or_raise.exit
+  %171 = icmp ugt i64 %65, 4611686018427387903
+  br i1 %171, label %172, label %rbimpl_size_mul_or_raise.exit
 
-173:                                              ; preds = %170
+172:                                              ; preds = %170
   call void @ruby_malloc_size_overflow(i64 noundef 4, i64 noundef %65) #27
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %170
-  %.not.i185 = icmp eq i64 %65, 0
-  br i1 %.not.i185, label %bary_add.exit, label %174
-
-174:                                              ; preds = %rbimpl_size_mul_or_raise.exit
+  %173 = getelementptr i32, ptr %.0123222, i64 %.2219
+  %174 = getelementptr i32, ptr %.0122223, i64 %.2219
   %175 = shl nuw i64 %65, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr readonly align 1 %171, i64 %175, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %174, ptr readonly align 1 %173, i64 %175, i1 false)
   br label %bary_add.exit
 
-bary_add.exit:                                    ; preds = %106, %154, %.lr.ph91.i.i177, %.preheader72.i.i156, %.preheader70.i.i, %174, %rbimpl_size_mul_or_raise.exit, %.loopexit71.i.i169, %.lr.ph94.preheader.i.i, %.preheader.i.i, %.loopexit71.i.i
+bary_add.exit:                                    ; preds = %106, %154, %.lr.ph91.i.i177, %.preheader72.i.i156, %.preheader70.i.i, %rbimpl_size_mul_or_raise.exit, %.loopexit71.i.i169, %.lr.ph94.preheader.i.i, %.preheader.i.i, %.loopexit71.i.i
   %176 = add i64 %.2219, %59
   %177 = icmp ult i64 %176, %4
   br i1 %177, label %64, label %178, !llvm.loop !91
@@ -19353,7 +19350,7 @@ BIGNUM_LEN.exit51:                                ; preds = %93, %98
 .lr.ph94.preheader.i.i:                           ; preds = %.preheader.i.i
   %137 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %.0.i3654, i64 %137
-  %138 = sub i64 %.0.i38, %.4.lcssa.i.i
+  %138 = sub nuw i64 %.0.i38, %.4.lcssa.i.i
   %139 = shl i64 %138, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %139, i1 false)
   br label %bary_add.exit
@@ -28265,7 +28262,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
 bary_add.exit.thread:                             ; preds = %.preheader.i.i56
   %241 = shl i64 %.4.lcssa.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %.0.i.i, i64 %241
-  %242 = sub i64 %19, %.4.lcssa.i.i
+  %242 = sub nuw i64 %19, %.4.lcssa.i.i
   %243 = shl i64 %242, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %243, i1 false)
   br label %.lr.ph.i58.preheader
@@ -31598,7 +31595,7 @@ BIGNUM_DIGITS.exit29:                             ; preds = %64, %66
 bary_sub.exit.thread53:                           ; preds = %.preheader69.i.i
   %103 = shl i64 %.3.i.i, 2
   %scevgep.i.i = getelementptr i8, ptr %.0.i28, i64 %103
-  %104 = sub i64 %23, %.3.i.i
+  %104 = sub nuw i64 %23, %.3.i.i
   %105 = shl i64 %104, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 -1, i64 %105, i1 false)
   br label %.lr.ph.i.preheader
@@ -31622,7 +31619,7 @@ bary_sub.exit.thread53:                           ; preds = %.preheader69.i.i
 .lr.ph97.preheader.i.i:                           ; preds = %.preheader.i.i
   %110 = shl i64 %.6.lcssa.i.i, 2
   %scevgep113.i.i = getelementptr i8, ptr %.0.i28, i64 %110
-  %111 = sub i64 %23, %.6.lcssa.i.i
+  %111 = sub nuw i64 %23, %.6.lcssa.i.i
   %112 = shl i64 %111, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep113.i.i, i8 0, i64 %112, i1 false)
   br label %bary_sub.exit.thread

@@ -31200,7 +31200,7 @@ _ZN4core5slice6memchr12memchr_naive17hd7441452118b6db0E.llvm.1285002842107180981
   br i1 %119, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h79e1a39d25d3d1f8E.exit.i.i", label %.lr.ph.split.split.i.i.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit.i.i.i": ; preds = %114
-  %120 = sub i64 %116, %.fr49
+  %120 = sub nuw i64 %116, %.fr49
   %121 = getelementptr inbounds i8, ptr %.val.i.i, i64 %120
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %121, ptr nonnull readonly %9, i64 %.fr49), !alias.scope !6188, !noalias !6182
   %122 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -34123,7 +34123,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   %153 = getelementptr inbounds i8, ptr %139, i64 %144
   %154 = load i8, ptr %153, align 1, !alias.scope !6830, !noalias !6835, !noundef !9
   %155 = icmp sgt i8 %154, -65
-  %156 = sub i64 %141, %144
+  %156 = sub nuw i64 %141, %144
   br i1 %155, label %158, label %157
 
 157:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i", %150
@@ -84987,7 +84987,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17ha171a7
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -85018,19 +85018,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17ha171a7
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 
@@ -85050,7 +85049,7 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17haae011
   %14 = or i64 %11, %13
   store i64 %14, ptr %12, align 8
   %15 = icmp ugt i64 %8, 8
-  br i1 %15, label %43, label %16
+  br i1 %15, label %42, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -85081,19 +85080,18 @@ define hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17haae011
   %39 = xor i64 %32, %14
   store i64 %39, ptr %0, align 8
   %.not = icmp eq i64 %8, 0
-  %40 = shl nuw nsw i64 %8, 3
-  %41 = sub nsw i64 64, %40
-  %42 = lshr i64 %2, %41
-  %.0 = select i1 %.not, i64 0, i64 %42
+  %40 = sub nsw i64 64, %9
+  %41 = lshr i64 %2, %40
+  %.0 = select i1 %.not, i64 0, i64 %41
   store i64 %.0, ptr %12, align 8
-  br label %45
+  br label %44
 
-43:                                               ; preds = %3
-  %44 = add i64 %8, 8
-  store i64 %44, ptr %7, align 8
-  br label %45
+42:                                               ; preds = %3
+  %43 = add i64 %8, 8
+  store i64 %43, ptr %7, align 8
+  br label %44
 
-45:                                               ; preds = %16, %43
+44:                                               ; preds = %16, %42
   ret void
 }
 
@@ -86353,7 +86351,7 @@ define hidden void @"_ZN95_$LT$typst..util..GroupByKey$LT$T$C$F$GT$$u20$as$u20$c
   %56 = phi i64 [ %.pre, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h42f6350eaec8d514E.exit" ], [ 1, %18 ]
   %57 = load ptr, ptr %1, align 8, !nonnull !9, !align !25, !noundef !9
   %58 = getelementptr inbounds { ptr, { i64, i16, [3 x i16] }, double, double, double, { { double, double }, { double, double } }, { i64, i64 }, i32, i16, i8, i8, i8, [7 x i8] }, ptr %57, i64 %.1.i.i26
-  %59 = sub i64 %56, %.1.i.i26
+  %59 = sub nuw i64 %56, %.1.i.i26
   store ptr %58, ptr %1, align 8
   store i64 %59, ptr %8, align 8
   %60 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9
@@ -104602,7 +104600,7 @@ define noundef zeroext i1 @_ZN5typst6engine5Route6within17h823acdbbbd71eaefE(ptr
 16:                                               ; preds = %13
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %17 = sub i64 %1, %8
+  %17 = sub nuw i64 %1, %8
   %18 = tail call noundef zeroext i1 @_ZN5typst6engine5Route6within17h823acdbbbd71eaefE(ptr noundef nonnull align 8 %11, i64 noundef %17), !noalias !21342
   %.not.i = icmp eq ptr %.sroa.4.0.copyload, null
   br i1 %.not.i, label %_ZN5typst6engine1_15__ComemoSurface6within17hda5e31e6eaf91ea5E.llvm.12850028421071809815.exit, label %19

@@ -1069,7 +1069,7 @@ define linkonce_odr void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %17
-  %31 = sub nsw i64 %22, %28
+  %31 = sub nuw nsw i64 %22, %28
   br label %.invoke
 
 32:                                               ; preds = %17
@@ -1126,7 +1126,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %41
-  %55 = sub nsw i64 %46, %52
+  %55 = sub nuw nsw i64 %46, %52
   br label %.invoke
 
 .invoke:                                          ; preds = %30, %54
@@ -1159,7 +1159,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %_ZNSt6vectorImSaImE
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %70 = sub nsw i64 %60, %67
+  %70 = sub nuw nsw i64 %60, %67
   invoke void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %70)
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %35
 
@@ -1510,7 +1510,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %3, %_ZSt8_DestroyIP
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
-  %23 = sub nsw i64 %16, %20
+  %23 = sub nuw nsw i64 %16, %20
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %23)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -2974,7 +2974,7 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReo4SaveEj(ptr noundef nonnull al
   br i1 %13, label %14, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = sub nsw i64 %12, %10
+  %15 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15)
   %.pre = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
@@ -3016,7 +3016,7 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReo11SaveIndicesEj(ptr noundef no
   br i1 %13, label %14, label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = sub nsw i64 %12, %10
+  %15 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15)
   %.pre = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit
@@ -3193,7 +3193,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %1, %_ZSt8_DestroyIP
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
-  %19 = sub nsw i64 %12, %16
+  %19 = sub nuw nsw i64 %12, %16
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %19)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -4671,7 +4671,7 @@ define linkonce_odr void @_ZN5Ttopt10TruthTable4SaveEj(ptr noundef nonnull align
   br i1 %13, label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit:    ; preds = %2
-  %14 = sub nsw i64 %12, %10
+  %14 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 192
   %16 = getelementptr inbounds i8, ptr %0, i64 200
@@ -4685,7 +4685,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit:    ; preds = %2
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit
-  %25 = sub nsw i64 %12, %22
+  %25 = sub nuw nsw i64 %12, %22
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %25)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -4763,7 +4763,7 @@ define linkonce_odr void @_ZN5Ttopt10TruthTable11SaveIndicesEj(ptr noundef nonnu
   br i1 %13, label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit, label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit21
 
 _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %2
-  %14 = sub nsw i64 %12, %10
+  %14 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %14)
   %15 = getelementptr inbounds i8, ptr %0, i64 168
   %16 = getelementptr inbounds i8, ptr %0, i64 176
@@ -4777,7 +4777,7 @@ _ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %2
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit
-  %25 = sub nsw i64 %12, %22
+  %25 = sub nuw nsw i64 %12, %22
   tail call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %25)
   br label %_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EE6resizeEm.exit21
 
@@ -4907,7 +4907,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %1, %_ZSt8_DestroyIP
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
-  %19 = sub nsw i64 %12, %16
+  %19 = sub nuw nsw i64 %12, %16
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %19)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -4979,7 +4979,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit17:   ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit17
-  %43 = sub nsw i64 %36, %40
+  %43 = sub nuw nsw i64 %36, %40
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %43)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit25
 
@@ -8939,7 +8939,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare4SaveEj(ptr noundef nonnull a
   br i1 %13, label %14, label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = sub nsw i64 %12, %10
+  %15 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15)
   %.pre = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE6resizeEm.exit
@@ -8991,7 +8991,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare11SaveIndicesEj(ptr noundef n
   br i1 %13, label %14, label %_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EE6resizeEm.exit
 
 14:                                               ; preds = %2
-  %15 = sub nsw i64 %12, %10
+  %15 = sub nuw nsw i64 %12, %10
   tail call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %15)
   %.pre = load ptr, ptr %3, align 8
   br label %_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EE6resizeEm.exit
@@ -9256,7 +9256,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %1, %_ZSt8_DestroyIP
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
-  %19 = sub nsw i64 %12, %16
+  %19 = sub nuw nsw i64 %12, %16
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %19)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -9328,7 +9328,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit18:   ; preds = %_ZNSt6vectorIS_IiSa
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit18
-  %43 = sub nsw i64 %36, %40
+  %43 = sub nuw nsw i64 %36, %40
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %43)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit26
 
@@ -9400,7 +9400,7 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %_ZNSt6vecto
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE5clearEv.exit
-  %67 = sub nsw i64 %60, %64
+  %67 = sub nuw nsw i64 %60, %64
   tail call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %67)
   br label %_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit
 
@@ -10769,7 +10769,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit:
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit, %31
   %34 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ], [ %.pre, %31 ]
-  %35 = sub nsw i64 %9, %20
+  %35 = sub nuw nsw i64 %9, %20
   %36 = getelementptr inbounds i64, ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
@@ -12068,7 +12068,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %1, %_ZSt8_DestroyIP
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit
-  %22 = sub nsw i64 %15, %19
+  %22 = sub nuw nsw i64 %15, %19
   tail call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %22)
   br label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
@@ -12140,7 +12140,7 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE5clearEv.exit: ; preds = %_ZNSt6vecto
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE5clearEv.exit
-  %46 = sub nsw i64 %39, %43
+  %46 = sub nuw nsw i64 %39, %43
   tail call void @_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %46)
   br label %_ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit
 

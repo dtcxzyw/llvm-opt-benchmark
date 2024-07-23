@@ -2056,7 +2056,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %if.then
   %2 = load ptr, ptr %input, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
   store ptr %add.ptr.i, ptr %input, align 8
-  %sub.i = sub i64 %1, %0
+  %sub.i = sub nuw i64 %1, %0
   store i64 %sub.i, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   br label %return
 
@@ -2088,7 +2088,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %if.then
   %2 = load ptr, ptr %input, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
   store ptr %add.ptr.i, ptr %input, align 8
-  %sub.i = sub i64 %1, %0
+  %sub.i = sub nuw i64 %1, %0
   store i64 %sub.i, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   br label %return
 
@@ -2314,7 +2314,7 @@ if.end9:                                          ; preds = %entry
   %cmp = icmp ugt i64 %startpos, %endpos
   %cmp11 = icmp ult i64 %text.coerce1, %endpos
   %or.cond215 = select i1 %cmp, i1 true, i1 %cmp11
-  br i1 %or.cond215, label %if.then12, label %_ZN4absl7debian211string_view13remove_prefixEm.exit
+  br i1 %or.cond215, label %if.then12, label %_ZN4absl7debian211string_view13remove_suffixEm.exit
 
 if.then12:                                        ; preds = %if.end9
   %log_errors_.i77 = getelementptr inbounds i8, ptr %this, i64 22
@@ -2393,19 +2393,11 @@ lpad17:                                           ; preds = %invoke.cont37, %inv
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp16) #28
   br label %common.resume
 
-_ZN4absl7debian211string_view13remove_prefixEm.exit: ; preds = %if.end9
+_ZN4absl7debian211string_view13remove_suffixEm.exit: ; preds = %if.end9
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce0, i64 %startpos
-  %sub.i = sub i64 %text.coerce1, %startpos
-  %sub = sub i64 %text.coerce1, %endpos
-  %cmp.not.i94 = icmp ult i64 %sub.i, %sub
-  br i1 %cmp.not.i94, label %cond.false.i96, label %_ZN4absl7debian211string_view13remove_suffixEm.exit
-
-cond.false.i96:                                   ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit
-  tail call void @llvm.trap()
-  unreachable
-
-_ZN4absl7debian211string_view13remove_suffixEm.exit: ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit
-  %sub.i95 = sub i64 %sub.i, %sub
+  %sub.neg = sub i64 %endpos, %text.coerce1
+  %sub.i = sub nuw i64 %text.coerce1, %startpos
+  %sub.i95 = add i64 %sub.neg, %sub.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %match, i8 0, i64 16, i1 false)
   %cmp44 = icmp eq i32 %nsubmatch, 0
   %spec.store.select = select i1 %cmp44, ptr null, ptr %match
@@ -2491,7 +2483,7 @@ if.else94:                                        ; preds = %if.end85
 
 _ZN4absl7debian211string_view13remove_prefixEm.exit113: ; preds = %for.inc.i, %if.then86, %if.else94
   %add.ptr.i110 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call81
-  %sub.i111 = sub i64 %sub.i95, %call81
+  %sub.i111 = sub nuw i64 %sub.i95, %call81
   %cmp103.not = icmp eq i32 %re_anchor.addr.0, 2
   %spec.select227 = select i1 %cmp103.not, i32 2, i32 1
   br label %if.end106

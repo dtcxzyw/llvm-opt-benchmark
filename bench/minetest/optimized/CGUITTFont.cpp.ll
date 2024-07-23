@@ -2747,7 +2747,7 @@ if.then.i409:                                     ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i409
-  %sub.i.i412 = sub nsw i64 %conv.i407, %sub.ptr.div.i.i.i
+  %sub.i.i412 = sub nuw nsw i64 %conv.i407, %sub.ptr.div.i.i.i
   call void @_ZNSt6vectorIN3irr3gui11SGUITTGlyphESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Glyphs, i64 noundef %sub.i.i412)
   br label %_ZN3irr4core5arrayINS_3gui11SGUITTGlyphEE10reallocateEjb.exit
 
@@ -2819,7 +2819,7 @@ _ZN3irr4core5arrayINS_3gui11SGUITTGlyphEE10reallocateEjb.exit: ; preds = %if.els
   br i1 %cmp.i.i418, label %if.then.i.i444, label %if.else.i.i419
 
 if.then.i.i444:                                   ; preds = %_ZN3irr4core5arrayINS_3gui11SGUITTGlyphEE10reallocateEjb.exit
-  %sub.i.i445 = sub nsw i64 %conv.i413, %sub.ptr.div.i.i.i417
+  %sub.i.i445 = sub nuw nsw i64 %conv.i413, %sub.ptr.div.i.i.i417
   call void @_ZNSt6vectorIN3irr3gui11SGUITTGlyphESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Glyphs, i64 noundef %sub.i.i445)
   br label %_ZN3irr4core5arrayINS_3gui11SGUITTGlyphEE8set_usedEj.exit
 
@@ -6181,7 +6181,7 @@ do.end:                                           ; preds = %land.rhs, %do.body
   br i1 %cmp.i758, label %if.then.i762, label %if.else.i759
 
 if.then.i762:                                     ; preds = %do.end
-  %sub.i763 = sub nsw i64 %conv.i698, %sub.ptr.div.i.i757
+  %sub.i763 = sub nuw nsw i64 %conv.i698, %sub.ptr.div.i.i757
   %176 = load ptr, ptr %_M_end_of_storage.i.i764, align 8, !tbaa !220
   %sub.ptr.lhs.cast.i15.i = ptrtoint ptr %176 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i15.i, %sub.ptr.lhs.cast.i.i754
@@ -6190,7 +6190,7 @@ if.then.i762:                                     ; preds = %do.end
   %cmp6.i.i = icmp ule i64 %sub.ptr.div.i17.i, %sub.i.i
   call void @llvm.assume(i1 %cmp6.i.i)
   %cmp8.not.i.i = icmp ult i64 %sub.ptr.div.i17.i, %sub.i763
-  br i1 %cmp8.not.i.i, label %if.else.i.i765, label %.noexc701.thread
+  br i1 %cmp8.not.i.i, label %_ZNKSt6vectorIN3irr4core8vector2dIiEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, label %.noexc701.thread
 
 .noexc701.thread:                                 ; preds = %if.then.i762
   %177 = shl nuw nsw i64 %sub.i763, 3
@@ -6199,18 +6199,14 @@ if.then.i762:                                     ; preds = %do.end
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i753, align 8, !tbaa !221
   br label %if.then.i.i.i.i.i.i
 
-if.else.i.i765:                                   ; preds = %if.then.i762
-  %cmp.i.i.i766 = icmp ult i64 %sub.i.i, %sub.i763
-  br i1 %cmp.i.i.i766, label %if.then.i.i.i769.invoke, label %_ZNKSt6vectorIN3irr4core8vector2dIiEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-
-if.then.i.i.i769.invoke:                          ; preds = %if.else.i.i795, %if.else.i.i765
+if.then.i.i.i769.invoke:                          ; preds = %if.else.i.i795
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.22) #31
           to label %if.then.i.i.i769.cont unwind label %lpad259.loopexit.split-lp
 
 if.then.i.i.i769.cont:                            ; preds = %if.then.i.i.i769.invoke
   unreachable
 
-_ZNKSt6vectorIN3irr4core8vector2dIiEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i765
+_ZNKSt6vectorIN3irr4core8vector2dIiEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.then.i762
   %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i757, i64 %sub.i763)
   %add.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i757
   %mul.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i, 3
@@ -6336,7 +6332,7 @@ invoke.cont288:                                   ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.i777, label %if.then.i784, label %if.else.i778
 
 if.then.i784:                                     ; preds = %invoke.cont288
-  %sub.i785 = sub nsw i64 %conv.i698, %sub.ptr.div.i.i776
+  %sub.i785 = sub nuw nsw i64 %conv.i698, %sub.ptr.div.i.i776
   %194 = load ptr, ptr %_M_end_of_storage.i.i786, align 8, !tbaa !231
   %sub.ptr.lhs.cast.i15.i787 = ptrtoint ptr %194 to i64
   %sub.ptr.sub.i16.i788 = sub i64 %sub.ptr.lhs.cast.i15.i787, %sub.ptr.lhs.cast.i.i773
@@ -13279,7 +13275,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sub.i.i = sub nsw i64 %conv.i, %sub.ptr.div.i.i.i
+  %sub.i.i = sub nuw nsw i64 %conv.i, %sub.ptr.div.i.i.i
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices, i64 noundef %sub.i.i)
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
@@ -13521,7 +13517,7 @@ if.then.i58:                                      ; preds = %for.end
   br i1 %cmp.i.i63, label %if.then.i.i70, label %if.else.i.i64
 
 if.then.i.i70:                                    ; preds = %if.then.i58
-  %sub.i.i71 = sub nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
+  %sub.i.i71 = sub nuw nsw i64 %conv.i45, %sub.ptr.div.i.i.i62
   tail call void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Indices, i64 noundef %sub.i.i71)
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 

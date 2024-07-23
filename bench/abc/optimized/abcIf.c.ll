@@ -2072,8 +2072,8 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %130
 
 126:                                              ; preds = %110
-  %127 = sub nsw i32 %113, %115
-  %128 = sext i32 %127 to i64
+  %127 = sub nuw nsw i32 %113, %115
+  %128 = zext nneg i32 %127 to i64
   %129 = getelementptr inbounds [5 x ptr], ptr %9, i64 0, i64 %128
   br label %130
 

@@ -94,7 +94,7 @@ is_arj_archive.exit:                              ; preds = %13
   br i1 %or.cond116.not.i, label %22, label %arj_read_main_header.exit.thread
 
 22:                                               ; preds = %is_arj_archive.exit
-  %23 = sub i64 %21, %15
+  %23 = sub nuw i64 %21, %15
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 2)
   %24 = getelementptr inbounds i8, ptr %19, i64 104
   %25 = load ptr, ptr %24, align 8
@@ -429,7 +429,7 @@ is_arj_archive.exit:                              ; preds = %17
   br i1 %or.cond.not.i, label %26, label %arj_read_file_header.exit
 
 26:                                               ; preds = %is_arj_archive.exit
-  %27 = sub i64 %25, %19
+  %27 = sub nuw i64 %25, %19
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 2)
   %28 = getelementptr inbounds i8, ptr %23, i64 104
   %29 = load ptr, ptr %28, align 8
@@ -894,7 +894,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not.i.i83.i, label %fmap_need_off_once_len.exit.i.i, label %fmap_need_off_once_len.exit.thread.i.i
 
 fmap_need_off_once_len.exit.i.i:                  ; preds = %65
-  %67 = sub i64 %66, %.pre65.i370.i
+  %67 = sub nuw i64 %66, %.pre65.i370.i
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %67, i64 8192)
   %68 = load ptr, ptr %49, align 8
   %69 = call ptr %68(ptr noundef nonnull %33, i64 noundef %.pre65.i370.i, i64 noundef %spec.select.i.i.i, i32 noundef 0) #12
@@ -1050,7 +1050,7 @@ fmap_need_off_once_len.exit.thread.i225.i:        ; preds = %136
   br label %.loopexit.i226.i
 
 fmap_need_off_once_len.exit.i227.i:               ; preds = %136
-  %138 = sub i64 %137, %.pre65.i221377.i
+  %138 = sub nuw i64 %137, %.pre65.i221377.i
   %spec.select.i.i228.i = call i64 @llvm.umin.i64(i64 %138, i64 8192)
   %139 = load ptr, ptr %111, align 8
   %140 = call ptr %139(ptr noundef nonnull %109, i64 noundef %.pre65.i221377.i, i64 noundef %spec.select.i.i228.i, i32 noundef 0) #12
@@ -1194,7 +1194,7 @@ fmap_need_off_once_len.exit.thread.i200.i:        ; preds = %200
   br label %.loopexit.i201.i
 
 fmap_need_off_once_len.exit.i202.i:               ; preds = %200
-  %202 = sub i64 %201, %.pre65.i196384.i
+  %202 = sub nuw i64 %201, %.pre65.i196384.i
   %spec.select.i.i203.i = call i64 @llvm.umin.i64(i64 %202, i64 8192)
   %203 = load ptr, ptr %175, align 8
   %204 = call ptr %203(ptr noundef nonnull %173, i64 noundef %.pre65.i196384.i, i64 noundef %spec.select.i.i203.i, i32 noundef 0) #12
@@ -1325,7 +1325,7 @@ fmap_need_off_once_len.exit.thread.i175.i:        ; preds = %259
   br label %fill_buf.exit184.thread.i
 
 fmap_need_off_once_len.exit.i177.i:               ; preds = %259
-  %261 = sub i64 %260, %.pre65.i171405.i
+  %261 = sub nuw i64 %260, %.pre65.i171405.i
   %spec.select.i.i178.i = call i64 @llvm.umin.i64(i64 %261, i64 8192)
   %262 = load ptr, ptr %236, align 8
   %263 = call ptr %262(ptr noundef nonnull %234, i64 noundef %.pre65.i171405.i, i64 noundef %spec.select.i.i178.i, i32 noundef 0) #12
@@ -1542,7 +1542,7 @@ fmap_need_off_once_len.exit.thread.i150.i:        ; preds = %359
   br label %.loopexit.i151.i
 
 fmap_need_off_once_len.exit.i152.i:               ; preds = %359
-  %361 = sub i64 %360, %.pre65.i146391.i
+  %361 = sub nuw i64 %360, %.pre65.i146391.i
   %spec.select.i.i153.i = call i64 @llvm.umin.i64(i64 %361, i64 8192)
   %362 = load ptr, ptr %334, align 8
   %363 = call ptr %362(ptr noundef nonnull %332, i64 noundef %.pre65.i146391.i, i64 noundef %spec.select.i.i153.i, i32 noundef 0) #12
@@ -1700,7 +1700,7 @@ fmap_need_off_once_len.exit.thread.i125.i:        ; preds = %426
   br label %fill_buf.exit134.thread.i
 
 fmap_need_off_once_len.exit.i127.i:               ; preds = %426
-  %428 = sub i64 %427, %.pre65.i121398.i
+  %428 = sub nuw i64 %427, %.pre65.i121398.i
   %spec.select.i.i128.i = call i64 @llvm.umin.i64(i64 %428, i64 8192)
   %429 = load ptr, ptr %401, align 8
   %430 = call ptr %429(ptr noundef nonnull %399, i64 noundef %.pre65.i121398.i, i64 noundef %spec.select.i.i128.i, i32 noundef 0) #12
@@ -1959,7 +1959,7 @@ fmap_need_off_once_len.exit.thread.i100.i:        ; preds = %541
   br label %.loopexit.i101.i
 
 fmap_need_off_once_len.exit.i102.i:               ; preds = %541
-  %543 = sub i64 %542, %.pre65.i96412.i
+  %543 = sub nuw i64 %542, %.pre65.i96412.i
   %spec.select.i.i103.i = call i64 @llvm.umin.i64(i64 %543, i64 8192)
   %544 = load ptr, ptr %516, align 8
   %545 = call ptr %544(ptr noundef nonnull %514, i64 noundef %.pre65.i96412.i, i64 noundef %spec.select.i.i103.i, i32 noundef 0) #12
@@ -2184,7 +2184,7 @@ fmap_need_off_once_len.exit.thread.i275.i:        ; preds = %653
   br label %.loopexit.i276.i
 
 fmap_need_off_once_len.exit.i277.i:               ; preds = %653
-  %655 = sub i64 %654, %.pre65.i271419.i
+  %655 = sub nuw i64 %654, %.pre65.i271419.i
   %spec.select.i.i278.i = call i64 @llvm.umin.i64(i64 %655, i64 8192)
   %656 = load ptr, ptr %628, align 8
   %657 = call ptr %656(ptr noundef nonnull %626, i64 noundef %.pre65.i271419.i, i64 noundef %spec.select.i.i278.i, i32 noundef 0) #12
@@ -2349,7 +2349,7 @@ fmap_need_off_once_len.exit.thread.i250.i:        ; preds = %734
   br label %.loopexit.i251.i
 
 fmap_need_off_once_len.exit.i252.i:               ; preds = %734
-  %736 = sub i64 %735, %.pre65.i246426.i
+  %736 = sub nuw i64 %735, %.pre65.i246426.i
   %spec.select.i.i253.i = call i64 @llvm.umin.i64(i64 %736, i64 8192)
   %737 = load ptr, ptr %709, align 8
   %738 = call ptr %737(ptr noundef nonnull %707, i64 noundef %.pre65.i246426.i, i64 noundef %spec.select.i.i253.i, i32 noundef 0) #12
@@ -2582,7 +2582,7 @@ define internal fastcc range(i32 0, 27) i32 @arj_unstore(ptr nocapture noundef %
 fmap_need_off_once_len.exit:                      ; preds = %9
   %14 = tail call i32 @llvm.umin.i32(i32 %.01324, i32 8192)
   %15 = zext nneg i32 %14 to i64
-  %16 = sub i64 %13, %11
+  %16 = sub nuw i64 %13, %11
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %15)
   %17 = getelementptr inbounds i8, ptr %10, i64 104
   %18 = load ptr, ptr %17, align 8
@@ -2659,7 +2659,7 @@ define internal fastcc i32 @decode_f(ptr nocapture noundef %0) unnamed_addr #0 {
   br i1 %.not.i.i99, label %fmap_need_off_once_len.exit.i102, label %37
 
 fmap_need_off_once_len.exit.i102:                 ; preds = %23
-  %25 = sub i64 %24, %.sroa.21.0
+  %25 = sub nuw i64 %24, %.sroa.21.0
   %spec.select.i.i103 = tail call i64 @llvm.umin.i64(i64 %25, i64 8192)
   %26 = load ptr, ptr %11, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %4, i64 noundef %.sroa.21.0, i64 noundef %spec.select.i.i103, i32 noundef 0) #12
@@ -2821,7 +2821,7 @@ fmap_need_off_once_len.exit.i102:                 ; preds = %23
   br i1 %.not.i.i149, label %fmap_need_off_once_len.exit.i152, label %fill_buf.exit159
 
 fmap_need_off_once_len.exit.i152:                 ; preds = %92
-  %94 = sub i64 %93, %.sroa.21.6
+  %94 = sub nuw i64 %93, %.sroa.21.6
   %spec.select.i.i153 = tail call i64 @llvm.umin.i64(i64 %94, i64 8192)
   %95 = load ptr, ptr %47, align 8
   %96 = tail call ptr %95(ptr noundef nonnull %4, i64 noundef %.sroa.21.6, i64 noundef %spec.select.i.i153, i32 noundef 0) #12
@@ -2975,7 +2975,7 @@ fill_buf.exit159:                                 ; preds = %92, %fmap_need_off_
   br i1 %.not.i.i124, label %fmap_need_off_once_len.exit.i127, label %.lr.ph.i
 
 fmap_need_off_once_len.exit.i127:                 ; preds = %164
-  %166 = sub i64 %165, %.sroa.21.11
+  %166 = sub nuw i64 %165, %.sroa.21.11
   %spec.select.i.i128 = tail call i64 @llvm.umin.i64(i64 %166, i64 8192)
   %167 = load ptr, ptr %47, align 8
   %168 = tail call ptr %167(ptr noundef nonnull %4, i64 noundef %.sroa.21.11, i64 noundef %spec.select.i.i128, i32 noundef 0) #12
@@ -3148,7 +3148,7 @@ decode_len.exit:                                  ; preds = %121, %192
   br i1 %.not.i.i, label %fmap_need_off_once_len.exit.i, label %fill_buf.exit
 
 fmap_need_off_once_len.exit.i:                    ; preds = %239
-  %241 = sub i64 %240, %.sroa.21.17
+  %241 = sub nuw i64 %240, %.sroa.21.17
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %241, i64 8192)
   %242 = load ptr, ptr %47, align 8
   %243 = tail call ptr %242(ptr noundef nonnull %4, i64 noundef %.sroa.21.17, i64 noundef %spec.select.i.i, i32 noundef 0) #12
@@ -3341,7 +3341,7 @@ fill_buf.exit:                                    ; preds = %239, %fmap_need_off
   br i1 %.not.i.i199, label %fmap_need_off_once_len.exit.i202, label %fill_buf.exit209
 
 fmap_need_off_once_len.exit.i202:                 ; preds = %324
-  %326 = sub i64 %325, %.sroa.21.23
+  %326 = sub nuw i64 %325, %.sroa.21.23
   %spec.select.i.i203 = tail call i64 @llvm.umin.i64(i64 %326, i64 8192)
   %327 = load ptr, ptr %47, align 8
   %328 = tail call ptr %327(ptr noundef nonnull %4, i64 noundef %.sroa.21.23, i64 noundef %spec.select.i.i203, i32 noundef 0) #12
@@ -3491,7 +3491,7 @@ fill_buf.exit209:                                 ; preds = %324, %fmap_need_off
   br i1 %.not.i.i174, label %fmap_need_off_once_len.exit.i177, label %fill_buf.exit184
 
 fmap_need_off_once_len.exit.i177:                 ; preds = %396
-  %398 = sub i64 %397, %.sroa.21.28
+  %398 = sub nuw i64 %397, %.sroa.21.28
   %spec.select.i.i178 = tail call i64 @llvm.umin.i64(i64 %398, i64 8192)
   %399 = load ptr, ptr %47, align 8
   %400 = tail call ptr %399(ptr noundef nonnull %4, i64 noundef %.sroa.21.28, i64 noundef %spec.select.i.i178, i32 noundef 0) #12
@@ -3795,7 +3795,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %56
   br label %.loopexit
 
 fmap_need_off_once_len.exit:                      ; preds = %56
-  %60 = sub i64 %59, %.pre65
+  %60 = sub nuw i64 %59, %.pre65
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %60, i64 8192)
   %61 = getelementptr inbounds i8, ptr %57, i64 104
   %62 = load ptr, ptr %61, align 8

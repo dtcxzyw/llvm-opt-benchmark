@@ -23709,12 +23709,13 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17hf31647a42f449af7E.exit.i: ; preds
 52:                                               ; preds = %38
   %53 = zext nneg i32 %.sroa.04.0.insert.insert.i to i64
   %54 = icmp ule i64 %53, %2
-  %55 = sub i64 %2, %53
+  %55 = sub nuw i64 %2, %53
+  %spec.select34.i = select i1 %54, i64 %55, i64 undef
   br label %56
 
 56:                                               ; preds = %52, %46
   %57 = phi i1 [ %54, %52 ], [ %not..i, %46 ]
-  %.sroa.8.0.i = phi i64 [ %55, %52 ], [ %51, %46 ]
+  %.sroa.8.0.i = phi i64 [ %spec.select34.i, %52 ], [ %51, %46 ]
   %58 = icmp ult i64 %.sroa.8.0.i, %9
   %or.cond.i = select i1 %57, i1 %58, i1 false
   br i1 %or.cond.i, label %_ZN11flatbuffers8verifier8Verifier13deref_soffset17h96a21cf8b6affd4aE.exit, label %70
@@ -35478,7 +35479,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i: ; preds = %53, %
   br i1 %64, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h8d5d7038d37ca9afE.exit", label %.lr.ph.split.split.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e5a190f8ac42aaaE.exit.i": ; preds = %59
-  %67 = sub i64 %61, %17
+  %67 = sub nuw i64 %61, %17
   %68 = getelementptr inbounds i8, ptr %.val, i64 %67
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %68, ptr nonnull readonly %15, i64 %17), !alias.scope !8753, !noalias !8747
   %69 = icmp eq i32 %bcmp.i.i, 0
@@ -35889,7 +35890,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   ret i1 %.0
 
 6:                                                ; preds = %4
-  %7 = sub i64 %1, %3
+  %7 = sub nuw i64 %1, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %8, i64 %3), !alias.scope !8829
   %9 = icmp eq i32 %bcmp.i, 0

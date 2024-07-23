@@ -14860,7 +14860,7 @@ if.end27:                                         ; preds = %if.end23
 
 if.else31:                                        ; preds = %if.end27.thread, %if.end27
   %13 = phi i64 [ %ts, %if.end27.thread ], [ %12, %if.end27 ]
-  %sub = sub i64 %ts, %13
+  %sub = sub nuw i64 %ts, %13
   %div = udiv i64 %sub, 1000000
   %conv33 = trunc i64 %div to i32
   br label %if.end34
@@ -18377,7 +18377,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = sub i64 %__new_size, %sub.ptr.div.i
+  %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
@@ -19234,7 +19234,7 @@ if.then:                                          ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  %sub.i = sub nsw i64 %sub.ptr.div.i15, %sub.ptr.div.i.i
+  %sub.i = sub nuw nsw i64 %sub.ptr.div.i15, %sub.ptr.div.i.i
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %cf_ids, i64 16
   %12 = load ptr, ptr %_M_end_of_storage.i, align 16
   %sub.ptr.lhs.cast.i109 = ptrtoint ptr %12 to i64
@@ -19360,11 +19360,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp.i36, label %if.then.i43, label %if.else.i37
 
 if.then.i43:                                      ; preds = %if.then13
-  %sub.i44 = sub nsw i64 %sub.ptr.div.i30, %sub.ptr.div.i.i35
-  %cmp.not.i119 = icmp eq i64 %sub.i44, 0
-  br i1 %cmp.not.i119, label %if.end18, label %if.then.i120
-
-if.then.i120:                                     ; preds = %if.then.i43
+  %sub.i44 = sub nuw nsw i64 %sub.ptr.div.i30, %sub.ptr.div.i.i35
   %_M_end_of_storage.i126 = getelementptr inbounds i8, ptr %keys, i64 16
   %24 = load ptr, ptr %_M_end_of_storage.i126, align 16
   %sub.ptr.lhs.cast.i127 = ptrtoint ptr %24 to i64
@@ -19378,9 +19374,9 @@ if.then.i120:                                     ; preds = %if.then.i43
   %cmp8.not.i133 = icmp ult i64 %sub.ptr.div.i129, %sub.i44
   br i1 %cmp8.not.i133, label %if.else.i135, label %for.inc.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %if.then.i120, %for.inc.i.i.i.i
-  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i134, %for.inc.i.i.i.i ], [ %22, %if.then.i120 ]
-  %__n.addr.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i ], [ %sub.i44, %if.then.i120 ]
+for.inc.i.i.i.i:                                  ; preds = %if.then.i43, %for.inc.i.i.i.i
+  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i134, %for.inc.i.i.i.i ], [ %22, %if.then.i43 ]
+  %__n.addr.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.inc.i.i.i.i ], [ %sub.i44, %if.then.i43 ]
   store ptr @.str, ptr %__cur.08.i.i.i.i, align 8
   %size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i, i64 8
   store i64 0, ptr %size_.i.i.i.i.i.i, align 8
@@ -19393,7 +19389,7 @@ _ZSt27__uninitialized_default_n_aIPN7rocksdb5SliceEmS1_ET_S3_T0_RSaIT1_E.exit.i:
   store ptr %incdec.ptr.i.i.i.i134, ptr %_M_finish.i6, align 8
   br label %if.end18
 
-if.else.i135:                                     ; preds = %if.then.i120
+if.else.i135:                                     ; preds = %if.then.i43
   %cmp.i.i136 = icmp ult i64 %sub.i131, %sub.i44
   br i1 %cmp.i.i136, label %if.then.i.i144.invoke, label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
@@ -19469,7 +19465,7 @@ invoke.cont.i.i42:                                ; preds = %if.then5.i39
   store ptr %add.ptr.i40, ptr %_M_finish.i6, align 8
   br label %if.end18
 
-if.end18:                                         ; preds = %invoke.cont.i.i42, %if.then5.i39, %if.else.i37, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPN7rocksdb5SliceEmS1_ET_S3_T0_RSaIT1_E.exit.i, %if.then.i43, %invoke.cont.i.i, %if.then5.i, %if.else.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i, %if.else
+if.end18:                                         ; preds = %invoke.cont.i.i42, %if.then5.i39, %if.else.i37, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE13_M_deallocateEPS1_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPN7rocksdb5SliceEmS1_ET_S3_T0_RSaIT1_E.exit.i, %invoke.cont.i.i, %if.then5.i, %if.else.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i, %if.else
   %26 = load ptr, ptr %_M_finish.i, align 8
   %27 = load ptr, ptr %cf_ids, align 16
   store i64 0, ptr %ref.tmp, align 8
@@ -28584,7 +28580,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp.i.i.i.i.i, label %invoke.cont27, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.else
-  %sub = sub i64 %__n, %sub.ptr.div.i
+  %sub = sub nuw i64 %__n, %sub.ptr.div.i
   %add.ptr.i.i.i.i.i49 = getelementptr inbounds i64, ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i.i.i
 

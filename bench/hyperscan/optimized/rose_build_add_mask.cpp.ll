@@ -231,7 +231,6 @@ $_ZTSSt14default_deleteIN3ue28NGHolderEE = comdat any
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 @_ZTISt9exception = external constant ptr
-@.str.6 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.7 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @_ZTVSt9exception = external unnamed_addr constant { [5 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN5boost4noneE }]
@@ -767,7 +766,7 @@ invoke.cont18.i:                                  ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont18.i
-  %sub.i.i = sub nsw i64 %conv26.i, %sub.ptr.div.i.i101.i
+  %sub.i.i = sub nuw nsw i64 %conv26.i, %sub.ptr.div.i.i101.i
   %sub.ptr.lhs.cast.i9.i.i = ptrtoint ptr %add.ptr.i.i.i757.i to i64
   %sub.ptr.sub.i10.i.i = sub i64 %sub.ptr.lhs.cast.i9.i.i, %sub.ptr.lhs.cast.i.i98.i
   %sub.ptr.div.i11.i.i = ashr exact i64 %sub.ptr.sub.i10.i.i, 5
@@ -775,7 +774,7 @@ if.then.i.i:                                      ; preds = %invoke.cont18.i
   %cmp6.i.i.i = icmp ule i64 %sub.ptr.div.i11.i.i, %sub.i.i.i
   call void @llvm.assume(i1 %cmp6.i.i.i)
   %cmp8.not.i.i.i = icmp ult i64 %sub.ptr.div.i11.i.i, %sub.i.i
-  br i1 %cmp8.not.i.i.i, label %if.else.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3ue29CharReachEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i
+  br i1 %cmp8.not.i.i.i, label %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3ue29CharReachEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPN3ue29CharReachEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i: ; preds = %if.then.i.i
   %48 = shl nuw nsw i64 %sub.i.i, 5
@@ -784,18 +783,7 @@ _ZSt27__uninitialized_default_n_aIPN3ue29CharReachEmS1_ET_S3_T0_RSaIT1_E.exit.i.
   store ptr %scevgep.i.i.i.i.i.i, ptr %_M_finish.i.i.i756.i, align 8
   br label %invoke.cont28.i
 
-if.else.i.i.i:                                    ; preds = %if.then.i.i
-  %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i, %sub.i.i
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #22
-          to label %.noexc105.i unwind label %lpad27.i
-
-.noexc105.i:                                      ; preds = %if.then.i.i.i.i
-  unreachable
-
-_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i.i
+_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.then.i.i
   %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i101.i, i64 %sub.i.i)
   %add.i.i.i.i = add nuw nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i101.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i, 5
@@ -1282,7 +1270,7 @@ lpad17.i:                                         ; preds = %_ZNSt16allocator_tr
           cleanup
   br label %ehcleanup128.i
 
-lpad27.i:                                         ; preds = %do.end49.i, %if.then36.i, %invoke.cont28.i, %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
+lpad27.i:                                         ; preds = %do.end49.i, %if.then36.i, %invoke.cont28.i, %_ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup126.i
@@ -5577,7 +5565,7 @@ if.end31.i:                                       ; preds = %if.else.i, %if.then
   %114 = phi ptr [ %109, %if.then22.i ], [ %111, %if.else.i ]
   %count_penalty.0.i = phi i32 [ %conv27.i, %if.then22.i ], [ %conv30.i, %if.else.i ]
   %cmp32.not.i = icmp ugt i32 %mul21.i, %count_penalty.0.i
-  %sub35.i = sub i32 %mul21.i, %count_penalty.0.i
+  %sub35.i = sub nuw i32 %mul21.i, %count_penalty.0.i
   %spec.select.i = select i1 %cmp32.not.i, i32 %sub35.i, i32 1
   br label %invoke.cont39
 
@@ -5830,7 +5818,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit12:              ; preds = %_ZNSt6vectorIhSaIhE
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit12
   %idx.neg.i = sub nsw i64 0, %conv
   %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %4, i64 %idx.neg.i
-  %sub = sub nsw i64 %sub.ptr.div.i, %conv
+  %sub = sub nuw nsw i64 %sub.ptr.div.i, %conv
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 8)
   %idx.neg.i19 = sub nsw i64 0, %.sroa.speculated
   %add.ptr.i20 = getelementptr inbounds %"class.ue2::CharReach", ptr %add.ptr.i, i64 %idx.neg.i19
@@ -8398,7 +8386,7 @@ invoke.cont3.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i.i:                               ; preds = %invoke.cont3.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i.i.i.i10, %invoke.cont3.i.i.i ]
   %f.sroa.0.0.i.i.i = phi ptr [ %first.coerce, %if.then.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont3.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i.i, %4
   %mul.i.i9.i = shl i64 %sub.i, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %out_start.addr.0.i, ptr align 8 %f.sroa.0.0.i.i.i, i64 %mul.i.i9.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEENS_13move_iteratorIPSB_EESF_EEvRT_T0_NS0_16allocator_traitsISH_E9size_typeET1_SM_.exit
@@ -9844,7 +9832,7 @@ invoke.cont1.i.i.i:                               ; preds = %if.then.i
 invoke.cont1.i.i11.i:                             ; preds = %invoke.cont1.i.i.i, %if.then.i
   %out_start.addr.0.i = phi ptr [ %3, %if.then.i ], [ %add.ptr.i5.i.i.i, %invoke.cont1.i.i.i ]
   %f.addr.0.i.i.i = phi ptr [ %first, %if.then.i ], [ %add.ptr.i.i.i.i17, %invoke.cont1.i.i.i ]
-  %sub.i = sub i64 %sub.ptr.div.i, %4
+  %sub.i = sub nuw i64 %sub.ptr.div.i, %4
   %mul.i.i12.i = shl i64 %sub.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %out_start.addr.0.i, ptr align 4 %f.addr.0.i.i.i, i64 %mul.i.i12.i, i1 false)
   br label %_ZN5boost9container25copy_assign_range_alloc_nINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EEvRT_T0_NS0_16allocator_traitsIS6_E9size_typeET1_SB_.exit
