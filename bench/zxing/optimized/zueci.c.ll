@@ -347,12 +347,12 @@ switch.early.test72:                              ; preds = %zueci_decode_utf8.e
   br i1 %.not99, label %.loopexit106.thread, label %zueci_is_valid_utf8.exit.thread
 
 .loopexit106:                                     ; preds = %switch.early.test72
-  %101 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #8
+  %101 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #7
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %zueci_is_valid_utf8.exit.thread, label %107
 
 .loopexit106.thread:                              ; preds = %.critedge13
-  %103 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #8
+  %103 = tail call i32 %.060(i32 noundef %92, ptr noundef %.1136) #7
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %zueci_is_valid_utf8.exit.thread, label %.thread169
 
@@ -2929,8 +2929,8 @@ define internal range(i32 0, 2) i32 @zueci_u_binary(i32 noundef %0, ptr nocaptur
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 9) i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 0, 9) i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %or.cond.i = icmp ugt i32 %0, 35
   br i1 %or.cond.i, label %switch.early.test, label %switch.early.test47
 
@@ -3511,7 +3511,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader190
   %207 = ptrtoint ptr %.7232 to i64
   %208 = sub i64 %202, %207
   %209 = trunc i64 %208 to i32
-  %210 = call i32 %.0131(ptr noundef %.7232, i32 noundef %209, i32 noundef %4, ptr noundef nonnull %8) #8
+  %210 = call i32 %.0131(ptr noundef %.7232, i32 noundef %209, i32 noundef %4, ptr noundef nonnull %8) #7
   %.not155 = icmp eq i32 %210, 0
   br i1 %.not155, label %211, label %228
 
@@ -3669,7 +3669,7 @@ zueci_is_valid_utf8.exit.thread:                  ; preds = %zueci_decode_utf8.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
+define internal range(i32 0, 2) i32 @zueci_ascii_inv_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = load i8, ptr %0, align 1
   %.fr = freeze i8 %5
   %6 = and i32 %2, 1
@@ -3962,7 +3962,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   %99 = ptrtoint ptr %.7192.us to i64
   %100 = sub i64 %95, %99
   %101 = trunc i64 %100 to i32
-  %102 = call i32 %.0112(ptr noundef %.7192.us, i32 noundef %101, i32 noundef %4, ptr noundef nonnull %7) #8
+  %102 = call i32 %.0112(ptr noundef %.7192.us, i32 noundef %101, i32 noundef %4, ptr noundef nonnull %7) #7
   %.not129.us = icmp eq i32 %102, 0
   br i1 %.not129.us, label %.loopexit, label %zueci_replacement_incr.exit.us
 
@@ -3989,7 +3989,7 @@ zueci_replacement_incr.exit.us:                   ; preds = %.lr.ph197.split.us
   %113 = ptrtoint ptr %.7192 to i64
   %114 = sub i64 %95, %113
   %115 = trunc i64 %114 to i32
-  %116 = call i32 %.0112(ptr noundef %.7192, i32 noundef %115, i32 noundef %4, ptr noundef nonnull %7) #8
+  %116 = call i32 %.0112(ptr noundef %.7192, i32 noundef %115, i32 noundef %4, ptr noundef nonnull %7) #7
   %.not129 = icmp eq i32 %116, 0
   br i1 %.not129, label %117, label %133
 
@@ -4075,7 +4075,7 @@ zueci_replacement_incr.exit:                      ; preds = %.fold.split.i, %132
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 3) i32 @zueci_u_lookup_uro(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #6 {
+define internal fastcc range(i32 0, 3) i32 @zueci_u_lookup_uro(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
   %6 = add nsw i32 %0, -19968
   %7 = lshr i32 %6, 4
   %8 = and i32 %0, 15
@@ -4124,7 +4124,7 @@ define internal fastcc range(i32 0, 3) i32 @zueci_u_lookup_uro(i32 noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zueci_cp437_u(ptr nocapture noundef readonly %0, i32 %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal noundef i32 @zueci_cp437_u(ptr nocapture noundef readonly %0, i32 %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -4148,7 +4148,7 @@ define internal noundef i32 @zueci_cp437_u(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_2_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_2_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4205,7 +4205,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_3_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_3_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4262,7 +4262,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_4_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_4_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4319,7 +4319,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_5_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_5_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4376,7 +4376,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_6_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_6_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4437,7 +4437,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_7_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_7_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4498,7 +4498,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_8_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_8_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4559,7 +4559,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_9_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_9_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4620,7 +4620,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_10_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_10_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4677,7 +4677,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_11_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_11_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4738,7 +4738,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_13_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_13_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4795,7 +4795,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %31, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_14_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_14_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4856,7 +4856,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_15_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_15_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4917,7 +4917,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_iso8859_16_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_iso8859_16_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp ult i8 %5, -96
@@ -4978,7 +4978,7 @@ zueci_iso8859_u.exit:                             ; preds = %8, %33, %.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @zueci_sjis_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 3) i32 @zueci_sjis_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5089,7 +5089,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_cp1250_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_cp1250_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5144,7 +5144,7 @@ zueci_cp125x_u.exit:                              ; preds = %31, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_cp1251_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_cp1251_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5199,7 +5199,7 @@ zueci_cp125x_u.exit:                              ; preds = %31, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_cp1252_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_cp1252_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %or.cond = icmp sgt i8 %5, -97
@@ -5236,7 +5236,7 @@ zueci_cp125x_u.exit:                              ; preds = %17, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_cp1256_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_cp1256_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5291,7 +5291,7 @@ zueci_cp125x_u.exit:                              ; preds = %31, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = icmp ult i32 %1, 2
   br i1 %5, label %32, label %6
 
@@ -5344,7 +5344,7 @@ define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @zueci_ascii_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 2) i32 @zueci_ascii_u(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = icmp slt i8 %5, 0
   %7 = and i32 %2, 1
@@ -5363,7 +5363,7 @@ define internal range(i32 0, 2) i32 @zueci_ascii_u(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @zueci_big5_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 3) i32 @zueci_big5_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5430,7 +5430,7 @@ define internal range(i32 0, 3) i32 @zueci_big5_u(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @zueci_gb2312_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 3) i32 @zueci_gb2312_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5498,7 +5498,7 @@ define internal range(i32 0, 3) i32 @zueci_gb2312_u(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @zueci_ksx1001_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 3) i32 @zueci_ksx1001_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1
@@ -5964,7 +5964,7 @@ switch.early.test:                                ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = icmp ult i32 %1, 2
   br i1 %5, label %32, label %6
 
@@ -6017,7 +6017,7 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @zueci_utf32be_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 5) i32 @zueci_utf32be_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = icmp ult i32 %1, 4
   br i1 %5, label %29, label %6
 
@@ -6058,7 +6058,7 @@ define internal range(i32 0, 5) i32 @zueci_utf32be_u(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @zueci_utf32le_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #6 {
+define internal range(i32 0, 5) i32 @zueci_utf32le_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #5 {
   %5 = icmp ult i32 %1, 4
   br i1 %5, label %29, label %6
 
@@ -6099,17 +6099,16 @@ define internal range(i32 0, 5) i32 @zueci_utf32le_u(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

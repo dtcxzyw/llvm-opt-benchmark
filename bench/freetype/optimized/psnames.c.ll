@@ -25,11 +25,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @psnames_get_service(ptr nocapture readnone %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @pscmaps_services, ptr noundef %1) #9
+  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @pscmaps_services, ptr noundef %1) #10
   ret ptr %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 117
@@ -297,7 +297,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, 
   store i32 0, ptr %10, align 8
   %11 = add i32 %2, 10
   %12 = zext i32 %11 to i64
-  %13 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef 0, i64 noundef %12, ptr noundef null, ptr noundef nonnull %7) #9
+  %13 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef 0, i64 noundef %12, ptr noundef null, ptr noundef nonnull %7) #10
   %14 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr %7, align 4
@@ -315,7 +315,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, 
 16:                                               ; preds = %.lr.ph, %45
   %.071 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
   %.05170 = phi ptr [ %13, %.lr.ph ], [ %.2, %45 ]
-  %17 = call ptr %3(ptr noundef %5, i32 noundef %.071) #9
+  %17 = call ptr %3(ptr noundef %5, i32 noundef %.071) #10
   %.not58 = icmp eq ptr %17, null
   br i1 %.not58, label %45, label %18
 
@@ -335,7 +335,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, 
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %17) #10
+  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %17) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %20
 
@@ -386,7 +386,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   br i1 %.not61, label %45, label %44
 
 44:                                               ; preds = %43
-  call void %4(ptr noundef %5, ptr noundef nonnull %17) #9
+  call void %4(ptr noundef %5, ptr noundef nonnull %17) #10
   br label %45
 
 45:                                               ; preds = %16, %18, %44, %43
@@ -435,7 +435,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %58
-  call void @ft_mem_free(ptr noundef %0, ptr noundef %59) #9
+  call void @ft_mem_free(ptr noundef %0, ptr noundef %59) #10
   store ptr null, ptr %14, align 8
   %67 = load i32, ptr %7, align 4
   %.not57 = icmp eq i32 %67, 0
@@ -449,14 +449,14 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
   br i1 %70, label %72, label %._crit_edge
 
 72:                                               ; preds = %68
-  %73 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef %12, i64 noundef %71, ptr noundef %59, ptr noundef nonnull %7) #9
+  %73 = call ptr @ft_mem_qrealloc(ptr noundef %0, i64 noundef 8, i64 noundef %12, i64 noundef %71, ptr noundef %59, ptr noundef nonnull %7) #10
   store ptr %73, ptr %14, align 8
   store i32 0, ptr %7, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %68, %72
   %74 = phi ptr [ %73, %72 ], [ %59, %68 ]
-  call void @qsort(ptr noundef %74, i64 noundef %71, i64 noundef 8, ptr noundef nonnull @compare_uni_maps) #9
+  call void @qsort(ptr noundef %74, i64 noundef %71, i64 noundef 8, ptr noundef nonnull @compare_uni_maps) #10
   %.pre.pre = load i32, ptr %7, align 4
   br label %75
 
@@ -471,7 +471,7 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not51 = icmp eq i32 %4, 0
@@ -534,7 +534,7 @@ define internal i32 @ps_unicodes_char_index(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = add i32 %3, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -620,7 +620,7 @@ define internal i32 @ps_unicodes_char_next(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #3 {
+define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %2 = icmp ugt i32 %0, 257
   %spec.store.select = select i1 %2, i32 0, i32 %0
   %3 = zext nneg i32 %spec.store.select to i64
@@ -632,7 +632,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @ps_get_standard_strings(i32 noundef %0) #3 {
+define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
   %2 = icmp ugt i32 %0, 390
   br i1 %2, label %9, label %3
 
@@ -650,17 +650,17 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
-declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 2147483647
   %5 = load i32, ptr %1, align 4
@@ -692,21 +692,22 @@ define internal range(i32 -1, 2) i32 @compare_uni_maps(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
-declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

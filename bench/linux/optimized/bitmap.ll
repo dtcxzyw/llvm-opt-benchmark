@@ -762,7 +762,7 @@ define dso_local i32 @__bitmap_weight(ptr nocapture noundef readonly %0, i32 nou
   %9 = phi i32 [ 0, %4 ], [ %14, %7 ]
   %10 = getelementptr i64, ptr %0, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %11) #12, !srcloc !21
+  %12 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %11) #11, !srcloc !21
   %13 = trunc i64 %12 to i32
   %14 = add i32 %9, %13
   %15 = add nuw nsw i64 %8, 1
@@ -784,7 +784,7 @@ define dso_local i32 @__bitmap_weight(ptr nocapture noundef readonly %0, i32 nou
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 -1, %26
   %28 = and i64 %23, %27
-  %29 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %28) #12, !srcloc !21
+  %29 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %28) #11, !srcloc !21
   %30 = trunc i64 %29 to i32
   %31 = add i32 %18, %30
   br label %32
@@ -812,7 +812,7 @@ define dso_local i32 @__bitmap_weight_and(ptr nocapture noundef readonly %0, ptr
   %13 = getelementptr i64, ptr %0, i64 %9
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
-  %16 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #12, !srcloc !21
+  %16 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #11, !srcloc !21
   %17 = trunc i64 %16 to i32
   %18 = add i32 %10, %17
   %19 = add nuw nsw i64 %9, 1
@@ -837,7 +837,7 @@ define dso_local i32 @__bitmap_weight_and(ptr nocapture noundef readonly %0, ptr
   %33 = lshr i64 -1, %32
   %34 = and i64 %27, %33
   %35 = and i64 %34, %29
-  %36 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %35) #12, !srcloc !21
+  %36 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %35) #11, !srcloc !21
   %37 = trunc i64 %36 to i32
   %38 = add i32 %22, %37
   br label %39
@@ -847,8 +847,8 @@ define dso_local i32 @__bitmap_weight_and(ptr nocapture noundef readonly %0, ptr
   ret i32 %40
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
@@ -899,8 +899,8 @@ define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i3
   ret void
 }
 
-; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @__bitmap_clear(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
+; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
+define dso_local void @__bitmap_clear(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = lshr i32 %1, 6
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
@@ -957,7 +957,7 @@ define dso_local void @__bitmap_clear(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #7 align 16 {
+define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #6 align 16 {
   %7 = add i64 %5, %4
   %8 = xor i64 %4, -1
   %9 = zext i32 %3 to i64
@@ -965,7 +965,7 @@ define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef
 
 10:                                               ; preds = %18, %6
   %11 = phi i64 [ %2, %6 ], [ %21, %18 ]
-  %12 = tail call i64 @_find_next_zero_bit(ptr noundef %0, i64 noundef %1, i64 noundef %11) #13
+  %12 = tail call i64 @_find_next_zero_bit(ptr noundef %0, i64 noundef %1, i64 noundef %11) #12
   %13 = add i64 %7, %12
   %14 = and i64 %13, %8
   %15 = sub i64 %14, %5
@@ -974,7 +974,7 @@ define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %10
-  %19 = tail call i64 @_find_next_bit(ptr noundef %0, i64 noundef %16, i64 noundef %15) #13
+  %19 = tail call i64 @_find_next_bit(ptr noundef %0, i64 noundef %16, i64 noundef %15) #12
   %20 = icmp ult i64 %19, %16
   %21 = add nuw i64 %19, 1
   br i1 %20, label %10, label %22
@@ -985,7 +985,7 @@ define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #7 align 16 {
+define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #6 align 16 {
   %6 = icmp eq ptr %0, %1
   br i1 %6, label %.loopexit, label %7
 
@@ -1008,7 +1008,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = phi i32 [ 0, %13 ], [ %23, %16 ]
   %19 = getelementptr i64, ptr %3, i64 %17
   %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #12, !srcloc !21
+  %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #11, !srcloc !21
   %22 = trunc i64 %21 to i32
   %23 = add i32 %18, %22
   %24 = add nuw nsw i64 %17, 1
@@ -1030,7 +1030,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %35 = zext nneg i32 %34 to i64
   %36 = lshr i64 -1, %35
   %37 = and i64 %32, %36
-  %38 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %37) #12, !srcloc !21
+  %38 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %37) #11, !srcloc !21
   %39 = trunc i64 %38 to i32
   %40 = add i32 %27, %39
   br label %41
@@ -1038,7 +1038,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 41:                                               ; preds = %30, %.loopexit21
   %42 = phi i32 [ %40, %30 ], [ %27, %.loopexit21 ]
   %.fr12 = freeze i32 %42
-  %43 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef 0) #13
+  %43 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef 0) #12
   %44 = trunc i64 %43 to i32
   %45 = icmp ult i32 %44, %4
   br i1 %45, label %.lr.ph, label %.loopexit
@@ -1051,7 +1051,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %47 = phi i32 [ %79, %.thread.us ], [ %44, %.lr.ph ]
   %48 = phi i64 [ %78, %.thread.us ], [ %43, %.lr.ph ]
   %49 = and i64 %48, 4294967295
-  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %49) #13, !srcloc !26
+  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %49) #12, !srcloc !26
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -1070,7 +1070,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %59 = phi i64 [ 0, %55 ], [ %63, %58 ]
   %60 = getelementptr i64, ptr %2, i64 %59
   %61 = load i64, ptr %60, align 8
-  %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #12, !srcloc !21
+  %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #11, !srcloc !21
   %63 = add nuw nsw i64 %59, 1
   %64 = icmp eq i64 %63, %57
   br i1 %64, label %.loopexit18, label %58, !llvm.loop !22
@@ -1088,14 +1088,14 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %72 = and i64 %71, 63
   %73 = lshr i64 -1, %72
   %74 = and i64 %70, %73
-  %75 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #12, !srcloc !21
+  %75 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #11, !srcloc !21
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.loopexit18, %68, %.lr.ph.split.us
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %49) #13, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %49) #12, !srcloc !27
   %76 = add i64 %48, 1
   %77 = and i64 %76, 4294967295
-  %78 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %77) #13
+  %78 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %77) #12
   %79 = trunc i64 %78 to i32
   %80 = icmp ult i32 %79, %4
   br i1 %80, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !28
@@ -1104,7 +1104,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %81 = phi i32 [ %131, %127 ], [ %44, %.lr.ph ]
   %82 = phi i64 [ %130, %127 ], [ %43, %.lr.ph ]
   %83 = and i64 %82, 4294967295
-  %84 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %83) #13, !srcloc !26
+  %84 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %83) #12, !srcloc !26
   %85 = icmp ult i8 %84, 2
   tail call void @llvm.assume(i1 %85)
   %86 = icmp eq i8 %84, 0
@@ -1124,7 +1124,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %94 = phi i32 [ 0, %89 ], [ %99, %92 ]
   %95 = getelementptr i64, ptr %2, i64 %93
   %96 = load i64, ptr %95, align 8
-  %97 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %96) #12, !srcloc !21
+  %97 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %96) #11, !srcloc !21
   %98 = trunc i64 %97 to i32
   %99 = add i32 %94, %98
   %100 = add nuw nsw i64 %93, 1
@@ -1145,7 +1145,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %110 = and i64 %109, 63
   %111 = lshr i64 -1, %110
   %112 = and i64 %108, %111
-  %113 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %112) #12, !srcloc !21
+  %113 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %112) #11, !srcloc !21
   %114 = trunc i64 %113 to i32
   %115 = add i32 %103, %114
   br label %116
@@ -1156,7 +1156,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %118, label %.thread, label %119
 
 .thread:                                          ; preds = %.lr.ph.split, %116
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %83) #13, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %83) #12, !srcloc !27
   br label %127
 
 119:                                              ; preds = %116
@@ -1166,18 +1166,18 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 122:                                              ; preds = %119
   %123 = zext nneg i32 %120 to i64
-  %124 = tail call i64 @__find_nth_bit(ptr noundef %3, i64 noundef %8, i64 noundef %123) #13
+  %124 = tail call i64 @__find_nth_bit(ptr noundef %3, i64 noundef %8, i64 noundef %123) #12
   br label %125
 
 125:                                              ; preds = %122, %119
   %126 = phi i64 [ %124, %122 ], [ %8, %119 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %126) #13, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %126) #12, !srcloc !27
   br label %127
 
 127:                                              ; preds = %125, %.thread
   %128 = add i64 %82, 1
   %129 = and i64 %128, 4294967295
-  %130 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %129) #13
+  %130 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %129) #12
   %131 = trunc i64 %130 to i32
   %132 = icmp ult i32 %131, %4
   br i1 %132, label %.lr.ph.split, label %.loopexit, !llvm.loop !28
@@ -1187,7 +1187,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #7 align 16 {
+define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #6 align 16 {
   %5 = icmp ult i32 %3, 64
   br i1 %5, label %.loopexit13, label %6
 
@@ -1201,7 +1201,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %11 = phi i32 [ 0, %6 ], [ %16, %9 ]
   %12 = getelementptr i64, ptr %2, i64 %10
   %13 = load i64, ptr %12, align 8
-  %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #12, !srcloc !21
+  %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #11, !srcloc !21
   %15 = trunc i64 %14 to i32
   %16 = add i32 %11, %15
   %17 = add nuw nsw i64 %10, 1
@@ -1223,7 +1223,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i64 -1, %28
   %30 = and i64 %25, %29
-  %31 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %30) #12, !srcloc !21
+  %31 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %30) #11, !srcloc !21
   %32 = trunc i64 %31 to i32
   %33 = add i32 %20, %32
   br label %34
@@ -1235,7 +1235,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 
 37:                                               ; preds = %34
   %38 = zext i32 %0 to i64
-  %39 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %38) #13, !srcloc !26
+  %39 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %38) #12, !srcloc !26
   %40 = icmp ult i8 %39, 2
   tail call void @llvm.assume(i1 %40)
   %41 = icmp eq i8 %39, 0
@@ -1255,7 +1255,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %49 = phi i32 [ 0, %44 ], [ %54, %47 ]
   %50 = getelementptr i64, ptr %1, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %51) #12, !srcloc !21
+  %52 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %51) #11, !srcloc !21
   %53 = trunc i64 %52 to i32
   %54 = add i32 %49, %53
   %55 = add nuw nsw i64 %48, 1
@@ -1277,7 +1277,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %66 = zext nneg i32 %65 to i64
   %67 = lshr i64 -1, %66
   %68 = and i64 %63, %67
-  %69 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %68) #12, !srcloc !21
+  %69 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %68) #11, !srcloc !21
   %70 = trunc i64 %69 to i32
   %71 = add i32 %58, %70
   br label %72
@@ -1297,7 +1297,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 80:                                               ; preds = %77
   %81 = zext nneg i32 %78 to i64
   %82 = sext i32 %3 to i64
-  %83 = tail call i64 @__find_nth_bit(ptr noundef %2, i64 noundef %82, i64 noundef %81) #13
+  %83 = tail call i64 @__find_nth_bit(ptr noundef %2, i64 noundef %82, i64 noundef %81) #12
   %84 = trunc i64 %83 to i32
   br label %.thread
 
@@ -1307,7 +1307,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 align 16 {
+define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 align 16 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %6
 
@@ -1317,7 +1317,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = lshr i64 %8, 3
   %10 = and i64 %9, 1073741816
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %10, i1 false)
-  %11 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef 0) #13
+  %11 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef 0) #12
   %12 = trunc i64 %11 to i32
   %13 = icmp ult i32 %12, %3
   br i1 %13, label %.lr.ph, label %.loopexit
@@ -1326,7 +1326,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = phi i64 [ %26, %22 ], [ %11, %6 ]
   %15 = phi i32 [ %23, %22 ], [ 0, %6 ]
   %16 = zext i32 %15 to i64
-  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %16) #13, !srcloc !26
+  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %16) #12, !srcloc !26
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -1334,14 +1334,14 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 20:                                               ; preds = %.lr.ph
   %21 = and i64 %14, 4294967295
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %21) #13, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %21) #12, !srcloc !27
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph
   %23 = add i32 %15, 1
   %24 = add i64 %14, 1
   %25 = and i64 %24, 4294967295
-  %26 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef %25) #13
+  %26 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef %25) #12
   %27 = trunc i64 %26 to i32
   %28 = icmp ult i32 %27, %3
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !29
@@ -1351,7 +1351,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 16 {
+define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 16 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %6
 
@@ -1361,7 +1361,7 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
   %9 = lshr i64 %8, 3
   %10 = and i64 %9, 1073741816
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %10, i1 false)
-  %11 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef 0) #13
+  %11 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef 0) #12
   %12 = trunc i64 %11 to i32
   %13 = icmp ult i32 %12, %3
   br i1 %13, label %.lr.ph, label %.loopexit
@@ -1371,10 +1371,10 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
   %15 = phi i64 [ %20, %.lr.ph ], [ %11, %6 ]
   %16 = urem i32 %14, %2
   %17 = zext i32 %16 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %17) #13, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %17) #12, !srcloc !27
   %18 = add i64 %15, 1
   %19 = and i64 %18, 4294967295
-  %20 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef %19) #13
+  %20 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef %19) #12
   %21 = trunc i64 %20 to i32
   %22 = icmp ult i32 %21, %3
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !30
@@ -1384,73 +1384,73 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @bitmap_alloc(i32 noundef %0, i32 noundef %1) #7 align 16 {
+define dso_local noalias ptr @bitmap_alloc(i32 noundef %0, i32 noundef %1) #6 align 16 {
   %3 = zext i32 %0 to i64
   %4 = add nuw nsw i64 %3, 63
   %5 = lshr i64 %4, 3
   %6 = and i64 %5, 1073741816
-  %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef %1) #14
+  %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef %1) #13
   ret ptr %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @bitmap_zalloc(i32 noundef %0, i32 noundef %1) #7 align 16 {
+define dso_local noalias ptr @bitmap_zalloc(i32 noundef %0, i32 noundef %1) #6 align 16 {
   %3 = zext i32 %0 to i64
   %4 = add nuw nsw i64 %3, 63
   %5 = lshr i64 %4, 3
   %6 = and i64 %5, 1073741816
   %7 = or i32 %1, 256
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef %7) #14
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef %7) #13
   ret ptr %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @bitmap_alloc_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local noalias ptr @bitmap_alloc_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = zext i32 %0 to i64
   %5 = add nuw nsw i64 %4, 63
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 1073741816
-  %8 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %7, i32 noundef %1, i32 noundef %2) #14
+  %8 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %7, i32 noundef %1, i32 noundef %2) #13
   ret ptr %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @bitmap_zalloc_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local noalias ptr @bitmap_zalloc_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = zext i32 %0 to i64
   %5 = add nuw nsw i64 %4, 63
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 1073741816
   %8 = or i32 %1, 256
-  %9 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %7, i32 noundef %8, i32 noundef %2) #14
+  %9 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %7, i32 noundef %8, i32 noundef %2) #13
   ret ptr %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bitmap_free(ptr noundef %0) #7 align 16 {
-  tail call void @kfree(ptr noundef %0) #13
+define dso_local void @bitmap_free(ptr noundef %0) #6 align 16 {
+  tail call void @kfree(ptr noundef %0) #12
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #8
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_bitmap_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local ptr @devm_bitmap_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = zext i32 %1 to i64
   %5 = add nuw nsw i64 %4, 63
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 1073741816
-  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef %2) #14
+  %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef %2) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_bitmap_free, ptr noundef nonnull %8, ptr noundef nonnull @.str) #13
+  %11 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_bitmap_free, ptr noundef nonnull %8, ptr noundef nonnull @.str) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @kfree(ptr noundef nonnull %8) #13
+  tail call void @kfree(ptr noundef nonnull %8) #12
   br label %14
 
 14:                                               ; preds = %13, %10, %3
@@ -1459,29 +1459,29 @@ define dso_local ptr @devm_bitmap_alloc(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_bitmap_free(ptr noundef %0) #7 align 16 {
-  tail call void @kfree(ptr noundef %0) #13
+define internal void @devm_bitmap_free(ptr noundef %0) #6 align 16 {
+  tail call void @kfree(ptr noundef %0) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @devm_bitmap_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local ptr @devm_bitmap_zalloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = zext i32 %1 to i64
   %5 = add nuw nsw i64 %4, 63
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 1073741816
   %8 = or i32 %2, 256
-  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef %8) #14
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef %8) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_bitmap_free, ptr noundef nonnull %9, ptr noundef nonnull @.str) #13
+  %12 = tail call i32 @__devm_add_action(ptr noundef %0, ptr noundef nonnull @devm_bitmap_free, ptr noundef nonnull %9, ptr noundef nonnull @.str) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @kfree(ptr noundef nonnull %9) #13
+  tail call void @kfree(ptr noundef nonnull %9) #12
   br label %15
 
 15:                                               ; preds = %14, %11, %3
@@ -1607,28 +1607,28 @@ define dso_local void @bitmap_to_arr32(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i64 @_find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @__find_nth_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local i64 @__find_nth_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
+declare dso_local noalias ptr @__kmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__devm_add_action(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare dso_local i32 @__devm_add_action(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+declare i64 @llvm.fshl.i64(i64, i64, i64) #10
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1636,15 +1636,14 @@ attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
+attributes #6 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -3,7 +3,7 @@ source_filename = "bench/opencv/original/accum.dispatch.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKhPfS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -77,7 +77,7 @@ _ZN2cv12cpu_baseline12acc_general_IhfEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKtPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -151,7 +151,7 @@ _ZN2cv12cpu_baseline12acc_general_ItfEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKfPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %14
@@ -223,7 +223,7 @@ _ZN2cv12cpu_baseline12acc_general_IffEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKhPdS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -297,7 +297,7 @@ _ZN2cv12cpu_baseline12acc_general_IhdEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKtPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -371,7 +371,7 @@ _ZN2cv12cpu_baseline12acc_general_ItdEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKfPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -445,7 +445,7 @@ _ZN2cv12cpu_baseline12acc_general_IfdEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline9acc_simd_EPKdPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %14
@@ -517,7 +517,7 @@ _ZN2cv12cpu_baseline12acc_general_IddEEvPKT_PT0_PKhiii.exit: ; preds = %..loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKhPfS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -591,7 +591,7 @@ _ZN2cv12cpu_baseline15accSqr_general_IhfEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKtPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -665,7 +665,7 @@ _ZN2cv12cpu_baseline15accSqr_general_ItfEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKfPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %14
@@ -737,7 +737,7 @@ _ZN2cv12cpu_baseline15accSqr_general_IffEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKhPdS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -811,7 +811,7 @@ _ZN2cv12cpu_baseline15accSqr_general_IhdEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKtPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -885,7 +885,7 @@ _ZN2cv12cpu_baseline15accSqr_general_ItdEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKfPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %15
@@ -959,7 +959,7 @@ _ZN2cv12cpu_baseline15accSqr_general_IfdEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline12accSqr_simd_EPKdPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %6, label %14
@@ -1031,7 +1031,7 @@ _ZN2cv12cpu_baseline15accSqr_general_IddEEvPKT_PT0_PKhiii.exit: ; preds = %..loo
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKhS2_PfS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %19
@@ -1113,7 +1113,7 @@ _ZN2cv12cpu_baseline16accProd_general_IhfEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKtS2_PfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %19
@@ -1195,7 +1195,7 @@ _ZN2cv12cpu_baseline16accProd_general_ItfEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKfS2_PfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %17
@@ -1273,7 +1273,7 @@ _ZN2cv12cpu_baseline16accProd_general_IffEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKhS2_PdS2_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %19
@@ -1355,7 +1355,7 @@ _ZN2cv12cpu_baseline16accProd_general_IhdEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKtS2_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %19
@@ -1437,7 +1437,7 @@ _ZN2cv12cpu_baseline16accProd_general_ItdEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKfS2_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %19
@@ -1519,7 +1519,7 @@ _ZN2cv12cpu_baseline16accProd_general_IfdEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline13accProd_simd_EPKdS2_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %7, label %17
@@ -1597,7 +1597,7 @@ _ZN2cv12cpu_baseline16accProd_general_IddEEvPKT_S4_PT0_PKhiii.exit: ; preds = %.
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKhPfS2_iid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -1675,7 +1675,7 @@ _ZN2cv12cpu_baseline13accW_general_IhfEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKtPfPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -1753,7 +1753,7 @@ _ZN2cv12cpu_baseline13accW_general_ItfEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKfPfPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -1829,7 +1829,7 @@ _ZN2cv12cpu_baseline13accW_general_IffEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKhPdS2_iid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i = icmp eq ptr %2, null
@@ -1906,7 +1906,7 @@ _ZN2cv12cpu_baseline13accW_general_IhdEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKtPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i = icmp eq ptr %2, null
@@ -1983,7 +1983,7 @@ _ZN2cv12cpu_baseline13accW_general_ItdEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKfPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i = icmp eq ptr %2, null
@@ -2060,7 +2060,7 @@ _ZN2cv12cpu_baseline13accW_general_IfdEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12cpu_baseline10accW_simd_EPKdPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i = icmp eq ptr %2, null
@@ -2135,7 +2135,7 @@ _ZN2cv12cpu_baseline13accW_general_IddEEvPKT_PT0_PKhiidi.exit: ; preds = %..loop
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv9acc_8u32fEPKhPfS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2209,7 +2209,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKhPfS2_ii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12accSqr_8u32fEPKhPfS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2283,7 +2283,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKhPfS2_ii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv13accProd_8u32fEPKhS1_PfS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %19
@@ -2365,7 +2365,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKhS2_PfS2_ii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10accW_8u32fEPKhPfS1_iid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -2443,7 +2443,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKhPfS2_iid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv9acc_8u64fEPKhPdS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2517,7 +2517,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKhPdS2_ii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv12accSqr_8u64fEPKhPdS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2591,7 +2591,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKhPdS2_ii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv13accProd_8u64fEPKhS1_PdS1_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %19
@@ -2673,7 +2673,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKhS2_PdS2_ii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10accW_8u64fEPKhPdS1_iid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i.i = icmp eq ptr %2, null
@@ -2750,7 +2750,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKhPdS2_iid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10acc_16u32fEPKtPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2824,7 +2824,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKtPfPKhii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv13accSqr_16u32fEPKtPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -2898,7 +2898,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKtPfPKhii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv14accProd_16u32fEPKtS1_PfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %19
@@ -2980,7 +2980,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKtS2_PfPKhii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv11accW_16u32fEPKtPfPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -3058,7 +3058,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKtPfPKhiid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10acc_16u64fEPKtPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -3132,7 +3132,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKtPdPKhii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv13accSqr_16u64fEPKtPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -3206,7 +3206,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKtPdPKhii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv14accProd_16u64fEPKtS1_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %19
@@ -3288,7 +3288,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKtS2_PdPKhii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv11accW_16u64fEPKtPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i.i = icmp eq ptr %2, null
@@ -3365,7 +3365,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKtPdPKhiid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv7acc_32fEPKfPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %14
@@ -3437,7 +3437,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKfPfPKhii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10accSqr_32fEPKfPfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %14
@@ -3509,7 +3509,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKfPfPKhii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv11accProd_32fEPKfS1_PfPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %17
@@ -3587,7 +3587,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKfS2_PfPKhii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv8accW_32fEPKfPfPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fptrunc double %5 to float
   %8 = fsub float 1.000000e+00, %7
@@ -3663,7 +3663,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKfPfPKhiid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10acc_32f64fEPKfPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -3737,7 +3737,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKfPdPKhii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv13accSqr_32f64fEPKfPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %15
@@ -3811,7 +3811,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKfPdPKhii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv14accProd_32f64fEPKfS1_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %19
@@ -3893,7 +3893,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKfS2_PdPKhii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv11accW_32f64fEPKfPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i.i = icmp eq ptr %2, null
@@ -3970,7 +3970,7 @@ _ZN2cv12cpu_baseline10accW_simd_EPKfPdPKhiid.exit: ; preds = %..loopexit47_crit_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv7acc_64fEPKdPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %14
@@ -4042,7 +4042,7 @@ _ZN2cv12cpu_baseline9acc_simd_EPKdPdPKhii.exit:   ; preds = %..loopexit37_crit_e
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv10accSqr_64fEPKdPdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %6, label %14
@@ -4114,7 +4114,7 @@ _ZN2cv12cpu_baseline12accSqr_simd_EPKdPdPKhii.exit: ; preds = %..loopexit41_crit
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv11accProd_64fEPKdS1_PdPKhii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %7, label %17
@@ -4192,7 +4192,7 @@ _ZN2cv12cpu_baseline13accProd_simd_EPKdS2_PdPKhii.exit: ; preds = %..loopexit47_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN2cv8accW_64fEPKdPdPKhiid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
   %7 = fsub double 1.000000e+00, %5
   %.not.i.i = icmp eq ptr %2, null
@@ -4273,7 +4273,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

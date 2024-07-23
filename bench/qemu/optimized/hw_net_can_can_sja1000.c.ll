@@ -66,7 +66,7 @@ entry:
   store i8 0, ptr %interrupt_bas, align 2
   %irq = getelementptr inbounds i8, ptr %s, i64 144
   %0 = load ptr, ptr %irq, align 8
-  tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #9
+  tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #8
   ret void
 }
 
@@ -184,7 +184,7 @@ if.else:                                          ; preds = %if.then11
 if.end66:                                         ; preds = %if.else, %if.then16
   %.sink = phi i64 [ 4, %if.else ], [ 2, %if.then16 ]
   %bus_client62 = getelementptr inbounds i8, ptr %s, i64 152
-  %call65 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client62, ptr noundef nonnull %filter30, i64 noundef %.sink) #9
+  %call65 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client62, ptr noundef nonnull %filter30, i64 noundef %.sink) #8
   %rxmsg_cnt = getelementptr inbounds i8, ptr %s, i64 4
   store i8 0, ptr %rxmsg_cnt, align 4
   %rx_cnt = getelementptr inbounds i8, ptr %s, i64 96
@@ -204,7 +204,7 @@ if.then71:                                        ; preds = %sw.bb68
   %11 = and i8 %10, -13
   store i8 %11, ptr %status_pel, align 1
   %bus_client76 = getelementptr inbounds i8, ptr %s, i64 152
-  %call77 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client76, ptr noundef nonnull %frame, i64 noundef 1) #9
+  %call77 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client76, ptr noundef nonnull %frame, i64 noundef 1) #8
   %12 = load i8, ptr %status_pel, align 1
   %13 = and i8 %12, -45
   %14 = or disjoint i8 %13, 12
@@ -220,7 +220,7 @@ if.then71:                                        ; preds = %sw.bb68
   %irq2.i = getelementptr inbounds i8, ptr %s, i64 144
   %18 = load ptr, ptr %irq2.i, align 8
   %..i = zext i1 %tobool.not.i to i32
-  call void @qemu_set_irq(ptr noundef %18, i32 noundef %..i) #9
+  call void @qemu_set_irq(ptr noundef %18, i32 noundef %..i) #8
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then71, %sw.bb68
@@ -277,7 +277,7 @@ if.then134:                                       ; preds = %if.end97
   %irq2.i149 = getelementptr inbounds i8, ptr %s, i64 144
   %30 = load ptr, ptr %irq2.i149, align 8
   %..i150 = zext i1 %tobool.not.i148 to i32
-  call void @qemu_set_irq(ptr noundef %30, i32 noundef %..i150) #9
+  call void @qemu_set_irq(ptr noundef %30, i32 noundef %..i150) #8
   br label %if.end144
 
 if.end144:                                        ; preds = %if.end97, %if.then134, %if.end88
@@ -301,7 +301,7 @@ if.then147:                                       ; preds = %if.end144
   %irq2.i155 = getelementptr inbounds i8, ptr %s, i64 144
   %36 = load ptr, ptr %irq2.i155, align 8
   %..i156 = zext i1 %tobool.not.i154 to i32
-  call void @qemu_set_irq(ptr noundef %36, i32 noundef %..i156) #9
+  call void @qemu_set_irq(ptr noundef %36, i32 noundef %..i156) #8
   br label %if.end339
 
 sw.bb158:                                         ; preds = %if.then1
@@ -392,7 +392,7 @@ if.then197:                                       ; preds = %sw.bb189
   %can_mask = getelementptr inbounds i8, ptr %s, i64 112
   store i32 %or205, ptr %can_mask, align 4
   %bus_client208 = getelementptr inbounds i8, ptr %s, i64 152
-  %call211 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client208, ptr noundef nonnull %filter200, i64 noundef 1) #9
+  %call211 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client208, ptr noundef nonnull %filter200, i64 noundef 1) #8
   br label %if.end224.sink.split
 
 if.else214:                                       ; preds = %sw.bb189
@@ -440,7 +440,7 @@ if.then231:                                       ; preds = %sw.bb228
   %53 = and i8 %52, -13
   store i8 %53, ptr %status_bas, align 1
   %bus_client237 = getelementptr inbounds i8, ptr %s, i64 152
-  %call238 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client237, ptr noundef nonnull %frame, i64 noundef 1) #9
+  %call238 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client237, ptr noundef nonnull %frame, i64 noundef 1) #8
   %54 = load i8, ptr %status_bas, align 1
   %55 = and i8 %54, -45
   %56 = or disjoint i8 %55, 12
@@ -457,7 +457,7 @@ if.then231:                                       ; preds = %sw.bb228
   %irq2.i159 = getelementptr inbounds i8, ptr %s, i64 144
   %61 = load ptr, ptr %irq2.i159, align 8
   %..i160 = zext i1 %tobool.not.i158 to i32
-  call void @qemu_set_irq(ptr noundef %61, i32 noundef %..i160) #9
+  call void @qemu_set_irq(ptr noundef %61, i32 noundef %..i160) #8
   br label %if.end250
 
 if.end250:                                        ; preds = %if.then231, %sw.bb228
@@ -512,7 +512,7 @@ if.then289:                                       ; preds = %if.end259
   %irq2.i165 = getelementptr inbounds i8, ptr %s, i64 144
   %76 = load ptr, ptr %irq2.i165, align 8
   %..i166 = zext i1 %tobool.not.i164 to i32
-  call void @qemu_set_irq(ptr noundef %76, i32 noundef %..i166) #9
+  call void @qemu_set_irq(ptr noundef %76, i32 noundef %..i166) #8
   br label %if.end299
 
 if.end299:                                        ; preds = %if.end259, %if.then289, %if.end250
@@ -537,7 +537,7 @@ if.then302:                                       ; preds = %if.end299
   %irq2.i171 = getelementptr inbounds i8, ptr %s, i64 144
   %83 = load ptr, ptr %irq2.i171, align 8
   %..i172 = zext i1 %tobool.not.i170 to i32
-  call void @qemu_set_irq(ptr noundef %83, i32 noundef %..i172) #9
+  call void @qemu_set_irq(ptr noundef %83, i32 noundef %..i172) #8
   br label %if.end339
 
 sw.bb312:                                         ; preds = %if.else188
@@ -583,7 +583,7 @@ if.end339:                                        ; preds = %if.else188, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @can_sja_single_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
@@ -703,7 +703,7 @@ if.end87:                                         ; preds = %if.end87.sink.split
 declare i32 @can_bus_client_set_filters(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef %extended) unnamed_addr #3 {
+define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
   %0 = load i8, ptr %acr, align 1
@@ -779,7 +779,7 @@ if.end52:                                         ; preds = %if.end, %if.then48,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #4 {
+define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
@@ -901,7 +901,7 @@ if.end94:                                         ; preds = %if.end94.sink.split
 declare i64 @can_bus_client_send(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #4 {
+define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
@@ -1031,7 +1031,7 @@ sw.bb6:                                           ; preds = %if.then1
   %irq2.i = getelementptr inbounds i8, ptr %s, i64 144
   %6 = load ptr, ptr %irq2.i, align 8
   %..i = zext nneg i8 %and4.i to i32
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i) #9
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i) #8
   br label %do.end75
 
 sw.bb15:                                          ; preds = %if.then1
@@ -1119,7 +1119,7 @@ sw.bb44:                                          ; preds = %if.else39
   %irq2.i36 = getelementptr inbounds i8, ptr %s, i64 144
   %19 = load ptr, ptr %irq2.i36, align 8
   %..i37 = zext nneg i8 %and4.i34 to i32
-  tail call void @qemu_set_irq(ptr noundef %19, i32 noundef %..i37) #9
+  tail call void @qemu_set_irq(ptr noundef %19, i32 noundef %..i37) #8
   br label %do.end75
 
 sw.bb55:                                          ; preds = %if.else39
@@ -1158,7 +1158,7 @@ return:                                           ; preds = %entry, %do.end75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @can_sja_can_receive(ptr nocapture noundef readonly %client) #5 {
+define dso_local noundef zeroext i1 @can_sja_can_receive(ptr nocapture noundef readonly %client) #4 {
 entry:
   %clock = getelementptr i8, ptr %client, i64 -146
   %0 = load i8, ptr %clock, align 2
@@ -1275,7 +1275,7 @@ if.then7.i:                                       ; preds = %if.then4.i
   %or85.i.i = or i32 %and39.i.i, 1073741824
   %storemerge97.i = select i1 %tobool44.not.i.i, i32 %or85.i.i, i32 %and39.i.i
   store i32 %storemerge97.i, ptr %can_mask.i.i, align 4
-  %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
+  %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool12.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool12.not.i, label %can_sja_accept_filter.exit.thread99, label %can_sja_accept_filter.exit.thread
 
@@ -1305,7 +1305,7 @@ if.else.i:                                        ; preds = %if.then4.i
   %or85.i50.i = or disjoint i32 %and77.i.i, 1073741824
   %storemerge99.i = select i1 %tobool82.not.i.i, i32 %or85.i50.i, i32 %and77.i.i
   store i32 %storemerge99.i, ptr %can_mask69.i.i, align 4
-  %call21.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
+  %call21.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %can_sja_accept_filter.exit.thread99, label %if.end24.i
 
@@ -1376,7 +1376,7 @@ if.then82.i:                                      ; preds = %if.else78.i
   %or12.i.i = or disjoint i32 %shl10.i.i, %shl7.i57.i
   %and.i.i = xor i32 %or12.i.i, 536862720
   store i32 %and.i.i, ptr %can_mask.i58.i, align 4
-  %call90.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
+  %call90.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool91.not.i = icmp eq i32 %call90.i, 0
   br i1 %tobool91.not.i, label %if.end93.i, label %can_sja_accept_filter.exit.thread
 
@@ -1403,7 +1403,7 @@ if.end93.i:                                       ; preds = %if.then82.i
   %and.i72.i = xor i32 %or12.i71.i, 536862720
   store i32 %and.i72.i, ptr %can_mask.i58.i, align 4
   %51 = load i32, ptr %frames, align 8
-  %call101.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %51) #9
+  %call101.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %51) #8
   %tobool102.not.i.not = icmp eq i32 %call101.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %tobool102.not.i.not, label %if.then11, label %if.end17
@@ -1433,7 +1433,7 @@ if.else105.i:                                     ; preds = %if.else78.i
   %or50.i.i = or disjoint i32 %and42.i.i, 1073741824
   %storemerge101.i = select i1 %tobool47.not.i.i, i32 %or50.i.i, i32 %and42.i.i
   store i32 %storemerge101.i, ptr %can_mask34.i.i, align 4
-  %call113.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
+  %call113.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #8
   %tobool114.not.i = icmp eq i32 %call113.i, 0
   br i1 %tobool114.not.i, label %if.else105.if.end154_crit_edge.i, label %if.then115.i
 
@@ -1502,7 +1502,7 @@ can_sja_accept_filter.exit:                       ; preds = %if.else105.if.end15
   %storemerge103.i = select i1 %tobool47.not.i93.i, i32 %or50.i95.i, i32 %and42.i92.i
   store i32 %storemerge103.i, ptr %can_mask34.i.i, align 4
   %82 = load i32, ptr %frames, align 8
-  %call162.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %82) #9
+  %call162.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %82) #8
   %tobool163.not.i.not = icmp eq i32 %call162.i, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %tobool163.not.i.not, label %if.then11, label %if.end17
@@ -1635,7 +1635,7 @@ if.then30:                                        ; preds = %if.end27
   %irq2.i = getelementptr i8, ptr %client, i64 -8
   %108 = load ptr, ptr %irq2.i, align 8
   %..i = zext i1 %tobool.not.i63 to i32
-  call void @qemu_set_irq(ptr noundef %108, i32 noundef %..i) #9
+  call void @qemu_set_irq(ptr noundef %108, i32 noundef %..i) #8
   %conv42 = zext nneg i32 %add44.i to i64
   br label %return
 
@@ -1684,7 +1684,7 @@ for.end:                                          ; preds = %for.body
   %irq2.i68 = getelementptr i8, ptr %client, i64 -8
   %117 = load ptr, ptr %irq2.i68, align 8
   %..i69 = zext i1 %tobool.not.i67 to i32
-  call void @qemu_set_irq(ptr noundef %117, i32 noundef %..i69) #9
+  call void @qemu_set_irq(ptr noundef %117, i32 noundef %..i69) #8
   br label %return
 
 if.else:                                          ; preds = %if.end2
@@ -1767,7 +1767,7 @@ if.then87:                                        ; preds = %if.end82
   %irq2.i87 = getelementptr i8, ptr %client, i64 -8
   %138 = load ptr, ptr %irq2.i87, align 8
   %..i88 = zext i1 %tobool.not.i86 to i32
-  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %..i88) #9
+  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %..i88) #8
   %conv99 = zext nneg i32 %add33.i113 to i64
   br label %return
 
@@ -1817,7 +1817,7 @@ for.end119:                                       ; preds = %for.body108
   %irq2.i93 = getelementptr i8, ptr %client, i64 -8
   %148 = load ptr, ptr %irq2.i93, align 8
   %..i94 = zext i1 %tobool.not.i92 to i32
-  tail call void @qemu_set_irq(ptr noundef %148, i32 noundef %..i94) #9
+  tail call void @qemu_set_irq(ptr noundef %148, i32 noundef %..i94) #8
   br label %return
 
 return:                                           ; preds = %for.end, %for.end119, %if.end, %entry, %if.then87, %if.then76, %if.then30, %if.then21, %if.then11
@@ -1834,7 +1834,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @can_bus_insert_client(ptr noundef nonnull %bus, ptr noundef nonnull %bus_client) #9
+  %call = tail call i32 @can_bus_insert_client(ptr noundef nonnull %bus, ptr noundef nonnull %bus_client) #8
   %call.lobit = ashr i32 %call, 31
   br label %return
 
@@ -1849,7 +1849,7 @@ declare i32 @can_bus_insert_client(ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local void @can_sja_disconnect(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %bus_client = getelementptr inbounds i8, ptr %s, i64 152
-  %call = tail call i32 @can_bus_remove_client(ptr noundef nonnull %bus_client) #9
+  %call = tail call i32 @can_bus_remove_client(ptr noundef nonnull %bus_client) #8
   ret void
 }
 
@@ -1860,7 +1860,7 @@ define dso_local noundef i32 @can_sja_init(ptr nocapture noundef %s, ptr noundef
 entry:
   %irq1 = getelementptr inbounds i8, ptr %s, i64 144
   store ptr %irq, ptr %irq1, align 8
-  tail call void @qemu_set_irq(ptr noundef %irq, i32 noundef 0) #9
+  tail call void @qemu_set_irq(ptr noundef %irq, i32 noundef 0) #8
   store i8 1, ptr %s, align 8
   %status_pel.i = getelementptr inbounds i8, ptr %s, i64 1
   store i8 60, ptr %status_pel.i, align 1
@@ -1881,7 +1881,7 @@ entry:
   %interrupt_bas.i = getelementptr inbounds i8, ptr %s, i64 102
   store i8 0, ptr %interrupt_bas.i, align 2
   %0 = load ptr, ptr %irq1, align 8
-  tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #9
+  tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #8
   ret i32 0
 }
 
@@ -1916,7 +1916,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %irq2.i5 = getelementptr inbounds i8, ptr %opaque, i64 144
   %6 = load ptr, ptr %irq2.i5, align 8
   %..i6 = zext i1 %tobool.not.i4 to i32
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i6) #9
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i6) #8
   ret i32 0
 }
 
@@ -1925,27 +1925,26 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @can_bus_filter_match(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #6
+declare i8 @llvm.umin.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -42,7 +42,7 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr nocapture noundef %0, ptr
   %.0154.i = phi ptr [ null, %.lr.ph.i ], [ %10, %16 ]
   %8 = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %16 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #11
+  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %DupFormatterFactoryList.exit, label %12
 
@@ -70,7 +70,7 @@ define hidden void @_cmsAllocFormattersPluginChunk(ptr nocapture noundef %0, ptr
   store ptr %.lcssa.i, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #11
+  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #9
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %21, ptr %22, align 8
   br label %DupFormatterFactoryList.exit
@@ -82,7 +82,7 @@ DupFormatterFactoryList.exit:                     ; preds = %7, %._crit_edge.i
 23:                                               ; preds = %2
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocFormattersPluginChunk.FormattersPluginChunk, i32 noundef 8) #11
+  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocFormattersPluginChunk.FormattersPluginChunk, i32 noundef 8) #9
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %26, ptr %27, align 8
   br label %28
@@ -95,12 +95,12 @@ declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRegisterFormattersPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 7) #11
+  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 7) #9
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 16) #11
+  %6 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 16) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
@@ -129,7 +129,7 @@ declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 7) #11
+  %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 7) #9
   %6 = and i32 %1, 120
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_cmsGetStockInputFormatter.exit, label %.preheader
@@ -148,7 +148,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.038 = phi ptr [ %.0, %8 ], [ %.036, %.preheader ]
   %10 = load ptr, ptr %.038, align 8
-  %11 = tail call ptr %10(i32 noundef %1, i32 noundef %2, i32 noundef %3) #11
+  %11 = tail call ptr %10(i32 noundef %1, i32 noundef %2, i32 noundef %3) #9
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %8, label %_cmsGetStockInputFormatter.exit
 
@@ -261,9 +261,9 @@ define hidden range(i32 0, 2) i32 @_cmsFormatterIs8bit(i32 noundef %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cmsFormatterForColorspaceOfProfile(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @cmsGetColorSpace(ptr noundef %0) #11
-  %5 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %4) #11
-  %6 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %4) #11
+  %4 = tail call i32 @cmsGetColorSpace(ptr noundef %0) #9
+  %5 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %4) #9
+  %6 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %4) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %15, label %8
 
@@ -290,9 +290,9 @@ declare i32 @cmsChannelsOfColorSpace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cmsFormatterForPCSOfProfile(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @cmsGetPCS(ptr noundef %0) #11
-  %5 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %4) #11
-  %6 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %4) #11
+  %4 = tail call i32 @cmsGetPCS(ptr noundef %0) #9
+  %5 = tail call i32 @_cmsLCMScolorSpace(i32 noundef %4) #9
+  %6 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %4) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %15, label %8
 
@@ -335,12 +335,12 @@ define internal nonnull ptr @UnrollLabDoubleTo16(ptr nocapture noundef readonly 
   %17 = load double, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store double %17, ptr %18, align 8
-  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #11
+  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   br label %27
 
 20:                                               ; preds = %4
-  tail call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef %2) #11
+  tail call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef %2) #9
   %21 = load i32, ptr %0, align 8
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 56
@@ -376,12 +376,12 @@ define internal nonnull ptr @UnrollXYZDoubleTo16(ptr nocapture noundef readonly 
   %17 = load double, ptr %13, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   store double %17, ptr %18, align 8
-  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %5) #11
+  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   br label %27
 
 20:                                               ; preds = %4
-  tail call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef %2) #11
+  tail call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef %2) #9
   %21 = load i32, ptr %0, align 8
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 56
@@ -419,7 +419,7 @@ define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %
   %20 = fpext float %19 to double
   %21 = getelementptr inbounds i8, ptr %5, i64 16
   store double %20, ptr %21, align 16
-  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #11
+  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %22 = getelementptr inbounds i8, ptr %2, i64 4
   br label %36
 
@@ -432,7 +432,7 @@ define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %
   %28 = fpext float %27 to double
   %29 = getelementptr inbounds i8, ptr %5, i64 16
   store double %28, ptr %29, align 16
-  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #11
+  call void @cmsFloat2LabEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %30 = load i32, ptr %0, align 8
   %31 = lshr i32 %30, 5
   %32 = and i32 %31, 28
@@ -471,7 +471,7 @@ define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %
   %21 = fpext float %20 to double
   %22 = getelementptr inbounds i8, ptr %5, i64 16
   store double %21, ptr %22, align 16
-  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %5) #11
+  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %5) #9
   %23 = getelementptr inbounds i8, ptr %2, i64 4
   br label %37
 
@@ -484,7 +484,7 @@ define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %
   %29 = fpext float %28 to double
   %30 = getelementptr inbounds i8, ptr %6, i64 16
   store double %29, ptr %30, align 16
-  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %6) #11
+  call void @cmsFloat2XYZEncoded(ptr noundef %1, ptr noundef nonnull %6) #9
   %31 = load i32, ptr %0, align 8
   %32 = lshr i32 %31, 5
   %33 = and i32 %32, 28
@@ -1268,8 +1268,8 @@ define internal nonnull ptr @Unroll4BytesSwapSwapFirst(ptr nocapture readnone %0
   ret ptr %27
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @UnrollPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal nonnull ptr @UnrollPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr71 = freeze i32 %5
   %6 = lshr i32 %.fr71, 3
@@ -1473,8 +1473,8 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr nocapture noundef readonly %0
   ret ptr %111
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @UnrollChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal ptr @UnrollChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -1913,8 +1913,8 @@ define internal nonnull ptr @Unroll4WordsSwapSwapFirst(ptr nocapture readnone %0
   ret ptr %15
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @UnrollPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal nonnull ptr @UnrollPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr41 = freeze i32 %5
   %6 = lshr i32 %.fr41, 3
@@ -2009,8 +2009,8 @@ define internal nonnull ptr @UnrollPlanarWords(ptr nocapture noundef readonly %0
   ret ptr %36
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @UnrollAnyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal ptr @UnrollAnyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -2127,8 +2127,8 @@ define internal ptr @UnrollAnyWords(ptr nocapture noundef readonly %0, ptr nocap
   ret ptr %.2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @UnrollPlanarWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal nonnull ptr @UnrollPlanarWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr72 = freeze i32 %5
   %6 = lshr i32 %.fr72, 3
@@ -2327,8 +2327,8 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr nocapture noundef reado
   ret ptr %84
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @UnrollAnyWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 %3) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal ptr @UnrollAnyWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr79 = freeze i32 %5
   %6 = lshr i32 %.fr79, 3
@@ -2534,10 +2534,10 @@ declare void @cmsFloat2LabEncoded(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @cmsFloat2XYZEncoded(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #6
+declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal nonnull ptr @UnrollLabDoubleToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #3 {
@@ -3717,7 +3717,7 @@ define internal nonnull ptr @PackLabDoubleFrom16(ptr nocapture noundef readonly 
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %4
-  call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #11
+  call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %10 = load double, ptr %5, align 8
   store double %10, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3735,7 +3735,7 @@ define internal nonnull ptr @PackLabDoubleFrom16(ptr nocapture noundef readonly 
   br label %28
 
 21:                                               ; preds = %4
-  tail call void @cmsLabEncoded2Float(ptr noundef %2, ptr noundef %1) #11
+  tail call void @cmsLabEncoded2Float(ptr noundef %2, ptr noundef %1) #9
   %22 = load i32, ptr %6, align 4
   %23 = lshr i32 %22, 4
   %24 = and i32 %23, 56
@@ -3759,7 +3759,7 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly 
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %4
-  call void @cmsXYZEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #11
+  call void @cmsXYZEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %10 = load i32, ptr %6, align 4
   %11 = and i32 %10, 7
   %12 = icmp eq i32 %11, 0
@@ -3782,7 +3782,7 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly 
   br label %32
 
 25:                                               ; preds = %4
-  tail call void @cmsXYZEncoded2Float(ptr noundef %2, ptr noundef %1) #11
+  tail call void @cmsXYZEncoded2Float(ptr noundef %2, ptr noundef %1) #9
   %26 = load i32, ptr %6, align 4
   %27 = lshr i32 %26, 4
   %28 = and i32 %27, 56
@@ -3799,7 +3799,7 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 16
-  call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #11
+  call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 4096
@@ -3863,7 +3863,7 @@ define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %
   br i1 %.not, label %29, label %10
 
 10:                                               ; preds = %4
-  call void @cmsXYZEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #11
+  call void @cmsXYZEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %11 = load i32, ptr %7, align 4
   %12 = and i32 %11, 7
   %13 = icmp eq i32 %12, 0
@@ -3889,7 +3889,7 @@ define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %
   br label %42
 
 29:                                               ; preds = %4
-  call void @cmsXYZEncoded2Float(ptr noundef nonnull %6, ptr noundef %1) #11
+  call void @cmsXYZEncoded2Float(ptr noundef nonnull %6, ptr noundef %1) #9
   %30 = load <2 x double>, ptr %6, align 16
   %31 = fptrunc <2 x double> %30 to <2 x float>
   store <2 x float> %31, ptr %2, align 4
@@ -5158,8 +5158,8 @@ define internal nonnull ptr @Pack6BytesSwap(ptr nocapture readnone %0, ptr nocap
   ret ptr %51
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @PackChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal ptr @PackChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -5352,8 +5352,8 @@ define internal ptr @PackChunkyBytes(ptr nocapture noundef readonly %0, ptr noca
   ret ptr %.2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @PackPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal nonnull ptr @PackPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr65 = freeze i32 %6
@@ -5823,8 +5823,8 @@ define internal nonnull ptr @Pack6WordsSwap(ptr nocapture readnone %0, ptr nocap
   ret ptr %21
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @PackChunkyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal ptr @PackChunkyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -6071,8 +6071,8 @@ define internal ptr @PackChunkyWords(ptr nocapture noundef readonly %0, ptr noca
   ret ptr %.2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @PackPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal nonnull ptr @PackPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr82 = freeze i32 %6
@@ -6576,7 +6576,7 @@ define internal nonnull ptr @PackEncodedBytesLabV2FromFloat(ptr nocapture nounde
   %13 = fpext <2 x float> %12 to <2 x double>
   %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %13, <2 x double> <double 2.550000e+02, double 2.550000e+02>, <2 x double> <double -1.280000e+02, double -1.280000e+02>)
   store <2 x double> %14, ptr %11, align 8
-  call void @cmsFloat2LabEncoded(ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  call void @cmsFloat2LabEncoded(ptr noundef nonnull %6, ptr noundef nonnull %5) #9
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4096
@@ -6654,7 +6654,7 @@ define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr nocapture nounde
   %13 = fpext <2 x float> %12 to <2 x double>
   %14 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %13, <2 x double> <double 2.550000e+02, double 2.550000e+02>, <2 x double> <double -1.280000e+02, double -1.280000e+02>)
   store <2 x double> %14, ptr %11, align 8
-  call void @cmsFloat2LabEncodedV2(ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  call void @cmsFloat2LabEncodedV2(ptr noundef nonnull %6, ptr noundef nonnull %5) #9
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4096
@@ -7612,37 +7612,35 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 declare void @cmsFloat2LabEncodedV2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #9
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #9
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

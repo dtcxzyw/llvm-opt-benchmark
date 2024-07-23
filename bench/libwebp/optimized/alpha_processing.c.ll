@@ -220,7 +220,7 @@ define hidden void @WebPMultARGBRows(ptr noundef %0, i32 noundef %1, i32 noundef
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %8 ]
   %.078 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
   %9 = load ptr, ptr @WebPMultARGBRow, align 8
-  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #7
+  tail call void %9(ptr noundef %.078, i32 noundef %2, i32 noundef %4) #5
   %10 = getelementptr inbounds i8, ptr %.078, i64 %7
   %11 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %11, %3
@@ -245,7 +245,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
   %.01013 = phi ptr [ %0, %.lr.ph ], [ %13, %11 ]
   %.01112 = phi ptr [ %2, %.lr.ph ], [ %14, %11 ]
   %12 = load ptr, ptr @WebPMultRow, align 8
-  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #7
+  tail call void %12(ptr noundef %.01013, ptr noundef %.01112, i32 noundef %4, i32 noundef %6) #5
   %13 = getelementptr inbounds i8, ptr %.01013, i64 %9
   %14 = getelementptr inbounds i8, ptr %.01112, i64 %10
   %15 = add nuw nsw i32 %.014, 1
@@ -258,7 +258,7 @@ define hidden void @WebPMultRows(ptr noalias noundef %0, i32 noundef %1, ptr noa
 
 ; Function Attrs: nounwind uwtable
 define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #7
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %14
 
@@ -285,25 +285,25 @@ define hidden void @WebPInitAlphaProcessing() local_unnamed_addr #1 {
   br i1 %.not.i, label %WebPInitAlphaProcessing_body.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 %4(i32 noundef 0) #7
+  %7 = tail call i32 %4(i32 noundef 0) #5
   %.not1.i = icmp eq i32 %7, 0
   br i1 %.not1.i, label %WebPInitAlphaProcessing_body.exit, label %8
 
 8:                                                ; preds = %6
-  tail call void @WebPInitAlphaProcessingSSE2() #7
+  tail call void @WebPInitAlphaProcessingSSE2() #5
   %9 = load ptr, ptr @VP8GetCPUInfo, align 8
-  %10 = tail call i32 %9(i32 noundef 3) #7
+  %10 = tail call i32 %9(i32 noundef 3) #5
   %.not2.i = icmp eq i32 %10, 0
   br i1 %.not2.i, label %WebPInitAlphaProcessing_body.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void @WebPInitAlphaProcessingSSE41() #7
+  tail call void @WebPInitAlphaProcessingSSE41() #5
   br label %WebPInitAlphaProcessing_body.exit
 
 WebPInitAlphaProcessing_body.exit:                ; preds = %11, %8, %6, %5, %2
   %12 = load ptr, ptr @VP8GetCPUInfo, align 8
   store volatile ptr %12, ptr @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_last_cpuinfo_used, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #7
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @WebPInitAlphaProcessing.WebPInitAlphaProcessing_body_lock) #5
   br label %14
 
 14:                                               ; preds = %0, %WebPInitAlphaProcessing_body.exit
@@ -316,8 +316,8 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ApplyAlphaMultiply_16b_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ApplyAlphaMultiply_16b_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.preheader.lr.ph.i, label %ApplyAlphaMultiply4444_C.exit
 
@@ -425,8 +425,8 @@ define internal void @PackRGB_C(ptr noalias nocapture noundef readonly %0, ptr n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ApplyAlphaMultiply_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ApplyAlphaMultiply_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph35, label %._crit_edge36
 
@@ -500,8 +500,8 @@ define internal void @ApplyAlphaMultiply_C(ptr nocapture noundef %0, i32 noundef
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge27
 
@@ -553,8 +553,8 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias nocapture nound
   ret i32 %.019.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @DispatchAlphaToGreen_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @DispatchAlphaToGreen_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge20
 
@@ -597,8 +597,8 @@ define internal void @DispatchAlphaToGreen_C(ptr noalias nocapture noundef reado
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge27
 
@@ -674,8 +674,8 @@ define internal void @ExtractGreen_C(ptr noalias nocapture noundef readonly %0, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -697,7 +697,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -749,18 +749,16 @@ define internal void @AlphaReplace_C(ptr nocapture noundef %0, i32 noundef %1, i
   ret void
 }
 
-declare void @WebPInitAlphaProcessingSSE2() local_unnamed_addr #6
+declare void @WebPInitAlphaProcessingSSE2() local_unnamed_addr #4
 
-declare void @WebPInitAlphaProcessingSSE41() local_unnamed_addr #6
+declare void @WebPInitAlphaProcessingSSE41() local_unnamed_addr #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

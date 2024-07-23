@@ -322,7 +322,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp616, label %while.body, label %while.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set) #10
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -374,7 +374,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set_atomic) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set_atomic) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -426,7 +426,7 @@ if.then21:                                        ; preds = %if.end20
   br label %if.end28
 
 if.else27:                                        ; preds = %if.end20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   fence seq_cst
   br label %if.end28
 
@@ -457,7 +457,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_clear) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_clear) #10
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -507,7 +507,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -597,7 +597,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -671,7 +671,7 @@ if.else41:                                        ; preds = %if.end30
   br i1 %tobool42.not, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.else41
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   fence seq_cst
   br label %if.end45
 
@@ -680,7 +680,7 @@ if.end45:                                         ; preds = %if.else41, %if.then
   ret i1 %dirty.4
 }
 
-; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @bitmap_copy_and_clear_atomic(ptr nocapture noundef writeonly %dst, ptr nocapture noundef %src, i64 noundef %nr) local_unnamed_addr #4 {
 entry:
   %cmp4 = icmp sgt i64 %nr, 0
@@ -705,7 +705,7 @@ while.end5:                                       ; preds = %while.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bitmap_find_next_zero_area(ptr noundef %map, i64 noundef %size, i64 noundef %start, i64 noundef %nr, i64 noundef %align_mask) local_unnamed_addr #2 {
 entry:
-  %call11 = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %start) #12
+  %call11 = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %start) #11
   %add12 = add i64 %call11, %align_mask
   %not = xor i64 %align_mask, -1
   %and13 = and i64 %add12, %not
@@ -715,7 +715,7 @@ entry:
 
 again:                                            ; preds = %if.end
   %add5 = add nuw i64 %call2, 1
-  %call = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %add5) #12
+  %call = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %add5) #11
   %add = add i64 %call, %align_mask
   %and = and i64 %add, %not
   %add1 = add i64 %and, %nr
@@ -725,7 +725,7 @@ again:                                            ; preds = %if.end
 if.end:                                           ; preds = %entry, %again
   %add117 = phi i64 [ %add1, %again ], [ %add114, %entry ]
   %and16 = phi i64 [ %and, %again ], [ %and13, %entry ]
-  %call2 = tail call i64 @find_next_bit(ptr noundef %map, i64 noundef %add117, i64 noundef %and16) #12
+  %call2 = tail call i64 @find_next_bit(ptr noundef %map, i64 noundef %add117, i64 noundef %and16) #11
   %cmp3 = icmp ult i64 %call2, %add117
   br i1 %cmp3, label %again, label %return
 
@@ -848,8 +848,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_copy_with_src_offset(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+define dso_local void @bitmap_copy_with_src_offset(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
 entry:
   %div34 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %src, i64 %div34
@@ -937,8 +937,8 @@ if.end27:                                         ; preds = %if.else.i, %if.then
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_copy_with_dst_offset(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+define dso_local void @bitmap_copy_with_dst_offset(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
 entry:
   %div37 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %dst, i64 %div37
@@ -1035,27 +1035,26 @@ if.end34:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #8
+declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

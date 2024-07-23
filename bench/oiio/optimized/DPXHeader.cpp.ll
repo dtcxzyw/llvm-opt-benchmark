@@ -74,7 +74,7 @@ _ZN3dpx13GenericHeaderC2Ev.exit:                  ; preds = %arrayctor.loop.i
   store ptr @.str, ptr %agg.tmp.i.i, align 8
   %m_len.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store i64 4, ptr %m_len.i.i.i, align 8
-  %call.i.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 8) #17
+  %call.i.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i.i, ptr noundef nonnull %agg.tmp.i.i, i64 noundef 8) #16
   %fileSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i.i, align 4
   %userSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -173,7 +173,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
   store ptr @.str, ptr %agg.tmp.i, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 4, ptr %m_len.i.i, align 8
-  %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #17
+  %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #16
   %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
   %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -251,7 +251,7 @@ entry:
   store ptr @.str, ptr %agg.tmp, align 8
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 4, ptr %m_len.i, align 8
-  %call = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version, ptr noundef nonnull %agg.tmp, i64 noundef 8) #17
+  %call = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version, ptr noundef nonnull %agg.tmp, i64 noundef 8) #16
   %fileSize = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize, align 4
   %userSize = getelementptr inbounds i8, ptr %this, i64 32
@@ -361,7 +361,7 @@ return:                                           ; preds = %entry, %if.end
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN3dpx6Header8ValidateEv(ptr noundef nonnull align 4 dereferenceable(2049) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mc.i = alloca i32, align 4
@@ -1534,7 +1534,7 @@ return:                                           ; preds = %for.inc, %if.end74,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr nocapture noundef nonnull align 4 dereferenceable(1664) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr nocapture noundef nonnull align 4 dereferenceable(1664) %this) local_unnamed_addr #7 align 2 {
 while.cond.preheader.i:
   %chan.i.i = getelementptr inbounds i8, ptr %this, i64 780
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit.i
@@ -1620,7 +1620,7 @@ entry:
   store ptr @.str, ptr %agg.tmp.i, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 4, ptr %m_len.i.i, align 8
-  %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #17
+  %call.i = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %version.i, ptr noundef nonnull %agg.tmp.i, i64 noundef 8) #16
   %fileSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store <4 x i32> <i32 2052, i32 1, i32 1664, i32 384>, ptr %fileSize.i, align 4
   %userSize.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -1682,7 +1682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 1, 9) i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 1, 9) i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #8 align 2 {
 entry:
   %chan = getelementptr inbounds i8, ptr %this, i64 780
   %idxprom = sext i32 %element to i64
@@ -1750,7 +1750,7 @@ sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3dpx13GenericHeader17ImageElementCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3dpx13GenericHeader17ImageElementCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this) local_unnamed_addr #8 align 2 {
 entry:
   %numberOfElements = getelementptr inbounds i8, ptr %this, i64 770
   %0 = load i16, ptr %numberOfElements, align 2
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 5) i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, 5) i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #8 align 2 {
 entry:
   %or.cond = icmp ugt i32 %element, 7
   br i1 %or.cond, label %return, label %if.end
@@ -1828,7 +1828,7 @@ return:                                           ; preds = %sw.bb3, %sw.bb4, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 9) i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, 9) i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(1664) %this, i32 noundef %element) local_unnamed_addr #8 align 2 {
 entry:
   %or.cond = icmp ugt i32 %element, 7
   br i1 %or.cond, label %return, label %if.end
@@ -1882,7 +1882,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3dpx14IndustryHeader12FilmEdgeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %edge) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK3dpx14IndustryHeader12FilmEdgeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %edge) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 4
   store i8 %0, ptr %edge, align 1
@@ -1952,7 +1952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3dpx14IndustryHeader15SetFileEdgeCodeEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this, ptr nocapture noundef readonly %edge) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN3dpx14IndustryHeader15SetFileEdgeCodeEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this, ptr nocapture noundef readonly %edge) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %edge, align 1
   store i8 %0, ptr %this, align 4
@@ -2020,7 +2020,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZNK3dpx14IndustryHeader8TimeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK3dpx14IndustryHeader8TimeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #10 align 2 {
 entry:
   %timeCode = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i32, ptr %timeCode, align 4
@@ -2074,15 +2074,15 @@ entry:
   %retval.0.v.i27 = select i1 %cmp.i26, i8 55, i8 48
   %retval.0.i28 = add nuw nsw i8 %retval.0.v.i27, %conv34
   %conv36 = zext nneg i8 %retval.0.i28 to i32
-  %call37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %retval.0.i, i32 noundef %conv7, i32 noundef %conv12, i32 noundef %conv17, i32 noundef %conv22, i32 noundef %conv27, i32 noundef %conv32, i32 noundef %conv36) #17
+  %call37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %retval.0.i, i32 noundef %conv7, i32 noundef %conv12, i32 noundef %conv17, i32 noundef %conv22, i32 noundef %conv27, i32 noundef %conv32, i32 noundef %conv36) #16
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZNK3dpx14IndustryHeader8UserBitsEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK3dpx14IndustryHeader8UserBitsEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %str) local_unnamed_addr #10 align 2 {
 entry:
   %userBits = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i32, ptr %userBits, align 4
@@ -2136,14 +2136,14 @@ entry:
   %retval.0.v.i27 = select i1 %cmp.i26, i8 55, i8 48
   %retval.0.i28 = add nuw nsw i8 %retval.0.v.i27, %conv34
   %conv36 = zext nneg i8 %retval.0.i28 to i32
-  %call37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %retval.0.i, i32 noundef %conv7, i32 noundef %conv12, i32 noundef %conv17, i32 noundef %conv22, i32 noundef %conv27, i32 noundef %conv32, i32 noundef %conv36) #17
+  %call37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %retval.0.i, i32 noundef %conv7, i32 noundef %conv12, i32 noundef %conv17, i32 noundef %conv22, i32 noundef %conv27, i32 noundef %conv32, i32 noundef %conv36) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK3dpx14IndustryHeader12TCFromStringEPKc(ptr nocapture noundef nonnull readnone align 4 dereferenceable(384) %this, ptr noundef %str) local_unnamed_addr #4 align 2 {
 entry:
-  %call = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #17
+  %call = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #16
   %cmp.not = icmp eq i64 %call, 11
   br i1 %cmp.not, label %for.body, label %return
 
@@ -2188,7 +2188,7 @@ declare noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3dpx14IndustryHeader11SetTimeCodeEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this, ptr noundef %str) local_unnamed_addr #4 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #17
+  %call.i = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #16
   %cmp.not.i = icmp eq i64 %call.i, 11
   br i1 %cmp.not.i, label %for.body.i, label %if.end
 
@@ -2238,7 +2238,7 @@ if.end:                                           ; preds = %for.body.i, %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3dpx14IndustryHeader11SetUserBitsEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this, ptr noundef %str) local_unnamed_addr #4 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #17
+  %call.i = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Strutil11safe_strlenEPKcm(ptr noundef %str, i64 noundef 12) #16
   %cmp.not.i = icmp eq i64 %call.i, 11
   br i1 %cmp.not.i, label %for.body.i, label %if.end
 
@@ -2294,13 +2294,13 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i64 %sec, ptr %t, align 8
   call void @_ZN18OpenImageIO_v2_6_07Sysutil14get_local_timeEPKlP2tm(ptr noundef nonnull %t, ptr noundef nonnull %localtm)
-  %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #17
+  %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #16
   %creationTimeDate = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %str, ptr %agg.tmp, align 8
-  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #17
+  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #16
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i.i, ptr %m_len.i, align 8
-  %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creationTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #17
+  %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %creationTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #16
   ret void
 }
 
@@ -2318,18 +2318,18 @@ entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i64 %sec, ptr %t, align 8
   call void @_ZN18OpenImageIO_v2_6_07Sysutil14get_local_timeEPKlP2tm(ptr noundef nonnull %t, ptr noundef nonnull %localtm)
-  %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #17
+  %call = call i64 @strftime(ptr noundef nonnull %str, i64 noundef 32, ptr noundef nonnull @.str.2, ptr noundef nonnull %localtm) #16
   %sourceTimeDate = getelementptr inbounds i8, ptr %this, i64 1532
   store ptr %str, ptr %agg.tmp, align 8
-  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #17
+  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #16
   %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i.i, ptr %m_len.i, align 8
-  %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %sourceTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #17
+  %call4 = call noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %sourceTimeDate, ptr noundef nonnull %agg.tmp, i64 noundef 24) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this, i32 noundef %element) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this, i32 noundef %element) local_unnamed_addr #8 align 2 {
 entry:
   %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048
   %0 = load i8, ptr %datumSwap, align 4
@@ -2363,7 +2363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3dpx6Header6HeightEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3dpx6Header6HeightEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #8 align 2 {
 entry:
   %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i16, ptr %imageOrientation.i, align 4
@@ -2378,7 +2378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3dpx6Header5WidthEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3dpx6Header5WidthEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(2049) %this) local_unnamed_addr #8 align 2 {
 entry:
   %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i16, ptr %imageOrientation.i, align 4
@@ -2395,24 +2395,24 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_DPXHeader.cpp() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_DPXHeader.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2421,17 +2421,16 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

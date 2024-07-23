@@ -42,10 +42,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23JvmtiManageCapabilities10initializeEv() local_unnamed_addr #0 align 2 {
-  %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 22, i32 noundef 0) #8
-  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef 21, ptr noundef nonnull @.str, i1 noundef zeroext true) #8
+  %1 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 22, i32 noundef 0) #9
+  tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef 21, ptr noundef nonnull @.str, i1 noundef zeroext true) #9
   store ptr %1, ptr @_ZN23JvmtiManageCapabilities18_capabilities_lockE, align 8
-  %2 = tail call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #8
+  %2 = tail call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #9
   %spec.select.i = select i1 %2, i64 19765387075225, i64 19765374492313
   store i64 %spec.select.i, ptr @_ZN23JvmtiManageCapabilities19always_capabilitiesE, align 8
   store i64 6622890418528, ptr @_ZN23JvmtiManageCapabilities19onload_capabilitiesE, align 8
@@ -59,7 +59,7 @@ define hidden void @_ZN23JvmtiManageCapabilities10initializeEv() local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i64 19765372387328, 19765389164544) i64 @_ZN23JvmtiManageCapabilities24init_always_capabilitiesEv() local_unnamed_addr #0 align 2 {
-  %1 = tail call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #8
+  %1 = tail call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #9
   %spec.select = select i1 %1, i64 19765387075225, i64 19765374492313
   ret i64 %spec.select
 }
@@ -84,7 +84,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 declare noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
@@ -108,7 +108,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabili
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
@@ -132,7 +132,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabiliti
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #4 align 2 {
   br label %4
 
@@ -157,7 +157,7 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabil
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmtiCapabilities(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
   %2 = load i8, ptr %0, align 1
   %.not8 = icmp eq i8 %2, 0
@@ -185,7 +185,7 @@ define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmt
   ret i1 %.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCapabilitiesPS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
   br label %3
 
@@ -205,8 +205,8 @@ define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCap
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 align 2 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -302,7 +302,7 @@ define hidden void @_ZN23JvmtiManageCapabilities26get_potential_capabilitiesEPK1
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader, label %8
 
 8:                                                ; preds = %3
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader: ; preds = %3, %8
@@ -390,7 +390,7 @@ _ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabil
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit: ; preds = %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit, %43
@@ -409,7 +409,7 @@ define hidden noundef range(i32 0, 99) i32 @_ZN23JvmtiManageCapabilities16add_ca
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader, label %10
 
 10:                                               ; preds = %4
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader: ; preds = %4, %10
@@ -716,15 +716,15 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit72: ; preds
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit, label %134
 
 134:                                              ; preds = %.critedge
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit: ; preds = %.critedge, %134
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @_ZN23JvmtiManageCapabilities6updateEv() local_unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define hidden void @_ZN23JvmtiManageCapabilities6updateEv() local_unnamed_addr #7 align 2 {
   %1 = alloca %struct.jvmtiCapabilities, align 8
   br label %2
 
@@ -856,7 +856,7 @@ define hidden void @_ZN23JvmtiManageCapabilities23relinquish_capabilitiesEPK17jv
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader, label %10
 
 10:                                               ; preds = %3
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader: ; preds = %3, %10
@@ -975,7 +975,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds 
   br i1 %.not.i.i.i, label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit, label %59
 
 59:                                               ; preds = %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #8
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #9
   br label %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit
 
 _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit: ; preds = %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit, %59
@@ -985,7 +985,7 @@ _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerD2Ev.exit: ; preds = %_ZN23
 declare void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #3
 
@@ -997,11 +997,12 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -788,7 +788,7 @@ while.cond:                                       ; preds = %if.end, %entry
   br i1 %tobool.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %2 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %bitmap.0) #13, !srcloc !8
+  %2 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %bitmap.0) #11, !srcloc !8
   %asmresult.i = extractvalue { i64, i64 } %2, 0
   %conv = and i64 %asmresult.i, 4294967295
   %add = add i64 %conv, %0
@@ -2843,7 +2843,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %3 = tail call { i64, i64 } asm "bsrq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %0) #13, !srcloc !17
+  %3 = tail call { i64, i64 } asm "bsrq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %0) #11, !srcloc !17
   %asmresult.i52 = extractvalue { i64, i64 } %3, 0
   %conv10 = and i64 %asmresult.i52, 4294967295
   %4 = add i64 %1, %conv10
@@ -2865,7 +2865,7 @@ while.cond:                                       ; preds = %if.else, %while.bod
   br i1 %tobool31.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %6 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %bitmap.0) #13, !srcloc !8
+  %6 = tail call { i64, i64 } asm "bsfq $1, $0\0Abtrq $0, $1\0A", "=r,=r,1,~{dirflag},~{fpsr},~{flags}"(i64 %bitmap.0) #11, !srcloc !8
   %asmresult.i = extractvalue { i64, i64 } %6, 0
   %conv33 = and i64 %asmresult.i, 4294967295
   %7 = add i64 %1, %conv33
@@ -2923,8 +2923,8 @@ return:                                           ; preds = %if.then18, %if.end,
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @repeatPack(ptr noundef writeonly %dest, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @repeatPack(ptr noundef writeonly %dest, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #3 {
 entry:
   %v.i.sroa.0 = alloca i64, align 16
   %v.i.sroa.4 = alloca i64, align 8
@@ -3542,8 +3542,8 @@ sw.epilog:                                        ; preds = %if.else.i98, %if.th
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @repeatUnpack(ptr noundef readonly %src, ptr nocapture noundef readonly %info, i64 noundef %offset, ptr nocapture noundef writeonly %ctrl) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @repeatUnpack(ptr noundef readonly %src, ptr nocapture noundef readonly %info, i64 noundef %offset, ptr nocapture noundef writeonly %ctrl) local_unnamed_addr #3 {
 entry:
   %v.i.sroa.0 = alloca i64, align 16
   %v.i.sroa.4 = alloca i64, align 8
@@ -4150,14 +4150,14 @@ sw.epilog:                                        ; preds = %repeatUnpackTrailer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @repeatLastTopSparseOptimalP(ptr noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state) local_unnamed_addr #7 {
+define hidden i64 @repeatLastTopSparseOptimalP(ptr noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state) local_unnamed_addr #5 {
 entry:
   %call = tail call fastcc i64 @sparseLastTop(ptr noundef %info, ptr noundef %ctrl, ptr noundef %state)
   ret i64 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @sparseLastTop(ptr noundef %info, ptr nocapture noundef readonly %xs, ptr nocapture noundef readonly %state) unnamed_addr #7 {
+define internal fastcc i64 @sparseLastTop(ptr noundef %info, ptr nocapture noundef readonly %xs, ptr nocapture noundef readonly %state) unnamed_addr #5 {
 entry:
   %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
@@ -4301,7 +4301,7 @@ return:                                           ; preds = %for.cond, %do.end18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @repeatNextMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
+define hidden i64 @repeatNextMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr noundef readonly %state, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
   %add = add i64 %offset, 1
   %patchSize = getelementptr inbounds i8, ptr %info, i64 40
@@ -5835,8 +5835,8 @@ return:                                           ; preds = %if.else.i676, %for.
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @repeatStoreSparseOptimalP(ptr noundef %info, ptr nocapture noundef %ctrl, ptr noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden void @repeatStoreSparseOptimalP(ptr noundef %info, ptr nocapture noundef %ctrl, ptr noundef %state, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i8 %is_alive, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -7879,7 +7879,7 @@ return:                                           ; preds = %if.end.i2624, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 3) i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
+define hidden range(i32 0, 3) i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
@@ -7968,7 +7968,7 @@ return:                                           ; preds = %if.then82, %if.end4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc signext range(i8 0, 2) i8 @sparseHasMatch(ptr noundef %info, ptr nocapture noundef readonly %state, i32 noundef %lower, i32 noundef %upper) unnamed_addr #7 {
+define internal fastcc signext range(i8 0, 2) i8 @sparseHasMatch(ptr noundef %info, ptr nocapture noundef readonly %state, i32 noundef %lower, i32 noundef %upper) unnamed_addr #5 {
 entry:
   %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
@@ -8667,52 +8667,50 @@ return:                                           ; preds = %do.body.i470, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #11
+declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #11
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #2 = { nofree nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

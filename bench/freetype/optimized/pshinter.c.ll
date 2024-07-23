@@ -46,7 +46,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %14, ptr %15, align 8
   %16 = zext i16 %8 to i64
-  %17 = call ptr @ft_mem_qrealloc(ptr noundef %14, i64 noundef 72, i64 noundef 0, i64 noundef %16, ptr noundef null, ptr noundef nonnull %5) #11
+  %17 = call ptr @ft_mem_qrealloc(ptr noundef %14, i64 noundef 72, i64 noundef 0, i64 noundef %16, ptr noundef null, ptr noundef nonnull %5) #12
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load i32, ptr %5, align 4
@@ -56,7 +56,7 @@ define hidden i32 @ps_hints_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2
 20:                                               ; preds = %13
   %21 = load i16, ptr %1, align 8
   %22 = zext i16 %21 to i64
-  %23 = call ptr @ft_mem_qrealloc(ptr noundef %14, i64 noundef 16, i64 noundef 0, i64 noundef %22, ptr noundef null, ptr noundef nonnull %5) #11
+  %23 = call ptr @ft_mem_qrealloc(ptr noundef %14, i64 noundef 16, i64 noundef 0, i64 noundef %22, ptr noundef null, ptr noundef nonnull %5) #12
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %5, align 4
@@ -263,7 +263,7 @@ psh_compute_dir.exit128.i:                        ; preds = %126, %123, %120
   br i1 %.not124.i, label %133, label %135
 
 133:                                              ; preds = %132
-  %134 = call i32 @ft_corner_is_flat(i64 noundef %87, i64 noundef %92, i64 noundef %111, i64 noundef %115) #11
+  %134 = call i32 @ft_corner_is_flat(i64 noundef %87, i64 noundef %92, i64 noundef %111, i64 noundef %115) #12
   %.not125.i = icmp eq i32 %134, 0
   br i1 %.not125.i, label %138, label %._crit_edge186.i
 
@@ -393,7 +393,7 @@ psh_glyph_load_points.exit.i:                     ; preds = %.lr.ph.split.us.i.i
   br label %183, !llvm.loop !10
 
 200:                                              ; preds = %186
-  %201 = call i32 @ft_corner_orientation(i64 noundef %181, i64 noundef %182, i64 noundef %191, i64 noundef %196) #11
+  %201 = call i32 @ft_corner_orientation(i64 noundef %181, i64 noundef %182, i64 noundef %191, i64 noundef %196) #12
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %.backedge, label %.preheader83.i.i
 
@@ -435,7 +435,7 @@ psh_glyph_load_points.exit.i:                     ; preds = %.lr.ph.split.us.i.i
   br i1 %218, label %204, label %219, !llvm.loop !11
 
 219:                                              ; preds = %204
-  %220 = call i32 @ft_corner_orientation(i64 noundef %.067.i.i, i64 noundef %.066.i.i, i64 noundef %212, i64 noundef %215) #11
+  %220 = call i32 @ft_corner_orientation(i64 noundef %.067.i.i, i64 noundef %.066.i.i, i64 noundef %212, i64 noundef %215) #12
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %203, label %222, !llvm.loop !12
 
@@ -528,7 +528,7 @@ psh_glyph_init.exit:                              ; preds = %psh_glyph_compute_i
   br i1 %or.cond, label %.thread, label %268
 
 268:                                              ; preds = %255
-  %269 = call i64 @FT_MulDiv(i64 noundef %252, i64 noundef %267, i64 noundef %265) #11
+  %269 = call i64 @FT_MulDiv(i64 noundef %252, i64 noundef %267, i64 noundef %265) #12
   %270 = icmp slt i64 %267, %265
   br i1 %270, label %271, label %273
 
@@ -843,7 +843,7 @@ psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_alig
   %420 = getelementptr inbounds i8, ptr %413, i64 8
   %421 = getelementptr inbounds [2 x %struct.PSH_DimensionRec_], ptr %420, i64 0, i64 %indvars.iv, i32 1
   %422 = load i64, ptr %421, align 8
-  %423 = call i64 @FT_DivFix(i64 noundef 32, i64 noundef %422) #11
+  %423 = call i64 @FT_DivFix(i64 noundef 32, i64 noundef %422) #12
   %424 = trunc i64 %423 to i32
   %spec.store.select.i94 = call i32 @llvm.smin.i32(i32 %424, i32 12)
   %425 = icmp ugt i32 %418, 1
@@ -1489,42 +1489,42 @@ psh_glyph_save_points.exit:                       ; preds = %581, %683, %psh_gly
   %694 = getelementptr inbounds i8, ptr %6, i64 120
   %695 = getelementptr inbounds i8, ptr %6, i64 160
   %696 = load ptr, ptr %695, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %696) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %696) #12
   %697 = getelementptr inbounds i8, ptr %6, i64 152
   store i32 0, ptr %697, align 8
   %698 = getelementptr inbounds i8, ptr %6, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %695, i8 0, i64 16, i1 false)
   %699 = load ptr, ptr %698, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %699) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %699) #12
   store ptr null, ptr %698, align 8
   %700 = getelementptr inbounds i8, ptr %6, i64 128
   %701 = load ptr, ptr %700, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %701) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %701) #12
   %702 = getelementptr inbounds i8, ptr %6, i64 144
   store ptr null, ptr %702, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %694, i8 0, i64 16, i1 false)
   %703 = getelementptr inbounds i8, ptr %6, i64 88
   %704 = load ptr, ptr %703, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %704) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %704) #12
   %705 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 0, ptr %705, align 8
   %706 = getelementptr inbounds i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %703, i8 0, i64 16, i1 false)
   %707 = load ptr, ptr %706, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %707) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %707) #12
   store ptr null, ptr %706, align 8
   %708 = getelementptr inbounds i8, ptr %6, i64 56
   %709 = load ptr, ptr %708, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %709) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %709) #12
   %710 = getelementptr inbounds i8, ptr %6, i64 72
   store ptr null, ptr %710, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %693, i8 0, i64 16, i1 false)
   %711 = load ptr, ptr %18, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %711) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %711) #12
   store ptr null, ptr %18, align 8
   %712 = getelementptr inbounds i8, ptr %6, i64 16
   %713 = load ptr, ptr %712, align 8
-  call void @ft_mem_free(ptr noundef %692, ptr noundef %713) #11
+  call void @ft_mem_free(ptr noundef %692, ptr noundef %713) #12
   br label %714
 
 714:                                              ; preds = %4, %10, %.loopexit
@@ -1534,7 +1534,7 @@ psh_glyph_save_points.exit:                       ; preds = %581, %683, %psh_gly
 
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @psh_globals_set_scale(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 400
   %7 = load i64, ptr %6, align 8
@@ -2028,7 +2028,7 @@ define internal fastcc void @psh_glyph_interpolate_strong_points(ptr nocapture n
   br label %77
 
 73:                                               ; preds = %52
-  %74 = tail call i64 @FT_MulDiv(i64 noundef %38, i64 noundef %59, i64 noundef %55) #11
+  %74 = tail call i64 @FT_MulDiv(i64 noundef %38, i64 noundef %59, i64 noundef %55) #12
   %75 = add nsw i64 %74, %57
   %76 = getelementptr inbounds i8, ptr %.03751, i64 64
   store i64 %75, ptr %76, align 8
@@ -2093,7 +2093,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
 
 27:                                               ; preds = %25
   %28 = zext i32 %spec.select to i64
-  %29 = call ptr @ft_mem_qrealloc(ptr noundef %12, i64 noundef 8, i64 noundef 0, i64 noundef %28, ptr noundef null, ptr noundef nonnull %4) #11
+  %29 = call ptr @ft_mem_qrealloc(ptr noundef %12, i64 noundef 8, i64 noundef 0, i64 noundef %28, ptr noundef null, ptr noundef nonnull %4) #12
   %30 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %._crit_edge.thread
@@ -2340,7 +2340,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
   %164 = load i64, ptr %163, align 8
   %165 = sub nsw i64 %164, %161
   %166 = sub nsw i64 %153, %145
-  %167 = call i64 @FT_MulDiv(i64 noundef %162, i64 noundef %165, i64 noundef %166) #11
+  %167 = call i64 @FT_MulDiv(i64 noundef %162, i64 noundef %165, i64 noundef %166) #12
   %168 = add nsw i64 %167, %161
   %169 = getelementptr inbounds i8, ptr %.2146, i64 64
   store i64 %168, ptr %169, align 8
@@ -2363,7 +2363,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr nocapture n
   br i1 %.not110, label %._crit_edge.thread, label %176
 
 176:                                              ; preds = %._crit_edge148
-  call void @ft_mem_free(ptr noundef %12, ptr noundef %.0) #11
+  call void @ft_mem_free(ptr noundef %12, ptr noundef %.0) #12
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %27, %._crit_edge, %176, %._crit_edge148
@@ -2538,7 +2538,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
 
 88:                                               ; preds = %84
   %89 = sub nsw i64 %86, %.sink178
-  %90 = tail call i64 @FT_DivFix(i64 noundef %89, i64 noundef %.090) #11
+  %90 = tail call i64 @FT_DivFix(i64 noundef %89, i64 noundef %.090) #12
   %.pre = load ptr, ptr %68, align 8
   br label %91
 
@@ -2698,7 +2698,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef %0, ptr no
   %6 = load i32, ptr %1, align 8
   %7 = shl i32 %6, 1
   %8 = zext i32 %7 to i64
-  %9 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 8, i64 noundef 0, i64 noundef %8, ptr noundef null, ptr noundef nonnull %5) #11
+  %9 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 8, i64 noundef 0, i64 noundef %8, ptr noundef null, ptr noundef nonnull %5) #12
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %5, align 4
@@ -2707,7 +2707,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef %0, ptr no
 
 12:                                               ; preds = %4
   %13 = zext i32 %6 to i64
-  %14 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 48, i64 noundef 0, i64 noundef %13, ptr noundef null, ptr noundef nonnull %5) #11
+  %14 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 48, i64 noundef 0, i64 noundef %13, ptr noundef null, ptr noundef nonnull %5) #12
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   %16 = load i32, ptr %5, align 4
@@ -2717,7 +2717,7 @@ define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef %0, ptr no
 17:                                               ; preds = %12
   %18 = or disjoint i32 %7, 1
   %19 = zext i32 %18 to i64
-  %20 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 32, i64 noundef 0, i64 noundef %19, ptr noundef null, ptr noundef nonnull %5) #11
+  %20 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 32, i64 noundef 0, i64 noundef %19, ptr noundef null, ptr noundef nonnull %5) #12
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr %5, align 4
@@ -3427,8 +3427,8 @@ psh_dimension_quantize_len.exit:                  ; preds = %173, %199, %196, %1
 
 declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr nocapture readonly %.16.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr nocapture readonly %.16.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %.not30 = icmp eq i32 %1, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph33
 
@@ -3643,19 +3643,19 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_globals_funcs(ptr noundef readnone %0) #6 {
+define internal nonnull ptr @pshinter_get_globals_funcs(ptr noundef readnone %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_t1_funcs(ptr noundef readnone %0) #6 {
+define internal nonnull ptr @pshinter_get_t1_funcs(ptr noundef readnone %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone %0) #6 {
+define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   ret ptr %2
 }
@@ -3663,7 +3663,7 @@ define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone %0) #6 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @psh_globals_new(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i32, align 4
-  %5 = call ptr @ft_mem_qalloc(ptr noundef %0, i64 noundef 3952, ptr noundef nonnull %4) #11
+  %5 = call ptr @ft_mem_qalloc(ptr noundef %0, i64 noundef 3952, ptr noundef nonnull %4) #12
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %112
@@ -3867,7 +3867,7 @@ psh_calc_max_height.exit97:                       ; preds = %.lr.ph.i91, %psh_ca
 psh_calc_max_height.exit106:                      ; preds = %.lr.ph.i100, %psh_calc_max_height.exit97
   %.0.lcssa.i105 = phi i16 [ %.0.lcssa.i96, %psh_calc_max_height.exit97 ], [ %spec.select.i103, %.lr.ph.i100 ]
   %100 = zext nneg i16 %.0.lcssa.i105 to i64
-  %101 = call i64 @FT_DivFix(i64 noundef 1000, i64 noundef %100) #11
+  %101 = call i64 @FT_DivFix(i64 noundef 1000, i64 noundef %100) #12
   %102 = getelementptr inbounds i8, ptr %1, i64 112
   %103 = load i64, ptr %102, align 8
   %. = call i64 @llvm.smin.i64(i64 %103, i64 %101)
@@ -3912,7 +3912,7 @@ define internal void @psh_globals_destroy(ptr noundef %0) #0 {
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 3152
   store i32 0, ptr %9, align 8
-  tail call void @ft_mem_free(ptr noundef %3, ptr noundef nonnull %0) #11
+  tail call void @ft_mem_free(ptr noundef %3, ptr noundef nonnull %0) #12
   br label %10
 
 10:                                               ; preds = %2, %1
@@ -3921,7 +3921,7 @@ define internal void @psh_globals_destroy(ptr noundef %0) #0 {
 
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #2 {
   %.not = icmp eq i32 %6, 0
   %.092.v = select i1 %.not, i64 776, i64 2328
@@ -4287,10 +4287,10 @@ psh_blues_set_zones_0.exit139:                    ; preds = %71, %psh_blues_set_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t1_hints_open(ptr nocapture noundef writeonly %0) #8 {
+define internal void @t1_hints_open(ptr nocapture noundef writeonly %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4337,10 +4337,10 @@ ps_hints_close.exit:                              ; preds = %2, %5, %9
 ; Function Attrs: nounwind uwtable
 define internal void @t1_hints_stem(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load i64, ptr %2, align 8
-  %5 = tail call i64 @FT_RoundFix(i64 noundef %4) #11
+  %5 = tail call i64 @FT_RoundFix(i64 noundef %4) #12
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @FT_RoundFix(i64 noundef %7) #11
+  %8 = tail call i64 @FT_RoundFix(i64 noundef %7) #12
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
@@ -4395,12 +4395,12 @@ define internal void @ps_hints_t1stem3(ptr nocapture noundef %0, i32 noundef %1,
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %11 ]
   %.02234 = phi ptr [ %32, %31 ], [ %2, %11 ]
   %20 = load i64, ptr %.02234, align 8
-  %21 = call i64 @FT_RoundFix(i64 noundef %20) #11
+  %21 = call i64 @FT_RoundFix(i64 noundef %20) #12
   %22 = lshr i64 %21, 16
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds i8, ptr %.02234, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = call i64 @FT_RoundFix(i64 noundef %25) #11
+  %26 = call i64 @FT_RoundFix(i64 noundef %25) #12
   %27 = lshr i64 %26, 16
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv
@@ -4514,7 +4514,7 @@ ps_mask_test_bit.exit34.thread.i:                 ; preds = %ps_mask_test_bit.ex
   %85 = zext i32 %83 to i64
   %86 = getelementptr inbounds i8, ptr %16, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 24, i64 noundef %84, i64 noundef %85, ptr noundef %87, ptr noundef nonnull %7) #11
+  %88 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 24, i64 noundef %84, i64 noundef %85, ptr noundef %87, ptr noundef nonnull %7) #12
   store ptr %88, ptr %86, align 8
   %89 = load i32, ptr %7, align 4
   %.not.i.i.i = icmp eq i32 %89, 0
@@ -4580,7 +4580,7 @@ ps_mask_table_alloc.exit.i:                       ; preds = %81
   %116 = zext nneg i32 %114 to i64
   %117 = getelementptr inbounds i8, ptr %.055.i, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %115, i64 noundef %116, ptr noundef %118, ptr noundef nonnull %6) #11
+  %119 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %115, i64 noundef %116, ptr noundef %118, ptr noundef nonnull %6) #12
   store ptr %119, ptr %117, align 8
   %120 = load i32, ptr %6, align 4
   %.not.i.i38.i = icmp eq i32 %120, 0
@@ -4634,7 +4634,7 @@ ps_mask_set_bit.exit.i:                           ; preds = %112
   %147 = zext nneg i32 %140 to i64
   %148 = zext nneg i32 %146 to i64
   %149 = load ptr, ptr %125, align 8
-  %150 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef nonnull %5) #11
+  %150 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %147, i64 noundef %148, ptr noundef %149, ptr noundef nonnull %5) #12
   store ptr %150, ptr %125, align 8
   %151 = load i32, ptr %5, align 4
   %.not.i.i41.i = icmp eq i32 %151, 0
@@ -4687,7 +4687,7 @@ ps_mask_set_bit.exit43.i:                         ; preds = %144
   %177 = zext nneg i32 %170 to i64
   %178 = zext nneg i32 %176 to i64
   %179 = load ptr, ptr %125, align 8
-  %180 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %177, i64 noundef %178, ptr noundef %179, ptr noundef nonnull %4) #11
+  %180 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 1, i64 noundef %177, i64 noundef %178, ptr noundef %179, ptr noundef nonnull %4) #12
   store ptr %180, ptr %125, align 8
   %181 = load i32, ptr %4, align 4
   %.not.i.i46.i = icmp eq i32 %181, 0
@@ -4783,7 +4783,7 @@ ps_dimension_end_mask.exit.i:                     ; preds = %15, %12
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @ft_mem_realloc(ptr noundef %8, i64 noundef 24, i64 noundef %29, i64 noundef %30, ptr noundef %32, ptr noundef nonnull %4) #11
+  %33 = call ptr @ft_mem_realloc(ptr noundef %8, i64 noundef 24, i64 noundef %29, i64 noundef %30, ptr noundef %32, ptr noundef nonnull %4) #12
   store ptr %33, ptr %31, align 8
   %34 = load i32, ptr %4, align 4
   %.not.i.i.i = icmp eq i32 %34, 0
@@ -4858,7 +4858,7 @@ ps_dimension_end_mask.exit.i19:                   ; preds = %51, %48
   %66 = zext i32 %64 to i64
   %67 = getelementptr inbounds i8, ptr %0, i64 96
   %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @ft_mem_realloc(ptr noundef %8, i64 noundef 24, i64 noundef %65, i64 noundef %66, ptr noundef %68, ptr noundef nonnull %3) #11
+  %69 = call ptr @ft_mem_realloc(ptr noundef %8, i64 noundef 24, i64 noundef %65, i64 noundef %66, ptr noundef %68, ptr noundef nonnull %3) #12
   store ptr %69, ptr %67, align 8
   %70 = load i32, ptr %3, align 4
   %.not.i.i.i25 = icmp eq i32 %70, 0
@@ -5058,7 +5058,7 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds i8, ptr %55, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @ft_mem_realloc(ptr noundef %2, i64 noundef 1, i64 noundef %72, i64 noundef %73, ptr noundef %75, ptr noundef nonnull %4) #11
+  %76 = call ptr @ft_mem_realloc(ptr noundef %2, i64 noundef 1, i64 noundef %72, i64 noundef %73, ptr noundef %75, ptr noundef nonnull %4) #12
   store ptr %76, ptr %74, align 8
   %77 = load i32, ptr %4, align 4
   %.not.i.i.i = icmp eq i32 %77, 0
@@ -5155,7 +5155,7 @@ ps_mask_table_merge_all.exit:                     ; preds = %.loopexit.i, %ps_di
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5211,7 +5211,7 @@ define internal fastcc i32 @ps_dimension_add_t1stem(ptr nocapture noundef %0, i3
   %30 = add i32 %29, 8
   %31 = zext i32 %26 to i64
   %32 = zext i32 %30 to i64
-  %33 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 12, i64 noundef %31, i64 noundef %32, ptr noundef %14, ptr noundef nonnull %8) #11
+  %33 = call ptr @ft_mem_qrealloc(ptr noundef %3, i64 noundef 12, i64 noundef %31, i64 noundef %32, ptr noundef %14, ptr noundef nonnull %8) #12
   store ptr %33, ptr %13, align 8
   %34 = load i32, ptr %8, align 4
   %.not.i.i = icmp eq i32 %34, 0
@@ -5262,7 +5262,7 @@ ps_hint_table_alloc.exit:                         ; preds = %28
   store i32 0, ptr %7, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @ft_mem_realloc(ptr noundef %3, i64 noundef 24, i64 noundef 0, i64 noundef 8, ptr noundef %51, ptr noundef nonnull %7) #11
+  %52 = call ptr @ft_mem_realloc(ptr noundef %3, i64 noundef 24, i64 noundef 0, i64 noundef 8, ptr noundef %51, ptr noundef nonnull %7) #12
   store ptr %52, ptr %50, align 8
   %53 = load i32, ptr %7, align 4
   %.not.i.i.i = icmp eq i32 %53, 0
@@ -5332,7 +5332,7 @@ ps_mask_table_last.exit:                          ; preds = %49
   %85 = zext nneg i32 %83 to i64
   %86 = getelementptr inbounds i8, ptr %.08.i.ph, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @ft_mem_realloc(ptr noundef %3, i64 noundef 1, i64 noundef %84, i64 noundef %85, ptr noundef %87, ptr noundef nonnull %6) #11
+  %88 = call ptr @ft_mem_realloc(ptr noundef %3, i64 noundef 1, i64 noundef %84, i64 noundef %85, ptr noundef %87, ptr noundef nonnull %6) #12
   store ptr %88, ptr %86, align 8
   %89 = load i32, ptr %6, align 4
   %.not.i.i47 = icmp eq i32 %89, 0
@@ -5377,7 +5377,7 @@ ps_mask_set_bit.exit:                             ; preds = %71, %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t2_hints_open(ptr nocapture noundef writeonly %0) #8 {
+define internal void @t2_hints_open(ptr nocapture noundef writeonly %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5453,7 +5453,7 @@ define internal void @t2_hints_stems(ptr nocapture noundef %0, i32 noundef %1, i
   %17 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %.12428
-  %20 = tail call i64 @FT_RoundFix(i64 noundef %19) #11
+  %20 = tail call i64 @FT_RoundFix(i64 noundef %19) #12
   %21 = ashr i64 %20, 16
   %22 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv
   store i64 %21, ptr %22, align 8
@@ -5631,7 +5631,7 @@ ps_dimension_end_mask.exit.i:                     ; preds = %12, %6
   %27 = zext i32 %25 to i64
   %28 = getelementptr inbounds i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 24, i64 noundef %26, i64 noundef %27, ptr noundef %29, ptr noundef nonnull %9) #11
+  %30 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 24, i64 noundef %26, i64 noundef %27, ptr noundef %29, ptr noundef nonnull %9) #12
   store ptr %30, ptr %28, align 8
   %31 = load i32, ptr %9, align 4
   %.not.i.i.i = icmp eq i32 %31, 0
@@ -5687,7 +5687,7 @@ ps_dimension_reset_mask.exit:                     ; preds = %23
   store i32 0, ptr %8, align 4
   %51 = getelementptr inbounds i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 24, i64 noundef 0, i64 noundef 8, ptr noundef %52, ptr noundef nonnull %8) #11
+  %53 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 24, i64 noundef 0, i64 noundef 8, ptr noundef %52, ptr noundef nonnull %8) #12
   store ptr %53, ptr %51, align 8
   %54 = load i32, ptr %8, align 4
   %.not.i.i.i.i = icmp eq i32 %54, 0
@@ -5755,7 +5755,7 @@ ps_mask_table_last.exit.i:                        ; preds = %50
   %82 = zext nneg i32 %80 to i64
   %83 = getelementptr inbounds i8, ptr %.08.i.ph.i, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 1, i64 noundef %81, i64 noundef %82, ptr noundef %84, ptr noundef nonnull %7) #11
+  %85 = call ptr @ft_mem_realloc(ptr noundef %5, i64 noundef 1, i64 noundef %81, i64 noundef %82, ptr noundef %84, ptr noundef nonnull %7) #12
   store ptr %85, ptr %83, align 8
   %86 = load i32, ptr %7, align 4
   %.not.i.i11 = icmp eq i32 %86, 0
@@ -5837,7 +5837,7 @@ define internal fastcc void @ps_dimension_done(ptr nocapture noundef %0, ptr nou
   %.01113.i = phi i32 [ %10, %.lr.ph.i ], [ %5, %2 ]
   %8 = getelementptr inbounds i8, ptr %.014.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %9) #11
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %9) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.014.i, i8 0, i64 20, i1 false)
   %10 = add i32 %.01113.i, -1
   %11 = getelementptr inbounds i8, ptr %.014.i, i64 24
@@ -5850,7 +5850,7 @@ define internal fastcc void @ps_dimension_done(ptr nocapture noundef %0, ptr nou
 
 ps_mask_table_done.exit:                          ; preds = %2, %._crit_edge.loopexit.i
   %12 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %7, %2 ]
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %12) #11
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %12) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
@@ -5864,7 +5864,7 @@ ps_mask_table_done.exit:                          ; preds = %2, %._crit_edge.loo
   %.01113.i9 = phi i32 [ %19, %.lr.ph.i7 ], [ %14, %ps_mask_table_done.exit ]
   %17 = getelementptr inbounds i8, ptr %.014.i8, i64 8
   %18 = load ptr, ptr %17, align 8
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %18) #11
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %18) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.014.i8, i8 0, i64 20, i1 false)
   %19 = add i32 %.01113.i9, -1
   %20 = getelementptr inbounds i8, ptr %.014.i8, i64 24
@@ -5878,60 +5878,61 @@ ps_mask_table_done.exit:                          ; preds = %2, %._crit_edge.loo
 ps_mask_table_done.exit13:                        ; preds = %ps_mask_table_done.exit, %._crit_edge.loopexit.i11
   %21 = phi ptr [ %.pre.i12, %._crit_edge.loopexit.i11 ], [ %16, %ps_mask_table_done.exit ]
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %21) #11
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %21) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %24) #11
+  tail call void @ft_mem_free(ptr noundef %1, ptr noundef %24) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #9
+declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #9
+declare i64 @llvm.smax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #9
+declare i16 @llvm.smax.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #9
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

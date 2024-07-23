@@ -61,7 +61,7 @@ while.body:                                       ; preds = %entry, %while.body
   %lo.012 = phi i64 [ %add.lo.0, %while.body ], [ 0, %entry ]
   %div10 = lshr i64 %sub14, 1
   %add = add i64 %div10, %lo.012
-  %call = tail call i32 %f(i64 noundef %add, ptr noundef %args) #7
+  %call = tail call i32 %f(i64 noundef %add, ptr noundef %args) #8
   %tobool.not = icmp eq i32 %call, 0
   %add.lo.0 = select i1 %tobool.not, i64 %add, i64 %lo.012
   %hi.0.add = select i1 %tobool.not, i64 %hi.013, i64 %add
@@ -78,7 +78,7 @@ if.then3:                                         ; preds = %while.end
   br label %return
 
 if.end4:                                          ; preds = %entry, %while.end
-  %call5 = tail call i32 %f(i64 noundef 0, ptr noundef %args) #7
+  %call5 = tail call i32 %f(i64 noundef 0, ptr noundef %args) #8
   %tobool6.not = icmp eq i32 %call5, 0
   %cond = zext i1 %tobool6.not to i32
   br label %return
@@ -102,14 +102,14 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %1 = phi ptr [ %2, %for.body ], [ %0, %for.cond.preheader ]
   %p.06 = phi ptr [ %incdec.ptr, %for.body ], [ %a, %for.cond.preheader ]
-  tail call void @reftable_free(ptr noundef nonnull %1) #7
+  tail call void @reftable_free(ptr noundef nonnull %1) #8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.06, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @reftable_free(ptr noundef nonnull %a) #7
+  tail call void @reftable_free(ptr noundef nonnull %a) #8
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -118,7 +118,7 @@ return:                                           ; preds = %entry, %for.end
 
 declare void @reftable_free(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @names_length(ptr noundef %names) local_unnamed_addr #4 {
 entry:
   br label %for.cond
@@ -152,7 +152,7 @@ while.body:                                       ; preds = %entry, %if.end10
   %p.023 = phi ptr [ %add.ptr11, %if.end10 ], [ %buf, %entry ]
   %names_len.022 = phi i64 [ %names_len.1, %if.end10 ], [ 0, %entry ]
   %names_cap.021 = phi i64 [ %names_cap.2, %if.end10 ], [ 0, %entry ]
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.023, i32 noundef 10) #8
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.023, i32 noundef 10) #9
   %tobool.not = icmp ne ptr %call, null
   %cmp1 = icmp ult ptr %call, %add.ptr
   %or.cond = and i1 %tobool.not, %cmp1
@@ -175,13 +175,13 @@ if.then5:                                         ; preds = %if.then3
   %mul = shl i64 %names_len.022, 1
   %add = or disjoint i64 %mul, 1
   %mul6 = shl i64 %add, 3
-  %call7 = tail call ptr @reftable_realloc(ptr noundef %names.024, i64 noundef %mul6) #7
+  %call7 = tail call ptr @reftable_realloc(ptr noundef %names.024, i64 noundef %mul6) #8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.then3
   %names_cap.1 = phi i64 [ %add, %if.then5 ], [ %names_cap.021, %if.then3 ]
   %names.1 = phi ptr [ %call7, %if.then5 ], [ %names.024, %if.then3 ]
-  %call9 = tail call ptr @xstrdup(ptr noundef %p.023) #7
+  %call9 = tail call ptr @xstrdup(ptr noundef %p.023) #8
   %inc = add i64 %names_len.022, 1
   %arrayidx = getelementptr inbounds ptr, ptr %names.1, i64 %names_len.022
   store ptr %call9, ptr %arrayidx, align 8
@@ -200,7 +200,7 @@ while.end:                                        ; preds = %if.end10, %entry
   %names.0.lcssa = phi ptr [ null, %entry ], [ %names.2, %if.end10 ]
   %add12 = shl i64 %names_len.0.lcssa, 3
   %mul13 = add i64 %add12, 8
-  %call14 = tail call ptr @reftable_realloc(ptr noundef %names.0.lcssa, i64 noundef %mul13) #7
+  %call14 = tail call ptr @reftable_realloc(ptr noundef %names.0.lcssa, i64 noundef %mul13) #8
   %arrayidx15 = getelementptr inbounds ptr, ptr %call14, i64 %names_len.0.lcssa
   store ptr null, ptr %arrayidx15, align 8
   store ptr %call14, ptr %namesp, align 8
@@ -237,7 +237,7 @@ land.rhs:                                         ; preds = %entry, %for.cond
   br i1 %tobool3.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #8
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #9
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %for.cond, label %return
 
@@ -259,7 +259,7 @@ return:                                           ; preds = %for.body, %for.end
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @common_prefix_size(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #4 {
+define dso_local i32 @common_prefix_size(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #7 {
 entry:
   %buf = getelementptr inbounds i8, ptr %a, i64 16
   %len = getelementptr inbounds i8, ptr %a, i64 8
@@ -307,11 +307,12 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [8 x i8] c"Common:\00", align 1
 @str.2 = private unnamed_addr constant [7 x i8] c"Total:\00", align 1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -193,7 +193,7 @@ define void @Kit_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -427,7 +427,7 @@ define void @Kit_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Kit_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph51, label %._crit_edge52
 
@@ -669,7 +669,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Kit_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph54, label %._crit_edge55
 
@@ -916,7 +916,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_TruthPermute(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Kit_TruthPermute(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp sgt i32 %2, 1
   %7 = icmp slt i32 %2, 6
   %8 = add nsw i32 %2, -5
@@ -1137,8 +1137,8 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %.
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarInSupport(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define range(i32 0, 2) i32 @Kit_TruthVarInSupport(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
   %6 = shl nuw i32 1, %5
@@ -1314,8 +1314,8 @@ define range(i32 0, 2) i32 @Kit_TruthVarInSupport(ptr nocapture noundef readonly
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_TruthSupportSize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @Kit_TruthSupportSize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -1333,8 +1333,8 @@ define i32 @Kit_TruthSupportSize(ptr nocapture noundef readonly %0, i32 noundef 
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_TruthSupport(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @Kit_TruthSupport(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -1355,7 +1355,7 @@ define i32 @Kit_TruthSupport(ptr nocapture noundef readonly %0, i32 noundef %1) 
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCofactor0(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -1508,8 +1508,8 @@ define void @Kit_TruthCofactor0(ptr nocapture noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
   %6 = shl nuw i32 1, %5
@@ -1750,7 +1750,7 @@ define i32 @Kit_TruthCofactor0Count(ptr nocapture noundef readonly %0, i32 nound
   ret i32 %.051
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCofactor1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -1908,7 +1908,7 @@ define void @Kit_TruthCofactor1(ptr nocapture noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCofactor0New(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -2070,7 +2070,7 @@ define void @Kit_TruthCofactor0New(ptr nocapture noundef writeonly %0, ptr nocap
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCofactor1New(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -2237,8 +2237,8 @@ define void @Kit_TruthCofactor1New(ptr nocapture noundef writeonly %0, ptr nocap
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarIsVacuous(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define range(i32 0, 2) i32 @Kit_TruthVarIsVacuous(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
   %7 = shl nuw i32 1, %6
@@ -2448,7 +2448,7 @@ define range(i32 0, 2) i32 @Kit_TruthVarIsVacuous(ptr nocapture noundef readonly
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthExist(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -2620,7 +2620,7 @@ define void @Kit_TruthExist(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthExistNew(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -2801,7 +2801,7 @@ define void @Kit_TruthExistNew(ptr nocapture noundef writeonly %0, ptr nocapture
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthExistSet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -2848,7 +2848,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthForall(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -3020,7 +3020,7 @@ define void @Kit_TruthForall(ptr nocapture noundef %0, i32 noundef %1, i32 nound
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthForallNew(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -3201,7 +3201,7 @@ define void @Kit_TruthForallNew(ptr nocapture noundef writeonly %0, ptr nocaptur
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthUniqueNew(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -3382,8 +3382,8 @@ define void @Kit_TruthUniqueNew(ptr nocapture noundef writeonly %0, ptr nocaptur
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i32 @Kit_TruthBooleanDiffCount(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
   %6 = shl nuw i32 1, %5
@@ -3689,7 +3689,7 @@ define i32 @Kit_TruthXorCount(ptr nocapture noundef readonly %0, ptr nocapture n
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthForallSet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 6
   %6 = add nsw i32 %2, -5
@@ -3736,7 +3736,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthMuxVar(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 6
   %7 = add nsw i32 %3, -5
@@ -3917,7 +3917,7 @@ define void @Kit_TruthMuxVar(ptr nocapture noundef writeonly %0, ptr nocapture n
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthMuxVarPhase(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp slt i32 %3, 6
   %8 = add nsw i32 %3, -5
@@ -4113,7 +4113,7 @@ define void @Kit_TruthMuxVarPhase(ptr nocapture noundef writeonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarsSymm(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_TruthVarsSymm(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %4, null
   %spec.store.select = select i1 %7, ptr @Kit_TruthVarsSymm.uTemp0, ptr %4
   %8 = icmp eq ptr %5, null
@@ -4187,7 +4187,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i30, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_TruthVarsAntiSymm(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_TruthVarsAntiSymm(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq ptr %4, null
   %spec.store.select = select i1 %7, ptr @Kit_TruthVarsAntiSymm.uTemp0, ptr %4
   %8 = icmp eq ptr %5, null
@@ -4260,7 +4260,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i30, 
   ret i32 %.07.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthChangePhase(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -4427,7 +4427,7 @@ define void @Kit_TruthChangePhase(ptr nocapture noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 33) i32 @Kit_TruthMinCofSuppOverlap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 33) i32 @Kit_TruthMinCofSuppOverlap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %Kit_TruthSupport.exit51._crit_edge
 
@@ -4881,7 +4881,7 @@ Kit_TruthSupport.exit51._crit_edge:               ; preds = %10, %Kit_TruthSuppo
   ret i32 %.2
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @Kit_TruthBestCofVar(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 6
   %6 = add nsw i32 %1, -5
@@ -5252,7 +5252,7 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i, %s
   ret i32 %.034
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCountOnesInCofs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
@@ -5843,8 +5843,8 @@ define void @Kit_TruthCountOnesInCofs(ptr nocapture noundef readonly %0, i32 nou
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Kit_TruthCountOnesInCofs0(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @Kit_TruthCountOnesInCofs0(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 6
   %5 = add nsw i32 %1, -5
   %6 = shl nuw i32 1, %5
@@ -6191,7 +6191,7 @@ define void @Kit_TruthCountOnesInCofs0(ptr nocapture noundef readonly %0, i32 no
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Kit_TruthCountOnesInCofsSlow(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6321,7 +6321,7 @@ define i32 @Kit_TruthHash(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_TruthSemiCanonicize(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Kit_TruthSemiCanonicize(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = alloca [32 x i32], align 16
   %6 = icmp slt i32 %2, 6
   %7 = add nsw i32 %2, -5
@@ -6676,7 +6676,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i110,
   ret i32 %.us-phi137160
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 2
@@ -6803,7 +6803,7 @@ define i32 @Kit_TruthCountMinterms(ptr noundef readonly %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @Kit_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -6827,7 +6827,7 @@ define void @Kit_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #13
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %14) #12
   br label %20
 
 18:                                               ; preds = %.lr.ph
@@ -6844,10 +6844,10 @@ define void @Kit_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_TruthCountMintermsPrecomp() local_unnamed_addr #5 {
+define void @Kit_TruthCountMintermsPrecomp() local_unnamed_addr #4 {
   br label %1
 
 1:                                                ; preds = %0, %Kit_PrintHexadecimal.exit
@@ -6893,7 +6893,7 @@ define void @Kit_TruthCountMintermsPrecomp() local_unnamed_addr #5 {
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef %28) #13
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef %28) #12
   br label %34
 
 32:                                               ; preds = %.lr.ph.i
@@ -6916,14 +6916,14 @@ Kit_PrintHexadecimal.exit:                        ; preds = %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef nonnull ptr @Kit_TruthDumpToFile(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Kit_TruthDumpToFile.pFileName, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %2) #13
+define noundef nonnull ptr @Kit_TruthDumpToFile(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+  %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Kit_TruthDumpToFile.pFileName, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %2) #12
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull @Kit_TruthDumpToFile.pFileName, ptr noundef nonnull @.str.6)
   %6 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 3, i64 1, ptr %5)
   %7 = shl nuw i32 1, %1
@@ -6949,7 +6949,7 @@ define noundef nonnull ptr @Kit_TruthDumpToFile(ptr nocapture noundef readonly %
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef %17) #13
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef %17) #12
   br label %23
 
 21:                                               ; preds = %.lr.ph.i
@@ -6968,16 +6968,16 @@ Kit_PrintHexadecimal.exit:                        ; preds = %23, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [20 x i32], align 16
   %4 = alloca [20 x i32], align 16
   %5 = alloca [20 x i32], align 16
@@ -6992,15 +6992,15 @@ define void @Kit_TruthPrintProfile_int(ptr noundef %0, i32 noundef %1) local_unn
   %14 = shl nsw i32 %13, 2
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #13
   %18 = sext i32 %13 to i64
   %19 = shl nsw i64 %18, 2
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %21 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %22 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %23 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %24 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %25 = tail call noalias ptr @malloc(i64 noundef %19) #14
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %21 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %22 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %23 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %24 = tail call noalias ptr @malloc(i64 noundef %19) #13
+  %25 = tail call noalias ptr @malloc(i64 noundef %19) #13
   %26 = call i32 @Kit_TruthCountMinterms(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, ptr noundef %17)
   %27 = icmp sgt i32 %1, 0
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge513
@@ -8179,7 +8179,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not, label %519, label %518
 
 518:                                              ; preds = %._crit_edge551
-  tail call void @free(ptr noundef nonnull %.0.lcssa) #13
+  tail call void @free(ptr noundef nonnull %.0.lcssa) #12
   br label %519
 
 519:                                              ; preds = %._crit_edge551, %518
@@ -8187,7 +8187,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not233, label %521, label %520
 
 520:                                              ; preds = %519
-  tail call void @free(ptr noundef nonnull %.0208.lcssa) #13
+  tail call void @free(ptr noundef nonnull %.0208.lcssa) #12
   br label %521
 
 521:                                              ; preds = %519, %520
@@ -8195,7 +8195,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not234, label %523, label %522
 
 522:                                              ; preds = %521
-  tail call void @free(ptr noundef nonnull %22) #13
+  tail call void @free(ptr noundef nonnull %22) #12
   br label %523
 
 523:                                              ; preds = %521, %522
@@ -8203,7 +8203,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not235, label %525, label %524
 
 524:                                              ; preds = %523
-  tail call void @free(ptr noundef nonnull %23) #13
+  tail call void @free(ptr noundef nonnull %23) #12
   br label %525
 
 525:                                              ; preds = %523, %524
@@ -8211,7 +8211,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not236, label %527, label %526
 
 526:                                              ; preds = %525
-  tail call void @free(ptr noundef nonnull %24) #13
+  tail call void @free(ptr noundef nonnull %24) #12
   br label %527
 
 527:                                              ; preds = %525, %526
@@ -8219,7 +8219,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not237, label %529, label %528
 
 528:                                              ; preds = %527
-  tail call void @free(ptr noundef nonnull %25) #13
+  tail call void @free(ptr noundef nonnull %25) #12
   br label %529
 
 529:                                              ; preds = %527, %528
@@ -8227,7 +8227,7 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
   br i1 %.not238, label %531, label %530
 
 530:                                              ; preds = %529
-  tail call void @free(ptr noundef nonnull %17) #13
+  tail call void @free(ptr noundef nonnull %17) #12
   br label %531
 
 531:                                              ; preds = %529, %530
@@ -8235,13 +8235,13 @@ Kit_TruthXorCount.exit413:                        ; preds = %Kit_TruthXorCount.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_TruthPrintProfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Kit_TruthPrintProfile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [2 x i32], align 4
   %4 = icmp sgt i32 %1, 5
   br i1 %4, label %5, label %6
@@ -8263,41 +8263,40 @@ define void @Kit_TruthPrintProfile(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
+attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -643,7 +643,7 @@ if.then264:                                       ; preds = %if.end261
   br i1 %cmp265, label %ovfl, label %if.end270
 
 ovfl:                                             ; preds = %if.then703, %for.end284, %if.then264
-  %call267 = tail call ptr @__errno_location() #15
+  %call267 = tail call ptr @__errno_location() #16
   store i32 34, ptr %call267, align 4
   %arrayidx268 = getelementptr inbounds i8, ptr %rv, i64 4
   store i32 2146435072, ptr %arrayidx268, align 4
@@ -840,7 +840,7 @@ if.end365:                                        ; preds = %if.else360, %if.els
 
 undfl:                                            ; preds = %if.else627, %if.then599, %if.then662, %if.end365, %if.then317
   store double 0.000000e+00, ptr %rv, align 8
-  %call368 = tail call ptr @__errno_location() #15
+  %call368 = tail call ptr @__errno_location() #16
   store i32 34, ptr %call368, align 4
   br label %ret
 
@@ -996,7 +996,7 @@ if.else14.i.i:                                    ; preds = %land.lhs.true9.i.i,
   %sub625.i.i = phi i64 [ %sub620.i.i, %land.lhs.true9.i.i ], [ %sub6.i.i, %if.else.i.i ]
   %shl22.i.i = phi i32 [ %shl16.i.i, %land.lhs.true9.i.i ], [ %shl.i.i, %if.else.i.i ]
   %mul16.i.i = and i64 %sub625.i.i, 34359738360
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul16.i.i) #16
+  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul16.i.i) #17
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else14.i.i, %if.then13.i.i
@@ -1138,7 +1138,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i ], [ %sub6.i, %if.else.i311 ]
   %shl22.i = phi i32 [ %shl16.i, %land.lhs.true9.i ], [ %shl.i312, %if.else.i311 ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i315
 
 if.end.i315:                                      ; preds = %if.else14.i, %if.then13.i
@@ -1184,7 +1184,7 @@ if.then13.i.i335:                                 ; preds = %land.lhs.true9.i.i3
   br label %if.end.i.i331
 
 if.else14.i.i329:                                 ; preds = %land.lhs.true9.i.i325
-  %call.i.i330 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i330 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i331
 
 if.end.i.i331:                                    ; preds = %if.else14.i.i329, %if.then13.i.i335
@@ -1239,7 +1239,7 @@ if.then.i338:                                     ; preds = %if.then487
   br i1 %cmp.i339, label %if.then1.i, label %if.else.i340
 
 if.then1.i:                                       ; preds = %if.then.i338
-  tail call void @free(ptr noundef nonnull %call445) #17
+  tail call void @free(ptr noundef nonnull %call445) #18
   br label %if.end490
 
 if.else.i340:                                     ; preds = %if.then.i338
@@ -1734,7 +1734,7 @@ if.then.i398:                                     ; preds = %cont
   br i1 %cmp.i400, label %if.then1.i404, label %if.else.i401
 
 if.then1.i404:                                    ; preds = %if.then.i398
-  tail call void @free(ptr noundef nonnull %bb.1) #17
+  tail call void @free(ptr noundef nonnull %bb.1) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit405
 
 if.else.i401:                                     ; preds = %if.then.i398
@@ -1756,7 +1756,7 @@ if.then.i407:                                     ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i409, label %if.then1.i413, label %if.else.i410
 
 if.then1.i413:                                    ; preds = %if.then.i407
-  tail call void @free(ptr noundef nonnull %bd.1) #17
+  tail call void @free(ptr noundef nonnull %bd.1) #18
   br label %if.then.i416
 
 if.else.i410:                                     ; preds = %if.then.i407
@@ -1774,7 +1774,7 @@ if.then.i416:                                     ; preds = %if.else.i410, %if.t
   br i1 %cmp.i418, label %if.then1.i422, label %if.else.i419
 
 if.then1.i422:                                    ; preds = %if.then.i416
-  tail call void @free(ptr noundef nonnull %bs.1) #17
+  tail call void @free(ptr noundef nonnull %bs.1) #18
   br label %if.then.i425
 
 if.else.i419:                                     ; preds = %if.then.i416
@@ -1792,7 +1792,7 @@ if.then.i425:                                     ; preds = %if.else.i419, %if.t
   br i1 %cmp.i427, label %if.then1.i431, label %if.else.i428
 
 if.then1.i431:                                    ; preds = %if.then.i425
-  tail call void @free(ptr noundef nonnull %call507) #17
+  tail call void @free(ptr noundef nonnull %call507) #18
   br label %for.cond437.backedge
 
 for.cond437.backedge:                             ; preds = %if.then1.i431, %if.else.i428
@@ -1820,7 +1820,7 @@ if.then.i434:                                     ; preds = %for.end782
   br i1 %cmp.i436, label %if.then1.i440, label %if.else.i437
 
 if.then1.i440:                                    ; preds = %if.then.i434
-  tail call void @free(ptr noundef nonnull %bb.1) #17
+  tail call void @free(ptr noundef nonnull %bb.1) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit441
 
 if.else.i437:                                     ; preds = %if.then.i434
@@ -1842,7 +1842,7 @@ if.then.i443:                                     ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i445, label %if.then1.i449, label %if.else.i446
 
 if.then1.i449:                                    ; preds = %if.then.i443
-  tail call void @free(ptr noundef nonnull %bd.1) #17
+  tail call void @free(ptr noundef nonnull %bd.1) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit450
 
 if.else.i446:                                     ; preds = %if.then.i443
@@ -1864,7 +1864,7 @@ if.then.i452:                                     ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i454, label %if.then1.i458, label %if.else.i455
 
 if.then1.i458:                                    ; preds = %if.then.i452
-  tail call void @free(ptr noundef nonnull %bs.1) #17
+  tail call void @free(ptr noundef nonnull %bs.1) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit459
 
 if.else.i455:                                     ; preds = %if.then.i452
@@ -1885,7 +1885,7 @@ if.then.i461:                                     ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i463, label %if.then1.i467, label %if.else.i464
 
 if.then1.i467:                                    ; preds = %if.then.i461
-  tail call void @free(ptr noundef nonnull %b.2.lcssa.i) #17
+  tail call void @free(ptr noundef nonnull %b.2.lcssa.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit468
 
 if.else.i464:                                     ; preds = %if.then.i461
@@ -1907,7 +1907,7 @@ if.then.i470:                                     ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i472, label %if.then1.i476, label %if.else.i473
 
 if.then1.i476:                                    ; preds = %if.then.i470
-  tail call void @free(ptr noundef nonnull %delta.1) #17
+  tail call void @free(ptr noundef nonnull %delta.1) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit477
 
 if.else.i473:                                     ; preds = %if.then.i470
@@ -1954,7 +1954,7 @@ if.then13.i.i.i:                                  ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %land.lhs.true9.i.i.i
-  %call.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else14.i.i.i, %if.then13.i.i.i
@@ -2027,7 +2027,7 @@ if.then13.i.i87.i:                                ; preds = %land.lhs.true9.i.i7
   br label %if.end.i.i83.i
 
 if.else14.i.i81.i:                                ; preds = %land.lhs.true9.i.i77.i
-  %call.i.i82.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i82.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i83.i
 
 if.end.i.i83.i:                                   ; preds = %if.else14.i.i81.i, %if.then13.i.i87.i
@@ -2260,7 +2260,7 @@ if.then.i.i493:                                   ; preds = %ret.i, %if.then98.i
   br i1 %cmp.i.i494, label %if.then1.i.i, label %if.else.i.i495
 
 if.then1.i.i:                                     ; preds = %if.then.i.i493
-  tail call void @free(ptr noundef nonnull %b.6114.i) #17
+  tail call void @free(ptr noundef nonnull %b.6114.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit.i
 
 if.else.i.i495:                                   ; preds = %if.then.i.i493
@@ -2283,7 +2283,7 @@ if.then.i95.i:                                    ; preds = %_ZN6dmg_fpL5BfreeEP
   br i1 %cmp.i97.i, label %if.then1.i101.i, label %if.else.i98.i
 
 if.then1.i101.i:                                  ; preds = %if.then.i95.i
-  tail call void @free(ptr noundef nonnull %d.1.i) #17
+  tail call void @free(ptr noundef nonnull %d.1.i) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit102.i
 
 if.else.i98.i:                                    ; preds = %if.then.i95.i
@@ -2372,7 +2372,7 @@ if.then789:                                       ; preds = %if.end786
   br i1 %tobool795.not, label %if.then796, label %ret
 
 if.then796:                                       ; preds = %if.then789
-  %call797 = tail call ptr @__errno_location() #15
+  %call797 = tail call ptr @__errno_location() #16
   store i32 34, ptr %call797, align 4
   br label %ret
 
@@ -2617,7 +2617,7 @@ if.then13.i:                                      ; preds = %land.lhs.true9.i
   br label %if.end.i
 
 if.else14.i:                                      ; preds = %land.lhs.true9.i
-  %call.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else14.i, %if.then13.i
@@ -2905,7 +2905,7 @@ if.then13.i.i:                                    ; preds = %land.lhs.true9.i.i
   br label %if.end.i.i
 
 if.else14.i.i:                                    ; preds = %land.lhs.true9.i.i
-  %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else14.i.i, %if.then13.i.i
@@ -2960,7 +2960,7 @@ if.then.i:                                        ; preds = %if.then10
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void @free(ptr noundef nonnull %b.addr.1) #17
+  tail call void @free(ptr noundef nonnull %b.addr.1) #18
   br label %if.end12
 
 if.else.i:                                        ; preds = %if.then.i
@@ -3062,7 +3062,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i ], [ %sub6.i, %if.else.i ]
   %shl22.i = phi i32 [ %shl16.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else14.i, %if.then13.i
@@ -3251,7 +3251,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i ], [ %sub6.i, %if.else.i ]
   %shl22.i = phi i32 [ %shl16.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else14.i, %if.then13.i
@@ -3342,7 +3342,7 @@ if.then.i31:                                      ; preds = %if.end28
   br i1 %cmp.i32, label %if.then1.i, label %if.else.i33
 
 if.then1.i:                                       ; preds = %if.then.i31
-  tail call void @free(ptr noundef nonnull %b) #17
+  tail call void @free(ptr noundef nonnull %b) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 if.else.i33:                                      ; preds = %if.then.i31
@@ -3419,7 +3419,7 @@ if.then13.i:                                      ; preds = %land.lhs.true9.i
   br label %if.end.i32
 
 if.else14.i:                                      ; preds = %land.lhs.true9.i
-  %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.else14.i, %if.then13.i
@@ -3496,7 +3496,7 @@ if.else14.i34:                                    ; preds = %land.lhs.true9.i45,
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i45 ], [ %sub6.i, %if.else.i ]
   %shl22.i = phi i32 [ %shl16.i, %land.lhs.true9.i45 ], [ %shl.i, %if.else.i ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i35 = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i35 = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i36
 
 if.end.i36:                                       ; preds = %if.else14.i34, %if.then13.i51
@@ -3604,7 +3604,7 @@ entry:
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %entry
-  tail call void @free(ptr noundef nonnull %add.ptr) #17
+  tail call void @free(ptr noundef nonnull %add.ptr) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3650,7 +3650,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.then
-  tail call void @free(ptr noundef nonnull %add.ptr.i) #17
+  tail call void @free(ptr noundef nonnull %add.ptr.i) #18
   br label %_ZN6dmg_fp8freedtoaEPc.exit
 
 if.else.i.i:                                      ; preds = %if.then
@@ -3718,7 +3718,7 @@ if.then13.i.i.i:                                  ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %land.lhs.true9.i.i.i
-  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %call.i.i.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else14.i.i.i, %if.then13.i.i.i
@@ -3777,7 +3777,7 @@ if.then13.i.i.i359:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i355
 
 if.else14.i.i.i353:                               ; preds = %land.lhs.true9.i.i.i347
-  %call.i.i.i354 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %call.i.i.i354 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %if.end.i.i.i355
 
 if.end.i.i.i355:                                  ; preds = %if.else14.i.i.i353, %if.then13.i.i.i359
@@ -3844,7 +3844,7 @@ if.then13.i.i.i390:                               ; preds = %land.lhs.true9.i.i.
   br label %if.end.i.i.i386
 
 if.else14.i.i.i384:                               ; preds = %land.lhs.true9.i.i.i378
-  %call.i.i.i385 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
+  %call.i.i.i385 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   br label %if.end.i.i.i386
 
 if.end.i.i.i386:                                  ; preds = %if.else14.i.i.i384, %if.then13.i.i.i390
@@ -4087,7 +4087,7 @@ if.else14.i.i:                                    ; preds = %land.lhs.true9.i.i,
   %sub625.i.i = phi i64 [ %sub620.i.i, %land.lhs.true9.i.i ], [ %sub6.i.i, %if.else.i.i397 ]
   %shl22.i.i = phi i32 [ %shl16.i.i, %land.lhs.true9.i.i ], [ %shl.i.i, %if.else.i.i397 ]
   %mul16.i.i = and i64 %sub625.i.i, 34359738360
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul16.i.i) #16
+  %call.i.i = tail call noalias ptr @malloc(i64 noundef %mul16.i.i) #17
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else14.i.i, %if.then13.i.i
@@ -4529,7 +4529,7 @@ if.then13.i.i417:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i413
 
 if.else14.i.i411:                                 ; preds = %land.lhs.true9.i.i407
-  %call.i.i412 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i412 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i413
 
 if.end.i.i413:                                    ; preds = %if.else14.i.i411, %if.then13.i.i417
@@ -4589,7 +4589,7 @@ if.then.i420:                                     ; preds = %if.then344
   br i1 %cmp.i422, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i420
-  tail call void @free(ptr noundef nonnull %call22) #17
+  tail call void @free(ptr noundef nonnull %call22) #18
   br label %if.end356
 
 if.else.i:                                        ; preds = %if.then.i420
@@ -4629,7 +4629,7 @@ if.then13.i.i439:                                 ; preds = %land.lhs.true9.i.i4
   br label %if.end.i.i435
 
 if.else14.i.i433:                                 ; preds = %land.lhs.true9.i.i429
-  %call.i.i434 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #16
+  %call.i.i434 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #17
   br label %if.end.i.i435
 
 if.end.i.i435:                                    ; preds = %if.else14.i.i433, %if.then13.i.i439
@@ -4935,7 +4935,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i ], [ %sub6.i, %if.else.i483 ]
   %shl22.i = phi i32 [ %shl16.i494, %land.lhs.true9.i ], [ %shl.i484, %if.else.i483 ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i487
 
 if.end.i487:                                      ; preds = %if.else14.i, %if.then13.i
@@ -5070,7 +5070,7 @@ if.then.i545:                                     ; preds = %_ZN6dmg_fpL3cmpEPNS
   br i1 %cmp.i547, label %if.then1.i551, label %if.else.i548
 
 if.then1.i551:                                    ; preds = %if.then.i545
-  tail call void @free(ptr noundef nonnull %call462) #17
+  tail call void @free(ptr noundef nonnull %call462) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit552
 
 if.else.i548:                                     ; preds = %if.then.i545
@@ -5386,7 +5386,7 @@ if.then.i602:                                     ; preds = %ret
   br i1 %cmp.i604, label %if.then1.i608, label %if.else.i605
 
 if.then1.i608:                                    ; preds = %if.then.i602
-  tail call void @free(ptr noundef nonnull %S.4) #17
+  tail call void @free(ptr noundef nonnull %S.4) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit609
 
 if.else.i605:                                     ; preds = %if.then.i602
@@ -5414,7 +5414,7 @@ if.then.i611:                                     ; preds = %if.then607
   br i1 %cmp.i613, label %if.then1.i617, label %if.else.i614
 
 if.then1.i617:                                    ; preds = %if.then.i611
-  tail call void @free(ptr noundef nonnull %mlo.6) #17
+  tail call void @free(ptr noundef nonnull %mlo.6) #18
   br label %if.then.i620
 
 if.else.i614:                                     ; preds = %if.then.i611
@@ -5432,7 +5432,7 @@ if.then.i620:                                     ; preds = %if.then607, %if.the
   br i1 %cmp.i622, label %if.then1.i626, label %if.else.i623
 
 if.then1.i626:                                    ; preds = %if.then.i620
-  tail call void @free(ptr noundef nonnull %mhi.13) #17
+  tail call void @free(ptr noundef nonnull %mhi.13) #18
   br label %ret1
 
 if.else.i623:                                     ; preds = %if.then.i620
@@ -5466,7 +5466,7 @@ if.then.i629:                                     ; preds = %ret1
   br i1 %cmp.i631, label %if.then1.i635, label %if.else.i632
 
 if.then1.i635:                                    ; preds = %if.then.i629
-  tail call void @free(ptr noundef nonnull %b.13) #17
+  tail call void @free(ptr noundef nonnull %b.13) #18
   br label %_ZN6dmg_fpL5BfreeEPNS_6BigintE.exit636
 
 if.else.i632:                                     ; preds = %if.then.i629
@@ -5584,7 +5584,7 @@ if.else14.i:                                      ; preds = %land.lhs.true9.i, %
   %sub625.i = phi i64 [ %sub620.i, %land.lhs.true9.i ], [ %sub6.i, %if.else.i ]
   %shl22.i = phi i32 [ %shl16.i, %land.lhs.true9.i ], [ %shl.i, %if.else.i ]
   %mul16.i = and i64 %sub625.i, 34359738360
-  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #16
+  %call.i = tail call noalias ptr @malloc(i64 noundef %mul16.i) #17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else14.i, %if.then13.i
@@ -5613,7 +5613,7 @@ if.then.i19:                                      ; preds = %if.end.i, %if.then.
   br i1 %cmp.i20, label %if.then1.i, label %if.else.i21
 
 if.then1.i:                                       ; preds = %if.then.i19
-  tail call void @free(ptr noundef nonnull %b) #17
+  tail call void @free(ptr noundef nonnull %b) #18
   br label %if.end
 
 if.else.i21:                                      ; preds = %if.then.i19
@@ -5641,8 +5641,8 @@ if.end18:                                         ; preds = %if.end, %do.end
   ret ptr %b.addr.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr nocapture noundef %b, ptr noundef readonly %S) unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc noundef i32 @_ZN6dmg_fpL6quoremEPNS_6BigintES1_(ptr nocapture noundef %b, ptr noundef readonly %S) unnamed_addr #9 {
 entry:
   %wds = getelementptr inbounds i8, ptr %S, i64 20
   %0 = load i32, ptr %wds, align 4
@@ -5831,13 +5831,13 @@ return:                                           ; preds = %if.then7.i, %_ZN6dm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %a, ptr nocapture noundef writeonly %e) unnamed_addr #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %a, ptr nocapture noundef writeonly %e) unnamed_addr #12 {
 entry:
   %x.ptr = getelementptr inbounds i8, ptr %a, i64 24
   %wds = getelementptr inbounds i8, ptr %a, i64 20
@@ -5944,31 +5944,31 @@ ret_d:                                            ; preds = %cond.end12, %cond.e
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
+declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5979,15 +5979,16 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

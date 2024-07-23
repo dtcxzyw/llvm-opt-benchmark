@@ -77,7 +77,7 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
 23:                                               ; preds = %.loopexit
   %24 = zext nneg i32 %.1 to i64
   %25 = getelementptr inbounds i32, ptr %0, i64 %24
-  tail call void @WebPMultARGBRow_C(ptr noundef %25, i32 noundef %21, i32 noundef %2) #8
+  tail call void @WebPMultARGBRow_C(ptr noundef %25, i32 noundef %21, i32 noundef %2) #6
   br label %26
 
 26:                                               ; preds = %23, %.loopexit
@@ -136,14 +136,14 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
   %28 = zext nneg i32 %.1 to i64
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %1, i64 %28
-  tail call void @WebPMultRow_C(ptr noundef %29, ptr noundef %30, i32 noundef %25, i32 noundef %3) #8
+  tail call void @WebPMultRow_C(ptr noundef %29, ptr noundef %30, i32 noundef %25, i32 noundef %3) #6
   br label %31
 
 31:                                               ; preds = %27, %.loopexit
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = add nsw i32 %3, -1
   %7 = icmp sgt i32 %3, 0
@@ -420,7 +420,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef %4, i32 noundef %5) #2 {
   %7 = add nsw i32 %2, -1
   %8 = and i32 %7, -8
@@ -556,7 +556,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias nocapture no
   ret i32 %65
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DispatchAlphaToGreen_SSE2(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = and i32 %2, -16
   %8 = icmp sgt i32 %3, 0
@@ -669,7 +669,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias nocapture noundef re
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #2 {
   %7 = add nsw i32 %2, -1
   %8 = and i32 %7, -8
@@ -797,8 +797,8 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   ret i32 %58
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i32 noundef %2) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i32 noundef %2) #2 {
   %.not112 = icmp slt i32 %2, 16
   br i1 %.not112, label %._crit_edge, label %.lr.ph.preheader
 
@@ -891,7 +891,7 @@ define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = sext i32 %1 to i64
   br label %4
 
@@ -936,7 +936,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = shl nsw i32 %1, 2
   %4 = add nsw i32 %3, -3
   %5 = sext i32 %4 to i64
@@ -1012,7 +1012,7 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AlphaReplace_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @AlphaReplace_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = insertelement <4 x i32> poison, i32 %2, i64 0
   %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
   %.not74 = icmp slt i32 %1, 8
@@ -1080,28 +1080,26 @@ define internal void @AlphaReplace_SSE2(ptr nocapture noundef %0, i32 noundef %1
   ret void
 }
 
-declare void @WebPMultARGBRow_C(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare void @WebPMultARGBRow_C(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #7
+declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #7
+declare <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16>, <8 x i16>) #5
 
-declare void @WebPMultRow_C(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare void @WebPMultRow_C(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #7
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

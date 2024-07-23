@@ -458,7 +458,7 @@ expand64.exit:                                    ; preds = %entry, %partial_loa
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @storecompressed128(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %bits.i.sroa.0 = alloca i32, align 4
@@ -683,8 +683,8 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @loadcompressed128(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @loadcompressed128(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i28.i = alloca [6 x i64], align 16
   %array.i.i = alloca [6 x i64], align 16
@@ -900,8 +900,8 @@ loadcompressed128_64bit.exit:                     ; preds = %expand64.exit80.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @storecompressed256(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @storecompressed256(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [4 x i32], align 16
   %v.i = alloca [4 x i64], align 16
@@ -1235,8 +1235,8 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @loadcompressed256(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @loadcompressed256(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i163.i = alloca [6 x i64], align 16
   %array.i102.i = alloca [6 x i64], align 16
@@ -1610,8 +1610,8 @@ loadcompressed256_64bit.exit:                     ; preds = %expand64.exit93.i, 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @storecompressed384(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @storecompressed384(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [6 x i32], align 16
   %v.i = alloca [6 x i64], align 16
@@ -2053,8 +2053,8 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @loadcompressed384(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @loadcompressed384(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i302.i = alloca [6 x i64], align 16
   %array.i241.i = alloca [6 x i64], align 16
@@ -2578,8 +2578,8 @@ loadcompressed384_64bit.exit:                     ; preds = %expand64.exit110.i,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @storecompressed512(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @storecompressed512(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [8 x i32], align 16
   %v.i = alloca [8 x i64], align 16
@@ -3129,8 +3129,8 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @loadcompressed512(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @loadcompressed512(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i445.i = alloca [6 x i64], align 16
   %array.i384.i = alloca [6 x i64], align 16
@@ -3805,13 +3805,11 @@ loadcompressed512_64bit.exit:                     ; preds = %expand64.exit131.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+declare i64 @llvm.ctpop.i64(i64) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

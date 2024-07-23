@@ -97,7 +97,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %slen.addr.019 = phi i32 [ %sub, %while.body.lr.ph ], [ %sub14, %if.end11 ]
   %s.addr.018 = phi ptr [ %s, %while.body.lr.ph ], [ %add.ptr, %if.end11 ]
   %conv3 = zext i32 %slen.addr.019 to i64
-  %call = tail call ptr @memchr(ptr noundef %s.addr.018, i32 noundef %conv, i64 noundef %conv3) #11
+  %call = tail call ptr @memchr(ptr noundef %s.addr.018, i32 noundef %conv, i64 noundef %conv3) #12
   %tobool4.not = icmp eq ptr %call, null
   br i1 %tobool4.not, label %return, label %if.end
 
@@ -124,8 +124,8 @@ return:                                           ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly %s) local_unnamed_addr #1 {
+; Function Attrs: nofree nounwind memory(argmem: read) uwtable
+define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly %s) local_unnamed_addr #3 {
 entry:
   %len = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %len, align 4
@@ -166,7 +166,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_str_resize(ptr noundef %L, i32 noundef %newmask) local_unnamed_addr #3 {
+define hidden void @lj_str_resize(ptr noundef %L, i32 noundef %newmask) local_unnamed_addr #4 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -185,7 +185,7 @@ if.end:                                           ; preds = %entry
   %add = shl nuw nsw i32 %newmask, 3
   %4 = add nuw nsw i32 %add, 8
   %mul = zext nneg i32 %4 to i64
-  %call = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul) #12
+  %call = tail call ptr @lj_mem_realloc(ptr noundef nonnull %L, ptr noundef null, i64 noundef 0, i64 noundef %mul) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call, i8 0, i64 %mul, i1 false)
   %second = getelementptr inbounds i8, ptr %1, i64 173
   %5 = load i8, ptr %second, align 1
@@ -561,7 +561,7 @@ for.end133:                                       ; preds = %for.end133.loopexit
   %54 = load ptr, ptr %1, align 8
   %allocd.i = getelementptr inbounds i8, ptr %1, i64 8
   %55 = load ptr, ptr %allocd.i, align 8
-  %call.i = tail call ptr %54(ptr noundef %55, ptr noundef %52, i64 noundef %add138, i64 noundef 0) #12
+  %call.i = tail call ptr %54(ptr noundef %55, ptr noundef %52, i64 noundef %add138, i64 noundef 0) #13
   store ptr %call, ptr %str, align 8
   store i32 %newmask, ptr %mask49, align 8
   br label %return
@@ -570,13 +570,13 @@ return:                                           ; preds = %entry, %for.end133
   ret void
 }
 
-declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_str_new(ptr noundef %L, ptr noundef readonly %str, i64 noundef %lenx) local_unnamed_addr #3 {
+define hidden ptr @lj_str_new(ptr noundef %L, ptr noundef readonly %str, i64 noundef %lenx) local_unnamed_addr #4 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %sub = add i64 %lenx, -1
@@ -852,7 +852,7 @@ if.else.i57:                                      ; preds = %if.then.i53
   store i64 %sub.i.i, ptr %gc.i.i, align 8
   %42 = load ptr, ptr %4, align 8
   %43 = load ptr, ptr %allocd.i.i, align 8
-  %call.i.i = tail call ptr %42(ptr noundef %43, ptr noundef nonnull %o.0.i143, i64 noundef %add1.i126, i64 noundef 0) #12
+  %call.i.i = tail call ptr %42(ptr noundef %43, ptr noundef nonnull %o.0.i143, i64 noundef %add1.i126, i64 noundef 0) #13
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.else.i57, %if.end35.i
@@ -948,7 +948,7 @@ if.end35.i:                                       ; preds = %hash_dense.exit121,
 if.end62:                                         ; preds = %if.end, %while.end
   %idx.ext.i68 = and i64 %lenx, 2147483644
   %add1.i = add nuw nsw i64 %idx.ext.i68, 28
-  %call.i61 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %add1.i) #12
+  %call.i61 = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %add1.i) #13
   %53 = load i64, ptr %glref, align 8
   %54 = inttoptr i64 %53 to ptr
   %currentwhite.i63 = getelementptr inbounds i8, ptr %54, i64 32
@@ -977,7 +977,7 @@ entry.if.end_crit_edge.i:                         ; preds = %if.end62
 
 if.then.i75:                                      ; preds = %if.end62
   %prng.i = getelementptr inbounds i8, ptr %54, i64 392
-  %call8.i = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #12
+  %call8.i = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #13
   %conv9.i = trunc i64 %call8.i to i32
   %shr.i76 = lshr i64 %call8.i, 56
   %conv11.i = trunc nuw i64 %shr.i76 to i8
@@ -1033,7 +1033,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool64.not, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %if.else
-  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 56) #13
+  tail call void @lj_err_msg(ptr noundef nonnull %L, i32 noundef 56) #14
   unreachable
 
 if.end66:                                         ; preds = %if.else
@@ -1046,10 +1046,10 @@ return:                                           ; preds = %if.then38.i, %if.en
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_msg(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare hidden void @lj_err_msg(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_str_free(ptr nocapture noundef %g, ptr noundef %s) local_unnamed_addr #3 {
+define hidden void @lj_str_free(ptr nocapture noundef %g, ptr noundef %s) local_unnamed_addr #4 {
 entry:
   %num = getelementptr inbounds i8, ptr %g, i64 164
   %0 = load i32, ptr %num, align 4
@@ -1068,55 +1068,56 @@ entry:
   %4 = load ptr, ptr %g, align 8
   %allocd.i = getelementptr inbounds i8, ptr %g, i64 8
   %5 = load ptr, ptr %allocd.i, align 8
-  %call.i = tail call ptr %4(ptr noundef %5, ptr noundef %s, i64 noundef %add1, i64 noundef 0) #12
+  %call.i = tail call ptr %4(ptr noundef %5, ptr noundef %s, i64 noundef %add1, i64 noundef 0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_str_init(ptr noundef %L) local_unnamed_addr #3 {
+define hidden void @lj_str_init(ptr noundef %L) local_unnamed_addr #4 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
   %prng = getelementptr inbounds i8, ptr %1, i64 392
-  %call = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng) #12
+  %call = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng) #13
   %seed = getelementptr inbounds i8, ptr %1, i64 176
   store i64 %call, ptr %seed, align 8
   tail call void @lj_str_resize(ptr noundef %L, i32 noundef 255)
   ret void
 }
 
-declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #4
+declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #3 = { nofree nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

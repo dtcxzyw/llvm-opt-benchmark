@@ -83,7 +83,7 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, 
 
 24:                                               ; preds = %13
   %25 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %26 = tail call float %25(i32 noundef %18) #12
+  %26 = tail call float %25(i32 noundef %18) #11
   %.pre = load float, ptr %2, align 4
   %.pre27 = load i32, ptr %7, align 4
   br label %VP8LFastSLog2.exit
@@ -124,7 +124,7 @@ VP8LFastSLog2.exit:                               ; preds = %20, %24
 
 43:                                               ; preds = %._crit_edge
   %44 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %45 = tail call float %44(i32 noundef %.pre28) #12
+  %45 = tail call float %44(i32 noundef %.pre28) #11
   %.pre29 = load float, ptr %2, align 4
   br label %VP8LFastSLog2.exit24
 
@@ -217,8 +217,8 @@ define hidden void @VP8LTransformColor_C(ptr nocapture noundef readonly %0, ptr 
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #2 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge13
 
@@ -268,8 +268,8 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readon
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) #2 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge17
 
@@ -416,7 +416,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = load ptr, ptr @VP8LAddVector, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = load ptr, ptr %2, align 8
-  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #12
+  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #11
   br label %34
 
 21:                                               ; preds = %15
@@ -460,7 +460,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = load ptr, ptr @VP8LAddVector, align 8
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   %44 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #12
+  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #11
   br label %52
 
 45:                                               ; preds = %39
@@ -498,7 +498,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   %60 = load ptr, ptr @VP8LAddVector, align 8
   %61 = getelementptr inbounds i8, ptr %1, i64 1032
   %62 = getelementptr inbounds i8, ptr %2, i64 1032
-  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #12
+  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #11
   br label %70
 
 63:                                               ; preds = %57
@@ -536,7 +536,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   %78 = load ptr, ptr @VP8LAddVector, align 8
   %79 = getelementptr inbounds i8, ptr %1, i64 2056
   %80 = getelementptr inbounds i8, ptr %2, i64 2056
-  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #12
+  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #11
   br label %88
 
 81:                                               ; preds = %75
@@ -574,7 +574,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   %96 = load ptr, ptr @VP8LAddVector, align 8
   %97 = getelementptr inbounds i8, ptr %1, i64 3080
   %98 = getelementptr inbounds i8, ptr %2, i64 3080
-  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #12
+  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #11
   br label %106
 
 99:                                               ; preds = %93
@@ -626,7 +626,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 121:                                              ; preds = %117
   %122 = load ptr, ptr @VP8LAddVectorEq, align 8
   %123 = load ptr, ptr %2, align 8
-  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #12
+  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #11
   br label %128
 
 124:                                              ; preds = %117
@@ -652,7 +652,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 135:                                              ; preds = %131
   %136 = load ptr, ptr @VP8LAddVectorEq, align 8
   %137 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #12
+  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #11
   br label %140
 
 138:                                              ; preds = %131
@@ -676,7 +676,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 147:                                              ; preds = %143
   %148 = load ptr, ptr @VP8LAddVectorEq, align 8
   %149 = getelementptr inbounds i8, ptr %2, i64 1032
-  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #12
+  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #11
   br label %152
 
 150:                                              ; preds = %143
@@ -700,7 +700,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 159:                                              ; preds = %155
   %160 = load ptr, ptr @VP8LAddVectorEq, align 8
   %161 = getelementptr inbounds i8, ptr %2, i64 2056
-  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #12
+  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #11
   br label %164
 
 162:                                              ; preds = %155
@@ -724,7 +724,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 171:                                              ; preds = %167
   %172 = load ptr, ptr @VP8LAddVectorEq, align 8
   %173 = getelementptr inbounds i8, ptr %2, i64 3080
-  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #12
+  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #11
   br label %176
 
 174:                                              ; preds = %167
@@ -753,14 +753,14 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
@@ -771,7 +771,7 @@ define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
   br i1 %.not1, label %VP8LEncDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8LDspInit() #12
+  tail call void @VP8LDspInit() #11
   store ptr @VP8LSubtractGreenFromBlueAndRed_C, ptr @VP8LSubtractGreenFromBlueAndRed, align 8
   store ptr @VP8LTransformColor_C, ptr @VP8LTransformColor, align 8
   store ptr @VP8LCollectColorBlueTransforms_C, ptr @VP8LCollectColorBlueTransforms, align 8
@@ -824,25 +824,25 @@ define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
   br i1 %.not.i, label %VP8LEncDspInit_body.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 %6(i32 noundef 0) #12
+  %8 = tail call i32 %6(i32 noundef 0) #11
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %VP8LEncDspInit_body.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @VP8LEncDspInitSSE2() #12
+  tail call void @VP8LEncDspInitSSE2() #11
   %10 = load ptr, ptr @VP8GetCPUInfo, align 8
-  %11 = tail call i32 %10(i32 noundef 3) #12
+  %11 = tail call i32 %10(i32 noundef 3) #11
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %VP8LEncDspInit_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @VP8LEncDspInitSSE41() #12
+  tail call void @VP8LEncDspInitSSE41() #11
   br label %VP8LEncDspInit_body.exit
 
 VP8LEncDspInit_body.exit:                         ; preds = %12, %9, %7, %5, %2
   %13 = load ptr, ptr @VP8GetCPUInfo, align 8
   store volatile ptr %13, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #11
   br label %15
 
 15:                                               ; preds = %0, %VP8LEncDspInit_body.exit
@@ -850,15 +850,15 @@ VP8LEncDspInit_body.exit:                         ; preds = %12, %9, %7, %5, %2
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
-declare void @VP8LDspInit() local_unnamed_addr #7
+declare void @VP8LDspInit() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @FastLog2Slow_C(i32 noundef %0) #8 {
+define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   %2 = icmp ult i32 %0, 65536
   br i1 %2, label %3, label %24
 
@@ -890,7 +890,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #8 {
 
 24:                                               ; preds = %1
   %25 = uitofp i32 %0 to double
-  %26 = tail call double @log(double noundef %25) #12
+  %26 = tail call double @log(double noundef %25) #11
   %27 = fmul double %26, 0x3FF71547652B82FE
   %28 = fptrunc double %27 to float
   br label %29
@@ -901,7 +901,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal float @FastSLog2Slow_C(i32 noundef %0) #8 {
+define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
   %2 = icmp ult i32 %0, 65536
   br i1 %2, label %3, label %19
 
@@ -927,7 +927,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #8 {
 19:                                               ; preds = %1
   %20 = uitofp i32 %0 to double
   %21 = fmul double %20, 0x3FF71547652B82FE
-  %22 = tail call double @log(double noundef %20) #12
+  %22 = tail call double @log(double noundef %20) #11
   %23 = fmul double %21, %22
   %24 = fptrunc double %23 to float
   br label %25
@@ -938,7 +938,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef %1) #9 {
+define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -976,7 +976,7 @@ define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #9 {
+define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1056,7 +1056,7 @@ define internal float @CombinedShannonEntropy_C(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %18 = tail call float %17(i32 noundef %5) #12
+  %18 = tail call float %17(i32 noundef %5) #11
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %12, %16
@@ -1074,7 +1074,7 @@ VP8LFastSLog2.exit:                               ; preds = %12, %16
 
 27:                                               ; preds = %VP8LFastSLog2.exit
   %28 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %29 = tail call float %28(i32 noundef %9) #12
+  %29 = tail call float %28(i32 noundef %9) #11
   br label %VP8LFastSLog2.exit35
 
 VP8LFastSLog2.exit35:                             ; preds = %23, %27
@@ -1099,7 +1099,7 @@ VP8LFastSLog2.exit35:                             ; preds = %23, %27
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %42 = tail call float %41(i32 noundef %7) #12
+  %42 = tail call float %41(i32 noundef %7) #11
   br label %VP8LFastSLog2.exit36
 
 VP8LFastSLog2.exit36:                             ; preds = %36, %40
@@ -1127,7 +1127,7 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %54 = tail call float %53(i32 noundef %.131) #12
+  %54 = tail call float %53(i32 noundef %.131) #11
   br label %VP8LFastSLog2.exit37
 
 VP8LFastSLog2.exit37:                             ; preds = %48, %52
@@ -1143,7 +1143,7 @@ VP8LFastSLog2.exit37:                             ; preds = %48, %52
 
 61:                                               ; preds = %VP8LFastSLog2.exit37
   %62 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %63 = tail call float %62(i32 noundef %.129) #12
+  %63 = tail call float %62(i32 noundef %.129) #11
   br label %VP8LFastSLog2.exit38
 
 VP8LFastSLog2.exit38:                             ; preds = %57, %61
@@ -1206,7 +1206,7 @@ define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i
 
 29:                                               ; preds = %18
   %30 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %31 = tail call float %30(i32 noundef %.03640) #12
+  %31 = tail call float %30(i32 noundef %.03640) #11
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %29, %25
@@ -1277,7 +1277,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %15, %VP8LFastSLog2.
 
 66:                                               ; preds = %53
   %67 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %68 = tail call float %67(i32 noundef %.036.lcssa) #12
+  %68 = tail call float %67(i32 noundef %.036.lcssa) #11
   br label %VP8LFastSLog2.exit.i19
 
 VP8LFastSLog2.exit.i19:                           ; preds = %66, %62
@@ -1324,7 +1324,7 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
 
 97:                                               ; preds = %GetEntropyUnrefinedHelper.exit21
   %98 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %99 = tail call float %98(i32 noundef %91) #12
+  %99 = tail call float %98(i32 noundef %91) #11
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %93, %97
@@ -1393,7 +1393,7 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readon
 
 35:                                               ; preds = %24
   %36 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %37 = tail call float %36(i32 noundef %.03943) #12
+  %37 = tail call float %36(i32 noundef %.03943) #11
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %35, %31
@@ -1464,7 +1464,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %21, %VP8LFastSLog2.
 
 72:                                               ; preds = %59
   %73 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %74 = tail call float %73(i32 noundef %.039.lcssa) #12
+  %74 = tail call float %73(i32 noundef %.039.lcssa) #11
   br label %VP8LFastSLog2.exit.i22
 
 VP8LFastSLog2.exit.i22:                           ; preds = %72, %68
@@ -1511,7 +1511,7 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
 
 103:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
   %104 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %105 = tail call float %104(i32 noundef %97) #12
+  %105 = tail call float %104(i32 noundef %97) #11
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %99, %103
@@ -1574,7 +1574,7 @@ define internal void @AddVectorEq_C(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @VectorMismatch_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #9 {
+define internal i32 @VectorMismatch_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #8 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %.critedge
 
@@ -1680,7 +1680,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1715,7 +1715,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1750,7 +1750,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1785,7 +1785,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1820,7 +1820,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1855,7 +1855,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1890,7 +1890,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1925,7 +1925,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1960,7 +1960,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1995,7 +1995,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2030,7 +2030,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2065,7 +2065,7 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2086,56 +2086,55 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   ret void
 }
 
-declare void @VP8LEncDspInitSSE2() local_unnamed_addr #7
+declare void @VP8LEncDspInitSSE2() local_unnamed_addr #6
 
-declare void @VP8LEncDspInitSSE41() local_unnamed_addr #7
+declare void @VP8LEncDspInitSSE41() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #10
+declare double @log(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #11
+declare float @llvm.fmuladd.f32(float, float, float) #10
 
-declare i32 @VP8LPredictor2_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor2_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor3_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor3_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor4_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor4_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor5_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor5_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor6_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor6_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor7_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor7_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor8_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor8_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor9_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor9_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor10_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor10_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor11_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor11_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor12_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor12_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare i32 @VP8LPredictor13_C(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @VP8LPredictor13_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

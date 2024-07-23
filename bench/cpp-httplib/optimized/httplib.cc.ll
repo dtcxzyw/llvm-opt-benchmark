@@ -3652,7 +3652,7 @@ entry:
   ret i1 %0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @_ZN7httplib6detail4trimEPKcS2_mm(ptr noundef readonly %b, ptr noundef readnone %e, i64 noundef %left, i64 noundef %right) local_unnamed_addr #9 {
 entry:
   %add.ptr9 = getelementptr inbounds i8, ptr %b, i64 %left
@@ -4613,7 +4613,7 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7httplib6detail4mmap7is_openEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK7httplib6detail4mmap7is_openEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
   %addr_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %addr_, align 8
@@ -4622,7 +4622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7httplib6detail4mmap4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK7httplib6detail4mmap4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
   %size_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %size_, align 8
@@ -4630,7 +4630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK7httplib6detail4mmap4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK7httplib6detail4mmap4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
   %addr_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %addr_, align 8
@@ -4855,7 +4855,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4940,7 +4940,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7httplib6detail10keep_aliveEil(i32 noundef %sock, i64 noundef %keep_alive_timeout_sec) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
@@ -5099,7 +5099,7 @@ entry:
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN7httplib6detail19is_connection_errorEv() local_unnamed_addr #15 {
+define noundef zeroext i1 @_ZN7httplib6detail19is_connection_errorEv() local_unnamed_addr #14 {
 entry:
   %call = tail call ptr @__errno_location() #42
   %0 = load i32, ptr %call, align 4
@@ -5157,7 +5157,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -5336,7 +5336,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #14
+declare i32 @htonl(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -5791,7 +5791,7 @@ return:                                           ; preds = %if.end9, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #14
+declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #13
 
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -7167,7 +7167,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7httplib6detail15gzip_compressor8compressEPKcmbSt8functionIFbS3_mEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %data, i64 noundef %data_length, i1 noundef zeroext %last, ptr noundef %callback) unnamed_addr #5 align 2 {
@@ -7337,7 +7337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7httplib6detail17gzip_decompressor8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK7httplib6detail17gzip_decompressor8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #9 align 2 {
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_valid_, align 8
@@ -7638,7 +7638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7httplib6detail19brotli_decompressor8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK7httplib6detail19brotli_decompressor8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
 entry:
   %decoder_s = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %decoder_s, align 8
@@ -9103,7 +9103,7 @@ return:                                           ; preds = %entry, %invoke.cont
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(48) %params) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
@@ -10295,7 +10295,7 @@ eh.resume:                                        ; preds = %lpad3, %ehcleanup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %req, i64 noundef %content_length, i64 noundef %index) local_unnamed_addr #9 {
+define { i64, i64 } @_ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %req, i64 noundef %content_length, i64 noundef %index) local_unnamed_addr #18 {
 entry:
   %ranges = getelementptr inbounds i8, ptr %req, i64 384
   %0 = load ptr, ptr %ranges, align 8
@@ -12198,7 +12198,7 @@ eh.resume.i:                                      ; preds = %lpad84.i, %lpad76.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestERKNS_8ResponseEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %req, ptr nocapture noundef nonnull readonly align 8 dereferenceable(258) %res, i64 noundef %index) local_unnamed_addr #9 {
+define { i64, i64 } @_ZN7httplib6detail27get_range_offset_and_lengthERKNS_7RequestERKNS_8ResponseEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %req, ptr nocapture noundef nonnull readonly align 8 dereferenceable(258) %res, i64 noundef %index) local_unnamed_addr #18 {
 entry:
   %ranges = getelementptr inbounds i8, ptr %req, i64 384
   %0 = load ptr, ptr %ranges, align 8
@@ -18277,7 +18277,7 @@ _ZN7httplib6detail21get_local_ip_and_portEiRNSt7__cxx1112basic_stringIcSt11char_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7httplib6detail12SocketStream6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK7httplib6detail12SocketStream6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #9 align 2 {
 entry:
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %sock_, align 8
@@ -18840,7 +18840,7 @@ return:                                           ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7httplib6detail12RegexMatcher5matchERNS_7RequestE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(664) %request) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -48433,7 +48433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7httplib10ClientImpl4portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %this) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK7httplib10ClientImpl4portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %this) local_unnamed_addr #9 align 2 {
 entry:
   %port_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %port_, align 8
@@ -48462,7 +48462,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7httplib10ClientImpl6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %this) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK7httplib10ClientImpl6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %this) local_unnamed_addr #9 align 2 {
 entry:
   %socket_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %socket_, align 8
@@ -49514,7 +49514,7 @@ _ZN7httplib6detail21get_local_ip_and_portEiRNSt7__cxx1112basic_stringIcSt11char_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7httplib6detail15SSLSocketStream6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK7httplib6detail15SSLSocketStream6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #9 align 2 {
 entry:
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %sock_, align 8
@@ -49820,7 +49820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7httplib9SSLServer8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(864) %this) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK7httplib9SSLServer8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(864) %this) unnamed_addr #9 align 2 {
 entry:
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %ctx_, align 8
@@ -49829,7 +49829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK7httplib9SSLServer11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(864) %this) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK7httplib9SSLServer11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(864) %this) local_unnamed_addr #9 align 2 {
 entry:
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %ctx_, align 8
@@ -50656,7 +50656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7httplib9SSLClient8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK7httplib9SSLClient8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) unnamed_addr #9 align 2 {
 entry:
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 1000
   %0 = load ptr, ptr %ctx_, align 8
@@ -50700,7 +50700,7 @@ _ZN7httplib9SSLClient17set_ca_cert_storeEP13x509_store_st.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7httplib9SSLClient25get_openssl_verify_resultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK7httplib9SSLClient25get_openssl_verify_resultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) local_unnamed_addr #9 align 2 {
 entry:
   %verify_result_ = getelementptr inbounds i8, ptr %this, i64 1080
   %0 = load i64, ptr %verify_result_, align 8
@@ -50708,7 +50708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK7httplib9SSLClient11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZNK7httplib9SSLClient11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1088) %this) local_unnamed_addr #9 align 2 {
 entry:
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 1000
   %0 = load ptr, ptr %ctx_, align 8
@@ -55410,7 +55410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7httplib6Client4portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7httplib6Client4portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %port_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -55441,7 +55441,7 @@ _ZNK7httplib10ClientImpl14is_socket_openEv.exit:  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7httplib6Client6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK7httplib6Client6socketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #18 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %socket_.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -56176,7 +56176,7 @@ _ZN7httplib6Client17set_ca_cert_storeEP13x509_store_st.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7httplib6Client25get_openssl_verify_resultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK7httplib6Client25get_openssl_verify_resultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #18 align 2 {
 entry:
   %is_ssl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_ssl_, align 8
@@ -56195,7 +56195,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK7httplib6Client11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK7httplib6Client11ssl_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #18 align 2 {
 entry:
   %is_ssl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_ssl_, align 8
@@ -57163,7 +57163,7 @@ declare void @_ZSt24__throw_invalid_argumentPKc(ptr noundef) local_unnamed_addr 
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #14
+declare i64 @pthread_self() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_EN7httplib6detail2ciESaIS8_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -61755,7 +61755,7 @@ declare void @__cxa_bad_cast() local_unnamed_addr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #18
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8__detail8_ScannerIcE17_M_eat_escape_awkEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #5 comdat align 2 {
@@ -62795,7 +62795,7 @@ if.end:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Deque_baseINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -62921,7 +62921,7 @@ unreachable:                                      ; preds = %lpad.body
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(48) %__args) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -82127,7 +82127,7 @@ _ZNSt12_Vector_baseISt4pairIlSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #17
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE16_M_main_dispatchENSH_11_Match_modeESt17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(141) %this, i8 noundef zeroext %__match_mode) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -106689,16 +106689,16 @@ attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -31,14 +31,14 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_iso2022() local_unnamed_addr #0 {
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_decoder) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_encoder) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_stateless_iso2022jp_to_eucjp) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_eucjp_to_stateless_iso2022jp) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50220_decoder) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50221_decoder) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50220_encoder) #7
-  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50221_encoder) #7
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_decoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_iso2022jp_encoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_stateless_iso2022jp_to_eucjp) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_eucjp_to_stateless_iso2022jp) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50220_decoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50221_decoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50220_encoder) #5
+  tail call void @rb_register_transcoder(ptr noundef nonnull @rb_cp50221_encoder) #5
   ret void
 }
 
@@ -128,8 +128,8 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_decoder(ptr nocapture noun
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fun_so_iso2022jp_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal i64 @fun_so_iso2022jp_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %7, label %.thread
 
@@ -403,8 +403,8 @@ define internal range(i64 0, 3) i64 @fun_so_cp50221_decoder(ptr nocapture nounde
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal i64 @fun_so_cp50220_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 3
   br i1 %7, label %8, label %49
@@ -663,8 +663,8 @@ fun_so_cp5022x_encoder.exit:                      ; preds = %67, %.thread52.i, %
   ret i64 %122
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @finish_cp50220_encoder(ptr nocapture noundef %0, ptr noundef %1, i64 %2) #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal i64 @finish_cp50220_encoder(ptr nocapture noundef %0, ptr noundef %1, i64 %2) #4 {
   %4 = load i8, ptr %0, align 1
   switch i8 %4, label %24 [
     i8 0, label %31
@@ -722,8 +722,8 @@ define internal i64 @finish_cp50220_encoder(ptr nocapture noundef %0, ptr nounde
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal i64 @fun_so_cp5022x_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %.thread, label %7
 
@@ -815,9 +815,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

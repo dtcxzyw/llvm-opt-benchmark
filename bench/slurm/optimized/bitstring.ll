@@ -328,7 +328,7 @@ define noundef ptr @bit_alloc(i64 noundef %0) #0 {
   %3 = lshr i64 %2, 3
   %4 = and i64 %3, 2305843009213693944
   %5 = add nuw nsw i64 %4, 16
-  %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %5, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #17
+  %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %5, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %0, ptr %7, align 8
@@ -1184,7 +1184,7 @@ define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 nound
   %14 = lshr i64 %13, 3
   %15 = and i64 %14, 2305843009213693944
   %16 = add nuw nsw i64 %15, 16
-  %17 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #17
+  %17 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store i64 %2, ptr %18, align 8
@@ -1312,7 +1312,7 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %16 = and i64 %sext.i, -8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull readonly align 8 %13, i64 %16, i1 false)
   store i64 0, ptr %9, align 8
-  call void @slurm_xfree(ptr noundef nonnull %3) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #16
   br label %17
 
 17:                                               ; preds = %2, %5
@@ -1380,7 +1380,7 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
   br i1 %.not.i40.not, label %.critedge, label %.preheader, !llvm.loop !23
 
 .critedge:                                        ; preds = %.preheader, %25
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %32 = trunc i64 %31 to i32
   %33 = icmp eq i64 %.134, %.03343
   %sext39 = shl i64 %31, 32
@@ -1391,11 +1391,11 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
   br i1 %33, label %38, label %40
 
 38:                                               ; preds = %.critedge
-  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %35, i64 noundef %37, ptr noundef nonnull @.str.2, ptr noundef %.0.ph47, i64 noundef %.03343) #17
+  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %35, i64 noundef %37, ptr noundef nonnull @.str.2, ptr noundef %.0.ph47, i64 noundef %.03343) #16
   br label %42
 
 40:                                               ; preds = %.critedge
-  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %35, i64 noundef %37, ptr noundef nonnull @.str.3, ptr noundef %.0.ph47, i64 noundef %.03343, i64 noundef %.134) #17
+  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %35, i64 noundef %37, ptr noundef nonnull @.str.3, ptr noundef %.0.ph47, i64 noundef %.03343, i64 noundef %.134) #16
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -1404,7 +1404,7 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
   br i1 %43, label %44, label %.outer
 
 44:                                               ; preds = %42
-  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #17
+  %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #16
   br label %.outer
 
 .outer:                                           ; preds = %..outer_crit_edge, %42, %44
@@ -1480,11 +1480,11 @@ define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %.critedge
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef %.0.ph32, i64 noundef %.02128) #17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, ptr noundef %.0.ph32, i64 noundef %.02128) #16
   br label %.outer
 
 32:                                               ; preds = %.critedge
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %.0.ph32, i64 noundef %.02128, i64 noundef %.122) #17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %.0.ph32, i64 noundef %.02128, i64 noundef %.122) #16
   br label %.outer
 
 .outer:                                           ; preds = %31, %32, %16
@@ -1519,7 +1519,7 @@ define range(i32 -1, 1) i32 @bit_unfmt(ptr nocapture noundef %0, ptr noundef %1)
 
 10:                                               ; preds = %7
   %11 = tail call i32 @inx2bitstr(ptr noundef %0, ptr noundef nonnull %8)
-  call void @slurm_xfree(ptr noundef nonnull %3) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #16
   br label %12
 
 12:                                               ; preds = %7, %2, %4, %10
@@ -1535,19 +1535,19 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %3, label %70, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 58) #17
+  %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 58) #16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %33
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, 1
   %10 = shl nsw i32 %9, 1
   %11 = or disjoint i32 %10, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1384, ptr noundef nonnull @__func__.bitfmt2int) #17
+  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1384, ptr noundef nonnull @__func__.bitfmt2int) #16
   %15 = icmp ult i32 %8, 2147483647
   br i1 %15, label %.lr.ph79.preheader, label %.loopexit
 
@@ -1606,7 +1606,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !26
 
 33:                                               ; preds = %4
-  %34 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #17
+  %34 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #16
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %2, align 8
   %37 = load i8, ptr %36, align 1
@@ -1615,7 +1615,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %36, i64 1
-  %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #17
+  %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
   %42 = load ptr, ptr %2, align 8
   %43 = load i8, ptr %42, align 1
@@ -1624,7 +1624,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %42, i64 1
-  %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 10) #17
+  %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 10) #16
   %47 = trunc i64 %46 to i32
   %48 = load ptr, ptr %2, align 8
   %49 = load i8, ptr %48, align 1
@@ -1644,7 +1644,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   %57 = add i32 %56, 3
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 2
-  %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.bitfmt2int) #17
+  %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1421, ptr noundef nonnull @__func__.bitfmt2int) #16
   %61 = icmp slt i32 %35, %41
   br i1 %61, label %.lr.ph, label %.loopexit
 
@@ -1698,7 +1698,7 @@ define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #
   br i1 %or.cond, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %sext = shl i64 %6, 32
@@ -1734,7 +1734,7 @@ define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #
   br label %bit_nclear.exit
 
 bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.critedge2.i
-  %20 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 2) #17
+  %20 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 2) #16
   %21 = icmp eq i32 %20, 0
   %spec.select.idx = select i1 %21, i64 2, i64 0
   %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
@@ -1742,7 +1742,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   br i1 %.not81, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bit_nclear.exit
-  %22 = tail call ptr @__ctype_b_loc() #19
+  %22 = tail call ptr @__ctype_b_loc() #18
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.backedge
@@ -1769,7 +1769,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   br label %40
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @toupper(i32 noundef %27) #18
+  %37 = tail call i32 @toupper(i32 noundef %27) #17
   %38 = zext i32 %37 to i64
   %39 = add nsw i64 %38, -55
   br label %40
@@ -1873,7 +1873,7 @@ define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add nsw i64 %3, 1
-  %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1730, ptr noundef nonnull @__func__.bit_fmt_binmask) #17
+  %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1730, ptr noundef nonnull @__func__.bit_fmt_binmask) #16
   %6 = getelementptr inbounds i8, ptr %5, i64 %3
   store i8 0, ptr %6, align 1
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -1901,9 +1901,9 @@ define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
   ret ptr %5
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1) #5 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
@@ -2456,7 +2456,7 @@ define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
   %6 = lshr i64 %5, 3
   %7 = and i64 %6, 2305843009213693944
   %8 = add nuw nsw i64 %7, 16
-  %9 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #17
+  %9 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %4, ptr %10, align 8
@@ -2479,7 +2479,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   %9 = lshr i64 %8, 3
   %10 = and i64 %9, 2305843009213693944
   %11 = add nuw nsw i64 %10, 16
-  %12 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #17
+  %12 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %5, ptr %13, align 8
@@ -2586,7 +2586,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
 
 .loopexit:                                        ; preds = %24, %.outer._crit_edge
   store i64 0, ptr %12, align 8
-  call void @slurm_xfree(ptr noundef nonnull %3) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %.outer._crit_edge, %.loopexit, %2
@@ -2825,7 +2825,7 @@ define ptr @slurm_bit_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %3 = add i64 %1, 63
   %4 = lshr i64 %3, 6
   %5 = add nuw nsw i64 %4, 2
-  %6 = tail call ptr @slurm_xrecalloc(ptr noundef %0, i64 noundef %5, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 257, ptr noundef nonnull @__func__.slurm_bit_realloc) #17
+  %6 = tail call ptr @slurm_xrecalloc(ptr noundef %0, i64 noundef %5, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 257, ptr noundef nonnull @__func__.slurm_bit_realloc) #16
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
@@ -2839,7 +2839,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 define void @slurm_bit_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   store i64 0, ptr %2, align 8
-  tail call void @slurm_xfree(ptr noundef nonnull %0) #17
+  tail call void @slurm_xfree(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -3094,12 +3094,12 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   br i1 %34, label %36, label %37
 
 36:                                               ; preds = %.critedge
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef %.0.ph44, i64 noundef %35) #17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef %.0.ph44, i64 noundef %35) #16
   br label %.outer
 
 37:                                               ; preds = %.critedge
   %38 = sub nsw i64 %.132, %9
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef %.0.ph44, i64 noundef %35, i64 noundef %38) #17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef %.0.ph44, i64 noundef %35, i64 noundef %38) #16
   br label %.outer
 
 .outer:                                           ; preds = %36, %37, %20
@@ -3114,8 +3114,8 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   ret ptr %41
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define range(i32 -1, 1) i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -3259,7 +3259,7 @@ bit_nset.exit:                                    ; preds = %.critedge2.i27, %52
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -3282,7 +3282,7 @@ define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %.str.7..str.6 = select i1 %.not, ptr @.str.7, ptr @.str.6
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull %.str.7..str.6, i32 noundef %6, i32 noundef %10) #17
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull %.str.7..str.6, i32 noundef %6, i32 noundef %10) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
@@ -3304,7 +3304,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %2, label %4
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1492, ptr noundef nonnull @__func__.bitstr2inx) #17
+  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1492, ptr noundef nonnull @__func__.bitstr2inx) #16
   br label %39
 
 4:                                                ; preds = %1
@@ -3312,7 +3312,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 2
   %8 = add i64 %7, 8
-  %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1500, ptr noundef nonnull @__func__.bitstr2inx) #17
+  %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1500, ptr noundef nonnull @__func__.bitstr2inx) #16
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %10 = load i64, ptr %5, align 8
   %11 = icmp sgt i64 %10, 0
@@ -3465,14 +3465,14 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
   br i1 %.not, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @xstrdup(ptr noundef nonnull @.str.9) #17
+  %30 = tail call ptr @xstrdup(ptr noundef nonnull @.str.9) #16
   br label %.loopexit80
 
 31:                                               ; preds = %28
   %32 = add nsw i64 %.054, 3
   %33 = sdiv i64 %32, 4
   %34 = add nsw i64 %33, 3
-  %35 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %34, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1544, ptr noundef nonnull @__func__._bit_fmt_hexmask) #17
+  %35 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %34, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1544, ptr noundef nonnull @__func__._bit_fmt_hexmask) #16
   store i8 48, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %35, i64 1
   store i8 120, ptr %36, align 1
@@ -3607,10 +3607,10 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #14
+declare ptr @__ctype_b_loc() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #15
+declare i32 @toupper(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
@@ -3770,28 +3770,27 @@ bit_nset.exit:                                    ; preds = %.critedge.i25, %bit
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
+declare i64 @llvm.smin.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind willreturn memory(none) }
+attributes #12 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

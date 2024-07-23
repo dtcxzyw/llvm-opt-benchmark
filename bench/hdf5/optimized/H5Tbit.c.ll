@@ -278,27 +278,27 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr nocapture noundef %0, i64 nounde
   br label %H5T__bit_set.exit.thread
 
 43:                                               ; preds = %6
-  %44 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 512) #8
+  %44 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 512) #7
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_DATATYPE_g, align 8
   %48 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.1) #8
+  %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.1) #7
   br label %H5T__bit_set.exit.thread
 
 50:                                               ; preds = %43
   %51 = lshr i64 %3, 3
   %52 = add nuw nsw i64 %51, 1
-  %53 = call ptr @H5WB_actual(ptr noundef nonnull %44, i64 noundef %52) #8
+  %53 = call ptr @H5WB_actual(ptr noundef nonnull %44, i64 noundef %52) #7
   %54 = icmp eq ptr %53, null
   br i1 %54, label %H5T__bit_set.exit.thread93, label %58
 
 H5T__bit_set.exit.thread93:                       ; preds = %50
   %55 = load i64, ptr @H5E_DATATYPE_g, align 8
   %56 = load i64, ptr @H5E_NOSPACE_g, align 8
-  %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.2) #8
+  %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.2) #7
   br label %H5T__bit_set.exit
 
 58:                                               ; preds = %50
@@ -439,14 +439,14 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
 
 H5T__bit_set.exit:                                ; preds = %._crit_edge.i63, %._crit_edge.thread.sink.split.i67, %._crit_edge.i79, %._crit_edge.thread.sink.split.i83, %H5T__bit_set.exit.thread93
   %.04897 = phi i32 [ -1, %H5T__bit_set.exit.thread93 ], [ 0, %._crit_edge.thread.sink.split.i83 ], [ 0, %._crit_edge.i79 ], [ 0, %._crit_edge.thread.sink.split.i67 ], [ 0, %._crit_edge.i63 ]
-  %134 = call i32 @H5WB_unwrap(ptr noundef nonnull %44) #8
+  %134 = call i32 @H5WB_unwrap(ptr noundef nonnull %44) #7
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %136, label %H5T__bit_set.exit.thread
 
 136:                                              ; preds = %H5T__bit_set.exit
   %137 = load i64, ptr @H5E_DATATYPE_g, align 8
   %138 = load i64, ptr @H5E_CLOSEERROR_g, align 8
-  %139 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %137, i64 noundef %138, ptr noundef nonnull @.str.3) #8
+  %139 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %137, i64 noundef %138, ptr noundef nonnull @.str.3) #7
   br label %H5T__bit_set.exit.thread
 
 H5T__bit_set.exit.thread:                         ; preds = %._crit_edge.thread.sink.split.i, %._crit_edge.i, %8, %4, %46, %136, %H5T__bit_set.exit
@@ -965,8 +965,8 @@ define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 no
   ret i1 %66
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = lshr i64 %1, 3
   %5 = and i64 %1, 7
   %6 = add i64 %1, -1
@@ -1114,23 +1114,22 @@ define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
