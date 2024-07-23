@@ -114545,15 +114545,15 @@ _ZNSt8_Rb_treeIP4exprSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M
   %cmp.i.i.i3669 = icmp eq ptr %__y.addr.1.i.i.i3663, %2
   br i1 %cmp.i.i.i3669, label %while.body.i.i.i3815.preheader, label %invoke.cont1077
 
+while.body.i.i.i3815.preheader:                   ; preds = %invoke.cont1077, %_ZNSt8_Rb_treeIP4exprSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i3668
+  br label %while.body.i.i.i3815
+
 invoke.cont1077:                                  ; preds = %_ZNSt8_Rb_treeIP4exprSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i3668
   %__y.addr.1.i.i.i3663.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i3662, ptr %__y.addr.06.i.i.i3660, ptr %__x.addr.07.i.i.i3659
   %__y.addr.1.i.i.i3663.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i3663.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %1197 = load ptr, ptr %__y.addr.1.i.i.i3663.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %cmp.i4.i.i3672 = icmp ult ptr %.pre6052.pre, %1197
   br i1 %cmp.i4.i.i3672, label %while.body.i.i.i3815.preheader, label %if.then1084
-
-while.body.i.i.i3815.preheader:                   ; preds = %_ZNSt8_Rb_treeIP4exprSt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i3668, %invoke.cont1077
-  br label %while.body.i.i.i3815
 
 if.then1084:                                      ; preds = %invoke.cont1077
   %call1088 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIP4exprS1_St4lessIS1_ESaISt4pairIKS1_S1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %aliasIndexMap, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i3653)

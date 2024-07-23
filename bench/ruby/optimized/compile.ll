@@ -20637,25 +20637,25 @@ LIST_INSN_SIZE_ZERO.exit:                         ; preds = %.lr.ph.i.i
   br label %APPEND_LIST.exit4356
 
 APPEND_LIST.exit4356:                             ; preds = %LIST_INSN_SIZE_ZERO.exit, %.loopexit
-  %1995 = phi ptr [ %1994, %LIST_INSN_SIZE_ZERO.exit ], [ %1983, %.loopexit ]
-  %1996 = getelementptr inbounds i8, ptr %17, i64 8
-  %1997 = load ptr, ptr %1996, align 8
-  %.not.i4357 = icmp eq ptr %1997, null
-  br i1 %.not.i4357, label %APPEND_LIST.exit4358, label %1998
+  %1995 = getelementptr inbounds i8, ptr %17, i64 8
+  %1996 = load ptr, ptr %1995, align 8
+  %.not.i4357 = icmp eq ptr %1996, null
+  br i1 %.not.i4357, label %APPEND_LIST.exit4358, label %1997
 
-1998:                                             ; preds = %APPEND_LIST.exit4356
-  %1999 = getelementptr inbounds i8, ptr %2, i64 24
-  %2000 = getelementptr inbounds i8, ptr %1995, i64 8
-  store ptr %1997, ptr %2000, align 8
-  %2001 = load ptr, ptr %1999, align 8
-  %2002 = load ptr, ptr %1996, align 8
+1997:                                             ; preds = %APPEND_LIST.exit4356
+  %1998 = getelementptr inbounds i8, ptr %2, i64 24
+  %1999 = load ptr, ptr %1998, align 8
+  %2000 = getelementptr inbounds i8, ptr %1999, i64 8
+  store ptr %1996, ptr %2000, align 8
+  %2001 = load ptr, ptr %1998, align 8
+  %2002 = load ptr, ptr %1995, align 8
   %2003 = getelementptr inbounds i8, ptr %2002, i64 16
   store ptr %2001, ptr %2003, align 8
   %2004 = load ptr, ptr %1976, align 8
-  store ptr %2004, ptr %1999, align 8
+  store ptr %2004, ptr %1998, align 8
   br label %APPEND_LIST.exit4358
 
-APPEND_LIST.exit4358:                             ; preds = %1998, %APPEND_LIST.exit4356, %1959
+APPEND_LIST.exit4358:                             ; preds = %1997, %APPEND_LIST.exit4356, %1959
   br i1 %3, label %2005, label %rb_obj_written.exit4454
 
 2005:                                             ; preds = %APPEND_LIST.exit4358

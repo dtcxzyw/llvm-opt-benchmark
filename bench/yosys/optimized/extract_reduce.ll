@@ -9646,22 +9646,22 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit: ; preds = %4180
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i2521: ; preds = %4187
   %4190 = shl nuw nsw i64 %4179, 2
   %4191 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %4190) #19
-          to label %.noexc2534 unwind label %.loopexit3203
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529 unwind label %.loopexit3203
 
-.noexc2534:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i2521
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i2521
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %4191, i8 -1, i64 %4190, i1 false)
   %4192 = getelementptr inbounds i32, ptr %4191, i64 %4179
   %.not.i83.i2531 = icmp eq ptr %.sroa.0.15, null
   br i1 %.not.i83.i2531, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089, label %4193
 
-4193:                                             ; preds = %.noexc2534
+4193:                                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.15) #18
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089:      ; preds = %.noexc2100, %.noexc2534, %4193, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit
-  %.sroa.0.17 = phi ptr [ %.sroa.0.15, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4191, %4193 ], [ %4191, %.noexc2534 ], [ %.sroa.0.15, %.noexc2100 ]
-  %.sroa.21.12 = phi ptr [ %4186, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4192, %4193 ], [ %4192, %.noexc2534 ], [ %.sroa.21.9, %.noexc2100 ]
-  %.sroa.53.10 = phi ptr [ %.sroa.53.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4192, %4193 ], [ %4192, %.noexc2534 ], [ %.sroa.53.8, %.noexc2100 ]
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089:      ; preds = %.noexc2100, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529, %4193, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit
+  %.sroa.0.17 = phi ptr [ %.sroa.0.15, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4191, %4193 ], [ %4191, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529 ], [ %.sroa.0.15, %.noexc2100 ]
+  %.sroa.21.12 = phi ptr [ %4186, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4192, %4193 ], [ %4192, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529 ], [ %.sroa.21.9, %.noexc2100 ]
+  %.sroa.53.10 = phi ptr [ %.sroa.53.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2089.loopexit ], [ %4192, %4193 ], [ %4192, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i2529 ], [ %.sroa.53.8, %.noexc2100 ]
   %4194 = ptrtoint ptr %.sroa.77.5 to i64
   %4195 = sub i64 %4194, %4155
   %4196 = lshr exact i64 %4195, 4

@@ -21668,22 +21668,22 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit: ; preds = %7534
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5442: ; preds = %7541
   %7544 = shl nuw nsw i64 %7533, 2
   %7545 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7544) #27
-          to label %.noexc5455 unwind label %.loopexit7049
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450 unwind label %.loopexit7049
 
-.noexc5455:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5442
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5442
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %7545, i8 -1, i64 %7544, i1 false)
   %7546 = getelementptr inbounds i32, ptr %7545, i64 %7533
   %.not.i83.i5452 = icmp eq ptr %.sroa.06558.8, null
   br i1 %.not.i83.i5452, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070, label %7547
 
-7547:                                             ; preds = %.noexc5455
+7547:                                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450
   call void @_ZdlPv(ptr noundef nonnull %.sroa.06558.8) #24
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070:      ; preds = %.noexc4081, %.noexc5455, %7547, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit
-  %.sroa.06558.10 = phi ptr [ %.sroa.06558.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7545, %7547 ], [ %7545, %.noexc5455 ], [ %.sroa.06558.8, %.noexc4081 ]
-  %.sroa.39.11 = phi ptr [ %7540, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7546, %7547 ], [ %7546, %.noexc5455 ], [ %.sroa.39.8, %.noexc4081 ]
-  %.sroa.101.9 = phi ptr [ %.sroa.101.7, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7546, %7547 ], [ %7546, %.noexc5455 ], [ %.sroa.101.7, %.noexc4081 ]
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070:      ; preds = %.noexc4081, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450, %7547, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit
+  %.sroa.06558.10 = phi ptr [ %.sroa.06558.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7545, %7547 ], [ %7545, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450 ], [ %.sroa.06558.8, %.noexc4081 ]
+  %.sroa.39.11 = phi ptr [ %7540, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7546, %7547 ], [ %7546, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450 ], [ %.sroa.39.8, %.noexc4081 ]
+  %.sroa.101.9 = phi ptr [ %.sroa.101.7, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4070.loopexit ], [ %7546, %7547 ], [ %7546, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5450 ], [ %.sroa.101.7, %.noexc4081 ]
   %7548 = ptrtoint ptr %.sroa.143.4 to i64
   %7549 = sub i64 %7548, %7509
   %7550 = lshr exact i64 %7549, 4
@@ -26157,22 +26157,22 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit: ; preds = %9259
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5688: ; preds = %9266
   %9269 = shl nuw nsw i64 %9258, 2
   %9270 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9269) #27
-          to label %.noexc5701 unwind label %.loopexit6985
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696 unwind label %.loopexit6985
 
-.noexc5701:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5688
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5688
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %9270, i8 -1, i64 %9269, i1 false)
   %9271 = getelementptr inbounds i32, ptr %9270, i64 %9258
   %.not.i83.i5698 = icmp eq ptr %.sroa.06558.32, null
   br i1 %.not.i83.i5698, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505, label %9272
 
-9272:                                             ; preds = %.noexc5701
+9272:                                             ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696
   call void @_ZdlPv(ptr noundef nonnull %.sroa.06558.32) #24
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505:      ; preds = %.noexc4516, %.noexc5701, %9272, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit
-  %.sroa.06558.34 = phi ptr [ %.sroa.06558.32, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9270, %9272 ], [ %9270, %.noexc5701 ], [ %.sroa.06558.32, %.noexc4516 ]
-  %.sroa.39.25 = phi ptr [ %9265, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9271, %9272 ], [ %9271, %.noexc5701 ], [ %.sroa.39.22, %.noexc4516 ]
-  %.sroa.101.21 = phi ptr [ %.sroa.101.19, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9271, %9272 ], [ %9271, %.noexc5701 ], [ %.sroa.101.19, %.noexc4516 ]
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505:      ; preds = %.noexc4516, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696, %9272, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit
+  %.sroa.06558.34 = phi ptr [ %.sroa.06558.32, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9270, %9272 ], [ %9270, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696 ], [ %.sroa.06558.32, %.noexc4516 ]
+  %.sroa.39.25 = phi ptr [ %9265, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9271, %9272 ], [ %9271, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696 ], [ %.sroa.39.22, %.noexc4516 ]
+  %.sroa.101.21 = phi ptr [ %.sroa.101.19, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4505.loopexit ], [ %9271, %9272 ], [ %9271, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5696 ], [ %.sroa.101.19, %.noexc4516 ]
   %9273 = ptrtoint ptr %.sroa.143.12 to i64
   %9274 = sub i64 %9273, %9234
   %9275 = lshr exact i64 %9274, 4
@@ -30689,22 +30689,22 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit: ; preds = %10998
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5950: ; preds = %11005
   %11008 = shl nuw nsw i64 %10997, 2
   %11009 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11008) #27
-          to label %.noexc5963 unwind label %.loopexit6927
+          to label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958 unwind label %.loopexit6927
 
-.noexc5963:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5950
+_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i5950
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %11009, i8 -1, i64 %11008, i1 false)
   %11010 = getelementptr inbounds i32, ptr %11009, i64 %10997
   %.not.i83.i5960 = icmp eq ptr %.sroa.06683.8, null
   br i1 %.not.i83.i5960, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953, label %11011
 
-11011:                                            ; preds = %.noexc5963
+11011:                                            ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958
   call void @_ZdlPv(ptr noundef nonnull %.sroa.06683.8) #24
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953:      ; preds = %.noexc4964, %.noexc5963, %11011, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit
-  %.sroa.06683.10 = phi ptr [ %.sroa.06683.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11009, %11011 ], [ %11009, %.noexc5963 ], [ %.sroa.06683.8, %.noexc4964 ]
-  %.sroa.22.116769 = phi ptr [ %11004, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11010, %11011 ], [ %11010, %.noexc5963 ], [ %.sroa.22.86766, %.noexc4964 ]
-  %.sroa.54.96757 = phi ptr [ %.sroa.54.76755, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11010, %11011 ], [ %11010, %.noexc5963 ], [ %.sroa.54.76755, %.noexc4964 ]
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953:      ; preds = %.noexc4964, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958, %11011, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit
+  %.sroa.06683.10 = phi ptr [ %.sroa.06683.8, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11009, %11011 ], [ %11009, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958 ], [ %.sroa.06683.8, %.noexc4964 ]
+  %.sroa.22.116769 = phi ptr [ %11004, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11010, %11011 ], [ %11010, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958 ], [ %.sroa.22.86766, %.noexc4964 ]
+  %.sroa.54.96757 = phi ptr [ %.sroa.54.76755, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4953.loopexit ], [ %11010, %11011 ], [ %11010, %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit.i5958 ], [ %.sroa.54.76755, %.noexc4964 ]
   %11012 = ptrtoint ptr %.sroa.78.4 to i64
   %11013 = sub i64 %11012, %10973
   %11014 = lshr exact i64 %11013, 4

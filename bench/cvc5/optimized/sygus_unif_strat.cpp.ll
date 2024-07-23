@@ -1549,22 +1549,22 @@ while.body.i.i.i134:                              ; preds = %while.body.i.i.i134
 
 _ZNSt8_Rb_treeIN4cvc58internal6theory11quantifiers8NodeRoleESt4pairIKS4_NS3_12StrategyNodeEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS6_.exit.i.i: ; preds = %while.body.i.i.i134
   %cmp.i.i.i144 = icmp eq ptr %__y.addr.1.i.i.i139, %add.ptr.i.i.i131
-  br i1 %cmp.i.i.i144, label %if.end25, label %_ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEE4findERS9_.exit
+  br i1 %cmp.i.i.i144, label %while.body.lr.ph.i.i.i.i156, label %_ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEE4findERS9_.exit
 
 _ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEE4findERS9_.exit: ; preds = %_ZNSt8_Rb_treeIN4cvc58internal6theory11quantifiers8NodeRoleESt4pairIKS4_NS3_12StrategyNodeEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS6_.exit.i.i
   %_M_storage.i.i.i3.i.i146 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i139, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i3.i.i146, align 4
   %cmp.i4.i.i = icmp slt i32 %15, %17
-  br i1 %cmp.i4.i.i, label %if.end25, label %cleanup.cont1717
+  br i1 %cmp.i4.i.i, label %while.body.lr.ph.i.i.i.i156, label %cleanup.cont1717
 
-if.end25:                                         ; preds = %_ZNSt8_Rb_treeIN4cvc58internal6theory11quantifiers8NodeRoleESt4pairIKS4_NS3_12StrategyNodeEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, %_ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEE4findERS9_.exit
+while.body.lr.ph.i.i.i.i156:                      ; preds = %_ZNSt3mapIN4cvc58internal6theory11quantifiers8NodeRoleENS3_12StrategyNodeESt4lessIS4_ESaISt4pairIKS4_S5_EEE4findERS9_.exit, %_ZNSt8_Rb_treeIN4cvc58internal6theory11quantifiers8NodeRoleESt4pairIKS4_NS3_12StrategyNodeEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS6_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i151)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i152)
   br label %while.body.i.i.i.i157
 
-while.body.i.i.i.i157:                            ; preds = %while.body.i.i.i.i157, %if.end25
-  %__x.addr.07.i.i.i.i158 = phi ptr [ %14, %if.end25 ], [ %__x.addr.1.i.i.i.i165, %while.body.i.i.i.i157 ]
-  %__y.addr.06.i.i.i.i159 = phi ptr [ %add.ptr.i.i.i131, %if.end25 ], [ %__y.addr.1.i.i.i.i162, %while.body.i.i.i.i157 ]
+while.body.i.i.i.i157:                            ; preds = %while.body.i.i.i.i157, %while.body.lr.ph.i.i.i.i156
+  %__x.addr.07.i.i.i.i158 = phi ptr [ %14, %while.body.lr.ph.i.i.i.i156 ], [ %__x.addr.1.i.i.i.i165, %while.body.i.i.i.i157 ]
+  %__y.addr.06.i.i.i.i159 = phi ptr [ %add.ptr.i.i.i131, %while.body.lr.ph.i.i.i.i156 ], [ %__y.addr.1.i.i.i.i162, %while.body.i.i.i.i157 ]
   %_M_storage.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i158, i64 32
   %18 = load i32, ptr %_M_storage.i.i.i.i.i.i160, align 4
   %cmp.i.i.i.i.i161 = icmp slt i32 %18, %15

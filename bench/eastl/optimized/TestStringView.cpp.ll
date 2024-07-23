@@ -3475,8 +3475,8 @@ if.then8.i3112:                                   ; preds = %_ZN5eastl25CharType
   br label %if.then.i3120
 
 if.then.i3120:                                    ; preds = %for.cond1.for.inc5_crit_edge.i.i, %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i, %if.then8.i3112
-  %cmp5744954.sink = phi i1 [ %cmp5744954, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc5_crit_edge.i.i ]
-  %call5754955 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5744954.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
+  %.sink = phi i1 [ %cmp5744954, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc5_crit_edge.i.i ]
+  %call575 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc5_crit_edge.i.i3131, %if.then.i3120
@@ -5903,7 +5903,7 @@ if.then.i2825:                                    ; preds = %while.end.i.i.i2795
 while.cond.i.i2829:                               ; preds = %while.body.i.i, %if.then.i2825
   %pRBegin.addr.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 26), %if.then.i2825 ], [ %add.ptr.i.i2831, %while.body.i.i ]
   %cmp.i.i = icmp ugt ptr %pRBegin.addr.0.i.i, @.str.162
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit
+  br i1 %cmp.i.i, label %while.body.i.i, label %if.then.i2838
 
 while.body.i.i:                                   ; preds = %while.cond.i.i2829
   %add.ptr.i.i2831 = getelementptr inbounds i8, ptr %pRBegin.addr.0.i.i, i64 -1
@@ -5914,18 +5914,18 @@ while.body.i.i:                                   ; preds = %while.cond.i.i2829
 if.then8.i:                                       ; preds = %while.body.i.i
   %sub.ptr.lhs.cast.i2832 = ptrtoint ptr %add.ptr.i.i2831 to i64
   %sub.ptr.sub.i2834 = sub i64 %sub.ptr.lhs.cast.i2832, ptrtoint (ptr @.str.162 to i64)
-  br label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit
+  br label %if.then.i2838
 
-_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit: ; preds = %while.cond.i.i2829, %if.then8.i
+if.then.i2838:                                    ; preds = %while.cond.i.i2829, %if.then8.i
   %retval.0.i2830 = phi i64 [ %sub.ptr.sub.i2834, %if.then8.i ], [ -1, %while.cond.i.i2829 ]
   %cmp575 = icmp ne i64 %retval.0.i2830, -1
   %call576 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp575, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 388, ptr noundef nonnull @.str.175)
   br label %while.cond.i.i2843
 
-while.cond.i.i2843:                               ; preds = %while.body.i.i2847, %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit
-  %pRBegin.addr.0.i.i2844 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit ], [ %add.ptr.i.i2848, %while.body.i.i2847 ]
+while.cond.i.i2843:                               ; preds = %while.body.i.i2847, %if.then.i2838
+  %pRBegin.addr.0.i.i2844 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %if.then.i2838 ], [ %add.ptr.i.i2848, %while.body.i.i2847 ]
   %cmp.i.i2845 = icmp ugt ptr %pRBegin.addr.0.i.i2844, @.str.162
-  br i1 %cmp.i.i2845, label %while.body.i.i2847, label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854
+  br i1 %cmp.i.i2845, label %while.body.i.i2847, label %if.then.i2858
 
 while.body.i.i2847:                               ; preds = %while.cond.i.i2843
   %add.ptr.i.i2848 = getelementptr inbounds i8, ptr %pRBegin.addr.0.i.i2844, i64 -1
@@ -5936,16 +5936,16 @@ while.body.i.i2847:                               ; preds = %while.cond.i.i2843
 if.then8.i2850:                                   ; preds = %while.body.i.i2847
   %sub.ptr.lhs.cast.i2851 = ptrtoint ptr %add.ptr.i.i2848 to i64
   %sub.ptr.sub.i2853 = sub i64 %sub.ptr.lhs.cast.i2851, ptrtoint (ptr @.str.162 to i64)
-  br label %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854
+  br label %if.then.i2858
 
-_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854: ; preds = %while.cond.i.i2843, %if.then8.i2850
+if.then.i2858:                                    ; preds = %while.cond.i.i2843, %if.then8.i2850
   %retval.0.i2846 = phi i64 [ %sub.ptr.sub.i2853, %if.then8.i2850 ], [ -1, %while.cond.i.i2843 ]
   %cmp580 = icmp ne i64 %retval.0.i2846, -1
   %call581 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp580, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 389, ptr noundef nonnull @.str.176)
   br label %while.cond.i.i2863
 
-while.cond.i.i2863:                               ; preds = %while.body.i.i2867, %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854
-  %pRBegin.addr.0.i.i2864 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %_ZNK5eastl17basic_string_viewIDuE5rfindEDum.exit2854 ], [ %add.ptr.i.i2868, %while.body.i.i2867 ]
+while.cond.i.i2863:                               ; preds = %while.body.i.i2867, %if.then.i2858
+  %pRBegin.addr.0.i.i2864 = phi ptr [ getelementptr inbounds (i8, ptr @.str.162, i64 25), %if.then.i2858 ], [ %add.ptr.i.i2868, %while.body.i.i2867 ]
   %cmp.i.i2865 = icmp ugt ptr %pRBegin.addr.0.i.i2864, @.str.162
   br i1 %cmp.i.i2865, label %while.body.i.i2867, label %for.cond1.preheader.i.i.i2949.preheader
 
@@ -6069,8 +6069,8 @@ if.then8.i3005:                                   ; preds = %_ZN5eastl25CharType
   br label %if.then.i3012
 
 if.then.i3012:                                    ; preds = %for.cond1.for.inc6_crit_edge.i.i, %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i, %if.then8.i3005
-  %cmp6024801.sink = phi i1 [ %cmp6024801, %if.then8.i3005 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc6_crit_edge.i.i ]
-  %call6034802 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp6024801.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
+  %.sink = phi i1 [ %cmp6024801, %if.then8.i3005 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc6_crit_edge.i.i ]
+  %call603 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
   br label %for.cond1.preheader.i.i3015
 
 for.cond1.preheader.i.i3015:                      ; preds = %for.cond1.for.inc6_crit_edge.i.i3023, %if.then.i3012
@@ -8623,8 +8623,8 @@ if.then8.i3112:                                   ; preds = %_ZN5eastl25CharType
   br label %if.then.i3120
 
 if.then.i3120:                                    ; preds = %for.cond1.for.inc6_crit_edge.i.i, %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i, %if.then8.i3112
-  %cmp6024959.sink = phi i1 [ %cmp6024959, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc6_crit_edge.i.i ]
-  %call6034960 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp6024959.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
+  %.sink = phi i1 [ %cmp6024959, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc6_crit_edge.i.i ]
+  %call603 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc6_crit_edge.i.i3131, %if.then.i3120
@@ -11211,8 +11211,8 @@ if.then8.i3112:                                   ; preds = %_ZN5eastl25CharType
   br label %if.then.i3120
 
 if.then.i3120:                                    ; preds = %for.cond1.for.inc5_crit_edge.i.i, %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i, %if.then8.i3112
-  %cmp5744954.sink = phi i1 [ %cmp5744954, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc5_crit_edge.i.i ]
-  %call5754955 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp5744954.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
+  %.sink = phi i1 [ %cmp5744954, %if.then8.i3112 ], [ false, %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i ], [ false, %for.cond1.for.inc5_crit_edge.i.i ]
+  %call575 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %.sink, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.188)
   br label %for.cond1.preheader.i.i3123
 
 for.cond1.preheader.i.i3123:                      ; preds = %for.cond1.for.inc5_crit_edge.i.i3131, %if.then.i3120

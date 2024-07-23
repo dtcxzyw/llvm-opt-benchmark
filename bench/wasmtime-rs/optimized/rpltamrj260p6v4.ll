@@ -51449,13 +51449,13 @@ define hidden void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code17c
   %1069 = load i8, ptr %998, align 16, !range !8, !alias.scope !6982, !noalias !6985, !noundef !4
   %1070 = getelementptr inbounds i8, ptr %998, i64 4
   %1071 = load i32, ptr %1070, align 4, !alias.scope !6982, !noalias !6985, !noundef !4
-  switch i8 %1069, label %default.unreachable11305 [
+  switch i8 %1069, label %default.unreachable11304 [
     i8 0, label %1072
     i8 1, label %1077
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit"
   ]
 
-default.unreachable11305:                         ; preds = %9164, %6789, %6752, %6727, %6680, %6660, %6640, %6620, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5901", %6583, %6560, %6528, %6505, %6483, %6461, %6439, %6417, %6031, %6012, %5993, %5702, %5593, %5570, %5539, %5516, %5485, %5462, %5431, %5408, %5377, %5354, %5323, %5300, %5269, %5243, %5217, %5191, %5165, %5139, %5111, %5075, %5048, %5028, %5008, %4988, %1682, %1098, %1064
+default.unreachable11304:                         ; preds = %9164, %6789, %6752, %6727, %6680, %6660, %6640, %6620, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5901", %6583, %6560, %6528, %6505, %6483, %6461, %6439, %6417, %6031, %6012, %5993, %5702, %5593, %5570, %5539, %5516, %5485, %5462, %5431, %5408, %5377, %5354, %5323, %5300, %5269, %5243, %5217, %5191, %5165, %5139, %5111, %5075, %5048, %5028, %5008, %4988, %1682, %1098, %1064
   unreachable
 
 1072:                                             ; preds = %1064
@@ -51532,7 +51532,7 @@ default.unreachable11305:                         ; preds = %9164, %6789, %6752,
   %1099 = load i8, ptr %996, align 16, !range !8, !alias.scope !6996, !noalias !6999, !noundef !4
   %1100 = getelementptr inbounds i8, ptr %996, i64 4
   %1101 = load i32, ptr %1100, align 4, !alias.scope !6996, !noalias !6999, !noundef !4
-  switch i8 %1099, label %default.unreachable11305 [
+  switch i8 %1099, label %default.unreachable11304 [
     i8 0, label %1102
     i8 1, label %1107
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit4294"
@@ -51754,7 +51754,7 @@ default.unreachable11305:                         ; preds = %9164, %6789, %6752,
   %1203 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val, i32 noundef %.sroa.277.8.extract.trunc7204)
   %1204 = extractvalue { i32, i32 } %1203, 0
   %1205 = icmp eq i32 %1204, 1
-  %.val2030.pre11298 = load ptr, ptr %1, align 8
+  %.val2030.pre11297 = load ptr, ptr %1, align 8
   br i1 %1205, label %2509, label %2523
 
 1206:                                             ; preds = %1014
@@ -53056,7 +53056,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %1686 = load i8, ptr %939, align 16, !range !8, !alias.scope !7146, !noalias !7149, !noundef !4
   %1687 = getelementptr inbounds i8, ptr %939, i64 4
   %1688 = load i32, ptr %1687, align 4, !alias.scope !7146, !noalias !7149, !noundef !4
-  switch i8 %1686, label %default.unreachable11305 [
+  switch i8 %1686, label %default.unreachable11304 [
     i8 0, label %1689
     i8 1, label %1694
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit4422"
@@ -55291,7 +55291,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 
 2509:                                             ; preds = %1202
   %2510 = extractvalue { i32, i32 } %1203, 1
-  %2511 = getelementptr inbounds i8, ptr %.val2030.pre11298, i64 1816
+  %2511 = getelementptr inbounds i8, ptr %.val2030.pre11297, i64 1816
   %2512 = load ptr, ptr %2511, align 8, !noalias !7606, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7609)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7612)
@@ -55320,7 +55320,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %or.cond11133, label %2528, label %2523
 
 2523:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4610", %.split1440, %1202
-  %.val2030 = phi ptr [ %.val2030.pre11298, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4610" ], [ %.val2030.pre, %.split1440 ], [ %.val2030.pre11298, %1202 ]
+  %.val2030 = phi ptr [ %.val2030.pre11297, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4610" ], [ %.val2030.pre, %.split1440 ], [ %.val2030.pre11297, %1202 ]
   %2524 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2030, i32 noundef %.sroa.47.0.copyload)
   %2525 = icmp eq i16 %2524, 118
   %.val2303 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
@@ -55329,7 +55329,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %2525, label %2559, label %2569
 
 2528:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4610"
-  %2529 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2030.pre11298, i32 noundef %.sroa.47.0.copyload)
+  %2529 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2030.pre11297, i32 noundef %.sroa.47.0.copyload)
   %2530 = icmp eq i16 %2529, 118
   br i1 %2530, label %2531, label %.split1440
 
@@ -55375,8 +55375,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br label %9206
 
 .split1440:                                       ; preds = %2531, %2528
-  %.sink11307 = phi i16 [ %2529, %2528 ], [ 118, %2531 ]
-  %2547 = tail call { i64, i64 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$23safe_divisor_from_imm6417h755a9b183f2bff38E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %.sink11307, i64 noundef %.sroa.69303.0.copyload)
+  %.sink11306 = phi i16 [ %2529, %2528 ], [ 118, %2531 ]
+  %2547 = tail call { i64, i64 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$23safe_divisor_from_imm6417h755a9b183f2bff38E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i16 noundef %.sink11306, i64 noundef %.sroa.69303.0.copyload)
   %2548 = extractvalue { i64, i64 } %2547, 0
   %2549 = icmp eq i64 %2548, 1
   %.val2030.pre = load ptr, ptr %1, align 8
@@ -56122,8 +56122,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %2832, label %.thread11091._crit_edge, label %.thread11092
 
 .thread11091._crit_edge:                          ; preds = %.thread11091
-  %.val3358.pre = load ptr, ptr %1, align 8
-  %.pre11300 = trunc i64 %.sroa.277.0.copyload to i32
+  %.pre11301 = trunc i64 %.sroa.277.0.copyload to i32
   br label %2876
 
 2833:                                             ; preds = %2826
@@ -56158,7 +56157,6 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %2848 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2677.pre, i32 noundef %.sroa.277.8.extract.trunc7182)
   %2849 = extractvalue { i32, i32 } %2848, 0
   %2850 = icmp eq i32 %2849, 1
-  %.val3358.pre11296.pre = load ptr, ptr %1, align 8
   br i1 %2850, label %2856, label %2830
 
 2851:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4646"
@@ -56181,7 +56179,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 
 2856:                                             ; preds = %2847
   %2857 = extractvalue { i32, i32 } %2848, 1
-  %2858 = getelementptr inbounds i8, ptr %.val3358.pre11296.pre, i64 1816
+  %.val1845 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
+  %2858 = getelementptr inbounds i8, ptr %.val1845, i64 1816
   %2859 = load ptr, ptr %2858, align 8, !noalias !7733, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7739)
@@ -56210,7 +56209,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 2870:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4650"
   %.sroa.69381.0..sroa_idx = getelementptr inbounds i8, ptr %2867, i64 4
   %.sroa.69381.0.copyload = load i32, ptr %.sroa.69381.0..sroa_idx, align 4
-  %2871 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val3358.pre11296.pre, i32 noundef %.sroa.69381.0.copyload)
+  %2871 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val1845, i32 noundef %.sroa.69381.0.copyload)
   %2872 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %2871)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %785)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %785, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.47.0.copyload)
@@ -56230,8 +56229,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br label %9206
 
 2876:                                             ; preds = %.thread11091._crit_edge, %2830
-  %.sroa.277.8.extract.trunc7190.pre-phi = phi i32 [ %.pre11300, %.thread11091._crit_edge ], [ %.sroa.277.8.extract.trunc7182, %2830 ]
-  %.val3358 = phi ptr [ %.val3358.pre, %.thread11091._crit_edge ], [ %.val3358.pre11296.pre, %2830 ]
+  %.sroa.277.8.extract.trunc7190.pre-phi = phi i32 [ %.pre11301, %.thread11091._crit_edge ], [ %.sroa.277.8.extract.trunc7182, %2830 ]
+  %.val3358 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %2877 = tail call i64 @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17put_value_in_regs17he62aeb47960f57c6E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %.val3358, i32 noundef %.sroa.47.0.copyload)
   %.val3359 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %2878 = tail call i64 @"_ZN17cranelift_codegen8machinst5lower14Lower$LT$I$GT$17put_value_in_regs17he62aeb47960f57c6E"(ptr noalias noundef nonnull align 8 dereferenceable(1944) %.val3359, i32 noundef %.sroa.277.8.extract.trunc7190.pre-phi)
@@ -56245,7 +56244,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br label %2875
 
 2881:                                             ; preds = %2830
-  %2882 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val3358.pre11296.pre, i32 noundef %.sroa.47.0.copyload)
+  %.val2320 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
+  %2882 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2320, i32 noundef %.sroa.47.0.copyload)
   %2883 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %2882)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %784)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %784, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7182)
@@ -59168,12 +59168,12 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %3830 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2406, i32 noundef %.sroa.277.8.extract.trunc7044)
   %3831 = extractvalue { i32, i32 } %3830, 0
   %3832 = icmp eq i32 %3831, 1
-  %.val2408.pre11294 = load ptr, ptr %1, align 8
+  %.val2408.pre11295 = load ptr, ptr %1, align 8
   br i1 %3832, label %3833, label %3846
 
 3833:                                             ; preds = %3829
   %3834 = extractvalue { i32, i32 } %3830, 1
-  %3835 = getelementptr inbounds i8, ptr %.val2408.pre11294, i64 1816
+  %3835 = getelementptr inbounds i8, ptr %.val2408.pre11295, i64 1816
   %3836 = load ptr, ptr %3835, align 8, !noalias !8134, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8140)
@@ -59198,7 +59198,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %3845, label %3851, label %3846
 
 3846:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4995", %3897, %3900, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4991", %3873, %3876, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4987", %3851, %3852, %3856, %3829
-  %.val2408 = phi ptr [ %.val2408.pre11293, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4995" ], [ %.val2408.pre11293, %3897 ], [ %.val2408.pre, %3900 ], [ %.val2408.pre11292, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4991" ], [ %.val2408.pre11292, %3873 ], [ %.val2408.pre11291, %3876 ], [ %.val2408.pre11294, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4987" ], [ %.val2408.pre11294, %3851 ], [ %.val2408.pre11292, %3852 ], [ %.val2408.pre11293, %3856 ], [ %.val2408.pre11294, %3829 ]
+  %.val2408 = phi ptr [ %.val2408.pre11294, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4995" ], [ %.val2408.pre11294, %3897 ], [ %.val2408.pre, %3900 ], [ %.val2408.pre11293, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4991" ], [ %.val2408.pre11293, %3873 ], [ %.val2408.pre11292, %3876 ], [ %.val2408.pre11295, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4987" ], [ %.val2408.pre11295, %3851 ], [ %.val2408.pre11293, %3852 ], [ %.val2408.pre11294, %3856 ], [ %.val2408.pre11295, %3829 ]
   %3847 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2408, i32 noundef %.sroa.47.0.copyload)
   %3848 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %3847)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %622)
@@ -59223,22 +59223,22 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   ]
 
 3852:                                             ; preds = %3851
-  %3853 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2408.pre11294, i32 noundef %.sroa.47.0.copyload)
+  %3853 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2408.pre11295, i32 noundef %.sroa.47.0.copyload)
   %3854 = extractvalue { i32, i32 } %3853, 0
   %3855 = icmp eq i32 %3854, 1
-  %.val2408.pre11292 = load ptr, ptr %1, align 8
+  %.val2408.pre11293 = load ptr, ptr %1, align 8
   br i1 %3855, label %3860, label %3846
 
 3856:                                             ; preds = %3851
-  %3857 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2408.pre11294, i32 noundef %.sroa.47.0.copyload)
+  %3857 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2408.pre11295, i32 noundef %.sroa.47.0.copyload)
   %3858 = extractvalue { i32, i32 } %3857, 0
   %3859 = icmp eq i32 %3858, 1
-  %.val2408.pre11293 = load ptr, ptr %1, align 8
+  %.val2408.pre11294 = load ptr, ptr %1, align 8
   br i1 %3859, label %3884, label %3846
 
 3860:                                             ; preds = %3852
   %3861 = extractvalue { i32, i32 } %3853, 1
-  %3862 = getelementptr inbounds i8, ptr %.val2408.pre11292, i64 1816
+  %3862 = getelementptr inbounds i8, ptr %.val2408.pre11293, i64 1816
   %3863 = load ptr, ptr %3862, align 8, !noalias !8148, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8154)
@@ -59271,13 +59271,13 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %or.cond1710, label %3876, label %3846
 
 3876:                                             ; preds = %3873
-  %3877 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2408.pre11292, i32 noundef %.sroa.69681.0.copyload)
+  %3877 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2408.pre11293, i32 noundef %.sroa.69681.0.copyload)
   %3878 = icmp eq i16 %3877, 182
-  %.val2408.pre11291 = load ptr, ptr %1, align 8
+  %.val2408.pre11292 = load ptr, ptr %1, align 8
   br i1 %3878, label %3879, label %3846
 
 3879:                                             ; preds = %3876
-  %3880 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18emit_u128_le_const17hfc6661d94c0c92a2E"(ptr %.val2408.pre11291, i128 noundef 1334440654591915542993625911497130241)
+  %3880 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18emit_u128_le_const17hfc6661d94c0c92a2E"(ptr %.val2408.pre11292, i128 noundef 1334440654591915542993625911497130241)
   %.val3948 = load ptr, ptr %1, align 8
   %.val3949 = load ptr, ptr %3804, align 8
   %3881 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_x64_xmm_load_const17h527d18bbdb90673eE(ptr %.val3948, ptr %.val3949, i16 noundef 182, i32 noundef %3880)
@@ -59296,7 +59296,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 
 3884:                                             ; preds = %3856
   %3885 = extractvalue { i32, i32 } %3857, 1
-  %3886 = getelementptr inbounds i8, ptr %.val2408.pre11293, i64 1816
+  %3886 = getelementptr inbounds i8, ptr %.val2408.pre11294, i64 1816
   %3887 = load ptr, ptr %3886, align 8, !noalias !8162, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8168)
@@ -59329,7 +59329,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   br i1 %or.cond1711, label %3900, label %3846
 
 3900:                                             ; preds = %3897
-  %3901 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2408.pre11293, i32 noundef %.sroa.69681.0.copyload)
+  %3901 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2408.pre11294, i32 noundef %.sroa.69681.0.copyload)
   %3902 = icmp eq i16 %3901, 182
   %.val2408.pre = load ptr, ptr %1, align 8
   br i1 %3902, label %3903, label %3846
@@ -59878,11 +59878,11 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4123 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr nonnull %.val, i32 noundef %2)
   %4124 = extractvalue { i32, i32 } %4123, 0
   %4125 = icmp eq i32 %4124, 1
-  %.val2065.pre11289 = load ptr, ptr %1, align 8
+  %.val2065.pre11290 = load ptr, ptr %1, align 8
   br i1 %4125, label %4128, label %4126
 
 4126:                                             ; preds = %4128, %4122, %4120
-  %.val2065 = phi ptr [ %.val2065.pre, %4128 ], [ %.val2065.pre11289, %4122 ], [ %.val, %4120 ]
+  %.val2065 = phi ptr [ %.val2065.pre, %4128 ], [ %.val2065.pre11290, %4122 ], [ %.val, %4120 ]
   %4127 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2065, i32 noundef %.sroa.47.0.copyload)
   switch i16 %4127, label %1009 [
     i16 182, label %4134
@@ -59895,7 +59895,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 
 4128:                                             ; preds = %4122
   %4129 = extractvalue { i32, i32 } %4123, 1
-  %4130 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2065.pre11289, i32 noundef %4129)
+  %4130 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2065.pre11290, i32 noundef %4129)
   %.off.i5036 = add i16 %4130, -123
   %switch.i5037 = icmp ult i16 %.off.i5036, 2
   %.val2065.pre = load ptr, ptr %1, align 8
@@ -60254,7 +60254,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   ]
 
 4247:                                             ; preds = %4304, %4299, %4294, %4289, %4284, %4279, %4274, %4269, %4264, %4259, %4254, %4249, %4246
-  %.val2067 = phi ptr [ %.val2067.pre, %4304 ], [ %.val2067.pre11277, %4299 ], [ %.val2067.pre11278, %4294 ], [ %.val2067.pre11279, %4289 ], [ %.val2067.pre11280, %4284 ], [ %.val2067.pre11281, %4279 ], [ %.val2067.pre11282, %4274 ], [ %.val2067.pre11283, %4269 ], [ %.val2067.pre11284, %4264 ], [ %.val2067.pre11285, %4259 ], [ %.val2067.pre11286, %4254 ], [ %.val2067.pre11287, %4249 ], [ %.val, %4246 ]
+  %.val2067 = phi ptr [ %.val2067.pre, %4304 ], [ %.val2067.pre11278, %4299 ], [ %.val2067.pre11279, %4294 ], [ %.val2067.pre11280, %4289 ], [ %.val2067.pre11281, %4284 ], [ %.val2067.pre11282, %4279 ], [ %.val2067.pre11283, %4274 ], [ %.val2067.pre11284, %4269 ], [ %.val2067.pre11285, %4264 ], [ %.val2067.pre11286, %4259 ], [ %.val2067.pre11287, %4254 ], [ %.val2067.pre11288, %4249 ], [ %.val, %4246 ]
   %4248 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2067, i32 noundef %.sroa.47.0.copyload)
   %.off.i5079 = add i16 %4248, -123
   %switch.i5080 = icmp ult i16 %.off.i5079, 2
@@ -60265,7 +60265,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4251 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4250)
   %4252 = extractvalue { i16, i16 } %4251, 0
   %4253 = icmp eq i16 %4252, 1
-  %.val2067.pre11287 = load ptr, ptr %1, align 8
+  %.val2067.pre11288 = load ptr, ptr %1, align 8
   br i1 %4253, label %4309, label %4247
 
 4254:                                             ; preds = %4246
@@ -60273,7 +60273,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4256 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4255)
   %4257 = extractvalue { i16, i16 } %4256, 0
   %4258 = icmp eq i16 %4257, 1
-  %.val2067.pre11286 = load ptr, ptr %1, align 8
+  %.val2067.pre11287 = load ptr, ptr %1, align 8
   br i1 %4258, label %4316, label %4247
 
 4259:                                             ; preds = %4246
@@ -60281,7 +60281,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4261 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4260)
   %4262 = extractvalue { i16, i16 } %4261, 0
   %4263 = icmp eq i16 %4262, 1
-  %.val2067.pre11285 = load ptr, ptr %1, align 8
+  %.val2067.pre11286 = load ptr, ptr %1, align 8
   br i1 %4263, label %4323, label %4247
 
 4264:                                             ; preds = %4246
@@ -60289,7 +60289,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4266 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4265)
   %4267 = extractvalue { i16, i16 } %4266, 0
   %4268 = icmp eq i16 %4267, 1
-  %.val2067.pre11284 = load ptr, ptr %1, align 8
+  %.val2067.pre11285 = load ptr, ptr %1, align 8
   br i1 %4268, label %4330, label %4247
 
 4269:                                             ; preds = %4246
@@ -60297,7 +60297,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4271 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4270)
   %4272 = extractvalue { i16, i16 } %4271, 0
   %4273 = icmp eq i16 %4272, 1
-  %.val2067.pre11283 = load ptr, ptr %1, align 8
+  %.val2067.pre11284 = load ptr, ptr %1, align 8
   br i1 %4273, label %4337, label %4247
 
 4274:                                             ; preds = %4246
@@ -60305,7 +60305,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4276 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4275)
   %4277 = extractvalue { i16, i16 } %4276, 0
   %4278 = icmp eq i16 %4277, 1
-  %.val2067.pre11282 = load ptr, ptr %1, align 8
+  %.val2067.pre11283 = load ptr, ptr %1, align 8
   br i1 %4278, label %4344, label %4247
 
 4279:                                             ; preds = %4246
@@ -60313,7 +60313,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4281 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4280)
   %4282 = extractvalue { i16, i16 } %4281, 0
   %4283 = icmp eq i16 %4282, 1
-  %.val2067.pre11281 = load ptr, ptr %1, align 8
+  %.val2067.pre11282 = load ptr, ptr %1, align 8
   br i1 %4283, label %4351, label %4247
 
 4284:                                             ; preds = %4246
@@ -60321,7 +60321,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4286 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4285)
   %4287 = extractvalue { i16, i16 } %4286, 0
   %4288 = icmp eq i16 %4287, 1
-  %.val2067.pre11280 = load ptr, ptr %1, align 8
+  %.val2067.pre11281 = load ptr, ptr %1, align 8
   br i1 %4288, label %4358, label %4247
 
 4289:                                             ; preds = %4246
@@ -60329,7 +60329,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4291 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4290)
   %4292 = extractvalue { i16, i16 } %4291, 0
   %4293 = icmp eq i16 %4292, 1
-  %.val2067.pre11279 = load ptr, ptr %1, align 8
+  %.val2067.pre11280 = load ptr, ptr %1, align 8
   br i1 %4293, label %4365, label %4247
 
 4294:                                             ; preds = %4246
@@ -60337,7 +60337,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4296 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4295)
   %4297 = extractvalue { i16, i16 } %4296, 0
   %4298 = icmp eq i16 %4297, 1
-  %.val2067.pre11278 = load ptr, ptr %1, align 8
+  %.val2067.pre11279 = load ptr, ptr %1, align 8
   br i1 %4298, label %4372, label %4247
 
 4299:                                             ; preds = %4246
@@ -60345,7 +60345,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %4301 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4300)
   %4302 = extractvalue { i16, i16 } %4301, 0
   %4303 = icmp eq i16 %4302, 1
-  %.val2067.pre11277 = load ptr, ptr %1, align 8
+  %.val2067.pre11278 = load ptr, ptr %1, align 8
   br i1 %4303, label %4379, label %4247
 
 4304:                                             ; preds = %4246
@@ -60359,7 +60359,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4309:                                             ; preds = %4249
   %.sroa.277.8.extract.trunc7030 = trunc i64 %.sroa.277.0.copyload to i32
   %4310 = extractvalue { i16, i16 } %4251, 1
-  %4311 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11287, i32 noundef %.sroa.47.0.copyload)
+  %4311 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11288, i32 noundef %.sroa.47.0.copyload)
   %4312 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4311)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %578)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %578, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7030)
@@ -60380,7 +60380,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4316:                                             ; preds = %4254
   %.sroa.277.8.extract.trunc7028 = trunc i64 %.sroa.277.0.copyload to i32
   %4317 = extractvalue { i16, i16 } %4256, 1
-  %4318 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11286, i32 noundef %.sroa.47.0.copyload)
+  %4318 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11287, i32 noundef %.sroa.47.0.copyload)
   %4319 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4318)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %577)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %577, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7028)
@@ -60401,7 +60401,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4323:                                             ; preds = %4259
   %.sroa.277.8.extract.trunc7026 = trunc i64 %.sroa.277.0.copyload to i32
   %4324 = extractvalue { i16, i16 } %4261, 1
-  %4325 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11285, i32 noundef %.sroa.47.0.copyload)
+  %4325 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11286, i32 noundef %.sroa.47.0.copyload)
   %4326 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4325)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %584)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %584, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7026)
@@ -60422,7 +60422,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4330:                                             ; preds = %4264
   %.sroa.277.8.extract.trunc7024 = trunc i64 %.sroa.277.0.copyload to i32
   %4331 = extractvalue { i16, i16 } %4266, 1
-  %4332 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11284, i32 noundef %.sroa.47.0.copyload)
+  %4332 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11285, i32 noundef %.sroa.47.0.copyload)
   %4333 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4332)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %579)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %579, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7024)
@@ -60443,7 +60443,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4337:                                             ; preds = %4269
   %.sroa.277.8.extract.trunc7022 = trunc i64 %.sroa.277.0.copyload to i32
   %4338 = extractvalue { i16, i16 } %4271, 1
-  %4339 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11283, i32 noundef %.sroa.47.0.copyload)
+  %4339 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11284, i32 noundef %.sroa.47.0.copyload)
   %4340 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4339)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %581)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %581, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7022)
@@ -60464,7 +60464,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4344:                                             ; preds = %4274
   %.sroa.277.8.extract.trunc7020 = trunc i64 %.sroa.277.0.copyload to i32
   %4345 = extractvalue { i16, i16 } %4276, 1
-  %4346 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11282, i32 noundef %.sroa.47.0.copyload)
+  %4346 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11283, i32 noundef %.sroa.47.0.copyload)
   %4347 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4346)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %580)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %580, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7020)
@@ -60485,7 +60485,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4351:                                             ; preds = %4279
   %.sroa.277.8.extract.trunc7018 = trunc i64 %.sroa.277.0.copyload to i32
   %4352 = extractvalue { i16, i16 } %4281, 1
-  %4353 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11281, i32 noundef %.sroa.277.8.extract.trunc7018)
+  %4353 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11282, i32 noundef %.sroa.277.8.extract.trunc7018)
   %4354 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4353)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %583)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %583, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.47.0.copyload)
@@ -60506,7 +60506,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4358:                                             ; preds = %4284
   %.sroa.277.8.extract.trunc7016 = trunc i64 %.sroa.277.0.copyload to i32
   %4359 = extractvalue { i16, i16 } %4286, 1
-  %4360 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11280, i32 noundef %.sroa.277.8.extract.trunc7016)
+  %4360 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11281, i32 noundef %.sroa.277.8.extract.trunc7016)
   %4361 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4360)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %582)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %582, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.47.0.copyload)
@@ -60527,7 +60527,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4365:                                             ; preds = %4289
   %.sroa.277.8.extract.trunc7014 = trunc i64 %.sroa.277.0.copyload to i32
   %4366 = extractvalue { i16, i16 } %4291, 1
-  %4367 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11279, i32 noundef %.sroa.277.8.extract.trunc7014)
+  %4367 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11280, i32 noundef %.sroa.277.8.extract.trunc7014)
   %4368 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4367)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %574)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %574, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.47.0.copyload)
@@ -60548,7 +60548,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4372:                                             ; preds = %4294
   %.sroa.277.8.extract.trunc7012 = trunc i64 %.sroa.277.0.copyload to i32
   %4373 = extractvalue { i16, i16 } %4296, 1
-  %4374 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11278, i32 noundef %.sroa.277.8.extract.trunc7012)
+  %4374 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11279, i32 noundef %.sroa.277.8.extract.trunc7012)
   %4375 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4374)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %573)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %573, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.47.0.copyload)
@@ -60569,7 +60569,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 4379:                                             ; preds = %4299
   %.sroa.277.8.extract.trunc7010 = trunc i64 %.sroa.277.0.copyload to i32
   %4380 = extractvalue { i16, i16 } %4301, 1
-  %4381 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11277, i32 noundef %.sroa.47.0.copyload)
+  %4381 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2067.pre11278, i32 noundef %.sroa.47.0.copyload)
   %4382 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4381)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %576)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14put_in_xmm_mem17h1c4de6bda7481055E"(ptr noalias nocapture noundef nonnull sret({ { i8, [15 x i8] } }) align 4 dereferenceable(16) %576, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc7010)
@@ -60900,29 +60900,29 @@ default.unreachable:                              ; preds = %4462
   %4474 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr nonnull %.val, i32 noundef %2)
   %4475 = extractvalue { i32, i32 } %4474, 0
   %4476 = icmp eq i32 %4475, 1
-  %.val2089.pre11275 = load ptr, ptr %1, align 8
-  br i1 %4476, label %4529, label %._crit_edge11271
+  %.val2089.pre11276 = load ptr, ptr %1, align 8
+  br i1 %4476, label %4529, label %._crit_edge11272
 
 4477:                                             ; preds = %4462
   %4478 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr nonnull %.val, i32 noundef %2)
   %4479 = extractvalue { i32, i32 } %4478, 0
   %4480 = icmp eq i32 %4479, 1
-  %.val2092.pre11269 = load ptr, ptr %1, align 8
-  br i1 %4480, label %4599, label %._crit_edge11265
+  %.val2092.pre11270 = load ptr, ptr %1, align 8
+  br i1 %4480, label %4599, label %._crit_edge11266
 
 4481:                                             ; preds = %4462
   %4482 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr nonnull %.val, i32 noundef %2)
   %4483 = extractvalue { i32, i32 } %4482, 0
   %4484 = icmp eq i32 %4483, 1
-  %.val2095.pre11263 = load ptr, ptr %1, align 8
-  br i1 %4484, label %4684, label %._crit_edge11260
+  %.val2095.pre11264 = load ptr, ptr %1, align 8
+  br i1 %4484, label %4684, label %._crit_edge11261
 
 4485:                                             ; preds = %4462
   %4486 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$12first_result17h2b66ddc94e118578E"(ptr nonnull %.val, i32 noundef %2)
   %4487 = extractvalue { i32, i32 } %4486, 0
   %4488 = icmp eq i32 %4487, 1
-  %.val2098.pre11258 = load ptr, ptr %1, align 8
-  br i1 %4488, label %4735, label %._crit_edge11255
+  %.val2098.pre11259 = load ptr, ptr %1, align 8
+  br i1 %4488, label %4735, label %._crit_edge11256
 
 4489:                                             ; preds = %4462
   %.sroa.277.8.extract.trunc6982 = trunc i64 %.sroa.277.0.copyload to i32
@@ -60979,7 +60979,7 @@ default.unreachable:                              ; preds = %4462
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %560)
   br label %9206
 
-.thread11106:                                     ; preds = %.thread11113, %.thread11105, %4501, %4489, %._crit_edge11255, %._crit_edge11260, %._crit_edge11265, %._crit_edge11271, %4468, %4463
+.thread11106:                                     ; preds = %.thread11113, %.thread11105, %4501, %4489, %._crit_edge11256, %._crit_edge11261, %._crit_edge11266, %._crit_edge11272, %4468, %4463
   %.sroa.277.8.extract.trunc7004 = trunc i64 %.sroa.277.0.copyload to i32
   %.val2087 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %4519 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2087, i32 noundef %.sroa.47.0.copyload)
@@ -61014,13 +61014,13 @@ default.unreachable:                              ; preds = %4462
 
 4529:                                             ; preds = %4473
   %4530 = extractvalue { i32, i32 } %4474, 1
-  %4531 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2089.pre11275, i32 noundef %4530)
+  %4531 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2089.pre11276, i32 noundef %4530)
   %4532 = icmp eq i16 %4531, 118
-  %.val2089.pre11272 = load ptr, ptr %1, align 8
-  br i1 %4532, label %4537, label %._crit_edge11271
+  %.val2089.pre11273 = load ptr, ptr %1, align 8
+  br i1 %4532, label %4537, label %._crit_edge11272
 
-._crit_edge11271:                                 ; preds = %4537, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5136", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5132", %4529, %4539, %4543, %4473
-  %.val2089 = phi ptr [ %.val2089.pre11274, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5136" ], [ %.val2089.pre11273, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5132" ], [ %.val2089.pre11272, %4529 ], [ %.val2089.pre11273, %4539 ], [ %.val2089.pre11274, %4543 ], [ %.val2089.pre11275, %4473 ], [ %.val2089.pre, %4537 ]
+._crit_edge11272:                                 ; preds = %4537, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5136", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5132", %4529, %4539, %4543, %4473
+  %.val2089 = phi ptr [ %.val2089.pre11275, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5136" ], [ %.val2089.pre11274, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5132" ], [ %.val2089.pre11273, %4529 ], [ %.val2089.pre11274, %4539 ], [ %.val2089.pre11275, %4543 ], [ %.val2089.pre11276, %4473 ], [ %.val2089.pre, %4537 ]
   %4533 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2089, i32 noundef %.sroa.47.0.copyload)
   %4534 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4533)
   %4535 = extractvalue { i16, i16 } %4534, 0
@@ -61029,9 +61029,9 @@ default.unreachable:                              ; preds = %4462
 
 4537:                                             ; preds = %4529
   %.sroa.277.8.extract.trunc6996 = trunc i64 %.sroa.277.0.copyload to i32
-  %4538 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2089.pre11272, i32 noundef %.sroa.47.0.copyload)
+  %4538 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2089.pre11273, i32 noundef %.sroa.47.0.copyload)
   %.val2089.pre = load ptr, ptr %1, align 8
-  switch i16 %4538, label %._crit_edge11271 [
+  switch i16 %4538, label %._crit_edge11272 [
     i16 120, label %4539
     i16 121, label %4543
   ]
@@ -61040,19 +61040,19 @@ default.unreachable:                              ; preds = %4462
   %4540 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2089.pre, i32 noundef %.sroa.277.8.extract.trunc6996)
   %4541 = extractvalue { i32, i32 } %4540, 0
   %4542 = icmp eq i32 %4541, 1
-  %.val2089.pre11273 = load ptr, ptr %1, align 8
-  br i1 %4542, label %4547, label %._crit_edge11271
+  %.val2089.pre11274 = load ptr, ptr %1, align 8
+  br i1 %4542, label %4547, label %._crit_edge11272
 
 4543:                                             ; preds = %4537
   %4544 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2089.pre, i32 noundef %.sroa.277.8.extract.trunc6996)
   %4545 = extractvalue { i32, i32 } %4544, 0
   %4546 = icmp eq i32 %4545, 1
-  %.val2089.pre11274 = load ptr, ptr %1, align 8
-  br i1 %4546, label %4570, label %._crit_edge11271
+  %.val2089.pre11275 = load ptr, ptr %1, align 8
+  br i1 %4546, label %4570, label %._crit_edge11272
 
 4547:                                             ; preds = %4539
   %4548 = extractvalue { i32, i32 } %4540, 1
-  %4549 = getelementptr inbounds i8, ptr %.val2089.pre11273, i64 1816
+  %4549 = getelementptr inbounds i8, ptr %.val2089.pre11274, i64 1816
   %4550 = load ptr, ptr %4549, align 8, !noalias !8348, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8354)
@@ -61080,10 +61080,10 @@ default.unreachable:                              ; preds = %4462
   %or.cond1722 = select i1 %4559, i1 %4560, i1 false
   %4561 = icmp eq i64 %.sroa.69899.0.copyload, 0
   %or.cond11143 = select i1 %or.cond1722, i1 %4561, i1 false
-  br i1 %or.cond11143, label %4562, label %._crit_edge11271
+  br i1 %or.cond11143, label %4562, label %._crit_edge11272
 
 4562:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5132"
-  %4563 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2089.pre11273, i32 noundef %.sroa.47.0.copyload)
+  %4563 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2089.pre11274, i32 noundef %.sroa.47.0.copyload)
   %4564 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E"(i32 noundef %4563)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %544)
   %4565 = getelementptr inbounds i8, ptr %544, i64 1
@@ -61109,7 +61109,7 @@ default.unreachable:                              ; preds = %4462
 
 4570:                                             ; preds = %4543
   %4571 = extractvalue { i32, i32 } %4544, 1
-  %4572 = getelementptr inbounds i8, ptr %.val2089.pre11274, i64 1816
+  %4572 = getelementptr inbounds i8, ptr %.val2089.pre11275, i64 1816
   %4573 = load ptr, ptr %4572, align 8, !noalias !8362, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8365)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8368)
@@ -61137,10 +61137,10 @@ default.unreachable:                              ; preds = %4462
   %or.cond1725 = select i1 %4582, i1 %4583, i1 false
   %4584 = icmp eq i64 %.sroa.69906.0.copyload, 0
   %or.cond11144 = select i1 %or.cond1725, i1 %4584, i1 false
-  br i1 %or.cond11144, label %4585, label %._crit_edge11271
+  br i1 %or.cond11144, label %4585, label %._crit_edge11272
 
 4585:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5136"
-  %4586 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2089.pre11274, i32 noundef %.sroa.47.0.copyload)
+  %4586 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2089.pre11275, i32 noundef %.sroa.47.0.copyload)
   %4587 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E"(i32 noundef %4586)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %542)
   %4588 = getelementptr inbounds i8, ptr %542, i64 1
@@ -61164,7 +61164,7 @@ default.unreachable:                              ; preds = %4462
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %542)
   br label %9206
 
-4593:                                             ; preds = %._crit_edge11271
+4593:                                             ; preds = %._crit_edge11272
   %.sroa.277.8.extract.trunc6998 = trunc i64 %.sroa.277.0.copyload to i32
   %4594 = extractvalue { i16, i16 } %4534, 1
   %.val2446 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
@@ -61185,13 +61185,13 @@ default.unreachable:                              ; preds = %4462
 
 4599:                                             ; preds = %4477
   %4600 = extractvalue { i32, i32 } %4478, 1
-  %4601 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2092.pre11269, i32 noundef %4600)
+  %4601 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2092.pre11270, i32 noundef %4600)
   %4602 = icmp eq i16 %4601, 118
-  %.val2092.pre11266 = load ptr, ptr %1, align 8
-  br i1 %4602, label %4608, label %._crit_edge11265
+  %.val2092.pre11267 = load ptr, ptr %1, align 8
+  br i1 %4602, label %4608, label %._crit_edge11266
 
-._crit_edge11265:                                 ; preds = %4608, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5147", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5143", %4599, %4610, %4614, %4477
-  %.val2092 = phi ptr [ %.val2092.pre11268, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5147" ], [ %.val2092.pre11267, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5143" ], [ %.val2092.pre11266, %4599 ], [ %.val2092.pre11267, %4610 ], [ %.val2092.pre11268, %4614 ], [ %.val2092.pre11269, %4477 ], [ %.val2092.pre, %4608 ]
+._crit_edge11266:                                 ; preds = %4608, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5147", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5143", %4599, %4610, %4614, %4477
+  %.val2092 = phi ptr [ %.val2092.pre11269, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5147" ], [ %.val2092.pre11268, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5143" ], [ %.val2092.pre11267, %4599 ], [ %.val2092.pre11268, %4610 ], [ %.val2092.pre11269, %4614 ], [ %.val2092.pre11270, %4477 ], [ %.val2092.pre, %4608 ]
   %.sroa.277.8.extract.trunc6994 = trunc i64 %.sroa.277.0.copyload to i32
   %4603 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2092, i32 noundef %.sroa.47.0.copyload)
   %4604 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4603)
@@ -61202,9 +61202,9 @@ default.unreachable:                              ; preds = %4462
 
 4608:                                             ; preds = %4599
   %.sroa.277.8.extract.trunc6992 = trunc i64 %.sroa.277.0.copyload to i32
-  %4609 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2092.pre11266, i32 noundef %.sroa.47.0.copyload)
+  %4609 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2092.pre11267, i32 noundef %.sroa.47.0.copyload)
   %.val2092.pre = load ptr, ptr %1, align 8
-  switch i16 %4609, label %._crit_edge11265 [
+  switch i16 %4609, label %._crit_edge11266 [
     i16 120, label %4610
     i16 121, label %4614
   ]
@@ -61213,19 +61213,19 @@ default.unreachable:                              ; preds = %4462
   %4611 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2092.pre, i32 noundef %.sroa.277.8.extract.trunc6992)
   %4612 = extractvalue { i32, i32 } %4611, 0
   %4613 = icmp eq i32 %4612, 1
-  %.val2092.pre11267 = load ptr, ptr %1, align 8
-  br i1 %4613, label %4618, label %._crit_edge11265
+  %.val2092.pre11268 = load ptr, ptr %1, align 8
+  br i1 %4613, label %4618, label %._crit_edge11266
 
 4614:                                             ; preds = %4608
   %4615 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2092.pre, i32 noundef %.sroa.277.8.extract.trunc6992)
   %4616 = extractvalue { i32, i32 } %4615, 0
   %4617 = icmp eq i32 %4616, 1
-  %.val2092.pre11268 = load ptr, ptr %1, align 8
-  br i1 %4617, label %4642, label %._crit_edge11265
+  %.val2092.pre11269 = load ptr, ptr %1, align 8
+  br i1 %4617, label %4642, label %._crit_edge11266
 
 4618:                                             ; preds = %4610
   %4619 = extractvalue { i32, i32 } %4611, 1
-  %4620 = getelementptr inbounds i8, ptr %.val2092.pre11267, i64 1816
+  %4620 = getelementptr inbounds i8, ptr %.val2092.pre11268, i64 1816
   %4621 = load ptr, ptr %4620, align 8, !noalias !8376, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8379)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8382)
@@ -61253,10 +61253,10 @@ default.unreachable:                              ; preds = %4462
   %or.cond1728 = select i1 %4630, i1 %4631, i1 false
   %4632 = icmp eq i64 %.sroa.69879.0.copyload, 0
   %or.cond11145 = select i1 %or.cond1728, i1 %4632, i1 false
-  br i1 %or.cond11145, label %4633, label %._crit_edge11265
+  br i1 %or.cond11145, label %4633, label %._crit_edge11266
 
 4633:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5143"
-  %4634 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2092.pre11267, i32 noundef %.sroa.47.0.copyload)
+  %4634 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2092.pre11268, i32 noundef %.sroa.47.0.copyload)
   %4635 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E"(i32 noundef %4634)
   %.val4037 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %4636 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_not17h459f5849459bc95fE(ptr nonnull %.val4037, i16 noundef 121, i32 noundef %4634)
@@ -61284,7 +61284,7 @@ default.unreachable:                              ; preds = %4462
 
 4642:                                             ; preds = %4614
   %4643 = extractvalue { i32, i32 } %4615, 1
-  %4644 = getelementptr inbounds i8, ptr %.val2092.pre11268, i64 1816
+  %4644 = getelementptr inbounds i8, ptr %.val2092.pre11269, i64 1816
   %4645 = load ptr, ptr %4644, align 8, !noalias !8390, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8393)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8396)
@@ -61312,10 +61312,10 @@ default.unreachable:                              ; preds = %4462
   %or.cond1731 = select i1 %4654, i1 %4655, i1 false
   %4656 = icmp eq i64 %.sroa.69886.0.copyload, 0
   %or.cond11146 = select i1 %or.cond1731, i1 %4656, i1 false
-  br i1 %or.cond11146, label %4657, label %._crit_edge11265
+  br i1 %or.cond11146, label %4657, label %._crit_edge11266
 
 4657:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5147"
-  %4658 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2092.pre11268, i32 noundef %.sroa.47.0.copyload)
+  %4658 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2092.pre11269, i32 noundef %.sroa.47.0.copyload)
   %4659 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E"(i32 noundef %4658)
   %.val4036 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %4660 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code19constructor_x64_not17h459f5849459bc95fE(ptr nonnull %.val4036, i16 noundef 121, i32 noundef %4658)
@@ -61341,7 +61341,7 @@ default.unreachable:                              ; preds = %4462
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %550)
   br label %9206
 
-4666:                                             ; preds = %._crit_edge11265
+4666:                                             ; preds = %._crit_edge11266
   switch i16 %4606, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs17h8d425045177068cfE.exit [
     i16 167, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs17h8d425045177068cfE.exit.thread
     i16 137, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs17h8d425045177068cfE.exit.thread11094
@@ -61408,13 +61408,13 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 
 4684:                                             ; preds = %4481
   %4685 = extractvalue { i32, i32 } %4482, 1
-  %4686 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2095.pre11263, i32 noundef %4685)
+  %4686 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2095.pre11264, i32 noundef %4685)
   %4687 = icmp eq i16 %4686, 118
-  %.val2095.pre11261 = load ptr, ptr %1, align 8
-  br i1 %4687, label %4692, label %._crit_edge11260
+  %.val2095.pre11262 = load ptr, ptr %1, align 8
+  br i1 %4687, label %4692, label %._crit_edge11261
 
-._crit_edge11260:                                 ; preds = %4711, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5160", %4684, %4692, %4481
-  %.val2095 = phi ptr [ %.val2095.pre11262, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5160" ], [ %.val2095.pre11261, %4684 ], [ %.val2095.pre11262, %4692 ], [ %.val2095.pre11263, %4481 ], [ %.val2095.pre, %4711 ]
+._crit_edge11261:                                 ; preds = %4711, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5160", %4684, %4692, %4481
+  %.val2095 = phi ptr [ %.val2095.pre11263, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5160" ], [ %.val2095.pre11262, %4684 ], [ %.val2095.pre11263, %4692 ], [ %.val2095.pre11264, %4481 ], [ %.val2095.pre, %4711 ]
   %4688 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2095, i32 noundef %.sroa.47.0.copyload)
   %4689 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4688)
   %4690 = extractvalue { i16, i16 } %4689, 0
@@ -61423,15 +61423,15 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 
 4692:                                             ; preds = %4684
   %.sroa.277.8.extract.trunc6988 = trunc i64 %.sroa.277.0.copyload to i32
-  %4693 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2095.pre11261, i32 noundef %.sroa.47.0.copyload)
+  %4693 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2095.pre11262, i32 noundef %.sroa.47.0.copyload)
   %4694 = extractvalue { i32, i32 } %4693, 0
   %4695 = icmp eq i32 %4694, 1
-  %.val2095.pre11262 = load ptr, ptr %1, align 8
-  br i1 %4695, label %4696, label %._crit_edge11260
+  %.val2095.pre11263 = load ptr, ptr %1, align 8
+  br i1 %4695, label %4696, label %._crit_edge11261
 
 4696:                                             ; preds = %4692
   %4697 = extractvalue { i32, i32 } %4693, 1
-  %4698 = getelementptr inbounds i8, ptr %.val2095.pre11262, i64 1816
+  %4698 = getelementptr inbounds i8, ptr %.val2095.pre11263, i64 1816
   %4699 = load ptr, ptr %4698, align 8, !noalias !8419, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8425)
@@ -61459,12 +61459,12 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
   %or.cond1734 = select i1 %4708, i1 %4709, i1 false
   %4710 = icmp eq i64 %.sroa.69866.0.copyload, 0
   %or.cond11147 = select i1 %or.cond1734, i1 %4710, i1 false
-  br i1 %or.cond11147, label %4711, label %._crit_edge11260
+  br i1 %or.cond11147, label %4711, label %._crit_edge11261
 
 4711:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5160"
-  %4712 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2095.pre11262, i32 noundef %.sroa.277.8.extract.trunc6988)
+  %4712 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2095.pre11263, i32 noundef %.sroa.277.8.extract.trunc6988)
   %.val2095.pre = load ptr, ptr %1, align 8
-  switch i16 %4712, label %._crit_edge11260 [
+  switch i16 %4712, label %._crit_edge11261 [
     i16 120, label %4713
     i16 121, label %4721
   ]
@@ -61519,7 +61519,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %555)
   br label %9206
 
-4729:                                             ; preds = %._crit_edge11260
+4729:                                             ; preds = %._crit_edge11261
   %.sroa.277.8.extract.trunc6990 = trunc i64 %.sroa.277.0.copyload to i32
   %4730 = extractvalue { i16, i16 } %4689, 1
   %.val2454 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
@@ -61540,13 +61540,13 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 
 4735:                                             ; preds = %4485
   %4736 = extractvalue { i32, i32 } %4486, 1
-  %4737 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2098.pre11258, i32 noundef %4736)
+  %4737 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2098.pre11259, i32 noundef %4736)
   %4738 = icmp eq i16 %4737, 118
-  %.val2098.pre11256 = load ptr, ptr %1, align 8
-  br i1 %4738, label %4744, label %._crit_edge11255
+  %.val2098.pre11257 = load ptr, ptr %1, align 8
+  br i1 %4738, label %4744, label %._crit_edge11256
 
-._crit_edge11255:                                 ; preds = %4763, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5170", %4735, %4744, %4485
-  %.val2098 = phi ptr [ %.val2098.pre11257, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5170" ], [ %.val2098.pre11256, %4735 ], [ %.val2098.pre11257, %4744 ], [ %.val2098.pre11258, %4485 ], [ %.val2098.pre, %4763 ]
+._crit_edge11256:                                 ; preds = %4763, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5170", %4735, %4744, %4485
+  %.val2098 = phi ptr [ %.val2098.pre11258, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5170" ], [ %.val2098.pre11257, %4735 ], [ %.val2098.pre11258, %4744 ], [ %.val2098.pre11259, %4485 ], [ %.val2098.pre, %4763 ]
   %.sroa.277.8.extract.trunc6986 = trunc i64 %.sroa.277.0.copyload to i32
   %4739 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2098, i32 noundef %.sroa.47.0.copyload)
   %4740 = tail call fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9ty_vec12817h8405e46b3722678aE"(i16 noundef %4739)
@@ -61557,15 +61557,15 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
 
 4744:                                             ; preds = %4735
   %.sroa.277.8.extract.trunc6984 = trunc i64 %.sroa.277.0.copyload to i32
-  %4745 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2098.pre11256, i32 noundef %.sroa.47.0.copyload)
+  %4745 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2098.pre11257, i32 noundef %.sroa.47.0.copyload)
   %4746 = extractvalue { i32, i32 } %4745, 0
   %4747 = icmp eq i32 %4746, 1
-  %.val2098.pre11257 = load ptr, ptr %1, align 8
-  br i1 %4747, label %4748, label %._crit_edge11255
+  %.val2098.pre11258 = load ptr, ptr %1, align 8
+  br i1 %4747, label %4748, label %._crit_edge11256
 
 4748:                                             ; preds = %4744
   %4749 = extractvalue { i32, i32 } %4745, 1
-  %4750 = getelementptr inbounds i8, ptr %.val2098.pre11257, i64 1816
+  %4750 = getelementptr inbounds i8, ptr %.val2098.pre11258, i64 1816
   %4751 = load ptr, ptr %4750, align 8, !noalias !8433, !nonnull !4, !align !17, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8436)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8439)
@@ -61593,12 +61593,12 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
   %or.cond1737 = select i1 %4760, i1 %4761, i1 false
   %4762 = icmp eq i64 %.sroa.69916.0.copyload, 0
   %or.cond11148 = select i1 %or.cond1737, i1 %4762, i1 false
-  br i1 %or.cond11148, label %4763, label %._crit_edge11255
+  br i1 %or.cond11148, label %4763, label %._crit_edge11256
 
 4763:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit5170"
-  %4764 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2098.pre11257, i32 noundef %.sroa.277.8.extract.trunc6984)
+  %4764 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2098.pre11258, i32 noundef %.sroa.277.8.extract.trunc6984)
   %.val2098.pre = load ptr, ptr %1, align 8
-  switch i16 %4764, label %._crit_edge11255 [
+  switch i16 %4764, label %._crit_edge11256 [
     i16 120, label %4765
     i16 121, label %4774
   ]
@@ -61657,7 +61657,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxs
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %537)
   br label %9206
 
-4783:                                             ; preds = %._crit_edge11255
+4783:                                             ; preds = %._crit_edge11256
   switch i16 %4742, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmins17h2d06ba0d8953384fE.exit5178 [
     i16 167, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmins17h2d06ba0d8953384fE.exit5178.thread
     i16 137, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmins17h2d06ba0d8953384fE.exit5178.thread11097
@@ -62287,7 +62287,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pminu
   %4989 = load i8, ptr %501, align 16, !range !8, !alias.scope !8607, !noalias !8610, !noundef !4
   %4990 = getelementptr inbounds i8, ptr %501, i64 4
   %4991 = load i32, ptr %4990, align 4, !alias.scope !8607, !noalias !8610, !noundef !4
-  switch i8 %4989, label %default.unreachable11305 [
+  switch i8 %4989, label %default.unreachable11304 [
     i8 0, label %4992
     i8 1, label %4997
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5261"
@@ -62347,7 +62347,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pminu
   %5009 = load i8, ptr %499, align 16, !range !8, !alias.scope !8621, !noalias !8624, !noundef !4
   %5010 = getelementptr inbounds i8, ptr %499, i64 4
   %5011 = load i32, ptr %5010, align 4, !alias.scope !8621, !noalias !8624, !noundef !4
-  switch i8 %5009, label %default.unreachable11305 [
+  switch i8 %5009, label %default.unreachable11304 [
     i8 0, label %5012
     i8 1, label %5017
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5275"
@@ -62407,7 +62407,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pminu
   %5029 = load i8, ptr %497, align 16, !range !8, !alias.scope !8635, !noalias !8638, !noundef !4
   %5030 = getelementptr inbounds i8, ptr %497, i64 4
   %5031 = load i32, ptr %5030, align 4, !alias.scope !8635, !noalias !8638, !noundef !4
-  switch i8 %5029, label %default.unreachable11305 [
+  switch i8 %5029, label %default.unreachable11304 [
     i8 0, label %5032
     i8 1, label %5037
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5289"
@@ -62467,7 +62467,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pminu
   %5049 = load i8, ptr %495, align 16, !range !8, !alias.scope !8649, !noalias !8652, !noundef !4
   %5050 = getelementptr inbounds i8, ptr %495, i64 4
   %5051 = load i32, ptr %5050, align 4, !alias.scope !8649, !noalias !8652, !noundef !4
-  switch i8 %5049, label %default.unreachable11305 [
+  switch i8 %5049, label %default.unreachable11304 [
     i8 0, label %5052
     i8 1, label %5057
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5303"
@@ -62549,7 +62549,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pminu
   %5076 = load i8, ptr %492, align 4, !range !8, !alias.scope !8663, !noalias !8668, !noundef !4
   %5077 = getelementptr inbounds i8, ptr %492, i64 4
   %5078 = load i32, ptr %5077, align 4, !alias.scope !8663, !noalias !8668, !noundef !4
-  switch i8 %5076, label %default.unreachable11305 [
+  switch i8 %5076, label %default.unreachable11304 [
     i8 0, label %5079
     i8 1, label %5084
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit
@@ -62657,7 +62657,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5114 = load i8, ptr %488, align 4, !range !8, !alias.scope !8676, !noalias !8681, !noundef !4
   %5115 = getelementptr inbounds i8, ptr %488, i64 4
   %5116 = load i32, ptr %5115, align 4, !alias.scope !8676, !noalias !8681, !noundef !4
-  switch i8 %5114, label %default.unreachable11305 [
+  switch i8 %5114, label %default.unreachable11304 [
     i8 0, label %5117
     i8 1, label %5122
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit
@@ -62730,7 +62730,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5140 = load i8, ptr %486, align 4, !range !8, !alias.scope !8689, !noalias !8694, !noundef !4
   %5141 = getelementptr inbounds i8, ptr %486, i64 4
   %5142 = load i32, ptr %5141, align 4, !alias.scope !8689, !noalias !8694, !noundef !4
-  switch i8 %5140, label %default.unreachable11305 [
+  switch i8 %5140, label %default.unreachable11304 [
     i8 0, label %5143
     i8 1, label %5148
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5345
@@ -62803,7 +62803,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5166 = load i8, ptr %484, align 4, !range !8, !alias.scope !8702, !noalias !8707, !noundef !4
   %5167 = getelementptr inbounds i8, ptr %484, i64 4
   %5168 = load i32, ptr %5167, align 4, !alias.scope !8702, !noalias !8707, !noundef !4
-  switch i8 %5166, label %default.unreachable11305 [
+  switch i8 %5166, label %default.unreachable11304 [
     i8 0, label %5169
     i8 1, label %5174
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5360
@@ -62876,7 +62876,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5192 = load i8, ptr %482, align 4, !range !8, !alias.scope !8715, !noalias !8720, !noundef !4
   %5193 = getelementptr inbounds i8, ptr %482, i64 4
   %5194 = load i32, ptr %5193, align 4, !alias.scope !8715, !noalias !8720, !noundef !4
-  switch i8 %5192, label %default.unreachable11305 [
+  switch i8 %5192, label %default.unreachable11304 [
     i8 0, label %5195
     i8 1, label %5200
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5375
@@ -62949,7 +62949,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5218 = load i8, ptr %480, align 4, !range !8, !alias.scope !8728, !noalias !8733, !noundef !4
   %5219 = getelementptr inbounds i8, ptr %480, i64 4
   %5220 = load i32, ptr %5219, align 4, !alias.scope !8728, !noalias !8733, !noundef !4
-  switch i8 %5218, label %default.unreachable11305 [
+  switch i8 %5218, label %default.unreachable11304 [
     i8 0, label %5221
     i8 1, label %5226
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5390
@@ -63022,7 +63022,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5244 = load i8, ptr %478, align 4, !range !8, !alias.scope !8741, !noalias !8746, !noundef !4
   %5245 = getelementptr inbounds i8, ptr %478, i64 4
   %5246 = load i32, ptr %5245, align 4, !alias.scope !8741, !noalias !8746, !noundef !4
-  switch i8 %5244, label %default.unreachable11305 [
+  switch i8 %5244, label %default.unreachable11304 [
     i8 0, label %5247
     i8 1, label %5252
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5405
@@ -63095,7 +63095,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5270 = load i8, ptr %476, align 4, !range !8, !alias.scope !8754, !noalias !8759, !noundef !4
   %5271 = getelementptr inbounds i8, ptr %476, i64 4
   %5272 = load i32, ptr %5271, align 4, !alias.scope !8754, !noalias !8759, !noundef !4
-  switch i8 %5270, label %default.unreachable11305 [
+  switch i8 %5270, label %default.unreachable11304 [
     i8 0, label %5273
     i8 1, label %5278
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5420
@@ -63176,7 +63176,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5301 = load i8, ptr %472, align 4, !range !8, !alias.scope !8772, !noalias !8777, !noundef !4
   %5302 = getelementptr inbounds i8, ptr %472, i64 4
   %5303 = load i32, ptr %5302, align 4, !alias.scope !8772, !noalias !8777, !noundef !4
-  switch i8 %5301, label %default.unreachable11305 [
+  switch i8 %5301, label %default.unreachable11304 [
     i8 0, label %5304
     i8 1, label %5309
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5435
@@ -63243,7 +63243,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5324 = load i8, ptr %474, align 4, !range !8, !alias.scope !8785, !noalias !8790, !noundef !4
   %5325 = getelementptr inbounds i8, ptr %474, i64 4
   %5326 = load i32, ptr %5325, align 4, !alias.scope !8785, !noalias !8790, !noundef !4
-  switch i8 %5324, label %default.unreachable11305 [
+  switch i8 %5324, label %default.unreachable11304 [
     i8 0, label %5327
     i8 1, label %5332
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5450
@@ -63325,7 +63325,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5355 = load i8, ptr %468, align 4, !range !8, !alias.scope !8803, !noalias !8808, !noundef !4
   %5356 = getelementptr inbounds i8, ptr %468, i64 4
   %5357 = load i32, ptr %5356, align 4, !alias.scope !8803, !noalias !8808, !noundef !4
-  switch i8 %5355, label %default.unreachable11305 [
+  switch i8 %5355, label %default.unreachable11304 [
     i8 0, label %5358
     i8 1, label %5363
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5465
@@ -63392,7 +63392,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5378 = load i8, ptr %470, align 4, !range !8, !alias.scope !8816, !noalias !8821, !noundef !4
   %5379 = getelementptr inbounds i8, ptr %470, i64 4
   %5380 = load i32, ptr %5379, align 4, !alias.scope !8816, !noalias !8821, !noundef !4
-  switch i8 %5378, label %default.unreachable11305 [
+  switch i8 %5378, label %default.unreachable11304 [
     i8 0, label %5381
     i8 1, label %5386
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5480
@@ -63474,7 +63474,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5409 = load i8, ptr %464, align 4, !range !8, !alias.scope !8834, !noalias !8839, !noundef !4
   %5410 = getelementptr inbounds i8, ptr %464, i64 4
   %5411 = load i32, ptr %5410, align 4, !alias.scope !8834, !noalias !8839, !noundef !4
-  switch i8 %5409, label %default.unreachable11305 [
+  switch i8 %5409, label %default.unreachable11304 [
     i8 0, label %5412
     i8 1, label %5417
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5495
@@ -63541,7 +63541,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5432 = load i8, ptr %466, align 4, !range !8, !alias.scope !8847, !noalias !8852, !noundef !4
   %5433 = getelementptr inbounds i8, ptr %466, i64 4
   %5434 = load i32, ptr %5433, align 4, !alias.scope !8847, !noalias !8852, !noundef !4
-  switch i8 %5432, label %default.unreachable11305 [
+  switch i8 %5432, label %default.unreachable11304 [
     i8 0, label %5435
     i8 1, label %5440
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5510
@@ -63623,7 +63623,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5463 = load i8, ptr %460, align 4, !range !8, !alias.scope !8865, !noalias !8870, !noundef !4
   %5464 = getelementptr inbounds i8, ptr %460, i64 4
   %5465 = load i32, ptr %5464, align 4, !alias.scope !8865, !noalias !8870, !noundef !4
-  switch i8 %5463, label %default.unreachable11305 [
+  switch i8 %5463, label %default.unreachable11304 [
     i8 0, label %5466
     i8 1, label %5471
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5525
@@ -63690,7 +63690,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5486 = load i8, ptr %462, align 4, !range !8, !alias.scope !8878, !noalias !8883, !noundef !4
   %5487 = getelementptr inbounds i8, ptr %462, i64 4
   %5488 = load i32, ptr %5487, align 4, !alias.scope !8878, !noalias !8883, !noundef !4
-  switch i8 %5486, label %default.unreachable11305 [
+  switch i8 %5486, label %default.unreachable11304 [
     i8 0, label %5489
     i8 1, label %5494
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5540
@@ -63772,7 +63772,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5517 = load i8, ptr %456, align 4, !range !8, !alias.scope !8896, !noalias !8901, !noundef !4
   %5518 = getelementptr inbounds i8, ptr %456, i64 4
   %5519 = load i32, ptr %5518, align 4, !alias.scope !8896, !noalias !8901, !noundef !4
-  switch i8 %5517, label %default.unreachable11305 [
+  switch i8 %5517, label %default.unreachable11304 [
     i8 0, label %5520
     i8 1, label %5525
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5555
@@ -63839,7 +63839,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5540 = load i8, ptr %458, align 4, !range !8, !alias.scope !8909, !noalias !8914, !noundef !4
   %5541 = getelementptr inbounds i8, ptr %458, i64 4
   %5542 = load i32, ptr %5541, align 4, !alias.scope !8909, !noalias !8914, !noundef !4
-  switch i8 %5540, label %default.unreachable11305 [
+  switch i8 %5540, label %default.unreachable11304 [
     i8 0, label %5543
     i8 1, label %5548
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5570
@@ -63921,7 +63921,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5571 = load i8, ptr %452, align 4, !range !8, !alias.scope !8927, !noalias !8932, !noundef !4
   %5572 = getelementptr inbounds i8, ptr %452, i64 4
   %5573 = load i32, ptr %5572, align 4, !alias.scope !8927, !noalias !8932, !noundef !4
-  switch i8 %5571, label %default.unreachable11305 [
+  switch i8 %5571, label %default.unreachable11304 [
     i8 0, label %5574
     i8 1, label %5579
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5585
@@ -63988,7 +63988,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5594 = load i8, ptr %454, align 4, !range !8, !alias.scope !8940, !noalias !8945, !noundef !4
   %5595 = getelementptr inbounds i8, ptr %454, i64 4
   %5596 = load i32, ptr %5595, align 4, !alias.scope !8940, !noalias !8945, !noundef !4
-  switch i8 %5594, label %default.unreachable11305 [
+  switch i8 %5594, label %default.unreachable11304 [
     i8 0, label %5597
     i8 1, label %5602
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_xmm_mem17h419e78e4ccd99a4bE.exit5600
@@ -64288,7 +64288,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5706 = load i8, ptr %449, align 4, !range !8, !alias.scope !8953, !noalias !8958, !noundef !4
   %5707 = getelementptr inbounds i8, ptr %449, i64 4
   %5708 = load i32, ptr %5707, align 4, !alias.scope !8953, !noalias !8958, !noundef !4
-  switch i8 %5706, label %default.unreachable11305 [
+  switch i8 %5706, label %default.unreachable11304 [
     i8 0, label %5709
     i8 1, label %5714
     i8 2, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_gpr_mem17ha10714dfd4846b86E.exit5641
@@ -65205,7 +65205,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %5994 = load i8, ptr %334, align 16, !range !8, !alias.scope !9001, !noalias !9004, !noundef !4
   %5995 = getelementptr inbounds i8, ptr %334, i64 4
   %5996 = load i32, ptr %5995, align 4, !alias.scope !9001, !noalias !9004, !noundef !4
-  switch i8 %5994, label %default.unreachable11305 [
+  switch i8 %5994, label %default.unreachable11304 [
     i8 0, label %5997
     i8 1, label %6002
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5762"
@@ -65259,7 +65259,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6013 = load i8, ptr %331, align 16, !range !8, !alias.scope !9015, !noalias !9018, !noundef !4
   %6014 = getelementptr inbounds i8, ptr %331, i64 4
   %6015 = load i32, ptr %6014, align 4, !alias.scope !9015, !noalias !9018, !noundef !4
-  switch i8 %6013, label %default.unreachable11305 [
+  switch i8 %6013, label %default.unreachable11304 [
     i8 0, label %6016
     i8 1, label %6021
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5773"
@@ -65313,7 +65313,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6032 = load i8, ptr %328, align 16, !range !8, !alias.scope !9029, !noalias !9032, !noundef !4
   %6033 = getelementptr inbounds i8, ptr %328, i64 4
   %6034 = load i32, ptr %6033, align 4, !alias.scope !9029, !noalias !9032, !noundef !4
-  switch i8 %6032, label %default.unreachable11305 [
+  switch i8 %6032, label %default.unreachable11304 [
     i8 0, label %6035
     i8 1, label %6040
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5784"
@@ -66384,7 +66384,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6418 = load i8, ptr %380, align 16, !range !8, !alias.scope !9203, !noalias !9206, !noundef !4
   %6419 = getelementptr inbounds i8, ptr %380, i64 4
   %6420 = load i32, ptr %6419, align 4, !alias.scope !9203, !noalias !9206, !noundef !4
-  switch i8 %6418, label %default.unreachable11305 [
+  switch i8 %6418, label %default.unreachable11304 [
     i8 0, label %6421
     i8 1, label %6426
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5814"
@@ -66455,7 +66455,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6440 = load i8, ptr %377, align 16, !range !8, !alias.scope !9217, !noalias !9220, !noundef !4
   %6441 = getelementptr inbounds i8, ptr %377, i64 4
   %6442 = load i32, ptr %6441, align 4, !alias.scope !9217, !noalias !9220, !noundef !4
-  switch i8 %6440, label %default.unreachable11305 [
+  switch i8 %6440, label %default.unreachable11304 [
     i8 0, label %6443
     i8 1, label %6448
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5826"
@@ -66526,7 +66526,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6462 = load i8, ptr %374, align 16, !range !8, !alias.scope !9231, !noalias !9234, !noundef !4
   %6463 = getelementptr inbounds i8, ptr %374, i64 4
   %6464 = load i32, ptr %6463, align 4, !alias.scope !9231, !noalias !9234, !noundef !4
-  switch i8 %6462, label %default.unreachable11305 [
+  switch i8 %6462, label %default.unreachable11304 [
     i8 0, label %6465
     i8 1, label %6470
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5838"
@@ -66597,7 +66597,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6484 = load i8, ptr %371, align 16, !range !8, !alias.scope !9245, !noalias !9248, !noundef !4
   %6485 = getelementptr inbounds i8, ptr %371, i64 4
   %6486 = load i32, ptr %6485, align 4, !alias.scope !9245, !noalias !9248, !noundef !4
-  switch i8 %6484, label %default.unreachable11305 [
+  switch i8 %6484, label %default.unreachable11304 [
     i8 0, label %6487
     i8 1, label %6492
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5850"
@@ -66668,7 +66668,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6506 = load i8, ptr %368, align 16, !range !8, !alias.scope !9259, !noalias !9262, !noundef !4
   %6507 = getelementptr inbounds i8, ptr %368, i64 4
   %6508 = load i32, ptr %6507, align 4, !alias.scope !9259, !noalias !9262, !noundef !4
-  switch i8 %6506, label %default.unreachable11305 [
+  switch i8 %6506, label %default.unreachable11304 [
     i8 0, label %6509
     i8 1, label %6514
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5862"
@@ -66740,7 +66740,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6529 = load i8, ptr %365, align 16, !range !8, !alias.scope !9273, !noalias !9276, !noundef !4
   %6530 = getelementptr inbounds i8, ptr %365, i64 4
   %6531 = load i32, ptr %6530, align 4, !alias.scope !9273, !noalias !9276, !noundef !4
-  switch i8 %6529, label %default.unreachable11305 [
+  switch i8 %6529, label %default.unreachable11304 [
     i8 0, label %6532
     i8 1, label %6537
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5874"
@@ -66826,7 +66826,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6561 = load i8, ptr %362, align 16, !range !8, !alias.scope !9287, !noalias !9290, !noundef !4
   %6562 = getelementptr inbounds i8, ptr %362, i64 4
   %6563 = load i32, ptr %6562, align 4, !alias.scope !9287, !noalias !9290, !noundef !4
-  switch i8 %6561, label %default.unreachable11305 [
+  switch i8 %6561, label %default.unreachable11304 [
     i8 0, label %6564
     i8 1, label %6569
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5889"
@@ -66906,7 +66906,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6589 = load i8, ptr %359, align 16, !range !8, !alias.scope !9301, !noalias !9304, !noundef !4
   %6590 = getelementptr inbounds i8, ptr %359, i64 4
   %6591 = load i32, ptr %6590, align 4, !alias.scope !9301, !noalias !9304, !noundef !4
-  switch i8 %6589, label %default.unreachable11305 [
+  switch i8 %6589, label %default.unreachable11304 [
     i8 0, label %6592
     i8 1, label %6597
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5901"
@@ -66949,7 +66949,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6605 = load i8, ptr %358, align 16, !range !8, !alias.scope !9315, !noalias !9318, !noundef !4
   %6606 = getelementptr inbounds i8, ptr %358, i64 4
   %6607 = load i32, ptr %6606, align 4, !alias.scope !9315, !noalias !9318, !noundef !4
-  switch i8 %6605, label %default.unreachable11305 [
+  switch i8 %6605, label %default.unreachable11304 [
     i8 0, label %6608
     i8 1, label %6613
     i8 2, label %6703
@@ -66981,7 +66981,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6621 = load i8, ptr %352, align 16, !range !8, !alias.scope !9325, !noalias !9328, !noundef !4
   %6622 = getelementptr inbounds i8, ptr %352, i64 4
   %6623 = load i32, ptr %6622, align 4, !alias.scope !9325, !noalias !9328, !noundef !4
-  switch i8 %6621, label %default.unreachable11305 [
+  switch i8 %6621, label %default.unreachable11304 [
     i8 0, label %6624
     i8 1, label %6629
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5923"
@@ -67037,7 +67037,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6641 = load i8, ptr %349, align 16, !range !8, !alias.scope !9339, !noalias !9342, !noundef !4
   %6642 = getelementptr inbounds i8, ptr %349, i64 4
   %6643 = load i32, ptr %6642, align 4, !alias.scope !9339, !noalias !9342, !noundef !4
-  switch i8 %6641, label %default.unreachable11305 [
+  switch i8 %6641, label %default.unreachable11304 [
     i8 0, label %6644
     i8 1, label %6649
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5934"
@@ -67093,7 +67093,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6661 = load i8, ptr %346, align 16, !range !8, !alias.scope !9353, !noalias !9356, !noundef !4
   %6662 = getelementptr inbounds i8, ptr %346, i64 4
   %6663 = load i32, ptr %6662, align 4, !alias.scope !9353, !noalias !9356, !noundef !4
-  switch i8 %6661, label %default.unreachable11305 [
+  switch i8 %6661, label %default.unreachable11304 [
     i8 0, label %6664
     i8 1, label %6669
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5945"
@@ -67149,7 +67149,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6681 = load i8, ptr %343, align 16, !range !8, !alias.scope !9367, !noalias !9370, !noundef !4
   %6682 = getelementptr inbounds i8, ptr %343, i64 4
   %6683 = load i32, ptr %6682, align 4, !alias.scope !9367, !noalias !9370, !noundef !4
-  switch i8 %6681, label %default.unreachable11305 [
+  switch i8 %6681, label %default.unreachable11304 [
     i8 0, label %6684
     i8 1, label %6689
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5956"
@@ -67344,7 +67344,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6728 = load i8, ptr %340, align 16, !range !8, !alias.scope !9385, !noalias !9388, !noundef !4
   %6729 = getelementptr inbounds i8, ptr %340, i64 4
   %6730 = load i32, ptr %6729, align 4, !alias.scope !9385, !noalias !9388, !noundef !4
-  switch i8 %6728, label %default.unreachable11305 [
+  switch i8 %6728, label %default.unreachable11304 [
     i8 0, label %6731
     i8 1, label %6736
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5972"
@@ -67421,7 +67421,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6753 = load i8, ptr %337, align 16, !range !8, !alias.scope !9399, !noalias !9402, !noundef !4
   %6754 = getelementptr inbounds i8, ptr %337, i64 4
   %6755 = load i32, ptr %6754, align 4, !alias.scope !9399, !noalias !9402, !noundef !4
-  switch i8 %6753, label %default.unreachable11305 [
+  switch i8 %6753, label %default.unreachable11304 [
     i8 0, label %6756
     i8 1, label %6761
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit5984"
@@ -67551,7 +67551,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %6790 = load i8, ptr %325, align 16, !range !8, !alias.scope !9413, !noalias !9416, !noundef !4
   %6791 = getelementptr inbounds i8, ptr %325, i64 4
   %6792 = load i32, ptr %6791, align 4, !alias.scope !9413, !noalias !9416, !noundef !4
-  switch i8 %6790, label %default.unreachable11305 [
+  switch i8 %6790, label %default.unreachable11304 [
     i8 0, label %6793
     i8 1, label %6798
     i8 2, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$24amode_to_synthetic_amode17hdff79f854ba873eaE.exit6002"
@@ -68995,14 +68995,14 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %7298 = load i8, ptr %7297, align 1, !alias.scope !9631, !noundef !4
   %7299 = and i8 %7298, 16
   %.not11190 = icmp eq i8 %7299, 0
-  br i1 %.not11190, label %._crit_edge11302, label %7302
+  br i1 %.not11190, label %._crit_edge11300, label %7302
 
-._crit_edge11302:                                 ; preds = %7295
-  %.pre11303 = trunc i64 %.sroa.277.0.copyload to i32
+._crit_edge11300:                                 ; preds = %7295
+  %.pre11302 = trunc i64 %.sroa.277.0.copyload to i32
   br label %7300
 
-7300:                                             ; preds = %._crit_edge11302, %._crit_edge11301, %7368
-  %.sroa.277.8.extract.trunc6880.pre-phi = phi i32 [ %.pre11303, %._crit_edge11302 ], [ %.sroa.277.8.extract.trunc, %._crit_edge11301 ], [ %.sroa.277.8.extract.trunc, %7368 ]
+7300:                                             ; preds = %._crit_edge11300, %._crit_edge11299, %7368
+  %.sroa.277.8.extract.trunc6880.pre-phi = phi i32 [ %.pre11302, %._crit_edge11300 ], [ %.sroa.277.8.extract.trunc, %._crit_edge11299 ], [ %.sroa.277.8.extract.trunc, %7368 ]
   %.val2144 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %7301 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2144, i32 noundef %.sroa.47.0.copyload)
   switch i16 %7301, label %1009 [
@@ -69017,7 +69017,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
 7302:                                             ; preds = %7295
   %7303 = icmp eq i8 %.sroa.5.0.copyload, 1
   %.sroa.277.8.extract.trunc = trunc i64 %.sroa.277.0.copyload to i32
-  br i1 %7303, label %7304, label %._crit_edge11301
+  br i1 %7303, label %7304, label %._crit_edge11299
 
 7304:                                             ; preds = %7302
   %7305 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val, i32 noundef %.sroa.47.0.copyload)
@@ -69025,9 +69025,9 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %7307 = extractvalue { i32, i32 } %7305, 1
   %7308 = icmp eq i32 %7306, 1
   %.val2145.pre11244 = load ptr, ptr %1, align 8
-  br i1 %7308, label %7310, label %._crit_edge11301
+  br i1 %7308, label %7310, label %._crit_edge11299
 
-._crit_edge11301:                                 ; preds = %7302, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6099", %7314, %7310, %7304
+._crit_edge11299:                                 ; preds = %7302, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6099", %7314, %7310, %7304
   %.val2145 = phi ptr [ %.val2145.pre, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6099" ], [ %.val2145.pre, %7314 ], [ %.val2145.pre11243, %7310 ], [ %.val2145.pre11244, %7304 ], [ %.val, %7302 ]
   %7309 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2145, i32 noundef %.sroa.47.0.copyload)
   switch i16 %7309, label %7300 [
@@ -69042,14 +69042,14 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %7312 = extractvalue { i32, i32 } %7311, 0
   %7313 = icmp eq i32 %7312, 1
   %.val2145.pre11243 = load ptr, ptr %1, align 8
-  br i1 %7313, label %7314, label %._crit_edge11301
+  br i1 %7313, label %7314, label %._crit_edge11299
 
 7314:                                             ; preds = %7310
   %7315 = extractvalue { i32, i32 } %7311, 1
   %7316 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val2145.pre11243, i32 noundef %7315)
   %7317 = icmp eq i16 %7316, 137
   %.val2145.pre = load ptr, ptr %1, align 8
-  br i1 %7317, label %7318, label %._crit_edge11301
+  br i1 %7317, label %7318, label %._crit_edge11299
 
 7318:                                             ; preds = %7314
   %7319 = getelementptr inbounds i8, ptr %.val2145.pre, i64 1816
@@ -69076,7 +69076,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %7329 = icmp eq i8 %.sroa.010496.0.copyload, 30
   %7330 = icmp eq i8 %.sroa.510497.0.copyload, 16
   %or.cond1801 = select i1 %7329, i1 %7330, i1 false
-  br i1 %or.cond1801, label %7331, label %._crit_edge11301
+  br i1 %or.cond1801, label %7331, label %._crit_edge11299
 
 7331:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit6099"
   %.sroa.610499.0..sroa_idx = getelementptr inbounds i8, ptr %7328, i64 4
@@ -69101,7 +69101,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269)
   br label %9206
 
-7337:                                             ; preds = %._crit_edge11301
+7337:                                             ; preds = %._crit_edge11299
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19sinkable_load_exact17h2c341cb31487d419E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %268, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc)
   %7338 = load i64, ptr %268, align 8, !range !1042, !noundef !4
@@ -69111,7 +69111,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %7340 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %7339)
   br i1 %.not1571, label %7356, label %7353
 
-7341:                                             ; preds = %._crit_edge11301
+7341:                                             ; preds = %._crit_edge11299
   %.val2564 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %7342 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2564, i32 noundef %.sroa.47.0.copyload)
   %7343 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %7342)
@@ -69130,7 +69130,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265)
   br label %9206
 
-7346:                                             ; preds = %._crit_edge11301
+7346:                                             ; preds = %._crit_edge11299
   %.val2565 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %7347 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2565, i32 noundef %.sroa.47.0.copyload)
   %7348 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %7347)
@@ -69149,7 +69149,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264)
   br label %9206
 
-7351:                                             ; preds = %._crit_edge11301
+7351:                                             ; preds = %._crit_edge11299
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263)
   call void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13sinkable_load17h8e77485b39ce1067E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %263, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.sroa.277.8.extract.trunc)
   %7352 = load i64, ptr %263, align 8, !range !1042, !noundef !4
@@ -72200,8 +72200,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   br i1 %8357, label %8360, label %8342
 
 8358:                                             ; preds = %8360, %8349
-  %.sink11309 = phi i32 [ %8362, %8360 ], [ %8353, %8349 ]
-  %.sroa.01.0.insert.ext.i.i6414 = zext i32 %.sink11309 to i64
+  %.sink11308 = phi i32 [ %8362, %8360 ], [ %8353, %8349 ]
+  %.sroa.01.0.insert.ext.i.i6414 = zext i32 %.sink11308 to i64
   %.sroa.01.0.insert.insert.i.i6415 = or disjoint i64 %.sroa.01.0.insert.ext.i.i6414, 36028779839094784
   %8359 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.01.0.insert.insert.i.i6415, ptr %8359, align 8
@@ -72460,8 +72460,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   br i1 %8441, label %8444, label %1009
 
 8442:                                             ; preds = %8444, %8433
-  %.sink11311 = phi i32 [ %8446, %8444 ], [ %8437, %8433 ]
-  %.sroa.01.0.insert.ext.i.i6458 = zext i32 %.sink11311 to i64
+  %.sink11310 = phi i32 [ %8446, %8444 ], [ %8437, %8433 ]
+  %.sroa.01.0.insert.ext.i.i6458 = zext i32 %.sink11310 to i64
   %.sroa.01.0.insert.insert.i.i6459 = or disjoint i64 %.sroa.01.0.insert.ext.i.i6458, 36028779839094784
   %8443 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.01.0.insert.insert.i.i6459, ptr %8443, align 8
@@ -72966,9 +72966,9 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   br i1 %8599, label %8602, label %1009
 
 8600:                                             ; preds = %8602, %8593
-  %.sink11312 = phi i64 [ %8603, %8602 ], [ %.sroa.01.0.insert.insert.i.i6522, %8593 ]
+  %.sink11311 = phi i64 [ %8603, %8602 ], [ %.sroa.01.0.insert.insert.i.i6522, %8593 ]
   %8601 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink11312, ptr %8601, align 8
+  store i64 %.sink11311, ptr %8601, align 8
   %.sroa.210854.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 1, ptr %.sroa.210854.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
@@ -74740,7 +74740,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
           to label %9164 unwind label %9176
 
 9164:                                             ; preds = %9161
-  switch i8 %9163, label %default.unreachable11305 [
+  switch i8 %9163, label %default.unreachable11304 [
     i8 1, label %9168
     i8 2, label %9170
     i8 3, label %9172
@@ -74802,8 +74802,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   br label %9174
 
 9174:                                             ; preds = %9172, %9170, %9168
-  %.sink11315 = phi i32 [ %9173, %9172 ], [ %9171, %9170 ], [ %9169, %9168 ]
-  %.sroa.01.0.insert.ext.i.i6785 = zext i32 %.sink11315 to i64
+  %.sink11314 = phi i32 [ %9173, %9172 ], [ %9171, %9170 ], [ %9169, %9168 ]
+  %.sroa.01.0.insert.ext.i.i6785 = zext i32 %.sink11314 to i64
   %.sroa.01.0.insert.insert.i.i6786 = or disjoint i64 %.sroa.01.0.insert.ext.i.i6785, 36028779839094784
   %9175 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.01.0.insert.insert.i.i6786, ptr %9175, align 8

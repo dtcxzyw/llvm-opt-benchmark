@@ -44768,9 +44768,9 @@ _ZN6hir_ty3mir4eval8Interval3get17h15b9d46ef7789a66E.exit: ; preds = %"_ZN64_$LT
 
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit: ; preds = %2026
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i, ptr nonnull readonly align 1 %2028, i64 %2030, i1 false), !alias.scope !8246, !noalias !8250
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i8154820390479087920092399279 = load i128, ptr %.sroa.0.i, align 16, !noalias !8239
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i8154820590479087920092399279 = load i128, ptr %.sroa.0.i, align 16, !noalias !8239
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
-  %2033 = tail call range(i128 0, 129) i128 @llvm.cttz.i128(i128 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i8154820390479087920092399279, i1 false)
+  %2033 = tail call range(i128 0, 129) i128 @llvm.cttz.i128(i128 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i8154820590479087920092399279, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142)
   store i128 %2033, ptr %142, align 16
   %2034 = getelementptr inbounds i8, ptr %7, i64 16
@@ -44849,9 +44849,9 @@ _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit: ; preds = %2026
 
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6145: ; preds = %2053
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6143, ptr nonnull readonly align 1 %2055, i64 %2057, i1 false), !alias.scope !8267, !noalias !8271
-  %.sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.0..sroa.0.0..i61448155820490489088920192409280 = load i128, ptr %.sroa.0.i6143, align 16, !noalias !8260
+  %.sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.0..sroa.0.0..i61448155820690489088920192409280 = load i128, ptr %.sroa.0.i6143, align 16, !noalias !8260
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6143)
-  %2060 = tail call range(i128 0, 129) i128 @llvm.ctlz.i128(i128 %.sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.0..sroa.0.0..i61448155820490489088920192409280, i1 false)
+  %2060 = tail call range(i128 0, 129) i128 @llvm.ctlz.i128(i128 %.sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.i6143.0..sroa.0.0..sroa.0.0..i61448155820690489088920192409280, i1 false)
   %2061 = trunc nuw nsw i128 %2060 to i64
   %2062 = shl i64 %2046, 3
   %.neg = add i64 %2062, -128
@@ -44935,9 +44935,9 @@ _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6145: ; preds = %2053
 
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6148: ; preds = %2084
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6146, ptr nonnull readonly align 1 %2086, i64 %2088, i1 false), !alias.scope !8288, !noalias !8292
-  %.sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.0..sroa.0.0..i61478135820290469086919992389278 = load i128, ptr %.sroa.0.i6146, align 16, !noalias !8281
+  %.sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.0..sroa.0.0..i61478135820490469086919992389278 = load i128, ptr %.sroa.0.i6146, align 16, !noalias !8281
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6146)
-  %2091 = tail call range(i128 0, 129) i128 @llvm.ctpop.i128(i128 %.sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.0..sroa.0.0..i61478135820290469086919992389278)
+  %2091 = tail call range(i128 0, 129) i128 @llvm.ctpop.i128(i128 %.sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.i6146.0..sroa.0.0..sroa.0.0..i61478135820490469086919992389278)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146)
   store i128 %2091, ptr %146, align 16
   %2092 = getelementptr inbounds i8, ptr %7, i64 16
@@ -45200,7 +45200,7 @@ _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6148: ; preds = %2084
 
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6166: ; preds = %2185
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6164, ptr nonnull readonly align 1 %2187, i64 %2189, i1 false), !alias.scope !8353, !noalias !8357
-  %.sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.0..sroa.0.0..i61658158820590389078919192309270 = load i128, ptr %.sroa.0.i6164, align 16, !noalias !8346
+  %.sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.0..sroa.0.0..i61658158820790389078919192309270 = load i128, ptr %.sroa.0.i6164, align 16, !noalias !8346
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6164)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %150)
   %2192 = getelementptr inbounds i8, ptr %4, i64 32
@@ -45253,7 +45253,7 @@ _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6166: ; preds = %2185
 
 _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6169: ; preds = %2201
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6167, ptr nonnull readonly align 1 %2203, i64 %2205, i1 false), !alias.scope !8371, !noalias !8375
-  %.sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.0..sroa.0.0..i61688159820690399079919292319271 = load i128, ptr %.sroa.0.i6167, align 16, !noalias !8364
+  %.sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.0..sroa.0.0..i61688159820890399079919292319271 = load i128, ptr %.sroa.0.i6167, align 16, !noalias !8364
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6167)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %149)
   %.05030.val = load ptr, ptr %.05030, align 8
@@ -45290,8 +45290,8 @@ _ZN6hir_ty3mir4eval5pad1617h2c5525f80471d99aE.exit6169: ; preds = %2201
   %2214 = load i64, ptr %2213, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %149)
   %2215 = zext i64 %2214 to i128
-  %2216 = mul i128 %.sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.0..sroa.0.0..i61688159820690399079919292319271, %2215
-  %2217 = add i128 %2216, %.sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.0..sroa.0.0..i61658158820590389078919192309270
+  %2216 = mul i128 %.sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.i6167.0..sroa.0.0..sroa.0.0..i61688159820890399079919292319271, %2215
+  %2217 = add i128 %2216, %.sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.i6164.0..sroa.0.0..sroa.0.0..i61658158820790389078919192309270
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148)
   store i128 %2217, ptr %148, align 16
   %2218 = getelementptr inbounds i8, ptr %7, i64 16
@@ -45747,7 +45747,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit: ; preds = %2344
 
 2362:                                             ; preds = %2355
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6178, ptr nonnull readonly align 1 %2357, i64 %2359, i1 false), !alias.scope !8432, !noalias !8436
-  %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820790409080919392329272 = load i128, ptr %.sroa.0.i6178, align 16, !noalias !8428
+  %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820290409080919392329272 = load i128, ptr %.sroa.0.i6178, align 16, !noalias !8428
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6178)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %168)
   %2363 = getelementptr inbounds i8, ptr %4, i64 32
@@ -45806,14 +45806,14 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit6183: ; preds = %
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6191": ; preds = %2371
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i6184, ptr nonnull readonly align 1 %2373, i64 %2375, i1 false), !alias.scope !8447, !noalias !8451
-  %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820890419081919492339273 = load i128, ptr %.sroa.0.i6184, align 16, !noalias !8443
+  %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820390419081919492339273 = load i128, ptr %.sroa.0.i6184, align 16, !noalias !8443
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i6184)
   %bcmp.i6190 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) %2, ptr noundef nonnull readonly dereferenceable(17) @anon.8ee6e441894c40610342b4e80829890a.582, i64 17), !alias.scope !8453
   %2379 = icmp eq i32 %bcmp.i6190, 0
   br i1 %2379, label %2380, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6195"
 
 2380:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6191"
-  %2381 = tail call { i128, i1 } @llvm.uadd.with.overflow.i128(i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820790409080919392329272, i128 %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820890419081919492339273)
+  %2381 = tail call { i128, i1 } @llvm.uadd.with.overflow.i128(i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820290409080919392329272, i128 %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820390419081919492339273)
   %2382 = extractvalue { i128, i1 } %2381, 0
   %2383 = extractvalue { i128, i1 } %2381, 1
   br i1 %2383, label %2400, label %2394
@@ -45824,8 +45824,8 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit6183: ; preds = %
   br i1 %2384, label %2385, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6199"
 
 2385:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6195"
-  %2386 = sub i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820790409080919392329272, %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820890419081919492339273
-  %2387 = icmp ult i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820790409080919392329272, %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820890419081919492339273
+  %2386 = sub i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820290409080919392329272, %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820390419081919492339273
+  %2387 = icmp ult i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820290409080919392329272, %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820390419081919492339273
   br i1 %2387, label %2400, label %2394
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6199": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6195"
@@ -45841,7 +45841,7 @@ _ZN6hir_ty3mir4eval13IntervalAndTy3get17h1fcadec441930fcdE.exit6183: ; preds = %
   unreachable
 
 2390:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6199"
-  %2391 = tail call { i128, i1 } @llvm.umul.with.overflow.i128(i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820790409080919392329272, i128 %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820890419081919492339273)
+  %2391 = tail call { i128, i1 } @llvm.umul.with.overflow.i128(i128 %.sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.i6178.0..sroa.0.0..sroa.0.0..i61798160820290409080919392329272, i128 %.sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.i6184.0..sroa.0.0..sroa.0.0..i61858161820390419081919492339273)
   %2392 = extractvalue { i128, i1 } %2391, 0
   %2393 = extractvalue { i128, i1 } %2391, 1
   br i1 %2393, label %2400, label %2394
